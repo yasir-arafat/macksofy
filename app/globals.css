@@ -288,3 +288,36 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ───────────────────────────────────────────────────────────
+   Print-mode — when sample-report and brochure routes mount,
+   the PrintLayout component adds .print-mode to the html tag.
+   We hide the global site chrome so the printable page reads
+   cleanly on screen and in PDF output.
+   ─────────────────────────────────────────────────────────── */
+html.print-mode body {
+  background: white !important;
+  color: #0f172a;
+}
+html.print-mode body > header,
+html.print-mode body > footer,
+html.print-mode body > main > header,
+html.print-mode body > main > footer {
+  display: none !important;
+}
+/* Layout uses a top <main> wrapper with paddingTop var(--header-h) — reset it on print */
+html.print-mode body > main {
+  padding-top: 0 !important;
+}
+/* Hide floating widgets */
+html.print-mode body > [class*="StickyWhatsApp"],
+html.print-mode body > [class*="Chatbot"],
+html.print-mode body > [class*="LeadMagnetPopup"],
+html.print-mode body > [class*="BackToTop"] {
+  display: none !important;
+}
+/* As a fallback, hide direct body children that aren't <main>.
+   Targets the floating widgets (Header is a fixed sibling in our tree). */
+html.print-mode body > *:not(main):not(script):not(style) {
+  display: none !important;
+}

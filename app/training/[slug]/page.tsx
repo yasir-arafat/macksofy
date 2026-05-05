@@ -199,6 +199,14 @@ export default async function CourseDetail({ params }: PageProps) {
                   >
                     Chat on WhatsApp
                   </a>
+                  <Link
+                    href={`/training/${c.slug}/brochure`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-full border border-line bg-bg-2 px-5 py-2.5 text-sm font-semibold text-fg-muted hover:text-neon-cyan hover:border-neon-cyan/40 transition-colors"
+                  >
+                    Download brochure (PDF)
+                  </Link>
                 </div>
 
                 <div className="mt-5 grid grid-cols-2 gap-2 text-xs">

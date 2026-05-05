@@ -27,6 +27,10 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { SERVICES, getServiceBySlug } from "@/content/services";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
+import { PricingTiers } from "@/components/PricingTiers";
+import { TrustStrip } from "@/components/TrustStrip";
+import { getServicePricing } from "@/content/pricing";
+import { DownloadButton } from "@/components/DownloadButton";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -105,6 +109,13 @@ export default async function ServiceDetail({ params }: PageProps) {
                 <LinkButton href="#methodology" variant="outline" size="lg">
                   See methodology
                 </LinkButton>
+              </div>
+              <div className="mt-6">
+                <DownloadButton
+                  href="/sample-reports/pentest"
+                  label="Download sample pentest report"
+                  sub="CERT-In format · anonymised"
+                />
               </div>
             </div>
             <div className="lg:col-span-4">
@@ -274,6 +285,15 @@ export default async function ServiceDetail({ params }: PageProps) {
           </Container>
         </section>
       )}
+
+      {/* PRICING */}
+      <PricingTiers
+        pkg={getServicePricing(service.slug, service.category)}
+        contactInterest={service.title}
+      />
+
+      {/* TRUST STRIP */}
+      <TrustStrip />
 
       {/* FAQ */}
       <section className="py-20">

@@ -16,6 +16,10 @@ import { breadcrumbSchema, faqSchema, auditSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { AUDITS, getAuditBySlug } from "@/content/audits";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
+import { PricingTiers } from "@/components/PricingTiers";
+import { TrustStrip } from "@/components/TrustStrip";
+import { DownloadButton } from "@/components/DownloadButton";
+import { getAuditPricing } from "@/content/pricing";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -102,6 +106,13 @@ export default async function AuditDetail({ params }: PageProps) {
                 <LinkButton href="/contact" variant="outline" size="lg">
                   Talk to a consultant
                 </LinkButton>
+              </div>
+              <div className="mt-6">
+                <DownloadButton
+                  href="/sample-reports/cert-in-audit"
+                  label="Download sample audit report"
+                  sub="CERT-In format · anonymised"
+                />
               </div>
             </div>
             <div className="lg:col-span-5">
@@ -228,6 +239,15 @@ export default async function AuditDetail({ params }: PageProps) {
           </Container>
         </section>
       )}
+
+      {/* PRICING */}
+      <PricingTiers
+        pkg={getAuditPricing(a.slug, a.category)}
+        contactInterest={a.title}
+      />
+
+      {/* TRUST STRIP */}
+      <TrustStrip />
 
       {/* FAQ */}
       <section className="py-20">
