@@ -2,13 +2,22 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight, Terminal } from "lucide-react";
+import { Phone, ArrowRight, Terminal, Sparkles } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
+import { AuroraBackground } from "@/components/visuals/AuroraBackground";
+import { SpotlightCursor } from "@/components/visuals/SpotlightCursor";
+import {
+  ScanLines,
+  Vignette,
+  FilmGrain,
+  ScrollPrompt,
+  SweepLine,
+} from "@/components/visuals/CinematicEffects";
 import { Typewriter } from "@/components/motion/Typewriter";
-import { Eyebrow } from "@/components/ui/SectionTitle";
+import { Counter } from "@/components/motion/Counter";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -20,43 +29,73 @@ const TYPEWRITER_PHRASES = [
   "real-world red teams",
 ];
 
+const HEADLINE_LINE_1 = ["Securing", "businesses."];
+const HEADLINE_LINE_2 = ["Training", "cyber", "warriors."];
+
+const HERO_REVEAL = {
+  initial: { opacity: 0, y: 24, filter: "blur(8px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden">
-      {/* Layered backgrounds */}
-      <div className="absolute inset-0 bg-grid opacity-60" />
+    <section className="relative isolate overflow-hidden min-h-[92vh] flex flex-col">
+      {/* CINEMATIC BACKDROP STACK */}
+      <div className="absolute inset-0 bg-grid opacity-50" />
+      <AuroraBackground />
       <ParticleBackground density={120} />
       <GlowOrb className="-top-40 left-1/2 -translate-x-1/2" color="cyan" size={700} intensity="strong" />
       <GlowOrb className="bottom-0 right-1/4" color="purple" size={500} />
       <GlowOrb className="top-1/3 -left-20" color="blue" size={400} intensity="soft" />
+      <SpotlightCursor color="rgba(0,229,255,0.18)" size={520} />
+      <SweepLine color="#00e5ff" duration={5} delay={2} />
+      <ScanLines />
+      <FilmGrain opacity={0.06} />
+      <Vignette />
 
-      <Container className="relative py-24 sm:py-32 lg:py-40">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+      {/* TICKER STRIP */}
+      <CinematicTicker />
+
+      <Container className="relative flex-1 flex items-center pt-20 pb-32 sm:pt-24 sm:pb-36 lg:pt-28">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block"
+              transition={{ duration: 0.6 }}
             >
-              <Eyebrow>CERT-In Empanelled · India + UAE Engagements</Eyebrow>
+              <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
+                <span className="relative flex size-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75 animate-ping" />
+                  <span className="relative inline-flex size-1.5 rounded-full bg-neon-cyan" />
+                </span>
+                CERT-In Empanelled · India + UAE
+                <Sparkles className="size-3" />
+              </span>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="mt-6 font-display text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl text-balance leading-[0.95]"
-            >
-              Securing businesses.
-              <br />
-              <span className="gradient-text">Training cyber warriors.</span>
-            </motion.h1>
+            {/* Word-by-word headline reveal */}
+            <h1 className="mt-7 font-display text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-balance leading-[0.92]">
+              <span className="block">
+                {HEADLINE_LINE_1.map((w, i) => (
+                  <RevealWord key={i} delay={0.15 + i * 0.08}>
+                    {w}
+                  </RevealWord>
+                ))}
+              </span>
+              <span className="block mt-1">
+                {HEADLINE_LINE_2.map((w, i) => (
+                  <RevealWord key={i} delay={0.35 + i * 0.08} gradient>
+                    {w}
+                  </RevealWord>
+                ))}
+              </span>
+            </h1>
 
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.18 }}
+              initial={HERO_REVEAL.initial}
+              animate={HERO_REVEAL.animate}
+              transition={{ duration: 0.7, delay: 0.7 }}
               className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted text-pretty"
             >
               CERT-In empanelled cybersecurity consulting firm with an advanced training
@@ -69,9 +108,9 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.28 }}
+              initial={HERO_REVEAL.initial}
+              animate={HERO_REVEAL.animate}
+              transition={{ duration: 0.7, delay: 0.85 }}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
               <LinkButton href="/contact" size="lg" withArrow>
@@ -82,7 +121,7 @@ export function Hero() {
               </LinkButton>
               <a
                 href={`tel:${SITE.phone}`}
-                className="inline-flex items-center gap-2 px-3 text-sm font-semibold text-fg-muted hover:text-neon-cyan"
+                className="inline-flex items-center gap-2 px-3 text-sm font-semibold text-fg-muted hover:text-neon-cyan transition-colors"
               >
                 <Phone className="size-4" />
                 {SITE.phoneDisplay}
@@ -92,19 +131,21 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
+              transition={{ duration: 0.7, delay: 1 }}
               className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 max-w-xl"
             >
               {[
-                ["20K+", "Learners trained"],
-                ["250+", "Enterprise clients"],
-                ["11+ yrs", "In business"],
-                ["5", "Countries served"],
-              ].map(([n, l]) => (
-                <div key={l} className="border-l border-neon-cyan/40 pl-3">
-                  <div className="font-display text-2xl font-black gradient-text">{n}</div>
-                  <div className="text-[10px] uppercase tracking-[0.15em] text-fg-faint">
-                    {l}
+                { value: 20000, suffix: "+", label: "Learners trained" },
+                { value: 250, suffix: "+", label: "Enterprise clients" },
+                { value: 11, suffix: "+ yrs", label: "In business" },
+                { value: 5, suffix: "", label: "Countries served" },
+              ].map((s) => (
+                <div key={s.label} className="border-l border-neon-cyan/40 pl-3">
+                  <div className="font-display text-2xl font-black gradient-text">
+                    <Counter value={s.value} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-fg-faint">
+                    {s.label}
                   </div>
                 </div>
               ))}
@@ -112,18 +153,99 @@ export function Hero() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 20 }}
+            initial={{ opacity: 0, scale: 0.94, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5"
           >
             <LiveOpsPanel />
           </motion.div>
         </div>
       </Container>
+
+      <ScrollPrompt />
     </section>
   );
 }
+
+/* ============================================================ */
+/*  Word-by-word reveal helper                                   */
+/* ============================================================ */
+
+function RevealWord({
+  children,
+  delay,
+  gradient = false,
+}: {
+  children: React.ReactNode;
+  delay: number;
+  gradient?: boolean;
+}) {
+  return (
+    <span className="inline-block overflow-hidden align-bottom">
+      <motion.span
+        initial={{ y: "100%", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.85,
+          delay,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className={cn(
+          "inline-block mr-3 lg:mr-4",
+          gradient && "gradient-text"
+        )}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
+/* ============================================================ */
+/*  Cinematic ticker — strip across the top of the hero          */
+/* ============================================================ */
+
+const TICKER_ITEMS = [
+  "CERT-In Empanelled",
+  "EC-Council ATC",
+  "OffSec Authorized Partner",
+  "ISO 27001 Certified",
+  "20,000+ professionals trained",
+  "200+ engagements / yr",
+  "Mumbai · Dubai · Hyderabad · Muscat · Toronto",
+];
+
+function CinematicTicker() {
+  // Duplicate for seamless loop
+  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  return (
+    <div className="relative z-10 overflow-hidden border-b border-line/30 bg-bg/40 backdrop-blur-md">
+      <div className="flex h-9 items-center">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="flex shrink-0 gap-10 pr-10 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint"
+        >
+          {items.map((it, i) => (
+            <span key={i} className="inline-flex items-center gap-2">
+              <span className="size-1 rounded-full bg-neon-cyan" />
+              {it}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================ */
+/*  Live ops panel — boots up like a terminal                    */
+/* ============================================================ */
 
 function LiveOpsPanel() {
   const items = [
@@ -135,46 +257,77 @@ function LiveOpsPanel() {
     { tag: "OSCP", text: "Cohort 47 · 17/18 passed", color: "from-amber-500/30 to-amber-500/10 text-amber-300" },
   ];
   return (
-    <div className="relative rounded-3xl glass-strong p-6 shadow-2xl glow-blend">
-      <div className="absolute -top-3 left-6 rounded-md bg-bg px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-neon-cyan ring-1 ring-line">
-        {"// live · macksofy ops"}
-      </div>
-      <div className="flex items-center justify-between mb-4 mt-1">
-        <div className="flex items-center gap-2 text-xs font-semibold text-fg-muted">
-          <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-          Engagements active
+    <div className="relative">
+      {/* Outer glow ring */}
+      <div
+        aria-hidden
+        className="absolute -inset-4 rounded-[2rem] opacity-50 pointer-events-none"
+        style={{
+          background:
+            "conic-gradient(from 90deg at 50% 50%, transparent, rgba(0,229,255,0.18), transparent 30%, rgba(168,85,247,0.18), transparent 70%)",
+          filter: "blur(28px)",
+        }}
+      />
+      <div className="relative rounded-3xl glass-strong p-6 shadow-2xl glow-blend overflow-hidden">
+        {/* Sweep highlight inside card */}
+        <SweepLine color="#00e5ff" duration={6} delay={1} />
+
+        <div className="absolute -top-3 left-6 rounded-md bg-bg px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-neon-cyan ring-1 ring-line">
+          {"// live · macksofy ops"}
         </div>
-        <Terminal className="size-5 text-neon-cyan" />
-      </div>
-      <div className="space-y-2 font-mono text-sm">
-        {items.map((it, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, delay: 0.4 + i * 0.07 }}
-            className="flex items-center gap-3 rounded-lg border border-line bg-white/[0.02] px-3 py-2.5 hover:bg-white/[0.05] transition-colors"
-          >
-            <span
-              className={cn(
-                "shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold bg-gradient-to-r ring-1 ring-current/20",
-                it.color
-              )}
-            >
-              {it.tag}
+        <div className="flex items-center justify-between mb-4 mt-1">
+          <div className="flex items-center gap-2 text-xs font-semibold text-fg-muted">
+            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+            Engagements active
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[10px] text-fg-faint">
+              <Counter value={12400} suffix=" eps" />
             </span>
-            <span className="text-fg-muted truncate">{it.text}</span>
-          </motion.div>
-        ))}
-      </div>
-      <div className="mt-5 flex items-center justify-between border-t border-line pt-4">
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan hover:gap-2 transition-all"
+            <Terminal className="size-5 text-neon-cyan" />
+          </div>
+        </div>
+        <div className="space-y-2 font-mono text-sm">
+          {items.map((it, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -16, filter: "blur(4px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+              className="flex items-center gap-3 rounded-lg border border-line bg-white/[0.02] px-3 py-2.5 hover:bg-white/[0.05] transition-colors"
+            >
+              <span
+                className={cn(
+                  "shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold bg-gradient-to-r ring-1 ring-current/20",
+                  it.color
+                )}
+              >
+                {it.tag}
+              </span>
+              <span className="text-fg-muted truncate">{it.text}</span>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.3, duration: 0.5 }}
+          className="mt-5 flex items-center justify-between border-t border-line pt-4"
         >
-          All services <ArrowRight className="size-4" />
-        </Link>
-        <span className="font-mono text-[10px] text-fg-faint">live · auto-refresh</span>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan hover:gap-2 transition-all"
+          >
+            All services <ArrowRight className="size-4" />
+          </Link>
+          <span className="font-mono text-[10px] text-fg-faint inline-flex items-center gap-1.5">
+            <span className="relative flex size-1.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+            </span>
+            live · auto-refresh
+          </span>
+        </motion.div>
       </div>
     </div>
   );
