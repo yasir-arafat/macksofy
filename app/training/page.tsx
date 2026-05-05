@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { LeadCapture } from "@/components/home/LeadCapture";
+import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -16,18 +17,28 @@ import { buildMetadata } from "@/lib/seo";
 import { COURSES } from "@/content/courses";
 import { VENDOR_LOGOS } from "@/content/vendorLogos";
 import { formatINR } from "@/lib/utils";
+import { metroKeywords } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Cybersecurity Training in India & UAE",
+  title:
+    "Cybersecurity Training in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
   description:
-    "EC-Council, OffSec, CompTIA authorized cybersecurity training. CEH v13, OSCP, SOC Analyst, Web App Security and Corporate programs. Mentor until you pass.",
+    "EC-Council, OffSec and CompTIA authorised cybersecurity training across India and the UAE. CEH v13, OSCP, OSEP, OSWE, SOC Analyst, Web App Security and Corporate programs — weekend cohorts in Mumbai, online cohorts pan-India. Mentor support until you pass.",
   path: "/training",
   keywords: [
     "cybersecurity training India",
-    "CEH training Mumbai",
+    "cybersecurity training Mumbai",
+    "ethical hacking training India",
+    "CEH v13 training India",
     "OSCP training India",
+    "OSCP coaching Mumbai",
+    "OSEP training India",
     "SOC analyst training Mumbai",
     "ethical hacking training UAE",
+    ...metroKeywords("cybersecurity training"),
+    ...metroKeywords("ethical hacking course"),
+    ...metroKeywords("OSCP training"),
+    ...metroKeywords("CEH training"),
   ],
 });
 
@@ -195,6 +206,15 @@ export default function TrainingPage() {
         </Container>
       </section>
 
+      <MetroCoverage
+        title={
+          <>
+            Training cohorts in{" "}
+            <span className="gradient-text">every Indian metro.</span>
+          </>
+        }
+        description="Weekend on-site cohorts at Macksofy BKC Mumbai · live online cohorts pan-India · corporate-batch delivery at your campus in Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram and the UAE."
+      />
       <Testimonials />
       <LeadCapture />
     </>

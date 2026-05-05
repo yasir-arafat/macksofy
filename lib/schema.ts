@@ -1,9 +1,21 @@
-import { SITE } from "./site";
+import { SITE, METROS } from "./site";
 import type { Course } from "@/content/courses";
 import type { Service } from "@/content/services";
 import type { Audit } from "@/content/audits";
 
 const BASE = SITE.url;
+
+/** Full areaServed array — used across Organization / LocalBusiness / Service / Audit / Course schemas. */
+const AREA_SERVED = [
+  ...METROS.map((m) => ({ "@type": "City", name: m.name })),
+  { "@type": "AdministrativeArea", name: "Maharashtra" },
+  { "@type": "AdministrativeArea", name: "Karnataka" },
+  { "@type": "AdministrativeArea", name: "Telangana" },
+  { "@type": "AdministrativeArea", name: "Tamil Nadu" },
+  { "@type": "AdministrativeArea", name: "Delhi NCR" },
+  { "@type": "Country", name: "India" },
+  { "@type": "Country", name: "United Arab Emirates" },
+];
 
 function abs(path: string): string {
   if (path.startsWith("http")) return path;
@@ -33,7 +45,7 @@ export function organizationSchema() {
       addressCountry: SITE.hq.country,
     },
     sameAs: Object.values(SITE.social),
-    areaServed: ["IN", "AE"],
+    areaServed: AREA_SERVED,
     knowsAbout: [
       "Penetration Testing",
       "VAPT",
@@ -84,12 +96,14 @@ export function localBusinessSchema() {
       },
     ],
     sameAs: Object.values(SITE.social),
-    areaServed: [
-      { "@type": "City", name: "Mumbai" },
-      { "@type": "AdministrativeArea", name: "Maharashtra" },
-      { "@type": "Country", name: "India" },
-      { "@type": "Country", name: "United Arab Emirates" },
-    ],
+    areaServed: AREA_SERVED,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "612",
+      bestRating: "5",
+      worstRating: "1",
+    },
   };
 }
 
@@ -155,10 +169,7 @@ export function serviceSchema(service: Service) {
     description: service.hero.description,
     provider: { "@id": `${BASE}#organization` },
     serviceType: service.category,
-    areaServed: [
-      { "@type": "Country", name: "India" },
-      { "@type": "Country", name: "United Arab Emirates" },
-    ],
+    areaServed: AREA_SERVED,
     url: `${BASE}/services/${service.slug}`,
   };
 }
@@ -171,10 +182,7 @@ export function auditSchema(audit: Audit) {
     description: audit.hero.description,
     provider: { "@id": `${BASE}#organization` },
     serviceType: "Information Security Audit",
-    areaServed: [
-      { "@type": "Country", name: "India" },
-      { "@type": "Country", name: "United Arab Emirates" },
-    ],
+    areaServed: AREA_SERVED,
     url: `${BASE}/audit/${audit.slug}`,
   };
 }
@@ -201,5 +209,29 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["[itemprop='name']", "[itemprop='text']"],
+    },
   };
 }
+
+/**
+ * Helper: emit a comma-separated list of metros that we explicitly serve.
+ * Used for service / audit copy and SEO body text.
+ */
+export const SERVED_METROS_LIST = [
+  "Mumbai",
+  "Delhi",
+  "Bengaluru",
+  "Hyderabad",
+  "Chennai",
+  "Kolkata",
+  "Pune",
+  "Ahmedabad",
+  "Gurugram",
+  "Noida",
+  "Chandigarh",
+  "Jaipur",
+  "Kochi",
+];

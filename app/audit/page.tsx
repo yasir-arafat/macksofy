@@ -9,6 +9,7 @@ import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { CertInHero } from "@/components/visuals/CertInBadge";
 import { ComplianceMatrix } from "@/components/visuals/ComplianceMatrix";
 import { LeadCapture } from "@/components/home/LeadCapture";
+import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -19,25 +20,31 @@ import {
   auditsByCategory,
   type AuditCategory,
 } from "@/content/audits";
+import { metroKeywords } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title:
-    "Audit & Compliance — CERT-In · RBI · SEBI · ISO · SOC 2 · PCI · HIPAA · GDPR · DPDP",
+    "Audit & Compliance in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune — CERT-In · RBI · SEBI · ISO · SOC 2",
   description:
-    "21 audit and compliance services across Indian regulators (CERT-In, RBI, SEBI, IRDAI, DPDP, CICRA), international standards (ISO 27001/17/18/701/42001, SOC 2, NIST CSF) and industry / privacy (PCI-DSS, HIPAA, GDPR). CERT-In empanelled, India + UAE.",
+    "21 audit and compliance services across Indian regulators (CERT-In, RBI, SEBI, IRDAI, DPDP, CICRA), international standards (ISO 27001/17/18/701/42001, SOC 2, NIST CSF) and industry / privacy (PCI-DSS, HIPAA, GDPR). CERT-In empanelled. Delivery across Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai, Pune and the UAE.",
   path: "/audit",
   keywords: [
     "CERT-In audit India",
-    "RBI audit Mumbai",
-    "SEBI CSCRF audit",
+    "CERT-In empanelled auditor Mumbai",
+    "RBI audit India",
+    "SEBI CSCRF audit India",
     "ISO 27001 consulting India",
-    "ISO 27017 27018 27701 42001",
+    "ISO 27017 27018 27701 42001 India",
     "SOC 2 India",
-    "NIST CSF audit",
+    "NIST CSF audit India",
     "PCI-DSS v4.0 India",
     "HIPAA HITRUST India",
-    "GDPR DPDP audit",
+    "GDPR DPDP audit India",
     "compliance audit UAE",
+    ...metroKeywords("CERT-In audit"),
+    ...metroKeywords("ISO 27001 consultant"),
+    ...metroKeywords("SOC 2 consultant"),
+    ...metroKeywords("compliance audit"),
   ],
 });
 
@@ -313,6 +320,16 @@ export default function AuditPage() {
           </div>
         </Container>
       </section>
+
+      <MetroCoverage
+        title={
+          <>
+            Regulator-format audits across{" "}
+            <span className="gradient-text">India + UAE.</span>
+          </>
+        }
+        description="Macksofy CERT-In empanelled auditors travel from Mumbai BKC to RBI-regulated banks, SEBI-regulated brokers, IRDAI-regulated insurers and government bodies in every Indian metro."
+      />
 
       <LeadCapture />
     </>

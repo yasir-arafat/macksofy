@@ -62,6 +62,12 @@ export function buildMetadata({
       description,
       images: [ogImage],
     },
+    other: {
+      "geo.region": "IN-MH",
+      "geo.placename": "Mumbai",
+      "geo.position": `${SITE.geo.lat};${SITE.geo.lng}`,
+      ICBM: `${SITE.geo.lat}, ${SITE.geo.lng}`,
+    },
     robots: noIndex
       ? { index: false, follow: false }
       : {

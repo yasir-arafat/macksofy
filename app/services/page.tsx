@@ -6,24 +6,32 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { LeadCapture } from "@/components/home/LeadCapture";
+import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { SERVICES } from "@/content/services";
+import { metroKeywords } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Cybersecurity Services in India & UAE",
+  title:
+    "Cybersecurity Services in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
   description:
-    "End-to-end offensive and defensive security services from CERT-In empanelled Macksofy. Pentest, VAPT, SOC, red team, DFIR, malware analysis, threat intel.",
+    "Offensive and defensive cybersecurity services from CERT-In empanelled Macksofy. Penetration testing, VAPT, SOC engineering, red teaming, DFIR, malware analysis and threat intel — delivered across Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad and the UAE.",
   path: "/services",
   keywords: [
     "cybersecurity services India",
-    "penetration testing services",
-    "VAPT services Mumbai",
+    "cybersecurity services Mumbai",
+    "penetration testing services India",
+    "VAPT services India",
     "SOC services India",
     "red team services India",
-    "cybersecurity Dubai",
+    "cybersecurity Dubai UAE",
+    ...metroKeywords("cybersecurity services"),
+    ...metroKeywords("penetration testing"),
+    ...metroKeywords("VAPT"),
+    ...metroKeywords("SOC services"),
   ],
 });
 
@@ -85,6 +93,16 @@ export default function ServicesPage() {
           <ServiceGrid services={defensive} />
         </Container>
       </section>
+
+      <MetroCoverage
+        title={
+          <>
+            Cybersecurity services{" "}
+            <span className="gradient-text">delivered nationwide.</span>
+          </>
+        }
+        description="Macksofy services teams travel from Mumbai BKC and Hyderabad to client sites across every Indian metro and the UAE — on-site, remote and hybrid engagements."
+      />
 
       <LeadCapture />
     </>

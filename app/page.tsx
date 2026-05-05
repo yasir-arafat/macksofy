@@ -7,24 +7,32 @@ import { HowWeWork } from "@/components/home/HowWeWork";
 import { Testimonials } from "@/components/home/Testimonials";
 import { StatsBand } from "@/components/home/StatsBand";
 import { LeadCapture } from "@/components/home/LeadCapture";
+import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
-import { SITE } from "@/lib/site";
+import { SITE, metroKeywords } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: `${SITE.name} — Securing Businesses · Training Cyber Warriors`,
-  description: SITE.description,
+  title: `${SITE.name} — Cybersecurity Company in Mumbai · Pan-India · UAE`,
+  description:
+    "CERT-In empanelled cybersecurity company headquartered in Mumbai with delivery across Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida and the UAE. Penetration testing, VAPT, SOC setup, red teaming, DFIR + EC-Council / OffSec authorised training.",
   path: "/",
   keywords: [
     "cybersecurity company India",
-    "CERT-In empanelled auditor",
+    "cybersecurity company Mumbai",
+    "CERT-In empanelled auditor India",
+    "best cybersecurity firm India",
+    "CERT-In auditor Mumbai",
     "VAPT services Mumbai",
     "OSCP training India",
     "CEH training Mumbai",
     "SOC analyst training India",
     "ISO 27001 consultant India",
     "cybersecurity Dubai UAE",
+    ...metroKeywords("cybersecurity company"),
+    ...metroKeywords("VAPT services"),
+    ...metroKeywords("penetration testing"),
   ],
 });
 
@@ -61,6 +69,9 @@ export default function HomePage() {
       <CertInSection />
       <HowWeWork />
       <TrainingPreview />
+      <MetroCoverage
+        description="From our Mumbai BKC headquarters and Hyderabad regional hub, we deliver pentests, audits and training engagements to BFSI, fintech, government and SaaS clients across India and the UAE."
+      />
       <Testimonials />
       <StatsBand />
       <LeadCapture />
