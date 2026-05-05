@@ -1,0 +1,125 @@
+import Link from "next/link";
+import { ArrowRight, MapPin, Globe2 } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/SectionTitle";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { ParticleBackground } from "@/components/visuals/ParticleBackground";
+import { GlowOrb } from "@/components/visuals/GlowOrb";
+import { LeadCapture } from "@/components/home/LeadCapture";
+import { CertInBadge } from "@/components/visuals/CertInBadge";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
+import { CITIES } from "@/content/cities";
+import { SITE } from "@/lib/site";
+
+export const metadata = buildMetadata({
+  title:
+    "Locations — Cybersecurity Services in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune",
+  description:
+    "Macksofy delivers CERT-In empanelled cybersecurity services across India's metros. City landing pages for Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai and Pune — with regulator focus, top services and local case studies per city.",
+  path: "/locations",
+  keywords: [
+    "cybersecurity company India locations",
+    "Macksofy locations India",
+    "cybersecurity Mumbai Delhi Bengaluru Hyderabad Chennai Pune",
+    "CERT-In auditor India city",
+  ],
+});
+
+export default function LocationsPage() {
+  return (
+    <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: "Locations", url: "/locations" }]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: `${SITE.name} — Locations`,
+            url: `${SITE.url}/locations`,
+            itemListElement: CITIES.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE.url}/locations/${c.slug}`,
+              name: `Cybersecurity in ${c.name}`,
+            })),
+          },
+        ]}
+      />
+
+      <section className="relative isolate overflow-hidden">
+        <ParticleBackground density={70} />
+        <GlowOrb className="-top-40 left-1/2 -translate-x-1/2" color="cyan" size={600} />
+        <GlowOrb className="bottom-0 right-1/3" color="purple" size={400} />
+        <Container className="relative pt-12 pb-12 sm:pt-16">
+          <Breadcrumbs items={[{ name: "Locations", href: "/locations" }]} />
+          <div className="mt-10 max-w-3xl">
+            <Eyebrow>Cybersecurity across India + UAE</Eyebrow>
+            <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
+              Where we deliver{" "}
+              <span className="gradient-text">cybersecurity engagements.</span>
+            </h1>
+            <p className="mt-6 text-lg text-fg-muted text-pretty">
+              Macksofy is headquartered in Mumbai BKC, with a regional hub in
+              Hyderabad HITEC City and engagements across every Indian metro
+              and the UAE. Each city page below covers the local regulators,
+              industries, services and a representative anonymised case study.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <CertInBadge size="sm" />
+              <span className="font-mono text-xs text-fg-faint">
+                CERT-In Empanelled · {CITIES.length} city pages · India + UAE
+              </span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <Container className="pb-20">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {CITIES.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/locations/${c.slug}`}
+              className="group relative flex flex-col overflow-hidden rounded-2xl glass p-6 hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+            >
+              {c.primary && (
+                <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.22em] text-neon-cyan">
+                  <Globe2 className="size-3" /> HQ
+                </div>
+              )}
+              <div className="grid size-12 place-items-center rounded-xl bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
+                <MapPin className="size-6" />
+              </div>
+              <div className="mt-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
+                  {c.category}
+                </div>
+                <h2 className="mt-1 font-display text-2xl font-black text-fg group-hover:text-neon-cyan leading-tight">
+                  {c.name}
+                </h2>
+                <div className="mt-1 text-xs text-fg-muted">{c.state}</div>
+              </div>
+              <p className="mt-4 text-sm text-fg-muted line-clamp-3 flex-1">
+                {c.hero.description}
+              </p>
+              <div className="mt-5 flex items-center justify-between">
+                <div className="flex items-center gap-3 text-[11px] text-fg-faint font-mono">
+                  <span>{c.industries.length} industries</span>
+                  <span>·</span>
+                  <span>{c.topServices.length + c.topAudits.length} services + audits</span>
+                </div>
+                <span className="inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan group-hover:gap-2 transition-all">
+                  Explore <ArrowRight className="size-4" />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </Container>
+
+      <LeadCapture />
+    </>
+  );
+}

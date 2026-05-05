@@ -1,6 +1,17 @@
+import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { METROS } from "@/lib/site";
+import { CITIES } from "@/content/cities";
+
+const CITY_SLUGS = new Set(CITIES.map((c) => c.slug));
+
+function metroSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace("delhi-ncr", "delhi");
+}
 
 interface Props {
   /** Optional eyebrow / title overrides for variant pages */
@@ -56,31 +67,44 @@ export function MetroCoverage({
         )}
 
         <ul className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-          {METROS.map((m) => (
-            <li
-              key={m.name}
-              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 transition-all ${
-                m.primary
-                  ? "bg-neon-cyan/15 ring-neon-cyan/40 text-neon-cyan"
-                  : "bg-bg-2 ring-line text-fg-muted hover:ring-white/30"
-              }`}
-            >
-              <MapPin className="size-3" />
-              <span>{m.name}</span>
-              <span
-                className={`font-mono text-[9px] uppercase tracking-wider ${
-                  m.primary ? "text-neon-cyan/80" : "text-fg-faint"
-                }`}
-              >
-                · {m.state}
-              </span>
-              {m.primary && (
-                <span className="inline-flex items-center rounded-full bg-bg-2/60 ring-1 ring-neon-cyan/40 px-1.5 text-[8px] font-bold uppercase tracking-wider text-neon-cyan">
-                  HQ
+          {METROS.map((m) => {
+            const slug = metroSlug(m.name);
+            const hasCityPage = CITY_SLUGS.has(slug);
+            const chipClass = `inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 transition-all ${
+              m.primary
+                ? "bg-neon-cyan/15 ring-neon-cyan/40 text-neon-cyan hover:ring-neon-cyan/60"
+                : "bg-bg-2 ring-line text-fg-muted hover:text-fg hover:ring-white/30"
+            }`;
+            const inside = (
+              <>
+                <MapPin className="size-3" />
+                <span>{m.name}</span>
+                <span
+                  className={`font-mono text-[9px] uppercase tracking-wider ${
+                    m.primary ? "text-neon-cyan/80" : "text-fg-faint"
+                  }`}
+                >
+                  · {m.state}
                 </span>
-              )}
-            </li>
-          ))}
+                {m.primary && (
+                  <span className="inline-flex items-center rounded-full bg-bg-2/60 ring-1 ring-neon-cyan/40 px-1.5 text-[8px] font-bold uppercase tracking-wider text-neon-cyan">
+                    HQ
+                  </span>
+                )}
+              </>
+            );
+            return (
+              <li key={m.name}>
+                {hasCityPage ? (
+                  <Link href={`/locations/${slug}`} className={chipClass}>
+                    {inside}
+                  </Link>
+                ) : (
+                  <span className={chipClass}>{inside}</span>
+                )}
+              </li>
+            );
+          })}
           <li className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 ring-1 ring-amber-500/30 px-3 py-1.5 text-xs font-semibold text-amber-300">
             <MapPin className="size-3" />
             Dubai, UAE
