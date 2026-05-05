@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a18"/>
+      <stop offset="100%" stop-color="#050510"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <!-- Squircle dark tile -->
+  <rect width="64" height="64" rx="13" fill="url(#bg)"/>
+  <rect x="1.25" y="1.25" width="61.5" height="61.5" rx="11.75" fill="none" stroke="url(#ring)" stroke-width="0.9"/>
+
+  <!-- Heater shield with three rounded crests at the top -->
+  <path d="M32 9
+           C 28 9 24 12 18 12
+           C 14 12 12 11.5 12 13
+           L 12 32
+           C 12 45 22 53 32 56
+           C 42 53 52 45 52 32
+           L 52 13
+           C 52 11.5 50 12 46 12
+           C 40 12 36 9 32 9 Z"
+        fill="url(#shield)"
+        stroke="rgba(255,255,255,0.18)" stroke-width="0.65"/>
+
+  <!-- Wavy 'M' / signal-pulse glyph inside the shield -->
+  <path d="M 18 38
+           L 22 22
+           Q 23.5 22 25 24
+           L 28 30
+           Q 30 32 32 30
+           L 35 24
+           Q 36.5 22 38 22
+           L 42 38
+           L 38 38
+           L 36 30
+           Q 34 31 32 33
+           Q 30 31 28 30
+           L 26 38 Z"
+        fill="#ffffff"
+        stroke="rgba(0,0,0,0.05)" stroke-width="0.3"/>
+
+  <!-- Subtle highlight on the shield -->
+  <path d="M16 14 Q 20 12 26 12 L 26 18 Q 20 18 16 22 Z"
+        fill="rgba(255,255,255,0.08)"/>
+</svg>
