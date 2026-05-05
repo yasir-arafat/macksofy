@@ -15,7 +15,18 @@ type Slug =
   | "mcp-server-security-how-hacked-2026"
   | "ecih-vs-gcih-incident-handler-certification-2026"
   | "cpts-vs-oscp-certification-comparison-india-2026"
-  | "crtp-vs-crte-certification-guide-india-2026";
+  | "crtp-vs-crte-certification-guide-india-2026"
+  // Page 2 additions
+  | "soc-analyst-training-india-2026"
+  | "red-team-certifications-india-2026"
+  | "offsec-learn-one-india-pricing-roi-2026"
+  | "cybersecurity-jobs-in-mumbai-2026"
+  | "oscp-training-in-mumbai-2026"
+  | "ceh-v13-ai-training-india-2026"
+  | "top-10-penetration-testing-tools-2026"
+  | "best-laptops-cybersecurity-students-india-2026"
+  | "oswe-vs-oscp"
+  | "osep-vs-oscp";
 
 interface IllustrationProps {
   className?: string;
@@ -829,6 +840,375 @@ function ECIHvsGCIH({ className }: IllustrationProps) {
 }
 
 /* ============================================================ */
+/*  Page-2 cert-versus variants                                  */
+/* ============================================================ */
+
+function OsweVsOscp({ className }: IllustrationProps) {
+  return (
+    <CertVersus
+      className={className}
+      left="OSCP"
+      right="OSWE"
+      leftSub="OffSec · 24h"
+      rightSub="OffSec · 48h"
+    />
+  );
+}
+
+function OsepVsOscp({ className }: IllustrationProps) {
+  return (
+    <CertVersus
+      className={className}
+      left="OSCP"
+      right="OSEP"
+      leftSub="generalist"
+      rightSub="EDR-evasion"
+    />
+  );
+}
+
+function LearnOnePricing({ className }: IllustrationProps) {
+  return (
+    <CertVersus
+      className={className}
+      left="PEN-200"
+      right="LEARN ONE"
+      leftSub="90 days"
+      rightSub="12 months"
+    />
+  );
+}
+
+/* ============================================================ */
+/*  Page-2 themed illustrations                                  */
+/* ============================================================ */
+
+function MumbaiJobs({ className }: IllustrationProps) {
+  const id = "mum";
+  return (
+    <Frame id={id} className={className}>
+      <circle cx="220" cy="225" r="220" fill={`url(#${id}-glow-cyan)`} />
+      <circle cx="600" cy="280" r="200" fill={`url(#${id}-glow-purple)`} />
+
+      {/* Skyline */}
+      <g>
+        {[
+          { x: 60, w: 56, h: 240, accent: "cyan" },
+          { x: 130, w: 44, h: 180, accent: "purple" },
+          { x: 188, w: 70, h: 270, accent: "cyan" },
+          { x: 272, w: 52, h: 200, accent: "amber" },
+          { x: 338, w: 60, h: 250, accent: "purple" },
+          { x: 412, w: 48, h: 170, accent: "cyan" },
+          { x: 474, w: 72, h: 290, accent: "purple" },
+          { x: 560, w: 50, h: 210, accent: "amber" },
+          { x: 624, w: 44, h: 180, accent: "cyan" },
+          { x: 682, w: 64, h: 260, accent: "purple" },
+        ].map((b, i) => {
+          const top = 360 - b.h;
+          const stroke =
+            b.accent === "cyan"
+              ? "rgba(34,211,238,0.55)"
+              : b.accent === "purple"
+              ? "rgba(168,85,247,0.55)"
+              : "rgba(251,191,36,0.55)";
+          const fillKey =
+            b.accent === "cyan"
+              ? `${id}-cyan`
+              : b.accent === "purple"
+              ? `${id}-purple`
+              : `${id}-amber`;
+          return (
+            <g key={i}>
+              <rect
+                x={b.x}
+                y={top}
+                width={b.w}
+                height={b.h}
+                rx="3"
+                fill={`url(#${fillKey})`}
+                stroke={stroke}
+                strokeWidth="1.2"
+              />
+              {/* windows grid */}
+              {Array.from({ length: Math.floor(b.h / 18) }).map((_, r) =>
+                Array.from({ length: Math.floor(b.w / 12) }).map((_, c) => {
+                  const lit = (r * 7 + c * 13 + i) % 5 < 2;
+                  return (
+                    <rect
+                      key={`${r}-${c}`}
+                      x={b.x + 4 + c * 12}
+                      y={top + 6 + r * 18}
+                      width="6"
+                      height="10"
+                      fill={lit ? stroke : "rgba(255,255,255,0.05)"}
+                      opacity={lit ? 0.5 : 0.4}
+                    />
+                  );
+                })
+              )}
+            </g>
+          );
+        })}
+      </g>
+      {/* Ground line */}
+      <line x1="20" y1="360" x2="780" y2="360" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+
+      {/* Role chips floating above skyline */}
+      <g>
+        {[
+          { x: 80, y: 70, label: "₹6–10 LPA · L1 SOC", tone: "cyan" },
+          { x: 290, y: 50, label: "₹15–22 LPA · AppSec", tone: "purple" },
+          { x: 510, y: 70, label: "₹22–32 LPA · Pen-tester", tone: "amber" },
+        ].map((c, i) => (
+          <g key={i} transform={`translate(${c.x}, ${c.y})`}>
+            <rect
+              width="200"
+              height="32"
+              rx="16"
+              fill={
+                c.tone === "cyan"
+                  ? "rgba(34,211,238,0.18)"
+                  : c.tone === "purple"
+                  ? "rgba(168,85,247,0.18)"
+                  : "rgba(251,191,36,0.18)"
+              }
+              stroke={
+                c.tone === "cyan"
+                  ? "rgba(34,211,238,0.5)"
+                  : c.tone === "purple"
+                  ? "rgba(168,85,247,0.5)"
+                  : "rgba(251,191,36,0.5)"
+              }
+              strokeWidth="1.2"
+            />
+            <circle
+              cx="14"
+              cy="16"
+              r="5"
+              fill={
+                c.tone === "cyan"
+                  ? "#22d3ee"
+                  : c.tone === "purple"
+                  ? "#a855f7"
+                  : "#fbbf24"
+              }
+            />
+            <text
+              x="100"
+              y="20"
+              textAnchor="middle"
+              fontSize="11"
+              fontFamily="monospace"
+              fontWeight="700"
+              fill={
+                c.tone === "cyan"
+                  ? "rgba(34,211,238,0.95)"
+                  : c.tone === "purple"
+                  ? "rgba(168,85,247,0.95)"
+                  : "rgba(251,191,36,0.95)"
+              }
+            >
+              {c.label}
+            </text>
+          </g>
+        ))}
+      </g>
+
+      {/* MUMBAI title chip */}
+      <g transform="translate(40, 400)">
+        <rect width="170" height="28" rx="14" fill="rgba(34,211,238,0.18)" stroke="rgba(34,211,238,0.5)" />
+        <text x="85" y="18" textAnchor="middle" fontSize="11" fontFamily="monospace" fontWeight="700" fill="rgba(34,211,238,0.95)">
+          MUMBAI · BFSI CAPITAL
+        </text>
+      </g>
+      <g transform="translate(540, 400)">
+        <rect width="220" height="28" rx="14" fill="rgba(168,85,247,0.18)" stroke="rgba(168,85,247,0.4)" />
+        <text x="110" y="18" textAnchor="middle" fontSize="10" fontFamily="monospace" fontWeight="700" fill="rgba(168,85,247,0.95)">
+          1,800+ open roles · ₹4–32 LPA
+        </text>
+      </g>
+    </Frame>
+  );
+}
+
+function PentestTools({ className }: IllustrationProps) {
+  const id = "tools";
+  return (
+    <Frame id={id} className={className}>
+      <circle cx="400" cy="225" r="240" fill={`url(#${id}-glow-cyan)`} />
+
+      {/* Terminal window */}
+      <g transform="translate(60, 80)">
+        <rect width="680" height="290" rx="12" fill="rgba(10,10,18,0.92)" stroke="rgba(34,211,238,0.4)" />
+        <rect width="680" height="28" rx="12" fill="rgba(34,211,238,0.08)" />
+        <circle cx="20" cy="14" r="4" fill="#fb7185" />
+        <circle cx="36" cy="14" r="4" fill="#fbbf24" />
+        <circle cx="52" cy="14" r="4" fill="#4ade80" />
+        <text x="340" y="18" textAnchor="middle" fontSize="9" fontFamily="monospace" fill="rgba(255,255,255,0.5)">
+          ~/pentest/macksofy-toolkit
+        </text>
+
+        {/* Tool tiles in grid */}
+        {[
+          { name: "Burp Suite", short: "burp", row: 0, col: 0, tone: "amber" },
+          { name: "Nmap", short: "nmap", row: 0, col: 1, tone: "cyan" },
+          { name: "Metasploit", short: "msf", row: 0, col: 2, tone: "rose" },
+          { name: "BloodHound", short: "bhd", row: 0, col: 3, tone: "purple" },
+          { name: "Impacket", short: "ipk", row: 1, col: 0, tone: "purple" },
+          { name: "NetExec", short: "nxc", row: 1, col: 1, tone: "cyan" },
+          { name: "Hashcat", short: "hcat", row: 1, col: 2, tone: "rose" },
+          { name: "Sliver", short: "slv", row: 1, col: 3, tone: "purple" },
+          { name: "Nuclei", short: "ncl", row: 2, col: 0, tone: "cyan" },
+          { name: "Mimikatz", short: "mmkz", row: 2, col: 1, tone: "rose" },
+        ].map((t, i) => {
+          const x = 24 + t.col * 162;
+          const y = 50 + t.row * 76;
+          const accent =
+            t.tone === "cyan"
+              ? "#22d3ee"
+              : t.tone === "purple"
+              ? "#a855f7"
+              : t.tone === "amber"
+              ? "#fbbf24"
+              : "#fb7185";
+          return (
+            <g key={i}>
+              <rect
+                x={x}
+                y={y}
+                width="148"
+                height="62"
+                rx="8"
+                fill="rgba(255,255,255,0.03)"
+                stroke={`${accent}55`}
+                strokeWidth="1"
+              />
+              <rect
+                x={x + 8}
+                y={y + 10}
+                width="34"
+                height="20"
+                rx="4"
+                fill={`${accent}22`}
+                stroke={`${accent}77`}
+              />
+              <text
+                x={x + 25}
+                y={y + 24}
+                textAnchor="middle"
+                fontSize="9"
+                fontFamily="monospace"
+                fontWeight="700"
+                fill={accent}
+              >
+                {t.short}
+              </text>
+              <text
+                x={x + 50}
+                y={y + 24}
+                fontSize="11"
+                fontFamily="monospace"
+                fontWeight="700"
+                fill="rgba(255,255,255,0.85)"
+              >
+                {t.name}
+              </text>
+              <text
+                x={x + 8}
+                y={y + 50}
+                fontSize="9"
+                fontFamily="monospace"
+                fill="rgba(255,255,255,0.4)"
+              >
+                #{String(i + 1).padStart(2, "0")} · ready
+              </text>
+            </g>
+          );
+        })}
+      </g>
+
+      <g transform="translate(40, 410)">
+        <rect width="170" height="26" rx="13" fill="rgba(34,211,238,0.18)" stroke="rgba(34,211,238,0.5)" />
+        <text x="85" y="17" textAnchor="middle" fontSize="10" fontFamily="monospace" fontWeight="700" fill="rgba(34,211,238,0.95)">
+          KILL-CHAIN READY
+        </text>
+      </g>
+      <g transform="translate(620, 410)">
+        <rect width="140" height="26" rx="13" fill="rgba(251,113,133,0.18)" stroke="rgba(251,113,133,0.5)" />
+        <text x="70" y="17" textAnchor="middle" fontSize="10" fontFamily="monospace" fontWeight="700" fill="rgba(251,113,133,0.95)">
+          10 / 10 LOADED
+        </text>
+      </g>
+    </Frame>
+  );
+}
+
+function LaptopGuide({ className }: IllustrationProps) {
+  const id = "lap";
+  return (
+    <Frame id={id} className={className}>
+      <circle cx="400" cy="225" r="240" fill={`url(#${id}-glow-cyan)`} />
+
+      {/* Open laptop */}
+      <g transform="translate(180, 90)">
+        {/* Screen */}
+        <rect width="440" height="240" rx="14" fill="rgba(10,10,18,0.92)" stroke="rgba(34,211,238,0.5)" strokeWidth="2" />
+        <rect x="14" y="14" width="412" height="212" rx="6" fill="rgba(34,211,238,0.06)" />
+        {/* Top bar */}
+        <rect x="14" y="14" width="412" height="22" rx="6" fill="rgba(34,211,238,0.12)" />
+        <text x="220" y="29" textAnchor="middle" fontSize="9" fontFamily="monospace" fill="rgba(34,211,238,0.85)">
+          kali@macksofy:~# spec-check
+        </text>
+
+        {/* Spec rows */}
+        {[
+          { y: 50, label: "CPU", value: "Intel Core i7-13700H · 14C/20T", status: "OK" },
+          { y: 80, label: "RAM", value: "32 GB DDR5 5600", status: "OK" },
+          { y: 110, label: "Disk", value: "1 TB NVMe Gen4 · 7000 MB/s", status: "OK" },
+          { y: 140, label: "GPU", value: "RTX 4060 8 GB · hashcat-ready", status: "OK" },
+          { y: 170, label: "Battery", value: "8.2 hrs typical · 99 Wh", status: "OK" },
+          { y: 200, label: "Linux", value: "Native · works out of box", status: "OK" },
+        ].map((r) => (
+          <g key={r.y}>
+            <text x="30" y={r.y} fontSize="10" fontFamily="monospace" fill="rgba(255,255,255,0.6)">
+              {r.label.padEnd(10)}
+            </text>
+            <text x="100" y={r.y} fontSize="10" fontFamily="monospace" fontWeight="600" fill="rgba(34,211,238,0.95)">
+              {r.value}
+            </text>
+            <g transform={`translate(370, ${r.y - 9})`}>
+              <rect width="36" height="14" rx="3" fill="rgba(74,222,128,0.18)" stroke="rgba(74,222,128,0.5)" />
+              <text x="18" y="10" textAnchor="middle" fontSize="9" fontFamily="monospace" fontWeight="700" fill="rgba(74,222,128,0.95)">
+                {r.status}
+              </text>
+            </g>
+          </g>
+        ))}
+      </g>
+      {/* Base of laptop */}
+      <g>
+        <path d="M 130 330 L 670 330 L 690 350 L 110 350 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+        <rect x="370" y="334" width="60" height="6" rx="2" fill="rgba(255,255,255,0.2)" />
+      </g>
+
+      {/* Top chips */}
+      <g transform="translate(40, 50)">
+        <rect width="180" height="28" rx="14" fill="rgba(34,211,238,0.18)" stroke="rgba(34,211,238,0.5)" />
+        <text x="90" y="18" textAnchor="middle" fontSize="10" fontFamily="monospace" fontWeight="700" fill="rgba(34,211,238,0.95)">
+          INDIA 2026 · RANKED
+        </text>
+      </g>
+      <g transform="translate(580, 50)">
+        <rect width="180" height="28" rx="14" fill="rgba(168,85,247,0.18)" stroke="rgba(168,85,247,0.4)" />
+        <text x="90" y="18" textAnchor="middle" fontSize="10" fontFamily="monospace" fontWeight="700" fill="rgba(168,85,247,0.95)">
+          ₹62k → ₹1.69L
+        </text>
+      </g>
+    </Frame>
+  );
+}
+
+/* ============================================================ */
 /*  Registry                                                    */
 /* ============================================================ */
 
@@ -843,6 +1223,17 @@ const REGISTRY: Record<Slug, (props: IllustrationProps) => React.ReactElement> =
   "ecih-vs-gcih-incident-handler-certification-2026": ECIHvsGCIH,
   "cpts-vs-oscp-certification-comparison-india-2026": CptsVsOscp,
   "crtp-vs-crte-certification-guide-india-2026": CrtpVsCrte,
+  // Page 2 additions
+  "soc-analyst-training-india-2026": SocAnalyst,
+  "red-team-certifications-india-2026": ADCheatsheet,
+  "offsec-learn-one-india-pricing-roi-2026": LearnOnePricing,
+  "cybersecurity-jobs-in-mumbai-2026": MumbaiJobs,
+  "oscp-training-in-mumbai-2026": ADPentestIndia,
+  "ceh-v13-ai-training-india-2026": MCPServerSecurity,
+  "top-10-penetration-testing-tools-2026": PentestTools,
+  "best-laptops-cybersecurity-students-india-2026": LaptopGuide,
+  "oswe-vs-oscp": OsweVsOscp,
+  "osep-vs-oscp": OsepVsOscp,
 };
 
 export function BlogIllustration({

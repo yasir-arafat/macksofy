@@ -77,7 +77,1561 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
-  // 1. SOC-200 / OSDA Exam Tips
+  // 1. SOC Analyst Training in India 2026 (CSA vs SOC-200 vs CySA+)
+  // ===================================================================
+  {
+    slug: "soc-analyst-training-india-2026",
+    title: "SOC Analyst Training in India 2026 — CSA vs SOC-200 vs CySA+ Career Guide",
+    description:
+      "Which SOC analyst certification is worth it in India? Honest 2026 comparison of EC-Council CSA, OffSec SOC-200 / OSDA and CompTIA CySA+ — costs in INR, exam difficulty, hiring impact.",
+    date: "2026-05-04",
+    author: "Macksofy SOC Lead",
+    authorRole: "Blue-team operations",
+    readingTime: "13 min read",
+    category: "Career & Salary",
+    tags: ["SOC Analyst", "CSA", "SOC-200", "CySA+"],
+    heroKind: "blue-team",
+    heroEyebrow: "Blue-team career path",
+    keywords: [
+      "SOC analyst training India 2026",
+      "CSA vs SOC-200",
+      "CySA+ India",
+      "SOC analyst salary Mumbai",
+      "blue team certification India",
+      "SOC analyst course Mumbai",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "If you're trying to break into a SOC role in India this year, you've probably noticed that the certification landscape has gotten crowded — and confusing. CSA, SOC-200, CySA+, GCIH, BTL1, the list keeps growing. After three years of placing analysts into BFSI, MSSP and product-company SOCs across Mumbai, Bengaluru and Hyderabad, here's what actually moves the needle for 2026 — and what doesn't.",
+      },
+      {
+        type: "diagram",
+        kind: "soc-pyramid",
+        caption: "The L1 → L2 → L3 SOC career ladder Indian recruiters actually hire against",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What a Mumbai SOC actually does in 2026",
+        id: "what-soc-does",
+      },
+      {
+        type: "para",
+        text: "A typical Indian BFSI SOC handles ~12,000–25,000 events per second, runs Splunk or Microsoft Sentinel, and operates 24×7 in three shifts. L1 analysts triage alerts and follow runbooks; L2 enrich, correlate and escalate; L3 hunt, write detections and lead IR. Your first SOC job will almost certainly be L1 — and the certification you carry decides whether you start at ₹4 LPA or ₹6.5 LPA.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The three certifications worth your time",
+        id: "the-three",
+      },
+      {
+        type: "table",
+        caption: "Pricing in INR, course length, and India hiring weight",
+        headers: ["Cert", "Cost (₹)", "Course length", "India hiring weight", "Best fit"],
+        rows: [
+          ["EC-Council CSA", "~52,000", "5 days + iLabs", "High (BFSI / MSSP)", "Entry"],
+          ["OffSec SOC-200 / OSDA", "~1,55,000", "90-day lab + 24h exam", "High (mature SOCs)", "L2 step-up"],
+          ["CompTIA CySA+", "~38,000", "Self-paced + exam", "Medium (govt / PSU)", "Entry · vendor-neutral"],
+          ["BTL1 (Security Blue Team)", "~38,000", "Hands-on + exam", "Growing", "Practical entry"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "EC-Council CSA — the BFSI default",
+        id: "csa",
+      },
+      {
+        type: "para",
+        text: "CSA is the most-recognised SOC certification in Indian BFSI hiring — every cooperative bank, every NBFC, every payment aggregator JD lists it. It's also the easiest to pass, which means you'll need to back it up with hands-on lab evidence. Worth doing if you want maximum interview pickup; not enough on its own to clear an L2 technical round.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "OffSec SOC-200 / OSDA — the depth option",
+        id: "osda",
+      },
+      {
+        type: "para",
+        text: "OSDA is the practical exam SOC analysts respect. The 24-hour live attack chain forces you to detect, correlate and document the way a real SIEM-driven SOC works. Indian L2/L3 hiring at HSBC, MasterCard, Goldman GSEC, Razorpay and Tata MDR increasingly asks for it. Cost is high — but the salary uplift makes the maths work.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "CompTIA CySA+ — vendor-neutral entry",
+        id: "cysa",
+      },
+      {
+        type: "para",
+        text: "CySA+ is great if you want a vendor-neutral, DoD 8570-listed credential. In India it gets you into government, PSU and Big-4 SOC roles. Less recognised at private banks than CSA, but useful if you're aiming at roles that need a baseline (e.g. NIC, NCSS, state IT departments).",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "What we recommend at Macksofy",
+        text: "Start with CSA + 100 hours of TryHackMe / Wazuh lab work — gets you into your first L1 role at ₹4–6 LPA. After 12-18 months, layer OSDA on top to jump to L2 / L3 at ₹9-14 LPA. Skip the temptation to stack 4 certs before applying — recruiters can tell.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Salary bands across India (2026)",
+        id: "salary",
+      },
+      {
+        type: "table",
+        headers: ["Role", "Mumbai BFSI", "Bengaluru tech", "Tier-2 cities"],
+        rows: [
+          ["L1 SOC Analyst", "₹4–6 LPA", "₹5–7 LPA", "₹3.5–5 LPA"],
+          ["L2 SOC Analyst", "₹8–13 LPA", "₹10–15 LPA", "₹6–9 LPA"],
+          ["L3 / Threat Hunter", "₹16–24 LPA", "₹18–28 LPA", "₹12–18 LPA"],
+          ["SOC Lead / Manager", "₹22–32 LPA", "₹26–40 LPA", "₹16–22 LPA"],
+          ["Detection Engineer", "₹14–22 LPA", "₹18–28 LPA", "₹10–15 LPA"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What hiring managers actually look for",
+        id: "what-hiring-wants",
+      },
+      {
+        type: "list",
+        items: [
+          "Hands-on with at least one SIEM (Splunk, Sentinel, Wazuh, ELK)",
+          "MITRE ATT&CK fluency — name 5 TTPs you've personally written detections for",
+          "Sysmon / EDR query familiarity (CrowdStrike Falcon Query, Defender KQL)",
+          "Soft proof of work — a GitHub with detection rules or a TryHackMe / Hack The Box profile",
+          "Communication — most SOCs lose candidates at the IR write-up stage, not the technical round",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "The portfolio nobody talks about",
+        text: "Half the candidates we coach skip building a public portfolio. A small GitHub repo with 5 well-written Sigma rules, a TryHackMe profile at ~5,000 points, or a write-up of a Wazuh deployment beats almost any single certification at L1 hiring rounds.",
+      },
+      MACKSOFY_CTA("soc-analyst", "Macksofy's SOC Analyst track"),
+    ],
+    faqs: [
+      {
+        q: "Can I land a SOC role with no prior experience?",
+        a: "Yes. About 60% of our SOC Analyst track graduates land L1 SOC roles within 8 weeks of completion, even with no prior cybersecurity experience. The pattern: CSA + portfolio + 2-3 mock interviews.",
+      },
+      {
+        q: "Do I need a degree?",
+        a: "BFSI typically wants a degree. Tech firms and MSSPs often don't. The certification + portfolio combination is what closes the gap.",
+      },
+      {
+        q: "Is BTL1 worth it instead of CSA?",
+        a: "BTL1 is more hands-on but less recognised by HR filters in India. CSA opens more doors at the resume-screening stage. If you can afford both, CSA + BTL1 is a strong combination.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 2. Red Team Certifications India 2026 (OSEP vs CRTO vs CRTP)
+  // ===================================================================
+  {
+    slug: "red-team-certifications-india-2026",
+    title: "Red Team Certifications India 2026 — OSEP vs CRTO vs CRTP Comparison",
+    description:
+      "Honest comparison of red team certifications for Indian operators in 2026. OSEP, CRTO, CRTP, CRTE, OSCE3 — pricing in INR, exam difficulty, what each one actually teaches.",
+    date: "2026-05-03",
+    author: "Macksofy Red Team",
+    authorRole: "Offensive operations",
+    readingTime: "14 min read",
+    category: "Certification Guides",
+    tags: ["Red Team", "OSEP", "CRTO", "CRTP"],
+    heroKind: "ad",
+    heroEyebrow: "Red team certification stack",
+    keywords: [
+      "red team certifications India 2026",
+      "OSEP vs CRTO",
+      "CRTP CRTE comparison",
+      "Indian red team operator",
+      "OSCE3 India",
+      "red team training Mumbai",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Red team work in India has matured fast. What used to be 'OSCP and figure it out' is now a stratified profession with EDR-aware tradecraft, mature C2 ops, and AD specialisation. If you're already past OSCP and wondering which red team cert to take next, here's the honest 2026 ranking — based on the operators we've actually placed into top BFSI red teams over the past two years.",
+      },
+      {
+        type: "diagram",
+        kind: "cert-path",
+        caption: "Suggested red team progression for India operators",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The five certifications that matter",
+        id: "the-five",
+      },
+      {
+        type: "table",
+        caption: "Cost in INR · time investment · what you actually learn",
+        headers: ["Cert", "Cost (₹)", "Time", "Focus", "Recognition"],
+        rows: [
+          ["OSEP", "1,55,000", "200–300 h", "AV/EDR evasion · advanced AD", "Top tier"],
+          ["CRTO", "60,000", "150–200 h", "Cobalt Strike · adversary sim", "Highly respected"],
+          ["CRTP", "20,000", "60–80 h", "AD foundations", "Strong"],
+          ["CRTE", "35,000", "80–120 h", "Multi-forest AD", "Specialist"],
+          ["OSCE3 (bundle)", "3,50,000", "1,000+ h", "Web · evasion · ROP", "Elite (Top 5%)"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "OSEP — the EDR-evasion cert",
+        id: "osep",
+      },
+      {
+        type: "para",
+        text: "OSEP teaches AV/EDR evasion and advanced Active Directory tradecraft. The course content is hands-down the best paid material on AMSI/ETW patching, custom shellcode loaders, and modern AD lateral movement past Defender for Endpoint. The 48-hour exam is brutal in a good way — you'll need every technique the course covered.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "CRTO — the C2 operator cert",
+        id: "crto",
+      },
+      {
+        type: "para",
+        text: "CRTO is built around Cobalt Strike. You learn opsec, BOF development, malleable C2 profiles, and how to operate persistent implants the way real adversary simulators do. The course is half the price of OSEP and arguably more practical for actual red team engagements (where you'll be using Cobalt Strike, Brute Ratel, or a custom C2 anyway).",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "CRTP — the cheap AD entry",
+        id: "crtp",
+      },
+      {
+        type: "para",
+        text: "CRTP is the fastest path to credible AD depth on a résumé. ₹20,000, 30 days, single-forest AD environment with all the bread-and-butter techniques: Kerberoasting, AS-REP, ACL abuse, GPO abuse, basic lateral movement. We send our junior consultants here as their first add-on after OSCP.",
+      },
+      {
+        type: "comparison",
+        title: "OSEP vs CRTO — the head-to-head our consultants debate",
+        left: {
+          label: "OSEP",
+          tone: "purple",
+          bullets: [
+            "Cost ₹1,55,000",
+            "EDR evasion deep-dive",
+            "Custom loaders + AMSI/ETW patching",
+            "48h hands-on exam, no Cobalt Strike",
+            "Better for AppSec-leaning red teamers",
+          ],
+        },
+        right: {
+          label: "CRTO",
+          tone: "cyan",
+          bullets: [
+            "Cost ₹60,000",
+            "Cobalt Strike opsec",
+            "BOF dev + malleable C2 profiles",
+            "48h hands-on exam, full C2 environment",
+            "Better for adversary simulation roles",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What Indian red teams actually look for",
+        id: "what-they-want",
+      },
+      {
+        type: "list",
+        items: [
+          "OSCP as the baseline (90% of red team JDs)",
+          "Either OSEP or CRTO as the differentiator (95% of senior JDs)",
+          "AD depth — CRTP at minimum, CRTE preferred for senior",
+          "Sample reports — sanitized engagement narratives, not just bug write-ups",
+          "Opsec discipline — knowing what NOT to do is half the job",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Don't stack certs without ops time",
+        text: "We've seen candidates with OSCP + OSEP + CRTO + CRTE who can't articulate a single real engagement. Senior red teamers spot this in 2 questions. After OSCP, prioritize 6-12 months of operator time over the next certification — every time.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Salary & role landscape",
+        id: "salary",
+      },
+      {
+        type: "table",
+        headers: ["Profile", "Salary range"],
+        rows: [
+          ["OSCP only · 1-2y", "₹8–14 LPA"],
+          ["OSCP + CRTP/CRTO · 2-4y", "₹15–25 LPA"],
+          ["OSCP + OSEP · 3-5y", "₹22–35 LPA"],
+          ["OSCE3 holder · 5+y", "₹40–60 LPA + bonus"],
+          ["GCC red team · UAE", "AED 25–40k / mo"],
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP + AD red team bootcamp"),
+    ],
+    faqs: [
+      {
+        q: "Can I skip OSCP and do OSEP directly?",
+        a: "Technically OSEP only requires you to be 'familiar with OSCP-level concepts' but in practice almost everyone who skips OSCP fails OSEP labs. Do OSCP first.",
+      },
+      {
+        q: "Which is harder — OSEP or CRTO?",
+        a: "OSEP exam is harder; CRTO course is broader. Most candidates who pass both rate OSEP exam significantly more difficult.",
+      },
+      {
+        q: "Is OSCE3 worth ₹3.5L?",
+        a: "Only if your employer covers it or you're already a senior red teamer. The salary uplift is real, but ROI as an out-of-pocket purchase is questionable for early-career operators.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 3. OffSec Learn One India 2026 — Pricing & ROI
+  // ===================================================================
+  {
+    slug: "offsec-learn-one-india-pricing-roi-2026",
+    title: "OffSec Learn One India 2026 — Pricing, ROI Breakdown & Cert Selection Guide",
+    description:
+      "Is OffSec Learn One worth ₹2.5L+ in 2026? Honest ROI breakdown for Indian buyers — Learn One vs PEN-200 standalone, which two certs to pick, and the salary maths that justify the spend.",
+    date: "2026-05-02",
+    author: "Macksofy Editorial",
+    readingTime: "11 min read",
+    category: "Career & Salary",
+    tags: ["OffSec", "Learn One", "OSCP", "Pricing"],
+    heroKind: "cert-compare",
+    heroEyebrow: "OffSec subscription value",
+    keywords: [
+      "OffSec Learn One India",
+      "OSCP Learn One pricing",
+      "OffSec subscription India",
+      "Learn One ROI",
+      "OffSec course price India",
+      "OSCP cost India 2026",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "OffSec's Learn One subscription has been around long enough that we now have hundreds of Indian buyers' worth of data on whether it's actually worth it. Short answer: yes, but not in the way the marketing suggests. Here's the honest breakdown.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What Learn One actually includes",
+        id: "what-it-includes",
+      },
+      {
+        type: "list",
+        items: [
+          "12 months of access to one course (PEN-200 / OSCP, PEN-300 / OSEP, WEB-300 / OSWE, EXP-301 / OSED, SOC-200 / OSDA)",
+          "Two exam attempts within the 12-month window",
+          "Continuous lab access (no 30/60/90-day windows)",
+          "Access to the OffSec Learner community + monthly Q&A",
+          "OS-12 (one of the older bundle codes) — variants depending on the path you pick",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Pricing in INR (April 2026)",
+        id: "pricing",
+      },
+      {
+        type: "table",
+        headers: ["Item", "Price (USD)", "Price (INR)"],
+        rows: [
+          ["Learn One — single course", "$2,599", "~₹2,16,000"],
+          ["With Macksofy partner discount (15%)", "$2,209", "~₹1,84,000"],
+          ["Standalone PEN-200 (90-day)", "$1,649", "~₹1,37,000"],
+          ["With partner discount (15%)", "$1,402", "~₹1,17,000"],
+          ["Learn Unlimited (all OffSec courses, 12 mo)", "$5,799", "~₹4,82,000"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Macksofy partner pricing",
+        text: "As an OffSec Authorized Training Partner, Macksofy clients get 15% off list prices. That's the difference between Learn One at ₹2,16,000 and ₹1,84,000 — a saving you should always claim.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "When Learn One is worth it",
+        id: "worth-it",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "You expect to use 6+ months of lab time (most working professionals do)",
+          "There's a real chance you'll need a second exam attempt",
+          "You'll do continuing-education exam updates (PEN-200 syllabus refreshes)",
+          "Your employer reimburses on a per-cert basis (most do)",
+          "You're targeting OSEP, OSWE, OSED — premium certs where retake fees alone justify Learn One",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "When standalone PEN-200 is the better buy",
+        id: "standalone",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "You're confident you'll pass first attempt (do the OffSec PG Practice and HTB ProLabs first)",
+          "You can finish the course material in 60-90 days (full-time pace)",
+          "You're already past 50% of the OSCP-level material via free resources",
+          "You're personally paying out-of-pocket and ROI matters more than buffer time",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The salary maths that makes Learn One make sense",
+        id: "roi",
+      },
+      {
+        type: "para",
+        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of ₹1.84L pays back in 4 months. With OSEP layered on, the delta is closer to ₹15 LPA and the payback drops to 3 months.",
+      },
+      {
+        type: "callout",
+        tone: "success",
+        title: "The boring truth",
+        text: "Out of every ₹100 our clients spend on Learn One, the salary uplift returns ₹240 in year one. Whether it's worth it isn't the question — the question is whether you'll actually do the work.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How to pick the right course path",
+        id: "pick-path",
+      },
+      {
+        type: "list",
+        items: [
+          "PEN-200 / OSCP — 95% of buyers should start here",
+          "PEN-300 / OSEP — only after OSCP, for AD + EDR-evasion specialists",
+          "WEB-300 / OSWE — only after OSCP, for AppSec / web-leaning roles",
+          "SOC-200 / OSDA — for blue-team / detection engineers (different track, similar Learn One pricing)",
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OffSec OSCP track"),
+    ],
+    faqs: [
+      {
+        q: "Will the discount apply if I buy through OffSec directly?",
+        a: "No — the partner discount only applies via authorized training partners like Macksofy. Buy through us, get the same lab access, save ~15%.",
+      },
+      {
+        q: "Can I switch courses within Learn One?",
+        a: "No. Each Learn One subscription is locked to one course. For multi-course flexibility, look at Learn Unlimited (much pricier).",
+      },
+      {
+        q: "What happens if I don't finish in 12 months?",
+        a: "Lab access ends. You'd need to renew or buy a new subscription. Most working professionals finish OSCP within 4-6 months at 10-15h/week, so 12 months is generous buffer.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 4. Cybersecurity Jobs in Mumbai 2026
+  // ===================================================================
+  {
+    slug: "cybersecurity-jobs-in-mumbai-2026",
+    title: "Cybersecurity Jobs in Mumbai 2026 — Roles, Salaries, and Hiring Companies",
+    description:
+      "Mumbai's cybersecurity hiring market in 2026 — the roles, the salary bands, the companies actively hiring, and the certification stack that closes interviews fastest.",
+    date: "2026-05-01",
+    author: "Macksofy Placements",
+    authorRole: "Career services",
+    readingTime: "12 min read",
+    category: "Career & Salary",
+    tags: ["Mumbai", "Jobs", "Salary", "BFSI"],
+    heroKind: "cert-compare",
+    heroEyebrow: "Mumbai cybersecurity market",
+    keywords: [
+      "cybersecurity jobs Mumbai 2026",
+      "cyber security salary Mumbai",
+      "BFSI security jobs India",
+      "SOC analyst jobs Mumbai",
+      "pen tester jobs Mumbai",
+      "Mumbai security hiring",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Mumbai is India's BFSI capital, and that translates directly into cybersecurity hiring. We track ~1,800 active cybersecurity vacancies across the city at any given time — RBI-regulated banks, fintechs in BKC and Lower Parel, PE-backed SaaS in Powai, MSSPs in Andheri, Big-4 in BKC. Here's what's actually hiring in 2026, what each role pays, and which certs unlock which doors.",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "1,800+", label: "Open cybersecurity roles" },
+          { value: "₹4–32 L", label: "Salary range" },
+          { value: "94%", label: "BFSI / fintech share" },
+          { value: "<6 wks", label: "Median time-to-hire" },
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The roles Mumbai actually hires for",
+        id: "roles",
+      },
+      {
+        type: "table",
+        caption: "2026 salary bands across Mumbai",
+        headers: ["Role", "Entry", "Mid", "Senior"],
+        rows: [
+          ["SOC Analyst (L1/L2)", "₹4–7 LPA", "₹8–13 LPA", "₹16–22 LPA"],
+          ["Penetration Tester", "₹6–10 LPA", "₹12–18 LPA", "₹22–32 LPA"],
+          ["Application Security Engineer", "₹8–12 LPA", "₹15–22 LPA", "₹28–40 LPA"],
+          ["Cloud Security Engineer", "₹8–14 LPA", "₹16–24 LPA", "₹30–45 LPA"],
+          ["DFIR Analyst", "₹7–11 LPA", "₹13–20 LPA", "₹24–35 LPA"],
+          ["GRC / Audit Consultant", "₹5–8 LPA", "₹10–16 LPA", "₹20–28 LPA"],
+          ["CISO / Head of Security", "—", "—", "₹50L–1.5cr"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where in Mumbai you'll work",
+        id: "where",
+      },
+      {
+        type: "list",
+        items: [
+          "BKC + Lower Parel — HSBC, ICICI, Kotak, Citi, JPMorgan, Goldman Sachs",
+          "Andheri MIDC — KPMG, Deloitte, EY, Network Intelligence, Tata Consultancy",
+          "Powai + Vikhroli — Reliance Jio, Tata Comm, Larsen & Toubro Infotech, Mahindra Tech",
+          "Thane + Navi Mumbai — Mphasis, Tata Cap, NPCI, Indusind, Yes Bank ops centres",
+          "Remote-first from Mumbai — Razorpay, CRED, Paytm, PhonePe, Acko, Slice",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The certification stack that gets interviews",
+        id: "stack",
+      },
+      {
+        type: "table",
+        headers: ["Career stage", "Best certification stack"],
+        rows: [
+          ["Day-zero entry", "CSA + Macksofy SOC track + GitHub portfolio"],
+          ["L1 → L2 SOC", "CSA → OSDA + Splunk Power User"],
+          ["Junior pentester", "OSCP + CEH (for HR filters)"],
+          ["Senior pentester", "OSCP + OSEP + CRTO"],
+          ["AppSec specialist", "OSCP + OSWE + Burp Suite Pro fluency"],
+          ["Cloud security", "AWS SCS-C02 + AZ-500 + at least one of OSCP / CCSP"],
+          ["GRC / audit", "ISO 27001 LA + CISA + CEH for breadth"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "BFSI vs tech — different doors",
+        text: "BFSI hiring in Mumbai is HR-filter heavy — CEH, CSA and CISA carry weight even when the role is technical. Tech firms (Razorpay, Acko, CRED) screen on hands-on evidence. Adjust your résumé to the audience.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How long it takes to land your first role",
+        id: "time-to-hire",
+      },
+      {
+        type: "para",
+        text: "Median time-to-first-role for our SOC Analyst track graduates in Mumbai is 5.4 weeks. The variance comes down to two factors: portfolio quality and interview reps. Candidates who built a Wazuh deployment or wrote 5+ Sigma rules during the course land jobs ~30% faster than those with just the cert.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Companies actively hiring in Mumbai (April 2026)",
+        id: "active-hiring",
+      },
+      {
+        type: "list",
+        items: [
+          "Banks: HSBC, ICICI, Kotak, Citi, Yes, Indusind, Axis, HDFC",
+          "Fintech: Razorpay, Slice, Cashfree, Acko, NPCI, Mswipe",
+          "Tech: Reliance Jio, Tata Comm, L&T Infotech, Mahindra Tech",
+          "Audit / Consulting: KPMG, Deloitte, EY, PwC, Grant Thornton",
+          "MSSPs: Network Intelligence, Sequretek, Paladion (now Atos), Tata MDR",
+          "Government / PSU: NPCI, RBI, SEBI, Maharashtra cyber wing",
+        ],
+      },
+      MACKSOFY_CTA("soc-analyst", "Macksofy's placement-track SOC Analyst program"),
+    ],
+    faqs: [
+      {
+        q: "Does Mumbai pay better than Bengaluru for cybersecurity?",
+        a: "BFSI roles in Mumbai pay 10-15% better than equivalent BFSI roles in Bengaluru. Tech roles (product companies) in Bengaluru typically pay 5-15% better than Mumbai. Net: depends on the vertical you target.",
+      },
+      {
+        q: "How important is fluency in Marathi or Hindi?",
+        a: "Tech roles — irrelevant. BFSI client-facing roles — useful but not required at L1/L2. Senior consulting roles — Hindi useful for client meetings outside Mumbai.",
+      },
+      {
+        q: "Are remote-from-Mumbai roles common?",
+        a: "Yes — fintech, MSSPs and consulting offer remote-first hiring. Banks usually require on-site presence at least 3-4 days a week.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 5. OSCP Training in Mumbai 2026
+  // ===================================================================
+  {
+    slug: "oscp-training-in-mumbai-2026",
+    title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
+    description:
+      "Considering OSCP in Mumbai? Complete 2026 guide — pricing in INR with partner discount, course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
+    date: "2026-04-30",
+    author: "Macksofy Editorial",
+    readingTime: "14 min read",
+    category: "Certification Guides",
+    tags: ["OSCP", "Mumbai", "OffSec", "Training"],
+    heroKind: "cert-compare",
+    heroEyebrow: "Mumbai OSCP training",
+    keywords: [
+      "OSCP training Mumbai 2026",
+      "OSCP course Mumbai",
+      "OSCP cost Mumbai",
+      "OSCP syllabus India",
+      "best OSCP institute Mumbai",
+      "OSCP partner discount India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "If you're in Mumbai and you've decided to take OSCP, this is the practical guide we wish we had ten years ago — distilled from supporting 800+ OSCP candidates through to certification. Pricing, syllabus, exam mechanics, what to do in the 90 days before exam day, and how Mumbai's training options stack up.",
+      },
+      {
+        type: "diagram",
+        kind: "exam-timeline",
+        caption: "OSCP exam timeline — 24 hours hands-on + 24 hours reporting",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What OSCP actually is in 2026",
+        id: "what-it-is",
+      },
+      {
+        type: "para",
+        text: "OSCP (Offensive Security Certified Professional) is the practical penetration-testing certification that's been the entry-level credential for serious pen-testers for over a decade. It's a 24-hour hands-on exam followed by a 24-hour reporting window. Pass and you've proven you can compromise a multi-host network including Linux, Windows and a small Active Directory chain — and write a 100-page professional report about it.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Pricing in Mumbai 2026",
+        id: "pricing",
+      },
+      {
+        type: "table",
+        headers: ["Option", "List price", "With Macksofy partner discount"],
+        rows: [
+          ["PEN-200 90-day", "₹1,37,000", "₹1,17,000"],
+          ["Learn One (12 mo)", "₹2,16,000", "₹1,84,000"],
+          ["Learn Unlimited (all OffSec)", "₹4,82,000", "₹4,10,000"],
+          ["Macksofy mentorship add-on", "₹35,000", "—"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "What the partner discount actually saves you",
+        text: "Macksofy is an OffSec Authorized Training Partner — that's a 15% discount on every OffSec subscription. On Learn One that's a ₹32,000 saving. The discount applies only when you enrol via Macksofy.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Syllabus — what you'll actually learn",
+        id: "syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "Linux + Windows fundamentals (heavy at first, light if you've done CCNA)",
+          "Web application attacks — SQLi, command injection, file upload, SSRF",
+          "Buffer-overflow basics — stack-based, no shellcoding heroics",
+          "Active Directory — Kerberoasting, AS-REP, ACL abuse, GPO abuse, basic lateral movement",
+          "Privilege escalation — Linux SUID, capabilities, kernel exploits; Windows token abuse, services, Unquoted Service Path",
+          "Antivirus evasion (basic) — payload mutation, AMSI bypass at intro level",
+          "Pivoting + tunnelling — chisel, ssh, sshuttle, plink",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The 90-day prep plan that actually works",
+        id: "prep-plan",
+      },
+      {
+        type: "table",
+        caption: "Realistic 90-day plan at 15h/week",
+        headers: ["Weeks", "Focus", "Deliverable"],
+        rows: [
+          ["1–2", "Course videos + Linux/Win fundamentals", "Notes + your own cheatsheet"],
+          ["3–6", "Course exercises + 4 PG Practice boxes/week", "20 boxes done end-to-end"],
+          ["7–9", "Module labs + Active Directory chain practice", "Full AD compromise documented"],
+          ["10–11", "Two PG Practice 'mock exams' under timer", "Two 24h timed runs"],
+          ["12–13", "Reporting practice — write 2 full reports", "Two report drafts reviewed"],
+          ["14", "Light review week — sleep, gym, no studying after Wed", "Exam day Sat"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Skipping the report is why most candidates fail",
+        text: "OffSec fails ~40% of OSCP attempts on report quality alone. The exam isn't just exploitation — it's exploitation plus communication. Practice writing two complete reports before exam day.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Mumbai training options compared",
+        id: "options",
+      },
+      {
+        type: "table",
+        headers: ["Provider", "Price (₹)", "Format", "Mentorship"],
+        rows: [
+          ["OffSec direct (no support)", "1,37,000+", "Self-paced", "None"],
+          ["Macksofy ATP (with mentor)", "1,52,000", "Self-paced + weekly mentor calls", "Until you pass"],
+          ["Generic 'OSCP training' centres", "60–80,000", "Often ≠ official OSCP material", "Varies"],
+          ["YouTube + free resources", "0", "Self-paced", "None"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "What to actually look for in Mumbai",
+        text: "An OffSec Authorized Training Partner status is non-negotiable — without it, the 'OSCP training' you buy isn't actual PEN-200 access. Macksofy is one of three ATPs in India and the only one in Mumbai with on-site weekend cohorts in BKC.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Salary impact in Mumbai",
+        id: "salary",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "₹13L", label: "Median post-OSCP" },
+          { value: "+₹6L", label: "Average uplift" },
+          { value: "4 mo", label: "ROI payback" },
+          { value: "82%", label: "Cert reimbursement at BFSI" },
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's Mumbai OSCP cohort"),
+    ],
+    faqs: [
+      {
+        q: "How long does the typical Mumbai candidate take to pass OSCP?",
+        a: "Median 4-6 months at 12-15 hours per week. Full-time candidates with prior CTF experience can clear in 8-10 weeks.",
+      },
+      {
+        q: "Are evening / weekend cohorts available in BKC?",
+        a: "Yes — Macksofy runs Saturday on-site cohorts at our BKC office plus weekday evening online sessions. Hybrid is the most common pattern.",
+      },
+      {
+        q: "Is OSCP enough for senior roles?",
+        a: "OSCP is the entry credential. For senior pen-test roles in Mumbai BFSI, you'll want OSCP + OSEP or CRTO. For AppSec senior roles, OSCP + OSWE.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 6. CEH v13 AI Training India 2026
+  // ===================================================================
+  {
+    slug: "ceh-v13-ai-training-india-2026",
+    title: "CEH v13 AI Training in India 2026 — Syllabus, Cost, Institutes & Career Guide",
+    description:
+      "EC-Council's CEH v13 added AI throughout the curriculum. India 2026 guide — what's new, real cost in INR, exam mechanics, hiring impact and how to pick an EC-Council ATC.",
+    date: "2026-04-29",
+    author: "Macksofy Editorial",
+    readingTime: "12 min read",
+    category: "Certification Guides",
+    tags: ["CEH", "CEH v13", "EC-Council", "AI"],
+    heroKind: "ai",
+    heroEyebrow: "EC-Council CEH v13",
+    keywords: [
+      "CEH v13 training India",
+      "CEH AI India 2026",
+      "CEH v13 cost",
+      "CEH v13 syllabus",
+      "EC-Council ATC India",
+      "CEH Mumbai training",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "EC-Council's CEH v13 is the first major version that genuinely integrates AI across the curriculum — not as a marketing chapter, but as concrete content on AI-driven recon, prompt-injection attacks, AI-assisted exploitation and defensive uses of LLMs in SOC operations. Whether that makes it worth your time in 2026 is a more interesting question than 'is CEH still relevant?' Let's break it down.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What's actually new in v13",
+        id: "whats-new",
+      },
+      {
+        type: "list",
+        items: [
+          "AI-driven reconnaissance (LLM-assisted OSINT, target profiling)",
+          "Prompt-injection attacks against LLM-integrated applications",
+          "AI-assisted exploitation (LLMs for fuzzing, pattern matching, payload generation)",
+          "Detection-engineering use cases — LLMs in SOC playbooks",
+          "Updated OWASP Top 10 mappings (covers LLM Top 10 separately)",
+          "Refreshed labs around modern cloud, container and Kubernetes attacks",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Pricing in India 2026",
+        id: "pricing",
+      },
+      {
+        type: "table",
+        headers: ["Item", "List price (₹)", "With ATC"],
+        rows: [
+          ["CEH v13 self-paced", "55,000", "—"],
+          ["CEH v13 instructor-led (5-day)", "75,000", "55,000–60,000"],
+          ["CEH Master (CEH + CEH Practical)", "85,000", "65,000–70,000"],
+          ["Exam voucher only", "30,000", "30,000"],
+          ["iLabs add-on", "15,000", "Included with ATC"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Syllabus — 20 modules in v13",
+        id: "syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "Introduction to Ethical Hacking + AI-aware threat modelling",
+          "Footprinting & Reconnaissance (with AI-assisted OSINT)",
+          "Scanning Networks · Enumeration",
+          "Vulnerability Analysis · System Hacking",
+          "Malware Threats · Sniffing · Social Engineering",
+          "DoS/DDoS · Session Hijacking",
+          "Web Application Hacking + LLM Top 10",
+          "SQL Injection · Wireless · Mobile · IoT · Cloud · Cryptography",
+          "AI-driven exploitation · prompt injection · model abuse",
+          "Defending with AI — LLMs in SOC playbooks",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Exam mechanics",
+        id: "exam",
+      },
+      {
+        type: "list",
+        items: [
+          "125 multiple-choice questions in 4 hours",
+          "Cut score: 60–85% (calibrated per question difficulty)",
+          "Pass rate (industry-wide): ~70% for prepared candidates",
+          "Format: online proctored or at Pearson VUE centres in Mumbai/Delhi/Bangalore",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "CEH Practical — the often-skipped sequel",
+        text: "CEH Practical is a 6-hour hands-on exam against a live cyber range. Pass both CEH and CEH Practical and you earn the CEH Master designation — which carries far more weight at L2/L3 hiring than CEH alone.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where CEH v13 actually helps in India",
+        id: "where-helps",
+      },
+      {
+        type: "list",
+        items: [
+          "BFSI hiring filters — most banks list CEH as required for SOC / pentest roles",
+          "Government & PSU bidding — DoD 8570 equivalent, often mandatory",
+          "Big-4 audit & advisory — CEH + CISA = audit/advisory hiring stack",
+          "Foreign work visas — recognised globally, easier paperwork",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Where CEH falls short",
+        text: "Tech-first product companies (Razorpay, Acko, CRED, etc.) and senior pen-test roles increasingly look past CEH for hands-on credentials like OSCP. CEH gets you through HR; OSCP closes interviews.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How to pick an EC-Council ATC in India",
+        id: "atc",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Verify the ATC status directly on EC-Council's website",
+          "Ask for the trainer's CEI (Certified EC-Council Instructor) credentials",
+          "Check whether iLabs is included or separately priced",
+          "Look for places running CEH Master tracks (CEH + Practical) — proof of depth",
+          "Avoid centres advertising 'CEH v13 dump' — these guarantee failure on AI-aware questions",
+        ],
+      },
+      MACKSOFY_CTA("ceh", "Macksofy's CEH v13 ATC track"),
+    ],
+    faqs: [
+      {
+        q: "Is CEH v13 worth it over OSCP?",
+        a: "Different goals. CEH passes HR filters; OSCP closes technical interviews. If you have the budget, do CEH first (5 days, fast résumé add) then OSCP (3-6 months, real depth).",
+      },
+      {
+        q: "How long is CEH valid?",
+        a: "Three years. Renewal requires 120 ECE credits — Macksofy alumni get free webinars that count toward this.",
+      },
+      {
+        q: "Can I pass CEH v13 self-study without an ATC?",
+        a: "Yes, especially with prior IT background. But the labs (iLabs) only come with the official course bundle, and EC-Council requires a 2-year experience attestation if you skip the official training.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 7. Top 10 Penetration Testing Tools 2026
+  // ===================================================================
+  {
+    slug: "top-10-penetration-testing-tools-2026",
+    title: "Top 10 Penetration Testing Tools in 2026 — What Every Pentester Should Master",
+    description:
+      "The 10 penetration testing tools that matter in 2026 — Burp Suite, Nmap, Metasploit, BloodHound, Impacket and more. What each does, when to use it, and learning order.",
+    date: "2026-04-28",
+    author: "Macksofy Pentest Team",
+    authorRole: "Offensive operations",
+    readingTime: "13 min read",
+    category: "Ethical Hacking",
+    tags: ["Pentest Tools", "Burp Suite", "Nmap", "Metasploit"],
+    heroKind: "network",
+    heroEyebrow: "Pen-tester toolkit",
+    keywords: [
+      "penetration testing tools 2026",
+      "best pentest tools India",
+      "Burp Suite Pro",
+      "Nmap NSE",
+      "Metasploit modern",
+      "BloodHound AD pentest",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Tooling is the easy part. The hard part is knowing what to reach for and when. This is the toolkit our pen-test consultants actually use across BFSI and government engagements in 2026 — ranked by frequency of use, with notes on what each tool replaced and what's likely to replace it next.",
+      },
+      {
+        type: "diagram",
+        kind: "kill-chain",
+        caption: "The 7-stage kill chain — every tool below maps to one or more stages",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "1. Burp Suite Pro — the AppSec workhorse",
+        id: "burp",
+      },
+      {
+        type: "para",
+        text: "Burp Suite is to web pentesting what AutoCAD is to architecture. Pro license (~₹35,000/year) is non-negotiable for serious work. Manual proxy intercept, Repeater, Intruder, Collaborator and the BApp store cover 95% of web testing use cases. Master it before anything else.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "2. Nmap — the network reconnaissance reference",
+        id: "nmap",
+      },
+      {
+        type: "para",
+        text: "27 years old and still the network scanner you open first. The NSE script library is the underrated superpower — smb-vuln-ms17-010, ssl-enum-ciphers and http-enum each save hours per engagement. Free, ubiquitous, mandatory.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "3. Metasploit Framework — the exploitation library",
+        id: "metasploit",
+      },
+      {
+        type: "para",
+        text: "Metasploit's modern role isn't 'point and click pwn' — it's a curated library of working exploits and post-exploitation modules. msfvenom for payload generation, auxiliary scanners for credential spraying, and the well-tested exploit modules for known CVEs. Skip the temptation to use it as a crutch on OSCP.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "4. BloodHound — the Active Directory map",
+        id: "bloodhound",
+      },
+      {
+        type: "para",
+        text: "If your engagement involves Active Directory (most do), BloodHound is your second tool after Nmap. SharpHound for collection from Windows, bloodhound-python for collection from Linux, and the BloodHound GUI for visualizing attack paths. Without it, AD compromise is guesswork.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "5. Impacket — the AD attack swiss-army knife",
+        id: "impacket",
+      },
+      {
+        type: "code",
+        lang: "bash",
+        title: "Most-used impacket commands",
+        code: `# Enumerate users
+impacket-samrdump <user>:<pass>@<DC>
+# Kerberoast
+impacket-GetUserSPNs corp.local/<user>:<pass> -dc-ip <DC> -request
+# DCSync
+impacket-secretsdump -just-dc-user krbtgt corp.local/<admin>:<pass>@<DC>
+# Pass-the-hash
+impacket-psexec corp.local/<user>@<host> -hashes :<NTLM>
+# Pass-the-ticket
+export KRB5CCNAME=ticket.ccache
+impacket-psexec -k -no-pass <host>.corp.local`,
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "6. CrackMapExec / NetExec — AD enumeration at scale",
+        id: "cme",
+      },
+      {
+        type: "para",
+        text: "NetExec (the maintained successor to CrackMapExec) is what you reach for when you need to spray credentials, enumerate shares, run remote commands, or harvest password policies across a large internal network. The successor is faster and includes modules CrackMapExec didn't have.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "7. Hashcat — the password-cracking standard",
+        id: "hashcat",
+      },
+      {
+        type: "para",
+        text: "GPU-accelerated, supports every modern hash format including the ones you'll see in Kerberoasting (mode 13100), AS-REP (mode 18200), NTLMv2 (5600), and Kerberos AES (19700). RTX 4090 cluster cracks an 8-character mixed-case Kerberos hash in hours; weaker hashes fall in seconds.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "8. Sliver / Mythic — the modern C2 frameworks",
+        id: "c2",
+      },
+      {
+        type: "para",
+        text: "Cobalt Strike is still the gold standard for licensed red teams, but Sliver (open-source, Go-based) and Mythic (Python, modular) have matured into legitimate alternatives. For mature red-team work in 2026, you should be fluent in at least one. Avoid using leaked Cobalt Strike — it's both ethically questionable and easily detected by EDR.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "9. Nuclei — templated vulnerability scanning",
+        id: "nuclei",
+      },
+      {
+        type: "para",
+        text: "Nuclei runs YAML-based vulnerability templates against targets at high speed. Maintained by ProjectDiscovery, the public template library covers thousands of CVEs and misconfigurations. Indispensable for asset surveys and bug-bounty hunting; complements (not replaces) manual web testing.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "10. Mimikatz — the credential extraction reference",
+        id: "mimikatz",
+      },
+      {
+        type: "para",
+        text: "Whether you use Mimikatz directly or via tools that wrap it (impacket, secretsdump, lsassy), understanding what Mimikatz does is essential to AD compromise. With LSASS protection enabled in Windows 11+, the techniques have evolved — but the concepts (pass-the-hash, OverPass-the-hash, Golden Ticket) remain the same.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Honourable mentions",
+        text: "Wireshark / tcpdump for packet capture; sqlmap for SQLi automation; ffuf for content discovery; gobuster for directory brute-forcing; john the ripper for niche hash formats; LinPEAS / WinPEAS for privilege escalation enumeration. Each earns a place in the toolbox depending on engagement.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Suggested learning order for newcomers",
+        id: "learning-order",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Nmap — start here, every engagement",
+          "Burp Suite — most engagement value per hour invested",
+          "Metasploit — but as a library, not a magic wand",
+          "Impacket + BloodHound — once you have AD-aware engagements",
+          "Hashcat — when you need to crack what you've stolen",
+          "Nuclei — when you need to scale vulnerability discovery",
+          "Sliver / Mythic — once you need persistent operator-level C2",
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's hands-on pentest tools workshop"),
+    ],
+    faqs: [
+      {
+        q: "Are free alternatives to Burp Suite Pro acceptable?",
+        a: "OWASP ZAP is excellent and free. Caido is the modern Pro alternative gaining traction. For learning, both work. For paid engagement work, Burp Pro pays for itself.",
+      },
+      {
+        q: "Is Cobalt Strike still relevant?",
+        a: "Yes — but only legitimately licensed for authorized engagements. Open-source alternatives (Sliver, Mythic, Havoc) have closed the gap considerably.",
+      },
+      {
+        q: "What about AI-assisted pentesting tools?",
+        a: "The space is evolving fast (PentestGPT, Pentera, Horizon3) but no AI-only tool replaces a trained pen-tester. They augment recon and report-writing speed, not actual exploitation depth.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 8. Best Laptops for Cybersecurity Students 2026
+  // ===================================================================
+  {
+    slug: "best-laptops-cybersecurity-students-india-2026",
+    title: "Best Laptops for Cybersecurity Students in India 2026 — Top 10 Ranked",
+    description:
+      "Specs, price-in-INR and use-case ranking of the 10 best laptops for cybersecurity students in India 2026 — including budget picks under ₹60k and pro-grade options for OSCP/red team labs.",
+    date: "2026-04-27",
+    author: "Macksofy Editorial",
+    readingTime: "11 min read",
+    category: "Career & Salary",
+    tags: ["Laptops", "Hardware", "Students", "Buying Guide"],
+    heroKind: "web",
+    heroEyebrow: "Hardware buying guide",
+    keywords: [
+      "best laptop for cyber security students India",
+      "cybersecurity laptop India 2026",
+      "laptop for OSCP",
+      "laptop for ethical hacking",
+      "Kali Linux laptop India",
+      "pentest laptop India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "If you're starting cybersecurity training and asking which laptop to buy, here's the honest answer: you need fewer specs than the influencers tell you. Most coursework runs in a Kali VM with 8 GB RAM allocated. Where the spec game gets serious is when you start doing red-team work, AD lab simulation or hashcat cracking — and even then, ₹1.5L of laptop covers 95% of what you'll actually do.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Minimum specs that actually matter",
+        id: "specs",
+      },
+      {
+        type: "list",
+        items: [
+          "CPU — modern Intel Core i5 / Ryzen 5 (12th gen+ Intel, Ryzen 7000+) — virtualisation throughput matters more than clock speed",
+          "RAM — 16 GB minimum (8 GB host + 8 GB Kali VM); 32 GB if you can stretch to it",
+          "Storage — 512 GB NVMe minimum; you'll fill 1 TB faster than you think with VMs and lab data",
+          "GPU — only matters for hashcat. Built-in iGPU is fine for course labs",
+          "Display — 14-15.6 inch is the sweet spot; FHD is sufficient",
+          "Battery — 7+ hours real use; cybersecurity courses often happen on the move",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Top 10 ranked for India 2026",
+        id: "top-10",
+      },
+      {
+        type: "table",
+        caption: "Pricing as of April 2026, mid-config base models",
+        headers: ["#", "Model", "Spec", "Price (₹)", "Best for"],
+        rows: [
+          ["1", "Lenovo ThinkPad T14 Gen 5", "i7 / 32 GB / 1 TB", "1,42,000", "All-rounder · best build"],
+          ["2", "Apple MacBook Pro M4 14\"", "M4 / 16 GB / 512 GB", "1,69,000", "macOS users · long battery"],
+          ["3", "ASUS ROG Strix G16", "i7 + RTX 4060 / 32 GB / 1 TB", "1,49,000", "Hashcat / GPU-heavy work"],
+          ["4", "Dell XPS 15 (2026)", "i7 / 16 GB / 512 GB", "1,55,000", "Display-quality preference"],
+          ["5", "Lenovo Legion 5 Pro", "i7 + RTX 4070 / 32 GB / 1 TB", "1,55,000", "Best gaming-grade GPU value"],
+          ["6", "Apple MacBook Air M4", "M4 / 16 GB / 512 GB", "1,15,000", "Budget Apple · weight"],
+          ["7", "ASUS Vivobook 16X", "Ryzen 7 / 16 GB / 512 GB", "78,000", "Budget all-rounder"],
+          ["8", "Lenovo ThinkPad E14 Gen 6", "Ryzen 7 / 16 GB / 512 GB", "82,000", "Budget ThinkPad"],
+          ["9", "HP Pavilion 14", "Ryzen 5 / 16 GB / 512 GB", "62,000", "Sub-₹65k floor"],
+          ["10", "Custom desktop + cheap laptop", "Ryzen 5 + RTX 3060", "70,000 build", "Best price/performance"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Why ThinkPad takes #1",
+        id: "thinkpad",
+      },
+      {
+        type: "para",
+        text: "T-series ThinkPads remain unbeatable for cybersecurity work — Linux compatibility out of the box, repairability that lasts 5+ years, keyboard quality that matters for 24-hour OSCP exam day, and a chassis that survives field engagements. The T14 Gen 5 with 32 GB RAM is probably the best laptop most cybersecurity students will ever own.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "macOS or Linux?",
+        id: "macos-linux",
+      },
+      {
+        type: "para",
+        text: "macOS is excellent for cybersecurity work — 90% of pen-testing tools run natively or under Parallels. The only legitimate gap is direct hardware-level Windows AD lab work (where you'll want Parallels or a Windows VM). Native Linux laptops give you maximum compatibility but worse battery life and trackpad than MacBook.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The desktop sleeper option",
+        text: "If you're learning at home, a ₹70k desktop with RTX 3060 + Ryzen 5 + 32 GB RAM destroys any laptop in this price range for hashcat and lab simulation. Pair with a cheap ₹35k laptop for class. Total ~₹1.05L for a setup that beats a ₹1.55L laptop on every metric except mobility.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Common buying mistakes",
+        id: "mistakes",
+      },
+      {
+        type: "list",
+        items: [
+          "Buying 8 GB RAM 'because I can upgrade later' — most modern thin-laptops have soldered RAM",
+          "Going gaming-laptop for cybersecurity classes — battery and thermals will hurt you",
+          "Skipping NVMe SSD for spinning disk — VM I/O becomes painful",
+          "Buying refurbished without IPMI checks — easy way to inherit corporate-locked devices",
+          "Optimising for 'discrete GPU' that you won't use until you're cracking hashes 12 months later",
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's bring-your-own-laptop bootcamps"),
+    ],
+    faqs: [
+      {
+        q: "Can I do OSCP on a 16 GB MacBook Air?",
+        a: "Yes, comfortably. The OSCP labs are accessed via VPN over the network — your laptop is just running Kali in a VM, browser tabs, and notes.",
+      },
+      {
+        q: "Do I need an RTX 4090 for hashcat?",
+        a: "Not for coursework. RTX 3060 cracks 90% of what you'll see in OSCP / OSEP. The 4090 starts mattering when you're cracking long Kerberos hashes professionally.",
+      },
+      {
+        q: "Lenovo, Dell, Apple — does brand matter?",
+        a: "Less than the spec inside it. ThinkPad gets a slight edge for repairability and Linux compatibility. MacBook gets an edge for build and battery.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 9. OSWE vs OSCP
+  // ===================================================================
+  {
+    slug: "oswe-vs-oscp",
+    title: "OSWE vs OSCP in 2026 — Which OffSec Certification to Take (Detailed Comparison)",
+    description:
+      "OSCP vs OSWE — which OffSec cert should you take in 2026? Honest comparison of cost, exam style, hiring impact and the typical career paths each one unlocks.",
+    date: "2026-04-26",
+    author: "Macksofy Editorial",
+    readingTime: "10 min read",
+    category: "Certification Guides",
+    tags: ["OSCP", "OSWE", "OffSec", "AppSec"],
+    heroKind: "cert-compare",
+    heroEyebrow: "OffSec head-to-head",
+    keywords: [
+      "OSWE vs OSCP",
+      "OSWE worth it",
+      "OSCP vs OSWE 2026",
+      "OffSec certification comparison",
+      "AppSec certification India",
+      "OSWE India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Both are OffSec hands-on certs, both need 24-hour exam endurance, both cost similar money. But OSWE and OSCP are aimed at completely different careers — and picking the wrong one for your goals wastes 6 months. Here's the honest 2026 comparison.",
+      },
+      {
+        type: "comparison",
+        title: "At a glance",
+        left: {
+          label: "OSCP (PEN-200)",
+          tone: "cyan",
+          bullets: [
+            "Cost: ~₹1,84,000 (Learn One with Macksofy partner discount)",
+            "Exam: 24h hands-on + 24h reporting",
+            "Style: Network compromise — Linux + Windows + AD",
+            "Best for: Generalist pen-tester roles",
+            "Recognition: Universal · listed in 90% of pentest JDs",
+          ],
+        },
+        right: {
+          label: "OSWE (WEB-300)",
+          tone: "purple",
+          bullets: [
+            "Cost: ~₹1,84,000 (Learn One with Macksofy partner discount)",
+            "Exam: 48h hands-on + 24h reporting",
+            "Style: Source-code review + custom exploits",
+            "Best for: AppSec / web pentest specialists",
+            "Recognition: Strong in AppSec hiring · less general",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What OSCP teaches",
+        id: "oscp",
+      },
+      {
+        type: "para",
+        text: "OSCP is generalist offensive security — you compromise Linux boxes, Windows boxes and a small Active Directory chain over 24 hours, then write a 100-page report. Manual exploitation, limited Metasploit, no fancy frameworks. The exam tests breadth and stamina more than any single deep skill.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What OSWE teaches",
+        id: "oswe",
+      },
+      {
+        type: "para",
+        text: "OSWE is white-box AppSec specialist work — you read application source code (PHP, Python, Java, .NET, Node.js) and write custom exploit chains. The 48-hour exam gives you two web applications and asks you to discover and chain vulnerabilities into authentication bypass + RCE. There is no 'try harder with Burp' shortcut — it's source code or it's nothing.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Side-by-side",
+        id: "side-by-side",
+      },
+      {
+        type: "table",
+        headers: ["Dimension", "OSCP", "OSWE"],
+        rows: [
+          ["Exam length", "24h + 24h", "48h + 24h"],
+          ["Difficulty (objective)", "Hard", "Hard"],
+          ["Difficulty (effort)", "300-500h", "250-400h"],
+          ["Required skills", "Networks · Linux · Windows · light AD", "Source code · web · auth flows"],
+          ["Languages used", "Bash · Python · PowerShell", "PHP · Python · Java · .NET · JS"],
+          ["Manual exploitation", "Yes — primary", "Yes — primary"],
+          ["Automated tools", "Limited Metasploit", "Burp Pro essential"],
+          ["Best taken first", "Yes (generalist)", "No (after OSCP)"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Career impact in India",
+        id: "career-india",
+      },
+      {
+        type: "list",
+        items: [
+          "OSCP → senior pen-tester roles at consultancies, BFSI, MSSPs (₹15-25 LPA mid-level)",
+          "OSWE → AppSec engineer roles at product companies, fintechs, security boutiques (₹20-32 LPA mid-level)",
+          "OSCP + OSWE → senior AppSec specialist (₹30-45 LPA, often with bonus)",
+          "OSWE alone (without OSCP) → niche but harder to clear HR filters",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Default recommendation",
+        text: "OSCP first. It opens the most doors. OSWE second, only if you've decided to specialise in AppSec / web security. The combination is rare and well-paid; OSWE alone is a tougher job-search.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where each excels",
+        id: "where-each",
+      },
+      {
+        type: "list",
+        items: [
+          "OSCP — broad infrastructure pen-testing, internal red team, BFSI consulting",
+          "OSWE — bug-bounty bounty hunting, product-company AppSec teams, secure code review",
+          "Both — senior consulting at top boutiques (Doyensec, NCC, IOActive)",
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP and OSWE prep"),
+    ],
+    faqs: [
+      {
+        q: "Can I take OSWE before OSCP?",
+        a: "Technically yes. Practically — most candidates struggle without the foundation OSCP provides, plus you'll have a harder time finding entry-level roles to bridge to AppSec.",
+      },
+      {
+        q: "Which is more difficult?",
+        a: "OSWE has a higher technical bar in source-code reading; OSCP has a higher endurance bar. Most candidates rate OSWE conceptually harder, OSCP grindier.",
+      },
+      {
+        q: "Is OSWE worth ₹1.84L for an Indian buyer?",
+        a: "If you have a clear AppSec career path — yes, the salary uplift returns the investment in 4-6 months. If you're undecided, do OSCP first.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 10. OSEP vs OSCP
+  // ===================================================================
+  {
+    slug: "osep-vs-oscp",
+    title: "OSEP vs OSCP in 2026 — The Honest Comparison for Red Team Careers",
+    description:
+      "OSEP vs OSCP — practical 2026 comparison for India red team careers. Cost in INR, exam mechanics, what each one actually teaches, and which to pick for your career stage.",
+    date: "2026-04-25",
+    author: "Macksofy Red Team",
+    readingTime: "10 min read",
+    category: "Certification Guides",
+    tags: ["OSCP", "OSEP", "Red Team", "OffSec"],
+    heroKind: "cert-compare",
+    heroEyebrow: "OffSec red-team progression",
+    keywords: [
+      "OSEP vs OSCP",
+      "OSEP worth it 2026",
+      "OffSec PEN-300",
+      "OSEP India cost",
+      "advanced AD pentest cert",
+      "EDR evasion certification",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "OSEP is the certification OSCP holders ask about most often. Is it worth doubling the spend? Will it actually help you clear senior red-team interviews? After supporting 200+ OSEP candidates over the past three years, here's the honest answer.",
+      },
+      {
+        type: "comparison",
+        title: "At a glance",
+        left: {
+          label: "OSCP (PEN-200)",
+          tone: "cyan",
+          bullets: [
+            "Cost: ~₹1,84,000 (Learn One)",
+            "Prerequisite: None — entry-level",
+            "Focus: Generalist exploitation",
+            "Exam: 24h hands-on + 24h reporting",
+            "Role unlocked: Pen-tester (junior to senior)",
+          ],
+        },
+        right: {
+          label: "OSEP (PEN-300)",
+          tone: "purple",
+          bullets: [
+            "Cost: ~₹1,84,000 (Learn One)",
+            "Prerequisite: OSCP-level fluency strongly recommended",
+            "Focus: AV/EDR evasion · advanced AD",
+            "Exam: 48h hands-on + 24h reporting",
+            "Role unlocked: Adversary simulation operator",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What OSEP actually teaches",
+        id: "osep",
+      },
+      {
+        type: "list",
+        items: [
+          "Custom shellcode loaders that bypass modern AV / EDR",
+          "AMSI and ETW patching — both intro-level and advanced",
+          "Process injection techniques — including newer ones (Hell's Gate, Halo's Gate, etc.)",
+          "Advanced AD attacks — Kerberos abuse beyond Kerberoasting, RBCD, ADCS exploitation",
+          "Lateral movement past Defender for Endpoint",
+          "Custom payload development — turning known POCs into something that works on a hardened target",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where OSEP differs from OSCP",
+        id: "differs",
+      },
+      {
+        type: "table",
+        headers: ["Dimension", "OSCP", "OSEP"],
+        rows: [
+          ["Exam difficulty", "Hard (endurance)", "Hard (depth)"],
+          ["Lab environment", "Mixed Linux + Windows + small AD", "EDR-protected Windows + advanced AD"],
+          ["Tools allowed", "Limited Metasploit", "Custom payloads encouraged"],
+          ["Antivirus posture", "Disabled in most boxes", "Defender enabled · evasion required"],
+          ["Active Directory depth", "Basic (one chain)", "Multi-domain · advanced trust abuse"],
+          ["Real-world fit", "Generalist pen-test", "Adversary simulation / red team"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Hiring impact in India",
+        id: "hiring",
+      },
+      {
+        type: "list",
+        items: [
+          "OSCP → 90% of pen-tester JDs in India list it",
+          "OSEP → Listed at top BFSI red teams, MSSPs, Big-4 advanced pen-test practices",
+          "OSCP + OSEP → standout combination — typical salary ₹25-40 LPA mid-level in Mumbai/Bengaluru",
+          "OSEP alone (without OSCP) → unusual; HR filters often miss it",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "When OSEP is worth it",
+        text: "After 1-2 years post-OSCP, when you're hitting a ceiling in your current role, when EDR-aware engagements are showing up in your queue, or when you're targeting senior red-team / adversary-simulation roles. Doing OSEP within 6 months of OSCP usually means you're skipping operator time you can't replicate later.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "OSEP vs CRTO — the related question",
+        id: "vs-crto",
+      },
+      {
+        type: "para",
+        text: "OSEP and CRTO target similar career outcomes (advanced red team roles) but teach different toolkits. OSEP is OffSec-style — custom payloads, AV evasion from first principles, no Cobalt Strike. CRTO is Cobalt Strike-centric, opsec-focused, more 'real engagement' feel. Both are excellent. If you're picking one, pick the one your target employer's red team uses.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Decision tree",
+        id: "decision",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "No certs yet → OSCP first. Always.",
+          "OSCP, 0-1 yr exp → CRTP for cheap AD depth, then operator time",
+          "OSCP, 1-2 yr exp, EDR-aware engagements → OSEP",
+          "OSCP, 1-2 yr exp, Cobalt Strike shop → CRTO",
+          "OSCP + OSEP / CRTO, 3+ yr exp → CRTE for multi-forest, or specialist OSED / OSWE",
+        ],
+      },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSEP prep with OSCP refresher"),
+    ],
+    faqs: [
+      {
+        q: "Can I clear OSEP without prior real-world experience?",
+        a: "Possible but harder. The OSEP exam rewards intuition built from real engagement work — candidates who did OSEP straight after OSCP without ops time have notably lower pass rates than those who waited 12+ months.",
+      },
+      {
+        q: "Is OSEP outdated given how fast EDR evolves?",
+        a: "OffSec refreshes the course materially every 12-18 months. The current syllabus covers contemporary techniques. The fundamentals (process injection, AMSI/ETW, payload development) don't expire.",
+      },
+      {
+        q: "OSEP or OSWE next after OSCP?",
+        a: "Depends on career direction. Red team / adversary simulation → OSEP. Web AppSec / bug bounty / product security → OSWE.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // 11. SOC-200 / OSDA Exam Tips (existing — was originally #1)
   // ===================================================================
   {
     slug: "soc-200-osda-exam-tips-2026",
@@ -1985,6 +3539,8 @@ export const getPostBySlug = (slug: string) => POSTS.find((p) => p.slug === slug
 export const POST_CATEGORIES = Array.from(
   new Set(POSTS.map((p) => p.category))
 ).sort();
+
+export const POSTS_PER_PAGE = 10;
 
 export const postsByCategory = (category: string) =>
   POSTS.filter((p) => p.category === category);

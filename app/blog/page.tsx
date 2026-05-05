@@ -10,8 +10,9 @@ import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
-import { POSTS, POST_CATEGORIES } from "@/content/blog";
+import { POSTS, POST_CATEGORIES, POSTS_PER_PAGE } from "@/content/blog";
 import { BlogHeroVisual } from "@/components/blog/BlogHero";
+import { BlogPagination } from "@/components/blog/BlogPagination";
 import { SITE } from "@/lib/site";
 
 export const metadata = buildMetadata({
@@ -31,8 +32,10 @@ export const metadata = buildMetadata({
 
 export default function BlogIndexPage() {
   const sorted = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
-  const featured = sorted[0];
-  const rest = sorted.slice(1);
+  const totalPages = Math.max(1, Math.ceil(sorted.length / POSTS_PER_PAGE));
+  const pagePosts = sorted.slice(0, POSTS_PER_PAGE);
+  const featured = pagePosts[0];
+  const rest = pagePosts.slice(1);
 
   return (
     <>
@@ -46,7 +49,7 @@ export default function BlogIndexPage() {
             url: `${SITE.url}/blog`,
             description:
               "Original guides on offensive security, blue-team operations, certifications and India regulatory cybersecurity by Macksofy consultants.",
-            blogPost: sorted.slice(0, 10).map((p) => ({
+            blogPost: pagePosts.map((p) => ({
               "@type": "BlogPosting",
               headline: p.title,
               description: p.description,
@@ -149,7 +152,7 @@ export default function BlogIndexPage() {
       </Container>
 
       {/* GRID */}
-      <Container className="pb-16">
+      <Container className="pb-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {rest.map((p) => (
             <Link
@@ -189,6 +192,7 @@ export default function BlogIndexPage() {
             </Link>
           ))}
         </div>
+        <BlogPagination current={1} totalPages={totalPages} />
       </Container>
 
       <LeadCapture />
