@@ -1,0 +1,145 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { PrintLayout } from "@/components/print/PrintLayout";
+import { ResourceContent } from "@/components/resources/ResourceContent";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
+import { RESOURCES, getResourceBySlug } from "@/content/resources";
+import { SERVICES } from "@/content/services";
+import { SITE } from "@/lib/site";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return RESOURCES.map((r) => ({ slug: r.slug }));
+}
+
+export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const r = getResourceBySlug(slug);
+  if (!r) return {};
+  return buildMetadata({
+    title: r.seoTitle,
+    description: r.seoDescription,
+    path: `/resources/${r.slug}`,
+    keywords: r.keywords,
+    type: "article",
+    publishedTime: `${r.publishedYear}-01-01`,
+  });
+}
+
+function articleSchema(r: ReturnType<typeof getResourceBySlug>) {
+  if (!r) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${SITE.url}/resources/${r.slug}#article`,
+    headline: r.title,
+    description: r.summary,
+    url: `${SITE.url}/resources/${r.slug}`,
+    image: `${SITE.url}${SITE.ogImage}`,
+    inLanguage: "en-IN",
+    isPartOf: { "@id": `${SITE.url}#website` },
+    publisher: { "@id": `${SITE.url}#organization` },
+    author: { "@id": `${SITE.url}#organization` },
+    datePublished: `${r.publishedYear}-01-01`,
+    keywords: r.keywords.join(", "),
+    about: r.topics.map((t) => ({ "@type": "Thing", name: t })),
+    articleSection: r.type,
+  };
+}
+
+export default async function ResourceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const r = getResourceBySlug(slug);
+  if (!r) notFound();
+  if (!r.blocks) notFound();
+
+  const schema = articleSchema(r);
+  const related = r.relatedServiceSlugs
+    ?.map((s) => SERVICES.find((sv) => sv.slug === s))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s)) ?? [];
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          ...(schema ? [schema] : []),
+          breadcrumbSchema([
+            { name: "Resources", url: "/resources" },
+            { name: r.title, url: `/resources/${r.slug}` },
+          ]),
+        ]}
+      />
+      <PrintLayout
+        eyebrow={`${r.type} · ${r.publishedYear}`}
+        title={r.title}
+        subtitle={r.subtitle}
+        refNo={r.refNo}
+        backHref="/resources"
+        classification="Public · Free to share"
+      >
+        {/* Intro */}
+        {r.intro && (
+          <section className="print-section mb-10 not-prose">
+            <p className="text-lg leading-relaxed text-slate-700">{r.intro}</p>
+          </section>
+        )}
+
+        {/* Body blocks */}
+        <section className="print-section">
+          <ResourceContent blocks={r.blocks} />
+        </section>
+
+        {/* Related services */}
+        {related.length > 0 && (
+          <section className="print-section mt-14 not-prose print:break-inside-avoid">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
+                Engage Macksofy
+              </div>
+              <div className="mt-2 font-display text-xl font-bold text-slate-900">
+                Need this in production, not on paper?
+              </div>
+              <p className="mt-2 text-sm text-slate-700">
+                Macksofy offers full-service engagements that map directly to
+                this resource. Common starting points:
+              </p>
+              <ul className="mt-4 space-y-2">
+                {related.map((s) => (
+                  <li key={s.slug} className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-slate-700" />
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="text-sm font-semibold text-slate-900 hover:underline"
+                    >
+                      {s.title} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 text-sm text-slate-600">
+                Or{" "}
+                <Link
+                  href="/contact"
+                  className="font-semibold text-slate-900 hover:underline"
+                >
+                  talk to a senior consultant
+                </Link>{" "}
+                — fixed-price proposal in 48 hours.
+              </div>
+            </div>
+          </section>
+        )}
+      </PrintLayout>
+    </>
+  );
+}

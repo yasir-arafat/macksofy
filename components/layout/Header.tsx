@@ -20,6 +20,7 @@ import {
   Calendar,
   CornerDownLeft,
   BookOpenText,
+  Library,
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -68,6 +69,12 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     href: "/case-studies",
     description: "Anonymised long-form engagement stories",
     icon: BookOpenText,
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    description: "Whitepapers, checklists, cheat sheets, brochures",
+    icon: Library,
   },
   {
     label: "Awards & Recognition",
@@ -700,6 +707,12 @@ function CommandPalette({
       href: "/case-studies",
       group: "Pages",
       keywords: "engagements references pentest red team dfir",
+    },
+    {
+      label: "Resources",
+      href: "/resources",
+      group: "Pages",
+      keywords: "whitepaper checklist cheat sheet brochure cscrf rbi cert-in",
     },
     {
       label: "Awards & Recognition",

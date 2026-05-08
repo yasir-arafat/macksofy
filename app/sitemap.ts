@@ -6,6 +6,7 @@ import { AUDITS } from "@/content/audits";
 import { POSTS, POSTS_PER_PAGE } from "@/content/blog";
 import { CITIES } from "@/content/cities";
 import { CASE_STUDIES } from "@/content/caseStudies";
+import { RESOURCES } from "@/content/resources";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
@@ -53,6 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/awards", 0.7, "monthly"),
     stat("/case-studies", 0.9, "monthly"),
     ...CASE_STUDIES.map((c) => stat(`/case-studies/${c.slug}`, 0.85, "monthly")),
+    stat("/resources", 0.9, "monthly"),
+    ...RESOURCES.map((r) => stat(`/resources/${r.slug}`, 0.8, "monthly")),
     stat("/locations", 0.85, "monthly"),
     ...CITIES.map((c) => stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "monthly")),
     ...SERVICES.map((s) => stat(`/services/${s.slug}`, 0.9, "monthly")),
