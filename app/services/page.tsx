@@ -1,13 +1,11 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionTitle, Eyebrow } from "@/components/ui/SectionTitle";
+import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { MetroCoverage } from "@/components/home/MetroCoverage";
-import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
+import { ServiceShowcase } from "@/components/services/ServiceShowcase";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -76,21 +74,37 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="relative py-24 overflow-hidden">
         <Container>
-          <FadeIn>
-            <SectionTitle eyebrow="Offensive Security" title={<>Find the gaps before <span className="gradient-text">attackers do.</span></>} />
-          </FadeIn>
-          <ServiceGrid services={offensive} />
+          <ServiceShowcase
+            tone="offensive"
+            eyebrow="Offensive Security"
+            title={
+              <>
+                Find the gaps before{" "}
+                <span className="gradient-text">attackers do.</span>
+              </>
+            }
+            kicker="Pen-test, red team, AppSec and adversary emulation engagements run by OSCP / OSWE / OSEP-certified consultants on real BFSI, fintech, healthcare and government environments."
+            serviceSlugs={offensive.map((s) => s.slug)}
+          />
         </Container>
       </section>
 
-      <section className="py-20 bg-bg-1">
+      <section className="relative py-24 bg-bg-1 overflow-hidden">
         <Container>
-          <FadeIn>
-            <SectionTitle eyebrow="Defensive Engineering" eyebrowColor="purple" title={<>Detect, respond, <span className="gradient-text">recover.</span></>} />
-          </FadeIn>
-          <ServiceGrid services={defensive} />
+          <ServiceShowcase
+            tone="defensive"
+            eyebrow="Defensive Engineering"
+            title={
+              <>
+                Detect, respond,{" "}
+                <span className="gradient-text">recover.</span>
+              </>
+            }
+            kicker="SOC build-outs, SIEM tuning, DFIR retainers and threat-intel programmes engineered to cut alert noise, contain incidents quickly and recover with auditable evidence."
+            serviceSlugs={defensive.map((s) => s.slug)}
+          />
         </Container>
       </section>
 
@@ -106,47 +120,5 @@ export default function ServicesPage() {
 
       <LeadCapture />
     </>
-  );
-}
-
-function ServiceGrid({ services }: { services: typeof SERVICES }) {
-  return (
-    <StaggerChildren className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => {
-        const Icon = s.icon;
-        return (
-          <StaggerItem key={s.slug}>
-            <Link
-              href={`/services/${s.slug}`}
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all hover:-translate-y-1"
-            >
-              <div className="absolute -right-10 -top-10 size-32 rounded-full bg-neon-cyan/0 blur-2xl group-hover:bg-neon-cyan/20 transition-all" />
-              <div className="flex items-start justify-between">
-                <div className="grid size-12 place-items-center rounded-xl bg-bg-2 text-neon-cyan ring-1 ring-neon-cyan/30">
-                  <Icon className="size-6" />
-                </div>
-                <ArrowUpRight className="size-5 text-fg-faint group-hover:text-neon-cyan group-hover:rotate-12 transition-all" />
-              </div>
-              <h3 className="mt-5 font-display text-xl font-bold text-fg group-hover:text-neon-cyan transition-colors">
-                {s.title}
-              </h3>
-              <p className="mt-2 text-sm text-fg-muted line-clamp-3">
-                {s.hero.description}
-              </p>
-              <div className="mt-auto pt-5 flex flex-wrap gap-1.5">
-                {s.industriesServed.slice(0, 3).map((i) => (
-                  <span
-                    key={i}
-                    className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-semibold text-fg-faint"
-                  >
-                    {i}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          </StaggerItem>
-        );
-      })}
-    </StaggerChildren>
   );
 }

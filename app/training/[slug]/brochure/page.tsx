@@ -1,8 +1,31 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PrintLayout } from "@/components/print/PrintLayout";
 import { COURSES, getCourseBySlug } from "@/content/courses";
 import { formatINR } from "@/lib/utils";
+
+/** Logo lockup + divider rendered above every numbered brochure section. */
+function SectionHeader({ number, title }: { number: string; title: string }) {
+  return (
+    <>
+      <div className="not-prose flex items-center gap-3 mt-2 mb-3 print:mt-1">
+        <Image
+          src="/logo.png"
+          alt="Macksofy Technologies"
+          width={140}
+          height={40}
+          className="h-7 w-auto"
+        />
+        <div className="h-px flex-1 bg-slate-200" />
+        <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-slate-400 font-bold">
+          Section {number}
+        </span>
+      </div>
+      <h2 className="!mt-2">{number}. {title}</h2>
+    </>
+  );
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -49,7 +72,7 @@ export default async function CourseBrochure({ params }: PageProps) {
     >
       {/* At a glance */}
       <section className="print-section mb-12">
-        <h2>1. At a Glance</h2>
+        <SectionHeader number="01" title="At a Glance" />
         <div className="not-prose grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
           {[
             ["Vendor", c.vendor],
@@ -86,7 +109,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Who is it for */}
       <section className="print-section mb-12">
-        <h2>2. Who Is This Course For</h2>
+        <SectionHeader number="02" title="Who Is This Course For" />
         <ul>
           {c.whoIsItFor.map((w) => (
             <li key={w}>{w}</li>
@@ -102,7 +125,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Outcomes */}
       <section className="print-section mb-12">
-        <h2>3. What You Will Be Able To Do</h2>
+        <SectionHeader number="03" title="What You Will Be Able To Do" />
         <ul>
           {c.outcomes.map((o) => (
             <li key={o}>{o}</li>
@@ -112,7 +135,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Curriculum */}
       <section className="print-section mb-12">
-        <h2>4. Curriculum — {c.curriculum.length} Modules</h2>
+        <SectionHeader number="04" title={`Curriculum — ${c.curriculum.length} Modules`} />
         <p className="text-sm text-slate-600 italic">
           Module structure and topic coverage authored by Macksofy
           Technologies based on the publicly-published vendor syllabus, current
@@ -159,7 +182,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Tools */}
       <section className="print-section mb-12">
-        <h2>5. Tools You Will Operate</h2>
+        <SectionHeader number="05" title="Tools You Will Operate" />
         <div className="not-prose flex flex-wrap gap-2">
           {c.toolsCovered.map((t) => (
             <span
@@ -174,7 +197,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Career outcomes */}
       <section className="print-section mb-12">
-        <h2>6. Career Outcomes</h2>
+        <SectionHeader number="06" title="Career Outcomes" />
         <table className="not-prose w-full text-sm border border-slate-300 border-collapse">
           <thead>
             <tr className="bg-slate-100">
@@ -199,7 +222,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Placement */}
       <section className="print-section mb-12">
-        <h2>7. Placement Support</h2>
+        <SectionHeader number="07" title="Placement Support" />
         <p>{c.placement.summary}</p>
         <ul>
           {c.placement.points.map((p) => (
@@ -210,18 +233,16 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Why Macksofy */}
       <section className="print-section mb-12">
-        <h2>8. Why Macksofy</h2>
+        <SectionHeader number="08" title="Why Macksofy" />
         <ul>
           <li>
-            <strong>Authorised partner</strong> — Macksofy is{" "}
+            <strong>Vendor-true delivery</strong> — Macksofy is{" "}
             {c.vendor === "EC-Council"
               ? "an EC-Council Accredited Training Center (ATC)"
-              : c.vendor === "OffSec"
-              ? "an OffSec Authorized Training Partner"
               : c.vendor === "CompTIA"
               ? "a CompTIA Authorized Partner"
-              : "an authorised training provider"}{" "}
-            delivering official courseware and exam vouchers.
+              : "a hands-on cybersecurity training provider"}{" "}
+            delivering practitioner-led bootcamps with exam-prep support.
           </li>
           <li>
             <strong>Practitioner-led delivery</strong> — every Macksofy
@@ -247,7 +268,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Enrolment */}
       <section className="print-section mb-12">
-        <h2>9. How to Enrol</h2>
+        <SectionHeader number="09" title="How to Enrol" />
         <ol>
           <li>
             Submit the enquiry form at{" "}
@@ -271,7 +292,7 @@ export default async function CourseBrochure({ params }: PageProps) {
 
       {/* Trademark notice */}
       <section className="print-section">
-        <h2>10. Trademarks &amp; Disclaimer</h2>
+        <SectionHeader number="10" title="Trademarks & Disclaimer" />
         <p className="text-sm text-slate-600">
           {c.vendor}, {c.code} and related course names are trademarks or
           registered trademarks of their respective owners. Macksofy is an
@@ -281,6 +302,76 @@ export default async function CourseBrochure({ params }: PageProps) {
           current edition at <strong>macksofy.com/training/{c.slug}</strong>{" "}
           for the latest information.
         </p>
+      </section>
+
+      {/* Closing — Talk to us */}
+      <section className="not-prose print-section mt-16 print:mt-12 rounded-2xl border-2 border-slate-900 bg-slate-50 p-10 text-center page-break-before">
+        <Image
+          src="/logo.png"
+          alt="Macksofy Technologies"
+          width={320}
+          height={90}
+          className="mx-auto h-20 w-auto"
+        />
+        <div className="mt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-red-600 font-bold">
+          Ready to enrol?
+        </div>
+        <h2 className="mt-3 font-display text-3xl sm:text-4xl font-black text-slate-900 text-balance">
+          Talk to a Macksofy course advisor.
+        </h2>
+        <p className="mt-3 text-slate-600 max-w-xl mx-auto">
+          We respond within 4 business hours with batch dates, payment terms,
+          EMI options and the corporate training menu.
+        </p>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
+          <div className="rounded-lg ring-1 ring-slate-300 bg-white p-4">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-slate-500 font-bold">
+              Phone
+            </div>
+            <div className="mt-1 text-sm font-bold text-slate-900">
+              +91 99308 24239
+            </div>
+            <div className="text-xs text-slate-500 mt-0.5">
+              WhatsApp · Mon–Sat 09:30–18:30 IST
+            </div>
+          </div>
+          <div className="rounded-lg ring-1 ring-slate-300 bg-white p-4">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-slate-500 font-bold">
+              Email
+            </div>
+            <div className="mt-1 text-sm font-bold text-slate-900">
+              services@macksofy.com
+            </div>
+            <div className="text-xs text-slate-500 mt-0.5">
+              Mon–Sat · 09:30–18:30 IST
+            </div>
+          </div>
+          <div className="rounded-lg ring-1 ring-slate-300 bg-white p-4">
+            <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-slate-500 font-bold">
+              Web
+            </div>
+            <div className="mt-1 text-sm font-bold text-slate-900">
+              macksofy.com/training/{c.slug}
+            </div>
+            <div className="text-xs text-slate-500 mt-0.5">
+              Live batch dates + enrolment form
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-slate-500">
+          <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
+            CERT-In Empanelled
+          </span>
+          <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
+            EC-Council ATC
+          </span>
+          <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
+            CompTIA Authorized
+          </span>
+          <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
+            ISO 27001 Certified
+          </span>
+        </div>
       </section>
     </PrintLayout>
   );

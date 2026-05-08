@@ -84,9 +84,9 @@ export function PrintLayout({
             <Image
               src="/logo.png"
               alt="Macksofy Technologies"
-              width={200}
-              height={56}
-              className="h-12 w-auto"
+              width={280}
+              height={80}
+              className="h-16 w-auto"
               priority
             />
             <div className="text-right">
@@ -153,10 +153,19 @@ export function PrintLayout({
         </main>
 
         {/* ─── Footer ─── */}
-        <footer className="border-t border-slate-200 mt-16 py-8 text-xs text-slate-500 grid grid-cols-3 gap-4">
-          <div>
-            <div className="font-bold text-slate-700">Macksofy Technologies Pvt Ltd</div>
-            <div>308, Building 11, SRA Commercial Tower, BKC, Mumbai 400051</div>
+        <footer className="border-t border-slate-200 mt-16 py-8 text-xs text-slate-500 grid grid-cols-3 gap-4 items-center">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo.png"
+              alt="Macksofy Technologies"
+              width={140}
+              height={40}
+              className="h-8 w-auto"
+            />
+            <div>
+              <div className="font-bold text-slate-700">Macksofy Technologies Pvt Ltd</div>
+              <div>308, Building 11, SRA Commercial Tower, BKC, Mumbai 400051</div>
+            </div>
           </div>
           <div className="text-center">
             <div className="font-mono uppercase tracking-wider">Document {version}</div>

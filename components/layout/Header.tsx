@@ -891,7 +891,7 @@ const MEGA_HEADER = {
     eyebrow: "Training & Certifications",
     title: "Career-grade tracks with mentor support",
     description:
-      "EC-Council ATC + OffSec Authorized Training Partner. 20,000+ professionals trained.",
+      "EC-Council Accredited Training Center. 20,000+ professionals trained.",
     cta: { label: "View all 22 courses", href: "/training" },
     stat: { value: "22", label: "Active courses" },
   },

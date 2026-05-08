@@ -230,7 +230,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               Call us
             </div>
             <p className="mt-1 text-xs text-fg-muted">
-              {SITE.phoneDisplay} · landline {SITE.phoneAltDisplay}
+              {SITE.phoneDisplay} · Mon–Sat 09:30–18:30 IST
             </p>
             <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-neon-cyan">
               Dial now <ArrowRight className="size-3.5" />

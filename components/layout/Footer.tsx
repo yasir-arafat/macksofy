@@ -80,7 +80,7 @@ const SOCIALS = [
 
 const STATUS_ITEMS = [
   "🛡  CERT-In Empanelled · Information Security Auditor",
-  "✓  EC-Council ATC · OffSec Authorized · CompTIA Authorized",
+  "✓  EC-Council ATC · CompTIA Authorized",
   "🟢  Mumbai SOC · 24×7 monitored",
   "📍  Mumbai BKC HQ · Dubai delivery · India + UAE engagements",
   "🎓  20,000+ professionals trained · 250+ enterprises secured",
@@ -104,8 +104,9 @@ export function Footer() {
       <Container className="py-16 lg:py-20 relative">
         <NewsletterRow />
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-12">
-          {/* Brand + contact */}
+        {/* ─── Main link grid: brand identity + 4 link columns ─── */}
+        <div className="mt-16 grid gap-10 lg:grid-cols-12">
+          {/* Brand identity — col-4, compact */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center group">
               <Image
@@ -114,6 +115,7 @@ export function Footer() {
                 width={180}
                 height={50}
                 className="h-11 w-auto brightness-0 invert transition-transform group-hover:scale-105"
+                priority
               />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-fg-muted max-w-sm">
@@ -129,29 +131,6 @@ export function Footer() {
               <ShieldCheck className="size-4 text-neon-cyan" />
               CERT-In Empanelled · Govt of India · MeitY
             </motion.div>
-
-            <ul className="mt-6 space-y-3 text-sm">
-              <ContactRow icon={Mail} href={`mailto:${SITE.email}`}>
-                {SITE.email}
-              </ContactRow>
-              <ContactRow icon={Phone} href={`tel:${SITE.phone}`}>
-                {SITE.phoneDisplay}
-                <span className="text-fg-faint">  ·  </span>
-                <span className="text-fg-faint">{SITE.phoneAltDisplay}</span>
-              </ContactRow>
-              <li className="flex items-start gap-3 text-fg-muted">
-                <MapPin className="size-4 mt-0.5 shrink-0 text-neon-cyan" />
-                <span>
-                  {SITE.hq.street}
-                  <br />
-                  {SITE.hq.locality}, {SITE.hq.city} {SITE.hq.postalCode}
-                  <br />
-                  <span className="text-fg-faint">UAE delivery: Dubai · Abu Dhabi · Sharjah</span>
-                </span>
-              </li>
-            </ul>
-
-            <FooterClock />
 
             <SocialRow />
           </div>
@@ -203,12 +182,84 @@ export function Footer() {
           </FooterCol>
         </div>
 
-        {/* Status marquee */}
-        <div className="mt-14 pt-6 border-t border-line">
+        {/* ─── Reach Macksofy strip: contact + live clocks ─── */}
+        <div className="mt-14 pt-10 border-t border-line grid gap-8 lg:grid-cols-12 items-start">
+          {/* Contact — col-7 */}
+          <div className="lg:col-span-7">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-neon-cyan mb-4 inline-flex items-center gap-2">
+              <span className="size-1 rounded-full bg-neon-cyan animate-pulse" />
+              Reach Macksofy
+            </div>
+            <ul className="grid gap-4 sm:grid-cols-3 text-sm">
+              <ContactRow icon={Mail} href={`mailto:${SITE.email}`}>
+                <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-fg-faint">
+                  Email
+                </span>
+                <span className="block mt-0.5">{SITE.email}</span>
+              </ContactRow>
+              <ContactRow icon={Phone} href={`tel:${SITE.phone}`}>
+                <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-fg-faint">
+                  Phone
+                </span>
+                <span className="block mt-0.5">{SITE.phoneDisplay}</span>
+              </ContactRow>
+              <li className="flex items-start gap-3 text-fg-muted">
+                <MapPin className="size-4 mt-0.5 shrink-0 text-neon-cyan" />
+                <span>
+                  <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-fg-faint">
+                    HQ · Mumbai
+                  </span>
+                  <span className="block mt-0.5">
+                    {SITE.hq.locality}, {SITE.hq.city}
+                  </span>
+                  <span className="block text-fg-faint text-xs">
+                    UAE: Dubai · Abu Dhabi · Sharjah
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Live clocks — col-5 */}
+          <div className="lg:col-span-5">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-neon-cyan mb-4 inline-flex items-center gap-2">
+              <span className="size-1 rounded-full bg-neon-cyan animate-pulse" />
+              Local time
+            </div>
+            <FooterClock />
+          </div>
+        </div>
+
+        {/* ─── Disclaimer — full-width glass card ─── */}
+        <div className="mt-10 rounded-xl glass p-5 sm:p-6 text-xs leading-relaxed text-fg-muted">
+          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-neon-cyan mb-3 inline-flex items-center gap-2">
+            <span className="size-1 rounded-full bg-neon-cyan animate-pulse" />
+            Disclaimer
+          </div>
+          <p>
+            Some graphics used on this website are sourced from public domains and are freely available for use. This site may also contain copyrighted material whose use has not always been specifically authorized by the copyright owner. All product names, trademarks, and brands mentioned are the property of their respective owners. Certification titles referenced are trademarks of the issuing organizations.
+          </p>
+          <p className="mt-3">
+            References to companies, products, and services on this website are for identification purposes only. We do not own, claim copyright over, or have explicit permission to use these names, logos, or trademarks, and their inclusion does not imply endorsement.
+          </p>
+          <p className="mt-3">
+            For further information or concerns, please{" "}
+            <Link
+              href="/contact"
+              className="text-neon-cyan font-semibold hover:underline"
+            >
+              contact us directly
+            </Link>
+            .
+          </p>
+        </div>
+
+        {/* ─── Status marquee ─── */}
+        <div className="mt-10 pt-6 border-t border-line">
           <StatusMarquee />
         </div>
 
-        {/* Legal bottom bar */}
+        {/* ─── Legal bottom bar ─── */}
         <div className="mt-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
           <p className="text-xs text-fg-faint">
             © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.

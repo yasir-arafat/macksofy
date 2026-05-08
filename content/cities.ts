@@ -175,7 +175,7 @@ export const CITIES: City[] = [
       eyebrow: "Cybersecurity in Delhi NCR · Government · BFSI · IT",
       headline: "Delhi NCR cybersecurity, regulator-format.",
       description:
-        "Macksofy delivers CERT-In empanelled audits, regulator-grade pentests and EC-Council / OffSec authorised training for Delhi NCR's government bodies, public sector banks, fintechs in Gurugram and Noida, and IT services majors. Senior consultants travel from Mumbai BKC for onsite engagements; most ongoing programs run remotely.",
+        "Macksofy delivers CERT-In empanelled audits, regulator-grade pentests and EC-Council ATC training plus hands-on OSCP / OSEP / OSWE exam-prep bootcamps for Delhi NCR's government bodies, public sector banks, fintechs in Gurugram and Noida, and IT services majors. Senior consultants travel from Mumbai BKC for onsite engagements; most ongoing programs run remotely.",
     },
     cityContext: [
       "Delhi NCR — Delhi, Gurugram, Noida, Faridabad, Ghaziabad — is India's government, defence and policy capital, with a fast-growing fintech and SaaS scene in Gurugram and Noida. Cybersecurity demand here splits cleanly: government and PSU bodies need CERT-In compliance + DPDP readiness, while private fintechs in DLF Cyber City (Gurugram) and Sector 62 (Noida) need RBI / SEBI / PCI-DSS depth.",
