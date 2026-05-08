@@ -17,6 +17,8 @@ export interface Location {
   hours: string;
   tz: "Asia/Kolkata" | "Asia/Dubai" | "Asia/Muscat" | "America/Toronto";
   badges: string[];
+  /** Google Business Profile CID — when set, the embed pins the actual business listing instead of an address search. */
+  googleCid?: string;
   // Schematic SVG coordinates (in 1000x500 viewBox covering India + UAE region).
   pin?: { x: number; y: number };
 }
@@ -32,9 +34,9 @@ export const LOCATIONS: Location[] = [
     primary: true,
     address: "308, Building No. 11, SRA Commercial Tower, BKC, Bandra East",
     area: "Bandra Kurla Complex · 5 min from BKC Metro · Maharashtra 400051",
-    lat: 19.062,
-    lng: 72.868,
-    zoom: 16,
+    lat: 19.0715722,
+    lng: 72.8690987,
+    zoom: 17,
     phone: "+919930824239",
     phoneDisplay: "+91 99308 24239",
     email: "services@macksofy.com",
@@ -45,6 +47,7 @@ export const LOCATIONS: Location[] = [
       "EC-Council ATC",
       "ISO 27001",
     ],
+    googleCid: "7485951626511664521",
     pin: { x: 460, y: 270 },
   },
   {
@@ -74,14 +77,15 @@ export const LOCATIONS: Location[] = [
     countryCode: "IN",
     flag: "🇮🇳",
     role: "Regional Hub · South India",
-    address: "HITEC City, Madhapur",
+    address: "Macksofy Hyderabad office",
     area: "Telangana · Andhra Pradesh · Karnataka · Tamil Nadu · Kerala delivery",
-    lat: 17.4486,
-    lng: 78.3908,
-    zoom: 14,
+    lat: 17.4362624,
+    lng: 78.4449405,
+    zoom: 17,
     hours: "Mon–Sat · 9:30–18:30",
     tz: "Asia/Kolkata",
     badges: ["South India delivery"],
+    googleCid: "10797987221507957494",
     pin: { x: 540, y: 305 },
   },
   {

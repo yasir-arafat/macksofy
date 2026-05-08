@@ -20,13 +20,16 @@ export function MapSwitcher() {
   const prev = LOCATIONS[(idx - 1 + LOCATIONS.length) % LOCATIONS.length];
   const next = LOCATIONS[(idx + 1) % LOCATIONS.length];
 
-  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${active.address}, ${active.city}`
-  )}`;
+  const mapsHref = active.googleCid
+    ? `https://www.google.com/maps?cid=${active.googleCid}`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        `${active.address}, ${active.city}`
+      )}`;
   const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${active.lat},${active.lng}`;
-  const embedSrc = `https://www.google.com/maps?q=${encodeURIComponent(
-    active.address + ", " + active.city
-  )}&z=${active.zoom}&output=embed`;
+  // Pin the marker by precise lat/lng so the iframe always lands on the real
+  // location regardless of how Google interprets the address. CID is kept
+  // for the "Open in Maps" button so users land on the Business Profile.
+  const embedSrc = `https://maps.google.com/maps?q=${active.lat},${active.lng}&z=${active.zoom}&output=embed`;
 
   return (
     <div className="rounded-3xl bg-bg-2/40 ring-1 ring-line overflow-hidden">

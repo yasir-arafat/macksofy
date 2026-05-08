@@ -5,11 +5,24 @@ import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { LinkButton } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { COURSES } from "@/content/courses";
+import { COURSES, getCourseBySlug } from "@/content/courses";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
 import { formatINR } from "@/lib/utils";
 
+const HOME_FEATURED_SLUGS = [
+  "ceh",
+  "oscp",
+  "chfi",
+  "cysa-plus",
+  "soc-analyst",
+  "web-application-security",
+] as const;
+
 export function TrainingPreview() {
+  const featured = HOME_FEATURED_SLUGS.map((s) => getCourseBySlug(s)).filter(
+    (c): c is NonNullable<typeof c> => Boolean(c)
+  );
+
   return (
     <section className="relative py-24 sm:py-32 bg-bg-1">
       <div className="absolute inset-0 bg-grid opacity-30" />
@@ -30,13 +43,13 @@ export function TrainingPreview() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <LinkButton href="/training" variant="ghost" withArrow className="text-fg hover:text-neon-cyan">
-              View all 5
+              View all {COURSES.length}
             </LinkButton>
           </FadeIn>
         </div>
 
         <StaggerChildren className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {COURSES.filter((c) => c.popular).slice(0, 6).map((c) => (
+          {featured.map((c) => (
             <StaggerItem key={c.slug}>
               <Link
                 href={`/training/${c.slug}`}

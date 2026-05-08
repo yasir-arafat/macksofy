@@ -35,11 +35,10 @@ export const SITE = {
   hours: "Mo-Sa 09:30-18:30 IST",
 
   social: {
-    linkedin: "https://www.linkedin.com/company/macksofy-technologies",
-    twitter: "https://twitter.com/macksofy",
-    facebook: "https://www.facebook.com/macksofytechnologies",
-    instagram: "https://www.instagram.com/macksofytechnologies",
-    youtube: "https://www.youtube.com/@macksofy",
+    linkedin: "https://www.linkedin.com/company/macksofy-technologies-pvt-ltd/",
+    twitter: "https://x.com/macksofyt",
+    facebook: "https://www.facebook.com/macksofy/",
+    instagram: "https://www.instagram.com/macksofy_technologies/",
   },
 
   stats: {
