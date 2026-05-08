@@ -116,6 +116,13 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} ${mono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-bg text-fg">
+        {/* RSS auto-discovery — hoisted to <head> by React 19. */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${SITE.name} · Cybersecurity Blog`}
+          href={`${SITE.url}/feed.xml`}
+        />
         <JsonLd
           data={[organizationSchema(), localBusinessSchema(), websiteSchema()]}
         />
