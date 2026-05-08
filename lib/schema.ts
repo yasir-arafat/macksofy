@@ -2,6 +2,7 @@ import { SITE, METROS } from "./site";
 import type { Course } from "@/content/courses";
 import type { Service } from "@/content/services";
 import type { Audit } from "@/content/audits";
+import type { CaseStudyHero } from "@/content/caseStudies";
 
 const BASE = SITE.url;
 
@@ -225,6 +226,48 @@ export function auditSchema(audit: Audit) {
     serviceType: "Information Security Audit",
     areaServed: AREA_SERVED,
     url: `${BASE}/audit/${audit.slug}`,
+  };
+}
+
+export function caseStudySchema(cs: CaseStudyHero) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${BASE}/case-studies/${cs.slug}#article`,
+    headline: cs.headline,
+    description: cs.summary,
+    url: `${BASE}/case-studies/${cs.slug}`,
+    image: `${BASE}${SITE.ogImage}`,
+    inLanguage: "en-IN",
+    isPartOf: { "@id": `${BASE}#website` },
+    publisher: { "@id": `${BASE}#organization` },
+    author: { "@id": `${BASE}#organization` },
+    datePublished: `${cs.year}-01-01`,
+    dateModified: `${cs.year}-12-31`,
+    keywords: cs.keywords.join(", "),
+    about: cs.tags.map((t) => ({ "@type": "Thing", name: t })),
+    mentions: [
+      { "@type": "Service", name: cs.engagement, url: `${BASE}/services/${cs.serviceSlug}` },
+      { "@type": "Organization", name: cs.clientType },
+    ],
+    articleSection: "Case Study",
+  };
+}
+
+export function caseStudyCollectionSchema(items: CaseStudyHero[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${BASE}/case-studies#list`,
+    name: "Macksofy Cybersecurity Case Studies",
+    description:
+      "Anonymised, long-form case studies from Macksofy's pentest, red team, DFIR and cloud-security engagements across India and the UAE.",
+    itemListElement: items.map((cs, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${BASE}/case-studies/${cs.slug}`,
+      name: cs.headline,
+    })),
   };
 }
 

@@ -19,6 +19,7 @@ import {
   Sparkles,
   Calendar,
   CornerDownLeft,
+  BookOpenText,
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -61,6 +62,12 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     href: "/clients",
     description: "250+ enterprises trust Macksofy",
     icon: Users,
+  },
+  {
+    label: "Case Studies",
+    href: "/case-studies",
+    description: "Anonymised long-form engagement stories",
+    icon: BookOpenText,
   },
   {
     label: "Awards & Recognition",
@@ -688,6 +695,12 @@ function CommandPalette({
     { label: "Home", href: "/", group: "Pages" },
     { label: "About Us", href: "/about", group: "Pages" },
     { label: "Our Clients", href: "/clients", group: "Pages" },
+    {
+      label: "Case Studies",
+      href: "/case-studies",
+      group: "Pages",
+      keywords: "engagements references pentest red team dfir",
+    },
     {
       label: "Awards & Recognition",
       href: "/awards",

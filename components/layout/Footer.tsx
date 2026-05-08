@@ -175,6 +175,7 @@ export function Footer() {
           <FooterCol title="Company">
             <FooterLinkAnimated href="/about">About</FooterLinkAnimated>
             <FooterLinkAnimated href="/clients">Clients</FooterLinkAnimated>
+            <FooterLinkAnimated href="/case-studies">Case Studies</FooterLinkAnimated>
             <FooterLinkAnimated href="/awards">Awards</FooterLinkAnimated>
             <FooterLinkAnimated href="/blog">Blog</FooterLinkAnimated>
             <FooterLinkAnimated href="/contact">Contact</FooterLinkAnimated>
