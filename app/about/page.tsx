@@ -26,7 +26,7 @@ export const metadata = buildMetadata({
   title:
     "About Macksofy Technologies — Cybersecurity Consulting & Training Since 2014",
   description:
-    "Founded 2014 in Mumbai. CERT-In empanelled cybersecurity consulting firm with EC-Council ATC and OffSec partner training division. Engagements across India + UAE. 20,000+ alumni, 250+ enterprise clients, 5 countries served.",
+    "Founded 2014 in Mumbai. CERT-In empanelled cybersecurity consulting firm with EC-Council ATC training division and hands-on Offensive Security exam-prep bootcamps. Engagements across India + UAE. 20,000+ alumni, 250+ enterprise clients, 5 countries served.",
   path: "/about",
   keywords: [
     "about Macksofy",

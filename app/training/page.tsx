@@ -76,6 +76,18 @@ export default function TrainingPage() {
               100% practical labs, real-world tooling, and placement support across
               India + UAE hiring partners.
             </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="/training/offsec"
+                className="inline-flex items-center gap-2 rounded-full border border-neon-cyan/40 bg-neon-cyan/10 px-4 py-2 text-sm font-semibold text-neon-cyan hover:bg-neon-cyan/20 transition-colors"
+              >
+                View all OffSec certifications
+                <ArrowRight className="size-4" />
+              </Link>
+              <span className="text-xs text-fg-faint font-mono uppercase tracking-wider">
+                OSCP+ · OSEP · OSWE · OSWA · OSDA · OSED · OSMR · OSEE
+              </span>
+            </div>
           </div>
         </Container>
       </section>

@@ -13,8 +13,6 @@ export const SITE = {
   email: "services@macksofy.com",
   phone: "+919930824239",
   phoneDisplay: "+91 99308 24239",
-  phoneAlt: "+912226509887",
-  phoneAltDisplay: "022 2650 9887",
   whatsapp: "919930824239",
   whatsappLink: (msg = "Hi Macksofy, I'd like to discuss a cybersecurity engagement."): string =>
     `https://wa.me/919930824239?text=${encodeURIComponent(msg)}`,
@@ -55,7 +53,6 @@ export const SITE = {
   trustSignals: [
     "CERT-In Empanelled Information Security Auditor",
     "EC-Council Accredited Training Center",
-    "OffSec Authorized Training Partner",
     "CompTIA Authorized Partner",
     "ISO 27001 Certified",
     "Startup India Recognized",

@@ -16,7 +16,7 @@ import { SITE, metroKeywords } from "@/lib/site";
 export const metadata = buildMetadata({
   title: `${SITE.name} — Cybersecurity Company in Mumbai · Pan-India · UAE`,
   description:
-    "CERT-In empanelled cybersecurity company headquartered in Mumbai with delivery across Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida and the UAE. Penetration testing, VAPT, SOC setup, red teaming, DFIR + EC-Council / OffSec authorised training.",
+    "CERT-In empanelled cybersecurity company headquartered in Mumbai with delivery across Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida and the UAE. Penetration testing, VAPT, SOC setup, red teaming, DFIR + EC-Council ATC training and hands-on OSCP / OSEP / OSWE exam-prep bootcamps.",
   path: "/",
   keywords: [
     "cybersecurity company India",
@@ -51,7 +51,7 @@ const HOME_FAQS = [
   },
   {
     q: "Which trainings do you offer?",
-    a: "CEH v13 (EC-Council ATC), OSCP (OffSec Authorized Partner), SOC Analyst, Web Application Security, and customized Corporate Training programs.",
+    a: "CEH v13 (EC-Council ATC), OSCP exam-prep bootcamp, SOC Analyst, Web Application Security, and customized Corporate Training programs.",
   },
   {
     q: "How do I request a quote?",

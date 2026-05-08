@@ -8,7 +8,6 @@ export const PARTNERS: Partner[] = [
   // Accreditations (most important — show first)
   { name: "CERT-In Empanelled", category: "Accreditation", initials: "CIN" },
   { name: "EC-Council ATC", category: "Accreditation", initials: "EC" },
-  { name: "OffSec Partner", category: "Accreditation", initials: "OS" },
   { name: "CompTIA Authorized", category: "Accreditation", initials: "CT" },
   { name: "ISO 27001 Certified", category: "Accreditation", initials: "ISO" },
   { name: "Startup India", category: "Accreditation", initials: "SI" },

@@ -124,17 +124,41 @@ export function courseSchema(course: Course) {
   return {
     "@context": "https://schema.org",
     "@type": "Course",
+    "@id": `${BASE}/training/${course.slug}#course`,
     name: course.title,
     description: course.hero.description,
-    provider: { "@type": "Organization", name: SITE.name, sameAs: BASE },
+    url: `${BASE}/training/${course.slug}`,
+    image: course.image.startsWith("http") ? course.image : `${BASE}${course.image}`,
+    provider: {
+      "@type": "Organization",
+      "@id": `${BASE}#organization`,
+      name: SITE.name,
+      url: BASE,
+      logo: `${BASE}/logo.png`,
+      sameAs: BASE,
+    },
     educationalCredentialAwarded: course.code,
     courseCode: course.code,
+    educationalLevel: course.level,
     inLanguage: "en-IN",
     teaches: course.outcomes,
     coursePrerequisites: course.prerequisites.join(". "),
+    audience: {
+      "@type": "EducationalAudience",
+      educationalRole: "student",
+      audienceType: course.whoIsItFor.join("; "),
+    },
+    occupationalCredentialAwarded: course.code,
+    timeRequired: course.duration,
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "Blended",
+      courseWorkload: course.duration,
+      instructor: {
+        "@type": "Person",
+        name: "Macksofy Mentor Team",
+        affiliation: { "@type": "Organization", name: SITE.name },
+      },
       location: {
         "@type": "Place",
         name: "Macksofy BKC, Mumbai",
@@ -148,6 +172,13 @@ export function courseSchema(course: Course) {
         },
       },
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "612",
+      bestRating: "5",
+      worstRating: "1",
+    },
     ...(course.priceINR && {
       offers: {
         "@type": "Offer",
@@ -156,6 +187,16 @@ export function courseSchema(course: Course) {
         availability: "https://schema.org/InStock",
         url: `${BASE}/training/${course.slug}`,
         category: "Paid",
+        validFrom: SITE.founded,
+        ...(course.originalPriceINR && {
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: course.priceINR,
+            priceCurrency: "INR",
+            valueAddedTaxIncluded: true,
+            referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitText: "course" },
+          },
+        }),
       },
     }),
   };

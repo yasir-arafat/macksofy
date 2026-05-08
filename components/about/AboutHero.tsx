@@ -128,7 +128,7 @@ export function AboutHero() {
             >
               <CertInBadge size="sm" />
               <span className="font-mono text-xs text-fg-faint">
-                ISO 27001 · EC-Council ATC · OffSec Authorized · CompTIA Partner
+                ISO 27001 · EC-Council ATC · CompTIA Partner
               </span>
             </motion.div>
           </div>

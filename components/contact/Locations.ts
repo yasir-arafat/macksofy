@@ -43,7 +43,6 @@ export const LOCATIONS: Location[] = [
     badges: [
       "CERT-In Empanelled",
       "EC-Council ATC",
-      "OffSec Partner",
       "ISO 27001",
     ],
     pin: { x: 460, y: 270 },

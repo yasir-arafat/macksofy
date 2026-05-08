@@ -26,7 +26,9 @@ type Slug =
   | "top-10-penetration-testing-tools-2026"
   | "best-laptops-cybersecurity-students-india-2026"
   | "oswe-vs-oscp"
-  | "osep-vs-oscp";
+  | "osep-vs-oscp"
+  | "oscp-plus-vs-oscp-2026"
+  | "oscp-vs-ceh-india-2026";
 
 interface IllustrationProps {
   className?: string;
@@ -681,6 +683,30 @@ function CrtpVsCrte({ className }: IllustrationProps) {
   );
 }
 
+function OscpPlusVsOscp({ className }: IllustrationProps) {
+  return (
+    <CertVersus
+      className={className}
+      left="OSCP"
+      right="OSCP+"
+      leftSub="legacy · BoF"
+      rightSub="2026 · AD+"
+    />
+  );
+}
+
+function OscpVsCeh({ className }: IllustrationProps) {
+  return (
+    <CertVersus
+      className={className}
+      left="OSCP"
+      right="CEH"
+      leftSub="OffSec · 24h"
+      rightSub="EC-Council · 4h"
+    />
+  );
+}
+
 /* ============================================================ */
 /*  7. MCP Server Security                                      */
 /* ============================================================ */
@@ -1234,6 +1260,8 @@ const REGISTRY: Record<Slug, (props: IllustrationProps) => React.ReactElement> =
   "best-laptops-cybersecurity-students-india-2026": LaptopGuide,
   "oswe-vs-oscp": OsweVsOscp,
   "osep-vs-oscp": OsepVsOscp,
+  "oscp-plus-vs-oscp-2026": OscpPlusVsOscp,
+  "oscp-vs-ceh-india-2026": OscpVsCeh,
 };
 
 export function BlogIllustration({

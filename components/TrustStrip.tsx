@@ -5,7 +5,6 @@ import {
   Star,
   Quote,
   ShieldCheck,
-  BadgeCheck,
   Award,
   Users,
 } from "lucide-react";
@@ -21,7 +20,6 @@ interface Props {
 const ACCREDITATIONS = [
   { label: "CERT-In Empanelled", sub: "Govt of India · MeitY", icon: ShieldCheck, tone: "cyan" },
   { label: "EC-Council ATC", sub: "Authorized Training", icon: Award, tone: "amber" },
-  { label: "OffSec Authorized", sub: "OSCP / OSEP / OSWE", icon: BadgeCheck, tone: "purple" },
   { label: "ISO 27001 Certified", sub: "Info Security Mgmt", icon: ShieldCheck, tone: "green" },
 ] as const;
 

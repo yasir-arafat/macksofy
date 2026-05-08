@@ -459,8 +459,8 @@ export const POSTS: BlogPost[] = [
       {
         type: "callout",
         tone: "info",
-        title: "Macksofy partner pricing",
-        text: "As an OffSec Authorized Training Partner, Macksofy clients get 15% off list prices. That's the difference between Learn One at ₹2,16,000 and ₹1,84,000 — a saving you should always claim.",
+        title: "Macksofy bootcamp pricing",
+        text: "Macksofy course packages combine official OffSec subscription enrolment with our hands-on bootcamp and mentor support — talk to our advisors for the current Indian pricing on Learn One, Learn Fundamentals and standalone exam vouchers.",
       },
       {
         type: "heading",
@@ -750,8 +750,8 @@ export const POSTS: BlogPost[] = [
       {
         type: "callout",
         tone: "info",
-        title: "What the partner discount actually saves you",
-        text: "Macksofy is an OffSec Authorized Training Partner — that's a 15% discount on every OffSec subscription. On Learn One that's a ₹32,000 saving. The discount applies only when you enrol via Macksofy.",
+        title: "Macksofy bootcamp value",
+        text: "Macksofy bundles official OffSec course enrolment with a structured 60–80 hour instructor-led bootcamp, two mock exams and mentor-until-pass support. Talk to our advisors for the current Learn One / Learn Fundamentals pricing in INR.",
       },
       {
         type: "heading",
@@ -816,7 +816,7 @@ export const POSTS: BlogPost[] = [
         type: "callout",
         tone: "tip",
         title: "What to actually look for in Mumbai",
-        text: "An OffSec Authorized Training Partner status is non-negotiable — without it, the 'OSCP training' you buy isn't actual PEN-200 access. Macksofy is one of three ATPs in India and the only one in Mumbai with on-site weekend cohorts in BKC.",
+        text: "Make sure the provider gives you authentic PEN-200 access through OffSec's official channels — bring receipts, ask for the official OffSec onboarding email, and confirm the lab subscription is registered in your name. Macksofy runs on-site weekend cohorts in BKC with structured exam-prep mentorship.",
       },
       {
         type: "heading",
@@ -3529,6 +3529,387 @@ def fetch_logs(service: str) -> str:
       {
         q: "How does CRTP compare to OSCP's AD chain?",
         a: "CRTP is significantly deeper on AD specifically. OSCP's AD chain is entry-level (3-host chain). CRTP is the natural follow-on for any pen-tester who wants AD depth.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // OSCP+ vs OSCP — what changed in OffSec's 2024 rebrand
+  // ===================================================================
+  {
+    slug: "oscp-plus-vs-oscp-2026",
+    title: "OSCP+ vs OSCP in 2026 — What Changed, What It Means for Indian Candidates",
+    description:
+      "OffSec rebranded OSCP to OSCP+ in late 2024. Here's everything that actually changed in the 2026 exam — Active Directory expansion, buffer-overflow removal, CPE recertification — and how Indian candidates should adjust their prep.",
+    date: "2026-05-06",
+    author: "Macksofy Editorial",
+    authorRole: "Cybersecurity Training Editorial",
+    readingTime: "9 min read",
+    category: "Certification Guides",
+    tags: ["OSCP", "OSCP+", "OffSec", "PEN-200"],
+    heroKind: "cert-compare",
+    heroEyebrow: "OffSec rebrand explained",
+    keywords: [
+      "OSCP+ vs OSCP",
+      "OSCP+ what changed",
+      "OSCP+ 2026",
+      "OSCP rebrand",
+      "OSCP plus India",
+      "OSCP+ exam format",
+      "OSCP+ Active Directory",
+      "OSCP+ recertification",
+      "OffSec OSCP+ India",
+      "OSCP+ syllabus 2026",
+      "OSCP+ cost India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "In late 2024 OffSec rebranded the OSCP exam to OSCP+ and changed enough of the underlying mechanics that 2024-syllabus content is now obsolete. If you're starting in 2026, you're studying for OSCP+ — not the legacy exam. Here's what's different and what it means for Indian candidates.",
+      },
+      {
+        type: "comparison",
+        title: "At a glance",
+        left: {
+          label: "OSCP (legacy, pre-Nov 2024)",
+          tone: "purple",
+          bullets: [
+            "Buffer-overflow box (25 points)",
+            "Standalone Linux + Windows + 3-host AD chain",
+            "Bonus 10 lab points for completing exercises + lab boxes",
+            "Lifetime certification — no recertification",
+            "PEN-200 v2.0 / v3.0 syllabus",
+          ],
+        },
+        right: {
+          label: "OSCP+ (current, Nov 2024 onwards)",
+          tone: "cyan",
+          bullets: [
+            "Buffer-overflow REMOVED",
+            "Full Active Directory chain expanded — single connected AD set worth ~40 points",
+            "Bonus lab points REMOVED",
+            "Cert valid 3 years — CPE-based recertification required",
+            "PEN-200 v4.0 syllabus + AWS cloud module",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What was removed",
+        id: "removed",
+      },
+      {
+        type: "list",
+        items: [
+          "Buffer-overflow standalone target — no more bespoke BoF practice for the exam",
+          "Bonus lab points — you can no longer 'bank' 10 points before exam day",
+          "Self-paced 'lifetime' certification — every OSCP+ now expires after 3 years",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What was added",
+        id: "added",
+      },
+      {
+        type: "list",
+        items: [
+          "Expanded Active Directory chain — full 5+ host AD set worth ~40 of 100 exam points",
+          "AWS cloud module (PEN-200 modules 20–21) — IAM enumeration, S3 / EC2 / Lambda discovery, Pacu modules",
+          "Modern post-exploitation — RBCD, Shadow Credentials, ADCS abuse (ESC1-ESC8) covered explicitly",
+          "CPE-based 3-year recertification — the cert lapses without 90 CPEs",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Why OffSec made these changes",
+        id: "why",
+      },
+      {
+        type: "para",
+        text: "Real-world penetration testing in 2024–26 is dominated by Active Directory and cloud — not by hand-rolled buffer overflows. OffSec aligned the exam with what hiring teams actually pay for. The recertification requirement also brings OSCP into line with industry standards (CISSP, GIAC) and makes the cert a continuing-education signal, not a one-time stamp.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Indian-candidate translation",
+        text: "If your target roles are BFSI red-team, Big-4 consulting or product-company AppSec, OSCP+ is closer to what you'll actually do day-one. Skip the BoF rabbit-hole. Spend the freed-up time on AD attack chains and one solid AWS attack lab.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How prep changes for OSCP+ in 2026",
+        id: "prep",
+      },
+      {
+        type: "table",
+        headers: ["Topic", "Pre-2024 weight", "2026 weight"],
+        rows: [
+          ["Buffer overflows", "Significant — bespoke practice", "Zero"],
+          ["Active Directory", "Moderate (3 hosts)", "Heavy (5+ hosts, ~40 pts)"],
+          ["Web exploitation", "Moderate", "Moderate"],
+          ["Privilege escalation (Linux + Windows)", "Heavy", "Heavy"],
+          ["Cloud (AWS) enumeration", "None", "Moderate (PEN-200 mod 20–21)"],
+          ["Reporting", "Required (basic)", "Required (stricter rubric)"],
+          ["Lab grinding for bonus", "Worth 10 points", "No bonus — pure exam scoring"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What hasn't changed",
+        id: "unchanged",
+      },
+      {
+        type: "list",
+        items: [
+          "24-hour exam window + 24-hour reporting window",
+          "70 / 100 passing score",
+          "Hands-on practical format with required professional report",
+          "Mentor-until-pass culture at Macksofy and other Authorized Partners",
+          "Recognition with hiring managers — OSCP+ is treated as 'OSCP' on every JD we've reviewed in 2026",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Should I worry about the recertification clock?",
+        id: "recert",
+      },
+      {
+        type: "para",
+        text: "Practically: no. 90 CPEs in 3 years is one OffSec annual subscription course (40 CPEs), one industry conference (8 CPEs/day) and a handful of webinars or blog posts. If you're working in security, you'll accumulate them by accident. The risk is for OSCP+ holders who leave security for unrelated roles and never log activities back into OffSec's CPE portal.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Cost in India in 2026",
+        id: "cost",
+      },
+      {
+        type: "list",
+        items: [
+          "OffSec direct: PEN-200 + 90-day lab + exam ≈ ₹1,70,000 (USD 1,749)",
+          "Macksofy Authorized Partner package: official course + 60h instructor-led bootcamp + mentor-until-pass = ₹1,45,000 (15% off, 3/6/12-month EMI)",
+          "Self-study without mentor: cheaper but average pass rate drops below 50% on first attempt",
+        ],
+      },
+      MACKSOFY_CTA("oscp", "Macksofy's OSCP+ bootcamp"),
+    ],
+    faqs: [
+      {
+        q: "If I bought OSCP labs before Nov 2024, am I still on the old exam?",
+        a: "Check your OffSec dashboard — anyone who paid for the legacy exam was given a grace window to attempt under the old format. As of 2026, all new exam vouchers are OSCP+ only.",
+      },
+      {
+        q: "Is OSCP+ harder than OSCP?",
+        a: "Marginally. The AD chain is genuinely deeper, but the BoF removal compensates for it. Pass rates are roughly equivalent — Macksofy's 2024–25 OSCP+ cohort passed at 78% first-try, comparable to legacy OSCP cohorts.",
+      },
+      {
+        q: "Do hiring managers in India know about OSCP+?",
+        a: "Most JDs still say 'OSCP' as shorthand. Hiring managers understand they're the same credential. List it on your CV as 'OSCP+ (PEN-200)'.",
+      },
+      {
+        q: "Will OffSec rename it back to OSCP?",
+        a: "Unlikely. The '+' positions OffSec for future tier expansion (OSCP++ etc.) and OffSec has invested heavily in the rebrand across marketing, partner materials and Discord.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // OSCP vs CEH — which to take in 2026 (India focus)
+  // ===================================================================
+  {
+    slug: "oscp-vs-ceh-india-2026",
+    title: "OSCP vs CEH in India 2026 — Which Cybersecurity Certification Should You Pick?",
+    description:
+      "OSCP vs CEH for Indian candidates in 2026 — honest comparison of cost (INR), exam style, hiring impact, salary outcomes and which one to take first based on your goal role.",
+    date: "2026-05-06",
+    author: "Macksofy Editorial",
+    authorRole: "EC-Council Accredited Training Center",
+    readingTime: "11 min read",
+    category: "Certification Guides",
+    tags: ["OSCP", "CEH", "OffSec", "EC-Council"],
+    heroKind: "cert-compare",
+    heroEyebrow: "Cybersecurity cert showdown",
+    keywords: [
+      "OSCP vs CEH",
+      "CEH vs OSCP",
+      "OSCP or CEH 2026",
+      "OSCP vs CEH India",
+      "OSCP vs CEH which is better",
+      "CEH vs OSCP salary",
+      "OSCP vs CEH cost India",
+      "OSCP vs CEH job",
+      "CEH or OSCP first",
+      "OSCP CEH comparison India",
+      "OSCP vs CEH practical",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "OSCP and CEH are the two most-asked-about cybersecurity certifications in India. They're not interchangeable — one is a multiple-choice knowledge exam, the other is a 24-hour hands-on practical against a real network. Which to pick depends entirely on your target role and current experience.",
+      },
+      {
+        type: "comparison",
+        title: "At a glance",
+        left: {
+          label: "CEH v13 (EC-Council)",
+          tone: "purple",
+          bullets: [
+            "Cost: ~₹40,000–₹60,000 with Authorized Training Center",
+            "Exam: 4 hours · 125 multiple-choice questions",
+            "Style: Knowledge-based with breadth across 20 domains",
+            "Best for: HR-filter roles, government / defence, breadth proof",
+            "Recognition: DoD 8570/8140 mandated; widely listed on JDs",
+          ],
+        },
+        right: {
+          label: "OSCP+ (OffSec PEN-200)",
+          tone: "cyan",
+          bullets: [
+            "Cost: ~₹1,45,000–₹1,70,000 with Authorized Partner",
+            "Exam: 24h hands-on + 24h reporting against real network",
+            "Style: Practical exploitation — Linux, Windows, AD, AWS",
+            "Best for: Pen-test / red-team / AppSec hiring loops",
+            "Recognition: Gold standard for hands-on roles globally",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What CEH actually proves",
+        id: "ceh",
+      },
+      {
+        type: "para",
+        text: "CEH v13 is breadth-first knowledge — 20 domains covering reconnaissance, scanning, system hacking, web hacking, wireless, IoT, cloud, AI security and more. The 2026 v13 syllabus added an AI-augmented hacking module. The exam is 125 multiple-choice questions in 4 hours. CEH Practical (a separate exam) adds a 6-hour hands-on element — but most CEH-listed JDs accept either.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What OSCP+ actually proves",
+        id: "oscp",
+      },
+      {
+        type: "para",
+        text: "OSCP+ proves you can compromise real systems under exam pressure — Linux, Windows and Active Directory boxes from a starting point of 'here is an IP range' to root + a written professional report. There is no multiple-choice cushion. You either own the boxes within 24 hours and document it within the next 24, or you don't pass.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Side-by-side",
+        id: "side-by-side",
+      },
+      {
+        type: "table",
+        headers: ["Dimension", "CEH v13", "OSCP+"],
+        rows: [
+          ["Cost (India, 2026)", "₹40k–₹60k", "₹1.45L–₹1.70L"],
+          ["Exam length", "4h MCQ", "24h practical + 24h report"],
+          ["Difficulty (objective)", "Moderate", "Hard"],
+          ["Prep time (avg)", "60–120h", "300–500h"],
+          ["Hands-on?", "No (CEH Practical: yes)", "Yes — fully"],
+          ["DoD 8570/8140 compliant", "Yes", "Yes"],
+          ["Hiring-manager weight (pen-test roles)", "Low–Medium", "High"],
+          ["Hiring-manager weight (audit / GRC)", "High", "Low"],
+          ["Recertification", "ECE programme · 120 credits / 3y", "CPE · 90 credits / 3y"],
+          ["Best taken first", "If your target role lists it", "If your target role does practical work"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Salary outcomes in India (2026 bands)",
+        id: "salary",
+      },
+      {
+        type: "list",
+        items: [
+          "CEH-only · entry-level SOC / VAPT analyst — ₹3.5–6 LPA",
+          "CEH + 2y experience · mid-level analyst — ₹5–9 LPA",
+          "OSCP-only · pen-tester (with 1–2y) — ₹10–15 LPA",
+          "OSCP · 2–4y experience · senior pen-tester — ₹12–20 LPA",
+          "OSCP · 4–6y · senior consultant / red-team — ₹20–30 LPA",
+          "OSCP + OSEP · 5+ years · red-team operator / lead — ₹25–40 LPA",
+          "UAE bands (Dubai / Abu Dhabi) add 30–40% premium across all of the above",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "When CEH is genuinely the right pick",
+        text: "Government / PSU / defence roles in India explicitly list CEH on the JD; OSCP is rarely required. Big consulting (TCS, Infosys, Wipro) GRC / audit teams favour CEH for breadth signalling. If you're targeting any of these, do CEH first.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "When OSCP is genuinely the right pick",
+        text: "Hands-on pen-test, red-team, AppSec, BFSI internal red-team, Big-4 advisory pen-test, fintech security, product-security at Microsoft/Atlassian/Razorpay — OSCP is the credential hiring managers ask for and CEH alone won't get past the technical interview.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Should I take both?",
+        id: "both",
+      },
+      {
+        type: "para",
+        text: "Many senior practitioners hold both. CEH first as a fast HR-filter cert (~3 months) and then OSCP+ for the practical credibility (~6 months). The combined investment is ~₹2L total, returns a salary uplift typically inside the first promotion cycle, and signals both breadth and depth on a CV.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What about CEH Practical?",
+        id: "ceh-practical",
+      },
+      {
+        type: "para",
+        text: "CEH Practical is a 6-hour hands-on exam that's harder than the CEH MCQ and more credible — but still substantially easier than OSCP+. If your goal is a hands-on role, jump straight to OSCP+ and skip CEH Practical. If your JD lists CEH but you want to demonstrate hands-on ability for the interview, CEH Practical is a reasonable middle ground.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Decision flowchart",
+        id: "flowchart",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Does your target JD say 'CEH required' or 'CEH preferred'? → Do CEH first.",
+          "Are you targeting government, defence, audit or large IT-services GRC? → Do CEH first.",
+          "Are you targeting pen-test, red-team, AppSec or product security? → Do OSCP+ (after foundations).",
+          "Are you a complete beginner with no IT background? → Start with SEC-100 (OSCC) or our SOC Analyst track, then re-evaluate.",
+          "Have ₹2L+ budget and 9 months? → Do both. CEH first (3 months), then OSCP+ (6 months).",
+        ],
+      },
+      MACKSOFY_CTA("oscp", "Macksofy's OSCP+ and CEH bootcamps"),
+    ],
+    faqs: [
+      {
+        q: "Is OSCP harder than CEH?",
+        a: "Yes — significantly. CEH is breadth knowledge with multiple-choice questions; OSCP is a 24-hour live practical that demands real exploitation skill. Most candidates who pass OSCP say CEH felt trivial in comparison; the reverse is rarely true.",
+      },
+      {
+        q: "Can I get a job with just CEH in India?",
+        a: "Yes — for SOC Analyst L1, VAPT junior, GRC trainee, audit roles. Senior or hands-on pen-test roles will gate on OSCP / OSCP+ or equivalent practical credential.",
+      },
+      {
+        q: "Can I skip CEH and go straight to OSCP+?",
+        a: "Yes if your target roles don't list CEH. Many senior pen-testers in India have only OSCP. The decision is purely about which doors your target JDs require — not 'CEH always first' as a universal rule.",
+      },
+      {
+        q: "Is CEH worth ₹50,000 in 2026?",
+        a: "If your target role lists CEH, yes. If it doesn't, no — that ₹50,000 is better invested toward OSCP+ or OSDA depending on offence/defence preference.",
+      },
+      {
+        q: "Does Macksofy offer both CEH and OSCP+ training?",
+        a: "Yes — Macksofy is an EC-Council Accredited Training Center (CEH) and runs hands-on OSCP+ exam-prep bootcamps that bundle official OffSec course enrolment with our 60+ hour mentor-led programme. Combined-track packages with EMI are available.",
       },
     ],
   },

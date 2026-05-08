@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/services", 0.95, "weekly"),
     stat("/audit", 0.95, "weekly"),
     stat("/training", 0.9, "weekly"),
+    stat("/training/offsec", 0.95, "weekly"),
     stat("/contact", 0.8, "monthly"),
     stat("/about", 0.7, "monthly"),
     stat("/blog", 0.85, "weekly", latestPostDate),

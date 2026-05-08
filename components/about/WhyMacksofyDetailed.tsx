@@ -44,7 +44,7 @@ const REASONS = [
     icon: Globe2,
     title: "Vendor-true · Authorized partner",
     body:
-      "EC-Council ATC. OffSec Authorized Training Partner. CompTIA Authorized. Mile2 Partner. Real vouchers, official labs, no proxies — verified directly with each vendor.",
+      "EC-Council ATC. CompTIA Authorized. Mile2 Partner. Real vouchers, official labs, no proxies — verified directly with each vendor.",
     accent: "text-neon-pink",
   },
   {

@@ -209,7 +209,6 @@ function RevealWord({
 const TICKER_ITEMS = [
   "CERT-In Empanelled",
   "EC-Council ATC",
-  "OffSec Authorized Partner",
   "ISO 27001 Certified",
   "20,000+ professionals trained",
   "200+ engagements / yr",

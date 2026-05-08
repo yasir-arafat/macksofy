@@ -84,11 +84,11 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: "2022",
-    headline: "OffSec Authorized Training Partner",
+    headline: "Offensive Security exam-prep bootcamp launched",
     description:
-      "Became an OffSec Authorized Training Partner — bringing OSCP, OSEP, OSWE and SOC-200 to Indian and UAE learners with mentor support that continues until they pass. Launched the Macksofy SOC Analyst career track.",
+      "Launched dedicated bootcamps for the Offensive Security certification stack — OSCP, OSEP, OSWE and SOC-200 — bringing hands-on exam preparation to Indian and UAE learners with mentor support that continues until they pass. Launched the Macksofy SOC Analyst career track.",
     highlights: [
-      "OffSec Authorized Training Partner status",
+      "OSCP / OSEP / OSWE / SOC-200 bootcamps launched",
       "Macksofy SOC Analyst career track launched",
       "ISO 27001 Lead Auditor team formalized",
     ],
