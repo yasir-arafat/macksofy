@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface Particle {
@@ -30,14 +30,48 @@ export function ParticleBackground({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
+  // Mount the canvas only after first paint so the particle init + RAF loop
+  // doesn't sit on the critical render path (LCP / TBT in Lighthouse).
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+    type IdleHandle = number;
+    type IdleCallback = (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void;
+    interface IdleWindow {
+      requestIdleCallback?: (cb: IdleCallback, opts?: { timeout: number }) => IdleHandle;
+      cancelIdleCallback?: (h: IdleHandle) => void;
+    }
+    const w = window as Window & IdleWindow;
+    const ric = w.requestIdleCallback;
+    const cic = w.cancelIdleCallback;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+    let idleHandle: IdleHandle | null = null;
+    if (ric) {
+      idleHandle = ric(() => setReady(true), { timeout: 800 });
+    } else {
+      timeout = setTimeout(() => setReady(true), 250);
+    }
+    return () => {
+      if (timeout) clearTimeout(timeout);
+      if (idleHandle != null && cic) cic(idleHandle);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let particles: Particle[] = [];
+    let paused = false;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     function resize() {
@@ -63,6 +97,10 @@ export function ParticleBackground({
 
     function step() {
       if (!canvas || !ctx) return;
+      if (paused) {
+        rafRef.current = requestAnimationFrame(step);
+        return;
+      }
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
@@ -105,15 +143,22 @@ export function ParticleBackground({
       rafRef.current = requestAnimationFrame(step);
     }
 
+    const onVisibility = () => {
+      paused = document.hidden;
+    };
+
     resize();
     step();
     window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", onVisibility);
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [density, link]);
+  }, [ready, density, link]);
 
+  if (!ready) return null;
   return (
     <canvas
       ref={canvasRef}
