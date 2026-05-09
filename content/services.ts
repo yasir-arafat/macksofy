@@ -356,7 +356,7 @@ export const SERVICES: Service[] = [
 
   // 3 -----------------------------------------------------------------
   {
-    slug: "soc-setup-siem",
+    slug: "managed-soc",
     title: "SOC Setup & SIEM Engineering (Wazuh + ELK)",
     shortTitle: "SOC + SIEM",
     icon: Activity,
@@ -492,7 +492,7 @@ export const SERVICES: Service[] = [
 
   // 4 -----------------------------------------------------------------
   {
-    slug: "web-api-security",
+    slug: "web-application-security",
     title: "Web & API Security Testing",
     shortTitle: "Web + API Security",
     icon: Code2,

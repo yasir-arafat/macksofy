@@ -673,7 +673,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "osep-pen-300",
+    slug: "osep",
     code: "OSEP / PEN-300",
     title: "OSEP — Evasion Techniques & Breaching Defenses (PEN-300)",
     shortTitle: "OSEP",
@@ -771,7 +771,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "oswe-web-300",
+    slug: "oswe",
     code: "OSWE / WEB-300",
     title: "OSWE — Advanced Web Attacks & Exploitation (WEB-300)",
     shortTitle: "OSWE",
@@ -860,7 +860,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "oswa-web-200",
+    slug: "oswa",
     code: "OSWA / WEB-200",
     title: "OSWA — Foundational Web Application Assessments (WEB-200)",
     shortTitle: "OSWA",
@@ -948,7 +948,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "oswp-pen-210",
+    slug: "oswp",
     code: "OSWP / PEN-210",
     title: "OSWP — Foundational Wireless Network Attacks (PEN-210)",
     shortTitle: "OSWP",
@@ -1029,7 +1029,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "soc-200-osda",
+    slug: "osda",
     code: "SOC-200 / OSDA",
     title: "SOC-200 — Foundational Defensive Operations & Analysis (OSDA)",
     shortTitle: "SOC-200 / OSDA",
@@ -1124,7 +1124,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "exp-301-osed",
+    slug: "osed",
     code: "OSED / EXP-301",
     title: "OSED — Windows User Mode Exploit Development (EXP-301)",
     shortTitle: "OSED",
@@ -1212,7 +1212,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "exp-312-osmr",
+    slug: "osmr",
     code: "OSMR / EXP-312",
     title: "OSMR — Advanced macOS Control Bypasses (EXP-312)",
     shortTitle: "OSMR",
@@ -1295,7 +1295,7 @@ export const COURSES: Course[] = [
   },
 
   {
-    slug: "exp-401-osee",
+    slug: "osee",
     code: "OSEE / EXP-401",
     title: "OSEE — Advanced Windows Exploitation (EXP-401)",
     shortTitle: "OSEE",

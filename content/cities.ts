@@ -104,7 +104,7 @@ export const CITIES: City[] = [
     topServices: [
       "penetration-testing",
       "vapt",
-      "soc-setup-siem",
+      "managed-soc",
       "red-teaming",
       "digital-forensics-incident-response",
     ],
@@ -200,7 +200,7 @@ export const CITIES: City[] = [
     topServices: [
       "vapt",
       "penetration-testing",
-      "soc-setup-siem",
+      "managed-soc",
       "cloud-security",
     ],
     topAudits: [
@@ -289,7 +289,7 @@ export const CITIES: City[] = [
       "Edtech",
     ],
     topServices: [
-      "web-api-security",
+      "web-application-security",
       "penetration-testing",
       "cloud-security",
       "red-teaming",
@@ -386,7 +386,7 @@ export const CITIES: City[] = [
     topServices: [
       "vapt",
       "penetration-testing",
-      "soc-setup-siem",
+      "managed-soc",
       "cloud-security",
       "digital-forensics-incident-response",
     ],
@@ -479,8 +479,8 @@ export const CITIES: City[] = [
     topServices: [
       "vapt",
       "penetration-testing",
-      "web-api-security",
-      "soc-setup-siem",
+      "web-application-security",
+      "managed-soc",
       "cloud-security",
     ],
     topAudits: [
@@ -573,8 +573,8 @@ export const CITIES: City[] = [
       "vapt",
       "penetration-testing",
       "cloud-security",
-      "web-api-security",
-      "soc-setup-siem",
+      "web-application-security",
+      "managed-soc",
     ],
     topAudits: [
       "cert-in-empanelled-audit",

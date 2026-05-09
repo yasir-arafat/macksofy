@@ -6,7 +6,7 @@
  */
 
 type Slug =
-  | "soc-200-osda-exam-tips-2026"
+  | "osda-exam-tips-2026"
   | "windows-ad-attack-cheatsheet-2026"
   | "burp-suite-for-beginners-2026"
   | "nmap-cheatsheet-2026"
@@ -1239,7 +1239,7 @@ function LaptopGuide({ className }: IllustrationProps) {
 /* ============================================================ */
 
 const REGISTRY: Record<Slug, (props: IllustrationProps) => React.ReactElement> = {
-  "soc-200-osda-exam-tips-2026": SocAnalyst,
+  "osda-exam-tips-2026": SocAnalyst,
   "windows-ad-attack-cheatsheet-2026": ADCheatsheet,
   "burp-suite-for-beginners-2026": BurpSuite,
   "nmap-cheatsheet-2026": Nmap,

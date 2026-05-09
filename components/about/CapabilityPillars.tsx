@@ -29,7 +29,7 @@ const PILLARS = [
     label: "Defensive Engineering",
     desc:
       "SOC engineering on Wazuh + ELK + Splunk, MDR services, DFIR and threat intelligence programs.",
-    href: "/services/soc-setup-siem",
+    href: "/services/managed-soc",
     bullets: ["SOC + SIEM build", "DFIR · Malware analysis", "Threat intelligence"],
     icon: Shield,
     accent: "from-neon-blue to-neon-purple",

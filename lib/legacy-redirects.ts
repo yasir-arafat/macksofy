@@ -20,7 +20,7 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   { source: "/best-security-analyst-training-in-mumbai.php", destination: "/training/csa" },
 
   { source: "/best-penetration-testing-company-in-mumbai.php", destination: "/services/penetration-testing" },
-  { source: "/best-web-application-penetration-company-in-mumbai.php", destination: "/services/web-api-security" },
+  { source: "/best-web-application-penetration-company-in-mumbai.php", destination: "/services/web-application-security" },
   { source: "/cloud-penetration-testing-in-mumbai.php", destination: "/services/cloud-security" },
   { source: "/mobile-penetration-testing-in-mumbai.php", destination: "/services/penetration-testing" },
   { source: "/code-review-company-in-mumbai.php", destination: "/services" },

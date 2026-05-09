@@ -38,8 +38,8 @@ const STYLE_MAP: Record<string, { style: MethodologyStyle; accent: MethodologyAc
   // ─── Services
   "penetration-testing": { style: "timeline", accent: "rose" },
   vapt: { style: "blueprint", accent: "cyan" },
-  "soc-setup-siem": { style: "radial", accent: "cyan" },
-  "web-api-security": { style: "carddeck", accent: "amber" },
+  "managed-soc": { style: "radial", accent: "cyan" },
+  "web-application-security": { style: "carddeck", accent: "amber" },
   "cloud-security": { style: "journey", accent: "cyan" },
   "red-teaming": { style: "timeline", accent: "rose" },
   "digital-forensics-incident-response": { style: "journey", accent: "amber" },
@@ -48,7 +48,7 @@ const STYLE_MAP: Record<string, { style: MethodologyStyle; accent: MethodologyAc
 
   // ─── Audits — Foundational
   "cybersecurity-audit": { style: "stepper", accent: "cyan" },
-  "compliance-regulatory-audits": { style: "carddeck", accent: "purple" },
+  "compliance-audit": { style: "carddeck", accent: "purple" },
   "risk-assessment": { style: "radial", accent: "amber" },
 
   // ─── Audits — Indian Regulatory
@@ -59,7 +59,7 @@ const STYLE_MAP: Record<string, { style: MethodologyStyle; accent: MethodologyAc
   "irdai-compliance": { style: "stepper", accent: "rose" },
   "dpdp-act": { style: "carddeck", accent: "purple" },
   cicra: { style: "blueprint", accent: "cyan" },
-  "vapt-rbi-pci": { style: "blueprint", accent: "rose" },
+  "regulatory-vapt": { style: "blueprint", accent: "rose" },
 
   // ─── Audits — International Standards
   "iso-27001": { style: "radial", accent: "cyan" },

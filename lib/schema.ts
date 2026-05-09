@@ -173,13 +173,6 @@ export function courseSchema(course: Course) {
         },
       },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "612",
-      bestRating: "5",
-      worstRating: "1",
-    },
     ...(course.priceINR && {
       offers: {
         "@type": "Offer",

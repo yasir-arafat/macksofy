@@ -1634,7 +1634,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // 11. SOC-200 / OSDA Exam Tips (existing — was originally #1)
   // ===================================================================
   {
-    slug: "soc-200-osda-exam-tips-2026",
+    slug: "osda-exam-tips-2026",
     title: "SOC-200 & OSDA Exam Tips That Actually Work in 2026",
     description:
       "How to pass OffSec's SOC-200 / OSDA in one attempt — lab strategy, exam-day workflow, Splunk and ELK queries to memorize, and the mistakes that fail most candidates.",

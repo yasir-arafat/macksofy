@@ -393,7 +393,7 @@ export const RESOURCES: Resource[] = [
     publishedYear: "2026",
     icon: Smartphone,
     accent: "pink",
-    relatedServiceSlugs: ["penetration-testing", "web-api-security"],
+    relatedServiceSlugs: ["penetration-testing", "web-application-security"],
     intro:
       "Indian BFSI mobile apps face a tighter scrutiny than most: RBI's Mobile Cyber Security Framework, BBPS / NPCI integration audits, and a customer base that loses trust quickly. This whitepaper distils what we see across mobile pentests for tier-1 banks, listed NBFCs and fintechs.",
     blocks: [
@@ -901,7 +901,7 @@ export const RESOURCES: Resource[] = [
     publishedYear: "2026",
     icon: Lock,
     accent: "purple",
-    relatedServiceSlugs: ["web-api-security", "penetration-testing"],
+    relatedServiceSlugs: ["web-application-security", "penetration-testing"],
     intro:
       "BOLA — Broken Object-Level Authorization — sits at the top of the OWASP API Security Top 10 because it keeps shipping. This one-pager gives API engineers concrete patterns and anti-patterns drawn from real findings across BFSI, fintech and SaaS pentests.",
     blocks: [
@@ -1002,7 +1002,7 @@ export const RESOURCES: Resource[] = [
     publishedYear: "2026",
     icon: KeySquare,
     accent: "green",
-    relatedServiceSlugs: ["web-api-security", "penetration-testing"],
+    relatedServiceSlugs: ["web-application-security", "penetration-testing"],
     intro:
       "JSON Web Tokens are simple to implement and easy to break. This cheat sheet lists the pitfalls we keep finding across BFSI, fintech and SaaS pentests — with the must-haves your auth gateway should enforce on every request.",
     blocks: [
@@ -1113,7 +1113,7 @@ export const RESOURCES: Resource[] = [
     publishedYear: "2026",
     icon: Activity,
     accent: "red",
-    relatedServiceSlugs: ["soc-setup-siem", "threat-intelligence"],
+    relatedServiceSlugs: ["managed-soc", "threat-intelligence"],
     intro:
       "PsExec is a Sysinternals tool — and an attacker's lateral-movement workhorse. Most mid-market SOCs miss it because the detections that ship by default fire on something every IT admin uses anyway. This cheat sheet lists the telemetry sources, the sigma-style logic and the false-positive patterns that separate IT-admin PsExec from adversary PsExec.",
     blocks: [
@@ -1226,7 +1226,7 @@ export const RESOURCES: Resource[] = [
     publishedYear: "2026",
     icon: Cloud,
     accent: "cyan",
-    relatedServiceSlugs: ["cloud-security", "soc-setup-siem"],
+    relatedServiceSlugs: ["cloud-security", "managed-soc"],
     intro:
       "M365 ships permissive — that's its design. Hardening is a deliberate set of moves. This checklist is the pragmatic order-of-operations we run on Indian BFSI tenants, sequenced so the biggest risk reduction lands in the first afternoon.",
     blocks: [

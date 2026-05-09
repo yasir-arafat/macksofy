@@ -168,7 +168,7 @@ export const AUDITS: Audit[] = [
   },
 
   {
-    slug: "compliance-regulatory-audits",
+    slug: "compliance-audit",
     title: "Compliance & Regulatory Audits",
     shortTitle: "Compliance Audits",
     icon: ClipboardCheck,
@@ -1229,7 +1229,7 @@ export const AUDITS: Audit[] = [
   },
 
   {
-    slug: "vapt-rbi-pci",
+    slug: "regulatory-vapt",
     title: "VAPT for RBI / PCI-DSS",
     shortTitle: "RBI + PCI VAPT",
     icon: CreditCard,

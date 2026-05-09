@@ -27,10 +27,10 @@ const ADVANCED = OFFSEC_COURSES.filter(
   (c) =>
     c.level === "Professional" &&
     c.slug !== "oscp" &&
-    !["exp-312-osmr", "exp-401-osee"].includes(c.slug),
+    !["osmr", "osee"].includes(c.slug),
 );
 const ELITE = OFFSEC_COURSES.filter((c) =>
-  ["exp-312-osmr", "exp-401-osee"].includes(c.slug),
+  ["osmr", "osee"].includes(c.slug),
 );
 
 const OFFSEC_FAQS = [
