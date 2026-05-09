@@ -5,6 +5,9 @@ import { PHP_REDIRECTS } from "./lib/legacy-redirects";
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   allowedDevOrigins: ["192.168.0.125"],
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
   async redirects() {
     return PHP_REDIRECTS.map((r) => ({ ...r, statusCode: 301 as const }));
   },

@@ -35,7 +35,7 @@ export const AWARDS: Award[] = [
     body: "CSI Cyber Security Awards",
     year: 2025,
     category: "Industry Award",
-    image: "/awards/csi-2025.png",
+    image: "/awards/csi-2025.webp",
     description:
       "Awarded for delivering one of India's highest-impact cybersecurity training and awareness programs across BFSI, government and academia.",
     featured: true,
@@ -48,7 +48,7 @@ export const AWARDS: Award[] = [
     body: "Google",
     year: "Multiple",
     category: "Vendor Recognition",
-    image: "/awards/google-vrp.png",
+    image: "/awards/google-vrp.webp",
     description:
       "Hall of Fame recognition for responsibly disclosed vulnerabilities (Open Redirect class) under Google's VRP.",
     featured: true,
@@ -59,7 +59,7 @@ export const AWARDS: Award[] = [
     body: "EC-Council Global Awards",
     year: 2021,
     category: "Vendor Recognition",
-    image: "/awards/ec-council-cei-2021.png",
+    image: "/awards/ec-council-cei-2021.webp",
     description:
       "Global recognition for sustained instructional excellence as an EC-Council Certified Instructor.",
   },
@@ -71,7 +71,7 @@ export const AWARDS: Award[] = [
     body: "IT Innovation & Excellence Awards",
     year: 2017,
     category: "Industry Award",
-    image: "/awards/startup-2017.png",
+    image: "/awards/startup-2017.webp",
     description:
       "Winner — recognized as the most promising cybersecurity start-up in India for the year.",
   },
@@ -81,7 +81,7 @@ export const AWARDS: Award[] = [
     body: "National Information Security Summit (NISS)",
     year: 2017,
     category: "Speaking / Engagement",
-    image: "/awards/niss-2017.png",
+    image: "/awards/niss-2017.webp",
     description:
       "Speaker recognition at India's premier government + private-sector information security summit.",
   },
@@ -91,7 +91,7 @@ export const AWARDS: Award[] = [
     body: "Intel India Awards",
     year: 2017,
     category: "Vendor Recognition",
-    image: "/awards/intel-2017.png",
+    image: "/awards/intel-2017.webp",
     description:
       "Recognition for technical contribution to Intel's India cybersecurity engagement program.",
   },
@@ -101,7 +101,7 @@ export const AWARDS: Award[] = [
     body: "Intel India Awards",
     year: 2016,
     category: "Vendor Recognition",
-    image: "/awards/intel-2016.png",
+    image: "/awards/intel-2016.webp",
     description:
       "Recognition for sustained partnership and contribution to Intel's India cybersecurity initiatives.",
   },
@@ -113,7 +113,7 @@ export const AWARDS: Award[] = [
     body: "Chetana's H. S. College of Commerce & Economics",
     year: "Speaking",
     category: "Government / Academic",
-    image: "/awards/chetana-college.png",
+    image: "/awards/chetana-college.webp",
     description:
       "Awarded for delivering cybersecurity awareness and training engagements to students and faculty.",
   },

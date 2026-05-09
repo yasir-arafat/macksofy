@@ -3,10 +3,7 @@ import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { StickyWhatsApp } from "@/components/widgets/StickyWhatsApp";
-import { Chatbot } from "@/components/widgets/Chatbot";
-import { LeadMagnetPopup } from "@/components/widgets/LeadMagnetPopup";
-import { BackToTop } from "@/components/widgets/BackToTop";
+import { LazyClientWidgets } from "@/components/widgets/LazyClientWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   organizationSchema,
@@ -25,7 +22,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700", "800", "900"],
+  weight: ["600", "700", "900"],
 });
 
 const mono = JetBrains_Mono({
@@ -134,10 +131,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <StickyWhatsApp />
-        <Chatbot />
-        <LeadMagnetPopup />
-        <BackToTop />
+        <LazyClientWidgets />
       </body>
     </html>
   );
