@@ -182,23 +182,21 @@ function RevealWord({
   gradient?: boolean;
 }) {
   return (
-    <span className="inline-block overflow-hidden align-bottom">
-      <motion.span
-        initial={{ y: "100%", opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          duration: 0.85,
-          delay,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className={cn(
-          "inline-block mr-3 lg:mr-4",
-          gradient && "gradient-text"
-        )}
-      >
-        {children}
-      </motion.span>
-    </span>
+    <motion.span
+      initial={{ y: 24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.85,
+        delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className={cn(
+        "inline-block mr-3 lg:mr-4 leading-[1.1] pb-[0.12em]",
+        gradient && "gradient-text"
+      )}
+    >
+      {children}
+    </motion.span>
   );
 }
 
@@ -267,13 +265,13 @@ function LiveOpsPanel() {
           filter: "blur(28px)",
         }}
       />
+      <div className="absolute -top-3 left-10 z-10 rounded-md bg-bg px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-neon-cyan ring-1 ring-line">
+        {"// live · macksofy ops"}
+      </div>
       <div className="relative rounded-3xl glass-strong p-6 shadow-2xl glow-blend overflow-hidden">
         {/* Sweep highlight inside card */}
         <SweepLine color="#00e5ff" duration={6} delay={1} />
 
-        <div className="absolute -top-3 left-6 rounded-md bg-bg px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-neon-cyan ring-1 ring-line">
-          {"// live · macksofy ops"}
-        </div>
         <div className="flex items-center justify-between mb-4 mt-1">
           <div className="flex items-center gap-2 text-xs font-semibold text-fg-muted">
             <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />

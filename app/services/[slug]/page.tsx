@@ -36,8 +36,20 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const BESPOKE_SLUGS = new Set([
+  "vapt",
+  "penetration-testing",
+  "managed-soc",
+  "web-application-security",
+  "cloud-security",
+  "red-teaming",
+  "digital-forensics-incident-response",
+  "malware-analysis",
+  "threat-intelligence",
+]);
+
 export function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.slug }));
+  return SERVICES.filter((s) => !BESPOKE_SLUGS.has(s.slug)).map((s) => ({ slug: s.slug }));
 }
 
 export const dynamicParams = false;

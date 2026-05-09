@@ -50,9 +50,7 @@ export const CLIENTS: Client[] = [
   // -----------------------------------------------
   { name: "RPS", logo: "/clients/RPS.png", category: "Tech, Media & Startups" },
   { name: "QLC", logo: "/clients/QLC.png", category: "Tech, Media & Startups" },
-  { name: "Foxtor", logo: "/clients/Foxtor.png", category: "Tech, Media & Startups" },
   { name: "My Plan 8", logo: "/clients/My-Plan-8.png", category: "Tech, Media & Startups" },
-  { name: "Brown Girl", logo: "/clients/Brown-Girl.png", category: "Tech, Media & Startups" },
   { name: "Rupifi Technology Solutions", logo: "/clients/RUPIFI-TECHNOLOGY-SOLUTIONS-PVT-LTD.png", category: "Tech, Media & Startups" },
 
   // -----------------------------------------------
