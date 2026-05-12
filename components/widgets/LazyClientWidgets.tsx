@@ -18,6 +18,10 @@ const BackToTop = dynamic(
   () => import("./BackToTop").then((m) => m.BackToTop),
   { ssr: false }
 );
+const CookieConsent = dynamic(
+  () => import("./CookieConsent").then((m) => m.CookieConsent),
+  { ssr: false }
+);
 
 export function LazyClientWidgets() {
   return (
@@ -26,6 +30,7 @@ export function LazyClientWidgets() {
       <Chatbot />
       <LeadMagnetPopup />
       <BackToTop />
+      <CookieConsent />
     </>
   );
 }

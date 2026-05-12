@@ -21,6 +21,7 @@ import {
   CornerDownLeft,
   BookOpenText,
   Library,
+  Newspaper,
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -82,13 +83,19 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     description: "CSI 2025 · Google VRP · EC-Council CEI",
     icon: Trophy,
   },
+  {
+    label: "Press & Media",
+    href: "/press",
+    description: "Mid-day · ABP · CNN News 18 · Entrepreneur features",
+    icon: Newspaper,
+  },
 ];
 
 // Logo serves as Home — we drop the "Home" item to free up nav width.
 const NAV: NavItem[] = [
-  { label: "Services", href: "/services", mega: "services" },
+  { label: "Security Assessment", href: "/services", mega: "services" },
   { label: "Training", href: "/training", mega: "training" },
-  { label: "Audit", href: "/audit", mega: "audit" },
+  { label: "Security Compliance", href: "/audit", mega: "audit" },
   { label: "About", href: "/about", dropdown: ABOUT_DROPDOWN },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -324,7 +331,7 @@ export function Header() {
       </AnimatePresence>
 
       {/* MAIN BAR */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 lg:h-[72px] flex items-center gap-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 lg:h-[72px] flex items-center gap-4 lg:gap-6 xl:gap-8">
         {/* LOGO */}
         <Link
           href="/"
@@ -339,7 +346,7 @@ export function Header() {
             width={140}
             height={40}
             priority
-            className="relative h-8 lg:h-9 w-auto brightness-0 invert transition-transform group-hover:scale-105"
+            className="relative h-8 lg:h-9 w-auto transition-transform group-hover:scale-105"
           />
         </Link>
 
@@ -402,7 +409,7 @@ export function Header() {
                     onFocus={() => setHovered(item.href)}
                     onBlur={() => setHovered(null)}
                     className={cn(
-                      "relative flex items-center gap-1 px-3 h-9 text-[13px] font-semibold rounded-full transition-colors whitespace-nowrap",
+                      "relative flex items-center gap-1 px-2 xl:px-3 h-9 text-[13px] font-semibold rounded-full transition-colors whitespace-nowrap",
                       active ? "text-neon-cyan" : "text-fg-muted hover:text-fg"
                     )}
                   >
@@ -424,7 +431,7 @@ export function Header() {
         </nav>
 
         {/* RIGHT ACTIONS */}
-        <div className="flex items-center gap-2 shrink-0 ml-auto">
+        <div className="flex items-center gap-1.5 xl:gap-2 shrink-0 ml-auto">
           {/* Search trigger — icon-only (lg) → pill (xl+) */}
           <button
             onClick={() => setSearchOpen(true)}
@@ -445,10 +452,12 @@ export function Header() {
             </kbd>
           </button>
 
-          {/* Phone (2xl+ only) */}
+          {/* Phone — hidden by default; new long nav labels left no room.
+              Re-enable at an ultrawide breakpoint if/when you widen max-w-7xl. */}
           <a
             href={`tel:${SITE.phone}`}
-            className="hidden 2xl:inline-flex items-center gap-2 rounded-full px-3 h-9 text-sm font-semibold text-fg-muted hover:text-neon-cyan transition-colors"
+            className="hidden items-center gap-2 rounded-full px-3 h-9 text-sm font-semibold text-fg-muted hover:text-neon-cyan transition-colors"
+            aria-label={`Call ${SITE.phoneDisplay}`}
           >
             <Phone className="size-4" /> {SITE.phoneDisplay}
           </a>
@@ -457,7 +466,7 @@ export function Header() {
           <Link
             href="/contact"
             onClick={closeAll}
-            className="btn-shine relative hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-4 lg:px-5 h-9 text-[13px] font-bold text-white whitespace-nowrap shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] transition-shadow"
+            className="btn-shine relative hidden md:inline-flex items-center gap-1.5 xl:gap-2 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-3 xl:px-5 h-9 text-[13px] font-bold text-white whitespace-nowrap shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] transition-shadow"
           >
             Book Consultation
             <ArrowRight className="size-3.5" />
@@ -906,11 +915,11 @@ function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
 
 const MEGA_HEADER = {
   services: {
-    eyebrow: "Cybersecurity Services",
+    eyebrow: "Security Assessment",
     title: "From assumed-breach pentests to red teams",
     description:
       "Manual exploitation, OSCP/OSWE/OSEP-led teams, CERT-In format reports.",
-    cta: { label: "View all services", href: "/services" },
+    cta: { label: "View all assessments", href: "/services" },
     stat: { value: "200+", label: "Engagements / yr" },
   },
   training: {
@@ -922,11 +931,11 @@ const MEGA_HEADER = {
     stat: { value: "22", label: "Active courses" },
   },
   audit: {
-    eyebrow: "Audit & Compliance",
+    eyebrow: "Security Compliance",
     title: "CERT-In empanelled, regulator-ready",
     description:
       "RBI · SEBI · UIDAI · ISO 27001 · SOC 2 · PCI-DSS · UAE NESA / DESC.",
-    cta: { label: "View all audits", href: "/audit" },
+    cta: { label: "View all frameworks", href: "/audit" },
     stat: { value: "11+", label: "Years auditing" },
   },
 } as const;
@@ -1130,6 +1139,11 @@ const CATEGORY_TONE: Record<
     dot: "bg-emerald-400",
     text: "text-emerald-300",
     ring: "ring-emerald-400/30",
+  },
+  "GCC Regulatory": {
+    dot: "bg-neon-cyan",
+    text: "text-neon-cyan",
+    ring: "ring-neon-cyan/30",
   },
 };
 

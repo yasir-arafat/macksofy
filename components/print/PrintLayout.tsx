@@ -46,6 +46,23 @@ export function PrintLayout({
     return () => document.documentElement.classList.remove("print-mode");
   }, []);
 
+  // Auto-open the browser's Save-as-PDF / print dialog when the caller
+  // arrives with `?print=1` — used by the training "Download brochure (PDF)"
+  // button to deliver a real PDF flow.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("print") !== "1") return;
+    const t = window.setTimeout(() => {
+      try {
+        window.print();
+      } catch {
+        /* ignore */
+      }
+    }, 350);
+    return () => window.clearTimeout(t);
+  }, []);
+
   const today = new Date().toLocaleDateString("en-IN", {
     day: "numeric",
     month: "long",

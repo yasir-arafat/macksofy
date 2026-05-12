@@ -21,6 +21,7 @@ import { COURSES } from "@/content/courses";
 import { SERVICES } from "@/content/services";
 import { AUDITS } from "@/content/audits";
 import { cn } from "@/lib/utils";
+import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
 
 /* ──────────────────────────────────────────────────────────────
    SOCIAL ICONS (inline SVG — Lucide v1 doesn't ship brand logos)
@@ -104,7 +105,7 @@ export function Footer() {
                 alt="Macksofy Technologies"
                 width={180}
                 height={50}
-                className="h-11 w-auto brightness-0 invert transition-transform group-hover:scale-105"
+                className="h-11 w-auto transition-transform group-hover:scale-105"
                 priority
               />
             </Link>
@@ -126,14 +127,14 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <FooterCol title="Services">
+          <FooterCol title="Security Assessment">
             {SERVICES.filter((s) => s.popular).slice(0, 6).map((s) => (
               <FooterLinkAnimated key={s.slug} href={`/services/${s.slug}`}>
                 {s.shortTitle}
               </FooterLinkAnimated>
             ))}
             <FooterLinkAnimated href="/services" highlight>
-              All services →
+              All assessments →
             </FooterLinkAnimated>
           </FooterCol>
 
@@ -148,7 +149,7 @@ export function Footer() {
             </FooterLinkAnimated>
           </FooterCol>
 
-          <FooterCol title="Audit">
+          <FooterCol title="Security Compliance">
             {(["iso-27001", "soc-2", "rbi-csf", "pci-dss", "dpdp-act"] as const)
               .map((slug) => AUDITS.find((a) => a.slug === slug))
               .filter((a): a is (typeof AUDITS)[number] => Boolean(a))
@@ -158,7 +159,7 @@ export function Footer() {
                 </FooterLinkAnimated>
               ))}
             <FooterLinkAnimated href="/audit" highlight>
-              All {AUDITS.length} audits →
+              All {AUDITS.length} frameworks →
             </FooterLinkAnimated>
           </FooterCol>
 
@@ -168,6 +169,7 @@ export function Footer() {
             <FooterLinkAnimated href="/case-studies">Case Studies</FooterLinkAnimated>
             <FooterLinkAnimated href="/resources">Resources</FooterLinkAnimated>
             <FooterLinkAnimated href="/awards">Awards</FooterLinkAnimated>
+            <FooterLinkAnimated href="/press">Press</FooterLinkAnimated>
             <FooterLinkAnimated href="/blog">Blog</FooterLinkAnimated>
             <FooterLinkAnimated href="/contact">Contact</FooterLinkAnimated>
             <FooterLinkAnimated href="/sitemap.xml">Sitemap</FooterLinkAnimated>
@@ -256,9 +258,20 @@ export function Footer() {
           <p className="text-xs text-fg-faint">
             © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
           </p>
-          <p className="text-xs text-fg-faint">
-            CERT-In Empanelled Auditor · ISO 27001 Certified · India + UAE
-          </p>
+          <div className="flex flex-wrap items-center gap-3 text-xs text-fg-faint">
+            <Link
+              href="/privacy"
+              className="text-fg-muted hover:text-neon-cyan transition-colors"
+            >
+              Privacy &amp; cookies
+            </Link>
+            <span aria-hidden>·</span>
+            <CookiePrefsLink className="text-fg-muted hover:text-neon-cyan transition-colors cursor-pointer">
+              Cookie preferences
+            </CookiePrefsLink>
+            <span aria-hidden>·</span>
+            <span>CERT-In Empanelled · ISO 27001 · India + UAE</span>
+          </div>
         </div>
       </Container>
     </footer>

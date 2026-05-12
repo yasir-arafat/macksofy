@@ -315,7 +315,7 @@ function LiveOpsPanel() {
             href="/services"
             className="inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan hover:gap-2 transition-all"
           >
-            All services <ArrowRight className="size-4" />
+            All assessments <ArrowRight className="size-4" />
           </Link>
           <span className="font-mono text-[10px] text-fg-faint inline-flex items-center gap-1.5">
             <span className="relative flex size-1.5">
