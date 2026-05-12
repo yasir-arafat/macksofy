@@ -108,6 +108,55 @@ export function localBusinessSchema() {
   };
 }
 
+/**
+ * Per-city LocalBusiness schema for /locations/[city] pages. Inherits
+ * Macksofy's brand identity but pins addressLocality + geo to the city
+ * so each metro page is its own LocalBusiness entity in Google's eyes.
+ */
+export function cityLocalBusinessSchema(city: {
+  slug: string;
+  name: string;
+  state: string;
+  geo: { lat: number; lng: number };
+  mapQuery?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": `${BASE}/locations/${city.slug}#localbusiness`,
+    name: `${SITE.name} — ${city.name}`,
+    image: `${BASE}/logo.png`,
+    url: `${BASE}/locations/${city.slug}`,
+    telephone: SITE.phone,
+    email: SITE.email,
+    priceRange: "₹₹₹",
+    parentOrganization: { "@id": `${BASE}#organization` },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: city.name,
+      addressRegion: city.state,
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: city.geo.lat,
+      longitude: city.geo.lng,
+    },
+    areaServed: {
+      "@type": "City",
+      name: city.name,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:30",
+        closes: "18:30",
+      },
+    ],
+  };
+}
+
 export function websiteSchema() {
   return {
     "@context": "https://schema.org",
