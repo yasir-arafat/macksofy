@@ -4,7 +4,7 @@ import {
   Server,
   KeyRound,
   Layers,
-  Gauge,
+  ScanSearch,
   FileBadge,
   RotateCcw,
   type LucideIcon,
@@ -240,43 +240,45 @@ export default function ApiSecPage() {
             </h2>
             <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
               Generic API scanners run a corpus of known payloads against the
-              endpoints they can see. The findings that actually unblock a
-              launch or close a regulator finding come from a human who
-              reasoned about your authorisation model, your tenant boundaries,
-              and the field-level permissions your scanner can&rsquo;t infer.
+              routes they can already see. The findings that actually close a
+              regulator audit &mdash; BOLA across tenants, mass-assignment
+              that elevates a regular user to admin, JWT alg=none accepted in
+              production &mdash; come from a human who reasoned about your
+              authorisation model, not from a tool that pattern-matched your
+              response bodies.
             </p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <WhyCard
-              icon={Server}
-              title="Every protocol, in scope."
-              body="REST + OpenAPI, GraphQL (Apollo / Hasura / federated), gRPC + Protobuf, server-sent events and websockets. We test what your app actually uses, not what the scanner happens to support."
+              icon={KeyRound}
+              title="We break the auth model first."
+              body="JWT alg confusion, kid injection, OAuth state omissions, mTLS misuse, HMAC replay — every auth scheme on your stack gets its own phase, not a check-box. Our OSWE-trained team has shipped CVEs against well-known auth libraries. If the auth holds, the rest of the engagement gets cheaper."
             />
             <WhyCard
-              icon={KeyRound}
-              title="Auth scheme expertise."
-              body="OAuth 2 / OIDC, JWT signing flaws, mTLS, HMAC, API keys, session cookies, AWS SigV4 — the auth posture gets a dedicated phase, not a single check-box. Our OSWE-trained team has shipped CVEs against well-known auth libraries."
+              icon={ScanSearch}
+              title="We hunt the APIs you forgot you shipped."
+              body="Old v1, v2 and beta routes still answering traffic. Admin paths discoverable from a JS bundle. Partner-only endpoints reachable from the internet. Shadow-API discovery is its own phase, with kiterunner, ffuf and live traffic-capture run in parallel."
+            />
+            <WhyCard
+              icon={Server}
+              title="REST, GraphQL, gRPC — all three."
+              body="REST + OpenAPI, GraphQL (Apollo, Hasura, federated), gRPC + Protobuf with reflection, server-sent events, websockets. We test the protocols your app actually emits, not the subset the scanner happens to support."
             />
             <WhyCard
               icon={Layers}
-              title="Property-level authz."
-              body="Mass-assignment via PATCH/PUT, GraphQL field-level authz, partial-update body abuse — we&rsquo;re the team that finds the field your back-end forgot to filter."
-            />
-            <WhyCard
-              icon={Gauge}
-              title="Rate, quota and flow abuse."
-              body="Rate-limit bypass, GraphQL depth and complexity attacks, batched-mutation abuse, business-flow exhaustion (signup, OTP, password reset, voucher stacking) — the bugs that hurt revenue, not just confidentiality."
+              title="We attack the property, not just the endpoint."
+              body="Mass-assignment via PATCH and PUT bodies. GraphQL field-level authz across roles. Partial-update body abuse. We find the property your back-end forgot to filter, then prove the role-elevation chain it unlocks."
             />
             <WhyCard
               icon={FileBadge}
-              title="OWASP API Top 10 attestation."
-              body="Per-category attestation against the 2023 OWASP API Top 10, plus a Postman / OpenAPI regression collection so your CI can re-validate findings on every release."
+              title="OWASP API Top 10 attestation, on paper."
+              body="Explicit per-category attestation against the 2023 OWASP API Security Top 10, plus a Postman / OpenAPI regression collection your CI can re-execute on every release. Your auditor reads &ldquo;L1 verified&rdquo;, not &ldquo;OWASP-aligned&rdquo;."
             />
             <WhyCard
               icon={RotateCcw}
-              title="Free retest in 30 days."
-              body="One free verification cycle within 30 days of dev sign-off. We rerun the affected phases, validate fixes via the Postman collection, and reissue the attestation."
+              title="Free retest. Closed, not pending."
+              body="One free verification cycle within 30 days of developer sign-off. We rerun the affected phases on the patched build, re-execute the Postman regression, and reissue the attestation &mdash; so the auditor sees &lsquo;closed&rsquo;, never &lsquo;remediation pending&rsquo;."
             />
           </div>
 
