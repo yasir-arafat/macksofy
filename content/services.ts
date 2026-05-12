@@ -9,6 +9,7 @@ import {
   Microscope,
   Bug,
   Radar,
+  Smartphone,
 } from "lucide-react";
 
 export interface CaseStudy {
@@ -630,6 +631,197 @@ export const SERVICES: Service[] = [
   },
 
   // 5 -----------------------------------------------------------------
+  {
+    slug: "mobile-application-security",
+    title: "Mobile Application Security Testing",
+    shortTitle: "Mobile Pentest",
+    icon: Smartphone,
+    iconName: "Smartphone",
+    category: "Offensive",
+    popular: true,
+    hero: {
+      eyebrow: "Android · iOS · OWASP MASVS / MSTG",
+      tagline: "Test the app the way an attacker holds the phone.",
+      description:
+        "Manual + tooled penetration testing for Android (APK / AAB) and iOS (IPA) apps. We decompile, instrument with Frida, intercept TLS, abuse the backend the app talks to, and prove which findings actually move money or PII — not just which ones the scanner flagged.",
+    },
+    realWorld:
+      "Mobile pentests fail when teams stop at MobSF output. We run the full OWASP MASVS / MSTG playbook: static decompilation (jadx, apktool, Hopper), runtime instrumentation with Frida + Objection, traffic interception under cert-pinning bypass, secure-storage abuse on rooted/jailbroken handsets, and end-to-end backend testing of the same APIs the app calls. Then we prove the real-world impact — taking over a banking session, exfiltrating PII from local SQLite, or replaying a wallet transaction.",
+    businessImpact: [
+      "RBI Mobile Banking Security guidelines + UIDAI/Aadhaar SDK compliance",
+      "PCI DSS scope reduction for payment apps (cardholder data on device)",
+      "App Store / Play Store policy attestation pre-submission",
+      "Pre-launch sign-off your CISO and product head can both defend",
+    ],
+    methodology: [
+      {
+        phase: "1 · Scoping & threat model",
+        activities: [
+          "Build vs. release APK/IPA acquisition, version pinning",
+          "Backend / API endpoint inventory from disassembly + traffic",
+          "Threat-actor profile (financially motivated vs. nation-state)",
+          "Crown-jewel asset list — what we'll try to actually exfil",
+        ],
+      },
+      {
+        phase: "2 · Static analysis (SAST)",
+        activities: [
+          "APK / IPA decompilation — jadx, apktool, Hopper, class-dump",
+          "Hard-coded secret hunt across resources + smali",
+          "Insecure crypto + Android Manifest / Info.plist permission audit",
+          "Third-party SDK / supply-chain CVE triage",
+        ],
+      },
+      {
+        phase: "3 · Dynamic analysis (DAST)",
+        activities: [
+          "Rooted Android + jailbroken iOS device fleet",
+          "Frida + Objection runtime instrumentation",
+          "SSL pinning bypass + TLS interception (Burp Suite)",
+          "Frida hooks for root/jailbreak detection bypass",
+        ],
+      },
+      {
+        phase: "4 · Insecure data storage",
+        activities: [
+          "SharedPreferences / NSUserDefaults / KeyChain inspection",
+          "SQLite + Realm + WebView cache inspection",
+          "Logcat / device-log leakage analysis",
+          "Background-snapshot leakage on iOS task switcher",
+        ],
+      },
+      {
+        phase: "5 · API + backend abuse",
+        activities: [
+          "BOLA / IDOR across multi-tenant mobile flows",
+          "JWT, OAuth, biometric-token replay + session-fixation tests",
+          "Push-notification spoofing + deep-link hijacking",
+          "Server-side input handling for the same endpoints the app calls",
+        ],
+      },
+      {
+        phase: "6 · Binary protection & RASP",
+        activities: [
+          "Root / jailbreak detection bypass evaluation",
+          "Anti-debug + anti-Frida + integrity-check effectiveness",
+          "Obfuscation depth — ProGuard / R8 / Bitcode analysis",
+          "Tampering & repackaging walkthrough",
+        ],
+      },
+      {
+        phase: "7 · Reporting + remediation",
+        activities: [
+          "OWASP MASVS verification level attestation (L1 / L2 / R)",
+          "Per-finding PoC video + reproduction steps",
+          "Dev-ready fix guidance per platform",
+          "Free retest after dev sign-off (typically within 30 days)",
+        ],
+      },
+    ],
+    toolStack: [
+      "Frida",
+      "Objection",
+      "Burp Suite Pro",
+      "MobSF",
+      "jadx",
+      "apktool",
+      "Hopper / Ghidra",
+      "Drozer",
+      "class-dump / otool",
+      "Magisk + LSPosed",
+      "Corellium (iOS)",
+      "Custom Frida scripts",
+    ],
+    industriesServed: [
+      "Mobile Banking & UPI",
+      "Fintech wallets & payments",
+      "Healthcare / patient portals (HL7 / NDHM)",
+      "Insurance",
+      "E-commerce & quick-commerce",
+      "Travel & ride-hailing",
+      "GovTech (Aadhaar / DigiLocker / mAadhaar)",
+    ],
+    deliverables: [
+      "OWASP MASVS / MSTG attestation report (L1 + L2 verification)",
+      "Per-finding PoC with screen recording from a rooted/jailbroken device",
+      "Decompiled-code annotations with vulnerable line references",
+      "Frida script bundle covering each bypass demonstrated",
+      "Backend API findings linked to mobile attack chain",
+      "Free retest within 30 days of dev sign-off",
+    ],
+    caseStudies: [
+      {
+        industry: "Mobile banking app (India, BFSI Tier-1)",
+        scope: "Android + iOS retail-banking app + REST APIs",
+        finding: "Root-detection bypass via Frida + transaction-replay through expired-but-accepted JWT",
+        impact: "Critical — pre-RBI audit fix prevented six-figure exposure window",
+        severity: 3,
+      },
+      {
+        industry: "Healthcare patient app (UAE)",
+        scope: "iOS + backend FHIR APIs",
+        finding: "Biometric-bypass via Touch ID hook + cross-tenant prescription read via API IDOR",
+        impact: "Critical — PHI exposure closed before DESC notification window expired",
+        severity: 3,
+      },
+      {
+        industry: "Quick-commerce app (India)",
+        scope: "Android app + payment SDK",
+        finding: "Hard-coded payment gateway secret in resources.arsc + deep-link order-status takeover",
+        impact: "High — chained to free-order PoC, fixed pre-funding round close",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you test on rooted / jailbroken devices?",
+        a: "Yes — that's our default. The threat model includes a determined attacker with a compromised device. We also verify your root/jailbreak detection holds up against current Magisk + Frida bypasses, so app-store reviewers and bug-bounty hunters don't beat your team to the finding.",
+      },
+      {
+        q: "Will you bypass SSL pinning?",
+        a: "Yes. SSL pinning is a defence layer, not an audit blocker — we bypass it with Frida hooks (Android) or SSL Kill Switch (iOS) to inspect the request/response stream, then assess whether your pinning implementation itself is robust.",
+      },
+      {
+        q: "Do I need to give you source code?",
+        a: "No. Black-box (binary-only) is supported and matches the real attacker view. Grey-box (binary + obfuscation map / ProGuard rules / TestFlight build) is faster and gets deeper coverage. White-box (source-code review on top of the binary tests) is the most thorough and required for OWASP MASVS-R verification.",
+      },
+      {
+        q: "Which platforms do you cover?",
+        a: "Android (APK + AAB) and iOS (IPA). Hybrid frameworks — React Native, Flutter, Cordova, Ionic, Xamarin — are first-class; we decompile the JS bundle / dart_snapshot / DLL accordingly. Cross-platform Capacitor / Tauri shells are handled the same way.",
+      },
+      {
+        q: "How long does a mobile pentest take?",
+        a: "Typical retail app: 8–10 business days for one platform, 12–14 for both. Banking / payment apps with strong RASP and complex backend flows are 3–4 weeks. We share a phase-by-phase progress log so your release planning isn't blind during the window.",
+      },
+      {
+        q: "Will the test break production?",
+        a: "No. Mobile pentests happen against a build the dev team supplies — staging-pointed or production-pointed but on test accounts you authorise. Backend API testing follows the rules of engagement signed at scoping.",
+      },
+      {
+        q: "Do you map to RBI Mobile Banking Security guidelines?",
+        a: "Yes. The deliverable explicitly maps each finding to RBI's Master Direction on Mobile Banking, the RBI Cybersecurity Framework for SCBs, and where applicable the UIDAI Aadhaar Authentication API security controls.",
+      },
+      {
+        q: "What about App Store / Play Store policy review?",
+        a: "We flag policy issues (privacy manifest gaps on iOS 17+, restricted permission overuse on Android 14+, Data Safety form mismatches) as a separate appendix so submission rejections don't blindside a release.",
+      },
+    ],
+    seoTitle: "Mobile App Security Testing India & UAE | Android + iOS | Macksofy",
+    seoDescription:
+      "OWASP MASVS / MSTG-aligned mobile penetration testing for Android (APK) and iOS (IPA). Frida + Burp + manual exploitation. RBI mobile banking, PCI DSS, App Store policy. Mumbai, India + UAE.",
+    keywords: [
+      "mobile application penetration testing India",
+      "Android pentest Mumbai",
+      "iOS application security testing",
+      "OWASP MASVS audit India",
+      "mobile banking app security RBI",
+      "Frida penetration testing UAE",
+      "APK security assessment",
+      "IPA security testing Dubai",
+    ],
+  },
+
+  // 6 -----------------------------------------------------------------
   {
     slug: "cloud-security",
     title: "Cloud Security (AWS / Azure / GCP)",
