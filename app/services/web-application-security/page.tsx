@@ -1,4 +1,14 @@
-import { Code2, CheckCircle2 } from "lucide-react";
+import {
+  Code2,
+  CheckCircle2,
+  Activity,
+  GitMerge,
+  KeyRound,
+  FileSearch,
+  FileBadge,
+  RotateCcw,
+  type LucideIcon,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
@@ -138,13 +148,14 @@ export default function WebSecPage() {
       <section id="owasp" className="py-20">
         <Container>
           <div className="max-w-3xl">
-            <Eyebrow>OWASP Top 10 + API Top 10</Eyebrow>
+            <Eyebrow>OWASP Web Top 10 &middot; 2021</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
               Tap a category. See <span className="gradient-text">manual vs scanner</span> coverage.
             </h2>
             <p className="mt-4 text-fg-muted text-pretty">
-              Side-by-side coverage delta for each OWASP category — proof that human
-              consultants find what tooling misses (and where automation is genuinely fine).
+              Side-by-side coverage delta per OWASP category &mdash; proof that
+              human consultants find what tooling misses (and where automation
+              is genuinely fine).
             </p>
           </div>
           <div className="mt-12">
@@ -154,7 +165,7 @@ export default function WebSecPage() {
       </section>
 
       {/* CASE STUDIES */}
-      <section className="py-20 bg-bg-1">
+      <section className="py-20">
         <Container>
           <Eyebrow color="amber">Case studies</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
@@ -166,7 +177,7 @@ export default function WebSecPage() {
                 <Badge variant="cyan" className="self-start">{cs.industry}</Badge>
                 <p className="mt-3 text-sm font-semibold text-fg">{cs.scope}</p>
                 <p className="mt-3 text-sm text-fg-muted leading-relaxed flex-1">
-                  <span className="text-neon-cyan font-semibold">Finding · </span>{cs.finding}
+                  <span className="text-neon-cyan font-semibold">Finding &middot; </span>{cs.finding}
                 </p>
                 <p className="mt-3 text-sm text-fg-muted">{cs.impact}</p>
                 <div className="mt-5 pt-5 border-t border-line/60">
@@ -174,6 +185,74 @@ export default function WebSecPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* WHY MACKSOFY */}
+      <section id="why-macksofy" className="py-20 bg-bg-1">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow color="purple">Why Macksofy for web app security</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              The web pentest your <span className="gradient-text">scanner can&rsquo;t run</span>.
+            </h2>
+            <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+              Most &ldquo;web application pentest&rdquo; deliverables in the
+              Indian and UAE market are a Burp Pro scan with a PDF cover. The
+              findings that actually close a regulator audit or unblock an
+              enterprise sales cycle &mdash; stored XSS that defeats the
+              sanitiser, OAuth state omissions that swap the redirect to
+              attacker.com, SAML signature stripping that turns any user into
+              admin &mdash; come from a human who reads requests, not from a
+              tool that just sends them.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <WhyCard
+              icon={Activity}
+              title="We test the request, not the screenshot."
+              body="Modern web bugs live in the request/response cycle &mdash; Authorization headers, CSRF tokens, Set-Cookie attributes, redirect chains. Burp + Caido sits in front of every action; the consultant watches every fetch, every form post, every SPA navigation and exploits the ones the back-end didn&rsquo;t properly check."
+            />
+            <WhyCard
+              icon={GitMerge}
+              title="We chain the boring bugs into critical ones."
+              body="Real breaches come from chains, not single findings. Self-XSS + CSRF becomes stored XSS. Open redirect + OAuth state omission becomes 1-click account takeover. A dedicated phase builds the chain that turns three &lsquo;low&rsquo; findings into the High your CVE log would actually record."
+            />
+            <WhyCard
+              icon={KeyRound}
+              title="SSO, SAML, OAuth — always in scope."
+              body="SAML signature stripping and XSW, OAuth state + PKCE omission, JWT misuse on the client, redirect_uri confusion &mdash; SSO bugs are the highest-impact web findings of the last decade. We treat the SSO stack as its own engagement track with tooling and tradecraft to match."
+            />
+            <WhyCard
+              icon={FileSearch}
+              title="We read your JS bundle."
+              body="Modern SPAs ship half their attack surface in their JS bundles. We extract every route, every internal endpoint, every dev feature flag and every comment that ends &lsquo;TODO remove before prod&rsquo; &mdash; then test the ones the back-end forgot to gate."
+            />
+            <WhyCard
+              icon={FileBadge}
+              title="OWASP Web Top 10 attestation, on paper."
+              body="Explicit per-category attestation against the 2021 OWASP Web Top 10, plus a separate CSP / SRI / HSTS / cookie / CORS hardening checklist your developers can work through. Your auditor reads &ldquo;A01-A10 verified&rdquo;, not &ldquo;OWASP-aligned&rdquo;."
+            />
+            <WhyCard
+              icon={RotateCcw}
+              title="Free retest. Closed, not pending."
+              body="One free verification cycle within 30 days of developer sign-off. We rerun the affected phases on the patched build, re-execute the exploit chain end-to-end, and reissue the attestation &mdash; so the auditor sees &lsquo;closed&rsquo;, never &lsquo;remediation pending&rsquo;."
+            />
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-3 rounded-2xl ring-1 ring-line/60 bg-bg/60 p-5">
+            <CheckCircle2 className="size-5 text-neon-cyan shrink-0" />
+            <p className="text-sm text-fg-muted leading-relaxed flex-1 min-w-[280px]">
+              Mutual NDA is step zero of every engagement. Source, traffic
+              captures and findings live on Macksofy infrastructure for the
+              engagement window plus 90 days, then are securely destroyed
+              against a CERT-In-acceptable retention policy.
+            </p>
+            <LinkButton href="/contact?interest=Web%20App%20Security" size="md" withArrow>
+              Talk to a web lead
+            </LinkButton>
           </div>
         </Container>
       </section>
@@ -188,8 +267,11 @@ export default function WebSecPage() {
                 Burp + custom <span className="gradient-text">extensions</span>.
               </h2>
               <p className="mt-5 text-fg-muted">
-                We ship in-house Burp extensions for GraphQL recon, JWT abuse and BOLA scanning
-                that aren&rsquo;t on the BApp store.
+                We ship in-house Burp extensions for DOMPurify-bypass probing,
+                CSP-bypass payload generation, SAML XSW assembly and CSRF-token
+                replay &mdash; tools that aren&rsquo;t on the BApp store, built
+                from years of running this engagement against Indian fintech
+                and UAE SaaS targets.
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -219,5 +301,27 @@ export default function WebSecPage() {
 
       <LeadCapture />
     </>
+  );
+}
+
+function WhyCard({
+  icon: Icon,
+  title,
+  body,
+}: {
+  icon: LucideIcon;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="rounded-2xl glass p-6 lift h-full flex flex-col">
+      <div className="grid size-11 place-items-center rounded-xl bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan glow-cyan">
+        <Icon className="size-5" />
+      </div>
+      <h3 className="mt-5 font-display text-lg font-black text-fg leading-tight">
+        {title}
+      </h3>
+      <p className="mt-3 text-sm text-fg-muted leading-relaxed flex-1">{body}</p>
+    </div>
   );
 }
