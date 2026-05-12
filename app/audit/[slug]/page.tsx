@@ -16,10 +16,9 @@ import { breadcrumbSchema, faqSchema, auditSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { AUDITS, getAuditBySlug } from "@/content/audits";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
-import { PricingTiers } from "@/components/PricingTiers";
+import { AuditDeepDive } from "@/components/visuals/audit/AuditDeepDive";
 import { TrustStrip } from "@/components/TrustStrip";
 import { DownloadButton } from "@/components/DownloadButton";
-import { getAuditPricing } from "@/content/pricing";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -240,10 +239,14 @@ export default async function AuditDetail({ params }: PageProps) {
         </section>
       )}
 
-      {/* PRICING */}
-      <PricingTiers
-        pkg={getAuditPricing(a.slug, a.category)}
-        contactInterest={a.title}
+      {/* AUDIT DEEP-DIVE — pillars + animated stats + horizontal timeline */}
+      <AuditDeepDive
+        shortTitle={a.shortTitle}
+        pillars={a.pillars}
+        fallbackFrameworks={a.frameworks}
+        fallbackDeliverables={a.deliverables}
+        phases={a.methodology}
+        authority={a.authority}
       />
 
       {/* TRUST STRIP */}

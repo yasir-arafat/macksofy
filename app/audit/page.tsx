@@ -1,5 +1,16 @@
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Search } from "lucide-react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Search,
+  Boxes,
+  ScrollText,
+  Cog,
+  AlertOctagon,
+  LifeBuoy,
+  TrendingUp,
+  type LucideIcon,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
@@ -8,6 +19,7 @@ import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { CertInHero } from "@/components/visuals/CertInBadge";
 import { ComplianceMatrix } from "@/components/visuals/ComplianceMatrix";
+import { PillarRadial } from "@/components/visuals/audit/PillarRadial";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
@@ -18,6 +30,7 @@ import {
   AUDITS,
   AUDIT_CATEGORIES,
   auditsByCategory,
+  getAuditBySlug,
   type AuditCategory,
 } from "@/content/audits";
 import { metroKeywords } from "@/lib/site";
@@ -71,6 +84,13 @@ const CATEGORY_META: Record<
       "Regulator-format audits accepted by RBI, SEBI, IRDAI, UIDAI and CERT-In on first read. CERT-In empanelment letters supplied with every engagement.",
     accent: "amber",
   },
+  "GCC Regulatory": {
+    eyebrow: "UAE · KSA · Dubai · Abu Dhabi · DESC · NESA",
+    title: "UAE & GCC regulatory audits",
+    description:
+      "UAE Federal PDPL, NESA / UAE IA Standards, ADHICS, DESC ISR, SAMA CSF, CBUAE banking cyber and NCA ECC-2 — delivered with the same audit rigour Macksofy applies to RBI and SEBI work.",
+    accent: "cyan",
+  },
   "International Standard": {
     eyebrow: "ISO · SOC 2 · NIST",
     title: "International standards",
@@ -101,7 +121,19 @@ const ACCENT_TEXT: Record<"cyan" | "purple" | "amber" | "green", string> = {
   green: "text-emerald-300",
 };
 
+const PILLAR_VISUAL: Record<string, { icon: LucideIcon; tint: string }> = {
+  "Asset & data inventory": { icon: Boxes, tint: "text-neon-cyan ring-neon-cyan/40 bg-neon-cyan/10" },
+  "Governance & policy": { icon: ScrollText, tint: "text-violet-300 ring-violet-400/40 bg-violet-400/10" },
+  "Technical control posture": { icon: Cog, tint: "text-amber-300 ring-amber-400/40 bg-amber-400/10" },
+  "Threat & vulnerability mgmt": { icon: AlertOctagon, tint: "text-emerald-300 ring-emerald-400/40 bg-emerald-400/10" },
+  "Incident & response readiness": { icon: LifeBuoy, tint: "text-rose-300 ring-rose-400/40 bg-rose-400/10" },
+  "Maturity roadmap": { icon: TrendingUp, tint: "text-sky-300 ring-sky-400/40 bg-sky-400/10" },
+};
+
 export default function AuditPage() {
+  const cyberAudit = getAuditBySlug("cybersecurity-audit");
+  const cyberPillars = cyberAudit?.pillars ?? [];
+
   return (
     <>
       <JsonLd
@@ -204,6 +236,105 @@ export default function AuditPage() {
           })}
         </div>
       </Container>
+
+      {/* CYBERSECURITY-AUDIT PILLARS — foundational engagement showcase */}
+      {cyberPillars.length > 0 && (
+        <section
+          id="cybersecurity-audit-pillars"
+          className="py-20 bg-bg-1 border-y border-line scroll-mt-28"
+        >
+          <Container>
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan font-bold">
+                <span className="size-1.5 rounded-full bg-neon-cyan animate-pulse" />
+                Start here · The foundational audit
+              </span>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-black text-balance leading-[1.05]">
+                Six pillars. <span className="gradient-text">One full picture.</span>
+              </h2>
+              <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+                Every regulator-specific audit on this page sits on top of the
+                same scaffold — a generalist Macksofy cybersecurity audit. These
+                are the six workstreams it always covers, regardless of which
+                regulator or certification body you ultimately answer to.
+              </p>
+            </div>
+
+            <div className="mt-12 rounded-2xl bg-bg-2/30 ring-1 ring-line p-6 sm:p-8">
+              <PillarRadial pillars={cyberPillars} />
+            </div>
+
+            <StaggerChildren className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {cyberPillars.map((p, i) => {
+                const visual = PILLAR_VISUAL[p.title];
+                const Icon = visual?.icon ?? ShieldCheck;
+                const tint =
+                  visual?.tint ??
+                  "text-neon-cyan ring-neon-cyan/40 bg-neon-cyan/10";
+                return (
+                  <StaggerItem key={p.title}>
+                    <Link
+                      href="/audit/cybersecurity-audit"
+                      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-5 hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`grid size-11 place-items-center rounded-xl ring-1 ${tint}`}
+                        >
+                          <Icon className="size-5" />
+                        </div>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
+                          Pillar {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <h3 className="mt-4 font-display text-base font-bold text-fg group-hover:text-neon-cyan leading-tight">
+                        {p.title}
+                      </h3>
+                      {p.blurb && (
+                        <p className="mt-2 text-[13px] text-fg-muted leading-relaxed line-clamp-2">
+                          {p.blurb}
+                        </p>
+                      )}
+                      <ul className="mt-3 space-y-1 text-[12px] text-fg-muted/90">
+                        {p.points.slice(0, 3).map((pt) => (
+                          <li key={pt} className="flex gap-1.5">
+                            <span className="text-neon-cyan/70 mt-0.5 shrink-0">▸</span>
+                            <span className="line-clamp-1">{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <span className="mt-auto pt-4 inline-flex items-center gap-1 text-xs font-semibold text-neon-cyan">
+                        Read pillar detail <ArrowRight className="size-3.5" />
+                      </span>
+                    </Link>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerChildren>
+
+            <FadeIn>
+              <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-bg-2/40 ring-1 ring-line p-5 sm:p-6">
+                <div>
+                  <div className="font-display text-base font-bold text-fg">
+                    Want the full cybersecurity audit?
+                  </div>
+                  <p className="mt-1 text-sm text-fg-muted">
+                    Deep-dive page with engagement timeline, deliverables, case
+                    studies and the radial breakdown above.
+                  </p>
+                </div>
+                <Link
+                  href="/audit/cybersecurity-audit"
+                  className="shrink-0 inline-flex items-center gap-2 rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-5 h-10 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/25 transition-colors"
+                >
+                  View cybersecurity audit
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </FadeIn>
+          </Container>
+        </section>
+      )}
 
       {/* CATALOG — by category */}
       <section id="catalog" className="py-12 sm:py-16 scroll-mt-28">
