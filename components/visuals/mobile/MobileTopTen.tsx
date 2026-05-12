@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 
 interface Item {
@@ -9,10 +10,19 @@ interface Item {
   detail: string;
   android: number;
   ios: number;
+  /** Optional icon image rendered in the grid tile instead of the code text. */
+  image?: string;
 }
 
 const ITEMS: Item[] = [
-  { code: "M1", name: "Improper Credential Usage", detail: "Hard-coded API keys, secrets in resources.arsc / plist, weak credential reuse", android: 90, ios: 85 },
+  {
+    code: "M1",
+    name: "Improper Credential Usage",
+    detail: "Hard-coded API keys, secrets in resources.arsc / plist, weak credential reuse",
+    android: 90,
+    ios: 85,
+    image: "/owasp-mobile/m1-improper-credential-usage.webp",
+  },
   { code: "M2", name: "Inadequate Supply Chain", detail: "Vulnerable SDKs, transitive CVEs, unsigned 3rd-party native libs", android: 80, ios: 70 },
   { code: "M3", name: "Insecure Auth / Authz", detail: "Biometric bypass, session-token replay, BOLA across mobile flows", android: 92, ios: 90 },
   { code: "M4", name: "Insufficient I/O Validation", detail: "Deep-link / intent-redirect, WebView XSS, JS-bridge abuse", android: 88, ios: 65 },
@@ -59,14 +69,24 @@ export function MobileTopTen() {
                   }}
                 />
                 <div className="relative h-full flex flex-col items-center justify-center p-2 text-center">
-                  <span
-                    className={
-                      "font-display text-2xl font-black leading-none " +
-                      (isActive ? "gradient-text" : "text-fg-muted")
-                    }
-                  >
-                    {it.code}
-                  </span>
+                  {it.image ? (
+                    <Image
+                      src={it.image}
+                      alt={`${it.code} icon`}
+                      width={56}
+                      height={56}
+                      className="size-12 sm:size-14 object-contain"
+                    />
+                  ) : (
+                    <span
+                      className={
+                        "font-display text-2xl font-black leading-none " +
+                        (isActive ? "gradient-text" : "text-fg-muted")
+                      }
+                    >
+                      {it.code}
+                    </span>
+                  )}
                   <span className="mt-2 text-[10px] uppercase tracking-wider text-fg-faint leading-tight line-clamp-2">
                     {it.name}
                   </span>
