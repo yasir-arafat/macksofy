@@ -1,4 +1,16 @@
-import { Smartphone, CheckCircle2, Apple, Bot } from "lucide-react";
+import {
+  Smartphone,
+  CheckCircle2,
+  Apple,
+  Bot,
+  ShieldCheck,
+  Server,
+  FileBadge,
+  Landmark,
+  Video,
+  RotateCcw,
+  type LucideIcon,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
@@ -17,6 +29,7 @@ import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { MobileTopTen } from "@/components/visuals/mobile/MobileTopTen";
+import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "mobile-application-security";
 
@@ -169,7 +182,7 @@ export default function MobileSecPage() {
       </section>
 
       {/* OWASP MOBILE TOP 10 MAP */}
-      <section id="owasp-mobile" className="py-20">
+      <section id="owasp-mobile" className="py-20 bg-bg-1">
         <Container>
           <div className="max-w-3xl">
             <Eyebrow>OWASP Mobile Top 10 &middot; 2024</Eyebrow>
@@ -188,8 +201,38 @@ export default function MobileSecPage() {
         </Container>
       </section>
 
+      {/* TESTING METHODOLOGY */}
+      <section id="methodology" className="py-20">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12 items-end">
+            <div className="lg:col-span-6">
+              <Eyebrow>Testing methodology</Eyebrow>
+              <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+                Seven phases. <span className="gradient-text">Manual at every one.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-6">
+              <p className="text-fg-muted text-pretty leading-relaxed">
+                A Macksofy mobile engagement follows the OWASP MASVS &amp; MSTG
+                testing guide end-to-end &mdash; not a one-shot MobSF run. Each
+                phase has a human consultant driving manual exploitation, with
+                automation used to surface candidates fast. Findings are linked
+                across phases so you see the chain, not just the list.
+              </p>
+            </div>
+          </div>
+          <div className="mt-12">
+            <Methodology
+              slug={SLUG}
+              phases={service.methodology}
+              subjectLabel="Mobile pentest"
+            />
+          </div>
+        </Container>
+      </section>
+
       {/* CASE STUDIES */}
-      <section className="py-20 bg-bg-1">
+      <section className="py-20">
         <Container>
           <Eyebrow color="amber">Case studies</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
@@ -209,6 +252,72 @@ export default function MobileSecPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* WHY CHOOSE MACKSOFY */}
+      <section id="why-macksofy" className="py-20 bg-bg-1">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow color="purple">Why Macksofy for mobile VAPT</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              Six reasons CISOs <span className="gradient-text">pick us</span> over the scanner-shop.
+            </h2>
+            <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+              Most &ldquo;mobile pentests&rdquo; in the Indian + UAE market are a
+              MobSF scan with a logo. The findings that actually move
+              regulators or shut down a launch don&rsquo;t come from a tool &mdash;
+              they come from a human on a rooted device with Frida open and
+              an attacker&rsquo;s patience. Here&rsquo;s what changes when you
+              hire a team built around that.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <WhyCard
+              icon={Smartphone}
+              title="Rooted device fleet"
+              body="Pixel + Samsung + OnePlus Magisk-rooted Androids and jailbroken iPhones, plus Corellium for the iOS versions we don't yet own physically. We test the threat model an attacker actually has, not the one your RASP wishes for."
+            />
+            <WhyCard
+              icon={Server}
+              title="Backend in scope, always"
+              body="Most mobile pentests stop at the binary. Ours don't. The same APIs the app calls get the full BOLA / IDOR / JWT / mass-assignment treatment our OSWE-certified web team uses — because the chain is where the breach happens."
+            />
+            <WhyCard
+              icon={FileBadge}
+              title="OWASP MASVS attestation"
+              body="The deliverable carries an explicit verification level (L1, L2 or R) per the OWASP Mobile Application Security Verification Standard — a recognised third-party benchmark your enterprise customers and regulators can actually map to."
+            />
+            <WhyCard
+              icon={Landmark}
+              title="RBI + UIDAI + DESC fluency"
+              body="CERT-In empanelled. Reports map directly to RBI's Master Direction on Mobile Banking, UIDAI Aadhaar Auth API controls, and (for UAE work) DESC ISR + UAE PDPL — so the same engagement covers India + Gulf compliance in one pass."
+            />
+            <WhyCard
+              icon={Video}
+              title="PoC video per finding"
+              body="Every High/Critical ships with a screen recording from a rooted/jailbroken device that walks the developer through reproduction. No 'we couldn't reproduce' standoffs three weeks later when the dev team finally opens the PDF."
+            />
+            <WhyCard
+              icon={RotateCcw}
+              title="Free retest in 30 days"
+              body="One free verification cycle within 30 days of dev sign-off. We rerun the affected phases, validate fixes, and update the attestation report — so the regulator sees 'closed' instead of 'reported, remediation pending'."
+            />
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-3 rounded-2xl ring-1 ring-line/60 bg-bg/60 p-5">
+            <ShieldCheck className="size-5 text-neon-cyan shrink-0" />
+            <p className="text-sm text-fg-muted leading-relaxed flex-1 min-w-[280px]">
+              Mutual NDA is step zero of every engagement. Builds, exam
+              artefacts and findings stay on Macksofy infrastructure for the
+              engagement window plus 90 days, then are securely destroyed
+              against a CERT-In-acceptable retention policy.
+            </p>
+            <LinkButton href="/contact?interest=Mobile%20App%20Security" size="md" withArrow>
+              Talk to a mobile lead
+            </LinkButton>
           </div>
         </Container>
       </section>
@@ -300,7 +409,7 @@ function Platform({
   label,
   sub,
 }: {
-  icon: typeof Smartphone;
+  icon: LucideIcon;
   label: string;
   sub: string;
 }) {
@@ -313,6 +422,28 @@ function Platform({
         <p className="text-sm font-bold text-fg leading-tight">{label}</p>
         <p className="text-xs text-fg-muted leading-tight truncate">{sub}</p>
       </div>
+    </div>
+  );
+}
+
+function WhyCard({
+  icon: Icon,
+  title,
+  body,
+}: {
+  icon: LucideIcon;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="rounded-2xl glass p-6 lift h-full flex flex-col">
+      <div className="grid size-11 place-items-center rounded-xl bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan glow-cyan">
+        <Icon className="size-5" />
+      </div>
+      <h3 className="mt-5 font-display text-lg font-black text-fg leading-tight">
+        {title}
+      </h3>
+      <p className="mt-3 text-sm text-fg-muted leading-relaxed flex-1">{body}</p>
     </div>
   );
 }
