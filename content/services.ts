@@ -667,7 +667,7 @@ export const SERVICES: Service[] = [
         phase: "2 · Static analysis (SAST)",
         activities: [
           "APK / IPA decompilation — jadx, apktool, Hopper, class-dump",
-          "Hard-coded secret hunt across resources + smali",
+          "Hard-coded secret hunt across resources + smali + Mach-O",
           "Insecure crypto + Android Manifest / Info.plist permission audit",
           "Third-party SDK / supply-chain CVE triage",
         ],
@@ -677,21 +677,23 @@ export const SERVICES: Service[] = [
         activities: [
           "Rooted Android + jailbroken iOS device fleet",
           "Frida + Objection runtime instrumentation",
-          "SSL pinning bypass + TLS interception (Burp Suite)",
-          "Frida hooks for root/jailbreak detection bypass",
+          "SSL pinning bypass + TLS interception via Burp Suite",
+          "SharedPreferences / NSUserDefaults / KeyChain / SQLite inspection",
+          "Logcat / device-log + iOS background-snapshot leakage",
         ],
       },
       {
-        phase: "4 · Insecure data storage",
+        phase: "4 · Manual exploitation (MAST)",
         activities: [
-          "SharedPreferences / NSUserDefaults / KeyChain inspection",
-          "SQLite + Realm + WebView cache inspection",
-          "Logcat / device-log leakage analysis",
-          "Background-snapshot leakage on iOS task switcher",
+          "Root / jailbreak detection bypass evaluation",
+          "Anti-debug + anti-Frida + integrity-check effectiveness",
+          "Obfuscation depth — ProGuard / R8 / Bitcode / Swift Shield",
+          "Business-logic abuse + multi-step chain construction",
+          "Tampering & repackaging walkthrough",
         ],
       },
       {
-        phase: "5 · API + backend abuse",
+        phase: "5 · Backend & API abuse",
         activities: [
           "BOLA / IDOR across multi-tenant mobile flows",
           "JWT, OAuth, biometric-token replay + session-fixation tests",
@@ -700,16 +702,7 @@ export const SERVICES: Service[] = [
         ],
       },
       {
-        phase: "6 · Binary protection & RASP",
-        activities: [
-          "Root / jailbreak detection bypass evaluation",
-          "Anti-debug + anti-Frida + integrity-check effectiveness",
-          "Obfuscation depth — ProGuard / R8 / Bitcode analysis",
-          "Tampering & repackaging walkthrough",
-        ],
-      },
-      {
-        phase: "7 · Reporting + remediation",
+        phase: "6 · Reporting & remediation",
         activities: [
           "OWASP MASVS verification level attestation (L1 / L2 / R)",
           "Per-finding PoC video + reproduction steps",

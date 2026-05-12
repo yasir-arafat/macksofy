@@ -10,6 +10,9 @@ import {
   Code2,
   KeyRound,
   RotateCcw,
+  FileSearch,
+  Activity,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -183,7 +186,7 @@ export default function MobileSecPage() {
       </section>
 
       {/* OWASP MOBILE TOP 10 MAP */}
-      <section id="owasp-mobile" className="py-20 bg-bg-1">
+      <section id="owasp-mobile" className="py-20">
         <Container>
           <div className="max-w-3xl">
             <Eyebrow>OWASP Mobile Top 10 &middot; 2024</Eyebrow>
@@ -202,23 +205,99 @@ export default function MobileSecPage() {
         </Container>
       </section>
 
+      {/* SECURITY TESTING APPROACHES */}
+      <section id="approaches" className="py-20">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow color="amber">Security testing approaches</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              Three approaches. <span className="gradient-text">One engagement.</span>
+            </h2>
+            <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+              A Macksofy mobile pentest blends three industry-standard approaches
+              across every engagement &mdash; because no single one catches
+              everything. SAST reads the code without running it. DAST watches
+              what happens when it runs. MAST is the human work in between.
+              You get all three; the scanner shops give you one and call it a
+              pentest.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            <ApproachCard
+              icon={FileSearch}
+              code="SAST"
+              title="Static Application Security Testing"
+              what="Read the binary without running it. Every APK gets jadx + apktool, every IPA gets class-dump plus Hopper or Ghidra. We walk the source-equivalent code, smali listings and Mach-O strings by hand."
+              catches={[
+                "Hard-coded API keys, AWS / GCP secrets in resources.arsc + Info.plist",
+                "Insecure cryptographic primitives + custom-rolled crypto",
+                "Debug endpoints and feature flags shipped to production",
+                "Vulnerable third-party SDKs + transitive native-lib CVEs",
+              ]}
+              phaseLabel="Phase 2 of the methodology"
+            />
+            <ApproachCard
+              icon={Activity}
+              code="DAST"
+              title="Dynamic Application Security Testing"
+              what="Watch the app while it runs. A rooted Android + jailbroken iOS fleet, Frida + Objection instrumentation, Burp Suite interception under cert-pinning bypass, plus live inspection of every on-device data store."
+              catches={[
+                "TLS pinning gaps + cleartext fallbacks under hostile networks",
+                "Insecure data at rest in KeyChain, SharedPreferences, SQLite",
+                "Runtime authorisation flaws visible only against a live backend",
+                "Background-snapshot + logcat PII leakage during normal use",
+              ]}
+              phaseLabel="Phase 3 of the methodology"
+            />
+            <ApproachCard
+              icon={Wrench}
+              code="MAST"
+              title="Manual Application Security Testing"
+              what="The human-driven testing scanners can&rsquo;t model. Bypass RASP. Tamper with the binary. Chain low-severity findings into business-impacting compromises. This is the work that justifies hiring people instead of subscriptions."
+              catches={[
+                "Multi-step business-logic abuse + payment / KYC bypass chains",
+                "Root + SafetyNet + anti-Frida + anti-debug bypass paths",
+                "Account takeover via chained low-severity findings",
+                "Tampered + repackaged builds that pass integrity checks",
+              ]}
+              phaseLabel="Phase 4 of the methodology"
+            />
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3 rounded-2xl ring-1 ring-line/60 bg-bg-1/50 p-5">
+            <ShieldCheck className="size-5 text-neon-cyan shrink-0" />
+            <p className="text-sm text-fg-muted leading-relaxed flex-1 min-w-[280px]">
+              We don&rsquo;t pick one. Every Macksofy mobile engagement applies
+              SAST, DAST and MAST in sequence &mdash; chained across the six
+              methodology phases below &mdash; so the findings from one approach
+              feed the next.
+            </p>
+            <LinkButton href="#methodology" variant="outline" size="md">
+              See the methodology
+            </LinkButton>
+          </div>
+        </Container>
+      </section>
+
       {/* TESTING METHODOLOGY */}
-      <section id="methodology" className="py-20">
+      <section id="methodology" className="py-20 bg-bg-1">
         <Container>
           <div className="grid gap-10 lg:grid-cols-12 items-end">
             <div className="lg:col-span-6">
               <Eyebrow>Testing methodology</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Seven phases. <span className="gradient-text">Manual at every one.</span>
+                Six phases. <span className="gradient-text">All three approaches.</span>
               </h2>
             </div>
             <div className="lg:col-span-6">
               <p className="text-fg-muted text-pretty leading-relaxed">
                 A Macksofy mobile engagement follows the OWASP MASVS &amp; MSTG
                 testing guide end-to-end &mdash; not a one-shot MobSF run. Each
-                phase has a human consultant driving manual exploitation, with
-                automation used to surface candidates fast. Findings are linked
-                across phases so you see the chain, not just the list.
+                phase applies one or more of the three approaches above (SAST,
+                DAST, MAST) with a human consultant driving exploitation.
+                Findings link across phases so you see the chain, not just the
+                list.
               </p>
             </div>
           </div>
@@ -236,7 +315,7 @@ export default function MobileSecPage() {
       </section>
 
       {/* CASE STUDIES */}
-      <section className="py-20">
+      <section className="py-20 bg-bg-1">
         <Container>
           <Eyebrow color="amber">Case studies</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
@@ -261,7 +340,7 @@ export default function MobileSecPage() {
       </section>
 
       {/* WHY CHOOSE MACKSOFY */}
-      <section id="why-macksofy" className="py-20 bg-bg-1">
+      <section id="why-macksofy" className="py-20">
         <Container>
           <div className="max-w-3xl">
             <Eyebrow color="purple">Why Macksofy for mobile VAPT</Eyebrow>
@@ -328,7 +407,7 @@ export default function MobileSecPage() {
       </section>
 
       {/* TOOL STACK */}
-      <section className="py-20">
+      <section className="py-20 bg-bg-1">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 items-end">
             <div className="lg:col-span-5">
@@ -353,7 +432,7 @@ export default function MobileSecPage() {
       </section>
 
       {/* COMPLIANCE STRIP */}
-      <section className="py-20 bg-bg-1">
+      <section className="py-20">
         <Container>
           <div className="max-w-3xl">
             <Eyebrow color="purple">Regulator &amp; store mapping</Eyebrow>
@@ -449,6 +528,59 @@ function WhyCard({
         {title}
       </h3>
       <p className="mt-3 text-sm text-fg-muted leading-relaxed flex-1">{body}</p>
+    </div>
+  );
+}
+
+function ApproachCard({
+  icon: Icon,
+  code,
+  title,
+  what,
+  catches,
+  phaseLabel,
+}: {
+  icon: LucideIcon;
+  code: string;
+  title: string;
+  what: string;
+  catches: string[];
+  phaseLabel: string;
+}) {
+  return (
+    <div className="rounded-2xl glass p-7 lift h-full flex flex-col">
+      <div className="flex items-center gap-4">
+        <div className="grid size-12 place-items-center rounded-xl bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan glow-cyan">
+          <Icon className="size-6" />
+        </div>
+        <div>
+          <div className="font-display text-2xl font-black gradient-text leading-none">
+            {code}
+          </div>
+          <div className="mt-1 text-[10px] font-mono uppercase tracking-[0.22em] text-fg-faint">
+            {phaseLabel}
+          </div>
+        </div>
+      </div>
+
+      <h3 className="mt-5 font-display text-lg font-black text-fg leading-tight">
+        {title}
+      </h3>
+      <p className="mt-3 text-sm text-fg-muted leading-relaxed">{what}</p>
+
+      <div className="mt-5 pt-5 border-t border-line/60">
+        <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-fg-faint">
+          What it catches
+        </p>
+        <ul className="mt-3 space-y-2 text-sm">
+          {catches.map((c) => (
+            <li key={c} className="flex gap-2.5">
+              <CheckCircle2 className="size-4 text-neon-cyan shrink-0 mt-0.5" />
+              <span className="text-fg-muted leading-relaxed">{c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
