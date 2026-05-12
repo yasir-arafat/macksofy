@@ -5,11 +5,15 @@ import { motion } from "framer-motion";
 import { Phone, ArrowRight, Terminal, Sparkles } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { ParticleBackground } from "@/components/visuals/ParticleBackground";
+import dynamic from "next/dynamic";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { AuroraBackground } from "@/components/visuals/AuroraBackground";
 import { SpotlightCursor } from "@/components/visuals/SpotlightCursor";
-import { HeroVideoBackground } from "@/components/visuals/HeroVideoBackground";
+
+const HeroThreeScene = dynamic(
+  () => import("@/components/visuals/HeroThreeScene").then((m) => m.HeroThreeScene),
+  { ssr: false }
+);
 import {
   ScanLines,
   Vignette,
@@ -42,15 +46,9 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden min-h-[92vh] flex flex-col">
       {/* CINEMATIC BACKDROP STACK */}
-      <HeroVideoBackground
-        src="/hero/macksofy-hero.mp4"
-        poster="/hero/macksofy-hero-poster.webp"
-        dim={0.6}
-        tint="cyan"
-      />
-      <div className="absolute inset-0 bg-grid opacity-30 mix-blend-screen" />
+      <HeroThreeScene />
+      <div className="absolute inset-0 bg-grid opacity-20 mix-blend-screen pointer-events-none" />
       <AuroraBackground />
-      <ParticleBackground density={120} />
       <GlowOrb className="-top-40 left-1/2 -translate-x-1/2" color="cyan" size={700} intensity="strong" />
       <GlowOrb className="bottom-0 right-1/4" color="purple" size={500} />
       <GlowOrb className="top-1/3 -left-20" color="blue" size={400} intensity="soft" />
