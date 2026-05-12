@@ -627,6 +627,499 @@ export const CITIES: City[] = [
     geo: { lat: 18.5204, lng: 73.8567 },
     mapQuery: "Hinjewadi, Pune, Maharashtra",
   },
+
+  // ==================================================================
+  // TIER-2 INDIA METROS — added to close Kratikal's NCR + GIFT lead
+  // ==================================================================
+  {
+    slug: "noida",
+    name: "Noida",
+    state: "Uttar Pradesh",
+    category: "Tech capital",
+    hero: {
+      eyebrow: "Cybersecurity in Noida · NCR tech belt · BFSI ops · Government adjacent",
+      headline: "Noida cybersecurity for the NCR tech and BFSI belt.",
+      description:
+        "Macksofy delivers CERT-In empanelled VAPT, regulator-format audits and corporate training to Noida and Greater Noida — from Sector 18 fintechs and the Yotta data centre cluster to NCR\u2019s largest IT-services GCCs.",
+    },
+    cityContext: [
+      "Noida + Greater Noida sits at the centre of India\u2019s most concentrated cybersecurity buyer market: IT-services majors with delivery centres, fintech and BFSI back-offices, captive banking ops for foreign-bank GCCs, the Yotta NM1 hyperscale data centre, the Jewar airport build-out, and a fast-growing edtech and SaaS cluster across Sectors 16 and 62.",
+      "Buyers here are sophisticated — most run their own SOC and Risk teams and ask for CERT-In format VAPT, ISO 27001 + SOC 2 dual audits, and DPDP readiness in the same engagement. Greenfield work (Jewar logistics, Yotta tenants, new fintech licences) generates a steady stream of clean-slate ISMS implementations.",
+      "Macksofy services Noida through senior consultants who fly Mumbai \u2192 Delhi and drive over from IGI / Aerocity, or operate from our partner Gurugram coordination point. Same-day onsite is normal for kickoff and exit calls.",
+    ],
+    regulators: [
+      "MeitY · CERT-In",
+      "RBI (NBFC, payment-aggregator and PA-PG licensees)",
+      "SEBI (Noida-headquartered AMCs and brokers)",
+      "UIDAI (Aadhaar AUA/KUA in Noida BPOs)",
+      "DPDP Board",
+    ],
+    industries: [
+      "IT services + GCCs",
+      "Fintech + lending",
+      "Banking & captive operations",
+      "Data-centre operators",
+      "E-commerce + D2C",
+      "Edtech + SaaS",
+    ],
+    topServices: [
+      "vapt",
+      "penetration-testing",
+      "cloud-security",
+      "managed-soc",
+      "web-application-security",
+      "red-teaming",
+    ],
+    topAudits: [
+      "cert-in-empanelled-audit",
+      "iso-27001",
+      "soc-2",
+      "rbi-csf",
+      "dpdp-act",
+      "pci-dss",
+    ],
+    caseStudy: {
+      industry: "Noida-headquartered Payment Aggregator (RBI licensee)",
+      scope:
+        "RBI PA-PG audit + CERT-In VAPT (50 internet-facing apps) + DPDP RoPA + PCI-DSS SAQ-D readiness",
+      outcome:
+        "RBI PA-PG submission accepted first read; 14 highs + 26 mediums closed in 6 weeks; DPDP RoPA covering 11 systems; PCI v4.0 SAQ-D readiness pack delivered.",
+    },
+    stats: [
+      { value: "40+", label: "Noida engagements" },
+      { value: "Mumbai BKC", label: "Anchor team" },
+      { value: "Sec 18 / 62", label: "Buyer concentration" },
+      { value: "Yotta NM1", label: "Data-centre presence" },
+    ],
+    delivery:
+      "Senior consultants fly Mumbai \u2192 Delhi (2 hr) and reach any Noida sector in 45-90 minutes via Yamuna or DND. We maintain a Gurugram \u2194 Noida coordination cadence so multi-site NCR engagements share a single tech lead. Standard onsite + remote split: 30% / 70%.",
+    faqs: [
+      {
+        q: "Can you cover Noida + Gurugram in one NCR engagement?",
+        a: "Yes \u2014 most of our NCR-headquartered clients buy NCR-wide coverage. A single Macksofy tech lead manages both metros with shared evidence and a single audit pack. We do not double-charge mobilisation.",
+      },
+      {
+        q: "Do you support Yotta NM1 or other Noida data-centre tenants?",
+        a: "Yes. We deliver tenant-side VAPT and shared-responsibility audits for clients colocated in Yotta NM1 and the adjacent CtrlS Noida facility, including data-centre interconnect and management-plane reviews.",
+      },
+      {
+        q: "How quickly can you mobilise for a critical Noida incident?",
+        a: "Senior IR consultant on the next Mumbai \u2192 Delhi flight (within 4-6 hours). Remote triage starts immediately via secure bridge. Most Noida clients use Macksofy as their preferred IR retainer.",
+      },
+    ],
+    seoDescription:
+      "CERT-In empanelled cybersecurity services in Noida + Greater Noida. VAPT, ISO 27001, SOC 2, RBI PA-PG, DPDP and PCI-DSS audits for Noida fintechs, IT services and data-centre tenants.",
+    extraKeywords: [
+      "cybersecurity Noida",
+      "VAPT Noida Sector 62",
+      "CERT-In auditor Noida",
+      "ISO 27001 consultant Noida",
+      "RBI PA-PG audit Noida",
+      "Greater Noida penetration testing",
+      "Yotta tenant security audit",
+      "cybersecurity Sector 18 Noida",
+    ],
+    geo: { lat: 28.5355, lng: 77.3910 },
+    mapQuery: "Sector 18, Noida, Uttar Pradesh",
+  },
+
+  {
+    slug: "gurugram",
+    name: "Gurugram",
+    state: "Haryana",
+    category: "BFSI capital",
+    hero: {
+      eyebrow: "Cybersecurity in Gurugram · Cyber City · BFSI HQs · GCCs",
+      headline: "Gurugram cybersecurity for the BFSI and GCC corridor.",
+      description:
+        "Cyber City, Udyog Vihar, Golf Course Road, Sohna and DLF Phases 1\u20135 \u2014 Macksofy delivers CERT-In empanelled VAPT, RBI / IRDAI audits and adversary simulation engagements for the densest BFSI and global-capability-centre cluster in NCR.",
+    },
+    cityContext: [
+      "Gurugram is India\u2019s second BFSI capital after Mumbai \u2014 head offices for top private banks, every major insurer, the largest fintechs (Paytm, PolicyBazaar, MakeMyTrip group), and over 600 global capability centres (Deloitte, Accenture, KPMG, EY, Genpact). Cybersecurity spend per buyer is among the highest in India.",
+      "Buying intent is sophisticated: CERT-In + RBI CSF + ISO 27001 + SOC 2 + PCI-DSS in one composite audit, red-team-style adversary simulation against EDR, and DPDP Act readiness across customer + employee data flows. Many Gurugram CISOs sit on board sub-committees and demand evidence-grade reports.",
+      "Macksofy\u2019s Gurugram delivery is anchored from Mumbai BKC senior consultants who fly in for kickoff, sprint reviews and major findings. Remote VAPT runs through the week. For multi-quarter engagements we maintain an embedded Gurugram tech lead.",
+    ],
+    regulators: [
+      "MeitY · CERT-In",
+      "RBI (private-bank HQs + NBFCs + fintech)",
+      "IRDAI (top insurer HQs in DLF + Udyog Vihar)",
+      "SEBI (Gurugram-headquartered AMCs and brokers)",
+      "Haryana State Cyber Cell",
+      "DPDP Board",
+    ],
+    industries: [
+      "Private banking + NBFC HQs",
+      "Insurance HQs",
+      "Fintech + payments + lending",
+      "Global capability centres",
+      "Consulting + Big-4 / professional services",
+      "Travel + e-commerce HQs",
+    ],
+    topServices: [
+      "red-teaming",
+      "penetration-testing",
+      "vapt",
+      "managed-soc",
+      "cloud-security",
+      "digital-forensics-incident-response",
+    ],
+    topAudits: [
+      "cert-in-empanelled-audit",
+      "rbi-csf",
+      "iso-27001",
+      "soc-2",
+      "irdai-compliance",
+      "pci-dss",
+      "dpdp-act",
+    ],
+    caseStudy: {
+      industry: "Gurugram-headquartered Private Bank",
+      scope:
+        "8-week red-team engagement \u2014 objective: reach core banking jump host without SOC detection by D+5; companion CERT-In VAPT scoping 6 internet-facing apps + AD forest.",
+      outcome:
+        "Initial access via spear-phish against treasury; lateral via ADCS misconfiguration; jump-host compromise at D+7. 11 missed alerts mapped to SIEM rule gaps; 4 detection use-cases written by Macksofy and adopted by bank SOC.",
+    },
+    stats: [
+      { value: "65+", label: "Gurugram engagements" },
+      { value: "DLF Cyber City", label: "BFSI concentration" },
+      { value: "600+", label: "GCCs in city" },
+      { value: "Mumbai BKC", label: "Anchor team" },
+    ],
+    delivery:
+      "Mumbai \u2192 Delhi flight + Aerocity \u2192 Gurugram drive (45 min total time on a good day). Senior tech leads onsite for kickoff, mid-engagement reviews, exit calls and major findings. Most VAPT, code-review and audit-evidence work runs remote through the week.",
+    faqs: [
+      {
+        q: "Do you have experience with the Gurugram private-bank red-team standard?",
+        a: "Yes \u2014 we have delivered multi-week TIBER-style red teams for two Gurugram-headquartered private banks, with objectives ranging from silent domain admin to crown-jewel exfil simulation. Engagements are scoped against the bank\u2019s threat-intel feed.",
+      },
+      {
+        q: "Can you handle joint RBI + PCI + ISO 27001 + SOC 2 in one engagement?",
+        a: "Yes \u2014 most Gurugram private banks and fintechs we work with run all four together. Macksofy uses one unified control register that satisfies each regulator\u2019s clause IDs, so evidence collection happens once and gets re-presented per framework.",
+      },
+      {
+        q: "Do you support 24x7 IR retainers for Gurugram BFSI clients?",
+        a: "Yes. Macksofy maintains IR retainers for several Gurugram BFSI clients with SLA-bound response (next flight or remote-first triage) plus quarterly tabletop exercises and an annual cyber-crisis drill.",
+      },
+    ],
+    seoDescription:
+      "CERT-In empanelled cybersecurity services in Gurugram. RBI / IRDAI / PCI / SOC 2 audits and red-team engagements for Gurugram BFSI HQs, GCCs and Cyber City fintech.",
+    extraKeywords: [
+      "cybersecurity Gurugram",
+      "VAPT Cyber City Gurgaon",
+      "RBI audit Gurugram",
+      "red team services Gurugram",
+      "CERT-In auditor Gurugram",
+      "fintech security Gurgaon",
+      "GCC penetration testing Gurugram",
+      "DLF Phase 3 cybersecurity",
+    ],
+    geo: { lat: 28.4595, lng: 77.0266 },
+    mapQuery: "DLF Cyber City, Gurugram, Haryana",
+  },
+
+  {
+    slug: "ahmedabad",
+    name: "Ahmedabad",
+    state: "Gujarat",
+    category: "BFSI capital",
+    hero: {
+      eyebrow: "Cybersecurity in Ahmedabad · GIFT City IFSC · Pharma · Textiles",
+      headline: "Ahmedabad + GIFT City cybersecurity for IFSC-licensed BFSI.",
+      description:
+        "Macksofy services Ahmedabad and GIFT City Gandhinagar \u2014 India\u2019s only operational International Financial Services Centre \u2014 with CERT-In empanelled VAPT, IFSCA-aligned cyber audits and DPDP readiness for India\u2019s fastest-growing offshore finance and reinsurance cluster.",
+    },
+    cityContext: [
+      "GIFT City (Gujarat International Finance Tec-City) is the single most active greenfield BFSI build in India \u2014 IFSCA-regulated international banking units, NSE IFSC and India INX exchanges, foreign-currency derivatives, aircraft leasing, reinsurance and fintech sandboxes. Every IFSC banking unit, brokerage and reinsurer needs an IFSCA-aligned cyber-security and operational-resilience programme.",
+      "Outside GIFT, Ahmedabad city itself is a top-5 Indian pharma cluster (Zydus, Torrent, Cadila, Intas), textile manufacturing, large-format retail (D-Mart HQ), and a fast-growing fintech corridor along SG Highway and Bopal. Each segment has its own cyber-risk profile.",
+      "Macksofy delivers Ahmedabad through senior consultants flying Mumbai \u2192 Ahmedabad (1 hour) for kickoff and major reviews \u2014 GIFT City sites are 30 minutes from the airport. Pharma plant OT reviews are scheduled around shift changes and run through the week.",
+    ],
+    regulators: [
+      "IFSCA (International Financial Services Centres Authority \u2014 IBU, IFSC capital markets, reinsurance)",
+      "MeitY · CERT-In",
+      "RBI (Ahmedabad-headquartered NBFCs and co-operative banks)",
+      "SEBI (NSE IFSC, India INX participants)",
+      "DPDP Board",
+      "USFDA + CDSCO (for pharma 21 CFR Part 11)",
+    ],
+    industries: [
+      "GIFT IFSC banking units",
+      "GIFT IFSC capital markets",
+      "Reinsurance + offshore insurance",
+      "Pharma + life sciences",
+      "Textile + apparel manufacturing",
+      "Co-operative banks + NBFCs",
+    ],
+    topServices: [
+      "vapt",
+      "penetration-testing",
+      "cloud-security",
+      "managed-soc",
+      "web-application-security",
+      "digital-forensics-incident-response",
+    ],
+    topAudits: [
+      "cert-in-empanelled-audit",
+      "iso-27001",
+      "rbi-csf",
+      "soc-2",
+      "dpdp-act",
+      "pci-dss",
+      "hipaa",
+    ],
+    caseStudy: {
+      industry: "GIFT IFSC Banking Unit (IBU)",
+      scope:
+        "IFSCA cyber-resilience audit + CERT-In VAPT (4 internet-facing apps + 2 IFSC trading systems) + ISO 27001 implementation + DR drill",
+      outcome:
+        "IFSCA cyber-resilience report accepted on first read; ISO 27001 cert issued in 16 weeks; 23 highs + 41 mediums closed; live IFSC failover-DR drill at RTO of 27 min vs target 60 min.",
+    },
+    stats: [
+      { value: "25+", label: "Ahmedabad + GIFT engagements" },
+      { value: "1 hr", label: "Flight from Mumbai" },
+      { value: "GIFT IFSC", label: "Offshore finance focus" },
+      { value: "IFSCA", label: "Primary regulator" },
+    ],
+    delivery:
+      "Mumbai \u2192 Ahmedabad is a 1-hour flight. Senior consultants reach GIFT City sites within 90 minutes of landing. For GIFT IFSC banks we coordinate quarterly onsite cycles aligned with the IBU\u2019s board cyber-committee cadence; pharma OT work runs around plant shift schedules.",
+    faqs: [
+      {
+        q: "Do you understand IFSCA cyber expectations vs RBI / SEBI?",
+        a: "Yes. The IFSC cyber framework is built on RBI + SEBI baselines but adds specific operational-resilience, cross-border data and trading-system clauses unique to IFSC operations. Macksofy maintains a separate IFSCA control register and submission template alongside our RBI and SEBI packs.",
+      },
+      {
+        q: "Can you support GIFT IFSC reinsurance entities?",
+        a: "Yes \u2014 we have engagement experience with IFSC reinsurers and their bordereau-reporting platforms. Audit scope typically covers reinsurance settlement systems, counterparty-data flows and policyholder-data residency under IFSCA + DPDP overlays.",
+      },
+      {
+        q: "Do you cover pharma 21 CFR Part 11 audits in Ahmedabad?",
+        a: "Yes \u2014 audit-trail integrity, electronic signatures, access controls and validation for GxP systems in Ahmedabad pharma majors. We work alongside the client\u2019s QA / Validation team and produce USFDA-inspector-format evidence packs.",
+      },
+    ],
+    seoDescription:
+      "CERT-In empanelled cybersecurity services in Ahmedabad + GIFT City. IFSCA cyber audits, VAPT, ISO 27001, SOC 2 and DPDP for IFSC banking units, pharma and BFSI.",
+    extraKeywords: [
+      "cybersecurity Ahmedabad",
+      "VAPT GIFT City",
+      "IFSCA cyber audit",
+      "GIFT IFSC banking cyber security",
+      "CERT-In auditor Ahmedabad",
+      "pharma 21 CFR Part 11 audit Ahmedabad",
+      "Gandhinagar cybersecurity",
+      "ISO 27001 consultant Gujarat",
+    ],
+    geo: { lat: 23.0225, lng: 72.5714 },
+    mapQuery: "GIFT City, Gandhinagar, Gujarat",
+  },
+
+  // ==================================================================
+  // UAE — country umbrella + Dubai emirate (closes Help AG\u2019s lead)
+  // ==================================================================
+  {
+    slug: "uae",
+    name: "UAE",
+    state: "United Arab Emirates",
+    category: "Mixed",
+    hero: {
+      eyebrow: "Cybersecurity in UAE \u00b7 NESA \u00b7 ADHICS \u00b7 ISR \u00b7 SAMA-adjacent",
+      headline: "UAE cybersecurity \u2014 federal + Dubai + Abu Dhabi regulator coverage.",
+      description:
+        "Macksofy delivers cybersecurity audits, VAPT and DPDP / UAE PDPL programmes across the Emirates \u2014 UAE Information Assurance (IA) framework, ADHICS healthcare, Dubai DESC ISR and Federal PDPL. CERT-In + ISO 27001 lead-auditor heritage adapted to UAE regulator format.",
+    },
+    cityContext: [
+      "The UAE\u2019s cybersecurity regulatory stack is layered: a Federal Personal Data Protection Law (PDPL 2021) plus emirate-level frameworks \u2014 NESA / UAE IA Standards at the federal level, the Dubai Electronic Security Centre\u2019s ISR Standard for any Dubai government entity, and the Abu Dhabi Health Information and Cyber Security (ADHICS) standard for healthcare. Adjacent KSA (SAMA CSF + NCA ECC-2) often appears in the same engagement scope for GCC-spread enterprises.",
+      "Macksofy has built UAE-format submission packs for BFSI, healthcare, government-adjacent and SaaS clients across Dubai, Abu Dhabi and Sharjah. Our delivery model anchors from Mumbai BKC with senior consultants flying Mumbai \u2192 Dubai (3 hours) for kickoff, key reviews and exit briefings. For multi-quarter UAE engagements we maintain an embedded UAE lead consultant.",
+      "The UAE market values evidence quality and regulator-format outputs over volume \u2014 audits run leaner and longer than India equivalents, and the relationship between auditor and the regulator (DESC, TDRA, DHA, ADDA) matters. Macksofy operates in this style.",
+    ],
+    regulators: [
+      "TDRA \u00b7 NESA / UAE Information Assurance Standards",
+      "Federal PDPL 2021 \u00b7 UAE Data Office",
+      "Dubai Electronic Security Centre (DESC) \u00b7 ISR Standard",
+      "ADHICS (Abu Dhabi Department of Health) for healthcare",
+      "Central Bank of UAE (CBUAE) cyber expectations for banks",
+      "Adjacent KSA \u2014 SAMA CSF, NCA ECC-2 (for GCC-spread enterprises)",
+    ],
+    industries: [
+      "Banking + Islamic finance",
+      "Insurance + takaful",
+      "Healthcare + hospitals (ADHICS scope)",
+      "Government + smart-city / Smart Dubai",
+      "Oil & gas + petrochemical (OT)",
+      "Hospitality + retail",
+      "SaaS + fintech (DIFC, ADGM)",
+    ],
+    topServices: [
+      "vapt",
+      "penetration-testing",
+      "red-teaming",
+      "cloud-security",
+      "managed-soc",
+      "web-application-security",
+      "digital-forensics-incident-response",
+    ],
+    topAudits: [
+      "cert-in-empanelled-audit",
+      "iso-27001",
+      "iso-27017",
+      "iso-27018",
+      "iso-27701",
+      "soc-2",
+      "pci-dss",
+      "hipaa",
+      "gdpr",
+    ],
+    caseStudy: {
+      industry: "UAE-based Insurance Group (Dubai + Abu Dhabi presence)",
+      scope:
+        "NESA UAE IA Standards alignment + DESC ISR pack for Dubai entity + ADHICS gap analysis for medical-claims platform + DPDP / UAE PDPL RoPA",
+      outcome:
+        "NESA Tier-3 control posture evidenced across 7 systems; Dubai ISR submission accepted on first read; ADHICS gap closure roadmap delivered; PDPL RoPA covering 11 processing activities and 4 cross-border transfers.",
+    },
+    stats: [
+      { value: "18+", label: "UAE engagements" },
+      { value: "3 hr", label: "Flight Mumbai \u2192 Dubai" },
+      { value: "NESA / ADHICS / DESC", label: "Frameworks covered" },
+      { value: "DIFC / ADGM", label: "Free-zone experience" },
+    ],
+    delivery:
+      "Mumbai BKC senior consultants fly Mumbai \u2192 Dubai (3 hours) for kickoff, sprint reviews and major findings. Quarterly onsite cadence works for most UAE BFSI and healthcare clients; VAPT, audit-evidence and reporting run remote through the week. For multi-year programmes we embed a UAE-resident lead consultant.",
+    faqs: [
+      {
+        q: "Can you deliver NESA / UAE IA Standards audits?",
+        a: "Yes. We map controls against the NESA / UAE IA Standards (TDRA published framework) for both critical-information-infrastructure scope and the broader government / financial-sector applicability. Submission packs follow the regulator\u2019s preferred format.",
+      },
+      {
+        q: "Do you support Dubai DESC ISR submissions?",
+        a: "Yes \u2014 Macksofy has supported Dubai-government-adjacent entities through the Information Security Regulation (ISR) audit lifecycle, from gap assessment to evidence pack to DESC submission and post-submission Q&A.",
+      },
+      {
+        q: "How does UAE PDPL compare to DPDP and GDPR?",
+        a: "UAE Federal PDPL borrows from GDPR (lawful-basis, subject rights, breach notification) but with specific UAE-context provisions \u2014 cross-border transfer mechanisms, sectoral data offices, and Arabic-language notice obligations. Macksofy treats PDPL + DPDP + GDPR as one unified register where possible.",
+      },
+      {
+        q: "Do you cover Saudi (SAMA CSF / NCA ECC-2) alongside UAE engagements?",
+        a: "Yes for GCC-spread enterprises. We deliver SAMA CSF audits for KSA-headquartered banks and NCA ECC-2 assessments for entities under Saudi NCA scope. Most GCC-wide engagements consolidate UAE + KSA + Bahrain controls into one composite audit.",
+      },
+    ],
+    seoDescription:
+      "Cybersecurity services in the UAE \u2014 NESA, DESC ISR, ADHICS and Federal PDPL audits, VAPT and red-team engagements for Dubai, Abu Dhabi and Sharjah BFSI, healthcare and government.",
+    extraKeywords: [
+      "cybersecurity UAE",
+      "NESA audit UAE",
+      "UAE PDPL compliance",
+      "DESC ISR Dubai audit",
+      "ADHICS audit Abu Dhabi",
+      "VAPT services UAE",
+      "ISO 27001 consultant UAE",
+      "SAMA CSF KSA audit",
+      "DIFC ADGM cybersecurity",
+      "Dubai red team",
+    ],
+    geo: { lat: 25.2048, lng: 55.2708 },
+    mapQuery: "Dubai, United Arab Emirates",
+  },
+
+  {
+    slug: "dubai",
+    name: "Dubai",
+    state: "United Arab Emirates",
+    category: "BFSI capital",
+    hero: {
+      eyebrow: "Cybersecurity in Dubai \u00b7 DESC ISR \u00b7 DIFC \u00b7 Smart Dubai",
+      headline: "Dubai cybersecurity \u2014 DESC ISR + DIFC + free-zone aligned.",
+      description:
+        "Macksofy services Dubai with DESC ISR-aligned audits, DIFC Data Protection Law programmes, NESA-format VAPT and red-team engagements \u2014 across BFSI, hospitality, smart-city operators and SaaS clients in Internet City, JLT, DIFC and Business Bay.",
+    },
+    cityContext: [
+      "Dubai is the highest-density cybersecurity buyer in the Middle East \u2014 most foreign-bank regional HQs, the DIFC financial free zone with its own Data Protection Law and DFSA regulator, the world\u2019s biggest IT services + consulting cluster outside the US (Internet City, Dubai Media City, JLT), and government-adjacent Smart Dubai initiatives. Every Dubai-domiciled entity also falls under the federal layer (NESA, PDPL) and the emirate layer (DESC ISR).",
+      "Buyer intent is sophisticated and audit-quality-conscious \u2014 evidence packs are read line-by-line; relationships with the regulator (DESC, TDRA, DFSA) matter; report format must follow the emirate\u2019s preferred template. Most Dubai-based clients run quarterly onsite cadences plus an annual deep-dive.",
+      "Macksofy delivers Dubai through senior consultants flying Mumbai BKC \u2192 DXB (3 hours) for kickoff and major reviews \u2014 most Dubai client sites are 20-30 minutes from DXB. For multi-quarter Dubai programmes we maintain an embedded Dubai-resident tech lead with a local mobile and visiting-base in DIFC.",
+    ],
+    regulators: [
+      "Dubai Electronic Security Centre (DESC) \u00b7 ISR Standard",
+      "TDRA \u00b7 NESA / UAE IA Standards",
+      "DIFC Data Protection Law + DFSA cyber expectations",
+      "Federal PDPL 2021 \u00b7 UAE Data Office",
+      "Smart Dubai / Dubai Digital Authority guidelines",
+      "Central Bank of UAE \u2014 banking cyber expectations",
+    ],
+    industries: [
+      "Foreign-bank regional HQs",
+      "DIFC + free-zone fintech",
+      "Insurance + takaful",
+      "Hospitality + retail (Emaar, Damac, Majid Al Futtaim)",
+      "Government / Smart Dubai operators",
+      "SaaS + cloud-native scale-ups",
+      "Airlines + logistics",
+    ],
+    topServices: [
+      "vapt",
+      "penetration-testing",
+      "red-teaming",
+      "cloud-security",
+      "managed-soc",
+      "web-application-security",
+      "digital-forensics-incident-response",
+    ],
+    topAudits: [
+      "cert-in-empanelled-audit",
+      "iso-27001",
+      "iso-27017",
+      "iso-27018",
+      "iso-27701",
+      "soc-2",
+      "pci-dss",
+      "gdpr",
+    ],
+    caseStudy: {
+      industry: "DIFC-licensed Fintech (Dubai-headquartered)",
+      scope:
+        "DESC ISR submission pack + DIFC Data Protection Law DPIA + DFSA cyber-resilience self-assessment + CERT-In format VAPT for 7 internet-facing apps and 1 partner-integration API",
+      outcome:
+        "DESC ISR submission accepted first read; DIFC DP-Law DPIA covering 14 processing activities; DFSA cyber self-assessment evidence pack delivered; 12 highs + 28 mediums closed in 8 weeks.",
+    },
+    stats: [
+      { value: "Mumbai \u2192 DXB", label: "3-hour flight" },
+      { value: "DIFC + JLT", label: "BFSI density" },
+      { value: "DESC ISR", label: "Primary emirate audit" },
+      { value: "Internet City", label: "Tech-buyer cluster" },
+    ],
+    delivery:
+      "Mumbai \u2192 DXB is a 3-hour flight. Senior consultants reach DIFC, Business Bay or Internet City in 20-30 minutes from the airport. Quarterly onsite cycles work for most Dubai BFSI and fintech clients; remote VAPT and audit-evidence work runs through the week. For sustained programmes we maintain an embedded Dubai-resident tech lead.",
+    faqs: [
+      {
+        q: "Do you understand DESC ISR submission format?",
+        a: "Yes \u2014 Macksofy has delivered DESC Information Security Regulation (ISR) audits and submission packs for Dubai-government-adjacent and BFSI clients. We maintain the latest ISR control mapping and submission templates so evidence collection happens in the format DESC reads.",
+      },
+      {
+        q: "Can you cover DIFC Data Protection Law alongside Federal PDPL?",
+        a: "Yes. DIFC Data Protection Law and UAE Federal PDPL overlap but the DIFC regime has its own commissioner, registration regime and breach-notification format. We maintain a unified register that satisfies both \u2014 evidence collected once, presented in each format.",
+      },
+      {
+        q: "Do you run red-team engagements in Dubai?",
+        a: "Yes. We deliver Dubai-scope red-team engagements with objectives aligned to threat actors active in the region (FIN8-style financial actors, regional APTs targeting energy / government). Scope and rules-of-engagement are agreed with the client white-cell ahead of every engagement.",
+      },
+      {
+        q: "Do you support Dubai\u2019s smart-city operator ecosystem?",
+        a: "Yes \u2014 Smart Dubai initiatives, government-portal operators and digital-identity (UAE PASS) integrators. We deliver NESA / DESC-aligned cyber audits for these operators with attention to citizen-data residency and cross-tenant isolation.",
+      },
+    ],
+    seoDescription:
+      "CERT-In empanelled cybersecurity services in Dubai. DESC ISR audits, DIFC Data Protection Law, NESA-format VAPT and red-team engagements for Dubai BFSI, fintech and government.",
+    extraKeywords: [
+      "cybersecurity Dubai",
+      "DESC ISR audit Dubai",
+      "DIFC data protection law audit",
+      "VAPT services Dubai",
+      "Dubai red team",
+      "NESA audit Dubai",
+      "DFSA cyber resilience",
+      "Internet City cybersecurity",
+      "JLT cybersecurity firm",
+      "Business Bay cybersecurity audit",
+    ],
+    geo: { lat: 25.2048, lng: 55.2708 },
+    mapQuery: "DIFC, Dubai, United Arab Emirates",
+  },
 ];
 
 export const getCityBySlug = (slug: string) =>

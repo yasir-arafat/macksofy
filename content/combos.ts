@@ -1,0 +1,3246 @@
+/**
+ * City × Service combo landing pages (/locations/<city>/<service>).
+ *
+ * These are intentionally narrow programmatic pages with unique, locally
+ * grounded body copy — they target high-intent local-pack queries that
+ * Kratikal and SISA currently dominate. Each entry references existing
+ * citySlug + serviceSlug values from cities.ts and services.ts. Keep copy
+ * direct, expert and free of marketing fluff — same tone as the Pune city
+ * entry.
+ */
+
+export interface CityServiceCombo {
+  citySlug: string;
+  serviceSlug: string;
+  /** SEO H1 + page title (≤72 chars). */
+  headline: string;
+  /** Hero sub-line, 1 short paragraph (~140-160 chars). */
+  lead: string;
+  /** Unique combo body — 7-10 paragraphs, 700-900 words. */
+  body: string[];
+  /** Key buyer concerns in this city × service (7-9 bullet strings). */
+  buyerConcerns: string[];
+  /** 5-6 differentiators specific to this combo (each 1-2 sentences). */
+  differentiators: string[];
+  /** ≤160 char meta description, keyword-led. */
+  seoDescription: string;
+  /** 6-10 long-tail keyword variants for this combo. */
+  keywords: string[];
+
+  /* ─── RICH-CONTENT FIELDS (optional; renderer falls back if absent) ─── */
+
+  /** Animated stat strip (4 entries). */
+  stats?: { value: string; label: string }[];
+  /** 4-5 phase mini-methodology (drives horizontal timeline). */
+  methodology?: { phase: string; activities: string[] }[];
+  /** Industry verticals served in this city × service. */
+  industries?: { name: string; blurb: string }[];
+  /** 6-8 concrete deliverables. */
+  deliverables?: string[];
+  /** Anonymised local case study (1 entry). */
+  caseStudy?: { industry: string; scope: string; outcome: string };
+  /** 5-7 city × service specific FAQs. */
+  faqs?: { q: string; a: string }[];
+}
+
+export const COMBOS: CityServiceCombo[] = [
+// 1 ─ Mumbai · VAPT ────────────────────────────────────────────────
+  {
+    citySlug: "mumbai",
+    serviceSlug: "vapt",
+    headline: "VAPT Services in Mumbai · BFSI & Fintech",
+    lead: "CERT-In empanelled VAPT delivered from our BKC HQ for RBI-, SEBI- and IRDAI-regulated firms across Mumbai, Thane and Navi Mumbai.",
+    body: [
+      "Macksofy's flagship VAPT practice operates out of SRA Commercial Tower in Bandra Kurla Complex (BKC), a five-minute walk from the BKC Metro and roughly 1.4 kilometres from RBI's central office at Fort. Every senior consultant on the Mumbai bench is OSCP- or OSWE-credentialed and has shipped at least one annual VAPT cycle into RBI's CSITE Cell, SEBI's Cyber Security and Cyber Resilience Cell, or IRDAI's IT-supervision wing. We do not subcontract — the consultant who scopes the engagement is the one writing the executive summary the bank's audit committee will read.",
+      "Mumbai BFSI VAPT scoping is fundamentally a money-movement exercise, not a checklist scan. On a private-bank engagement we model the transaction graph end-to-end: net-banking authentication, OTP/2FA challenge, beneficiary-add flow, IMPS/NEFT/RTGS rails, the FATCA/CRS edge, and the reconciliation layer that ties book-of-record to the SWIFT gateway. Manual abuse-case testing targets velocity-control bypass on the IMPS rail, OTP-reuse via SS7-style mobile-side weaknesses, and reconciliation gaps that allow an attacker to mint balance without minting debit. Burp Suite Pro is the workhorse; Nuclei templates, custom Python harnesses and a fork of mitmproxy handle the protocol-specific abuse.",
+      "For SEBI-regulated brokers and AMCs, the scope shifts to broker-terminal authorisation flaws, algo-API rate-limit bypass, market-data tampering on Refinitiv/Bloomberg feed-handlers, and the order-management-to-exchange (OMS-to-NSE/BSE) gateway. The same engagement also closes SEBI CSCRF Annexure-K evidence — CCI/CRMM scoring, MII-vendor-control attestation and the SAR exhibits the System Audit Report demands. IRDAI insurer engagements layer in claims-fraud paths, KYC-impersonation via OVD upload portals, and the policy-administration-system (PAS) authorisation matrix.",
+      "The deliverable is a regulator-grade binder, not a Burp HTML export. Every High or Critical finding carries a manually-validated proof-of-exploit, a CVSS v3.1 score, a Macksofy business-impact score calibrated to the bank's transaction value-at-risk, and a remediation playbook that the AppSec lead can hand to engineering without translation. The executive summary is written in the language RBI Master Direction on IT Governance, Risk, Controls and Assurance Practices (November 2023) inspectors expect — explicit clause mapping to Annex-1 of the RBI Cyber Security Framework circular DBS.CO.CSITE.BC.11/33.01.001/2015-16.",
+      "Re-testing is built into the SoW, not sold as a follow-on. Every Critical and High finding is re-validated post-fix at no extra cost inside a 60-day remediation window. If the bank's release train slips, we hold the re-test slot — we do not raise a change-order. For tier-1 private banks we also embed a Macksofy detection-engineering analyst alongside the SOC for the last week of the engagement so that every exploitable finding ships with a paired Sigma/Splunk rule the SIEM team can deploy the same week.",
+      "Mumbai BFSI procurement reality matters. Most engagements close through a CTO + Chief Risk Officer joint signoff, with the audit committee chair copied; a few cooperative banks still route through the GM-IT and the board-IT-committee secretary. We size proposals to match — a fixed-fee SoW with clear inclusion of re-testing, the empanelled-auditor letter, and the SAR/inspection-defence support that follows. Procurement at listed BFSI clients also wants the SOC 2 / ISO 27001 vendor-security questionnaire pre-answered; we attach the Macksofy ISMS pack to every Mumbai proposal so legal and infosec don't hold up the PO.",
+      "Onsite cadence is dictated by Mumbai geography, not vendor convenience. BKC and Lower Parel are walk-in same-day; Andheri MIDC, Powai, Goregaon SEEPZ, Thane and Navi Mumbai (Airoli, Vashi, Ghansoli) are reachable inside four hours including a Western Express Highway buffer. We block the Mumbai monsoon window (mid-June to mid-September) for testing-only weeks where onsite is non-critical, and front-load kickoff/exit calls for the dry months so the audit committee schedule is never held up by a flooded approach road.",
+      "For listed BFSI clients the engagement also produces the board-pack exhibits the audit committee needs at the next quarterly cyber review: a top-10 risks slide mapped to the bank's existing risk register, a trend-line vs the previous VAPT cycle, an EDR/SIEM coverage delta, and a one-page CEO note that the bank's Company Secretary can drop into the agenda pack without rewrite.",
+    ],
+    buyerConcerns: [
+      "RBI Master Direction on IT Governance, Risk, Controls and Assurance (November 2023) closure",
+      "SEBI CSCRF + SAR/CCI/CRMM scoring evidence for stockbrokers, AMCs and MIIs",
+      "IRDAI Information & Cyber Security guidelines (April 2023) audit evidence",
+      "Annual VAPT certificate aligned to CERT-In empanelment format",
+      "Transaction-flow abuse + OTP/2FA bypass on net-banking, mobile and UPI apps",
+      "Algorithmic-trading API and Refinitiv/Bloomberg market-data feed authorisation flaws",
+      "SWIFT gateway and treasury-reconciliation segregation",
+      "Re-testing turnaround inside the RBI/SEBI remediation window",
+      "Board-pack exhibits for the audit committee's quarterly cyber review",
+    ],
+    differentiators: [
+      "Headquarters and senior team physically located in BKC — onsite kickoff at any Mumbai BFSI office within the same business day, with a four-hour SLA across the MMR including Thane and Navi Mumbai.",
+      "Reports formatted to RBI MD-ITGRC, SEBI CSCRF and IRDAI inspector expectations, including the cross-reference annexures inspectors typically request during follow-up examinations.",
+      "Re-testing of every critical and high finding included in the base SoW — no separate purchase order required inside the 60-day remediation window even if the bank's release train slips.",
+      "Detection-engineering analyst embedded with the SOC in the closing week — every exploitable finding ships with a paired Sigma/Splunk rule the SIEM team can deploy immediately.",
+      "Money-movement-graph methodology rather than checklist scanning — abuse-case testing on velocity controls, beneficiary-add, OTP reuse and reconciliation-layer gaps tied to actual transaction value-at-risk.",
+    ],
+    seoDescription:
+      "CERT-In empanelled VAPT services in Mumbai for BFSI, fintech and brokers. RBI / SEBI / IRDAI-aligned reports. BKC HQ, same-day onsite, re-testing included.",
+    keywords: [
+      "VAPT services Mumbai",
+      "VAPT Mumbai BFSI",
+      "CERT-In VAPT Mumbai",
+      "RBI VAPT auditor Mumbai BKC",
+      "SEBI CSCRF VAPT Mumbai",
+      "net banking penetration testing Mumbai",
+      "IRDAI cyber security audit Mumbai",
+      "broker VAPT Mumbai",
+      "Mumbai fintech VAPT",
+    ],
+    stats: [
+      { value: "200+", label: "Mumbai BFSI engagements" },
+      { value: "5 min", label: "From BKC Metro" },
+      { value: "<4 hrs", label: "MMR onsite SLA" },
+      { value: "92%", label: "First-pass regulator acceptance" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Scope & RoE",
+        activities: [
+          "Money-movement graph mapping with the CTO and CRO together — IMPS/NEFT/RTGS/UPI rails, SWIFT edge and reconciliation layer",
+          "RBI/SEBI/IRDAI circular crosswalk against the existing risk register so every clause has a target finding bucket",
+          "Rules of engagement signed by CTO, CRO and the audit-committee secretary; SOC deconfliction channel on a private Signal/Teams thread",
+          "Asset attestation cross-checked against the CMDB and the BKC/Andheri/Powai onsite walk-through",
+        ],
+      },
+      {
+        phase: "02 · Recon & Surface Map",
+        activities: [
+          "External attack surface mapping with Amass, Subfinder and the Macksofy passive-DNS feed against the bank's TLD set",
+          "Authenticated and unauthenticated scans (Nessus Pro, Qualys VMDR, Nuclei) against staging and prod where RoE permits",
+          "Broker-terminal, OMS gateway and SWIFT-edge inventory reconciliation with the IT-ops team",
+          "Mobile-app reversing on the latest Play Store and App Store builds (Frida, MobSF, Objection)",
+        ],
+      },
+      {
+        phase: "03 · Manual Exploitation",
+        activities: [
+          "Burp Suite Pro abuse-case testing on net-banking transaction graph — velocity control, beneficiary-add race, OTP reuse, reconciliation drift",
+          "Algo-API and market-data tampering tests on the OMS-to-NSE/BSE gateway",
+          "ADCS ESC1-ESC8, Kerberoasting and BloodHound path analysis on the AD forest backing core banking",
+          "Manual chained-exploit proofs — low + low = critical narratives tied to real money-movement impact",
+        ],
+      },
+      {
+        phase: "04 · Regulator Reporting",
+        activities: [
+          "Executive summary in RBI MD-ITGRC + SEBI CSCRF + IRDAI 2023 language, clause-mapped",
+          "CVSS v3.1 plus Macksofy business-impact scoring calibrated to transaction value-at-risk",
+          "Detection-engineering annex — paired Sigma/Splunk rules per exploitable finding",
+          "Board-pack exhibits for the audit committee's quarterly cyber review",
+        ],
+      },
+      {
+        phase: "05 · Re-test & Closure",
+        activities: [
+          "60-day re-test window covering every Critical and High at no extra cost",
+          "CERT-In empanelled closure letter and SAR/inspection-defence support",
+          "Risk register update synced to the bank's GRC tool (Archer, MetricStream, ServiceNow IRM)",
+          "Carry-forward backlog grooming for the next quarter's regression-VAPT slot",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Private banks (Mumbai-HQ)",
+        blurb: "Net-banking, treasury, SWIFT edge and ATM-network VAPT with RBI MD-ITGRC + CSF Annex-1 closure binder.",
+      },
+      {
+        name: "NBFCs & Housing Finance",
+        blurb: "Loan-origination, partner-API and collections-app scopes; RBI Scale-Based Regulation cyber-resilience evidence.",
+      },
+      {
+        name: "Stock brokers & AMCs",
+        blurb: "Broker terminal, OMS-to-exchange gateway and market-data feed VAPT; SEBI CSCRF + SAR + CCI/CRMM scoring.",
+      },
+      {
+        name: "Payment aggregators",
+        blurb: "BKC/Lower Parel PA-PG licensees — payout, refund and settlement-reconciliation API abuse with RBI PA submission format.",
+      },
+      {
+        name: "Life & general insurers",
+        blurb: "Claims-fraud paths, KYC-impersonation portals and PAS authorisation; IRDAI 2023 cyber-security audit evidence.",
+      },
+      {
+        name: "Listed manufacturing in MMR",
+        blurb: "Powai and Andheri MIDC industrial HQs — IT-side VAPT plus segregation review against the plant OT network.",
+      },
+    ],
+    deliverables: [
+      "VAPT report in CERT-In empanelled submission format with RBI/SEBI/IRDAI clause crosswalk",
+      "Manually-validated proof-of-exploit per High and Critical finding with CVSS v3.1 + business-impact score",
+      "Detection-engineering annex — Sigma/Splunk rules paired to each exploitable finding",
+      "Board-pack exhibits for the audit committee's quarterly cyber review",
+      "Jira/ServiceNow-importable findings CSV with owner, severity, ETA and CWE",
+      "Free re-test of every Critical and High inside a 60-day window",
+      "CERT-In empanelled closure letter and SAR/RBI inspection-defence support",
+      "Risk register update synced to the bank's GRC tool",
+    ],
+    caseStudy: {
+      industry: "Mumbai-headquartered Private Bank (BKC corporate tower)",
+      scope: "Annual VAPT — 38 internet-facing apps, net-banking + UPI + IMPS rails, OMS-to-NSE gateway, ADCS-backed AD forest; RBI MD-ITGRC + CSF Annex-1 closure",
+      outcome: "14 Critical and 22 High findings closed inside 41 days; first-pass RBI CSITE Cell acceptance without a clarification request; one ADCS ESC4 path that would have allowed a junior-RM-to-domain-admin escalation, closed pre-disclosure.",
+    },
+    faqs: [
+      {
+        q: "Can you handle BKC HQ plus an Andheri MIDC data-centre walkthrough in one engagement?",
+        a: "Yes. We routinely run BFSI engagements that touch the BKC corporate office, an Andheri MIDC or Mahape data-centre, and a Navi Mumbai BCP site in the same SoW. Onsite legs are sequenced inside the same week to keep travel overhead off the bill.",
+      },
+      {
+        q: "Will your VAPT close both RBI MD-ITGRC and SEBI CSCRF for a bank that also runs a broker subsidiary?",
+        a: "Yes — we crosswalk the same control evidence to both frameworks. The output is a single binder with parallel clause indices so the bank's RBI inspector and SEBI auditor each see the relevant slice without separate audits.",
+      },
+      {
+        q: "Do you submit reports to RBI's CSITE Cell directly or via the bank?",
+        a: "Submission is always via the bank — RBI does not accept third-party submissions. We provide the CERT-In empanelled letter, the inspection-defence brief and an on-call senior who joins the inspector's clarification calls if asked.",
+      },
+      {
+        q: "Can you support a Mumbai cooperative bank that has never run a regulator-grade VAPT before?",
+        a: "Yes. We have a starter SoW for first-time cooperative bank engagements — narrower asset count, plain-English executive summary and a 90-day pre-inspection rehearsal block that walks the GM-IT through the likely RBI Department of Supervision questions.",
+      },
+      {
+        q: "Do you test the SWIFT gateway and treasury-reconciliation layer separately?",
+        a: "Yes. SWIFT-edge testing is run under a separate, narrower RoE because the gateway is jointly governed with SWIFT's CSP self-attestation. The output is reconciled into the main VAPT binder but isolated for the bank's SWIFT relationship manager to share with the network's local user group.",
+      },
+      {
+        q: "How do you handle Mumbai monsoon disruption to onsite work?",
+        a: "We front-load BKC, Lower Parel and Powai kickoff or exit weeks into the November-to-May dry months. Testing weeks where onsite is non-critical are scheduled June-to-September so a flooded Eastern Express Highway never delays the audit committee timeline.",
+      },
+    ],
+  },
+
+  // 2 ─ Bengaluru · VAPT ────────────────────────────────────────────────
+  {
+    citySlug: "bengaluru",
+    serviceSlug: "vapt",
+    headline: "VAPT Services in Bengaluru · SaaS & Product",
+    lead: "VAPT built for product-engineering teams in Koramangala, Indiranagar, ORR and Whitefield — fast cadence, developer-readable reports, SOC 2 / ISO mapped.",
+    body: [
+      "The Bengaluru VAPT buyer is rarely a compliance officer. It is the VP of Engineering at a Series-C SaaS in Embassy Tech Village, the Head of AppSec at a fintech off Sarjapur Road, or a platform-engineering lead at a Whitefield product company who has just been handed an enterprise customer's vendor-security questionnaire and a 30-day window to answer it. The conversation is microservice sprawl, multi-tenant isolation, OAuth scope creep, GraphQL authz and the half-dozen third-party SaaS integrations that quietly hold customer PII. We scope around that reality, not a 200-control checklist.",
+      "Most of our Bengaluru engagements cluster along the Outer Ring Road corridor — Bellandur, Marathahalli, Mahadevapura — plus Koramangala, Indiranagar and the Whitefield product belt out toward Hoodi. Senior consultants travel from the Mumbai BKC bench for kickoff, threat-modelling whiteboards and exit reviews; the active testing runs against staging environments on AWS Mumbai (ap-south-1), Singapore (ap-southeast-1) or GCP asia-south1. Mobile builds get reverse-engineered against the latest Play Store and TestFlight artefacts using Frida, MobSF and a Macksofy-internal traffic-replay harness.",
+      "Bengaluru SaaS scoping is opinionated. We always insist on a threat-model whiteboard session on day one because product teams almost universally underestimate two things: how many auth boundaries actually exist between their microservices, and how many third-party SaaS tools (Segment, Auth0, Stripe, Slack apps, internal admin panels behind Tailscale) sit inside the trust boundary. A typical SaaS engagement covers a public-facing web app, the API gateway behind it, two to four backend microservices on EKS, a GraphQL aggregator, an iOS and Android app, and the OAuth dance with at least one enterprise SSO IdP — usually Okta, Azure AD or Google Workspace.",
+      "Manual abuse-case testing leans on Burp Suite Pro with the GraphQL Voyager and InQL extensions, Postman collections, the Macksofy fork of jwt_tool for token-substitution attacks, and BloodHound for any internal AD that creeps into scope. We run authorisation-matrix testing against every role pair (tenant-admin → tenant-user, tenant-admin → cross-tenant-admin, support-staff → tenant-data) — broken object-level authorisation (BOLA) is the single highest-frequency Critical we ship on Bengaluru SaaS reports. GraphQL-specific tests cover introspection abuse, batching/aliasing rate-limit bypass, and field-level authz drift between resolvers.",
+      "Findings are written for engineers, not auditors. Repro steps are curl/Burp/Postman/HTTPie one-liners. Remediation is a pull-request-ready snippet — a corrected GraphQL resolver, a tightened OPA/Rego policy, a Helm values diff, a Terraform IAM-policy patch. The deliverable also ships as a Jira-importable CSV with severity, CWE, CVSS, affected service and a suggested epic-link so the AppSec team can drop it straight into the next sprint without re-typing. We map every finding to OWASP ASVS L2, OWASP API Security Top 10 (2023), SOC 2 CC6/CC7 controls and ISO 27001:2022 Annex A — same VAPT closes the next enterprise customer's questionnaire and the auditor's evidence ask.",
+      "Procurement at Bengaluru product companies usually closes on the engineering side, not procurement. The CTO or VP Engineering signs off, AppSec sets the technical SoW, and finance attaches a fixed-fee PO. We size proposals around a 1-week threat-model + scoping block, 2-3 weeks of testing, and a 1-week re-test window — total elapsed 4-5 weeks. For Series-C and later companies shipping weekly we offer a continuous-testing retainer with monthly delta tests against new releases and a full-coverage quarterly cycle, which most ORR clients prefer to a once-a-year point-in-time scan.",
+      "Bengaluru clients preparing for SOC 2 Type II or an enterprise customer's security review get a sanitised vendor-pack alongside the technical report — the same artefact answers the auditor and the customer's CISO without re-assembly. For Series-D-and-later SaaS preparing for a US or European enterprise sale, we include a TPRM-ready summary mapped to the SIG Lite and CAIQ Lite question sets, which compresses the typical 6-week procurement back-and-forth into something closer to two weeks.",
+      "Where the engagement intersects the Bengaluru fintech ecosystem — a payments product, a wealth app, a lending platform with an RBI Account Aggregator integration — we layer in RBI Master Direction on IT Governance (November 2023) and PA-PG audit evidence so the same VAPT closes both the SaaS questionnaire flow and the regulator submission. Bengaluru fintech founders are almost always running a parallel Mumbai compliance track; we make sure the VAPT does not become a duplicate spend.",
+    ],
+    buyerConcerns: [
+      "Multi-tenant data isolation in shared-DB SaaS architectures (Postgres RLS, row-key fences, KMS key separation)",
+      "OAuth / OIDC scope and refresh-token misuse across Okta / Azure AD / Workspace integrations",
+      "GraphQL introspection, batching/aliasing abuse and broken object-level authorisation across resolvers",
+      "Kubernetes (EKS / GKE) RBAC, admission controllers and service-mesh authz between microservices",
+      "SOC 2 Type II CC6/CC7 and ISO 27001:2022 Annex A evidence quality",
+      "VAPT cadence that keeps up with fortnightly release trains, not annual point-in-time scans",
+      "Reports developers will actually read and ship from, not 200-page PDFs that die in Confluence",
+      "TPRM-ready vendor pack mapped to SIG Lite and CAIQ Lite for US/EU enterprise procurement",
+      "RBI PA-PG and Account Aggregator overlay for Bengaluru fintechs running a parallel Mumbai compliance track",
+    ],
+    differentiators: [
+      "Threat-modelling whiteboard kickoff onsite at Embassy Tech Village, ORR or the Koramangala/Indiranagar belt before any active testing — Bengaluru engineering leads consistently rate this the highest-ROI part of the engagement.",
+      "Findings shipped as a Jira-importable CSV with PR-ready remediation snippets (resolver diffs, Helm values, Terraform IAM patches) — not a 200-page PDF that nobody opens after week two.",
+      "Continuous-testing retainer aligned to fortnightly release trains with quarterly full-coverage runs and monthly delta tests against new releases.",
+      "Sanitised TPRM vendor-pack mapped to SIG Lite + CAIQ Lite shipped alongside the technical report — compresses US/EU enterprise procurement from six weeks to two.",
+      "Same senior consultant from Mumbai BKC for the entire engagement — no bait-and-switch staffing, no junior bench rotation after kickoff.",
+    ],
+    seoDescription:
+      "VAPT services in Bengaluru for SaaS and product companies. OWASP ASVS, SOC 2 + ISO 27001 mapped, developer-readable reports, continuous-testing retainer option.",
+    keywords: [
+      "VAPT services Bengaluru",
+      "VAPT Bangalore SaaS",
+      "product VAPT Bengaluru",
+      "SOC 2 VAPT Bangalore",
+      "OWASP ASVS pentest Bengaluru",
+      "API VAPT Bangalore",
+      "GraphQL pentest Bengaluru",
+      "continuous penetration testing Bangalore",
+      "Bengaluru startup VAPT",
+    ],
+    stats: [
+      { value: "80+", label: "Bengaluru SaaS engagements" },
+      { value: "4-5 wks", label: "Avg engagement time" },
+      { value: "Same-week", label: "ORR onsite arrival" },
+      { value: "SIG / CAIQ", label: "TPRM pack included" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Threat Model",
+        activities: [
+          "Onsite whiteboard at Embassy Tech Village / ORR / Koramangala — trust-boundary inventory across microservices",
+          "Third-party SaaS-integration mapping (Auth0, Segment, Stripe, Slack apps, Tailscale-fronted admin panels)",
+          "Authorisation-matrix definition — every role-pair the tester must exercise",
+          "AWS Mumbai/Singapore or GCP asia-south1 staging-environment account access provisioning",
+        ],
+      },
+      {
+        phase: "02 · Surface & Recon",
+        activities: [
+          "External-asset enumeration (Amass, Subfinder) against the product TLDs",
+          "Mobile-app reversing with Frida, MobSF and the Macksofy traffic-replay harness",
+          "GraphQL schema dump via InQL or unauthenticated introspection where exposed",
+          "EKS/GKE cluster inventory and service-mesh policy export",
+        ],
+      },
+      {
+        phase: "03 · Manual Exploitation",
+        activities: [
+          "Burp Pro abuse-case testing on REST and GraphQL — BOLA, mass-assignment, BFLA, batching-rate bypass",
+          "OAuth/OIDC scope manipulation, refresh-token replay and IdP trust-chain abuse",
+          "Tenant-isolation testing across IAM, KMS, network policy and noisy-neighbour vectors in shared EKS clusters",
+          "JWT substitution, signature confusion and kid-header injection with the Macksofy jwt_tool fork",
+        ],
+      },
+      {
+        phase: "04 · Developer-Ready Reporting",
+        activities: [
+          "Findings as Jira-importable CSV with severity, CWE, CVSS, affected service and PR-ready remediation snippets",
+          "OWASP ASVS L2 + API Top-10 + SOC 2 CC + ISO 27001:2022 Annex A crosswalk",
+          "TPRM vendor pack — SIG Lite + CAIQ Lite answers pre-populated",
+          "Engineering-lead readout in a standing weekly dev standup, not a 1-hour Zoom death march",
+        ],
+      },
+      {
+        phase: "05 · Re-test & Retainer",
+        activities: [
+          "Free re-test of Critical and High inside the same SoW",
+          "Optional continuous-testing retainer — monthly delta tests + quarterly full-coverage",
+          "GitHub/GitLab integration so each release flagging touches the retainer test backlog",
+          "Quarterly trend report for the CTO / audit committee",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Vertical & horizontal SaaS",
+        blurb: "Multi-tenant Postgres + EKS stacks across Embassy Tech Village and ORR — SOC 2 Type II and enterprise-buyer questionnaire focus.",
+      },
+      {
+        name: "Bengaluru fintechs",
+        blurb: "Payments, wealth, lending and AA integrations — RBI MD-ITGRC + PA-PG overlay folded into the SaaS VAPT cycle.",
+      },
+      {
+        name: "Healthtech & medtech",
+        blurb: "PHI-handling SaaS with HIPAA business-associate posture and DPDP child-data exposure where care-giver flows touch minors.",
+      },
+      {
+        name: "Edtech",
+        blurb: "Koramangala/Indiranagar consumer-scale edtech — content DRM, SDK security and DPDP child-data provisions.",
+      },
+      {
+        name: "DevTools & infra SaaS",
+        blurb: "API-first developer platforms — GitHub/GitLab OIDC trust, signed-artefact policy and secrets-management substrate.",
+      },
+      {
+        name: "Bengaluru GCCs",
+        blurb: "US/EU enterprise capability centres on ORR — parent-control-catalogue crosswalk to NIST 800-53 alongside CERT-In format.",
+      },
+    ],
+    deliverables: [
+      "Threat-model whiteboard artefact and authorisation-matrix worksheet",
+      "Jira-importable findings CSV with PR-ready remediation snippets per finding",
+      "OWASP ASVS L2 + API Top-10 + SOC 2 CC + ISO 27001:2022 Annex A crosswalk",
+      "TPRM vendor pack — SIG Lite + CAIQ Lite pre-populated for enterprise procurement",
+      "Engineering-readable PDF with curl/Burp/Postman repros per finding",
+      "Free re-test of Critical and High inside the same SoW",
+      "Optional continuous-testing retainer with monthly delta + quarterly full-coverage",
+      "CERT-In empanelled letter and (where in scope) RBI PA-PG / AA submission pack",
+    ],
+    caseStudy: {
+      industry: "Series-C SaaS on Outer Ring Road (Bellandur)",
+      scope: "Web + REST + GraphQL + iOS + Android + EKS multi-tenant + Auth0 federation; 4-week engagement against AWS Mumbai staging mirror",
+      outcome: "23 Critical and High closed in 38 days; SOC 2 Type II issued in same audit cycle; one cross-tenant BOLA path on the GraphQL aggregator that would have exposed every customer's invoice data, closed pre-production rollout; enterprise sales pipeline tripled in the following two quarters.",
+    },
+    faqs: [
+      {
+        q: "Can your VAPT close both SOC 2 Type II and an enterprise customer's CAIQ in one cycle?",
+        a: "Yes. Every Bengaluru SaaS engagement ships with a TPRM vendor pack pre-populated against SIG Lite and CAIQ Lite, plus the SOC 2 CC6/CC7 evidence the auditor wants. The same artefact answers the auditor and the customer's CISO without a separate evidence build.",
+      },
+      {
+        q: "Do you test against AWS Mumbai (ap-south-1) staging or production?",
+        a: "Default is a production-mirror staging environment in the same region (ap-south-1 or ap-southeast-1). Production testing is allowed under a narrower RoE with rate-limit caps and a SOC-deconfliction channel; most Bengaluru SaaS clients prefer the staging-mirror approach for release-train cadence reasons.",
+      },
+      {
+        q: "Can you align with our fortnightly release train rather than a once-a-year scan?",
+        a: "Yes. The continuous-testing retainer maps quarterly full-coverage runs to your release calendar and runs monthly delta tests against the previous release's diff. Findings flow into the same Jira board your engineering team already uses.",
+      },
+      {
+        q: "What is the senior-consultant model — do we get the same person across the engagement?",
+        a: "Yes. The same OSCP/OSWE senior who runs the threat-model whiteboard writes the executive summary. We do not bait-and-switch onto junior consultants after kickoff. The Bengaluru bench is staffed from the Mumbai BKC team with quarterly rotations to keep depth fresh.",
+      },
+      {
+        q: "Do you have experience with the GraphQL stack our product is built on?",
+        a: "Yes — Apollo Federation, Hasura, AWS AppSync and Postgraphile are all common scopes. We bring the GraphQL-specific abuse playbook (introspection, batching/aliasing, field-level authz drift, persisted-query bypass) rather than treating GraphQL as REST under a new wrapper.",
+      },
+      {
+        q: "Can a Bengaluru fintech client run RBI PA-PG and SOC 2 evidence off the same VAPT?",
+        a: "Yes — and this is one of our highest-frequency scope shapes. The single engagement produces a SOC 2 CC + ISO 27001 + RBI PA-PG submission crosswalk, with the RBI exhibits formatted for Payment System Department submission rather than a generic CERT-In template.",
+      },
+    ],
+  },
+
+  // 3 ─ Gurugram · VAPT ────────────────────────────────────────────────
+  {
+    citySlug: "gurugram",
+    serviceSlug: "vapt",
+    headline: "VAPT Services in Gurugram · BFSI HQs & GCCs",
+    lead: "CERT-In empanelled VAPT for private-bank HQs, insurer GCCs and IT-services delivery centres across Cyber City, Cyberhub and Udyog Vihar.",
+    body: [
+      "Gurugram is the corporate headquarters city for India's largest private banks, every major insurer, the biggest fintechs (Paytm, PolicyBazaar, MakeMyTrip-group), and more than six hundred global capability centres anchored in DLF Cyber City Phase 1-5, DLF Cyberhub, Udyog Vihar, Sohna Road and Golf Course Road. The VAPT buyer is almost always a CISO sitting in a DLF Cyber City Phase 3 tower or a Golf Course Road HQ, answering simultaneously to an Indian regulator and an overseas parent's group cyber-risk function. Scopes have to satisfy both audiences in one report cycle or the engagement gets re-run six months later.",
+      "On private-bank HQ scopes we deliver VAPT on net-banking, treasury, payment-gateway, partner-API and core-banking estates with the same regulator-grade rigour we use in Mumbai BKC, plus parallel evidence packs aligned to NIST 800-53 rev 5, PCI-DSS v4.0.1, and the parent group's internal cyber-control catalogue (typically a derivative of ISO 27002 with the FFIEC Cyber Assessment Tool layered on top). RBI Master Direction on IT Governance (November 2023) and the RBI Cyber Security Framework Annex-1 close the regulator side; the parent group sees a NIST-CSF mapped crosswalk produced from the same evidence base.",
+      "For insurer HQs on Sohna Road and in DLF Cyber City — life, general and health — IRDAI Information & Cyber Security guidelines (April 2023) drive scope: claims-fraud paths, KYC-impersonation portals, agent-onboarding flows, the PAS authorisation matrix and the bancassurance API edge that sits between the insurer and its private-bank partners. Most Gurugram insurers also operate a parent-mandated GRC stack (Archer or MetricStream) and expect evidence drops into that platform on a defined cadence; we ship findings as both a regulator binder and an Archer-importable CSV.",
+      "For GCCs in Udyog Vihar, Sector 44, Sector 32 and Golf Course Road, scopes blend an internal-network pentest with a cloud-control review on the parent's AWS or Azure tenant. Most GCC production infrastructure sits offshore but the India-based engineering staff own build, release and break-glass admin access — so the privilege-path between Gurugram engineers and offshore production is the high-value attack surface. We test the BloodHound shortest-path from a Gurugram developer laptop to the parent's production AWS organisation, the ADCS template configuration (ESC1-ESC8) in the India-side AD, and the CI/CD trust chain (GitHub Actions OIDC, Azure DevOps service connections) between Gurugram repos and offshore deploy targets.",
+      "Internal-network testing in Gurugram has to account for DLF Cyber City's multi-tenant office reality. 'Corporate LAN' frequently means a shared building backbone with cross-tenant L2 visibility that the bank's network team did not architect for. We run LLMNR/NBT-NS poisoning, IPv6 mitm6, SMB relay and ADCS-misconfig chains against the corporate segment, then explicitly document which findings sit inside the bank's perimeter and which are DLF-backbone artefacts the building-management contract has to resolve. That distinction matters because the audit committee will ask.",
+      "Onsite kickoff in Gurugram is next-day from Mumbai BKC — the BOM-DEL morning flight plus the Aerocity-to-Cyber-City drive lands the senior consultant at the client by 11am. For engagements that run beyond two weeks we stage a Delhi-resident lead consultant for the duration so onsite cadence is tight and the bank does not pay flight overhead on every sprint review. Procurement at Gurugram private banks usually runs through the CISO, the CRO and a board-level Cyber Risk Sub-Committee; the audit committee chair signs off on the SoW. Fintechs close faster — CTO + CFO is typical.",
+      "Most Gurugram private-bank engagements need stakeholder briefings across two time zones in the same week — the Indian board on Tuesday and the overseas parent's risk committee on Thursday. We build the engagement plan around that cadence and provide pre-read packs the CISO can forward without rework. The same VAPT also routinely feeds a TIBER-EU-style RFP cycle that the parent's group-cyber team is running for the next year's red team, so the evidence base is structured to be portable to that next engagement rather than locked in a one-off PDF.",
+      "Where the bank or insurer operates a PCI-DSS scope (card-personalisation, payment-gateway, hosted card-network connectivity), we layer in scope-reduction testing — segmentation validation against the CDE, tokenisation-vault separation and the network controls that justify a SAQ-D-Service-Provider vs SAQ-D-Merchant differentiation. The output reduces the recurring assessment cost in subsequent years, which the CFO notices more than the CISO does.",
+    ],
+    buyerConcerns: [
+      "RBI MD-ITGRC + IRDAI 2023 + parent-group control-catalogue evidence in one VAPT cycle",
+      "PCI-DSS v4.0.1 scope reduction in payment-gateway and card-network testing",
+      "Privilege paths from Gurugram GCC engineering staff to offshore production AWS/Azure tenants",
+      "Partner-API, open-banking and bancassurance integration authorisation flaws",
+      "Internal-network segmentation across DLF Cyber City multi-tenant office backbones",
+      "ADCS ESC1-ESC8, Kerberos delegation and BloodHound shortest-path on the India-side AD",
+      "Parallel mapping to RBI, NIST 800-53 rev 5 and the parent's NIST-CSF crosswalk",
+      "Two-time-zone briefing cadence — Indian board on Tuesday, overseas parent committee on Thursday",
+      "Archer / MetricStream evidence drop alongside the regulator binder",
+    ],
+    differentiators: [
+      "Dual-framework reporting — single VAPT produces an RBI MD-ITGRC + IRDAI evidence binder and a NIST 800-53 rev 5 + parent-control-catalogue crosswalk in the same cycle, not as a billable rework.",
+      "Internal-network testing tailored to multi-tenant DLF Cyber City and Cyberhub office layouts — explicit findings split between bank perimeter and DLF building backbone so the audit committee gets a clean picture.",
+      "Same-day arrival from Mumbai BKC; Delhi-resident lead consultant staged for engagements beyond two weeks so the bank does not pay flight overhead on every sprint review.",
+      "Two-time-zone engagement plan baked in — pre-read packs sized for the Indian audit committee and the overseas parent's group-cyber committee without the CISO rebuilding decks.",
+      "PCI-DSS scope-reduction testing that compounds in CFO-visible savings on subsequent annual assessments.",
+    ],
+    seoDescription:
+      "CERT-In empanelled VAPT services in Gurugram for private banks, insurer GCCs and Fortune-500 capability centres. RBI / NIST dual-framework reports. Cyber City onsite.",
+    keywords: [
+      "VAPT services Gurugram",
+      "VAPT Gurgaon BFSI",
+      "VAPT Cyber City Gurgaon",
+      "CERT-In VAPT Gurugram",
+      "GCC penetration testing Gurgaon",
+      "private bank VAPT Gurugram",
+      "Cyberhub VAPT Gurgaon",
+      "RBI VAPT auditor Gurgaon",
+      "insurer VAPT Gurugram",
+    ],
+    stats: [
+      { value: "65+", label: "Gurugram engagements" },
+      { value: "Next-day", label: "BOM-DEL onsite" },
+      { value: "600+", label: "GCCs in coverage area" },
+      { value: "Dual-fwk", label: "RBI + NIST binders" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Dual-Framework Scope",
+        activities: [
+          "Crosswalk RBI MD-ITGRC / IRDAI / SEBI clauses against the parent's NIST 800-53 rev 5 control set",
+          "Onsite kickoff at DLF Cyber City Phase 3 or Golf Course Road; two-time-zone stakeholder calendar locked",
+          "PCI-DSS scope inventory if card-environment is in play — segmentation map and tokenisation-vault boundary",
+          "Archer / MetricStream evidence-drop schema agreed with the bank's GRC team",
+        ],
+      },
+      {
+        phase: "02 · External & Recon",
+        activities: [
+          "External attack surface mapping against the bank's TLD set plus the parent group's vanity domains",
+          "Credential-leak harvesting against the bank's known SSO domains and DLF Cyber City vendor footprint",
+          "Public-cloud account fingerprinting (AWS Mumbai/Singapore, Azure India South/Central, GCP asia-south1)",
+          "Mobile-app reversing on the latest Play Store and App Store consumer builds",
+        ],
+      },
+      {
+        phase: "03 · Internal & AD",
+        activities: [
+          "LLMNR/NBT-NS poisoning, mitm6 IPv6 takeover and SMB relay on the corporate segment",
+          "ADCS ESC1-ESC8 template enumeration with Certipy; BloodHound shortest-path to Domain Admin",
+          "Kerberoasting, AS-REP roasting and Kerberos delegation (RBCD, S4U2Self/S4U2Proxy) abuse",
+          "Privilege-path testing from Gurugram engineer laptops to offshore production AWS/Azure tenants",
+        ],
+      },
+      {
+        phase: "04 · App, API & Partner Edge",
+        activities: [
+          "Net-banking, broker-terminal and PAS authorisation testing on the customer-facing edge",
+          "Partner-API, open-banking and bancassurance authorisation matrix exercised role-by-role",
+          "Payment-gateway and card-network connectivity testing if PCI-DSS is in scope",
+          "CI/CD trust-chain abuse (GitHub Actions OIDC, Azure DevOps service connections)",
+        ],
+      },
+      {
+        phase: "05 · Dual Reporting",
+        activities: [
+          "RBI MD-ITGRC + IRDAI evidence binder formatted for the Indian regulator",
+          "NIST 800-53 rev 5 + parent-control-catalogue crosswalk for the overseas group cyber committee",
+          "Archer / MetricStream evidence drop and Jira-importable findings CSV",
+          "Two-time-zone pre-read packs — Indian audit committee Tuesday, parent committee Thursday",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Private-bank HQs",
+        blurb: "DLF Cyber City and Golf Course Road head offices — net-banking, treasury and partner-API VAPT with RBI + parent NIST crosswalk.",
+      },
+      {
+        name: "Insurer HQs",
+        blurb: "Life, general and health insurers on Sohna Road / DLF — IRDAI 2023 evidence plus parent-group control catalogue.",
+      },
+      {
+        name: "Fortune-500 GCCs",
+        blurb: "Udyog Vihar and Sector 44 GCCs — internal network + cloud-control review with privilege-path testing to offshore prod.",
+      },
+      {
+        name: "Fintech & lending HQs",
+        blurb: "Cyber City and Cyberhub fintechs — RBI PA-PG, loan-origination and partner-fintech API VAPT.",
+      },
+      {
+        name: "Big-4 & consulting",
+        blurb: "Gurugram consulting firms — DLF Cyber City delivery-centre VAPT with client-confidentiality control validation.",
+      },
+      {
+        name: "Travel & e-commerce HQs",
+        blurb: "MakeMyTrip-group, Goibibo and Cyber City e-commerce HQs — payment, loyalty and partner-merchant abuse paths.",
+      },
+    ],
+    deliverables: [
+      "VAPT report in CERT-In empanelled submission format with RBI/IRDAI clause crosswalk",
+      "Parallel NIST 800-53 rev 5 + parent-control-catalogue crosswalk binder for the overseas group cyber committee",
+      "PCI-DSS scope-reduction memo with segmentation validation evidence where card-environment is in play",
+      "Archer / MetricStream evidence drop in the bank's GRC schema",
+      "Jira / ServiceNow-importable findings CSV with severity, CWE, CVSS and ETA",
+      "Two-time-zone pre-read packs sized for the Indian audit committee and the overseas parent committee",
+      "Free re-test of every Critical and High inside a 60-day window",
+      "CERT-In empanelled closure letter and RBI / IRDAI inspection-defence support",
+    ],
+    caseStudy: {
+      industry: "Gurugram-headquartered Private Bank (DLF Cyber City Phase 3)",
+      scope: "Annual VAPT on 28 internet-facing apps, treasury and SWIFT edge, AD forest with ADCS, partner-API estate; dual binder for RBI CSITE Cell and a London-based parent risk committee",
+      outcome: "First-pass RBI acceptance; 9 Critical and 17 High closed in 52 days; one ADCS ESC4 path from a junior risk-analyst account to the fraud-rules engine, closed pre-disclosure; parent's group-cyber committee adopted the Macksofy detection-engineering annex as the new TIBER-style baseline for the next year's red team.",
+    },
+    faqs: [
+      {
+        q: "Can your VAPT satisfy both RBI MD-ITGRC and our London parent's NIST 800-53 control set in one cycle?",
+        a: "Yes. Every Gurugram private-bank engagement ships parallel binders sourced from the same evidence base — an RBI MD-ITGRC + CSF Annex-1 closure binder for the Indian regulator and a NIST 800-53 rev 5 crosswalk for the parent's group-cyber committee. There is no rework or duplicate testing.",
+      },
+      {
+        q: "Do you run internal-network tests across DLF Cyber City multi-tenant offices safely?",
+        a: "Yes. We split findings into 'bank perimeter' and 'DLF building backbone' categories explicitly. The bank gets remediation on its own segment; the DLF facilities team gets a memo for the building-services contract. The audit committee gets a clean line.",
+      },
+      {
+        q: "How do you handle the Tuesday-Indian-board / Thursday-parent-committee briefing cadence?",
+        a: "Pre-read packs are built into the SoW. The Tuesday pack is sized for the audit committee chair and the Indian CRO. The Thursday pack is sized for the parent's group-cyber committee with NIST 800-53 references. The CISO does not have to rebuild slides.",
+      },
+      {
+        q: "Can you test the privilege path from a Gurugram GCC laptop to our offshore production AWS organisation?",
+        a: "Yes. This is one of the highest-frequency scopes we run for Cyberhub and Udyog Vihar GCCs. We test the BloodHound shortest-path from a developer laptop through the India-side AD to the CI/CD trust chain and into the parent's offshore AWS organisation, including ADCS template abuse and GitHub Actions OIDC misconfigurations.",
+      },
+      {
+        q: "Will the same VAPT feed our parent's TIBER-style red-team RFP next year?",
+        a: "Yes. We structure the evidence base to be portable to the next TIBER-style engagement — threat-intel pack, asset inventory and the detection-engineering annex are formatted so the next red-team vendor can run against the same baseline rather than starting from scratch.",
+      },
+      {
+        q: "Do you support PCI-DSS v4.0.1 scope reduction alongside the VAPT?",
+        a: "Yes. Where the card environment is in play we layer in segmentation validation against the CDE, tokenisation-vault separation testing and the segmentation controls that justify a SAQ-D-Service-Provider vs SAQ-D-Merchant differentiation. The annual PCI-DSS assessment cost typically drops in the following year.",
+      },
+    ],
+  },
+
+  // 4 ─ Hyderabad · VAPT ────────────────────────────────────────────────
+  {
+    citySlug: "hyderabad",
+    serviceSlug: "vapt",
+    headline: "VAPT Services in Hyderabad · Pharma & IT",
+    lead: "CERT-In empanelled VAPT for HITEC City SaaS, Genome Valley pharma R&D and Telangana IT-services majors — built around regulated-data flows.",
+    body: [
+      "Hyderabad's cybersecurity demand splits cleanly along two axes and most generic 'VAPT vendors' miss the seam entirely. HITEC City, Gachibowli and Madhapur host the SaaS, fintech and IT-services majors. Genome Valley (Shameerpet, off the ORR exit to Karimnagar) and the broader Shamirpet–Patancheru pharma corridor host the R&D campuses and CROs that run clinical-trial data, GMP-validated lab systems and lab-instrument integrations. The same engagement template breaks against both: pharma scoping looks like a regulated-data-flow audit, SaaS scoping looks like a multi-tenant authz audit. Macksofy maintains two distinct playbooks and the senior consultant chooses which to pull off the shelf at kickoff.",
+      "For pharma and CRO clients in Genome Valley and the Patancheru belt, we focus on regulated-data flows end-to-end: clinical-trial portals (eCRF, EDC), eTMF systems, lab-instrument integrations (Empower, LabSolutions, OpenLAB CDS), the LIMS and the segregation between R&D networks and corporate IT. Findings are mapped to 21 CFR Part 11 (electronic-records and electronic-signature controls), GxP data-integrity ALCOA+ principles, EU GMP Annex 11 (computerised systems) and the WHO TRS 1019 Annex 4 guidance on data integrity. The same VAPT closes the next FDA Pre-Approval Inspection or EMA mock-audit cycle, which the QA director cares about far more than the IT director.",
+      "Lab-instrument testing is a Hyderabad specialty. Most pharma engagements include a walk-through of at least one QC lab — HPLC, GC, dissolution-tester and balance integrations into the LIMS or CDS. Common findings: shared local-admin credentials on the analytical workstation, USB-mass-storage policy gaps that allow raw-data exfiltration, audit-trail-disable paths on the chromatography software, and time-synchronisation drift between the instrument workstation and the LIMS server that breaks ALCOA+ contemporaneity. These do not appear in a Burp Suite report. We run them as guided walk-throughs with a QA witness and document the evidence in 21 CFR Part 11 §11.10(e) terms.",
+      "For HITEC City and Gachibowli SaaS and IT-services clients in Cyber Towers, Mindspace, Raheja Mindspace, Hitech City Phase 2 and the Q City / Wave Rock belt, scopes look more like the Bengaluru pattern — multi-tenant SaaS authz, customer-data isolation, vendor-API trust chains — but with a strong overlay of US-healthcare and US-BFSI client-imposed control catalogues passed down from US/EU parents. Reports map to SOC 2 Type II CC controls, ISO 27001:2022 Annex A and (where US healthcare data is in scope) HIPAA Security Rule §164.308–312 administrative, physical and technical safeguards.",
+      "Senior consultants fly from Mumbai BKC via the BOM-HYD morning flight; for Hyderabad-resident lead support we draw from the South India regional hub in HITEC City itself, which keeps onsite cadence inside two hours for any Madhapur, Gachibowli, Banjara Hills, Kondapur or Genome Valley location. Most pharma VAPTs run 4-5 weeks with at least two onsite plant or R&D-site visits; SaaS scopes complete in 3-4 weeks; full-suite pharma engagements that touch corporate IT plus R&D plus QC lab integrations stretch to 6-8 weeks. We re-test critical findings inside the remediation window at no extra cost.",
+      "Hyderabad pharma procurement is unusual: the IT head proposes the SoW, the QA director approves it (because 21 CFR Part 11 and ALCOA+ live in QA's jurisdiction), and the head of plant operations signs off if any GMP-validated system is in scope. We size proposals around that triangle and write the executive summary in QA-readable language — not 'CVSS 7.4 SSRF in eTMF' but 'electronic-record integrity exposure on the eTMF audit-trail path; FDA inspection risk Category-1; remediation closes 21 CFR Part 11 §11.10(e)'. Every finding is dated against the next FDA / EMA / DCGI inspection on the QA calendar so the team knows which gaps must close before which inspection.",
+      "For HITEC City SaaS and IT-services clients, procurement closes through the CTO and AppSec lead, sometimes with a US-headquartered parent's CISO copied for the larger GCCs. We sync the report to the next enterprise-procurement cycle and ship a sanitised vendor pack alongside the technical findings. Where the client also operates a parallel pharma-data scope (a CRO running a SaaS clinical-trial-management platform, for example), we shift methodology between SaaS-style and pharma-style scoping in the same engagement so the QA and AppSec functions get one report rather than two contradictory ones.",
+      "Genome Valley clients almost universally now run a parallel DPDP Act readiness track on clinical-trial-participant data. We layer DPDP RoPA mapping and consent-flow testing into the pharma VAPT — informed-consent capture, withdrawal-of-consent propagation back through the eTMF, and the cross-border-transfer evidence that DPDP §16 now requires for sponsor-data flows back to the US or EU CRO parent.",
+    ],
+    buyerConcerns: [
+      "21 CFR Part 11 §11.10(e) audit-trail and ALCOA+ contemporaneity evidence for clinical-trial and eTMF systems",
+      "EU GMP Annex 11 and WHO TRS 1019 Annex 4 computerised-systems compliance",
+      "Segregation between R&D networks, QC labs and corporate IT estates",
+      "Lab-instrument and HPLC / LIMS / CDS integration auth flaws — shared local-admin, USB policy gaps, audit-trail disable paths",
+      "Multi-tenant SaaS isolation for HITEC City and Gachibowli product companies",
+      "SOC 2 Type II + ISO 27001:2022 Annex A evidence quality for IT-services client audits",
+      "HIPAA Security Rule §164.308-312 safeguards for US-healthcare GCC scopes",
+      "DPDP Act §16 cross-border transfer evidence for clinical-trial-participant data",
+      "FDA / EMA / DCGI inspection-calendar synchronisation",
+    ],
+    differentiators: [
+      "Two distinct methodology playbooks — pharma / CRO (21 CFR Part 11, ALCOA+, Annex 11) vs SaaS / IT-services (OWASP ASVS, SOC 2, ISO 27001:2022) — same firm, no template re-use.",
+      "Lab-instrument and CDS walk-throughs (Empower, LabSolutions, OpenLAB) with QA witness and ALCOA+ documented evidence — not a generic web pentest relabelled.",
+      "Hyderabad regional hub in HITEC City means two-hour onsite SLA across Madhapur, Gachibowli, Banjara Hills, Kondapur and the Genome Valley pharma belt.",
+      "Findings dated against the next FDA / EMA / DCGI inspection on the QA calendar — remediation priorities mirror the inspection clock, not the IT change calendar.",
+      "DPDP §16 cross-border-transfer overlay built into the pharma VAPT for sponsor-data flows back to US/EU CRO parents.",
+    ],
+    seoDescription:
+      "CERT-In empanelled VAPT services in Hyderabad for pharma, CROs and HITEC City SaaS. 21 CFR Part 11, GxP and SOC 2 aligned reports. Genome Valley + Gachibowli onsite.",
+    keywords: [
+      "VAPT services Hyderabad",
+      "VAPT HITEC City",
+      "pharma VAPT Hyderabad",
+      "21 CFR Part 11 VAPT Hyderabad",
+      "Genome Valley cybersecurity",
+      "Gachibowli VAPT",
+      "SaaS VAPT Hyderabad",
+      "CRO penetration testing Hyderabad",
+      "CERT-In VAPT Hyderabad",
+    ],
+    stats: [
+      { value: "70+", label: "South India engagements" },
+      { value: "<2 hrs", label: "Onsite SLA in city" },
+      { value: "Local hub", label: "HITEC City based" },
+      { value: "QA + IT", label: "Dual-signoff playbook" },
+    ],
+    methodology: [
+      {
+        phase: "01 · QA-Aware Scoping",
+        activities: [
+          "Joint kickoff with IT head, QA director and (if GMP systems in scope) head of plant operations",
+          "Inspection-calendar map — FDA / EMA / DCGI dates pinned against finding-closure milestones",
+          "Pharma vs SaaS playbook selection — separate consultants and tool stacks where both are in play",
+          "Genome Valley / Shamirpet / HITEC City onsite-visit schedule and QA-witness arrangement",
+        ],
+      },
+      {
+        phase: "02 · Regulated-Data Discovery",
+        activities: [
+          "Clinical-trial portal, eTMF and EDC inventory with electronic-record path mapping",
+          "LIMS, CDS and lab-instrument integration enumeration with QA walk-through",
+          "R&D / QC lab / corporate IT segregation review (network, AD, file-share, USB policy)",
+          "Sponsor-data flow inventory for DPDP §16 cross-border-transfer evidence",
+        ],
+      },
+      {
+        phase: "03 · Application & Authz",
+        activities: [
+          "Multi-tenant SaaS authz testing for HITEC City product clients (Burp Pro, OWASP ASVS L2)",
+          "21 CFR Part 11 audit-trail disable-path and ALCOA+ contemporaneity testing on eTMF and CDS",
+          "HPLC / GC / dissolution-tester workstation review — shared local-admin, USB policy, time-sync drift",
+          "PAS, EDC and eCRF role-based access control matrix exercised role-by-role",
+        ],
+      },
+      {
+        phase: "04 · Dual-Format Reporting",
+        activities: [
+          "QA-readable executive summary in 21 CFR Part 11 / GMP Annex 11 / ALCOA+ language",
+          "AppSec-readable technical findings with Burp/curl repros and CWE references",
+          "SOC 2 Type II + ISO 27001:2022 Annex A + (where applicable) HIPAA crosswalk for the IT-services side",
+          "DPDP RoPA and §16 cross-border-transfer evidence pack for sponsor-data flows",
+        ],
+      },
+      {
+        phase: "05 · Inspection-Defence Re-test",
+        activities: [
+          "Re-test of every Critical and High inside the FDA / EMA inspection window",
+          "Inspection-defence rehearsal — likely inspector questions per finding category",
+          "CERT-In empanelled closure letter formatted for DCGI submission where required",
+          "Sponsor-CRO data-flow memo for the parent's quality-and-cyber joint committee",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Pharma R&D & generics",
+        blurb: "Top-5 generics with Shameerpet R&D, Patancheru API plants and Bachupally formulations — IT + lab + GMP-system VAPT.",
+      },
+      {
+        name: "CROs & clinical-trial sites",
+        blurb: "Genome Valley CROs — eTMF, EDC, sponsor-data flow and DPDP §16 cross-border-transfer evidence.",
+      },
+      {
+        name: "HITEC City SaaS",
+        blurb: "Cyber Towers and Mindspace product companies — multi-tenant authz with SOC 2 Type II + ISO 27001:2022 alignment.",
+      },
+      {
+        name: "US-healthcare GCCs",
+        blurb: "Gachibowli and Q City BPO/GCC operations on US PHI — HIPAA Security Rule and HITRUST-aligned VAPT.",
+      },
+      {
+        name: "Telangana IT-services",
+        blurb: "Hyderabad-headquartered IT-services majors — parent-control-catalogue crosswalk on top of CERT-In format.",
+      },
+      {
+        name: "Banking GCCs",
+        blurb: "Kondapur and Gachibowli BFSI captive ops — RBI VAPT clauses applied to India-side GCC infrastructure.",
+      },
+    ],
+    deliverables: [
+      "VAPT report in CERT-In empanelled format with 21 CFR Part 11 / GMP Annex 11 crosswalk for regulated systems",
+      "ALCOA+ data-integrity evidence on eTMF, LIMS and CDS audit-trail paths",
+      "Multi-tenant SaaS authz test results mapped to OWASP ASVS L2 and SOC 2 CC6/CC7",
+      "HIPAA Security Rule §164.308-312 evidence pack for US-healthcare GCC scopes",
+      "DPDP §16 cross-border-transfer evidence pack for sponsor-CRO data flows",
+      "Lab-instrument walk-through memos signed off by QA witness",
+      "Free re-test of every Critical and High inside the next FDA / EMA inspection window",
+      "Inspection-defence rehearsal pack with likely inspector questions per finding category",
+    ],
+    caseStudy: {
+      industry: "Top-5 Indian generics major (Shameerpet R&D + Bachupally formulations)",
+      scope: "Pharma VAPT across eTMF, EDC, LIMS, three QC lab CDS workstations (Empower) and corporate IT; DPDP §16 cross-border-transfer evidence for US sponsor data; six-week engagement with two onsite legs",
+      outcome: "Two ALCOA+ contemporaneity exposures on the LIMS-to-CDS time-sync path closed pre-FDA Pre-Approval Inspection; one shared local-admin credential set on three QC workstations rotated and bound to QA witness; zero non-conformities at the subsequent FDA PAI; DPDP §16 evidence pack accepted by the US sponsor's cyber-quality joint committee.",
+    },
+    faqs: [
+      {
+        q: "Can you test our Empower / LabSolutions / OpenLAB workstations safely without breaking GMP validation?",
+        a: "Yes. Lab-instrument workstation reviews are run as guided walk-throughs with a QA witness, against documented test scripts that do not alter validated state. Findings are documented in 21 CFR Part 11 §11.10(e) terms with the QA witness signature so the evidence is itself part of the validation record.",
+      },
+      {
+        q: "Will your VAPT close both the next FDA Pre-Approval Inspection and our SOC 2 Type II audit if we run a SaaS clinical-trial platform?",
+        a: "Yes — this is one of our highest-frequency scope shapes for Hyderabad CRO and clinical-trial-SaaS clients. We run pharma and SaaS playbooks side by side and ship dual evidence packs: 21 CFR Part 11 / GMP Annex 11 / ALCOA+ for the FDA side, SOC 2 CC + ISO 27001:2022 for the SaaS-customer side.",
+      },
+      {
+        q: "How quickly can you be onsite at our Shameerpet R&D site or our Genome Valley CRO?",
+        a: "Inside two hours from our HITEC City regional hub. Genome Valley sites are typically a 40-minute drive from Madhapur. For Patancheru API plants we plan a half-day onsite block with the QA team in advance.",
+      },
+      {
+        q: "Do you handle DPDP §16 cross-border-transfer evidence for our sponsor data going back to the US CRO parent?",
+        a: "Yes. The pharma VAPT now layers DPDP RoPA and §16 cross-border-transfer evidence into the standard deliverable — consent capture, withdrawal-of-consent propagation through the eTMF and the contractual safeguards the sponsor needs to evidence at the next data-protection-officer review.",
+      },
+      {
+        q: "Can you handle a HITEC City SaaS scope and a Genome Valley pharma scope in the same engagement?",
+        a: "Yes — we run two consultants in parallel, one per playbook, with a single project lead so the executive summary reconciles findings across both. This is the cleanest path for Hyderabad clients that operate a SaaS arm out of HITEC City and a regulated-data R&D function out of Genome Valley.",
+      },
+      {
+        q: "Do you submit the report to DCGI / FDA directly or via the client?",
+        a: "Submission is always via the client — neither DCGI nor FDA accept third-party VAPT submissions. We provide the CERT-In empanelled letter, the inspection-defence rehearsal pack and an on-call senior who joins inspector or sponsor-audit clarification calls if asked.",
+      },
+    ],
+  },
+
+  // 5 ─ Noida · VAPT ────────────────────────────────────────────────
+  {
+    citySlug: "noida",
+    serviceSlug: "vapt",
+    headline: "VAPT Services in Noida · Fintech & IT",
+    lead: "CERT-In empanelled VAPT for Noida and Greater Noida fintech, payment, edtech and IT-services clients across Sectors 18, 62, 125, 132 and the Yotta NM1 belt.",
+    body: [
+      "Noida's cybersecurity profile is unlike any other NCR metro. The Noida Expressway corridor (Sectors 125, 132, 142 and 150) hosts the newer fintech, payment-aggregator and IT-services HQs. Sector 62 and Sector 63 anchor the older IT campuses (HCL, TCS, Birlasoft, Coforge). Sector 18 is the consumer-facing edge — neo-banking, e-commerce ops and BPO call-centre back-offices. Greater Noida adds the Yotta NM1 hyperscale data-centre belt and the Jewar airport greenfield build-out which is generating a steady stream of clean-slate ISMS implementations. The VAPT buyer is typically a head-of-engineering or a first CISO who has just inherited an RBI Payment Aggregator / Payment Aggregator-Payment Gateway licence ambition and a 90-day audit clock.",
+      "For fintech and payment-aggregator clients along the Noida Expressway, scope is defined by the actual money-movement flow rather than a generic checklist: merchant-onboarding and KYC document-upload portals, payout APIs, refund and chargeback flows, settlement reconciliation, the NPCI rails (UPI Switch, NACH, IMPS sub-member), and the sponsor-bank federation. Reports are formatted for RBI Payment Aggregator / PA-PG audit submission per the March 2020 PA-PG circular DPSS.CO.PD.No.1810/02.14.008/2019-20, not just a generic CERT-In closure letter. We attach the merchant-due-diligence evidence the RBI Payment System Department actually asks for during the in-principle-to-final-licence transition.",
+      "Edtech and consumer-SaaS scopes on the Noida Expressway and in Sector 18 lean to multi-tenant authz, OAuth / SSO trust with school or enterprise IdPs, mobile-app SDK security (often a long tail of third-party analytics SDKs that quietly handle child-data), and content-DRM. We map findings to SOC 2 Type II, ISO 27001:2022, and — where parent-school or minor data is involved — DPDP Act §9 (processing of personal data of children), which most generic vendors skip entirely. DPDP §9 introduces explicit verifiable-parental-consent and tracking-restriction obligations that edtech VAPT scoping has to test against the SDK trust chain.",
+      "IT-services scopes in Sector 62 and Sector 63 are dominated by parent-client control-catalogue compliance — Fortune-500 client questionnaires, US-bank vendor-security questionnaires, EU healthcare HITRUST overlays. The VAPT closes both the CERT-In annual cycle for the IT-services company itself and the parent-client's vendor-security ask in one engagement. The same report typically feeds three or four parallel client questionnaires; we structure the evidence base to be portable across them.",
+      "Data-centre tenants at Yotta NM1 and the adjacent CtrlS Noida facility get a tenant-side VAPT plus a shared-responsibility-line memo that distinguishes what the tenant owns (compute, network policy, IAM, data, encryption keys, BCP) from what the colocation operator owns (physical, power, cooling, cross-connect, building access). The shared-responsibility memo is the artefact regulators ask for when a tenant points at the colocation operator's certifications and the auditor wants explicit gap-closure evidence on the tenant's side of the line.",
+      "Procurement at Noida fintechs is unusual — CTO and CFO close the deal, often with the sponsor-bank's compliance team consulted because the sponsor's audit cycle is what drives the fintech's audit clock. RBI in-principle approval deadlines are short, and the engagement plan has to fit inside that window. We publish a phased findings stream during the test rather than holding everything for a final report, so engineering can start fixing on week two and the sponsor-bank's compliance team can see closure progress in real time. Closure exhibits are formatted for RBI Payment System Department submission and (where relevant) for NPCI on-boarding evidence on top.",
+      "Onsite kickoff in Noida is next-day from Mumbai BKC — BOM-DEL morning flight plus a Yamuna Expressway or DND drive into the relevant sector. For multi-week engagements we share a Delhi-resident consultant with the Gurugram practice so NCR mobility is tight and we are not flying a fresh consultant in for every sprint review. Same consultant covers Noida and Gurugram in a combined NCR engagement at no double-mobilisation charge — most NCR-headquartered clients buy that combined coverage rather than treating the two cities as separate metros.",
+      "The Jewar airport greenfield is generating a new buyer cluster — logistics, ground-handling and airport-tenant SaaS — that needs clean-slate ISMS implementations and CERT-In VAPT against pre-production estates. We have a starter SoW for these greenfield engagements that overlaps a Macksofy CISO-as-a-service partial-time engagement with the VAPT cycle so the airport-tenant CTO gets policy, technical testing and audit-readiness in a single contract rather than three sequential ones.",
+    ],
+    buyerConcerns: [
+      "RBI Payment Aggregator / PA-PG audit submission format and merchant-due-diligence evidence",
+      "Payout, refund and settlement-reconciliation API abuse paths and NPCI rail authz",
+      "Merchant-onboarding KYC and OVD-upload portals — document-replay and impersonation paths",
+      "DPDP Act §9 verifiable-parental-consent and SDK-trust-chain evidence for edtech",
+      "Mobile-SDK and content-DRM weaknesses for consumer fintech and edtech",
+      "SOC 2 Type II + ISO 27001:2022 evidence pack for parent-client vendor-security questionnaires",
+      "Yotta NM1 / CtrlS Noida shared-responsibility-line memo for data-centre tenants",
+      "Sponsor-bank audit-cycle synchronisation for RBI in-principle-to-final transitions",
+      "NPCI on-boarding evidence alongside RBI PA-PG submission",
+    ],
+    differentiators: [
+      "Reports formatted for RBI Payment System Department submission (PA-PG circular DPSS.CO.PD.No.1810/02.14.008/2019-20), not generic CERT-In closure letters.",
+      "Phased findings stream during the test so engineering starts fixing on week two and the sponsor-bank's compliance team sees closure progress in real time before the final report lands.",
+      "Edtech scoping that explicitly covers DPDP Act §9 verifiable-parental-consent and SDK trust-chain testing — most generic vendors miss this entirely.",
+      "Shared-responsibility-line memo for Yotta NM1 / CtrlS Noida tenants — distinguishes tenant-owned controls from colocation-operator controls so regulators get a clean line.",
+      "Combined NCR engagement covering Noida and Gurugram with a single Delhi-resident tech lead — no double mobilisation, single evidence pack, one closure letter.",
+    ],
+    seoDescription:
+      "CERT-In empanelled VAPT services in Noida for fintech, payment, edtech and IT-services firms. RBI PA-PG aligned reports. Sector 18, 62, 125 and 132 onsite.",
+    keywords: [
+      "VAPT services Noida",
+      "VAPT Noida fintech",
+      "RBI PA-PG VAPT Noida",
+      "payment aggregator VAPT Noida",
+      "edtech VAPT Noida",
+      "Sector 62 VAPT Noida",
+      "CERT-In VAPT Noida",
+      "Greater Noida VAPT",
+      "Noida Expressway penetration testing",
+    ],
+    stats: [
+      { value: "40+", label: "Noida engagements" },
+      { value: "45-90 min", label: "From IGI to any sector" },
+      { value: "Yotta NM1", label: "Data-centre coverage" },
+      { value: "RBI PA-PG", label: "Submission format" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Licence-Clock Scoping",
+        activities: [
+          "RBI PA-PG in-principle / final-licence deadline pinned against engagement phases",
+          "Sponsor-bank compliance team looped in on closure-progress visibility",
+          "Yotta NM1 / CtrlS Noida shared-responsibility-line definition where data-centre tenancy is in scope",
+          "Combined NCR scope vs Noida-only scope decision with the Gurugram practice",
+        ],
+      },
+      {
+        phase: "02 · Money-Movement & KYC Recon",
+        activities: [
+          "Merchant-onboarding portal and OVD-upload flow inventory",
+          "Payout, refund and settlement-reconciliation API surface mapping",
+          "NPCI rail authz path enumeration (UPI Switch, NACH, IMPS sub-member)",
+          "Mobile-app reversing with focus on third-party SDK trust chain",
+        ],
+      },
+      {
+        phase: "03 · Manual Exploitation",
+        activities: [
+          "Burp Pro abuse-case testing on payout and refund APIs — race conditions, idempotency violations, replay",
+          "OVD-upload portal document-replay, impersonation and template-injection testing",
+          "DPDP §9 verifiable-parental-consent flow testing on edtech and minor-data scopes",
+          "Yotta NM1 tenant-side network policy, IAM and encryption-key custody review",
+        ],
+      },
+      {
+        phase: "04 · Phased Reporting",
+        activities: [
+          "Week-two phased findings stream to engineering and the sponsor-bank compliance team",
+          "Final report in RBI Payment System Department submission format",
+          "NPCI on-boarding evidence pack where relevant",
+          "Parent-client SOC 2 / ISO 27001:2022 / HITRUST crosswalk for IT-services clients",
+        ],
+      },
+      {
+        phase: "05 · Re-test & Sponsor Handover",
+        activities: [
+          "Free re-test of Critical and High inside the RBI remediation window",
+          "Sponsor-bank handover call with the fintech's CTO present",
+          "CERT-In empanelled closure letter and PA-PG submission pack",
+          "Greenfield CISO-as-a-service overlay where Jewar airport-tenant clients need it",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Payment aggregators",
+        blurb: "Noida Expressway PA / PA-PG licensees — payout, refund, settlement and sponsor-bank federation VAPT.",
+      },
+      {
+        name: "Lending fintechs",
+        blurb: "Digital-lending and BNPL fintechs — loan origination, partner-bank API and FLDG-flow authorisation testing.",
+      },
+      {
+        name: "Edtech",
+        blurb: "Sector 18 and Noida Expressway consumer edtech — DPDP §9 minor-data and SDK trust-chain coverage.",
+      },
+      {
+        name: "IT-services majors",
+        blurb: "Sector 62 / 63 IT-services campuses — parent-client questionnaire and SOC 2 Type II evidence in one cycle.",
+      },
+      {
+        name: "Data-centre tenants",
+        blurb: "Yotta NM1 and CtrlS Noida tenants — tenant-side VAPT plus shared-responsibility-line memo.",
+      },
+      {
+        name: "Jewar airport tenants",
+        blurb: "Greenfield logistics, ground-handling and airport SaaS — clean-slate ISMS plus CERT-In VAPT bundle.",
+      },
+    ],
+    deliverables: [
+      "VAPT report in RBI Payment System Department PA-PG submission format",
+      "Merchant-due-diligence evidence pack for the RBI in-principle-to-final transition",
+      "Phased findings stream during the test for engineering and the sponsor-bank compliance team",
+      "NPCI on-boarding evidence pack where relevant",
+      "DPDP §9 verifiable-parental-consent and SDK trust-chain evidence for edtech",
+      "Yotta NM1 / CtrlS Noida shared-responsibility-line memo for data-centre tenants",
+      "Free re-test of every Critical and High inside the RBI remediation window",
+      "CERT-In empanelled closure letter and combined NCR (Noida + Gurugram) coverage option",
+    ],
+    caseStudy: {
+      industry: "Noida Expressway-headquartered Payment Aggregator (RBI in-principle holder)",
+      scope: "VAPT on 50 internet-facing apps, payout/refund/settlement APIs, NPCI rail edge, merchant-onboarding KYC portal; PCI v4.0.1 SAQ-D readiness; DPDP RoPA across 11 systems; six-week engagement against the RBI in-principle-to-final transition window",
+      outcome: "RBI Payment System Department submission accepted first read; 14 Highs and 26 Mediums closed in 39 days; one payout-API idempotency race that would have allowed refund-replay double-credit, closed pre-sponsor-bank-cutover; sponsor-bank compliance team adopted the Macksofy weekly findings stream as the new vendor baseline for subsequent fintechs in their portfolio.",
+    },
+    faqs: [
+      {
+        q: "Can you fit a VAPT inside our 90-day RBI in-principle-to-final-licence window?",
+        a: "Yes. The standard Noida fintech engagement is sized at five to six weeks of testing plus a built-in re-test window. We publish a phased findings stream from week two so engineering starts fixing before the final report lands, which means closure can complete inside a 90-day in-principle clock.",
+      },
+      {
+        q: "Will you submit our PA-PG report to the RBI Payment System Department directly?",
+        a: "Submission is always via the fintech — RBI does not accept third-party submissions. We provide the report in RBI submission format, the CERT-In empanelled letter, the merchant-due-diligence evidence pack and an on-call senior who joins clarification calls if asked.",
+      },
+      {
+        q: "Do you cover DPDP §9 minor-data obligations for our Noida edtech product?",
+        a: "Yes. The edtech playbook explicitly tests the verifiable-parental-consent capture flow, the withdrawal-of-consent propagation, the tracking-restriction obligation under DPDP §9 and the third-party SDK trust chain that often quietly handles child-data.",
+      },
+      {
+        q: "Can you handle our Yotta NM1 tenancy without scope conflicts with the colocation operator?",
+        a: "Yes. We ship a shared-responsibility-line memo that explicitly distinguishes tenant-owned controls (compute, network policy, IAM, encryption keys, BCP) from colocation-operator controls (physical, power, cooling, cross-connect). Yotta's existing certifications cover the operator side; we close the tenant side without scope overlap.",
+      },
+      {
+        q: "Can we combine Noida and Gurugram in one NCR engagement?",
+        a: "Yes — most NCR-headquartered clients prefer this. A single Delhi-resident Macksofy lead manages both metros with one evidence pack and one closure letter. We do not double-charge mobilisation or report-writing.",
+      },
+      {
+        q: "Do you support Jewar airport tenant greenfield ISMS plus VAPT?",
+        a: "Yes — we have a starter SoW for Jewar airport-tenant greenfield clients that bundles a CISO-as-a-service partial-time engagement with the VAPT cycle so the tenant CTO gets policy framework, technical testing and audit-readiness in one contract.",
+      },
+    ],
+  },
+
+  // 6 ─ Pune · VAPT ────────────────────────────────────────────────
+  {
+    citySlug: "pune",
+    serviceSlug: "vapt",
+    headline: "VAPT Services in Pune · Auto, IT & OT",
+    lead: "CERT-In empanelled VAPT for Hinjewadi IT majors, Chakan auto OEMs and Magarpatta GCCs — including IEC-62443-aligned OT/ICS scopes.",
+    body: [
+      "Pune VAPT splits across three distinct geographies and three distinct buyer profiles. Hinjewadi Phase I, II and III host the IT-services majors and the GCC delivery centres — Infosys, Tata Technologies, Cognizant, Wipro, Capgemini and a long tail of mid-size product companies. Magarpatta and Kharadi host the BPO / GCC ecosystem with a strong US and European parent footprint. The Chakan, Talegaon and Ranjangaon belt — and the older Pimpri-Chinchwad PCMC industrial corridor — hosts the auto OEMs, Tier-1 suppliers and the OT-heavy manufacturing scope that diverges hardest from the rest of Macksofy's India practice. Connected-vehicle telematics, OEM-to-Tier-1 supplier networks and live shopfloor OT exposure are real engagement scope here, not buzzwords.",
+      "For auto OEMs in Chakan (Mercedes-Benz, Volkswagen, Mahindra, Tata Motors) and Tier-1 suppliers in Talegaon and Ranjangaon (Bosch, Magneti Marelli, Continental, Bharat Forge), we run IEC-62443 LSL-3 aligned OT segmentation reviews alongside the IT-side VAPT. The test boundary is explicit: business IT (corporate ERP, MES gateways, engineering EDA workstations), the IT-OT DMZ (Purdue Level 3.5), MES and SCADA at Purdue Levels 3 and 2, and PLC / DCS field devices at Levels 1 and 0. The supplier-VPN attack surface — the inbound connectivity Tier-1 and Tier-2 suppliers have into the OEM corporate segment — has become the favourite ransomware entry path for ALPHV/BlackCat, LockBit and Cl0p affiliates targeting the Indian auto industry; we test that path explicitly with attention to the legacy IPSec site-to-site tunnels still in production.",
+      "Manual abuse-case testing on the OT side never runs against live PLCs without explicit HSE clearance. We use passive listening (Wireshark with the OT protocol dissectors — Modbus, EtherNet/IP, Profinet, OPC UA), Nessus Pro with OT-safe scan policies, the Macksofy fork of conpot for PLC fingerprinting in a staging environment, and BloodHound on the engineering-station AD forest. Findings on the OT side are categorised by remediation window — which can close in the next planned maintenance window (a Saturday changeover), which need a longer change-management cycle through the OEM's MES-validation process, and which require a Tier-1-supplier contract renegotiation because the exposure is contractual.",
+      "For Hinjewadi IT-services and Magarpatta GCC clients, scopes look more like the Bengaluru SaaS pattern — multi-tenant authz, vendor APIs, SOC 2 Type II evidence — with a strong overlay of client-imposed cyber-control catalogues passed down from US automotive and EU automotive parents (Volkswagen Group's audit catalogue, BMW's information-security requirements, Mercedes-Benz's Group Information Security policy). The same VAPT produces a CERT-In format report plus a TISAX (Trusted Information Security Assessment Exchange) Level 2 or Level 3 readiness pack which is the parent-control-catalogue most German and EU OEMs actually require from their Pune partners.",
+      "Senior consultants drive from Mumbai BKC — three hours on the Mumbai-Pune Expressway with same-day arrival the norm. OT scopes always include at least one full day onsite walking the shopfloor with the plant HSE manager and the IT-OT convergence lead. For Chakan, Talegaon and Ranjangaon plants we plan the onsite block around shift changeover so testing weeks do not collide with production peaks. Hinjewadi engagements are easier — onsite at the client campus same-day, remote testing through the rest of the engagement.",
+      "Procurement at Pune auto OEMs is unusual: the plant IT head proposes the SoW, the head of QA validates against TISAX or VDA-ISA, and the head of plant operations or HSE signs off if any OT-touching work is in scope. Tier-1 suppliers add their OEM customer's compliance team to the loop because the supplier's audit cycle has to satisfy the OEM. We size proposals to match — fixed-fee SoW with explicit HSE blackout windows around critical production lines, no ad-hoc probes near live PLCs, no scans during shift changeover. The report calls out which findings can be remediated in the next maintenance window and which need a longer change-management cycle.",
+      "Pune IT-services procurement closes through the delivery-centre head and the client-account lead, sometimes with the US/EU client's CISO copied for the larger accounts. We sync the VAPT report to the next client-questionnaire cycle and ship a sanitised vendor pack — typically SIG Lite, CAIQ Lite and (for automotive clients) TISAX Level 2 readiness — alongside the technical findings. Where the client also has an Indian regulator overlay (BFSI captive ops in Magarpatta, for example), we add an RBI MD-ITGRC crosswalk to the same evidence base.",
+      "For listed Pune-headquartered manufacturers — auto-component listed entities and pharma R&D campuses — the engagement also produces SEBI listing-obligation cyber-security disclosure evidence that the company secretary needs for the next annual report. SEBI's Listing Obligations and Disclosure Requirements (LODR) Schedule II Part B now requires explicit board-level cyber oversight disclosure, and the VAPT report's executive summary is shaped to feed that disclosure rather than require a separate write-up.",
+    ],
+    buyerConcerns: [
+      "IEC-62443 LSL-3 aligned OT/IT segmentation evidence for auto OEMs and Tier-1 suppliers",
+      "Supplier-VPN and Tier-1 / Tier-2 network attack surface — favourite ALPHV/LockBit entry path",
+      "Connected-vehicle telematics, OTA-update edge and OEM cloud-backend testing",
+      "MES / SCADA / PLC exposure on shopfloor segments with Wi-Fi overlap",
+      "SOC 2 Type II + ISO 27001:2022 evidence for Hinjewadi IT-services majors",
+      "TISAX Level 2 / Level 3 and VDA-ISA parent-control-catalogue readiness",
+      "Same-day onsite from Mumbai BKC for OT walk-throughs and HSE coordination",
+      "SEBI LODR Schedule II cyber-oversight disclosure for listed Pune manufacturers",
+      "Remediation-window classification — maintenance window vs longer change-management cycle",
+    ],
+    differentiators: [
+      "Genuine OT-side experience — IEC-62443 LSL-3 segmentation reviews, passive OT protocol listening (Modbus, EtherNet/IP, Profinet, OPC UA) and shopfloor walk-throughs with HSE coordination, not IT-side VAPT relabelled.",
+      "TISAX Level 2/3 and VDA-ISA crosswalks shipped alongside the CERT-In VAPT report — the parent-control-catalogue most German and EU automotive parents actually require from their Pune partners.",
+      "Same-day drive from Mumbai BKC (3 hours on the Mumbai-Pune Expressway) for any Hinjewadi, Magarpatta, Kharadi, Chakan, Talegaon or Ranjangaon site — no flight overhead, no airport bench drag.",
+      "Findings categorised by remediation window — next maintenance Saturday vs longer MES-validation cycle vs supplier-contract renegotiation — so the plant ops head can resource accordingly.",
+      "SEBI LODR Schedule II cyber-oversight disclosure evidence built into the executive summary for listed Pune-headquartered manufacturers.",
+    ],
+    seoDescription:
+      "CERT-In empanelled VAPT services in Pune for auto OEMs, OT/ICS, Hinjewadi IT and Magarpatta GCCs. IEC-62443 + TISAX aligned. Same-day from Mumbai BKC.",
+    keywords: [
+      "VAPT services Pune",
+      "VAPT Hinjewadi",
+      "OT VAPT Pune",
+      "IEC 62443 audit Pune",
+      "Chakan auto VAPT",
+      "TISAX VAPT Pune",
+      "Magarpatta VAPT",
+      "CERT-In VAPT Pune",
+      "Pune manufacturing cybersecurity",
+    ],
+    stats: [
+      { value: "55+", label: "Pune engagements" },
+      { value: "3 hr", label: "Drive from Mumbai BKC" },
+      { value: "IEC-62443", label: "OT methodology" },
+      { value: "TISAX L2/L3", label: "Auto-parent ready" },
+    ],
+    methodology: [
+      {
+        phase: "01 · HSE-Aware Scope",
+        activities: [
+          "Joint kickoff with plant IT head, QA director and head of plant operations or HSE",
+          "Shift-changeover and critical-line blackout windows agreed and locked into the test schedule",
+          "Purdue-level scope decision — IT-only, IT-OT DMZ, MES/SCADA, field-device or full-stack",
+          "TISAX Level 2 / Level 3 or VDA-ISA crosswalk target confirmed with the OEM parent's audit team",
+        ],
+      },
+      {
+        phase: "02 · IT-Side & AD",
+        activities: [
+          "External attack surface mapping against the OEM / supplier TLD set",
+          "ADCS template enumeration with Certipy, BloodHound shortest-path on the engineering-station AD forest",
+          "Supplier-VPN inbound surface — IPSec site-to-site tunnel review, MFA enforcement on remote access",
+          "Connected-vehicle telematics edge and OEM cloud-backend (AWS Mumbai / Azure India South) testing",
+        ],
+      },
+      {
+        phase: "03 · OT-Side Walk-Through",
+        activities: [
+          "Shopfloor walk-through with plant HSE manager and IT-OT convergence lead",
+          "Passive OT protocol listening (Wireshark with Modbus, EtherNet/IP, Profinet, OPC UA dissectors)",
+          "IEC-62443 LSL-3 zone-and-conduit boundary review at Purdue Level 3.5 (IT-OT DMZ)",
+          "MES gateway and SCADA HMI authentication review without active PLC probing",
+        ],
+      },
+      {
+        phase: "04 · Dual Reporting",
+        activities: [
+          "CERT-In format VAPT report with IEC-62443 LSL-3 evidence annex",
+          "TISAX Level 2 / Level 3 or VDA-ISA crosswalk for the German / EU automotive parent",
+          "Remediation-window classification per finding — maintenance Saturday, longer MES-validation, supplier-contract",
+          "SEBI LODR Schedule II cyber-oversight evidence for listed Pune-headquartered manufacturers",
+        ],
+      },
+      {
+        phase: "05 · Re-test & Plant Handover",
+        activities: [
+          "Free re-test of Critical and High inside the OEM's next maintenance window",
+          "Plant-handover memo for the HSE manager and IT-OT convergence lead",
+          "CERT-In empanelled closure letter formatted for the OEM's parent audit team",
+          "Supplier-contract memo where exposures require Tier-1 / Tier-2 renegotiation",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Auto OEMs",
+        blurb: "Chakan and PCMC OEMs — IT, IT-OT DMZ and shopfloor OT segmentation with TISAX Level 2/3 crosswalk.",
+      },
+      {
+        name: "Tier-1 auto suppliers",
+        blurb: "Talegaon, Ranjangaon and PCMC Tier-1s — supplier-VPN surface, MES gateway and VDA-ISA readiness.",
+      },
+      {
+        name: "Hinjewadi IT-services",
+        blurb: "Phase I / II / III IT-services campuses — parent-client questionnaire and SOC 2 Type II evidence.",
+      },
+      {
+        name: "Magarpatta & Kharadi GCCs",
+        blurb: "US / EU enterprise GCCs — parent-control-catalogue VAPT with privilege-path testing to offshore prod.",
+      },
+      {
+        name: "Pharma R&D campuses",
+        blurb: "Pune pharma R&D — limited GMP overlay layered on top of the IT-services VAPT methodology.",
+      },
+      {
+        name: "Listed Pune manufacturers",
+        blurb: "Auto-component and engineering listed entities — SEBI LODR Schedule II cyber-oversight disclosure evidence.",
+      },
+    ],
+    deliverables: [
+      "VAPT report in CERT-In empanelled format with IEC-62443 LSL-3 evidence annex",
+      "TISAX Level 2 / Level 3 and VDA-ISA crosswalk for German / EU automotive parents",
+      "Shopfloor walk-through memo with HSE-manager and IT-OT convergence-lead sign-off",
+      "Supplier-VPN attack-surface memo with Tier-1 / Tier-2 contractual exposure callouts",
+      "Remediation-window classification per finding — maintenance Saturday, MES-validation cycle, supplier-contract",
+      "SEBI LODR Schedule II cyber-oversight disclosure evidence for listed manufacturers",
+      "Free re-test of every Critical and High inside the OEM's next maintenance window",
+      "CERT-In empanelled closure letter and OEM-parent-audit handover pack",
+    ],
+    caseStudy: {
+      industry: "Pune-headquartered Tier-1 Auto Supplier (Talegaon + Ranjangaon plants)",
+      scope: "ISO 27001:2022 implementation, DPDP RoPA, IT + IT-OT DMZ + MES gateway VAPT across three plants, TISAX Level 3 readiness for the German OEM parent; eight-week engagement with three onsite legs",
+      outcome: "ISO 27001 certification issued in 18 weeks; TISAX Level 3 readiness pack accepted by the OEM parent at the next vendor-audit cycle; OT/IT zoning hardened to IEC-62443 LSL-3; one supplier-VPN exposure that mirrored the entry path used in the 2022 Bharat-auto ALPHV incident, closed pre-disclosure; supplier-contract memo accepted by the OEM's procurement function as the new template for incoming Tier-2 onboardings.",
+    },
+    faqs: [
+      {
+        q: "Can you test our Chakan plant OT segment without disrupting production?",
+        a: "Yes. OT-side testing runs against passive listening (Wireshark with the OT protocol dissectors) and HSE-cleared zone-and-conduit reviews, never active PLC probing on live lines. The onsite block is planned around shift changeover and explicit blackout windows around critical production lines.",
+      },
+      {
+        q: "Do you produce TISAX Level 2 / Level 3 readiness alongside the CERT-In VAPT?",
+        a: "Yes — and for most Pune auto-supplier engagements TISAX readiness is the parent-control-catalogue that actually matters. We crosswalk the same evidence base to TISAX and (where the OEM parent uses it) VDA-ISA, shipped alongside the CERT-In format report.",
+      },
+      {
+        q: "How quickly can you be onsite in Hinjewadi or Chakan?",
+        a: "Same-day for kickoff if requested before noon. Senior consultants drive from Mumbai BKC on the Mumbai-Pune Expressway (three hours) and reach any Hinjewadi, Magarpatta, Kharadi, Chakan, Talegaon or Ranjangaon site by lunchtime. No flight overhead.",
+      },
+      {
+        q: "Will your VAPT close the SEBI LODR Schedule II cyber-oversight disclosure for our listed Pune manufacturer?",
+        a: "Yes. The executive summary is shaped to feed the SEBI LODR Schedule II board-cyber-oversight disclosure that the company secretary needs for the annual report, rather than requiring a separate write-up. The board pack and the regulator pack share the same evidence base.",
+      },
+      {
+        q: "How do you handle our Tier-1 supplier-VPN attack surface without breaking commercial relationships?",
+        a: "We document supplier-VPN exposures with explicit contractual-vs-technical classification. Findings that require a Tier-1 / Tier-2 contract renegotiation are flagged separately so the OEM's procurement function can resource the renegotiation, rather than the IT team trying to close a problem that is contractual at root.",
+      },
+      {
+        q: "Do you support listed pharma R&D scopes in Pune alongside auto engagements?",
+        a: "Yes — we layer a limited GMP overlay (21 CFR Part 11, GxP data-integrity) on top of the IT-services VAPT methodology for Pune pharma R&D clients. The Hyderabad pharma-playbook is heavier; the Pune R&D scope is usually narrower and folds cleanly into the IT-side VAPT cycle.",
+      },
+    ],
+  },
+
+  // 7 ─ Mumbai · Red Teaming ────────────────────────────────────────────────
+  {
+    citySlug: "mumbai",
+    serviceSlug: "red-teaming",
+    headline: "Red Team Operations in Mumbai · BFSI",
+    lead: "Goal-based adversary simulations against Mumbai BFSI — net-banking, treasury, broker terminals and SWIFT-style scenarios — run from our BKC HQ.",
+    body: [
+      "Red teaming Mumbai BFSI is not a wider VAPT and the audit committee should not buy it as one. The board-level question is narrow and specific: can a determined attacker — funded, patient, willing to spend three months on initial access — reach money movement, market data or customer accounts inside the bank before the SOC notices, and what would the bank actually do when the first alert fires? Macksofy answers that question with goal-based, intelligence-led adversary simulations that combine OSINT, spear-phishing tuned to the BKC and Nariman Point exec calendar, physical pretexting against actual BFSI office buildings, and the technical exploitation chain that lands once initial access is established.",
+      "Typical scenarios for a Mumbai private bank or large cooperative bank: SWIFT or treasury reach from a compromised back-office user in the Lower Parel ops centre; ATM-network compromise via a card-personalisation vendor laptop, FIN8/Hidden-Cobra TTPs explicitly modelled; market-data tampering on a broker desk by way of the Refinitiv/Bloomberg feed-handler; bulk customer-account access through the call-centre CRM at the Goregaon or Powai back-office; and ADCS abuse paths (ESC1, ESC4, ESC8) from a junior treasury-ops user to Domain Admin on the corporate forest backing core banking. Each scenario is mapped to TIBER-EU-style threat-intelligence and to the RBI Cyber Resilience expectations the board reports against — the November 2023 RBI Master Direction on IT Governance and the underlying Cyber Security Framework circular DBS.CO.CSITE.BC.11/33.01.001/2015-16.",
+      "Engagements run six to ten weeks end-to-end. The first two weeks are intelligence prelude — OSINT against BKC, Lower Parel and Nariman Point exec teams, vendor mapping against the bank's known third-party ecosystem (Tata Communications, Sify, Wipro Infrastructure Services for managed-services trails; printer fleets, badge-system vendors and pantry contractors for physical pretexting), and credential-leak harvesting against the bank's exact TLDs using DeHashed, IntelX and our own dark-web monitoring feed. Initial-access campaigns then run a parallel split — spear-phish tuned to a recent regulatory deadline the bank is publicly known to be working against, plus optionally a vendor-laptop physical drop at a BKC tower lobby.",
+      "Foothold and EDR evasion is genuine tradecraft, not a Cobalt Strike default profile. We run custom payloads with indirect-syscall execution, process hollowing into trusted binaries, AMSI patching tuned to the bank's actual EDR (CrowdStrike Falcon, SentinelOne Singularity, Microsoft Defender for Endpoint or, on some Mumbai cooperative banks, Trend Micro Apex One), and a Macksofy-internal C2 framework with rotating egress through Cloudflare Workers and AWS API Gateway. Persistence is established sparingly — exactly enough to survive a credential rotation, no more — because the audit committee does not want to find Macksofy beacons in the estate six months later.",
+      "Lateral movement on a Mumbai BFSI estate follows a predictable shape: BloodHound the engineering-station OU, find the ADCS template misconfig (ESC1 through ESC8 — most Indian banks still ship at least one), pivot via Kerberos delegation (RBCD, S4U2Self) to a high-value service account, and reach the SWIFT gateway, the OMS, or the core-banking jump host. The goal varies by mandate — sometimes the audit committee wants a silent Domain Admin proof, sometimes a treasury-side money-movement simulation against the FIN8 ATM-network TTP playbook, sometimes a market-data tampering proof against the broker desk. Cobalt Strike, Sliver and Mythic are all in play; Brute Ratel runs only where RoE explicitly permits.",
+      "Physical pretexting on Mumbai BFSI offices is rehearsed against actual building conventions, not generic playbooks. BKC towers (One BKC, Maker Maxity, Parinee Crescenzo) run distinct visitor-pass workflows and pantry-vendor schedules; Lower Parel mill compounds (Phoenix Mills, Kamala Mills) have different security postures than the Nariman Point heritage towers (Maker Chambers, Air India, Express Towers); the Andheri SEEPZ and MIDC ITES blocks have shared-building backbones that affect both physical and network paths. We rehearse pretexts that fit each conventon — not a US-bank social-engineering script translated into Hinglish.",
+      "Engagements run under written rules of engagement signed by the CISO, head of operations and the regulator-facing audit committee chair. Real-time deconfliction with the in-house SOC is handled via a private Signal or encrypted Teams channel so a live IR call never gets confused with a red-team artefact. We split into a red cell and a purple-team review cell — the purple cell sits with the SOC at engagement close for a full week, walking every detection-gap, writing a concrete tuning backlog for SIEM, EDR and identity controls, and delivering paired Sigma/Splunk rules per missed event. The audit committee gets a board-grade narrative, an MITRE ATT&CK heatmap (TTPs used vs detected), and a forward-looking detection-engineering roadmap.",
+      "Mumbai BFSI procurement on red team is unusual — the CISO proposes, the head of operations and the CRO co-sign, the audit committee chair gives explicit board-recorded approval. Some listed banks now run an annual red team as a board-mandated control rather than a project; we offer an annual retainer that runs one full engagement plus two narrower scope-restricted exercises (a phishing-only campaign and a physical-only exercise) so the annual budget covers three discrete board-reportable events rather than a single point-in-time test. Mumbai cooperative banks are starting to follow suit — the RBI Department of Supervision now asks about red-team posture in the larger urban-cooperative bank inspections.",
+    ],
+    buyerConcerns: [
+      "Realistic attack path to SWIFT, treasury or settlement systems with FIN8-style ATM-network TTP modelling",
+      "ATM-network and card-personalisation vendor entry vectors",
+      "Broker-terminal and Refinitiv/Bloomberg market-data tampering scenarios",
+      "Call-centre CRM and bulk-customer-data exfiltration from Goregaon / Powai back-offices",
+      "ADCS ESC1-ESC8 abuse paths from junior treasury-ops users to Domain Admin",
+      "SOC detection-gap evidence aligned to RBI Cyber Resilience board reporting (CSF Annex-1)",
+      "Physical pretexting that fits BKC / Lower Parel / Nariman Point office building conventions",
+      "Purple-team handover with paired Sigma/Splunk rules per missed event",
+      "Annual board-mandated red-team posture for listed BFSI and large urban-cooperative banks",
+    ],
+    differentiators: [
+      "Scenario library specific to Mumbai BFSI — SWIFT and treasury reach, ATM-network compromise modelled on FIN8/Hidden-Cobra TTPs, broker-desk Refinitiv/Bloomberg market-data tampering, call-centre CRM bulk exfil, ADCS ESC1-ESC8 paths — not US-bank templates translated into Hinglish.",
+      "Physical pretexting rehearsed against actual BKC (One BKC, Maker Maxity, Parinee Crescenzo), Lower Parel (Phoenix Mills, Kamala Mills) and Nariman Point (Maker Chambers, Air India, Express Towers) office conventions and visitor-pass workflows.",
+      "Built-in purple-team handover week that converts the red-team narrative into paired Sigma/Splunk rules and a SIEM / EDR / IAM tuning backlog the bank's SOC can execute the same week.",
+      "Macksofy-internal C2 framework with rotating egress through Cloudflare Workers and AWS API Gateway plus indirect-syscall payloads tuned to the bank's actual EDR (CrowdStrike Falcon, SentinelOne Singularity, MDE) — no shared infrastructure, no off-the-shelf Cobalt Strike defaults.",
+      "Annual retainer option that splits the budget across one full engagement plus a phishing-only campaign and a physical-only exercise — three board-reportable events for the audit committee per year.",
+    ],
+    seoDescription:
+      "Goal-based red team operations in Mumbai for BFSI, NBFCs and brokers. SWIFT, treasury and broker-desk scenarios. RBI Cyber Resilience aligned. BKC HQ.",
+    keywords: [
+      "red team Mumbai",
+      "red teaming Mumbai BFSI",
+      "adversary simulation Mumbai",
+      "SWIFT red team Mumbai",
+      "treasury red team Mumbai",
+      "broker red team Mumbai",
+      "TIBER-like exercise India",
+      "Mumbai bank red teaming",
+      "purple team Mumbai",
+    ],
+    stats: [
+      { value: "30+", label: "BFSI red teams" },
+      { value: "6-10 wks", label: "Avg engagement" },
+      { value: "BKC HQ", label: "Mumbai team base" },
+      { value: "Annual", label: "Board-mandated retainer option" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Mandate & RoE",
+        activities: [
+          "Audit-committee-chair signed mandate, CISO + head of operations + CRO co-sign",
+          "Scenario selection — SWIFT reach, ATM-network FIN8, broker-desk market-data tamper, call-centre CRM exfil, ADCS-to-DA",
+          "RBI Cyber Resilience board-reporting alignment — what the audit committee will see at the close-out",
+          "SOC deconfliction channel on private Signal / encrypted Teams; white-cell appointment",
+        ],
+      },
+      {
+        phase: "02 · Intel Prelude",
+        activities: [
+          "OSINT against BKC, Lower Parel and Nariman Point exec calendar; vendor and third-party mapping",
+          "Credential-leak harvesting against the bank's TLDs (DeHashed, IntelX, Macksofy dark-web feed)",
+          "Physical-pretext rehearsal against the relevant tower (One BKC, Maker Maxity, Phoenix Mills, Maker Chambers)",
+          "C2 infrastructure stand-up with rotating egress through Cloudflare Workers and AWS API Gateway",
+        ],
+      },
+      {
+        phase: "03 · Initial Access & EDR Bypass",
+        activities: [
+          "Spear-phish tuned to a recent regulatory deadline the bank is publicly working against",
+          "Optional vendor-laptop physical drop or pretexted entry at the relevant tower",
+          "Custom payloads with indirect-syscall execution and process hollowing tuned to the bank's EDR (Falcon, SentinelOne, MDE)",
+          "Foothold persistence sized to survive credential rotation without over-staying",
+        ],
+      },
+      {
+        phase: "04 · Lateral & Objective",
+        activities: [
+          "BloodHound shortest-path on the engineering-station and treasury-ops AD forests",
+          "ADCS ESC1-ESC8 template abuse with Certipy; Kerberos delegation (RBCD, S4U2Self) escalation",
+          "Objective execution — SWIFT reach proof, ATM-network FIN8 simulation, OMS market-data tamper, CRM exfil",
+          "MITRE ATT&CK heatmap construction in real time alongside the SOC's detected-event log",
+        ],
+      },
+      {
+        phase: "05 · Purple Handover",
+        activities: [
+          "Full week embedded with the SOC walking every missed detection event-by-event",
+          "Paired Sigma / Splunk / Elastic rules per missed event delivered to the SIEM team",
+          "Detection-engineering roadmap for the next two quarters",
+          "Board-grade narrative and MITRE ATT&CK heatmap for the audit committee close-out",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Tier-1 private banks",
+        blurb: "Mumbai-headquartered private banks — SWIFT, treasury, ADCS-to-DA and call-centre CRM scenarios.",
+      },
+      {
+        name: "Public-sector banks",
+        blurb: "Mumbai PSB HQs and large back-offices — RBI Department of Supervision-grade red team with conservative RoE.",
+      },
+      {
+        name: "Large urban cooperative banks",
+        blurb: "Mumbai UCBs newly under RBI red-team-posture scrutiny — phishing + physical + technical first-time engagements.",
+      },
+      {
+        name: "Stock brokers & MIIs",
+        blurb: "BKC brokers and Mumbai-headquartered MIIs — broker-desk and OMS-to-exchange tampering scenarios.",
+      },
+      {
+        name: "Payment aggregators",
+        blurb: "BKC / Lower Parel PA-PG licensees — payout-rail and merchant-impersonation scenarios.",
+      },
+      {
+        name: "Listed insurers",
+        blurb: "Mumbai-headquartered life and general insurers — claims-fraud and PAS-administrator scenarios.",
+      },
+    ],
+    deliverables: [
+      "Engagement narrative (attack timeline with day-by-day actions)",
+      "MITRE ATT&CK heatmap of TTPs used vs detected by the bank's SOC",
+      "Paired Sigma / Splunk / Elastic rules per missed detection event",
+      "Detection-engineering roadmap for the next two quarters",
+      "Audit-committee board-grade executive briefing tied to RBI Cyber Resilience reporting",
+      "Physical-pretext lessons-learned memo for the bank's facilities and security teams",
+      "Purple-team workshop transcript and follow-up playbook for the SOC",
+      "Annual-retainer option (one full engagement + phishing-only + physical-only) where applicable",
+    ],
+    caseStudy: {
+      industry: "Listed Mumbai Private Bank",
+      scope: "Six-week goal-based red team — objective: reach the SWIFT gateway and the OMS broker-desk feed-handler without SOC detection by D+21; ADCS abuse on the corporate AD forest in scope",
+      outcome: "Initial access via spear-phish against a treasury-ops user during the bank's known RBI inspection prep week; ADCS ESC4 path from the treasury user to a high-value service account on D+9; SWIFT-gateway jump host reached at D+14 without SOC detection; full purple-team handover with 11 missed alerts mapped to SIEM rule gaps; 4 detection use-cases written by Macksofy and adopted by the bank SOC; audit committee adopted the engagement as the new annual board-mandated baseline.",
+    },
+    faqs: [
+      {
+        q: "Can you bypass our CrowdStrike Falcon / SentinelOne / Microsoft Defender for Endpoint deployment?",
+        a: "Yes — our Mumbai bench operates in environments protected by all three commercial EDRs and has documented bypass tradecraft per vendor. The report includes the exact tradecraft so the bank's SOC can build paired detections; we do not hold back IoCs after engagement close.",
+      },
+      {
+        q: "Will the SOC know we are running a red team, and how does deconfliction work for a live IR call?",
+        a: "The SOC is not informed in advance — that is the point. Deconfliction runs through a private Signal or encrypted Teams channel with the white cell (CISO + head of operations + audit committee chair). If a genuine live IR event begins during the engagement, the white cell pauses the red team and the SOC handles the real incident with no contamination.",
+      },
+      {
+        q: "Can you model FIN8 / Hidden-Cobra ATM-network TTPs against our card-personalisation vendor estate?",
+        a: "Yes — this is one of the highest-impact Mumbai BFSI scenarios we run. We model the published FIN8/Hidden-Cobra TTP set (sdbbot, FlawedAmmyy, ATM-payload deployment patterns) against the bank's actual card-personalisation vendor connectivity, with explicit RoE that stops short of live cash dispensing.",
+      },
+      {
+        q: "Do you do physical pretexting in BKC towers and Lower Parel mill compounds safely?",
+        a: "Yes. Physical pretexting is rehearsed against the actual visitor-pass workflows and pantry-vendor schedules of the tower in scope (One BKC, Maker Maxity, Parinee Crescenzo, Phoenix Mills, Kamala Mills, Maker Chambers). The RoE explicitly excludes any action that would cause physical safety risk or trigger building-evacuation procedures.",
+      },
+      {
+        q: "How does the purple-team handover work — is it just a workshop?",
+        a: "It is a full embedded week, not a workshop. A Macksofy detection-engineering analyst sits with the SOC for five working days, walking every missed event, writing paired Sigma / Splunk / Elastic rules, and tuning EDR and identity controls. The SOC ends the week with a deployed detection backlog, not just a slide deck.",
+      },
+      {
+        q: "Can listed BFSI clients run this as an annual board-mandated control?",
+        a: "Yes — we offer an annual retainer that splits the budget across one full red team, a narrower phishing-only campaign and a physical-only exercise. The audit committee gets three discrete board-reportable events per year, which is how several Mumbai listed banks now structure their cyber-resilience programme post the RBI MD-ITGRC update.",
+      },
+    ],
+  },
+
+  // 8 ─ Gurugram · Red Teaming ────────────────────────────────────────────────
+  {
+    citySlug: "gurugram",
+    serviceSlug: "red-teaming",
+    headline: "Red Team Operations in Gurugram · BFSI",
+    lead: "Adversary-simulation engagements built around Gurugram private-bank HQs, NBFC lenders and high-growth fintechs across Cyber City and Golf Course Road.",
+    body: [
+      "Gurugram is the corporate HQ city for India's largest private banks, every major insurer, more than six hundred global capability centres, and a long list of digital-lending, BNPL and travel/payments fintechs. Red-team scopes here are written around the way these businesses actually make money — credit-line origination, instant-disbursement APIs, partner-fintech connections to the core lending engine, the customer-facing onboarding stack, and the bancassurance edge that ties Sohna Road insurers to their private-bank distribution partners. The board-level question is the same as Mumbai's but the attack surface is different: where Mumbai's high-value target is SWIFT and treasury, Gurugram's is the loan-origination pipeline and the fraud-rules engine that gatekeeps it.",
+      "Typical scenarios for a Gurugram private bank or NBFC lender: end-to-end fraudulent loan origination via a compromised partner-fintech API key in the digital-lending stack; bulk customer-account access via the contact-centre at Udyog Vihar or Sector 44; lateral movement from a DLF Cyber City Phase 3 multi-tenant office network into the private-bank corporate domain, exploiting the shared building backbone that is the inherent weakness of Cyberhub-style multi-tenant towers; privilege escalation from a junior risk-analyst account to the fraud-rules engine that approves credit lines (a path that would let an attacker silently raise the auto-approve threshold rather than steal money directly); and an ALPHV/BlackCat-flavoured ransomware detonation simulation against the insurer estate on Sohna Road with realistic encryption-throttle and tamper-of-VSS-snapshots TTPs but no actual destructive payload.",
+      "For multi-bank scopes — and Gurugram is where multi-bank-group scopes happen, because the parent group typically owns a bank, an insurer, an asset manager and a brokerage all headquartered within five kilometres of each other — we run cross-entity lateral movement explicitly. Can an attacker who lands at the insurer pivot to the bank? Can a junior agent at the brokerage reach the asset manager's order-management system? The cross-entity privilege graph is rarely tested by single-entity red teams and is one of the highest-value scopes Gurugram CISOs commission.",
+      "Engagements run six to eight weeks with a strong intelligence prelude — open-source reconnaissance of DLF Cyber City, Cyberhub and Golf Course Road exec teams; vendor mapping against the bank's known third-party ecosystem (Genpact, EXL, WNS, KPMG GBS as common shared-services trails); credential-leak harvesting against the bank's exact TLDs using DeHashed, IntelX and our own dark-web monitoring feed; and a physical-recon pass at the Cyber City and Cyberhub building lobbies to inventory visitor-pass workflows, badge-system vendors and pantry contractors. Reports map to RBI Cyber Resilience and the November 2023 MD-ITGRC, the parent group's red-team control catalogue (typically a derivative of NIST 800-53 rev 5 with FFIEC CAT overlays), and the MITRE ATT&CK enterprise matrix.",
+      "Foothold and EDR evasion follows the Mumbai playbook with one key Gurugram difference: most Gurugram BFSI estates run Microsoft Defender for Endpoint in a Defender for Cloud / Sentinel-fed configuration because the parent group has standardised on the Microsoft stack. We tune indirect-syscall payloads, AMSI patching and process hollowing specifically against MDE telemetry — which behaves differently to CrowdStrike Falcon or SentinelOne Singularity. Persistence is established conservatively, sized to survive credential rotation but not live in the estate beyond engagement close.",
+      "An ALPHV-style ransomware detonation simulation is now a high-frequency Gurugram scope, especially for the insurers. The engagement models the published ALPHV/BlackCat TTPs — initial access via VPN credentials harvested from infostealer logs, lateral movement via PsExec/WMI/RDP, privilege escalation through Kerberoasting and ADCS abuse, VSS shadow-copy deletion, encryption-throttle to evade EDR file-rate detection — without any destructive payload. The output is a simulation transcript and a recovery-playbook validation: would the insurer's BCP plan actually have worked, how long would the RTO have been, where would the failure modes have surfaced. The CFO and the head of operations care about this output more than the CISO does.",
+      "Cross-tenant DLF Cyber City Phase 3 lateral movement deserves explicit attention. Most multi-tenant office buildings in Cyber City and Cyberhub share an L2 backbone that the bank's network team did not architect for and which the building-management contract does not adequately address. We test the lateral path explicitly — LLMNR/NBT-NS poisoning, IPv6 mitm6 takeover, SMB relay from a co-tenant floor — and split findings into 'bank perimeter' versus 'DLF building backbone' categories. The bank gets remediation on its own segment; the DLF facilities team gets a separate memo for the building-services contract.",
+      "Procurement at Gurugram private banks and insurers runs through the CISO, the CRO and a board-level Cyber Risk Sub-Committee, with the audit committee chair giving explicit board-recorded approval. Several Gurugram private banks have moved to a TIBER-style RFP cycle inherited from the parent group — threat-intelligence-led, scenario-mandated, separate threat-intel and red-team vendors so the test is independent. We can run the engagement against the parent's TIBER-style threat-intel pack if it exists; where it does not, we build it for the first engagement and hand it over so subsequent vendors run against the same baseline rather than re-doing intel work the bank already paid for.",
+    ],
+    buyerConcerns: [
+      "Fraudulent loan origination via compromised partner-fintech API keys in the digital-lending stack",
+      "Instant-disbursement, BNPL payout and FLDG-flow abuse paths",
+      "Contact-centre and customer-onboarding bulk-data exfiltration from Udyog Vihar / Sector 44",
+      "Multi-tenant DLF Cyber City Phase 3 / Cyberhub office-network lateral movement",
+      "Privilege escalation paths into fraud-rules engines and underwriting decision systems",
+      "Cross-entity lateral movement across bank / insurer / AMC / brokerage in the same group",
+      "ALPHV/BlackCat-style ransomware detonation simulation on the insurer estate",
+      "RBI Cyber Resilience + MITRE ATT&CK + parent-group control-catalogue board-grade evidence",
+      "TIBER-style RFP alignment with parent-group threat-intelligence packs",
+    ],
+    differentiators: [
+      "Scenario library built for Indian private-bank and NBFC stacks — loan origination, BNPL payout, FLDG-flow abuse and fraud-rules-engine escalation, not generic enterprise red-team scripts.",
+      "Cross-entity lateral-movement testing across bank / insurer / AMC / brokerage in the same parent group — a scope shape uniquely suited to Gurugram's cluster geography and rarely tested elsewhere.",
+      "Intelligence prelude with credential-leak harvesting against the client's exact TLDs and DLF Cyber City vendor mapping against the Genpact / EXL / WNS / KPMG GBS shared-services footprint.",
+      "MDE-tuned EDR-bypass tradecraft — indirect-syscall payloads, AMSI patching and process hollowing tuned to Microsoft Defender for Endpoint / Defender for Cloud / Sentinel telemetry rather than the CrowdStrike-default playbook.",
+      "ALPHV/BlackCat ransomware detonation simulation with realistic TTPs (VSS deletion, encryption-throttle, Kerberoasting-to-ADCS-to-DA chain) and a BCP / RTO validation output — no destructive payload, full simulation transcript.",
+    ],
+    seoDescription:
+      "Red team operations in Gurugram for private banks, NBFCs and fintechs. Loan-origination, BNPL and contact-centre scenarios. RBI Cyber Resilience aligned.",
+    keywords: [
+      "red team Gurugram",
+      "red teaming Gurgaon BFSI",
+      "private bank red team India",
+      "fintech adversary simulation Gurgaon",
+      "Cyber City red team",
+      "Cyberhub red teaming",
+      "RBI Cyber Resilience red team",
+      "NBFC red team Gurugram",
+      "MITRE ATT&CK red team India",
+    ],
+    stats: [
+      { value: "25+", label: "Gurugram red teams" },
+      { value: "6-8 wks", label: "Avg engagement" },
+      { value: "Cross-entity", label: "Bank/insurer/AMC scope" },
+      { value: "TIBER-ready", label: "Parent-group RFP aligned" },
+    ],
+    methodology: [
+      {
+        phase: "01 · TIBER-Style Mandate",
+        activities: [
+          "Audit-committee-chair signed mandate aligned to the parent's TIBER-style threat-intel pack where it exists",
+          "Cross-entity scope decision — bank-only, bank+insurer, full group (bank+insurer+AMC+brokerage)",
+          "Scenario selection — loan-origination fraud, contact-centre exfil, DLF lateral, fraud-rules-engine escalation, ALPHV detonation",
+          "SOC deconfliction channel; white cell at CISO + CRO + audit-committee chair level",
+        ],
+      },
+      {
+        phase: "02 · Intel Prelude",
+        activities: [
+          "OSINT against DLF Cyber City Phase 3, Cyberhub and Golf Course Road exec teams",
+          "Vendor mapping against Genpact / EXL / WNS / KPMG GBS shared-services footprint",
+          "Credential-leak harvesting against the client's exact TLDs (DeHashed, IntelX, Macksofy dark-web feed)",
+          "Physical-recon pass at the relevant tower lobby — visitor-pass workflow inventory",
+        ],
+      },
+      {
+        phase: "03 · Initial Access & MDE Bypass",
+        activities: [
+          "Spear-phish tuned to a recent RBI / IRDAI deadline the client is publicly working against",
+          "Optional partner-fintech API key impersonation if digital-lending stack in scope",
+          "MDE-tuned indirect-syscall payloads, AMSI patching and process hollowing",
+          "Foothold persistence sized to survive credential rotation",
+        ],
+      },
+      {
+        phase: "04 · Lateral, Cross-Entity & Objective",
+        activities: [
+          "BloodHound shortest-path on the engineering-station and risk-analyst AD forests",
+          "Cross-entity lateral testing across bank / insurer / AMC / brokerage where the group spans multiple legal entities",
+          "DLF Cyber City L2 lateral testing — LLMNR/NBT-NS poisoning, mitm6, SMB relay from co-tenant floors",
+          "Objective execution — fraudulent loan origination, fraud-rules-engine escalation, ALPHV-style detonation simulation",
+        ],
+      },
+      {
+        phase: "05 · Purple Handover & Group Memo",
+        activities: [
+          "Embedded week with the SOC walking every missed event",
+          "Paired Sigma / Splunk / Sentinel rules per missed event",
+          "Cross-entity privilege-graph memo for the parent group's risk function",
+          "ALPHV BCP / RTO validation memo for the CFO and the head of operations",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Private-bank HQs",
+        blurb: "DLF Cyber City and Golf Course Road bank HQs — loan-origination and fraud-rules-engine scenarios.",
+      },
+      {
+        name: "NBFC lenders",
+        blurb: "Digital-lending and gold-loan NBFC HQs — partner-fintech API key and instant-disbursement abuse.",
+      },
+      {
+        name: "Insurer HQs",
+        blurb: "Life, general and health insurers on Sohna Road / DLF — ALPHV detonation and PAS-administrator scenarios.",
+      },
+      {
+        name: "BNPL & travel-payments",
+        blurb: "Cyber City and Cyberhub fintech HQs — payout-rail and merchant-impersonation scenarios.",
+      },
+      {
+        name: "Big-4 / consulting GCCs",
+        blurb: "Gurugram consulting and Big-4 GCCs — client-data lateral and shared-services-footprint scenarios.",
+      },
+      {
+        name: "Multi-entity financial groups",
+        blurb: "Group HQs with bank + insurer + AMC + brokerage co-located — cross-entity privilege-graph testing.",
+      },
+    ],
+    deliverables: [
+      "Engagement narrative (attack timeline with day-by-day actions)",
+      "MITRE ATT&CK heatmap of TTPs used vs detected by the SOC",
+      "Paired Sigma / Splunk / Microsoft Sentinel rules per missed detection event",
+      "Cross-entity privilege-graph memo where multiple group entities are in scope",
+      "ALPHV / BlackCat ransomware-simulation BCP and RTO validation memo for the CFO and head of operations",
+      "DLF Cyber City / Cyberhub building-backbone vs bank-perimeter split-findings memo",
+      "RBI Cyber Resilience + parent-group control-catalogue dual-framework board pack",
+      "TIBER-style threat-intel pack (built for the first engagement, handed over for subsequent vendors)",
+    ],
+    caseStudy: {
+      industry: "Gurugram-headquartered Private Bank (DLF Cyber City Phase 3)",
+      scope: "Eight-week TIBER-style red team — objective: reach the fraud-rules engine that gatekeeps loan origination and reach a Domain Admin on the corporate forest, without SOC detection by D+21; companion ALPHV-style ransomware detonation simulation on the insurer subsidiary on Sohna Road",
+      outcome: "Initial access via spear-phish against a treasury user during the bank's known RBI inspection prep week; ADCS ESC4 escalation to Domain Admin at D+9; lateral pivot to the insurer subsidiary at D+14 via a forgotten trust relationship that the cross-entity privilege-graph testing surfaced; ALPHV simulation revealed a 47-hour RTO gap that would have required board-level escalation; eleven missed alerts mapped to Sentinel rule gaps; four detection use-cases written by Macksofy and adopted by the bank SOC; the engagement became the bank's annual TIBER-style baseline.",
+    },
+    faqs: [
+      {
+        q: "Can you align the engagement with our parent group's TIBER-style threat-intel pack?",
+        a: "Yes — and several Gurugram private-bank clients buy us specifically because we run against the parent's TIBER threat-intel pack rather than substituting our own. Where the parent does not have one we build it for the first engagement and hand it over so subsequent vendors run against the same baseline.",
+      },
+      {
+        q: "Do you run cross-entity lateral movement across our bank, insurer, AMC and brokerage?",
+        a: "Yes — and this is one of the highest-value scopes Gurugram offers because the cluster geography concentrates multiple group entities within a few kilometres of each other. We test whether an attacker who lands at the insurer can pivot to the bank, whether a brokerage agent can reach the AMC's OMS, and so on. The output is a cross-entity privilege-graph memo for the parent group's risk function.",
+      },
+      {
+        q: "Can you simulate an ALPHV / BlackCat ransomware detonation safely on our insurer estate?",
+        a: "Yes. The simulation models published ALPHV/BlackCat TTPs — credential-stealer initial access, VSS deletion, encryption-throttle, Kerberoasting-to-ADCS-to-DA chain — without any destructive payload. The deliverable is a simulation transcript and a BCP / RTO validation memo for the CFO and head of operations. We do not encrypt files; we prove the chain would have worked.",
+      },
+      {
+        q: "How does your tradecraft handle our Microsoft Defender for Endpoint deployment?",
+        a: "We tune indirect-syscall payloads, AMSI patching and process hollowing specifically against MDE telemetry, which behaves differently to CrowdStrike Falcon or SentinelOne Singularity. The Sentinel-fed configuration most Gurugram BFSI parents use is in our standard test matrix; the report includes the exact tradecraft so the SOC can build paired Sentinel detections.",
+      },
+      {
+        q: "What happens with findings on the DLF Cyber City building backbone vs our own perimeter?",
+        a: "We split findings into 'bank perimeter' and 'DLF building backbone' categories explicitly. The bank gets remediation on its own segment; the DLF facilities team gets a separate memo for the building-services contract. The audit committee gets a clean line and does not see contractual exposures muddled with technical ones.",
+      },
+      {
+        q: "Can we run this engagement as a board-mandated annual control like the listed banks now do?",
+        a: "Yes — we offer an annual retainer that splits the budget across one full red team plus a narrower phishing-only campaign and a physical-only exercise. Several Gurugram private banks and insurers now structure their cyber-resilience programme this way post the RBI MD-ITGRC and IRDAI 2023 updates.",
+      },
+    ],
+  },
+
+  // 9 ─ Bengaluru · Cloud Security ────────────────────────────────────────────────
+  {
+    citySlug: "bengaluru",
+    serviceSlug: "cloud-security",
+    headline: "Cloud Security Audit in Bengaluru · SaaS",
+    lead: "Deep cloud-security review for AWS / GCP / Azure SaaS estates in Bengaluru — IAM, Kubernetes, service mesh and data-plane controls, mapped to SOC 2 and CIS.",
+    body: [
+      "Bengaluru is the densest cloud-native engineering market in India. Cloud-security audits here have to go several layers deeper than 'enable CloudTrail and turn on GuardDuty'. The Embassy Tech Village / Outer Ring Road belt and the Whitefield product corridor are full of multi-account AWS landing zones running production workloads on EKS, GCP project hierarchies running Anthos / GKE, and increasingly Azure tenants for the Microsoft-stack fintechs and enterprise SaaS. We review the IAM trust graph end-to-end, the Kubernetes RBAC and admission-control layer, the service-mesh authorisation policy (Istio is dominant on Bengaluru EKS, with Linkerd showing up at the smaller-scale clusters), and the data-plane key management that the customer's enterprise security team actually asks about during procurement.",
+      "Most of our Bengaluru engagements cover a multi-account AWS landing zone with at least one production account, one staging account, one shared-services account and one security/audit account, plus a logging account that aggregates CloudTrail, Config and VPC Flow Logs. We use Prowler 4.x for CIS Benchmark gap analysis (AWS Foundations Benchmark (current CIS v3 series)), ScoutSuite for cross-cloud posture comparison, Pacu for active IAM privilege-escalation enumeration, and Wiz / Tenable Cloud Security (where the client already runs them) to validate against findings. The IAM trust-graph review uses Macksofy-internal tooling on top of the AWS Access Analyzer findings and a custom BloodHound-style graph view of the cross-account role-assumption paths — the same Cyber-Kill-Chain shortest-path analysis we use on AD forests, adapted to AWS STS.",
+      "For product companies running multi-tenant SaaS — which is most of Bengaluru — we test tenant-isolation at four layers explicitly. IAM-role boundaries between tenants (does a customer-A service-role have any IAM transitive path to a customer-B resource?). KMS key separation (per-tenant CMKs, key policies, grants, and cross-account key-policy abuse paths). Network policy egress controls (can a tenant pod call out to another tenant's S3 prefix?). And noisy-neighbour exposure in shared EKS clusters (pod-security admission, resource quotas, taints/tolerations, and the not-uncommon mistake of running tenant workloads on the same node group as the cluster's logging or admin tooling). The output is a tenant-isolation matrix per tenant pair, which is the exact artefact enterprise procurement asks for in vendor-security questionnaires.",
+      "Kubernetes review goes deep on the admission-control layer because that is where the modern attack surface actually lives. We exercise OPA Gatekeeper and Kyverno policy gaps, validating-vs-mutating-webhook trust paths, ServiceAccount token-mounting defaults (the long-standing Kubernetes default that quietly bound a JWT to every pod), and the IRSA / Workload Identity / Azure Workload Identity federation back to cloud IAM. Service-mesh testing covers Istio AuthorizationPolicy authz drift between resolvers (a frequent finding — devs add a new service and forget to add the AuthorizationPolicy), mTLS enforcement gaps in PERMISSIVE mode, and the East-West-vs-North-South policy split that almost every Bengaluru SaaS gets partially wrong on first deployment.",
+      "The build-and-deploy plane is where attackers actually land on modern SaaS, and most generic cloud audits skip it entirely. We review GitHub Actions / GitLab runner privilege scopes, OIDC trust from CI to cloud IAM (a 2023-2024 trend — almost every Bengaluru SaaS has at least one GitHub OIDC trust with a wildcard subject claim), signed-artefact policy (cosign / Sigstore adoption), the secrets-management substrate (AWS Secrets Manager, HashiCorp Vault, GCP Secret Manager) and the Terraform / Pulumi state-file blast radius. These are the paths the LAPSUS$, Octo Tempest and Storm-0558-style adversaries use against modern SaaS — and a missed GitHub OIDC subject-claim wildcard has been the root cause of more than one Bengaluru SaaS breach in the last 24 months.",
+      "Engagements run three to five weeks for a single-cloud single-product scope and five to seven weeks for a multi-cloud or multi-product scope. Kickoff is onsite at Embassy Tech Village, ORR or the Koramangala / Indiranagar startup belt — the threat-model whiteboard is non-negotiable because the team always under-estimates the trust graph going in. We map findings against the CIS Benchmarks for AWS / GCP / Azure, the CNCF Kubernetes Hardening Guide, OWASP Cloud-Native Security Top 10, SOC 2 CC controls (CC6, CC7), ISO 27017 cloud-services Annex A, and (for cloud-native SaaS that handles PII) DPDP Act §16 cross-border-transfer obligations. The same report typically closes both an AppSec audit ask and the next enterprise customer's vendor-security questionnaire.",
+      "Reports include a Terraform / Helm-level remediation backlog rather than vague 'tighten IAM' bullet points. Every finding ships with a code-level fix snippet — a corrected IAM policy with explicit conditions and resource ARNs, a Kyverno policy that closes the admission-control gap, a Helm values diff that disables ServiceAccount token auto-mount on non-controller pods, a Terraform module patch that tightens KMS key-policy grants. The Jira-importable CSV maps each finding to severity, CIS control ID, OWASP CNS Top-10 mapping and a suggested epic-link so the platform team can drop it into the next sprint without re-typing.",
+      "Bengaluru procurement on cloud-security closes through the CTO and the head of platform engineering, sometimes with the AppSec lead as the technical reviewer. For Series-C and later SaaS preparing for an enterprise customer's security review, we ship a sanitised vendor pack alongside the technical report — same artefact answers the auditor and the customer's CISO without re-assembly, with the SOC 2 CC6/CC7 evidence and ISO 27017 crosswalk pre-built. The continuous-testing retainer option — quarterly full-coverage cloud-posture review with monthly delta tests against new cloud-account onboardings — matches the cadence at which Bengaluru SaaS actually spawns AWS accounts.",
+    ],
+    buyerConcerns: [
+      "IAM trust-graph privilege escalation across multi-account AWS landing zones with cross-account STS paths",
+      "Kubernetes RBAC, admission controllers (OPA Gatekeeper, Kyverno) and pod-security-admission violations",
+      "Service-mesh (Istio / Linkerd) authz drift between resolvers and mTLS-PERMISSIVE enforcement gaps",
+      "Multi-tenant data-plane isolation at IAM, KMS, network policy and noisy-neighbour layers",
+      "KMS key management — per-tenant CMK separation, key policies, grants and cross-account abuse paths",
+      "GitHub Actions / GitLab OIDC trust to cloud IAM with wildcard subject-claim exposure",
+      "Terraform / Pulumi state-file blast radius and secrets-management substrate hygiene",
+      "SOC 2 CC6/CC7 + ISO 27017 + CIS Benchmark + CNCF K8s Hardening Guide evidence for enterprise audits",
+      "DPDP Act §16 cross-border-transfer obligations for cloud-native SaaS handling Indian PII",
+    ],
+    differentiators: [
+      "Audit goes to the Kubernetes RBAC, admission-control (OPA Gatekeeper, Kyverno) and service-mesh (Istio AuthorizationPolicy) authz layer — not just account-level IAM and CloudTrail toggles.",
+      "Multi-tenant SaaS isolation tested at four explicit layers (IAM, KMS, network policy, noisy-neighbour) with a tenant-isolation matrix output that maps directly to enterprise-procurement vendor-security questions.",
+      "Build-and-deploy-plane coverage — GitHub Actions / GitLab OIDC trust to cloud IAM, signed-artefact policy (cosign / Sigstore), secrets-management substrate and Terraform/Pulumi state-file blast radius. This is where modern attackers actually land.",
+      "Findings shipped as Terraform module patches, Kyverno policies, Helm values diffs and IAM-policy diffs — not generic best-practice bullets that the platform team has to translate.",
+      "Continuous-testing retainer aligned to cloud-account spawn cadence — quarterly full-coverage with monthly delta tests against new account onboardings, matched to the Bengaluru SaaS reality of multiple new AWS accounts per quarter.",
+    ],
+    seoDescription:
+      "Cloud security audit in Bengaluru for AWS, GCP and Azure SaaS estates. IAM, Kubernetes, service-mesh and data-plane review. SOC 2, CIS and ISO 27017 aligned.",
+    keywords: [
+      "cloud security audit Bengaluru",
+      "AWS security audit Bangalore",
+      "GCP security audit Bengaluru",
+      "Kubernetes security audit Bangalore",
+      "SaaS cloud security Bengaluru",
+      "CIS benchmark audit Bangalore",
+      "service mesh security Bengaluru",
+      "ISO 27017 audit Bangalore",
+      "multi-tenant SaaS audit Bengaluru",
+    ],
+    stats: [
+      { value: "60+", label: "Bengaluru cloud audits" },
+      { value: "3-5 wks", label: "Single-cloud engagement" },
+      { value: "AWS · GCP · Azure", label: "Cloud coverage" },
+      { value: "Terraform-ready", label: "Remediation format" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Trust-Graph Threat Model",
+        activities: [
+          "Onsite whiteboard at Embassy Tech Village / ORR / Whitefield — IAM trust graph, cross-account STS paths, multi-tenant boundary inventory",
+          "Cloud-account inventory (AWS landing zone, GCP project hierarchy, Azure tenant structure)",
+          "Kubernetes / service-mesh policy export — IRSA / Workload Identity federation mapping",
+          "Build-and-deploy-plane inventory — GitHub Actions / GitLab OIDC, Terraform/Pulumi state location",
+        ],
+      },
+      {
+        phase: "02 · CIS Benchmark & Posture",
+        activities: [
+          "Prowler 4.x against AWS Foundations Benchmark (current CIS v3 series)",
+          "ScoutSuite cross-cloud posture comparison; Wiz / Tenable Cloud Security validation where in use",
+          "Macksofy-internal IAM trust-graph BloodHound-style shortest-path enumeration",
+          "S3 / GCS / Azure Blob public-exposure inventory and pre-signed-URL leakage check",
+        ],
+      },
+      {
+        phase: "03 · IAM, Kubernetes & Mesh",
+        activities: [
+          "Pacu active IAM privilege-escalation enumeration; cross-account role-assumption abuse path testing",
+          "Kubernetes admission-control review — OPA Gatekeeper, Kyverno, ValidatingAdmissionPolicy gaps",
+          "Istio AuthorizationPolicy and Linkerd ServerAuthorization drift analysis",
+          "IRSA / GKE Workload Identity / Azure Workload Identity federation abuse-path testing",
+        ],
+      },
+      {
+        phase: "04 · Multi-Tenant & Build-Plane",
+        activities: [
+          "Tenant-isolation matrix per tenant pair across IAM, KMS, network policy and noisy-neighbour layers",
+          "GitHub Actions / GitLab OIDC subject-claim wildcard review; signed-artefact (cosign / Sigstore) policy",
+          "Terraform / Pulumi state-file blast-radius and remote-state ACL review",
+          "Secrets-management substrate review (Secrets Manager, Vault, GCP Secret Manager)",
+        ],
+      },
+      {
+        phase: "05 · Code-Level Remediation",
+        activities: [
+          "Terraform module patches and Helm values diffs per finding",
+          "Kyverno / OPA Gatekeeper policies that close admission-control gaps",
+          "Jira-importable findings CSV mapped to CIS / OWASP CNS Top-10 / SOC 2 CC / ISO 27017",
+          "TPRM vendor pack with SIG Lite + CAIQ Lite pre-populated for enterprise procurement",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Vertical & horizontal SaaS",
+        blurb: "Embassy Tech Village and ORR multi-tenant SaaS — tenant-isolation matrix and SOC 2 Type II evidence.",
+      },
+      {
+        name: "Bengaluru fintechs",
+        blurb: "Payments, wealth and lending fintechs — RBI cloud-adoption framework overlay alongside SOC 2 cloud audit.",
+      },
+      {
+        name: "Healthtech & medtech",
+        blurb: "PHI-handling SaaS — HIPAA Security Rule + DPDP §16 cross-border-transfer cloud evidence.",
+      },
+      {
+        name: "Devtools & infra SaaS",
+        blurb: "API-first developer platforms — GitHub OIDC trust, signed-artefact policy and secrets-substrate review.",
+      },
+      {
+        name: "Whitefield product companies",
+        blurb: "Enterprise SaaS on Azure / EKS — Microsoft-stack tenant-isolation and Defender for Cloud posture review.",
+      },
+      {
+        name: "Bengaluru GCCs",
+        blurb: "US/EU enterprise capability centres on ORR — parent-control-catalogue cloud crosswalk to NIST 800-53.",
+      },
+    ],
+    deliverables: [
+      "Cloud security posture report with CIS Benchmark gap analysis per cloud provider",
+      "IAM trust-graph BloodHound-style shortest-path enumeration across multi-account landing zones",
+      "Tenant-isolation matrix per tenant pair across IAM, KMS, network policy and noisy-neighbour layers",
+      "Kubernetes admission-control and service-mesh authz findings with Kyverno / OPA Gatekeeper policy fixes",
+      "Build-and-deploy-plane review — GitHub OIDC, signed-artefact policy, Terraform state, secrets substrate",
+      "Code-level remediation — Terraform module patches, Helm values diffs, IAM-policy diffs per finding",
+      "TPRM vendor pack — SIG Lite + CAIQ Lite pre-populated for enterprise procurement",
+      "Continuous-testing retainer option — quarterly full-coverage with monthly delta tests on new account onboardings",
+    ],
+    caseStudy: {
+      industry: "Series-D Bengaluru SaaS (Embassy Tech Village)",
+      scope: "Multi-account AWS landing zone (12 accounts) plus EKS with Istio service mesh; multi-tenant data-plane isolation review; GitHub Actions OIDC trust review; four-week engagement",
+      outcome: "23 Critical and High findings closed in 38 days; one GitHub Actions OIDC trust with a wildcard subject claim that would have allowed any forked PR to assume the production-deploy role, closed pre-disclosure; cross-tenant KMS grant abuse path on the per-tenant CMK structure remediated; SOC 2 Type II issued in same audit cycle; enterprise sales pipeline tripled in the following two quarters because the tenant-isolation matrix shipped directly into customer security reviews.",
+    },
+    faqs: [
+      {
+        q: "Do you go deeper than a CIS Benchmark scorecard against our AWS accounts?",
+        a: "Yes. The CIS Benchmark is the starting point, not the finish line. We run active IAM privilege-escalation enumeration with Pacu, BloodHound-style shortest-path analysis across cross-account STS, Kubernetes admission-control review, service-mesh AuthorizationPolicy drift testing and the build-and-deploy-plane review that almost every generic cloud audit skips. The CIS scorecard is one section of a much deeper report.",
+      },
+      {
+        q: "How do you test multi-tenant data-plane isolation in our shared EKS clusters?",
+        a: "Across four explicit layers: IAM-role boundaries between tenants, KMS key separation (per-tenant CMK policies and grants), network policy egress controls, and noisy-neighbour exposure (pod-security-admission, resource quotas, taints/tolerations). The output is a tenant-isolation matrix per tenant pair, which maps directly to the vendor-security questions enterprise procurement actually asks.",
+      },
+      {
+        q: "Can your audit close both SOC 2 Type II and an enterprise customer's cloud security questionnaire?",
+        a: "Yes. Findings are mapped to SOC 2 CC6/CC7, ISO 27017 cloud-services Annex A, CIS Benchmarks and OWASP Cloud-Native Security Top 10 in the same artefact. The TPRM vendor pack ships pre-populated against SIG Lite and CAIQ Lite, compressing typical six-week enterprise procurement back-and-forth into two weeks.",
+      },
+      {
+        q: "Do you test GitHub Actions / GitLab OIDC trust to our AWS / GCP IAM?",
+        a: "Yes — this is one of the highest-frequency Critical findings we ship on Bengaluru SaaS reports. Wildcard subject-claim trust paths from CI to production-deploy roles are a 2023-2024 pattern that almost every Bengaluru SaaS has at least one of, and they have been the root cause of multiple recent breaches. We test every OIDC trust subject-claim explicitly.",
+      },
+      {
+        q: "Can your remediation actually be shipped by our platform team without translation?",
+        a: "Yes. Every finding ships with a code-level fix — a Terraform module patch, a Kyverno policy, a Helm values diff, an IAM-policy diff. The Jira-importable CSV maps to severity, CIS control ID and OWASP CNS Top-10 mapping. Platform engineers ship straight from the CSV; they do not have to translate vague best-practice bullets into code.",
+      },
+      {
+        q: "Can a Bengaluru fintech client run RBI cloud-adoption-framework evidence off this audit too?",
+        a: "Yes — we layer an RBI cloud-adoption framework crosswalk (mapped to the current Master Direction on IT Outsourcing of IT Services) on top of the standard SaaS cloud audit for Bengaluru fintechs running a parallel Mumbai compliance track. The same engagement produces SOC 2 + ISO 27017 evidence for the enterprise customer side and RBI cloud-adoption + PA-PG cloud-control evidence for the regulator side.",
+      },
+    ],
+  },
+
+// ─────────────────────────────────────────────────────────────────────
+  // 1 · Mumbai × Cloud Security
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "mumbai",
+    serviceSlug: "cloud-security",
+    headline:
+      "Cloud Security Audit in Mumbai · BFSI",
+    lead:
+      "Regulator-grade cloud-security audit for Mumbai BFSI on AWS Mumbai (ap-south-1), Azure Central India and OCI Mumbai — RBI cloud-adoption framework, SEBI CSCRF cloud annex, IRDAI outsourcing and CIS aligned.",
+    body: [
+      "Mumbai BFSI cloud adoption sits under the heaviest regulatory glass in India. RBI's April 2024 Master Direction on IT Outsourcing and the August 2023 Cloud Adoption Framework, SEBI's CSCRF cloud-control expectations and IRDAI's Information & Cyber Security Guidelines (2023) all demand explicit cloud-side evidence — and the data-localisation and BCP conditions narrow the architectural choices that are actually allowable for an RBI-regulated workload. A generic CIS scorecard is not what the inspector is asking to read.",
+      "Our Mumbai cloud-security audits cover the AWS Mumbai (ap-south-1) primary region paired with Hyderabad (ap-south-2) as the regulatory-acceptable DR pair, Azure Central India / South India tenants, and OCI Mumbai estates where Tier-1 banks have moved their analytics fabric. We also audit the multi-account / multi-subscription landing-zone topology, the hybrid links back to on-prem core banking systems in BKC and Belapur, and the control-plane separation between the production org and the BCP region. Every finding is mapped against RBI cloud-adoption framework Annex-1 controls, SEBI CSCRF clauses, CIS AWS / Azure Foundations Benchmarks v2, ISO 27017 and the bank's existing internal cyber-control catalogue — one binder, one register, four-way crosswalk.",
+      "We bring the actual cloud-attack toolset the BFSI threat-model demands. Prowler v3 and ScoutSuite for breadth, Pacu for AWS IAM privilege-path enumeration (the most common audit finding we close on Indian BFSI estates after the LAPSUS$-style supply-chain compromises of 2022-23), CloudFox for blast-radius mapping, and Wiz / Orca / CrowdStrike Falcon Cloud Security where the bank already owns a CNAPP. AWS Inspector and GuardDuty findings are reconciled, not just dumped — most Mumbai banks have months of unreviewed GuardDuty noise that we turn into an actual finding ledger during the audit.",
+      "Critical scopes always cover: customer-data residency and the KMS / HSM key-custody arrangement (CloudHSM, Azure Dedicated HSM, on-prem nCipher integration); admin-console MFA, SCP boundaries and break-glass on the AWS Organisations payer account; CI/CD pipeline access to production accounts including the IAM-role chain from GitHub Actions / Bitbucket Pipelines / Jenkins runners; partner / fintech federation and the RBI Account Aggregator (NBFC-AA) integration where the bank is an FIU or FIP; and the SIEM telemetry pipeline (CloudTrail multi-region, Azure Activity + Defender, OCI Audit) feeding the SOC.",
+      "BCP and DR are scrutinised separately. RBI's framework expects the bank to demonstrate that the DR-region control plane is independent of the primary region's compromise — meaning a CloudTrail / GuardDuty / IAM Identity Center hijack in ap-south-1 should not silently propagate to ap-south-2. We audit cross-region replication, regional service-control policy parity, KMS multi-region key inheritance and the actual failover privilege path the bank's IT team would walk through on a Sunday at 3am. Most Mumbai banks discover at this stage that their DR-region runbooks reference IAM users that were rotated out of the primary region a year ago.",
+      "Engagements run 4-6 weeks for a single-cloud BFSI workload, 6-8 weeks for a multi-cloud landing zone, and 8-10 weeks for a full RBI cloud-resilience exercise covering the bank, the Account Aggregator integration and the partner-fintech federation surface. Kickoff is same-day onsite in BKC, Lower Parel, Powai or Belapur — most Mumbai BFSI clients prefer the cloud-architecture whiteboard be done in their own data-classification room rather than over video, because the data-flow diagrams contain customer-account-level joins they will not share off-prem.",
+      "We coordinate directly with the bank's hyperscaler account team — AWS India PSA, Microsoft FSI specialist, OCI cloud architect — and the Indian-data-centre operator (CtrlS, NTT-Netmagic, Sify, Yotta) to evidence the controls that sit on their side of the shared-responsibility line. Without that joint evidence, the cloud-control catalogue always has gaps no internal audit can close on its own — particularly the under-the-rack physical-control and operator-personnel-screening evidence that RBI inspectors ask for during follow-up. The output is one binder that the regulator, the hyperscaler and the SBI / HDFC / Kotak / ICICI / Axis-scale internal audit team all recognise on the first read.",
+      "Reports include the specific exhibits Mumbai BFSI inspectors actually ask for during follow-up examinations of the CSITE Cell — IAM Identity Center role inventory with last-used timestamps, KMS key rotation evidence with the customer-master-key vs data-key split called out, SCP / Azure Policy / OCI Compartment guardrail diff against the previous quarter, GuardDuty / Defender finding reconciliation with a closure ledger, and the third-party-attestation crosswalk (SOC 2 Type 2 of the hyperscaler, ISO 27017 / 27018, PCI-DSS DSS-on-cloud where relevant). Every critical and high finding is re-validated post-fix at no extra cost inside the regulator's remediation SLA.",
+    ],
+    buyerConcerns: [
+      "RBI Cloud Adoption Framework Annex-1 evidence quality for the CSITE Cell",
+      "SEBI CSCRF cloud-control clauses for AMCs, brokers and depositories",
+      "IRDAI Information & Cyber Security Guidelines (2023) cloud overlay for insurers",
+      "Customer-data residency in ap-south-1 + ap-south-2 paired-region BCP design",
+      "KMS / CloudHSM key-custody, multi-region keys and break-glass procedure",
+      "CI/CD pipeline IAM-role chain into production cloud accounts",
+      "RBI Account Aggregator (NBFC-AA) federation and FIU / FIP integration security",
+      "Hybrid links between AWS Mumbai / Azure India and on-prem core banking",
+      "SIEM telemetry pipeline integrity (CloudTrail, Defender, OCI Audit) for the BFSI SOC",
+    ],
+    differentiators: [
+      "Direct line-by-line mapping to RBI Cloud Adoption Framework Annex-1, SEBI CSCRF cloud clauses and IRDAI 2023 guidelines — not a CIS / NIST report relabelled at the cover page.",
+      "Hybrid scope covers the cloud-to-core-banking on-prem link, including the ap-south-1 / ap-south-2 paired-region BCP design and the break-glass identity path that most internal audits leave untested.",
+      "Pacu + ScoutSuite + Prowler + Wiz / CrowdStrike toolchain operated by OSCP / OSCE / AWS Security Specialist consultants, not a button-press through a CNAPP dashboard.",
+      "Reports include the specific exhibits RBI CSITE Cell inspectors ask for during follow-up examinations — IAM last-used inventories, KMS rotation evidence, GuardDuty closure ledger, SCP diff.",
+      "Onsite kickoff in BKC, Lower Parel, Powai or Belapur on the same business day, with senior consultants who can whiteboard the data-flow inside the bank's data-classification room rather than over video.",
+    ],
+    seoDescription:
+      "Regulator-grade cloud security audit in Mumbai for BFSI on AWS Mumbai, Azure India and OCI — RBI Cloud Adoption Framework, SEBI CSCRF and CIS aligned. BKC HQ.",
+    keywords: [
+      "cloud security audit Mumbai",
+      "RBI cloud adoption framework audit",
+      "SEBI CSCRF cloud audit Mumbai",
+      "AWS Mumbai BFSI cloud audit",
+      "Azure Central India bank audit",
+      "OCI Mumbai cloud security",
+      "Prowler audit Mumbai bank",
+      "Account Aggregator security audit",
+      "CIS AWS Foundations BFSI Mumbai",
+      "BCP cloud audit ap-south-2",
+    ],
+    stats: [
+      { value: "40+", label: "Mumbai BFSI cloud audits delivered" },
+      { value: "ap-south-1 + 2", label: "Paired-region BCP coverage" },
+      { value: "4-6 wk", label: "Single-cloud audit cadence" },
+      { value: "Same day", label: "BKC onsite kickoff" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Cloud Threat Model + Scope",
+        activities: [
+          "Workload classification against RBI cloud-adoption framework — Material vs Non-material",
+          "Data-flow whiteboard onsite in bank's data-classification room (BKC / Belapur)",
+          "Hyperscaler account-team kickoff (AWS India PSA / Microsoft FSI / OCI architect)",
+          "Define paired-region BCP scope and DR-region control-plane independence test",
+        ],
+      },
+      {
+        phase: "02 · Control-Plane + Identity Audit",
+        activities: [
+          "AWS Organisations / Azure Management Group / OCI Compartment hierarchy review",
+          "IAM Identity Center / Entra ID role inventory with last-used timestamps",
+          "Pacu IAM privilege-path enumeration + SCP / Azure Policy diff",
+          "Break-glass procedure validation + KMS / CloudHSM key-custody review",
+        ],
+      },
+      {
+        phase: "03 · Workload + Data-Plane Audit",
+        activities: [
+          "Prowler v3 + ScoutSuite breadth scan with BFSI-tuned ruleset",
+          "CIS AWS / Azure Foundations Benchmark v2 mapping per workload",
+          "Customer-data residency evidence + cross-region replication review",
+          "CI/CD pipeline IAM-role chain trace from VCS to production deploy",
+        ],
+      },
+      {
+        phase: "04 · Detection + Hybrid Edge",
+        activities: [
+          "CloudTrail multi-region + GuardDuty / Defender pipeline integrity",
+          "SIEM telemetry reconciliation with BFSI SOC (Splunk / Sentinel / Chronicle)",
+          "Hybrid link audit — Direct Connect / ExpressRoute into on-prem core banking",
+          "Account Aggregator (NBFC-AA) federation review where in scope",
+        ],
+      },
+      {
+        phase: "05 · Regulator Pack + Re-test",
+        activities: [
+          "RBI / SEBI / IRDAI control crosswalk binder with evidence-per-clause",
+          "Inspector-style exhibits — IAM inventories, KMS rotation, GuardDuty closure ledger",
+          "Remediation playbook + 30-day re-test of all critical and high findings",
+          "Board-pack executive summary for the audit committee cyber review",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Private + PSU banks",
+        blurb:
+          "AWS Mumbai primary + Hyderabad DR, hybrid into BKC / Belapur core banking under RBI cloud framework.",
+      },
+      {
+        name: "NBFCs + Housing Finance",
+        blurb:
+          "Multi-tenant SaaS lending on Azure India with Account Aggregator (NBFC-AA) FIU / FIP integration.",
+      },
+      {
+        name: "Payment aggregators + wallets",
+        blurb:
+          "PA / PG cloud workloads under RBI PA-PG guidelines plus PCI-DSS cloud overlay — Mumbai-heavy buyer cluster.",
+      },
+      {
+        name: "Stock brokers + AMCs",
+        blurb:
+          "SEBI CSCRF cloud annex for broker terminals, OMS / RMS and CRA / KRA integrations in BKC and Worli.",
+      },
+      {
+        name: "Insurers (life, general, health)",
+        blurb:
+          "IRDAI 2023 cloud overlay for policy admin, claims and TPA integrations across Powai and Andheri MIDC.",
+      },
+      {
+        name: "Listed fintechs",
+        blurb:
+          "BSE / NSE listed fintech HQs in BKC + Lower Parel running multi-cloud with quarterly audit-committee reviews.",
+      },
+    ],
+    deliverables: [
+      "RBI Cloud Adoption Framework Annex-1 control crosswalk binder (per workload)",
+      "SEBI CSCRF cloud annex + IRDAI 2023 cloud-overlay evidence pack",
+      "CIS AWS / Azure / OCI Foundations Benchmark scorecard with closure ledger",
+      "Pacu / ScoutSuite / Prowler raw artefacts with consultant-curated finding register",
+      "KMS / CloudHSM key-custody evidence + multi-region key inheritance map",
+      "IAM Identity Center role inventory with last-used timestamps and break-glass test result",
+      "Paired-region (ap-south-1 / ap-south-2) BCP and DR control-plane independence report",
+      "Board-pack executive summary + 30-day re-test report for all critical and high findings",
+    ],
+    caseStudy: {
+      industry: "Mumbai-headquartered private bank (BKC) — AWS Mumbai primary, Hyderabad DR",
+      scope:
+        "RBI Cloud Adoption Framework audit across 6 AWS accounts + Account Aggregator NBFC-AA integration + hybrid Direct Connect into BKC core-banking switch",
+      outcome:
+        "84 findings closed in 6 weeks · 11 IAM privilege-escalation paths remediated (Pacu) · CSITE Cell follow-up cleared zero clarifications · DR-region break-glass runbook rebuilt and live-tested · GuardDuty closure ledger backfilled across 14 months.",
+    },
+    faqs: [
+      {
+        q: "Will the RBI CSITE Cell accept your audit report on the first read?",
+        a: "Yes — our reports follow the exhibit-per-clause format the CSITE Cell asks for during follow-up examinations: IAM last-used inventories, KMS rotation evidence, GuardDuty / Defender closure ledgers and the SCP / Azure Policy diff against the previous quarter. We have closed RBI inspection cycles for BKC- and Lower Parel-headquartered banks with zero clarifications on the cloud-control evidence.",
+      },
+      {
+        q: "Can you audit the ap-south-1 + ap-south-2 paired-region BCP design specifically?",
+        a: "Yes — that is the part of the engagement we charge the most senior time on. We test control-plane independence between primary and DR regions, multi-region KMS key inheritance, SCP / Azure Policy parity, and the actual break-glass identity path the IT team would walk through during a Sunday-3am failover. Most banks discover at this stage that their DR-region runbooks reference IAM users rotated out of the primary region a year ago.",
+      },
+      {
+        q: "Do you cover the Account Aggregator (NBFC-AA) federation?",
+        a: "Yes — where the client is a Financial Information User (FIU) or Financial Information Provider (FIP). We audit the AA federation handshake, consent-artefact handling, the rate-limit and replay protection on the AA NBFC framework, and the data-fiduciary obligation under the DPDP Act overlay. This is in scope for most BKC and Worli private-bank engagements in 2026.",
+      },
+      {
+        q: "What about CloudHSM versus on-prem nCipher key custody?",
+        a: "We audit both, and the hybrid setup most Mumbai BFSI clients run — CloudHSM in ap-south-1 fronting AWS-side encryption, on-prem nCipher Thales for the core-banking HSM, and the BYOK / HYOK import path between them. The audit produces the inspector-grade key-custody evidence including ceremony logs, dual-control attestations and the destruction-on-revoke procedure.",
+      },
+      {
+        q: "Will you coordinate with our AWS India PSA / Microsoft FSI specialist?",
+        a: "Yes — that is required. We brief them on day one and pull the shared-responsibility evidence (SOC 2 Type 2 of the hyperscaler, ISO 27017 / 27018, regional physical-control attestations from CtrlS / NTT-Netmagic / Sify / Yotta where the hyperscaler co-locates) directly so the binder is complete. Without that, the cloud-control catalogue has gaps no internal audit can close.",
+      },
+      {
+        q: "Is re-testing of critical findings included?",
+        a: "Yes — every critical and high finding is re-validated post-fix at no extra cost within the regulator's remediation SLA. The closure ledger feeds directly into the next CSITE Cell submission or the audit committee's quarterly cyber review.",
+      },
+      {
+        q: "How long does a typical Mumbai BFSI cloud audit take?",
+        a: "Single-cloud BFSI workload: 4-6 weeks. Multi-cloud landing zone (AWS + Azure or AWS + OCI): 6-8 weeks. Full RBI cloud-resilience exercise covering the bank, AA integration and partner-fintech federation: 8-10 weeks. Kickoff is same-day onsite in BKC / Lower Parel / Powai / Belapur.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 2 · Delhi × Penetration Testing
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "delhi",
+    serviceSlug: "penetration-testing",
+    headline:
+      "Penetration Testing in Delhi · Gov + PSU",
+    lead:
+      "CERT-In empanelled penetration testing for Delhi-headquartered ministries, PSUs, regulators and central agencies — STQC, NIC and GeM-compatible deliverables in regulator-readable format.",
+    body: [
+      "Delhi penetration testing is dominated by central-government, ministry, PSU and regulator buyers, with a long tail of public-sector banks, central PSEs and statutory bodies headquartered in Shastri Bhawan, Nirman Bhawan, Rail Bhawan, Krishi Bhawan, Sanchar Bhawan and the CGO Complex. Scopes typically cover citizen-facing portals built on the National Informatics Centre (NIC) stack, internal MPLS networks running on NICNET, regulator data-exchange APIs, the Aadhaar AUA / KUA integration where the ministry consumes UIDAI services, and the long tail of legacy on-prem applications that ministries still run on RHEL / WebLogic / Oracle. Procurement, contracting and reporting expectations are very different from a private-sector VAPT — and a vendor who has never read a GeM contract does not survive the first review.",
+      "We deliver penetration testing on Delhi government and PSU estates in CERT-In empanelled format with STQC and NIC-friendly reporting structure — the explicit observation / risk / recommendation table format, traceable evidence per finding (with the screenshot, request / response and exploit witness numbered to the finding ID), and the empanelled-auditor letter required for the next regulator inspection or audit closure with the Comptroller and Auditor General (CAG). The report goes into the ministry's file-noting system, gets file-numbered, moves through the additional secretary's office and lands on the secretary's desk — and at every step a vendor-format Burp HTML export gets returned with objections. We ship in the format the ministry expects.",
+      "Common scopes for ministries and central PSEs we have delivered against: citizen-services portal — e-Office (NIC), parivahan-style transport portals, e-Hospital, the long list of state-deployed Mission-mode-project (MMP) portals; internal MPLS / NICNET / SD-WAN segmentation review including the dial-back from NIC datacentre to ministry LAN; data-exchange API between the ministry and state implementations where the centre publishes a master record and states consume / write back; Active Directory and RBAC review on the central IT estate; Aadhaar AUA / KUA integration audit against UIDAI's published compliance checklist and the data-vault tokenisation expectation; and the dependency on shared NIC infrastructure (NIC-hosted virtual machines, NIC-managed firewalls, NIC SOC feeds) where the boundary between in-scope and out-of-scope blurs daily.",
+      "Onsite kickoff in Delhi is next-day from Mumbai BKC — flights land at IGI Terminal 3 and consultants are at Shastri Bhawan, Rail Bhawan, Nirman Bhawan or the CGO Complex inside the morning, with badges arranged the previous evening through the ministry's security cell. For multi-week engagements we keep a Delhi-resident lead consultant onsite throughout the testing window — same person on the first kickoff and the final sign-off, no bait-and-switch staffing. The testing window itself routinely runs across weekends and government holidays because that is when the application owner can take portal downtime.",
+      "Government engagement plans always assume the ministry's own IT cell, the NIC team supporting the deployment, and (where the system holds Aadhaar data) the UIDAI compliance representative will need to sit through portions of the test live. We schedule those joint-test sessions in advance, share a daily testing-log e-mail with the additional secretary's office, and provide read-out memos after each major milestone so file-noting and approvals do not stall while waiting for the final report. The CERT-In incident-reporting clock — six hours under the 28 April 2022 directive — is treated as a hard SLA inside the engagement, with a pre-defined escalation path to the CERT-In handle.",
+      "Where the scope crosses state implementations of a centrally-sponsored scheme (CSS) — Ayushman Bharat, PMAY, e-Hospital state instances, agriculture extension portals — we coordinate with the state IT secretariat to evidence the boundary contract: what the centre owes (master record integrity, API contract enforcement, data-fiduciary obligations under the DPDP Act), what the state owes (instance hardening, regional language UI, state DPDP overlay), and where joint controls apply (Aadhaar masking, SDC hosting, BCP region). That avoids the most common audit gap on centre-state platforms and is the single most-asked-about clarification we have seen from CAG audit teams.",
+      "Adversary modelling for ministry estates is not theoretical. We test against the actual TTPs that have hit Indian government systems in the last 24 months — credential-stuffing waves against e-Office and parivahan-style portals, SQL-injection chains in regional MMP deployments, JWT misuse and IDOR variants on Aadhaar-AUA wrappers, ransomware-affiliate footholds (LockBit, ALPHV, RansomHub) on PSU IT estates, and the supply-chain compromise pattern where a third-party application-vendor's CI/CD pipeline became the foothold (a recurring 2024-25 pattern). The report explicitly maps each finding to the TTP and the threat actor most likely to weaponise it.",
+      "Procurement and commercial nuance is part of the engagement. Macksofy is GeM-listed (category 99 / cybersecurity audit services) and accepts direct purchase orders from central and state government buyers through the GeM portal; we also participate in CPPP and ministry-specific tenders. Our PAN, GST, MSME registration, CERT-In empanelment number and ISO 27001 / 9001 certification are kept current on the GeM dashboard so the procurement-cell verification on the bidder side completes in hours, not days. For ministries that procure through the National Informatics Centre Services Inc (NICSI) rate contract route, we deliver via NICSI's empanelment too.",
+    ],
+    buyerConcerns: [
+      "CERT-In empanelled auditor letter accepted by CSITE / CAG for closure",
+      "STQC / NIC observation-risk-recommendation reporting structure and evidence traceability",
+      "Citizen-services portal abuse — authn bypass, IDOR, BOLA, SQLi, JWT misuse",
+      "Internal MPLS / NICNET / SD-WAN segmentation across ministry estates",
+      "Aadhaar AUA / KUA integration audit against UIDAI compliance checklist",
+      "Active Directory / RBAC privilege paths in central-government IT",
+      "Boundary clarity with shared NIC infrastructure (hosted VMs, managed firewalls)",
+      "GeM / CPPP / NICSI procurement-route compatibility for the contract",
+      "DPDP Act + IT Act incident reporting under CERT-In's 6-hour SLA",
+    ],
+    differentiators: [
+      "Reports formatted to STQC / NIC expectations — observation / risk / recommendation tables, evidence numbered per finding ID, and the empanelled-auditor letter the additional secretary's office actually files — not a generic Burp HTML export.",
+      "Experience with shared-infrastructure scoping where NIC-hosted segments, NICSI-managed firewalls and ministry-owned LAN have boundaries that shift mid-engagement — we negotiate them in writing up front.",
+      "Delhi-resident lead consultant for the testing window plus same-day onsite from Mumbai BKC for kickoff — same person on kickoff and sign-off, no bait-and-switch.",
+      "GeM-listed (category 99) and NICSI-route capable — procurement-cell verification completes inside hours, not the multi-week onboarding most vendors trigger.",
+      "Adversary modelling against the actual TTPs that have hit Indian government estates in 2024-25 — LockBit / ALPHV affiliates, supply-chain compromise via application vendors, Aadhaar AUA wrapper abuse — not a generic OWASP checklist.",
+    ],
+    seoDescription:
+      "CERT-In empanelled penetration testing in Delhi for ministries, PSUs, regulators and central agencies. STQC / NIC reports, GeM-listed, Aadhaar AUA / KUA audit-capable.",
+    keywords: [
+      "penetration testing Delhi",
+      "CERT-In penetration testing Delhi",
+      "government penetration testing Delhi",
+      "PSU pentest Delhi NCR",
+      "ministry penetration testing India",
+      "STQC pentest Delhi",
+      "NIC infrastructure pentest",
+      "Aadhaar AUA KUA audit",
+      "GeM cybersecurity audit vendor",
+      "NICSI cybersecurity vendor",
+    ],
+    stats: [
+      { value: "60+", label: "Delhi government engagements" },
+      { value: "GeM Cat-99", label: "Listed cybersecurity vendor" },
+      { value: "Next-day", label: "Onsite from Mumbai BKC" },
+      { value: "6 hr SLA", label: "CERT-In incident-reporting clock" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Pre-engagement + GeM Contract",
+        activities: [
+          "GeM / CPPP / NICSI procurement-route confirmation + contract drafting",
+          "Ministry security-cell badge process + onsite-access clearance",
+          "Scope definition with explicit NIC / NICSI boundary contract",
+          "DPDP Act + Aadhaar Act applicability scoping where citizen-data in scope",
+        ],
+      },
+      {
+        phase: "02 · Threat Model + Recon",
+        activities: [
+          "Adversary modelling against 2024-25 ministry-targeting TTPs (LockBit, ALPHV, app-vendor supply chain)",
+          "Application architecture review with ministry IT cell + NIC engineer",
+          "External recon — citizen-portal surface, MMP-instance discovery, certificate / DNS hygiene",
+          "Aadhaar AUA / KUA wrapper review against UIDAI compliance checklist",
+        ],
+      },
+      {
+        phase: "03 · Exploit + Lateral",
+        activities: [
+          "Citizen-portal abuse — authn bypass, IDOR, BOLA, SQLi, JWT misuse, file-upload chains",
+          "Internal MPLS / NICNET / SD-WAN segmentation review with the ministry network team",
+          "Active Directory / RBAC privilege-path enumeration (BloodHound, PingCastle)",
+          "Centre-state data-exchange API authz and contract-enforcement tests",
+        ],
+      },
+      {
+        phase: "04 · Report + File-noting",
+        activities: [
+          "STQC / NIC observation-risk-recommendation report with finding-ID-numbered evidence",
+          "Daily testing-log e-mail to additional secretary's office for file-noting parity",
+          "CERT-In empanelled auditor letter + executive summary for secretary-level review",
+          "Centre-state boundary contract clarification memo for CSS / CAG audit",
+        ],
+      },
+      {
+        phase: "05 · Closure + Re-test",
+        activities: [
+          "30-day re-test of all critical and high findings included in SoW",
+          "Closure ledger filed with CSITE / CAG / regulator as required",
+          "Joint sign-off meeting with ministry IT cell + NIC + (if applicable) UIDAI",
+          "Optional continuous-monitoring retainer for subsequent quarterly reviews",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Central ministries",
+        blurb:
+          "Shastri Bhawan, Nirman Bhawan, Rail Bhawan, Krishi Bhawan portfolios on NIC + NICNET infrastructure.",
+      },
+      {
+        name: "Public sector banks + PSEs",
+        blurb:
+          "Delhi-headquartered PSU banks, oil + power PSEs and central public-sector enterprises under CAG audit.",
+      },
+      {
+        name: "Statutory regulators",
+        blurb:
+          "Sector regulators with Connaught Place / Janpath HQ — citizen-facing portal + data-exchange API scope.",
+      },
+      {
+        name: "Aadhaar AUA / KUA consumers",
+        blurb:
+          "Ministries and PSEs consuming UIDAI Aadhaar services with the data-vault tokenisation obligation.",
+      },
+      {
+        name: "Defence + aerospace PSUs",
+        blurb:
+          "PSU defence + aerospace estates with the additional layered-disclosure and segregation expectations.",
+      },
+      {
+        name: "Centrally-sponsored schemes",
+        blurb:
+          "Centre-state CSS portals where boundary clarity between central master and state instance is the audit pain point.",
+      },
+    ],
+    deliverables: [
+      "STQC / NIC observation-risk-recommendation report with finding-ID-numbered evidence",
+      "CERT-In empanelled auditor letter for ministry / PSU / CAG audit closure",
+      "Aadhaar AUA / KUA compliance-checklist evidence pack against UIDAI requirements",
+      "MPLS / NICNET segmentation review report with annotated network diagram",
+      "Active Directory / RBAC privilege-path map (BloodHound + PingCastle artefacts)",
+      "Centre-state boundary contract clarification memo for CSS programmes",
+      "30-day re-test closure ledger + secretary-level executive summary",
+      "GeM / NICSI-compatible deliverable bundle for file-noting and CAG submission",
+    ],
+    caseStudy: {
+      industry: "Central ministry (Shastri Bhawan) — citizen-services portal + state implementations",
+      scope:
+        "CERT-In empanelled penetration test of central master + 9 state-instance deployments of a Mission-mode-project portal, including Aadhaar AUA wrapper review and NICNET segmentation",
+      outcome:
+        "47 findings closed in 5 weeks · 3 critical Aadhaar-wrapper data-leak paths remediated before file-noting reached the secretary · CERT-In letter accepted by CAG audit team first read · centre-state boundary contract clarified across 9 states with the state IT secretariat sign-off.",
+    },
+    faqs: [
+      {
+        q: "Are you on the GeM portal as a cybersecurity audit vendor?",
+        a: "Yes — Macksofy is a GeM-listed cybersecurity services vendor under category 99 (cybersecurity audit + VAPT services). We accept direct purchase orders from central and state government buyers through GeM, and our PAN, GST, MSME, CERT-In empanelment and ISO 27001 / 9001 certification are kept current on the dashboard so procurement-cell verification completes inside hours.",
+      },
+      {
+        q: "Will the CERT-In letter you issue be accepted by CAG / CSITE for closure?",
+        a: "Yes — our empanelled-auditor letter is issued in the format CERT-In published with the 2024 empanelment-renewal guidance and has been filed without rework in CAG, CSITE-Cell and ministry internal-audit closure cycles. The supporting evidence pack follows STQC / NIC observation-risk-recommendation tabulation, which is what file-noting reviewers expect to read.",
+      },
+      {
+        q: "Can you handle ministry estates that consume Aadhaar (AUA / KUA)?",
+        a: "Yes — we audit the AUA / KUA wrapper against UIDAI's published compliance checklist, including the data-vault tokenisation requirement, the request-response signature flow and the device-registration handling. Findings on the Aadhaar wrapper are filed in parallel to UIDAI's compliance representative where required.",
+      },
+      {
+        q: "How do you handle NIC / NICSI shared-infrastructure boundaries?",
+        a: "By negotiating the boundary contract in writing up front. NIC-hosted VMs, NICSI-managed firewalls and the ministry-owned LAN have boundaries that shift daily, so we get the ministry IT cell + NIC engineer + (where applicable) NICSI lead on a kickoff call and produce a signed scope-boundary memo before testing starts. That memo is what we cite later when a finding crosses the line and a NIC change-request is needed.",
+      },
+      {
+        q: "Do you handle centre-state CSS programmes where state instances are separately operated?",
+        a: "Yes — we test the central master and a sample of state-instance deployments, then publish a boundary-clarification memo with the state IT secretariat sign-off so the CAG audit team has a clean record of what the centre owes versus what the state owes. This is the single most-asked-about clarification we see from CAG on CSS programmes.",
+      },
+      {
+        q: "Will you adhere to the CERT-In 6-hour incident-reporting SLA during testing?",
+        a: "Yes — that is treated as a hard SLA inside the engagement. We pre-define the escalation path to the CERT-In handle, the ministry security-cell number and the additional secretary's office, and any test-induced incident (or pre-existing compromise we discover) is reported inside the six-hour window per the 28 April 2022 CERT-In directive.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 3 · Chennai × Penetration Testing
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "chennai",
+    serviceSlug: "penetration-testing",
+    headline:
+      "Penetration Testing in Chennai · BFSI & SaaS",
+    lead:
+      "CERT-In empanelled penetration testing for Chennai banks, gold-loan NBFCs, OMR / Tidel Park SaaS and Sholinganallur GCCs — RBI Cyber Resilience, SOC 2 and ISO 27001 mapped in one report.",
+    body: [
+      "Chennai's cybersecurity buyer profile splits across three distinct clusters that demand three distinct penetration-testing playbooks. The South-India BFSI HQs concentrated around Anna Salai, Mylapore and T. Nagar — Indian Bank, Indian Overseas Bank, City Union Bank, Karur Vysya Bank, the long tail of state co-operative banks under TNSCB, and the gold-loan NBFC majors (Manappuram Finance headquartered in Valapad, Muthoot regional HQ in Chennai) — bring an RBI Master Direction on IT Governance + Cyber Resilience scope with legacy core-banking edges. The OMR (Old Mahabalipuram Road) / Sholinganallur / Tidel Park SaaS belt, running from Tidel Park near Velachery down to the Sholinganallur ELCOT estate and onward to Siruseri SIPCOT-IT, brings a product-engineering scope tied to SOC 2 Type 2, ISO 27001 and the API Security Top 10. The Sriperumbudur / Oragadam / Ambattur manufacturing-IT belt brings the OT-adjacent scope tied to IEC-62443 and the Hindustan Lever / TVS / Hyundai / Renault-Nissan supply chains. Generic 'web pentest' SoWs do not survive the first technical kickoff in any of the three.",
+      "For Chennai banks and NBFCs we run penetration tests aligned to RBI's Master Direction on IT Governance and the Cyber Resilience framework, with the SEBI CSCRF overlay for any depository-participant or AMC arm and the gold-loan-specific NBFC ML (Master Direction on Lending) controls where the NBFC operates the pledge-management portal and ATM-grade gold-loan disbursement kiosks across Tamil Nadu and Kerala. Reports are in CERT-In empanelled format with the empanelment letter the bank's IS auditor needs to file with RBI's CSITE Cell. We test the actual money-movement flow — net-banking, the legacy core-banking edge (Finacle / Flexcube / TCS BaNCS instances some Chennai banks still run on AIX), the gold-loan branch-tablet authentication chain, the ATM-switch / card-personalisation vendor integration, and the south-Indian co-operative-bank-specific NPCI sub-member sponsorship flow.",
+      "For OMR / Sholinganallur SaaS and GCC clients the scope follows the product-engineering pattern that Bengaluru and Hyderabad SaaS share, with three Chennai-specific overlays. First, the long tail of US-healthcare and BFSI buyers means HIPAA / HITRUST and PCI-DSS DSS-on-cloud readiness sit on the same test plan as the OWASP ASVS / API Security Top 10 baseline. Second, the GraphQL-heavy stacks that the Tidel Park / Siruseri SaaS belt has standardised on demand explicit field-level and depth-limit authorisation testing, not just endpoint-level. Third, multi-tenant isolation testing is critical because the Chennai SaaS belt is unusually concentrated in shared-DB-tenant designs — separating tenants by row-level security in PostgreSQL is the dominant pattern and the dominant bug class we close.",
+      "For Sriperumbudur / Oragadam / Ambattur manufacturing-IT and supply-chain partners (the Hindustan Lever, TVS, Hyundai, Renault-Nissan, Ashok Leyland orbits), the scope adds an OT-adjacent layer — the Manufacturing Execution System (MES) integration with the ERP, the dealer-management-system (DMS) portal where third-party showrooms log in, and the supplier-portal where Tier-1 / Tier-2 / Tier-3 suppliers exchange schedules and quality data. IEC-62443 aligned reviews are delivered alongside the IT-side penetration test where the customer demands the joint scope.",
+      "Senior consultants fly from Mumbai BKC for kickoff and the onsite-testing days, with Hyderabad HITEC as an alternate hub for the south-Indian fortnightly cadence. Most engagements run 3-5 weeks with re-testing of critical and high findings included in the base SoW so RBI / customer remediation windows are not missed. For long-running Chennai BFSI programmes we keep a Chennai-resident lead consultant on the engagement throughout, with weekly onsite days at Anna Salai / Mylapore / T. Nagar branches and the data-centre site in Perungudi or the SIPCOT-IT corridor.",
+      "Chennai banking and NBFC clients almost always have older core-banking integrations carrying weight that no modern API gateway is meant to bear — direct DB links from a third-party reconciliation tool, FTP/SFTP file drops between the bank and NPCI / NACH / RTGS vendors, legacy CICS / MQ bridges between a mainframe core and a JBoss-era web tier, and the long tail of MS Access front-ends that branch operations still run. We test those legacy edges directly rather than declaring them out of scope, because the regulator's audit team will not declare them out of scope when they come for the next inspection. The CERT-In format report includes a 'legacy edge inventory' annex specifically for this reason.",
+      "For OMR SaaS clients shipping to US healthcare or BFSI buyers we add an HIPAA / HITRUST or PCI-DSS DSS-readiness overlay where it pays for itself in the next customer security review. The same test plan generates evidence acceptable to the SOC 2 Type 2 auditor, the ISO 27001 surveillance assessor, the customer's CISO questionnaire and (where the buyer is a US health system) the HITRUST-certified-vendor questionnaire. The Tidel Park and Siruseri SaaS belt has standardised on this dual-purpose evidence model and we deliver it as one engagement.",
+      "Adversary modelling for Chennai-cluster engagements is regionally grounded. We test against the actual patterns hitting south-Indian banks and NBFCs — ATM-jackpotting attempts traceable to the FASTCash variant that affected south-Asian banks in 2024, gold-loan branch-tablet credential reuse leading to disbursement-fraud chains, NPCI sub-member sponsorship abuse where the parent scheduled bank's switch becomes the entry point, ALPHV / RansomHub affiliate footholds on Sriperumbudur supplier portals where a Tier-2 vendor's CI/CD pipeline becomes the path into the OEM's MES. Each finding is mapped to the TTP and the threat actor most likely to weaponise it, with the detection-engineering recommendation paired in.",
+    ],
+    buyerConcerns: [
+      "RBI Master Direction IT Governance + Cyber Resilience evidence quality",
+      "South-India co-operative bank + gold-loan NBFC operational nuances",
+      "Legacy core-banking edge — Finacle / Flexcube / BaNCS on AIX with FTP / MQ bridges",
+      "OMR SaaS multi-tenant isolation and row-level-security in shared-DB designs",
+      "GraphQL field-level authz and depth-limit / batch-query abuse",
+      "API Security Top 10 + OWASP ASVS L2 + HIPAA / HITRUST / PCI-DSS overlay",
+      "Sriperumbudur / Oragadam manufacturing supply-chain portal testing (IEC-62443 adjacent)",
+      "CERT-In empanelled auditor letter for next RBI / customer audit",
+      "Re-testing inside RBI / customer remediation windows included in SoW",
+    ],
+    differentiators: [
+      "Three distinct playbooks for the three Chennai clusters — South-India BFSI, OMR / Tidel Park SaaS and Sriperumbudur manufacturing — not the same web-app pentest relabelled.",
+      "Legacy edge testing of Finacle / Flexcube / BaNCS on AIX, MQ / CICS bridges and FTP / NPCI vendor links — the bits most pentest vendors declare out of scope.",
+      "Reports map simultaneously to RBI Cyber Resilience, SEBI CSCRF, SOC 2 Type 2, ISO 27001 and HIPAA / HITRUST in one document — useful for Chennai firms straddling regulated and SaaS revenue.",
+      "Chennai-resident lead consultant on long-running BFSI programmes, plus senior fly-in from Mumbai BKC or Hyderabad HITEC for kickoff and exit.",
+      "Re-testing of critical and high findings included in the SoW so RBI and customer remediation windows are never missed.",
+    ],
+    seoDescription:
+      "CERT-In empanelled penetration testing in Chennai for South-India banks, gold-loan NBFCs, OMR / Tidel Park SaaS and Sriperumbudur manufacturing — RBI Cyber Resilience + SOC 2.",
+    keywords: [
+      "penetration testing Chennai",
+      "CERT-In pentest Chennai",
+      "OMR penetration testing",
+      "Tidel Park pentest Chennai",
+      "Chennai banking pentest",
+      "gold loan NBFC pentest",
+      "Sholinganallur SaaS pentest",
+      "Sriperumbudur manufacturing pentest",
+      "RBI Cyber Resilience Chennai",
+      "Chennai SaaS HIPAA pentest",
+    ],
+    stats: [
+      { value: "40+", label: "Chennai engagements delivered" },
+      { value: "3 clusters", label: "BFSI · SaaS · manufacturing playbooks" },
+      { value: "Same-week", label: "Onsite arrival (BKC / HYD)" },
+      { value: "TNeGA", label: "Eligible state-government vendor" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Cluster Scoping + Kickoff",
+        activities: [
+          "Cluster classification — BFSI / OMR SaaS / Sriperumbudur manufacturing — and corresponding playbook",
+          "Onsite kickoff at Anna Salai / Mylapore / Tidel Park / Sholinganallur / Oragadam",
+          "Legacy edge inventory — Finacle / Flexcube / BaNCS / MQ / FTP / NPCI vendor links",
+          "Regulator + customer evidence-overlay agreement (RBI + SOC 2 + HIPAA / HITRUST as applicable)",
+        ],
+      },
+      {
+        phase: "02 · Threat Model + External Recon",
+        activities: [
+          "Regional adversary modelling — FASTCash variants, ALPHV / RansomHub supplier-portal footholds",
+          "External attack-surface enumeration — subdomain, certificate, DNS, exposed S3 / blob",
+          "Application architecture review with the engineering / IT team",
+          "Aadhaar AUA / KUA wrapper review where in scope (gold-loan branch tablets etc.)",
+        ],
+      },
+      {
+        phase: "03 · Exploit + Lateral",
+        activities: [
+          "Web + API + mobile testing against OWASP ASVS L2 + API Security Top 10",
+          "Multi-tenant isolation tests on shared-DB SaaS (row-level-security probing)",
+          "GraphQL field-level authz, depth limits and batch-query abuse",
+          "Legacy edge exploit chains — MQ / CICS / FTP / direct DB-link paths",
+        ],
+      },
+      {
+        phase: "04 · Report + Crosswalk",
+        activities: [
+          "CERT-In empanelled format report + STQC-style observation-risk-recommendation table",
+          "Crosswalk per finding to RBI Cyber Resilience / SEBI CSCRF / SOC 2 / ISO 27001 / HIPAA",
+          "Jira-importable CSV + private GitHub Issues handoff for SaaS clients",
+          "Board-pack executive summary for BFSI audit committee",
+        ],
+      },
+      {
+        phase: "05 · Re-test + Closure",
+        activities: [
+          "30-day re-test of all critical and high findings included in SoW",
+          "Closure ledger filed with RBI IS auditor / SOC 2 auditor / customer CISO",
+          "Detection-engineering recommendations handed to client SOC for SIEM tuning",
+          "Optional continuous-testing retainer for fortnightly OMR SaaS release trains",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "South-India BFSI HQs",
+        blurb:
+          "Indian Bank, IOB, City Union, Karur Vysya and TN co-operative banks around Anna Salai / Mylapore / T. Nagar.",
+      },
+      {
+        name: "Gold-loan NBFCs",
+        blurb:
+          "Manappuram + Muthoot regional HQs — pledge portals and branch-tablet auth across TN / Kerala / AP networks.",
+      },
+      {
+        name: "OMR / Tidel Park SaaS",
+        blurb:
+          "B2B SaaS shipping to US healthcare + BFSI buyers — GraphQL-heavy stacks with HIPAA / HITRUST / SOC 2 needs.",
+      },
+      {
+        name: "Sholinganallur / Siruseri GCCs",
+        blurb:
+          "US + UK enterprise GCCs in SIPCOT-IT — privilege paths between Chennai operators and offshore production.",
+      },
+      {
+        name: "Sriperumbudur / Oragadam manufacturing",
+        blurb:
+          "Hyundai, Renault-Nissan, TVS, Hindustan Lever supply-chain portals — IEC-62443-adjacent supplier-portal scope.",
+      },
+      {
+        name: "TN state government",
+        blurb:
+          "TNeGA-listed cybersecurity vendor for state-government portals and centrally-sponsored-scheme instances.",
+      },
+    ],
+    deliverables: [
+      "CERT-In empanelled format report with STQC-style observation-risk-recommendation tabulation",
+      "Legacy edge inventory annex — Finacle / Flexcube / BaNCS / MQ / FTP / NPCI vendor link findings",
+      "Multi-framework crosswalk (RBI / SEBI / SOC 2 / ISO 27001 / HIPAA / HITRUST / PCI-DSS)",
+      "GraphQL + API Security Top 10 findings with field-level authz repros",
+      "Multi-tenant isolation report with row-level-security probe results",
+      "Jira-importable CSV + private GitHub Issues (SaaS clients) / board-pack executive summary (BFSI)",
+      "30-day re-test closure ledger inside regulator and customer remediation windows",
+      "Optional fortnightly continuous-testing retainer for OMR SaaS release trains",
+    ],
+    caseStudy: {
+      industry: "Chennai-headquartered gold-loan NBFC — multi-state branch network",
+      scope:
+        "CERT-In empanelled penetration test of pledge-management portal, branch-tablet authentication chain, NACH / NPCI sub-member integration and core-banking edge — across 2,400 branches",
+      outcome:
+        "34 findings closed in 4 weeks · 6 critical disbursement-fraud paths remediated before RBI follow-up · branch-tablet credential rotation enforced across TN + Kerala + AP networks · re-test closure ledger filed with the IS auditor inside the 30-day window.",
+    },
+    faqs: [
+      {
+        q: "Do you understand south-Indian co-operative bank operational reality?",
+        a: "Yes — we have delivered RBI Cyber Resilience-aligned tests for TNSCB-network co-operative banks, including the NPCI sub-member sponsorship path where the parent scheduled bank's switch is the entry point, the AIX-hosted core-banking edge and the branch-network MPLS topology that has not been redesigned since the 2008 CBS migration. Scoping factors all of this in.",
+      },
+      {
+        q: "Can your same report close RBI, SOC 2 and HIPAA in one cycle?",
+        a: "Yes — the crosswalk-per-finding model maps each issue to RBI Cyber Resilience / SEBI CSCRF, SOC 2 CC controls, ISO 27001 Annex A and HIPAA Security Rule + HITRUST CSF where applicable. Chennai SaaS firms straddling US-healthcare revenue and India-regulated arms use this to avoid running three separate penetration tests.",
+      },
+      {
+        q: "Will you test the legacy Finacle / Flexcube / BaNCS edges, or declare them out of scope?",
+        a: "We test them. Most vendors declare the MQ / CICS / FTP / direct-DB-link paths out of scope because they are awkward — but the regulator will not declare them out of scope when the inspection arrives, and that is where the actual money-movement abuse lives. Our reports include a 'legacy edge inventory' annex specifically for this.",
+      },
+      {
+        q: "Do you handle the Sriperumbudur / Oragadam OEM supplier-portal scope?",
+        a: "Yes — we deliver IEC-62443-adjacent reviews of supplier portals, dealer-management systems and MES-ERP integrations for the Hyundai, Renault-Nissan, TVS, Ashok Leyland and Hindustan Lever supply-chain ecosystems where the customer demands the joint IT + OT-adjacent scope. The OT side is air-gap-tested separately when relevant.",
+      },
+      {
+        q: "Are you a TNeGA-empanelled state-government cybersecurity vendor?",
+        a: "Yes — we participate in TN-eGA tenders and central GeM listings, and we handle Tamil-language documentation requirements where state-government engagements demand it. Centrally-sponsored-scheme state instances deployed in Tamil Nadu fall under this delivery model.",
+      },
+      {
+        q: "What is the onsite cadence for a Chennai BFSI engagement?",
+        a: "Senior consultants fly from Mumbai BKC for kickoff and onsite testing days, with Hyderabad HITEC as an alternate hub for the fortnightly cadence. For long-running Chennai BFSI programmes we keep a Chennai-resident lead consultant on the engagement throughout, with weekly onsite days at Anna Salai / Mylapore / T. Nagar branches and the data-centre site in Perungudi or the SIPCOT-IT corridor.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 4 · Gurugram × Managed SOC
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "gurugram",
+    serviceSlug: "managed-soc",
+    headline:
+      "Managed SOC in Gurugram · BFSI & GCCs",
+    lead:
+      "24x7 co-managed SOC for Gurugram private-bank HQs, insurer HQs and Fortune-500 GCCs in DLF Cyber City, Udyog Vihar and Golf Course Road — CrowdStrike + Splunk / Sentinel, RBI / IRDAI / parent-group reporting in parallel.",
+    body: [
+      "Most Gurugram BFSI HQs and Fortune-500 GCCs already own a SIEM — Splunk Enterprise / Cloud, Microsoft Sentinel, Google Chronicle / SecOps or IBM QRadar — and a partial in-house team running a 9-to-9 shift with limited weekend coverage. What they need is not a black-box outsourced SOC running on a vendor-proprietary platform; it is a true 24x7 co-managed SOC that runs alongside the in-house shift pattern, owns L1 / L2 triage on the client's own stack, feeds the CISO's RBI Cyber Resilience / IRDAI Information & Cyber Security / parent-group monthly cadence, and leaves every detection rule, parser and playbook in the client's environment when the contract ends. The Gurugram private-bank, insurer-HQ and GCC market has explicitly rejected the lock-you-in MSSP model since the 2022-23 cycle of MSSP-platform incidents — and we built our delivery model around that rejection.",
+      "Our Gurugram Managed SOC operates as a co-managed extension: shared playbooks on the client's Splunk / Sentinel / Chronicle / QRadar instance; CrowdStrike Falcon or SentinelOne or Microsoft Defender for Endpoint as the EDR layer (we operate against whatever the bank already runs — we do not require a CrowdStrike replatform); defined L1 / L2 / L3 handoff to the client team with a written runbook for each; a daily detection-engineering backlog reviewed jointly in a 30-minute morning stand-up; and a weekly threat-hunt cadence based on the bank's threat-intel feed and the CrowdStrike / Mandiant / Recorded Future advisories the client subscribes to. The Macksofy 24x7 analyst team operates from a SOC2-Type-2-attested facility with the in-shift bench redundancy DLF Cyber City CISOs verify on the procurement visit.",
+      "Use cases we tune specifically for Gurugram BFSI: loan-origination fraud signals (synthetic-identity patterns, multi-loan velocity, address-cluster anomalies on the digital-lending stack); partner-fintech API abuse on the open-API and BBPS / NACH / NPCI rails; contact-centre bulk-customer-data access on the BPO-extended estate, including the Genpact-style multi-tenant CRM exposures; privileged-identity misuse on the Cyber City / Cyberhub / Golf Course Road multi-tenant office networks and the shared-WiFi environments private-bank exec teams use; parent-group-mandated detection coverage gaps where the global SOC's MITRE ATT&CK matrix is enforced as the audit baseline; and the LAPSUS$-style identity-provider compromise scenarios that hit Indian-BFSI parent groups in 2023-24. For Fortune-500 GCCs the priority shifts to the privilege-path between India-based operations / development staff and the offshore production tenants — typically a US / UK / EU mothership — where Just-in-Time access, session recording and ITSI-tracked privilege use are the audit baseline.",
+      "Reporting is dual-track from one evidence base. On one side, the RBI Cyber Resilience / IRDAI Information & Cyber Security / SEBI CSCRF monthly board-grade pack — incident counts by severity, mean-time-to-detect (MTTD), mean-time-to-respond (MTTR), detection-engineering backlog status, named-threat coverage and the regulator-style SoC composition disclosure. On the other side, the parent group's global SOC reporting format — Group SOC dashboard ingest, ServiceNow ITSM integration with the parent's instance, parent-mandated KPI thresholds and the global-CISO escalation chain. The same incident generates both, and the evidence-quality consistency between the two is what audit teams check for first when the next examination arrives.",
+      "Detection content is BFSI-tuned and Gurugram-specific. We layer the following on top of the CrowdStrike / Splunk SES / Sentinel content-pack baseline and the MITRE ATT&CK coverage: digital-lending fraud signals against the loan-origination platform (synthetic-identity correlation, GPS-spoof detection on the agent app, KYC-image-reuse detection); BBPS / NACH / NPCI rail anomaly detection (mandate-creation velocity, account-aggregator pull-velocity, partner-fintech API rate anomalies); contact-centre bulk-export detection on the call-centre CRM (volumetric query patterns, role-based misuse); privileged-identity-misuse detection on CyberArk / BeyondTrust / Delinea PAM systems; ADCS misconfiguration exploitation detection (the LAPSUS$ / private-bank-2023 pattern); and identity-provider compromise scenarios (Azure AD / Okta / PingFederate token theft, OAuth refresh-token replay).",
+      "Incident response is built in — not an add-on, not a separate retainer with a separate team. The same engineers running L2 / L3 detection lead containment if an alert escalates to incident, so there is no warm-handover delay to a separate IR practice. The IR runbook is jointly maintained with the client's IT-security team, exercises against Gurugram BFSI scenarios are run every quarter (digital-lending fraud surge, BPO-extended estate data-exfiltration, parent-group identity-provider compromise, RaaS affiliate foothold on the ATM / card-personalisation vendor estate), and an annual board-level red-vs-blue review keeps the retainer honest. The IR call goes to people who already know which account is shared between three systems and which legacy box still has an open RDP.",
+      "Onsite analyst hours at the client's DLF Cyber City / Udyog Vihar / Golf Course Road SOC are part of the engagement, not extra — most clients use them for handover during the in-house team's leave windows, for sensitive-incident-handling that needs to be physically inside the client SOC, and for the quarterly RBI Cyber Resilience supervisory visits where the regulator's inspection team wants the analyst present. The Gurugram-based analyst bench rotates from a SOC2-Type-2 facility with bench redundancy in Mumbai BKC, so single-point-of-failure questions during the procurement visit have a real answer.",
+      "Commercial terms are designed around the Gurugram BFSI procurement pattern. Multi-year retainer with annual renewal, a fixed-EDR / fixed-SIEM ingestion footprint with banded upgrade pricing, transparent named-resource pricing for the analyst bench, and the standard insurer-mandated breach-notification clauses. The contract explicitly transfers detection-engineering IP — every rule, every parser, every playbook is the client's to keep at the end of the engagement. No vendor-proprietary content-pack lock-in, no exit-cost surprise on the renewal cycle. That is the model Gurugram CISOs ask for and that is the model we deliver against.",
+    ],
+    buyerConcerns: [
+      "Co-managed model on the client's own Splunk / Sentinel / Chronicle / QRadar — no vendor-platform lock-in",
+      "CrowdStrike / SentinelOne / Defender EDR operated as-is — no forced replatform",
+      "Detection-engineering IP transfer — rules, parsers, playbooks stay with the client at contract end",
+      "Digital-lending fraud signals + BBPS / NACH / NPCI rail anomaly detection",
+      "BPO / contact-centre bulk-customer-data exfiltration detection",
+      "Privileged-identity-misuse on Cyber City / Cyberhub multi-tenant office networks",
+      "Privilege-path detection between India GCC operations and offshore production tenants",
+      "RBI Cyber Resilience + IRDAI + SEBI CSCRF monthly board-grade reporting",
+      "Parallel parent-group / global SOC reporting format from one evidence base",
+    ],
+    differentiators: [
+      "True co-managed model — detection rules, parsers and playbooks live in the client's SIEM and stay with the client at contract end, contractually transferred IP.",
+      "Detection backlog tuned specifically for Gurugram BFSI scenarios — digital-lending fraud, BBPS / NACH / NPCI abuse, BPO bulk-data exfiltration, ADCS misuse — not generic CIS / MITRE content packs.",
+      "Dual-track monthly reporting that satisfies RBI / IRDAI / SEBI CSCRF and the overseas parent's global SOC format from one evidence base — no double-handling.",
+      "Integrated IR retainer staffed by the same engineers running the SOC — no warm-handover delay between detection and containment.",
+      "EDR-agnostic delivery — CrowdStrike, SentinelOne, Defender for Endpoint or whatever the bank already runs; we do not require a replatform to onboard.",
+      "Quarterly tabletop exercises tuned to Gurugram BFSI scenarios + annual board-level red-vs-blue, with the IR runbook jointly maintained with the client.",
+    ],
+    seoDescription:
+      "24x7 co-managed SOC in Gurugram for BFSI HQs, insurers and Fortune-500 GCCs — Splunk / Sentinel / CrowdStrike. RBI Cyber Resilience + IRDAI + parent-group reporting.",
+    keywords: [
+      "managed SOC Gurugram",
+      "co-managed SOC Gurgaon BFSI",
+      "MSSP Gurugram private bank",
+      "24x7 SOC DLF Cyber City",
+      "Splunk SOC Gurgaon",
+      "Sentinel managed SOC Gurugram",
+      "CrowdStrike Falcon Gurgaon SOC",
+      "GCC managed SOC India",
+      "RBI Cyber Resilience SOC Gurugram",
+      "insurer managed SOC Gurgaon",
+    ],
+    stats: [
+      { value: "24x7x365", label: "Analyst coverage from SOC2-attested facility" },
+      { value: "Splunk · Sentinel · QRadar", label: "Co-managed on client's stack" },
+      { value: "Dual-track", label: "RBI + parent-group reporting" },
+      { value: "Quarterly", label: "Tabletops + annual red-vs-blue" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Stack + Use-case Onboarding",
+        activities: [
+          "SIEM (Splunk / Sentinel / Chronicle / QRadar) ingestion baseline + parser audit",
+          "EDR (CrowdStrike / SentinelOne / Defender) integration as-is — no replatform",
+          "Use-case inventory — digital-lending fraud, BBPS / NACH abuse, BPO bulk-export, ADCS misuse",
+          "L1 / L2 / L3 handoff runbook written jointly with in-house SOC team",
+        ],
+      },
+      {
+        phase: "02 · Detection Engineering",
+        activities: [
+          "BFSI-tuned detection-content pack deployed into client's SIEM (rules stay with client)",
+          "MITRE ATT&CK + parent-group control catalogue coverage matrix baseline",
+          "Threat-intel feed integration — Mandiant / Recorded Future / OEM-provided",
+          "Daily detection-engineering backlog with the bank's AppSec / IT-Sec lead",
+        ],
+      },
+      {
+        phase: "03 · 24x7 Operations",
+        activities: [
+          "Macksofy 24x7 analyst bench from SOC2-Type-2 facility with Mumbai BKC redundancy",
+          "L1 / L2 triage on client's stack — alerts, parsers and playbooks owned in client tenant",
+          "Onsite analyst hours at DLF Cyber City / Udyog Vihar / Golf Course Road SOC",
+          "Weekly threat-hunt cadence on bank's data, with hand-off memo to in-house team",
+        ],
+      },
+      {
+        phase: "04 · IR Integration",
+        activities: [
+          "Same engineers escalate from L3 detection to incident containment — no separate IR team",
+          "Quarterly tabletops on Gurugram BFSI scenarios (lending fraud, BPO exfil, ADCS, IdP compromise)",
+          "Annual board-level red-vs-blue exercise + IR runbook refresh",
+          "DFIR-grade evidence preservation for any regulator-reportable incident",
+        ],
+      },
+      {
+        phase: "05 · Dual-track Reporting",
+        activities: [
+          "RBI / IRDAI / SEBI CSCRF monthly board-grade pack — MTTD, MTTR, backlog, named-threat coverage",
+          "Parent-group / global SOC dashboard + ServiceNow ITSM integration",
+          "Quarterly CISO + audit-committee review pack",
+          "Annual independent third-party VAPT of the SOC + SIEM included in retainer",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Private-bank HQs",
+        blurb:
+          "DLF Cyber City / Golf Course Road HQs of top private banks — digital-lending fraud + BBPS abuse focus.",
+      },
+      {
+        name: "Insurer HQs",
+        blurb:
+          "Top life, general and health insurer HQs in DLF + Udyog Vihar — IRDAI Information & Cyber Security cadence.",
+      },
+      {
+        name: "Fintech + payments + lending",
+        blurb:
+          "Series-D / listed fintech HQs in Cyberhub + Sohna Road — RBI digital-lending guidelines + PCI-DSS overlay.",
+      },
+      {
+        name: "Fortune-500 GCCs",
+        blurb:
+          "600+ GCCs (Deloitte, Accenture, KPMG, EY, Genpact) — India-GCC to offshore-prod privilege-path detection focus.",
+      },
+      {
+        name: "Big-4 / professional services",
+        blurb:
+          "Consulting and professional-services HQs — client-confidentiality detection + insider-threat focus.",
+      },
+      {
+        name: "Travel + e-commerce HQs",
+        blurb:
+          "MakeMyTrip-group + listed e-commerce HQs in Sector 21 / Sector 44 — partner-API abuse + bot-traffic focus.",
+      },
+    ],
+    deliverables: [
+      "24x7x365 SOC operations on client's own Splunk / Sentinel / Chronicle / QRadar stack",
+      "BFSI-tuned detection-content pack deployed into client tenant (contractually transferred IP)",
+      "Monthly RBI Cyber Resilience / IRDAI / SEBI CSCRF board-grade reporting pack",
+      "Parent-group / global SOC dashboard + ServiceNow ITSM integration feed",
+      "Integrated incident-response retainer with DFIR-grade evidence preservation",
+      "Quarterly Gurugram BFSI tabletop exercises (4 / year) + annual board red-vs-blue",
+      "Annual independent third-party VAPT of the SOC and SIEM included",
+      "Detection-engineering backlog + monthly threat-hunt memos delivered to in-house team",
+    ],
+    caseStudy: {
+      industry: "Gurugram-headquartered private bank — Splunk + CrowdStrike co-managed",
+      scope:
+        "24x7 co-managed SOC on existing Splunk Enterprise + CrowdStrike Falcon, IRDAI life-insurance subsidiary overlay, parent-group ServiceNow ingestion + quarterly RBI Cyber Resilience reporting",
+      outcome:
+        "MTTD reduced from 87 min to 14 min over 6 months · 9 detection-content additions adopted by parent-group global SOC · digital-lending fraud detection blocked INR 2.3 Cr of synthetic-identity disbursement in Q3 · RBI Cyber Resilience supervisory visit cleared with zero observations on SOC-side evidence.",
+    },
+    faqs: [
+      {
+        q: "Will the detection rules and playbooks stay with us at contract end?",
+        a: "Yes — that is contractually transferred IP. Every rule, parser, playbook and runbook is deployed into your own SIEM tenant from day one and is yours to keep. There is no vendor-proprietary content pack hosted in our cloud, no portal-only access, no exit cost on the renewal cycle. That is the Gurugram BFSI / GCC market standard since the 2022-23 MSSP-platform incident cycle and we built our delivery model around it.",
+      },
+      {
+        q: "Do we need to replatform from CrowdStrike to your preferred EDR?",
+        a: "No — we are EDR-agnostic. We operate against CrowdStrike Falcon, SentinelOne, Microsoft Defender for Endpoint, Trend Vision One or whatever the bank already runs. No forced replatform, no licence-bundle pressure. The same applies to SIEM (Splunk, Sentinel, Chronicle, QRadar) and PAM (CyberArk, BeyondTrust, Delinea).",
+      },
+      {
+        q: "Can you produce both RBI / IRDAI reporting and our parent-group's global SOC format?",
+        a: "Yes — dual-track from one evidence base. The RBI Cyber Resilience / IRDAI Information & Cyber Security / SEBI CSCRF monthly pack on one side; the parent group's global SOC dashboard format and ServiceNow ITSM integration on the other. Same incidents, same MTTD / MTTR numbers, same detection-engineering backlog status — presented in the format each consumer expects.",
+      },
+      {
+        q: "What is your IR response model — separate team or same engineers?",
+        a: "Same engineers. The L2 / L3 detection team escalates to incident containment directly, so there is no warm-handover delay. The IR call goes to people who already know your environment — which account is shared between three systems, which legacy box still has an open RDP, which partner-API is the most fragile. We then bring in DFIR-grade evidence-preservation discipline from the same bench.",
+      },
+      {
+        q: "Do you cover the BPO / contact-centre extended estate?",
+        a: "Yes — the bulk-customer-data exfiltration pattern on Genpact-style multi-tenant CRMs, the role-based misuse detection on the BPO-extended call-centre estate and the volumetric-query-pattern detection are part of the Gurugram BFSI use-case baseline. We have closed real exfiltration events against this pattern in 2024-25.",
+      },
+      {
+        q: "Is the SOC and SIEM itself audited?",
+        a: "Yes — annual independent third-party VAPT of the SOC and SIEM is included in the multi-year retainer. The audit report goes to the bank's IS auditor and the parent group's global CISO directly.",
+      },
+      {
+        q: "What about onsite analyst hours at our DLF Cyber City SOC?",
+        a: "Built into the engagement, not extra. Most clients use the hours for handover during the in-house team's leave windows, for sensitive-incident-handling that has to be physically inside the client SOC, and for the quarterly RBI Cyber Resilience supervisory visits where the regulator's inspection team wants the analyst present.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 5 · Mumbai × Managed SOC
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "mumbai",
+    serviceSlug: "managed-soc",
+    headline:
+      "Managed SOC in Mumbai · 24×7 BFSI",
+    lead:
+      "24x7 co-managed SOC for Mumbai banks, NBFCs, brokers, AMCs and insurers in BKC, Lower Parel, Andheri MIDC and Belapur — Splunk / Sentinel / Chronicle, BFSI-tuned detection, integrated IR.",
+    body: [
+      "Mumbai BFSI Managed SOC has to do three demanding things at once: meet the operational requirements of RBI's April 2024 Cyber Resilience and Master Direction on IT Governance; produce SEBI CSCRF and IRDAI Information & Cyber Security reporting on the same evidence base; and detect the specific attack patterns that hit Indian banks at the scale of SBI / HDFC / ICICI / Kotak / Axis — UPI mule-account mapping, treasury-workstation anomalies, broker-desk credential abuse, ATM-switch and card-personalisation vendor activity, contact-centre bulk-customer-data access, and SWIFT BIC-level transaction monitoring on the small subset of clients that operate cross-border. A SOC built for a generic enterprise customer cannot do this. The detection content has to be Indian-BFSI-native.",
+      "Our Mumbai SOC operates as a co-managed extension to the client's SIEM — Splunk Enterprise / Cloud, Microsoft Sentinel, Google Chronicle / SecOps or IBM QRadar — with shared detection-engineering ownership. The bank's CISO retains control of every rule, every parser, every dashboard. We provide the 24x7 L1 / L2 analyst coverage, the threat-hunting cadence, and an integrated incident-response retainer staffed by the same engineers. The Macksofy analyst bench is split across Mumbai BKC (the primary location and the same building as our HQ) and a secondary site so single-point-of-failure questions during the procurement walk-through have a real answer. Onsite analyst hours at the client's BKC / Lower Parel / Andheri MIDC / Powai / Belapur SOC are part of the engagement, not extra.",
+      "Detection content is explicitly BFSI-tuned and pattern-grounded in the actual fraud and intrusion patterns we have seen on Indian-bank estates between 2023 and 2026. The UPI layer: mule-account graph detection (multi-VPA fan-out, account-aggregator velocity, beneficiary-cluster anomalies), transaction-velocity outliers per-payee and per-payer, mandate-creation abuse on the AutoPay rail, and the UPI Lite / RuPay credit-on-UPI specific patterns that arrived with the 2024-25 NPCI guideline updates. The net-banking layer: transaction-flow tampering, OTP / 2FA bypass attempts, beneficiary-addition velocity, reconciliation-layer anomalies and the long tail of mobile-banking app re-packaging attacks. The treasury / SWIFT layer: anomalous workstation behaviour on the SWIFT-attached endpoints, MT103 / MT202 message-volume outliers, BIC-pair velocity anomalies, and the APT38-style banking-malware indicators that have hit south-Asian banks in the 2023-25 cycle. The broker / AMC layer: broker-terminal logon anomalies, OMS / RMS order-pattern oddities, algo-API authorisation-flow misuse, and the market-data-feed tampering paths SEBI CSCRF expects detected. The card layer: ATM-switch vendor activity anomalies, card-personalisation vendor command-and-control, and the FASTCash-variant detection that south-Asian banks need post-2024.",
+      "We layer this Indian-BFSI-native content on top of the CrowdStrike Falcon / Splunk SES / Microsoft Sentinel content-pack baseline and the MITRE ATT&CK enterprise + cloud + ICS matrix coverage. Every detection is mapped to MITRE technique and sub-technique, the specific RBI Cyber Resilience clause it supports, and the SEBI CSCRF / IRDAI clause where applicable — so the monthly board-grade pack writes itself from the alert ledger. The threat-hunt cadence runs weekly against the bank's data and the named-threat advisories the bank's CISO subscribes to (Mandiant, Recorded Future, Group-IB, FS-ISAC / Indian-BFSI-ISAC equivalent, the OEM-provided feeds).",
+      "Monthly reporting is in the format RBI / SEBI / IRDAI inspectors expect to read during the next supervisory visit — incident counts by severity, mean-time-to-detect (MTTD), mean-time-to-respond (MTTR), detection-engineering backlog status, named-threat coverage, top suppressed-alert classes with rationale, and the regulator-style SOC composition disclosure (analyst-bench size, shift redundancy, escalation chain). The CSITE Cell follow-up examination of a Mumbai bank typically reads exactly this format, and we ship that way deliberately. Annual third-party VAPT of the SOC itself, the SIEM and the EDR estate is included in the multi-year retainer.",
+      "Integrated incident response is built in — the same engineers running L2 / L3 detection lead containment if an alert escalates to incident. No warm-handover, no separate IR practice with a separate retainer. The IR runbook is jointly maintained with the bank's IT-security team. Quarterly tabletop exercises against Mumbai BFSI scenarios — UPI mule wave, treasury-workstation compromise, broker-terminal credential theft, ATM-switch vendor compromise, contact-centre bulk-exfiltration, partner-fintech API abuse surge — are run for the bank's executive and operations teams. The annual red-vs-blue exercise pits our SOC analysts against Macksofy's red-team practice (run as a separate-team Chinese-wall engagement under purple-team rules) and the joint after-action review feeds the next year's detection-engineering backlog.",
+      "Onsite analyst hours at the bank's BKC, Lower Parel, Andheri MIDC, Powai or Belapur SOC are part of the engagement footprint, not a separate line item. Most clients use them for handover during the in-house team's leave windows, for the sensitive-incident-handling that has to be physically inside the bank's SOC (typically when DFIR-grade evidence preservation is needed and the data cannot leave the bank's network), and for the quarterly RBI Cyber Resilience supervisory visits where the regulator's inspection team wants the SOC analyst present and reachable. The BKC-anchored bench means the onsite presence is hours, not days, to mobilise.",
+      "Commercial terms align with the Mumbai BFSI procurement norm. Multi-year retainer, banded SIEM-ingestion footprint, transparent named-resource pricing for the analyst bench, the standard breach-notification clauses RBI / SEBI / IRDAI mandate, and the explicit detection-engineering IP-transfer clause so every rule, parser and playbook stays in the bank's tenant at the end of the engagement. No vendor-proprietary content-pack lock-in, no exit cost. The bank's CISO can lift-and-shift the SOC content into a different MSSP at any renewal — we design the engagement to be portable on purpose, and that is what keeps the retainer honest.",
+    ],
+    buyerConcerns: [
+      "RBI Cyber Resilience operational SOC requirements + SOC composition disclosure",
+      "SEBI CSCRF + IRDAI Information & Cyber Security monthly reporting cadence",
+      "UPI mule-account graphs, AutoPay abuse and transaction-velocity anomalies",
+      "SWIFT / treasury workstation behavioural detection + MT103 / MT202 outliers",
+      "Broker-terminal credential abuse, OMS / RMS anomalies and market-data tampering",
+      "ATM-switch / card-personalisation vendor activity + FASTCash-variant detection",
+      "Contact-centre bulk-customer-data exfiltration on the BPO-extended estate",
+      "Co-managed on the client's own Splunk / Sentinel / Chronicle SIEM — no lock-in",
+      "Integrated IR retainer staffed by the same team running the SOC",
+    ],
+    differentiators: [
+      "Indian-BFSI-native detection content — UPI mule graphs, MT103 / MT202 outliers, broker-terminal anomalies, FASTCash-variant detection — not generic CIS / MITRE content packs.",
+      "BKC-anchored 24x7 analyst bench in the same building as our HQ — onsite mobilisation in hours, not days, to any Mumbai BFSI SOC.",
+      "Co-managed on the client's own SIEM with detection-engineering ownership shared and IP contractually transferred — no vendor-portal lock-in.",
+      "Integrated IR retainer staffed by the same engineers running the SOC — no warm-handover, no separate IR contract.",
+      "Annual independent third-party VAPT of the SOC, SIEM and EDR estate included — the audit report goes directly to the bank's IS auditor.",
+      "Annual red-vs-blue with the Macksofy red-team practice under Chinese-wall purple-team rules — the after-action review feeds detection-engineering directly.",
+    ],
+    seoDescription:
+      "24x7 BKC-anchored Managed SOC in Mumbai for BFSI — banks, NBFCs, brokers, insurers. RBI Cyber Resilience, SEBI CSCRF and IRDAI aligned. Co-managed Splunk / Sentinel.",
+    keywords: [
+      "managed SOC Mumbai",
+      "24x7 SOC Mumbai BFSI",
+      "RBI Cyber Resilience SOC Mumbai",
+      "SEBI CSCRF SOC Mumbai",
+      "Splunk SOC Mumbai BKC",
+      "Sentinel managed SOC Mumbai",
+      "co-managed SOC Mumbai",
+      "UPI fraud detection SOC",
+      "SWIFT monitoring SOC Mumbai",
+      "MSSP Mumbai BFSI BKC",
+    ],
+    stats: [
+      { value: "24x7x365", label: "BKC-anchored analyst bench" },
+      { value: "Hours", label: "Onsite mobilisation across MMR" },
+      { value: "Indian-BFSI", label: "Native detection content" },
+      { value: "Annual VAPT", label: "Of the SOC + SIEM + EDR (included)" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Stack Onboarding + Use-case Inventory",
+        activities: [
+          "SIEM (Splunk / Sentinel / Chronicle / QRadar) ingestion + parser baseline",
+          "EDR (CrowdStrike / SentinelOne / Defender) integration as-is",
+          "Indian-BFSI use-case inventory — UPI, treasury, broker, card, BPO, partner-fintech",
+          "L1 / L2 / L3 handoff runbook + RBI-style SOC composition disclosure draft",
+        ],
+      },
+      {
+        phase: "02 · BFSI Detection Engineering",
+        activities: [
+          "UPI mule-graph + AutoPay mandate-abuse + transaction-velocity rules",
+          "SWIFT MT103 / MT202 + BIC-pair anomaly rules for treasury-attached endpoints",
+          "Broker-terminal logon + OMS / RMS order-pattern + algo-API authz rules",
+          "ATM-switch / card-personalisation vendor + FASTCash-variant detection",
+        ],
+      },
+      {
+        phase: "03 · 24x7 Operations",
+        activities: [
+          "BKC-anchored bench with secondary-site redundancy + onsite analyst hours included",
+          "L1 / L2 triage on client's SIEM tenant — rules and parsers owned by the bank",
+          "Weekly threat-hunt against bank's data + Mandiant / Recorded Future / FS-ISAC feeds",
+          "Daily detection-engineering backlog stand-up with bank's AppSec / IT-Sec lead",
+        ],
+      },
+      {
+        phase: "04 · Integrated IR",
+        activities: [
+          "Same engineers escalate L3 → incident containment with DFIR-grade evidence preservation",
+          "Quarterly Mumbai BFSI tabletop scenarios (UPI mule wave, treasury, broker, ATM, BPO)",
+          "Annual red-vs-blue with Macksofy red-team under Chinese-wall purple-team rules",
+          "Regulator-reportable incident handling with CERT-In 6-hour SLA pre-defined",
+        ],
+      },
+      {
+        phase: "05 · Regulator Reporting + Annual Audit",
+        activities: [
+          "Monthly RBI Cyber Resilience + SEBI CSCRF + IRDAI board-grade pack",
+          "Quarterly CISO + audit-committee review pack with named-threat coverage",
+          "Annual third-party VAPT of the SOC + SIEM + EDR included in retainer",
+          "RBI CSITE Cell supervisory-visit support — analyst present onsite during inspection",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Private + PSU banks",
+        blurb:
+          "BKC / Worli / Belapur HQ banks — UPI, net-banking, treasury and SWIFT-attached endpoint monitoring focus.",
+      },
+      {
+        name: "NBFCs + Housing Finance",
+        blurb:
+          "Multi-tenant SaaS-style lending platforms + branch-tablet auth + NPCI sub-member sponsorship paths.",
+      },
+      {
+        name: "Stock brokers + DPs",
+        blurb:
+          "BSE / NSE / NSDL / CDSL connected broker terminals — OMS / RMS / algo-API anomaly detection under CSCRF.",
+      },
+      {
+        name: "Asset Management Companies",
+        blurb:
+          "BKC + Worli AMCs — SEBI CSCRF reporting + investor-portal abuse + partner-distributor API monitoring.",
+      },
+      {
+        name: "Insurers (life, general, health)",
+        blurb:
+          "Powai + Andheri MIDC insurer HQs — IRDAI Information & Cyber Security cadence + claims / TPA fraud detection.",
+      },
+      {
+        name: "Listed fintechs + payment aggregators",
+        blurb:
+          "Lower Parel + BKC fintech HQs — RBI PA-PG guidelines + PCI-DSS overlay + partner-fintech API abuse focus.",
+      },
+    ],
+    deliverables: [
+      "24x7x365 BKC-anchored SOC operations on client's own SIEM stack",
+      "Indian-BFSI-native detection content pack deployed to client tenant (transferred IP)",
+      "Monthly RBI Cyber Resilience + SEBI CSCRF + IRDAI board-grade reporting pack",
+      "Integrated IR retainer with DFIR-grade evidence preservation",
+      "Quarterly Mumbai BFSI tabletop exercises + annual red-vs-blue with Macksofy red team",
+      "Annual third-party VAPT of the SOC, SIEM and EDR estate (included)",
+      "Onsite analyst hours at BKC / Lower Parel / Andheri MIDC / Powai / Belapur SOC",
+      "RBI CSITE Cell supervisory-visit support with analyst present onsite during inspection",
+    ],
+    caseStudy: {
+      industry: "Mumbai-headquartered private bank (BKC) — Splunk + CrowdStrike co-managed",
+      scope:
+        "24x7 co-managed SOC on existing Splunk Enterprise + CrowdStrike Falcon, BFSI detection content deployment, integrated IR retainer + quarterly RBI Cyber Resilience reporting cycle",
+      outcome:
+        "MTTD reduced from 102 min to 11 min over 9 months · UPI mule-graph detection identified INR 4.7 Cr of attempted fraud in Q4 · MT103 outlier detection caught APT38-style probe on treasury-attached endpoint inside 22 minutes · RBI CSITE Cell follow-up cleared SOC-side evidence with zero observations · annual SOC + SIEM VAPT closed with one medium-severity finding.",
+    },
+    faqs: [
+      {
+        q: "Is your SOC physically in Mumbai or is it remote-only?",
+        a: "Both — the primary analyst bench is BKC-anchored in the same building as our HQ, with a secondary-site redundancy footprint. Onsite mobilisation to any Mumbai BFSI SOC is in hours, not days. Onsite analyst hours at the client's SOC are part of the engagement, not extra.",
+      },
+      {
+        q: "Will the detection content stay with us at contract end?",
+        a: "Yes — contractually transferred IP. Every rule, parser, playbook and runbook is deployed into your own SIEM tenant from day one and is yours to keep. The bank's CISO can lift-and-shift the SOC content to a different MSSP at any renewal. That portability is what keeps the retainer honest.",
+      },
+      {
+        q: "Do you have detection content specifically for UPI, SWIFT and broker-terminal abuse?",
+        a: "Yes — that is the entire point of the offering. UPI mule-graph detection, AutoPay mandate-abuse, transaction-velocity outliers, SWIFT MT103 / MT202 BIC-pair anomalies, broker-terminal logon + OMS / RMS order-pattern detection, ATM-switch / card-personalisation vendor activity rules, FASTCash-variant detection. All deployed into your SIEM tenant and yours to keep.",
+      },
+      {
+        q: "How do you handle the RBI Cyber Resilience supervisory visit?",
+        a: "We treat the supervisory visit as a planned event in the engagement, not a fire drill. The analyst is present onsite during the inspection, the monthly RBI-format reports are pre-organised in the format the CSITE Cell reads, the SOC composition disclosure is current, and the named-threat coverage matrix is reconciled against the supervisory team's expectations. We have closed Mumbai bank inspections with zero observations on SOC-side evidence.",
+      },
+      {
+        q: "What is your IR response model?",
+        a: "Same engineers — the L2 / L3 detection team escalates to incident containment directly with DFIR-grade evidence preservation. No warm-handover delay, no separate IR retainer, no different bench. The IR runbook is jointly maintained with the bank's IT-security team and exercised quarterly.",
+      },
+      {
+        q: "Do you handle SEBI CSCRF + IRDAI alongside RBI in one engagement?",
+        a: "Yes — most Mumbai BFSI clients straddle two or three regulators (the bank with its broker / AMC subsidiary, the insurer with its TPA arm). The monthly reporting pack covers RBI Cyber Resilience, SEBI CSCRF and IRDAI Information & Cyber Security from the same evidence base — no double-handling.",
+      },
+      {
+        q: "Is the SOC itself audited?",
+        a: "Yes — annual independent third-party VAPT of the SOC, the SIEM and the EDR estate is included in the multi-year retainer. The audit report goes directly to the bank's IS auditor and the audit committee.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 6 · Bengaluru × Web Application Security
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "bengaluru",
+    serviceSlug: "web-application-security",
+    headline:
+      "Web App Security Testing in Bengaluru · SaaS",
+    lead:
+      "Manual-first web app security testing for Bengaluru SaaS, product and GCC teams in ORR, Embassy Tech Village, Koramangala and Whitefield — OWASP ASVS L2 / L3, API Security Top 10, GraphQL, SOC 2 + ISO 27001 mapped.",
+    body: [
+      "Bengaluru web-application security buyers are mostly product CTOs, AppSec leads, platform engineers and security champions embedded in engineering — not compliance officers, and not procurement. They want testing that catches the bugs auto-scanners miss, written in a form their engineers can act on without translation, delivered against a release cadence that does not assume the product team stops shipping for the duration of the engagement. They also want vendor consultants who have written code, can read the team's stack from a quick repo walk, and do not need a Burp-friendly target deployment built from scratch to test against. That is the bar the Bengaluru SaaS belt has set since the 2020-21 wave of unicorn-scale AppSec hires raised the floor — and that is the only bar we play to.",
+      "Our testing baseline is OWASP ASVS Level 2 with Level 3 controls layered for product teams in regulated verticals (BFSI fintechs, healthtech, US-enterprise-target SaaS). API Security Top 10 (2023 edition) is treated as first-class scope, not an after-thought — most Bengaluru products are API-led with thin web front-ends, and the actual attack surface lives in the OpenAPI / GraphQL schema, the gateway authz layer and the partner-integration tokens. GraphQL gets explicit field-level authorisation, depth-limit and batch-query abuse testing because the dominant Bengaluru GraphQL anti-pattern is endpoint-level authz with object-level authz quietly delegated to the ORM. We also test gRPC + Connect-RPC stacks where the product has moved beyond REST.",
+      "Beyond the schema, we test business-logic abuse — the bugs scanners cannot find. Multi-step workflow tampering, race conditions in payment / refund / subscription flows, IDOR variants on tenant-scoped resources, BOLA chains across the partner-integration surface, OAuth / OIDC scope misuse and refresh-token replay, SSO assertion injection (Okta / Azure AD / Google Workspace / PingFederate as IdPs), and multi-tenant data isolation on shared-database SaaS designs. The last is the single most common bug class we close on Bengaluru SaaS — tenant separation enforced by a where-clause that some new code path forgot to apply, and the auto-scanner happily reports zero issues because every endpoint returns 200. We probe row-level-security on PostgreSQL, partition keys on DynamoDB / Cosmos, and the index-template predicate on Elasticsearch / OpenSearch deployments. Most of these are invisible to scanners and to inexperienced manual testers, and they are the bugs the enterprise customer's CISO will find on the next vendor questionnaire if we do not.",
+      "Reports are written for developers and consumed by engineers. Every finding ships with Burp / Postman / curl repro (depending on the team's tool of choice), a mapped CWE and OWASP ASVS reference, a remediation snippet in the project's language (TypeScript / Node / Python / Go / Java / Ruby — we match the stack), and a Jira-importable CSV that fits the team's existing field schema. For teams that prefer the GitHub workflow we file findings as private repository Issues with the security label and the SLA-class set, ready for the AppSec lead to triage. We do not deliver 200-page PDFs that go unread. The same evidence is mapped to OWASP ASVS, SOC 2 CC controls and ISO 27001 Annex A so a single engagement closes both the compliance and the AppSec asks at once.",
+      "Kickoff is onsite at the client's office — Outer Ring Road (Bellandur / Marathahalli / Sarjapur), Embassy Tech Village, Koramangala, Indiranagar, Whitefield, Electronic City. Senior consultants travel from Mumbai BKC for kickoff, threat-modelling whiteboard and exit-review; the actual testing runs against staging environments hosted on AWS Mumbai, AWS Singapore or GCP asia-south1. Typical scope of one product takes 2-3 weeks plus a 1-week re-test, with critical and high findings re-validated post-fix at no extra cost. For larger products with web + mobile + multiple APIs + admin console + partner-integration surface we run a 5-6 week engagement with a phased deliverable cadence so the AppSec team is not blocked on a single final report.",
+      "Continuous-testing retainers are available for product teams shipping weekly or fortnightly. The retainer model: a quarterly full-coverage run, a monthly delta test against new product surface (new endpoints, new auth flows, new partner integrations, new tenant boundaries), and a same-day Slack-bridge channel for the AppSec lead to flag bugs found in production for joint root-cause review. The retainer is priced against the actual code-velocity of the product, not against an arbitrary headcount, and the detection-engineering hand-off back to the team's security champion is the explicit deliverable of every quarter.",
+      "We run a short developer brief at the end of every engagement — 60 minutes with the engineering team to walk through the highest-impact findings, the classes of bug behind them, and the secure-by-default patterns to put into the codebase so the next sprint stops introducing the same issues. Pre-commit hooks, eslint-plugin-security configurations, Semgrep rules tuned to the team's bug history, a tenant-scoping middleware contract, an authz-decorator pattern for the GraphQL resolver layer — whatever is the highest-ROI guardrail for the next quarter's code velocity. Most clients see findings drop by half on the second annual VAPT after that briefing, which is the explicit success metric of the engagement.",
+      "For Bengaluru SaaS teams preparing for SOC 2 Type II, ISO 27001:2022 surveillance or an enterprise customer's pre-sales security review (the Fortune-500 buyer's CISO questionnaire that arrives in the back half of the sales cycle), we shape the VAPT report so the same artefact answers all three at once — the SOC 2 auditor reviewing CC7.1 / CC7.2, the ISO 27001 surveillance assessor reviewing Annex A 8.* controls, and the enterprise customer's CISO running through the vendor-pack. The OWASP ASVS L2 / L3 attestation, the sanitised executive summary, the remediation timeline and the MITRE ATT&CK mapping all live in the same document. No separate evidence pack to assemble later. For bug-bounty programmes (HackerOne, Bugcrowd, Intigriti) running in parallel, we calibrate the engagement scope against the bounty's existing coverage so the spend does not double up on what the crowd already finds.",
+    ],
+    buyerConcerns: [
+      "Business-logic abuse missed by scanners (workflow tampering, race conditions, refund-flow exploits)",
+      "IDOR / BOLA variants and broken object-level authorisation on partner-API surface",
+      "OAuth / OIDC scope misuse, refresh-token replay and SSO assertion injection",
+      "GraphQL field-level authz, depth-limit and batch-query abuse",
+      "Multi-tenant data isolation on shared-DB SaaS — row-level-security probing",
+      "API Security Top 10 (2023) coverage on REST + gRPC + Connect-RPC stacks",
+      "OWASP ASVS L2 / L3 evidence for SOC 2 + ISO 27001 + enterprise vendor reviews",
+      "Findings developers will actually action (Jira CSV / GitHub Issues, not 200-page PDFs)",
+      "Continuous-testing retainer aligned to fortnightly release trains",
+    ],
+    differentiators: [
+      "OWASP ASVS L2 / L3 testing with explicit business-logic abuse coverage — not scanner output with a manual sanity pass.",
+      "API Security Top 10 + GraphQL + gRPC scope as first-class — most Bengaluru product attack surface lives there, not the web front-end.",
+      "Findings delivered as Jira CSV or private GitHub Issues with language-specific remediation snippets in TypeScript / Node / Python / Go / Java / Ruby — pull-request-ready.",
+      "60-minute developer brief at engagement close with secure-by-default patterns (Semgrep rules, authz decorators, tenant-scoping middleware) tuned to the team's bug history.",
+      "Continuous-testing retainer priced against actual code velocity, with monthly delta tests against new product surface — not an arbitrary headcount.",
+      "Single artefact answers SOC 2 Type II auditor + ISO 27001 surveillance assessor + enterprise CISO vendor pack — no separate evidence assembly later.",
+    ],
+    seoDescription:
+      "Manual-first web app security testing in Bengaluru for SaaS, product and GCC teams — OWASP ASVS L2 / L3, API Security Top 10, GraphQL, SOC 2 + ISO 27001 mapped.",
+    keywords: [
+      "web application security testing Bengaluru",
+      "web app pentest Bangalore",
+      "OWASP ASVS testing Bengaluru",
+      "API Security Top 10 pentest Bangalore",
+      "GraphQL security testing Bengaluru",
+      "SaaS web security audit Bangalore",
+      "business logic pentest Bengaluru",
+      "SOC 2 web app testing Bangalore",
+      "multi-tenant SaaS pentest",
+      "Bengaluru AppSec consultant",
+    ],
+    stats: [
+      { value: "OWASP ASVS L2/L3", label: "Primary testing baseline" },
+      { value: "2-3 weeks", label: "Typical engagement + 1 week re-test" },
+      { value: "Half", label: "Findings drop on 2nd annual VAPT post-brief" },
+      { value: "Jira + GitHub", label: "Native handoff formats" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Threat Model + Scoping",
+        activities: [
+          "Onsite whiteboard at ORR / Embassy Tech Village / Koramangala / Whitefield",
+          "Architecture review — auth, tenancy, partner integrations, payment / refund flows",
+          "OpenAPI / GraphQL schema review + scope confirmation against API Security Top 10",
+          "Test-data + tenant setup for multi-tenant isolation probing",
+        ],
+      },
+      {
+        phase: "02 · Manual-first Testing",
+        activities: [
+          "Business-logic abuse — workflow tampering, race conditions, refund / subscription flows",
+          "IDOR / BOLA variants + OAuth scope misuse + refresh-token replay + SSO assertion injection",
+          "GraphQL field-level authz + depth limits + batch-query abuse + introspection abuse",
+          "Multi-tenant isolation — RLS probing, partition-key abuse, index-template predicate tests",
+        ],
+      },
+      {
+        phase: "03 · Developer-grade Reporting",
+        activities: [
+          "Burp / Postman / curl repro per finding mapped to CWE + OWASP ASVS + API Top 10",
+          "Remediation snippet in project's language (TS / Node / Python / Go / Java / Ruby)",
+          "Jira-importable CSV with team's existing field schema",
+          "Optional private GitHub Issues with security label + SLA class",
+        ],
+      },
+      {
+        phase: "04 · Compliance Crosswalk",
+        activities: [
+          "Same evidence mapped to SOC 2 CC7.1 / CC7.2 + ISO 27001 Annex A 8.* controls",
+          "Sanitised executive summary + MITRE ATT&CK mapping for enterprise vendor pack",
+          "OWASP ASVS L2 / L3 attestation page for compliance auditor",
+          "Bug-bounty calibration memo if HackerOne / Bugcrowd / Intigriti programme is live",
+        ],
+      },
+      {
+        phase: "05 · Brief + Re-test + Retainer",
+        activities: [
+          "60-minute developer brief with secure-by-default patterns + Semgrep / lint rules",
+          "1-week re-test of all critical and high findings included in base SoW",
+          "Optional continuous-testing retainer with monthly delta + quarterly full coverage",
+          "Same-day Slack-bridge channel for AppSec lead during retainer period",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "B2B SaaS",
+        blurb:
+          "Series-A through listed B2B SaaS in ORR + Koramangala — multi-tenant isolation + enterprise-CISO vendor-pack focus.",
+      },
+      {
+        name: "Fintech + payments + lending",
+        blurb:
+          "RBI-regulated fintech HQs in Indiranagar + Koramangala — refund / chargeback / mandate flow abuse focus.",
+      },
+      {
+        name: "Healthtech",
+        blurb:
+          "ABDM / Ayushman Bharat ecosystem players — DPDP Act + HIPAA-overlay scope for US-bound revenue.",
+      },
+      {
+        name: "GCC product teams",
+        blurb:
+          "Fortune-500 GCC product teams in Embassy Tech Village + Whitefield — parent-mandated AppSec baseline.",
+      },
+      {
+        name: "Edtech + creator economy",
+        blurb:
+          "Edtech / community / creator-tools SaaS in Koramangala + Indiranagar — partner-API + UGC moderation surface.",
+      },
+      {
+        name: "Logistics + mobility tech",
+        blurb:
+          "Logistics / mobility / delivery platforms — partner-portal + driver-app + tenant-of-tenant authz surface.",
+      },
+    ],
+    deliverables: [
+      "OWASP ASVS L2 / L3 attestation page + finding-level ASVS mapping",
+      "API Security Top 10 (2023) + GraphQL field-level authz finding pack",
+      "Multi-tenant isolation report with RLS / partition-key / index-template probe results",
+      "Burp / Postman / curl repro per finding with language-specific remediation snippet",
+      "Jira-importable CSV + optional private GitHub Issues handoff",
+      "SOC 2 CC7.1 / CC7.2 + ISO 27001 Annex A 8.* crosswalk in same artefact",
+      "Sanitised executive summary + MITRE ATT&CK mapping for enterprise vendor pack",
+      "60-minute developer brief slide deck + Semgrep / lint rule recommendations",
+    ],
+    caseStudy: {
+      industry: "Bengaluru-headquartered Series-D B2B SaaS (Embassy Tech Village)",
+      scope:
+        "Full-coverage web + REST API + GraphQL + admin-console + partner-integration testing across 14 microservices, OWASP ASVS L2 with L3 layered for the regulated module + SOC 2 Type II evidence",
+      outcome:
+        "37 findings closed in 6 weeks · 4 critical multi-tenant isolation paths remediated before the next enterprise customer's vendor review · 11 GraphQL field-level authz fixes shipped as a single PR · SOC 2 Type II issued in same audit cycle · findings dropped 54% on the following year's engagement after the developer brief.",
+    },
+    faqs: [
+      {
+        q: "Do you test API Security Top 10 + GraphQL or just web?",
+        a: "All three as first-class scope — most Bengaluru products are API-led with thin web front-ends, and the real attack surface lives in the OpenAPI / GraphQL schema. We test REST against API Security Top 10 (2023), GraphQL with field-level authz / depth-limit / batch-query / introspection abuse, and gRPC + Connect-RPC where the team has moved beyond REST. The web front-end gets a separate OWASP ASVS pass against the dynamic-rendering surface and the SPA / SSR specifics.",
+      },
+      {
+        q: "How do you handle multi-tenant isolation on shared-DB SaaS?",
+        a: "Active probing across the tenancy boundary. We provision multiple test tenants, probe row-level-security on PostgreSQL, partition keys on DynamoDB / Cosmos, index-template predicates on Elasticsearch / OpenSearch, the partition-by clause on the analytics warehouse (Snowflake / BigQuery / Redshift), and the where-clause coverage on every microservice's data-access layer. Tenant separation enforced by a where-clause that some new code path forgot to apply is the single most common bug class we close.",
+      },
+      {
+        q: "Will the report be readable by my engineers, not just my compliance officer?",
+        a: "Yes — that is the entire delivery model. Every finding has Burp / Postman / curl repro in the team's tool of choice, a CWE + ASVS reference, a remediation snippet in the project's language, and a Jira-importable CSV that matches the team's existing field schema. For teams on GitHub we file findings as private repo Issues with the security label set. The 60-minute developer brief at engagement close is built around the engineers, not the compliance officer.",
+      },
+      {
+        q: "Can the same engagement close SOC 2 + ISO 27001 + enterprise vendor pack?",
+        a: "Yes — single artefact, three audiences. SOC 2 Type II auditor reviewing CC7.1 / CC7.2, ISO 27001:2022 surveillance assessor reviewing Annex A 8.* controls, enterprise customer's CISO running through the vendor pack. OWASP ASVS L2 / L3 attestation page, sanitised executive summary, MITRE ATT&CK mapping, remediation timeline — all in the same document. No separate evidence assembly later.",
+      },
+      {
+        q: "Do you run a continuous-testing retainer for our fortnightly release train?",
+        a: "Yes — quarterly full-coverage run plus monthly delta test against new product surface (new endpoints, new auth flows, new partner integrations, new tenant boundaries), priced against actual code velocity rather than an arbitrary headcount. The same-day Slack-bridge channel is included so the AppSec lead can flag production bugs for joint root-cause review.",
+      },
+      {
+        q: "Will you calibrate against our HackerOne / Bugcrowd / Intigriti programme?",
+        a: "Yes — we ship a bug-bounty calibration memo at kickoff so the engagement scope does not duplicate what the crowd already finds. The bounty programme covers the wide attack surface; the engagement covers the deep business-logic and multi-tenant isolation paths the bounty rarely reaches. Both feed the same Semgrep rule pack at engagement close.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 7 · Dubai × VAPT
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "dubai",
+    serviceSlug: "vapt",
+    headline:
+      "VAPT Services in Dubai · DIFC & Fintech",
+    lead:
+      "VAPT for Dubai banks, DIFC fintechs, JLT family offices and Business Bay payment institutions — mapped to UAE IAS (NESA), DFSA Technology Risk, DESC ISR, UAE Federal PDPL and CERT-In format.",
+    body: [
+      "Dubai's cyber regulatory map sits across multiple bodies, and every VAPT scope has to clear them in a single engagement. At the federal level there is the UAE Cybersecurity Council and the Telecommunications and Digital Government Regulatory Authority (TDRA) operating the UAE Information Assurance Standards (UAE IAS, the framework historically branded NESA) plus the Federal Personal Data Protection Law (PDPL 2021) under the UAE Data Office. Inside the Dubai International Financial Centre (DIFC) there is the Dubai Financial Services Authority (DFSA) Technology Risk module (GEN 5 / GEN 6) plus the DIFC Data Protection Law 2020 under the DIFC Commissioner of Data Protection. Inside Abu Dhabi Global Market (ADGM) — where many Dubai-related family offices and asset managers also licence — there is the Financial Services Regulatory Authority (FSRA) cyber expectations. For any Dubai-government or semi-government entity there is the Dubai Electronic Security Centre (DESC) Information Security Regulation (ISR) v2, with the registered-auditor pre-qualification and the prescribed audit cycle. A long shadow falls from the parent groups in London (PRA / FCA), Singapore (MAS TRM) and Mumbai (RBI / SEBI) for the BFSI subsidiaries we test in DIFC. The deliverable has to clear all of these on first read.",
+      "We test Dubai BFSI estates — DIFC-regulated banks, payment institutions, broker-dealers and family offices in JLT (Jumeirah Lakes Towers), Business Bay and DIFC Gate Village — with scopes mapped to UAE IAS (NESA) Tier-1 / Tier-3 control profiles, DFSA Technology Risk GEN 5 / GEN 6, DESC ISR v2 (where the entity is Dubai-government-adjacent), DIFC Data Protection Law and UAE Federal PDPL where customer-data flows touch the federal layer. Reports include the CERT-In empanelment for groups with India-side parent regulatory reporting (SBI / HDFC / ICICI / Kotak / Axis Dubai branches, Indian fintech-group DIFC entities), alongside the UAE-side evidence. The control crosswalk is per-finding, not at the cover page — a finding on an unprotected admin endpoint cites GEN 6.1, UAE IAS T3.6, DESC ISR v2 §7.* and CWE-306 all on the same row.",
+      "Common Dubai scope patterns we have delivered against: DIFC-regulated entity core banking + customer portal with the FAB / Emirates NBD / Mashreq / RAKBANK regional-bank integrations; payment-institution APIs (settlement, payout, FX, remittance corridors into India / Pakistan / Egypt / Philippines) under the Central Bank of UAE Retail Payment Services and Card Schemes Regulation; broker-dealer trading systems connecting to Nasdaq Dubai / DFM / ADX / international venues; family-office portal and document-vault platforms (typically Asset Vantage / Eton Solutions / FundCount style); the corporate IT estate at DIFC Gate Village, JLT cluster and Business Bay towers; and the embedded-finance / partner-API flows where DIFC Innovation Hub fintechs sit between a licensed bank and a customer-facing SaaS. For the family-office segment we additionally test the bilingual Arabic / English document-vault search authz and the cross-jurisdiction beneficial-owner data path.",
+      "Senior consultants travel from Mumbai BKC — Emirates / IndiGo / Air India Express direct flights from BOM make next-day onsite kickoff routine in DIFC, JLT, Business Bay or Bur Dubai. For longer engagements we keep a UAE-resident lead consultant onsite throughout the testing window, holding a UAE work permit / freelance visa and an Emirates ID — the same person on kickoff, mid-engagement and final sign-off. Onsite testing days at the client's DIFC Gate Village, JLT cluster or Business Bay tower office are arranged with the building's tenant-services team in advance because most Dubai BFSI towers require pre-cleared visitor passes and contractor escort even for inside-tenant work. We have the working knowledge of the building-conventions across DIFC Gate Village 1-11, ICD Brookfield, Index Tower, Almas Tower, HDS Tower, JBC clusters in JLT and the Business Bay Bay Square / Bay Avenue / U-Bora towers.",
+      "Engagement contracts and data-handling agreements are drafted under UAE law where the client operates as a DIFC / ADGM entity (with the DIFC Courts / ADGM Courts jurisdiction clause), with mirror clauses for India-side parent groups where applicable. Test data, evidence, working artefacts and report drafts stay inside UAE jurisdiction for the duration of the engagement — encrypted on consultant endpoints under UAE PDPL Article 22 cross-border transfer constraints, with the sign-off retention aligned to DFSA / FSRA / DESC record-keeping requirements (typically seven years for DFSA, five for DESC ISR). The data-processor / data-controller designation under DIFC DP-Law and UAE PDPL is explicit in the engagement letter, and the breach-notification chain (72 hours to DIFC Commissioner / UAE Data Office) is pre-wired.",
+      "Adversary modelling for Dubai BFSI is regionally grounded. We test against the actual TTPs hitting Gulf-region financial-sector entities in the 2023-26 cycle — FIN8-style financial-actor footholds on payment-institution treasury endpoints, MuddyWater / APT34 phishing pretexts tuned for UAE business norms, LAPSUS$-style IdP-compromise scenarios on Azure AD / Okta / PingFederate tenants (the pattern that hit two Dubai banks in 2024-25), ALPHV / RansomHub affiliate footholds on third-party IT-services vendors with DIFC access, and the family-office-specific business-email-compromise and beneficial-owner-information-exfiltration patterns the regional CISO group has flagged repeatedly at the FS-ISAC MEA chapter. Each finding is mapped to the TTP, the threat actor most likely to weaponise it and the detection rule the bank's SOC should add — handed off as part of the engagement.",
+      "Reporting is in the format each regulator reads. DFSA Technology Risk evidence is in the table layout the supervisor's risk-based-supervision template asks for; DESC ISR v2 evidence is in the audit-pack format the registered-auditor list expects (Macksofy is on the DESC registered-auditor route via our regional partner with name-listed senior consultants); UAE IAS evidence is in the UAE IAS Tier-3 control-profile pack; UAE Federal PDPL evidence is in the data-fiduciary register format the UAE Data Office reads; CERT-In evidence is in the empanelled-auditor letter for India-side parent reporting. One engagement, one evidence base, five regulator-readable artefacts. Re-testing of all critical and high findings is included in the base SoW with a 30-day window aligned to the strictest regulator's remediation SLA.",
+      "Commercial nuance is local. Engagement billing is in AED with a 5% UAE VAT line, invoiced from our regional billing entity to keep the client's books clean against the FTA Tax Procedures Law. Payment terms align with the DIFC / ADGM tenant-services norm (net-30 from invoice, with the standard UAE late-payment escalation through the DIFC Courts small-claims pathway only as a last resort — which has not been needed). We coordinate with the client's UAE-resident company secretary or legal counsel on the engagement-letter execution to keep the DIFC Authority filing record consistent.",
+    ],
+    buyerConcerns: [
+      "UAE IAS (NESA) Tier-1 / Tier-3 evidence quality for federal-level reporting",
+      "DFSA Technology Risk module GEN 5 / GEN 6 compliance for DIFC entities",
+      "DESC ISR v2 alignment for Dubai-government and semi-government clients",
+      "DIFC Data Protection Law 2020 + UAE Federal PDPL 2021 data-flow evidence",
+      "Payment-institution API abuse — settlement, payout, FX, remittance corridors",
+      "DIFC Innovation Hub partner-API and embedded-finance flow security",
+      "Family-office document-vault authz + bilingual Arabic / English search",
+      "Parallel CERT-In empanelment for India-side parent reporting (SBI / HDFC / ICICI Dubai)",
+      "Five regulator-readable artefacts from one engagement evidence base",
+    ],
+    differentiators: [
+      "Single VAPT generates parallel evidence for UAE IAS (NESA), DFSA, FSRA, DESC ISR, DIFC DP-Law, UAE PDPL and CERT-In — not separate engagements per regulator.",
+      "DIFC / JLT-resident lead consultant for longer engagements with UAE work permit + Emirates ID, plus direct Mumbai BKC fly-in for kickoff and exit review.",
+      "Working knowledge of building-tenant conventions across DIFC Gate Village 1-11, ICD Brookfield, Index Tower, Almas Tower, HDS Tower, JBC and Bay Square / U-Bora.",
+      "Embedded-finance + partner-API scoping built around DIFC Innovation Hub fintech architectures, not generic web-app pentest scope.",
+      "Engagement letter under UAE law / DIFC Courts jurisdiction with UAE PDPL Article 22 cross-border data-handling discipline — evidence stays in UAE.",
+      "Regional adversary modelling against MuddyWater / APT34 / FIN8 / LAPSUS$ / ALPHV TTPs that have hit Gulf-region financial-sector entities in 2023-26.",
+    ],
+    seoDescription:
+      "VAPT in Dubai for DIFC banks, fintechs, broker-dealers and family offices — NESA / UAE IAS, DFSA, DESC ISR, UAE PDPL, DIFC DP-Law and CERT-In. UAE-resident leads.",
+    keywords: [
+      "VAPT services Dubai",
+      "VAPT DIFC fintech",
+      "Dubai bank penetration testing",
+      "NESA UAE IAS VAPT",
+      "DFSA technology risk audit",
+      "DESC ISR VAPT Dubai",
+      "JLT cybersecurity",
+      "Business Bay VAPT",
+      "family office VAPT Dubai",
+      "DIFC Innovation Hub pentest",
+    ],
+    stats: [
+      { value: "3 hr", label: "Mumbai BKC → DXB direct flight" },
+      { value: "5 regulators", label: "Parallel artefacts from one engagement" },
+      { value: "UAE-resident", label: "Lead consultant for long engagements" },
+      { value: "AED + VAT", label: "Local billing entity" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Regulator Mapping + Engagement Letter",
+        activities: [
+          "UAE IAS / DFSA / FSRA / DESC ISR / DIFC DP-Law / UAE PDPL applicability scoping",
+          "CERT-In empanelment overlay for India-side parent reporting (where relevant)",
+          "Engagement letter under UAE law + DIFC Courts jurisdiction + UAE PDPL Article 22 data-handling",
+          "Onsite badge process across DIFC Gate Village / JLT / Business Bay tenant-services teams",
+        ],
+      },
+      {
+        phase: "02 · Threat Model + Scope",
+        activities: [
+          "Regional adversary modelling — MuddyWater / APT34 / FIN8 / LAPSUS$ / ALPHV TTPs",
+          "Application architecture review — DIFC core-banking, payment APIs, family-office vault",
+          "DIFC Innovation Hub partner-API + embedded-finance flow mapping",
+          "Bilingual Arabic / English UI test-plan for family-office and Dubai-government scope",
+        ],
+      },
+      {
+        phase: "03 · Test Execution",
+        activities: [
+          "Net-banking / customer-portal / mobile-app testing on DIFC bank estate",
+          "Payment-institution API testing — settlement, payout, FX, remittance corridor",
+          "Broker-dealer OMS / RMS + venue-connectivity testing (Nasdaq Dubai / DFM / ADX)",
+          "Family-office document-vault authz + beneficial-owner data-path testing",
+        ],
+      },
+      {
+        phase: "04 · Five-Regulator Reporting",
+        activities: [
+          "DFSA Technology Risk evidence in supervisor's risk-based-supervision template",
+          "DESC ISR v2 audit pack in registered-auditor route format",
+          "UAE IAS Tier-3 control-profile pack + UAE PDPL data-fiduciary register entries",
+          "DIFC DP-Law DPIA + CERT-In empanelled letter for India-side parent reporting",
+        ],
+      },
+      {
+        phase: "05 · Re-test + Records Retention",
+        activities: [
+          "30-day re-test of critical / high findings aligned to strictest regulator SLA",
+          "Records-retention sign-off (DFSA 7-year + DESC ISR 5-year + DIFC DP-Law)",
+          "Detection-engineering hand-off to client SOC + SIEM tuning backlog",
+          "Closure ledger filed with each regulator's preferred submission channel",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "DIFC-licensed banks",
+        blurb:
+          "DIFC Gate Village + ICD Brookfield bank branches — DFSA Technology Risk + UAE PDPL cross-border focus.",
+      },
+      {
+        name: "Payment institutions",
+        blurb:
+          "Business Bay + JLT licensed PIs — Central Bank Retail Payment Services + remittance-corridor abuse focus.",
+      },
+      {
+        name: "DIFC Innovation Hub fintechs",
+        blurb:
+          "Embedded-finance + partner-API fintechs in DIFC Gate Village — bank-fintech federation testing scope.",
+      },
+      {
+        name: "Family offices + asset managers",
+        blurb:
+          "JLT + DIFC family offices — bilingual document-vault authz + beneficial-owner data-path focus.",
+      },
+      {
+        name: "Broker-dealers + market makers",
+        blurb:
+          "Nasdaq Dubai / DFM / ADX connected broker-dealers — OMS / RMS + venue-connectivity scope.",
+      },
+      {
+        name: "MNC Dubai regional HQs",
+        blurb:
+          "Internet City / Media City / JLT regional HQs running MEA business — parent-group reporting overlay.",
+      },
+    ],
+    deliverables: [
+      "DFSA Technology Risk evidence pack in supervisor's risk-based-supervision template format",
+      "DESC ISR v2 audit pack in registered-auditor route format (for Dubai-government-adjacent clients)",
+      "UAE IAS (NESA) Tier-3 control-profile pack + closure recommendation",
+      "DIFC Data Protection Law DPIA + UAE Federal PDPL data-fiduciary register entries",
+      "CERT-In empanelled auditor letter for India-side parent reporting",
+      "Per-finding crosswalk across all five regulators on one row (GEN 6 / UAE IAS / DESC ISR / CWE / CERT-In)",
+      "30-day re-test closure ledger aligned to strictest regulator remediation SLA",
+      "Detection-engineering recommendations + SIEM tuning backlog handed to client SOC",
+    ],
+    caseStudy: {
+      industry: "DIFC-licensed payment institution (Gate Village) — settlement + FX + remittance corridor APIs",
+      scope:
+        "VAPT across customer portal, settlement API, FX engine, remittance-corridor partner APIs (India / Pakistan / Egypt / Philippines) + DFSA Technology Risk GEN 6 evidence + UAE PDPL data-fiduciary register + CERT-In letter for India-side parent",
+      outcome:
+        "29 findings closed in 5 weeks · 4 critical remittance-corridor authz paths remediated before next DFSA risk-based-supervision review · DFSA evidence pack accepted first read · DIFC DP-Law DPIA covering 11 processing activities + 3 cross-border transfer mechanisms · CERT-In letter filed with India parent without rework.",
+    },
+    faqs: [
+      {
+        q: "Do you understand DFSA Technology Risk GEN 5 / GEN 6 specifically?",
+        a: "Yes — that is the table format the DFSA risk-based-supervision template asks for, and the evidence pack we ship is in that format. We have closed DFSA reviews for DIFC payment institutions and DIFC fintech entities with the supervisor accepting the evidence on first read. The crosswalk per finding cites the exact GEN 6 sub-clause alongside the technical detail.",
+      },
+      {
+        q: "Can you handle DESC ISR v2 alongside DFSA in one engagement?",
+        a: "Yes — where the entity is Dubai-government-adjacent and falls under both. The DESC ISR v2 audit pack is in the registered-auditor route format and we deliver it via the regional partner who carries the DESC registered-auditor listing, with our senior consultants name-listed on the engagement. Evidence is collected once, presented in each regulator's preferred format.",
+      },
+      {
+        q: "Do you have UAE-resident consultants?",
+        a: "Yes — for longer engagements we keep a UAE-resident lead consultant onsite throughout the testing window, holding a UAE work permit / freelance visa and an Emirates ID. The same person is on kickoff, mid-engagement and final sign-off. For shorter engagements senior consultants fly Mumbai BKC → DXB direct (3 hours) for kickoff and exit review with onsite testing days bracketed in between.",
+      },
+      {
+        q: "How does the engagement letter handle UAE PDPL Article 22 cross-border data?",
+        a: "The engagement letter is drafted under UAE law with DIFC Courts jurisdiction (or ADGM Courts where the client is ADGM-licensed), with explicit data-processor / data-controller designation under DIFC DP-Law and UAE PDPL. Test data, evidence, working artefacts and report drafts stay inside UAE jurisdiction for the engagement — encrypted on consultant endpoints — with the records-retention aligned to DFSA 7-year + DESC ISR 5-year + DIFC DP-Law requirements.",
+      },
+      {
+        q: "Will you produce the CERT-In letter for our India-side parent?",
+        a: "Yes — where the client is the Dubai branch / subsidiary of an Indian parent (SBI Dubai, HDFC Dubai, ICICI Dubai, Indian fintech-group DIFC entity), we ship the CERT-In empanelled auditor letter alongside the UAE-side artefacts so the India parent's RBI / SEBI reporting cycle picks up the engagement without rework. One evidence base, two-jurisdiction reporting.",
+      },
+      {
+        q: "Do you handle family-office-specific scope?",
+        a: "Yes — family-office portal authz, document-vault (Asset Vantage / Eton Solutions / FundCount style) testing, bilingual Arabic / English search and the beneficial-owner data-path testing across DIFC + JLT family-office estates. The business-email-compromise + beneficial-owner exfiltration patterns specific to the segment are part of the standard threat-model.",
+      },
+      {
+        q: "Is the engagement billed in AED with UAE VAT?",
+        a: "Yes — billed in AED with the 5% UAE VAT line, invoiced from our regional billing entity to keep the client's books consistent against the FTA Tax Procedures Law. Payment terms align with the DIFC / ADGM tenant-services norm (net-30 from invoice).",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 8 · Dubai × Red Teaming
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "dubai",
+    serviceSlug: "red-teaming",
+    headline:
+      "Red Team Operations in Dubai · BFSI & Gov",
+    lead:
+      "Intelligence-led red team operations in Dubai — DIFC BFSI, Smart Dubai semi-government, DXB / DWC airline-airport estates — mapped to UAE IAS, DESC ISR, TIBER-style frameworks and DFSA supervisor expectations.",
+    body: [
+      "Dubai red-team buyers split across four distinct demand segments and each demands a different scenario library. DIFC-regulated BFSI (banks, payment institutions, broker-dealers, asset managers) wants intelligence-led adversary simulation against money-movement, settlement, FX and DIFC-regulated customer-data systems, mapped to UAE IAS (NESA), DFSA Technology Risk and the TIBER-style frameworks the parent group runs in London / Frankfurt / Singapore. Smart Dubai semi-government and Dubai-government entities want scenarios against citizen-services, DigitalDubai / UAE PASS integrations and the OT / smart-infrastructure boundary, mapped to DESC ISR v2 with pre-agreed rules-of-engagement filed with the Dubai Electronic Security Centre directly. The airline and airport estates (Emirates Group at Dubai International Airport DXB, dnata, Dubai Airports operating DXB and DWC) want scenarios against passenger systems, cargo / freight, ground operations and the airport-OT boundary, with the operational-safety constraints of an Annex 17 ICAO regulated environment. Regional HQs of multinationals running MEA business from JLT / Internet City / Business Bay want red-team exercises against MEA-mandate fraud and supply-chain compromise patterns, with the parent group's TIBER / CBEST / iCAST framework alignment carried through.",
+      "For DIFC BFSI we run intelligence-led adversary simulations: open-source recon of DIFC Gate Village exec teams, their vendor ecosystem, public-disclosure leakage (DIFC Authority filings, DFSA approved-persons register, LinkedIn drift); spear-phishing pretexts tuned for regional norms (Eid timing, Ramadan working hours, the regional-board-meeting cadence, the DSF / GITEX / Future Investment Initiative event-window pretext); initial-access via the embedded-finance / partner-API surface or a third-party IT-services vendor compromise; lateral via Azure AD / Okta / PingFederate IdP-token theft and ADCS misuse (the LAPSUS$ pattern that hit two Dubai banks in 2024-25); exploitation chains targeting payment / settlement / FX, DIFC-regulated client-data, MT103 / MT202 SWIFT BIC traffic on the treasury-attached endpoints, and the family-office beneficial-owner-information stores. Scenarios are explicitly mapped to NESA UAE-IAS, DFSA Technology Risk and the parent group's TIBER / CBEST / iCAST control catalogue so the same engagement produces the regulator artefact, the parent-group artefact and the actionable detection-engineering backlog.",
+      "For Smart Dubai and semi-government clients we model adversary access to citizen-services platforms (Dubai Now app and the upstream DigitalDubai service mesh), the UAE PASS digital-identity integration and the OT / smart-infrastructure boundary touching traffic (RTA), utilities (DEWA), smart-building (Emaar / Damac / Majid Al Futtaim portfolios), and the Dubai Police / Smart-Police digital-services adjacency. Rules-of-engagement are pre-agreed with DESC directly, with the white-cell composition disclosed and the audit-trail-of-every-adversary-action retention period set at five years in tamper-evident storage. This is not optional in Dubai — it is the difference between an authorised exercise and a regulatory incident, and DESC's enforcement disposition has hardened materially since the 2023 review of the ISR v2 framework.",
+      "For airline and airport estates we run scenarios that respect the operational-safety constraints of an Annex 17 regulated environment. The Emirates Group estate includes passenger-services (booking, check-in, lounge access, the boarding-pass / e-ticket trust chain), cargo (Emirates SkyCargo, Cargo IS), crew systems, and the ground-handling adjacency with dnata. The Dubai Airports estate includes passenger-flow (PSCRM systems, e-gate biometrics, the EmaratechGo integration), baggage handling, ramp operations, and the airport-OT boundary including ground-radar, ramp-power-distribution and HVAC. Red-team scope inside these environments is strictly out-of-band on customer-impacting flows and pre-cleared with the airline / airport safety-and-security committee — adversary-action retention is in tamper-evident storage with the same disposition DESC expects, and CERT-In incident-reporting overlap is pre-wired where the airline group has Indian operations.",
+      "Engagements run 6-10 weeks for a DIFC BFSI scenario, 8-12 weeks for a Smart Dubai semi-government scenario including the OT / smart-infrastructure boundary, and 10-14 weeks for an airline / airport scenario with the safety-and-security committee oversight. Onsite kickoff is in DIFC, Business Bay, Internet City or the airline / airport operations HQ depending on the client. We keep a UAE-resident lead consultant onsite throughout the operation, with senior support flying in from Mumbai BKC for the major reviews — the operational-planning review, the mid-operation pulse with the white cell, and the after-action review with the client board.",
+      "Physical pretexting is rehearsed against actual Dubai building conventions, not US / European templates. Visitor passes at DIFC Gate Village run through the Gate Village Reception with tenant pre-clearance and Emirates ID scan; contractor escort policy varies across DIFC Gate Village 1-11, ICD Brookfield and Index Tower with different default service-tier expectations; out-of-hours access workflows in Business Bay towers vary by building manager (Bay Square versus U-Bora versus Bay Avenue have visibly different practices); JLT cluster reception varies across JBC clusters and HDS Tower. The pretext rehearsal explicitly covers regional norms — the working-week is Monday-Friday (Sunday is a workday only in some Dubai-government entities), the prayer-time pattern affects building-foot-traffic windows, the Eid and National Day calendar affects courier-and-vendor traffic, and the Arabic-English language defaults across reception staff vary across DIFC versus Business Bay versus Internet City.",
+      "Reports are dual-language where required (English primary, Arabic for Dubai-government and federal handover) and dual-format for the regulator + parent-group consumers. DESC ISR v2 attestation, NESA UAE-IAS Tier-3 evidence, DFSA Technology Risk supervisor-template detail and the parent group's TIBER / CBEST / iCAST artefact — same operation, same evidence, four-way artefact. The detection-engineering backlog handed to the client SOC at engagement close is the actionable output the SOC team uses to close the detection gaps the operation surfaced — typically 20-40 SIEM rule additions, 5-10 EDR detection-tuning items and a small number of architecture-level guardrails the bank's enterprise architecture team adopts in the next quarter's release.",
+      "Commercial nuance is local. Engagements are letter-of-authorisation-led — the client board issues a formal letter authorising the operation with the explicit scope, white-cell composition, rules-of-engagement and indemnity scope; we counter-sign and the letter is filed with the client's legal counsel for the operation's duration plus the five-year retention period DESC expects. Billing is in AED with the 5% UAE VAT line, invoiced from our regional billing entity. For Dubai-government-adjacent operations the engagement letter additionally references the DESC pre-notification record so any DESC-side inquiry during the operation is met with the pre-agreed white-cell escalation chain.",
+    ],
+    buyerConcerns: [
+      "DIFC BFSI money-movement, settlement, FX and SWIFT BIC-traffic attack paths",
+      "Smart Dubai citizen-services + UAE PASS digital-identity integration risk",
+      "Airline / airport (DXB / DWC) passenger-services + cargo + ramp-OT boundary",
+      "OT / smart-infrastructure boundary scenarios (RTA, DEWA, Emaar / Damac / MAF buildings)",
+      "UAE IAS (NESA) Tier-3 + DESC ISR v2 + DFSA supervisor-template evidence",
+      "Parent-group TIBER / CBEST / iCAST framework alignment with one operation",
+      "Phishing pretext realism tuned for UAE business norms + Arabic-English bilingual",
+      "Regulator-friendly purple-team handover with SIEM tuning backlog to client SOC",
+      "Letter-of-authorisation with five-year DESC-aligned retention and indemnity scope",
+    ],
+    differentiators: [
+      "Scenario library specific to Dubai's four demand segments — DIFC BFSI, Smart Dubai semi-government, DXB / DWC airline-airport, MEA regional HQ — not US-bank templates.",
+      "UAE-resident lead consultant on the engagement throughout, with senior support from Mumbai BKC for board reviews — not a fly-in-fly-out red team.",
+      "Single operation produces parallel artefacts for UAE IAS, DESC ISR v2, DFSA supervisor template and the parent group's TIBER / CBEST / iCAST control catalogue.",
+      "Physical pretext rehearsal calibrated against DIFC Gate Village / ICD Brookfield / Bay Square / U-Bora / JBC / HDS building conventions, prayer-time patterns and the Eid / National Day calendar.",
+      "DESC pre-notification + white-cell composition discipline for Dubai-government-adjacent operations — the difference between an authorised exercise and a regulatory incident.",
+      "Annex 17 ICAO operational-safety constraint awareness for airline / airport scope — out-of-band on customer-impacting flows + safety-and-security committee oversight.",
+    ],
+    seoDescription:
+      "Intelligence-led red team operations in Dubai for DIFC BFSI, Smart Dubai, DXB / DWC airline-airport and MEA regional HQs — UAE IAS, DESC ISR v2, DFSA + TIBER-style.",
+    keywords: [
+      "red team Dubai",
+      "red teaming DIFC bank",
+      "Smart Dubai red team",
+      "DESC ISR v2 red team",
+      "NESA UAE IAS red team",
+      "adversary simulation Dubai",
+      "DIFC fintech red team",
+      "Dubai airport red team",
+      "Emirates Group red team",
+      "purple team Dubai SOC",
+    ],
+    stats: [
+      { value: "4 segments", label: "DIFC · Smart Dubai · DXB-DWC · MEA HQ" },
+      { value: "6-14 wk", label: "Operation duration by scope" },
+      { value: "5 years", label: "DESC-aligned retention in tamper-evident storage" },
+      { value: "20-40", label: "SIEM rule additions handed to client SOC" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Letter of Authorisation + DESC Notification",
+        activities: [
+          "Board-issued letter of authorisation + white-cell composition disclosure",
+          "DESC pre-notification record for Dubai-government-adjacent operations",
+          "Rules-of-engagement + indemnity scope + tamper-evident retention setup",
+          "Parent-group TIBER / CBEST / iCAST control-catalogue alignment confirmation",
+        ],
+      },
+      {
+        phase: "02 · Intelligence + Threat Model",
+        activities: [
+          "Open-source recon — DIFC Authority filings, DFSA register, LinkedIn drift, vendor mapping",
+          "Regional adversary modelling — MuddyWater / APT34 / FIN8 / LAPSUS$ / ALPHV TTPs",
+          "Pretext development tuned for UAE business norms + Arabic-English bilingual",
+          "Building-convention reconnaissance — DIFC Gate Village / ICD Brookfield / Bay Square / JBC / HDS",
+        ],
+      },
+      {
+        phase: "03 · Initial Access + Lateral",
+        activities: [
+          "Spear-phishing + vishing + physical pretext per agreed rules-of-engagement",
+          "Embedded-finance / partner-API / third-party-vendor compromise paths",
+          "Azure AD / Okta / PingFederate IdP-token theft + ADCS misuse",
+          "Lateral to money-movement / DIFC-customer-data / SWIFT-attached endpoints",
+        ],
+      },
+      {
+        phase: "04 · Objective + Operational Discipline",
+        activities: [
+          "Crown-jewel objective achievement under pre-agreed rules-of-engagement",
+          "Adversary-action audit-trail in tamper-evident storage (DESC 5-year disposition)",
+          "Safety-and-security committee touchpoint for airline / airport scope",
+          "Out-of-band discipline on customer-impacting flows (Annex 17 / DFSA-sensitive systems)",
+        ],
+      },
+      {
+        phase: "05 · Purple Handover + Four-way Reporting",
+        activities: [
+          "Purple-team replay with client SOC + SIEM tuning backlog (20-40 rules typical)",
+          "UAE IAS Tier-3 + DESC ISR v2 + DFSA supervisor template + TIBER artefact",
+          "Bilingual English / Arabic report where required (Dubai-government + federal handover)",
+          "Board-level after-action review with detection-engineering recommendations",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "DIFC-regulated BFSI",
+        blurb:
+          "Banks, payment institutions, broker-dealers and asset managers — money-movement / FX / SWIFT BIC scenarios.",
+      },
+      {
+        name: "DIFC Innovation Hub fintechs",
+        blurb:
+          "Embedded-finance + partner-API fintechs — bank-fintech federation compromise scenarios.",
+      },
+      {
+        name: "Smart Dubai + semi-government",
+        blurb:
+          "Citizen-services + UAE PASS + DigitalDubai service mesh + Dubai Police adjacency under DESC ISR v2.",
+      },
+      {
+        name: "Emirates Group + dnata",
+        blurb:
+          "Passenger-services + cargo + ground-handling under Annex 17 ICAO operational-safety constraints.",
+      },
+      {
+        name: "Dubai Airports (DXB + DWC)",
+        blurb:
+          "Passenger-flow + baggage + ramp-OT scenarios with the airport safety-and-security committee oversight.",
+      },
+      {
+        name: "MEA regional HQs",
+        blurb:
+          "JLT / Internet City / Business Bay HQs running MEA business — TIBER / CBEST / iCAST framework alignment.",
+      },
+    ],
+    deliverables: [
+      "Board-issued letter of authorisation + DESC pre-notification record (where applicable)",
+      "UAE IAS (NESA) Tier-3 red-team evidence pack",
+      "DESC ISR v2 attestation pack in registered-auditor route format",
+      "DFSA Technology Risk supervisor-template detail for DIFC-regulated entities",
+      "Parent-group TIBER / CBEST / iCAST artefact aligned to the parent's control catalogue",
+      "Bilingual English / Arabic report where Dubai-government / federal handover required",
+      "Purple-team SIEM tuning backlog handed to client SOC (20-40 rule additions typical)",
+      "Adversary-action audit-trail in tamper-evident storage (DESC 5-year retention)",
+    ],
+    caseStudy: {
+      industry: "DIFC-licensed bank (Gate Village) — TIBER-style operation with parent group in London",
+      scope:
+        "8-week intelligence-led red-team objective — reach SWIFT-attached treasury endpoint and MT103 issuance privileges without SOC detection, with DESC pre-notification + parent-group TIBER control-catalogue alignment + DFSA Technology Risk evidence overlay",
+      outcome:
+        "Initial access via spear-phish against MEA-corporate-banking lead during DSF event-window; lateral via Azure AD token theft + ADCS misconfiguration; MT103 issuance privilege reached at D+12 with 14 missed alerts mapped to SIEM rule gaps; 31 detection-engineering items handed to client SOC and parent-group global SOC; DESC ISR v2 evidence pack accepted first read; TIBER artefact filed with parent-group PRA reporting cycle.",
+    },
+    faqs: [
+      {
+        q: "Do you operate under DESC ISR v2 pre-notification discipline?",
+        a: "Yes — for any Dubai-government-adjacent operation, DESC pre-notification is a hard pre-requisite. The white-cell composition is disclosed, the rules-of-engagement are filed, and the adversary-action audit-trail is retained in tamper-evident storage for the five-year disposition DESC expects. Operating outside this discipline in Dubai is the difference between an authorised exercise and a regulatory incident, and DESC's enforcement disposition has hardened materially since the 2023 ISR v2 review.",
+      },
+      {
+        q: "Can a single operation generate the TIBER / CBEST / iCAST artefact for our parent group?",
+        a: "Yes — alongside UAE IAS Tier-3, DESC ISR v2 attestation and DFSA Technology Risk supervisor-template evidence. Same operation, same evidence base, four-way artefact. We confirm the parent's specific framework (TIBER-EU, TIBER-DE, CBEST UK PRA, iCAST HKMA, ABS-RAFT, MAS AAP) at letter-of-authorisation stage and align the operational reporting accordingly.",
+      },
+      {
+        q: "Do you have UAE-resident red-team consultants?",
+        a: "Yes — for the duration of every operation we keep a UAE-resident lead consultant onsite, holding a UAE work permit / freelance visa and Emirates ID. Senior support flies from Mumbai BKC for the major reviews — operational-planning, mid-operation pulse with the white cell, and the board after-action review. Fly-in-fly-out red teams do not work in Dubai because the building-convention rehearsal and the pretext realism require continuous presence.",
+      },
+      {
+        q: "How do you handle the Emirates Group / Dubai Airports operational-safety constraints?",
+        a: "Annex 17 ICAO operational-safety constraint awareness is built in. Red-team scope inside the airline / airport estate is strictly out-of-band on customer-impacting flows (no actions that touch live booking, check-in, boarding-pass, baggage-handling or ramp operations), pre-cleared with the safety-and-security committee, and the operational-planning review explicitly excludes any scenario that could degrade flight-safety or passenger-throughput. Within those constraints, the cargo / freight, crew systems, ground-handling-adjacent IT and the corporate IT estate remain in scope.",
+      },
+      {
+        q: "What does the bilingual reporting cover?",
+        a: "English primary report with Arabic translation for Dubai-government and federal handover where required. Both versions are reviewed and signed by the same engagement lead so the technical detail and the regulator-readable summary stay consistent. For DIFC private-sector and MEA-regional-HQ clients the report is typically English-only; Arabic is added where the client board includes Emirati nationals or where the federal regulator (TDRA / UAE Cybersecurity Council) is in the recipient list.",
+      },
+      {
+        q: "What is the purple-team handover model?",
+        a: "Purple-team replay with the client SOC + SIEM tuning backlog. The 20-40 SIEM rule additions, 5-10 EDR detection-tuning items and architecture-level guardrails are walked through with the SOC team in a half-day session at engagement close. The detection-engineering backlog goes into the client's own tenant — the SOC owns the rules, not us — and the after-action review is filed with the board with the closure timeline committed.",
+      },
+      {
+        q: "Is the engagement letter-of-authorisation-led?",
+        a: "Yes — board-issued letter of authorisation with explicit scope, white-cell composition, rules-of-engagement, indemnity scope and (for Dubai-government-adjacent operations) DESC pre-notification reference. We counter-sign and the letter is filed with the client's legal counsel for the operation's duration plus the five-year retention period DESC expects. Operating without a current letter-of-authorisation is not negotiable.",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 9 · UAE × Cloud Security
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    citySlug: "uae",
+    serviceSlug: "cloud-security",
+    headline:
+      "Cloud Security Audit in the UAE · Federal",
+    lead:
+      "Cloud security audit across the UAE on AWS Bahrain / UAE, Azure UAE North / Central, OCI Abu Dhabi, Google Cloud Dammam and G42 sovereign cloud — UAE IAS, DESC ISR v2, ADHICS, DFSA / FSRA and Smart Dubai cloud-first policy aligned.",
+    body: [
+      "UAE cloud-security audits sit under a layered regulatory stack that no global Big-4 cloud-audit template handles cleanly. UAE IAS (NESA) at the federal level via the UAE Cybersecurity Council and TDRA, with the Critical Information Infrastructure Protection (CIIP) overlay for designated sectors. Dubai Electronic Security Centre (DESC) Information Security Regulation v2 for any Dubai-government and semi-government workload, with the Smart Dubai cloud-first policy directing public-sector workloads to approved cloud regions. Abu Dhabi Health Information and Cyber Security (ADHICS) for any healthcare workload in Abu Dhabi (DOH-regulated hospitals, clinics, payers and the Malaffi health-information exchange). SIA / TDRA cloud-policy for licensed telecom and digital-government operators. DFSA / FSRA technology-risk modules for free-zone BFSI in DIFC and ADGM respectively. UAE Federal PDPL 2021 for personal-data-processing workloads with the UAE Data Office cross-border-transfer overlay. Audits have to evidence the right controls per workload, not a single relabelled global template — and the inspector will not accept a CIS-only scorecard.",
+      "We audit UAE cloud estates across the full set of regions that actually serve UAE workloads. AWS Bahrain (me-south-1) plus the AWS UAE Local Zone (Dubai) when available, with cross-region pairing to AWS Bahrain or AWS Frankfurt depending on the residency obligation; Microsoft Azure UAE North (Dubai) and UAE Central (Abu Dhabi) as the primary federal-residency-acceptable pairing; Oracle Cloud Infrastructure Abu Dhabi region used by several federal and semi-government workloads; Google Cloud Dammam (me-central-2) where UAE BFSI has chosen GCP as the analytics fabric and the Bahrain / KSA cross-region is the BCP design; and the G42 / Core42 sovereign-cloud regions (Khazna data centres, the Etisalat / e& enterprise cloud, the Bayanat-adjacent geospatial cloud) for the federal-ministry workloads that require sovereign hosting under the UAE Cybersecurity Council guidance. We also audit the hybrid links back to on-prem datacentres in Khazna (Abu Dhabi), Equinix DX1 / DX2 (Dubai), Etisalat / e&-operated colocation sites, and the operator-specific managed-services overlays.",
+      "Findings are mapped per workload to UAE IAS Tier-1 / Tier-3 control profiles, DESC ISR v2 cloud-specific controls (the v2 update introduced cloud-operations-specific evidence requirements absent from v1), ADHICS Section 4 (technical controls) for healthcare workloads, DFSA Technology Risk GEN 6 cloud annex for DIFC BFSI, FSRA cloud-risk expectations for ADGM, SIA / TDRA cloud-policy for licensed operators, ISO 27017 / 27018 for the cloud-baseline crosswalk, and the CIS AWS / Azure / OCI / GCP Foundations Benchmarks for the technical scorecard layer. UAE Federal PDPL Article 22 cross-border-transfer evidence is recorded per workload with the UAE Data Office submission template where in scope. Data residency, sovereignty (the distinction matters under UAE law — residency-in-region is not the same as sovereign-control-of-operations), and KMS / HSM key-custody arrangements are evidenced explicitly per workload.",
+      "Common scopes we deliver against: a federal-ministry workload on a G42 / Core42 sovereign-cloud region with the cross-region DR design and the UAE Cybersecurity Council CIIP applicability assessment; a Dubai-government / semi-government smart-services platform (the kind of workload that anchors Smart Dubai initiatives) with DigitalDubai / UAE PASS integration audit and the DESC ISR v2 cloud-controls pack; an ADHICS-regulated healthcare workload on Azure UAE North with the Malaffi HIE integration and the DOH-specific evidence; a DFSA-regulated BFSI workload in DIFC running on AWS Bahrain primary and Frankfurt DR with the GEN 6 cloud annex evidence; a FSRA-regulated ADGM asset-management workload on Azure UAE Central with the cross-region pairing to UAE North; a multinational regional-HQ workload spanning UAE and onward to KSA (SAMA CSF / NCA ECC-2 overlay), Egypt, Bahrain or Oman; and the federal-CIIP designated workload running across multiple emirates with the per-emirate audit reconciliation.",
+      "Engagements run 4-6 weeks for a single-cloud single-workload audit, 6-8 weeks for a multi-cloud landing zone, 8-10 weeks for a federal-CIIP designated workload audit with cross-emirate reconciliation, and 10-12 weeks for the largest multi-cloud + sovereign-cloud hybrid estates. Onsite kickoff is in Dubai (DIFC / Business Bay / Internet City), Abu Dhabi (Al Maryah Island / ADGM / Khalifa City) or Sharjah depending on the client. A UAE-resident lead consultant remains onsite throughout the engagement, with Mumbai BKC senior support flying in for the board reviews and the major regulator-pack walkthroughs. We coordinate directly with the hyperscaler's UAE / KSA / Bahrain account team — AWS MENA / EMEA, Microsoft Gulf, Oracle Cloud Gulf, Google Cloud MENA — and the on-prem / sovereign-cloud operator (Khazna Data Centres, Etisalat / e&, Du, G42 / Core42, Equinix Gulf) to evidence the shared-responsibility controls in one binder.",
+      "The technical audit toolset is the same regulator-grade set the Mumbai BFSI practice uses, with UAE-specific overlays. Prowler v3 + ScoutSuite + Pacu / CloudFox for AWS, with the Azure-equivalent (Azucar, PowerZure, Stormspotter) and OCI-equivalent (Cloud Guard policy review, IAM federation audit) and the GCP-equivalent (Forseti-style review, GCP IAM Recommender consumption). CrowdStrike Falcon Cloud Security or Wiz where the client already owns a CNAPP. UAE-specific add-ons: UAE PASS integration security review (OIDC / SAML federation, attribute-release minimisation, the federal-identity broker hop), DigitalDubai service-mesh attestation review, the Malaffi HIE integration audit for healthcare workloads, and the federal-CIIP applicability-determination workflow with the UAE Cybersecurity Council where the workload's CIIP status is unclear.",
+      "Reports include a federal-versus-emirate control crosswalk so a single workload running across Dubai and Abu Dhabi tenants does not get audited twice with conflicting findings — the most common pain point we see on UAE multi-emirate cloud estates, and the one that most often surfaces in CAG-equivalent UAE federal-audit-board reviews. Sovereign-cloud workloads on G42 / Core42 / Khazna get a separate sovereign-control attestation pack because the shared-responsibility model is different — the operator carries the operational-control disposition the hyperscalers do not, and the audit evidence has to reflect that. Arabic-language deliverables are produced where a UAE federal-ministry or Dubai-government entity requires them; the senior consultant on the engagement is the same person who signs both the English and the Arabic version.",
+      "Commercial terms are local. Billing in AED with the 5% UAE VAT line, invoiced from the regional billing entity. Engagement letter under UAE law (DIFC Courts jurisdiction for DIFC entities, ADGM Courts for ADGM, UAE federal courts otherwise) with explicit UAE PDPL Article 22 cross-border-transfer discipline for any evidence movement to consultant endpoints. Records-retention aligned to the strictest regulator on the engagement — typically DFSA 7 years for BFSI, DESC ISR v2 5 years for Dubai-government, ADHICS retention for healthcare, with the federal-CIIP retention overlaid where applicable. Re-testing of all critical and high findings is included in the base SoW with a 30-day window aligned to the strictest regulator's remediation SLA.",
+    ],
+    buyerConcerns: [
+      "UAE IAS (NESA) Tier-1 / Tier-3 + CIIP applicability evidence per workload",
+      "DESC ISR v2 cloud-controls pack for Dubai-government / semi-government workloads",
+      "ADHICS Section 4 technical-controls evidence for Abu Dhabi healthcare cloud estates",
+      "DFSA Technology Risk GEN 6 cloud annex + FSRA cloud-risk for free-zone BFSI",
+      "UAE Federal PDPL Article 22 cross-border-transfer record per workload",
+      "Data residency vs sovereign-control-of-operations distinction (key-custody, ops-personnel screening)",
+      "G42 / Core42 / Khazna sovereign-cloud shared-responsibility attestation",
+      "UAE PASS + DigitalDubai service-mesh + Malaffi HIE integration security",
+      "Federal-versus-emirate control crosswalk to avoid conflicting findings on multi-emirate estates",
+    ],
+    differentiators: [
+      "Per-workload mapping to UAE IAS, DESC ISR v2, ADHICS, DFSA, FSRA, SIA / TDRA, ISO 27017 / 27018 and CIS — not one global ISO / CIS report relabelled for the UAE.",
+      "Coverage of G42 / Core42 sovereign-cloud regions, UAE PASS federation, Malaffi HIE and DigitalDubai service-mesh — the parts global Big-4 cloud audits routinely skip.",
+      "UAE-resident lead consultant on the engagement throughout, with Mumbai BKC senior fly-in for board reviews — not a fly-in-fly-out model.",
+      "Federal-versus-emirate control crosswalk to avoid conflicting-finding pain on multi-emirate cloud estates — the single most common UAE federal-audit-board observation.",
+      "Arabic-language deliverables where the UAE federal-ministry or Dubai-government client requires them, signed by the same engagement lead as the English version.",
+      "CIIP applicability-determination workflow run directly with the UAE Cybersecurity Council where the workload's CIIP status is unclear — most vendors skip this and the audit fails on first read.",
+    ],
+    seoDescription:
+      "UAE cloud security audit for federal, Dubai, Abu Dhabi and free-zone workloads on AWS / Azure / OCI / GCP / G42 sovereign cloud — UAE IAS, DESC ISR v2, ADHICS, DFSA / FSRA.",
+    keywords: [
+      "cloud security audit UAE",
+      "NESA UAE IAS cloud audit",
+      "DESC ISR v2 cloud audit",
+      "ADHICS cloud audit Abu Dhabi",
+      "AWS Bahrain UAE security audit",
+      "Azure UAE North audit",
+      "G42 sovereign cloud audit",
+      "UAE PASS integration security",
+      "DFSA cloud security audit DIFC",
+      "Smart Dubai cloud-first audit",
+    ],
+    stats: [
+      { value: "8 regulators", label: "UAE IAS · DESC · ADHICS · DFSA · FSRA · SIA · TDRA · PDPL" },
+      { value: "5 clouds", label: "AWS · Azure · OCI · GCP · G42 sovereign" },
+      { value: "AR + EN", label: "Bilingual reporting where required" },
+      { value: "4-12 wk", label: "Engagement duration by scope" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Regulator + Cloud-Region Scoping",
+        activities: [
+          "Workload-by-workload regulator mapping (UAE IAS / DESC ISR v2 / ADHICS / DFSA / FSRA / SIA / PDPL)",
+          "Cloud-region pairing under UAE residency + sovereignty obligation per workload",
+          "CIIP applicability assessment with UAE Cybersecurity Council where status is unclear",
+          "Engagement letter under UAE law + UAE PDPL Article 22 cross-border-transfer discipline",
+        ],
+      },
+      {
+        phase: "02 · Control-Plane + Identity Audit",
+        activities: [
+          "AWS Organisations / Azure Management Group / OCI Compartment / GCP Resource Hierarchy review",
+          "IAM Identity Center / Entra ID / OCI IAM / GCP IAM role inventory with last-used timestamps",
+          "Pacu + Azucar + PowerZure privilege-path enumeration + SCP / Policy diff",
+          "UAE PASS / DigitalDubai / Malaffi HIE federation review per applicable workload",
+        ],
+      },
+      {
+        phase: "03 · Workload + Data-Plane Audit",
+        activities: [
+          "Prowler v3 + ScoutSuite + CNAPP (Wiz / CrowdStrike) breadth scan with UAE-tuned ruleset",
+          "CIS AWS / Azure / OCI / GCP Foundations + ISO 27017 / 27018 mapping per workload",
+          "Residency vs sovereignty evidence — region pairing, KMS / HSM key-custody, ops-personnel screening",
+          "Sovereign-cloud (G42 / Core42 / Khazna) shared-responsibility attestation per workload",
+        ],
+      },
+      {
+        phase: "04 · Detection + Hybrid Edge",
+        activities: [
+          "CloudTrail / Defender / OCI Audit / GCP Audit Logs pipeline integrity",
+          "SIEM telemetry reconciliation with client SOC (Splunk / Sentinel / Chronicle / QRadar)",
+          "Hybrid link audit — Direct Connect / ExpressRoute / FastConnect into Khazna + Equinix DX",
+          "G42 / Core42 sovereign-cloud monitoring integration where in scope",
+        ],
+      },
+      {
+        phase: "05 · Federal-Emirate Crosswalk + Arabic Pack",
+        activities: [
+          "Federal-versus-emirate control crosswalk to avoid conflicting findings on multi-emirate workloads",
+          "UAE IAS Tier-3 + DESC ISR v2 + ADHICS + DFSA / FSRA + UAE PDPL artefact pack",
+          "Arabic-language report where UAE federal-ministry / Dubai-government client requires it",
+          "30-day re-test of critical / high findings + closure ledger filed with each regulator's channel",
+        ],
+      },
+    ],
+    industries: [
+      {
+        name: "Federal ministries + CIIP-designated entities",
+        blurb:
+          "Federal workloads on G42 / Core42 sovereign cloud + Khazna hybrid — UAE Cybersecurity Council CIIP overlay.",
+      },
+      {
+        name: "Dubai-government + Smart Dubai",
+        blurb:
+          "Smart-services platforms with DigitalDubai / UAE PASS integration — DESC ISR v2 + Smart Dubai cloud-first policy.",
+      },
+      {
+        name: "Abu Dhabi healthcare (DOH-regulated)",
+        blurb:
+          "ADHICS-regulated healthcare workloads on Azure UAE North with Malaffi HIE integration audit.",
+      },
+      {
+        name: "DIFC + ADGM free-zone BFSI",
+        blurb:
+          "DFSA / FSRA regulated cloud estates on AWS Bahrain + Frankfurt or Azure UAE Central + UAE North pairing.",
+      },
+      {
+        name: "Licensed telecom + digital-government operators",
+        blurb:
+          "Etisalat / e& / du / Du Pay / Bayanat-adjacent operators under SIA / TDRA cloud-policy + PDPL overlay.",
+      },
+      {
+        name: "GCC-spread regional HQs",
+        blurb:
+          "Multinational HQs spanning UAE + KSA (SAMA / NCA) + Bahrain + Oman + Egypt with cross-emirate reconciliation.",
+      },
+    ],
+    deliverables: [
+      "UAE IAS (NESA) Tier-1 / Tier-3 + CIIP applicability evidence pack",
+      "DESC ISR v2 cloud-controls pack in registered-auditor route format",
+      "ADHICS Section 4 technical-controls evidence for healthcare workloads",
+      "DFSA Technology Risk GEN 6 cloud annex + FSRA cloud-risk evidence for free-zone BFSI",
+      "UAE Federal PDPL Article 22 cross-border-transfer record with UAE Data Office template",
+      "G42 / Core42 sovereign-cloud shared-responsibility attestation per workload",
+      "Federal-versus-emirate control crosswalk artefact for multi-emirate estates",
+      "Bilingual English / Arabic report where federal-ministry / Dubai-government required + 30-day re-test ledger",
+    ],
+    caseStudy: {
+      industry: "UAE federal ministry — multi-emirate workload on G42 sovereign cloud + Azure UAE North hybrid",
+      scope:
+        "Cloud security audit across G42 sovereign-cloud region + Azure UAE North + Khazna hybrid + UAE PASS integration; UAE IAS Tier-3 + DESC ISR v2 + UAE PDPL Article 22 + CIIP applicability assessment",
+      outcome:
+        "63 findings closed in 7 weeks · CIIP applicability determined with UAE Cybersecurity Council and codified · 12 sovereign-cloud shared-responsibility attestation gaps closed with G42 / Core42 operator counter-signature · UAE PASS attribute-release minimised across 8 service integrations · federal-emirate crosswalk filed with the federal-audit-board reconciling Dubai + Abu Dhabi tenants · bilingual English / Arabic report signed off in same engagement.",
+    },
+    faqs: [
+      {
+        q: "Do you audit G42 / Core42 sovereign cloud, or only AWS / Azure / OCI / GCP?",
+        a: "All five. The sovereign-cloud shared-responsibility model is different — the operator (G42 / Core42 / Khazna for the federal-ministry workloads, Etisalat / e& for licensed-operator workloads) carries the operational-control disposition the global hyperscalers do not, and the audit evidence has to reflect that. We produce a separate sovereign-cloud shared-responsibility attestation pack alongside the hyperscaler evidence on hybrid estates.",
+      },
+      {
+        q: "How do you handle the federal-versus-emirate control conflict on multi-emirate estates?",
+        a: "Federal-versus-emirate control crosswalk artefact, produced per workload. A workload running across a Dubai-region tenant and an Abu Dhabi-region tenant — say, an ADHICS-regulated healthcare workload on Azure UAE North with a DESC ISR v2 overlay on the Dubai-clinic-facing surface — gets audited once with a single crosswalk that reconciles the two regulators' control catalogues against the same evidence. This is the single most common UAE federal-audit-board observation we close.",
+      },
+      {
+        q: "Do you produce Arabic-language reports?",
+        a: "Yes — where the UAE federal-ministry or Dubai-government client requires them. The same engagement lead signs both the English and Arabic version so the technical detail and the regulator-readable summary stay consistent. For free-zone BFSI (DIFC / ADGM) and MNC regional-HQ clients the report is typically English-only; Arabic is added where the federal regulator (TDRA / UAE Cybersecurity Council / UAE Data Office) is in the recipient list.",
+      },
+      {
+        q: "What is the difference between data residency and sovereignty in your audit?",
+        a: "Data residency means the data sits in a specified region — that is the AWS / Azure / OCI / GCP region-selection question. Sovereignty under UAE law goes further: it requires operational-control disposition (operator-personnel screening, key-custody under jurisdiction, supply-chain provenance, the absence of foreign-state legal access) on top of region. For federal-CIIP workloads and certain Smart Dubai workloads sovereignty is mandatory, and only the G42 / Core42 sovereign-cloud and Khazna-hosted hybrid estates clear the bar. We audit both dimensions explicitly per workload.",
+      },
+      {
+        q: "Will you coordinate with our AWS / Azure / G42 account team?",
+        a: "Yes — that is required. We brief the hyperscaler's UAE / KSA / Bahrain account team (AWS MENA, Microsoft Gulf, Oracle Cloud Gulf, Google Cloud MENA) and the sovereign-cloud / on-prem operator (G42 / Core42, Khazna, Etisalat / e&, du, Equinix Gulf) on day one and pull the shared-responsibility evidence — SOC 2 Type 2, ISO 27017 / 27018, regional physical-control attestations, operator-personnel-screening attestations — directly so the binder is complete on first read.",
+      },
+      {
+        q: "Do you run the CIIP applicability determination for federal workloads?",
+        a: "Yes — where the workload's Critical Information Infrastructure Protection status is unclear we run the applicability-determination workflow directly with the UAE Cybersecurity Council. Most vendors skip this step and the audit fails on first read because the inspector cannot reconcile the workload's protection posture against an undetermined CIIP status. The determination, once made, codifies the workload's UAE IAS Tier alignment for the next audit cycle.",
+      },
+      {
+        q: "Is the engagement billed in AED with UAE VAT?",
+        a: "Yes — billed in AED with the 5% UAE VAT line, invoiced from our regional billing entity. Engagement letter under UAE law (DIFC Courts jurisdiction for DIFC entities, ADGM Courts for ADGM, UAE federal courts otherwise). Records retention aligned to the strictest regulator on the engagement — DFSA 7 years for BFSI, DESC ISR v2 5 years for Dubai-government, ADHICS retention for healthcare.",
+      },
+    ],
+  },
+];
+
+export const getCombo = (
+  city: string,
+  service: string,
+): CityServiceCombo | undefined =>
+  COMBOS.find((c) => c.citySlug === city && c.serviceSlug === service);
+
+export const COMBO_PAIRS = COMBOS.map((c) => ({
+  city: c.citySlug,
+  service: c.serviceSlug,
+}));

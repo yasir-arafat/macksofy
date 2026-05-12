@@ -22,7 +22,7 @@ import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { TrustStrip } from "@/components/TrustStrip";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, cityLocalBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { CITIES, getCityBySlug } from "@/content/cities";
 import { SERVICES } from "@/content/services";
@@ -88,30 +88,7 @@ export default async function CityPage({ params }: PageProps) {
             { name: c.name, url: `/locations/${c.slug}` },
           ]),
           faqSchema(c.faqs),
-          {
-            "@context": "https://schema.org",
-            "@type": ["LocalBusiness", "ProfessionalService"],
-            "@id": `${SITE.url}/locations/${c.slug}#localbusiness`,
-            name: `Macksofy Technologies — ${c.name}`,
-            url: `${SITE.url}/locations/${c.slug}`,
-            telephone: SITE.phone,
-            email: SITE.email,
-            priceRange: "₹₹₹",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: c.name,
-              addressRegion: c.state,
-              addressCountry: "IN",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: c.geo.lat,
-              longitude: c.geo.lng,
-            },
-            areaServed: { "@type": "City", name: c.name },
-            parentOrganization: { "@id": `${SITE.url}#organization` },
-            sameAs: Object.values(SITE.social),
-          },
+          cityLocalBusinessSchema(c),
           {
             "@context": "https://schema.org",
             "@type": "Service",
