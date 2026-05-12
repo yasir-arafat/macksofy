@@ -41,6 +41,7 @@ const BESPOKE_SLUGS = new Set([
   "penetration-testing",
   "managed-soc",
   "web-application-security",
+  "api-security",
   "mobile-application-security",
   "cloud-security",
   "red-teaming",

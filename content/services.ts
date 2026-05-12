@@ -10,6 +10,7 @@ import {
   Bug,
   Radar,
   Smartphone,
+  Webhook,
 } from "lucide-react";
 
 export interface CaseStudy {
@@ -494,23 +495,23 @@ export const SERVICES: Service[] = [
   // 4 -----------------------------------------------------------------
   {
     slug: "web-application-security",
-    title: "Web & API Security Testing",
-    shortTitle: "Web + API Security",
+    title: "Web Application Security Testing",
+    shortTitle: "Web App Pentest",
     icon: Code2,
     iconName: "Code2",
     category: "Offensive",
     popular: true,
     hero: {
-      eyebrow: "OWASP Top 10 · OWASP API Top 10 · Business Logic",
+      eyebrow: "OWASP Web Top 10 · OSWE-Led · Manual Exploitation",
       tagline: "Test web apps the way attackers (and bug bounty hunters) do.",
       description:
-        "Our Web + API Security testing goes far beyond a OWASP scanner. Manual exploitation of business-logic flaws, deep authentication and session-management testing, GraphQL/REST/gRPC coverage — by OSWE-certified consultants who do this professionally.",
+        "Browser-side web application pentesting by OSWE-certified consultants. XSS, CSRF, SSRF, file-upload abuse, deserialization, OAuth client flows, session and cookie handling, business-logic flaws — found by hand, exploited end-to-end, reported in language a developer can act on.",
     },
     realWorld:
-      "Scanners find ~30% of real-world web vulnerabilities. The remaining 70% — the BOLA, mass-assignment, JWT alg confusion, OAuth flow hijacks, race conditions and business-logic flaws — require human consultants. Macksofy weights manual testing heavily and reports findings in dev-ready language.",
+      "Scanners find ~30% of real-world web vulnerabilities. The remaining 70% — the stored-XSS chain hiding behind a content sanitizer, the OAuth state-parameter omission, the SSO redirect that opens up open-redirect-to-account-takeover, the race condition between two form submits — needs a consultant. Macksofy weights manual testing heavily and ships findings in language a developer can patch tonight.",
     businessImpact: [
-      "Catch BOLA, IDOR, mass-assignment and access-control flaws scanners miss",
-      "Validate API security before public launch",
+      "Catch stored-XSS, CSRF and SSRF chains scanners miss",
+      "Validate auth + session + cookie + CORS posture before launch",
       "Reduce post-release security bugs and customer-facing incidents",
       "Satisfy OWASP / ASVS attestation for enterprise sales cycles",
     ],
@@ -518,48 +519,48 @@ export const SERVICES: Service[] = [
       {
         phase: "1 · Scoping",
         activities: [
-          "Application + API inventory",
-          "Authentication paths and roles",
+          "Application inventory + user-role map",
+          "Authentication paths, SSO + SAML + OAuth touchpoints",
           "Test data + accounts setup",
         ],
       },
       {
         phase: "2 · Recon + mapping",
         activities: [
-          "Spider + manual crawl",
-          "Subdomain + endpoint discovery",
-          "Tech stack fingerprinting",
+          "Spider + manual crawl across every authenticated state",
+          "Subdomain + endpoint discovery, JS-route enumeration",
+          "Tech stack + framework + CMS fingerprinting",
         ],
       },
       {
         phase: "3 · Authenticated + unauthenticated testing",
         activities: [
-          "OWASP Top 10 (Web) coverage",
-          "OWASP API Top 10 coverage",
-          "Authn / authz / session testing",
+          "OWASP Web Top 10 coverage end-to-end",
+          "Authn, authz, session + cookie + CORS testing",
+          "CSP, SRI, HSTS, frame-options posture review",
         ],
       },
       {
         phase: "4 · Business logic testing",
         activities: [
-          "BOLA, IDOR, mass-assignment patterns",
-          "Race conditions, atomicity bugs",
           "Workflow bypasses (payment, KYC, approval flows)",
+          "Race conditions, atomicity bugs",
+          "Negative-amount, currency-flip, voucher-stacking abuses",
         ],
       },
       {
         phase: "5 · Manual exploitation + chains",
         activities: [
           "Confirmed exploitation, no theoretical findings",
-          "Chained low+low = critical analysis",
-          "PoC scripts for each finding",
+          "Chained low+low → critical (e.g. open-redirect + OAuth state)",
+          "PoC scripts and reproducible cURL / Burp request bundles",
         ],
       },
       {
         phase: "6 · Reporting + retest",
         activities: [
           "Per-finding remediation in dev language",
-          "CVSS 3.1 scoring",
+          "CVSS 3.1 scoring + OWASP / ASVS mapping",
           "Free retest within 30 days",
         ],
       },
@@ -570,10 +571,7 @@ export const SERVICES: Service[] = [
       "OWASP ZAP",
       "ffuf",
       "sqlmap",
-      "Postman / Insomnia",
-      "GraphQL Voyager",
-      "InQL (GraphQL recon)",
-      "JWT_tool",
+      "DOMPurify probe scripts",
       "Custom Burp extensions",
     ],
     industriesServed: [
@@ -586,47 +584,213 @@ export const SERVICES: Service[] = [
       "EdTech",
     ],
     deliverables: [
-      "OWASP Top 10 + OWASP API Top 10 attestation",
+      "OWASP Web Top 10 attestation",
       "Per-finding PoC + reproduction steps",
       "Developer-ready remediation",
-      "Postman/OpenAPI test collection",
+      "CSP / cookie / header hardening checklist",
       "Free retest within 30 days",
     ],
     caseStudies: [
       {
-        industry: "B2B SaaS (Series-B, India)",
-        scope: "Multi-tenant SaaS API audit",
-        finding: "BOLA across tenants → cross-tenant data exposure",
-        impact: "Critical — fixed pre enterprise contract signing",
+        industry: "Fintech (India, NBFC)",
+        scope: "Customer-facing portal + admin console",
+        finding: "Stored XSS in transaction-narrative field → admin takeover via session hijack",
+        impact: "Critical — fixed before RBI System Audit window",
         severity: 3,
       },
       {
-        industry: "Healthcare app (UAE)",
-        scope: "Patient portal + REST API",
-        finding: "JWT alg=none accepted; account takeover at scale",
-        impact: "Critical — fixed within 24 hours of report delivery",
+        industry: "SaaS (Series-B, UAE)",
+        scope: "Multi-tenant web app + SSO",
+        finding: "OAuth state-param omission + open redirect → 1-click account takeover",
+        impact: "Critical — fixed pre enterprise customer onboarding",
         severity: 3,
       },
     ],
     faqs: [
       {
-        q: "Do you test GraphQL?",
-        a: "Extensively — including introspection abuse, depth/complexity attacks, batching, and authorization issues that REST-trained testers miss.",
+        q: "Do you test SPAs differently from server-rendered apps?",
+        a: "Yes. React/Vue/Angular SPAs hide a lot of attack surface in JS bundles — we extract route maps from the bundle, instrument the runtime in DevTools, and test the API as it&rsquo;s called from the SPA so server-side issues don&rsquo;t hide behind client validation.",
+      },
+      {
+        q: "What about SSO / SAML / OAuth?",
+        a: "Always in scope. SAML signature stripping, SAML XSW, OAuth state omission, redirect-URI confusion, and JWT misuse on the client side are tested as a dedicated track within the engagement.",
       },
       {
         q: "Will you sign an NDA?",
         a: "Always. Mutual NDA is step 0 of every engagement.",
       },
     ],
-    seoTitle: "Web App & API Security Testing India | OSWE-Led | Macksofy",
+    seoTitle: "Web Application Security Testing India | OSWE-Led | Macksofy",
     seoDescription:
-      "Manual + automated web + API security testing. OWASP Top 10 + OWASP API Top 10. OSWE-certified consultants, dev-ready reports, free retest.",
+      "OSWE-led web application pentesting. OWASP Top 10 + business-logic + auth + SSO. Manual exploitation, dev-ready reports, free retest. India + UAE.",
     keywords: [
       "web application security testing India",
-      "API security testing Mumbai",
-      "OWASP API Top 10 India",
-      "GraphQL security audit",
-      "web pentest UAE",
+      "web app penetration testing Mumbai",
+      "OWASP Top 10 audit India",
+      "XSS CSRF SSRF testing",
+      "OSWE consultants UAE",
+      "SSO SAML OAuth security audit",
+    ],
+  },
+
+  // 4b ----------------------------------------------------------------
+  {
+    slug: "api-security",
+    title: "API Security Testing",
+    shortTitle: "API Pentest",
+    icon: Webhook,
+    iconName: "Webhook",
+    category: "Offensive",
+    popular: true,
+    hero: {
+      eyebrow: "OWASP API Top 10 · REST · GraphQL · gRPC",
+      tagline: "Test the API the same way every client will.",
+      description:
+        "Dedicated API security testing for REST, GraphQL and gRPC surfaces. BOLA, BFLA, mass-assignment, JWT and OAuth server-side flows, rate-limit and resource-consumption abuse, GraphQL introspection and depth attacks — by OSWE-certified consultants who treat the API as the product, not the website&rsquo;s backend.",
+    },
+    realWorld:
+      "Modern breaches don&rsquo;t happen at the website. They happen at the API the mobile app, the SPA and the partner integration all call. BOLA across tenants, mass-assignment that elevates a regular user to admin, JWT alg=none accepted in production, OAuth flows where one parameter swap rewrites the redirect to an attacker domain — these are the findings that move regulators, and they live below the login form, not above it.",
+    businessImpact: [
+      "Catch BOLA, BFLA, mass-assignment and access-control flaws scanners miss",
+      "Validate REST + GraphQL + gRPC posture before public release",
+      "Reduce cross-tenant data leaks and account-takeover risk",
+      "Satisfy OWASP API Top 10 attestation for enterprise sales cycles",
+    ],
+    methodology: [
+      {
+        phase: "1 · API inventory & scoping",
+        activities: [
+          "REST + GraphQL + gRPC endpoint inventory from spec, traffic and disassembly",
+          "Authentication scheme map — Bearer, OAuth, JWT, mTLS, HMAC, session",
+          "User-role + tenant-isolation model agreement",
+        ],
+      },
+      {
+        phase: "2 · Discovery + shadow-API hunt",
+        activities: [
+          "OpenAPI / Postman / swagger parse",
+          "Endpoint fuzzing (ffuf, kiterunner) for undocumented routes",
+          "Old API-version (v1, v2, beta) abandoned-but-live discovery",
+        ],
+      },
+      {
+        phase: "3 · Auth at the API layer",
+        activities: [
+          "BOLA + BFLA across roles and tenants",
+          "JWT alg confusion, alg=none, kid injection, signing-key abuse",
+          "OAuth flow abuse — state, PKCE, redirect-URI confusion server-side",
+        ],
+      },
+      {
+        phase: "4 · Object + property level testing",
+        activities: [
+          "Mass-assignment via PUT / PATCH bodies",
+          "Property-level read/write authorization bypass",
+          "GraphQL field-level authz, introspection abuse, batching attacks",
+        ],
+      },
+      {
+        phase: "5 · Resource consumption + abuse",
+        activities: [
+          "Rate-limit and quota bypass",
+          "GraphQL depth, complexity and alias attacks",
+          "Bulk endpoint + business-flow abuse (signup, password reset, OTP)",
+        ],
+      },
+      {
+        phase: "6 · Reporting + retest",
+        activities: [
+          "OWASP API Top 10 attestation + per-finding PoC",
+          "Postman / OpenAPI test collection so dev can re-validate",
+          "CVSS 3.1 scoring + free retest within 30 days",
+        ],
+      },
+    ],
+    toolStack: [
+      "Burp Suite Pro",
+      "Caido",
+      "Postman + Newman",
+      "ffuf",
+      "kiterunner (API route fuzzing)",
+      "GraphQL Voyager",
+      "InQL (GraphQL recon)",
+      "JWT_tool",
+      "grpcurl + grpcui",
+      "Custom Burp extensions",
+    ],
+    industriesServed: [
+      "Fintech & Payments",
+      "SaaS / Product (multi-tenant)",
+      "BFSI",
+      "Healthcare / HealthTech (FHIR APIs)",
+      "E-commerce",
+      "InsurTech",
+      "Open-banking / aggregator platforms",
+    ],
+    deliverables: [
+      "OWASP API Top 10 attestation",
+      "Per-finding PoC + reproduction steps",
+      "Postman / OpenAPI regression collection",
+      "Developer-ready remediation per platform",
+      "Free retest within 30 days",
+    ],
+    caseStudies: [
+      {
+        industry: "B2B SaaS (Series-B, India)",
+        scope: "Multi-tenant SaaS REST + GraphQL API",
+        finding: "BOLA across tenants via tenant-id header swap → cross-tenant data exposure",
+        impact: "Critical — fixed pre enterprise contract signing",
+        severity: 3,
+      },
+      {
+        industry: "Healthcare API (UAE)",
+        scope: "Patient portal FHIR API",
+        finding: "JWT alg=none accepted; account takeover at scale",
+        impact: "Critical — fixed within 24 hours of report delivery",
+        severity: 3,
+      },
+      {
+        industry: "Open-banking aggregator (India)",
+        scope: "Account aggregator REST API + OAuth flow",
+        finding: "Mass-assignment via PATCH /accounts → arbitrary role elevation",
+        impact: "Critical — fixed pre RBI System Audit",
+        severity: 3,
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you test GraphQL specifically?",
+        a: "Extensively. Introspection abuse, depth and complexity attacks, batching, alias overloading, and field-level authorization issues that REST-trained testers miss are a dedicated track in every GraphQL engagement.",
+      },
+      {
+        q: "What about gRPC and Protobuf APIs?",
+        a: "Yes. We use grpcurl, grpcui and custom Burp extensions to test gRPC endpoints, including reflection abuse, server-side streaming flaws, and metadata-based auth bypass.",
+      },
+      {
+        q: "Do you need OpenAPI / Postman collections to test?",
+        a: "Helpful but not required. With a spec we&rsquo;re faster; without one we run discovery + fuzzing + traffic capture to build the inventory. Black-box is supported and matches the public attacker view.",
+      },
+      {
+        q: "Can you test internal / partner-only APIs?",
+        a: "Yes. We test internal APIs through site-to-site VPN, jump-host or temporary mTLS credentials per the rules of engagement signed at scoping.",
+      },
+      {
+        q: "Will you sign an NDA?",
+        a: "Always. Mutual NDA is step 0 of every engagement.",
+      },
+    ],
+    seoTitle: "API Security Testing India | REST + GraphQL + gRPC | Macksofy",
+    seoDescription:
+      "Manual API security testing across REST, GraphQL and gRPC. OWASP API Top 10. OSWE-led consultants, Postman regression suite, dev-ready reports, free retest. India + UAE.",
+    keywords: [
+      "API security testing India",
+      "API penetration testing Mumbai",
+      "OWASP API Top 10 audit India",
+      "GraphQL security audit India",
+      "gRPC penetration testing",
+      "REST API pentest UAE",
+      "BOLA testing India",
+      "JWT OAuth API security",
     ],
   },
 

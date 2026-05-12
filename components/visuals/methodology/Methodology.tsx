@@ -46,6 +46,7 @@ const STYLE_MAP: Record<string, { style: MethodologyStyle; accent: MethodologyAc
   vapt: { style: "blueprint", accent: "cyan" },
   "managed-soc": { style: "radial", accent: "cyan" },
   "web-application-security": { style: "carddeck", accent: "amber" },
+  "api-security": { style: "journey", accent: "purple" },
   "mobile-application-security": { style: "stepper", accent: "cyan" },
   "cloud-security": { style: "journey", accent: "cyan" },
   "red-teaming": { style: "timeline", accent: "rose" },

@@ -66,7 +66,7 @@ export default function WebSecPage() {
                 <Code2 className="size-7" />
               </div>
               <h1 className="font-display text-4xl font-black sm:text-5xl lg:text-[3.4rem] text-balance leading-[1.05]">
-                Web Application &amp; API Security Testing — <span className="gradient-text">India &amp; UAE</span>.
+                Web Application Security Testing &mdash; <span className="gradient-text">India &amp; UAE</span>.
               </h1>
             </div>
             <p className="mt-6 max-w-2xl text-lg text-fg-muted text-pretty leading-relaxed">
@@ -79,41 +79,46 @@ export default function WebSecPage() {
               <LinkButton href="#owasp" variant="outline" size="lg">
                 See OWASP coverage
               </LinkButton>
+              <LinkButton href="/services/api-security" variant="outline" size="lg">
+                Need API security? →
+              </LinkButton>
             </div>
             <div className="mt-6">
               <DownloadButton
                 href="/sample-reports/pentest"
-                label="Download sample web/API report"
-                sub="OWASP API Top 10 attestation"
+                label="Download sample web pentest report"
+                sub="OWASP Web Top 10 attestation"
               />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* REQUEST INSPECTOR */}
+      {/* REQUEST INSPECTOR — browser-side framing */}
       <section className="py-20 bg-bg-1">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 items-center">
             <div className="lg:col-span-5">
-              <Eyebrow color="amber">Live request · BOLA demo</Eyebrow>
+              <Eyebrow color="amber">Live request &middot; under-the-hood</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                The bug that <span className="gradient-text">no scanner</span> finds.
+                Every form, every fetch &mdash; <span className="gradient-text">we read it</span>.
               </h2>
               <p className="mt-5 text-fg-muted text-pretty leading-relaxed">
-                Broken object-level authorization (BOLA) hides from scanners by design. Finding
-                it means guessing a second user&rsquo;s record ID and then proving the app
-                never checked who owned it — reasoning a tool can&rsquo;t do, but a human
-                tester can. Our team spends 20–30% of every web engagement here, because BOLA
-                is still the single most common cause of cross-tenant data leaks in Indian
-                fintech and SaaS.
+                A modern web app is half browser, half network. The bugs that
+                matter live in the requests your front-end sends &mdash;
+                stored XSS that hides behind a sanitiser, OAuth state-param
+                omissions, CSRF on the action that mutates user balance,
+                SSRF in the avatar-upload URL. We watch every request the app
+                sends and exploit the ones with weak server-side checks
+                behind them.
               </p>
               <ul className="mt-6 space-y-2 text-sm">
                 {[
-                  "Cross-tenant data exposure",
-                  "Mass-assignment via PATCH/PUT",
-                  "Workflow bypass (payment, KYC, approvals)",
-                  "Race-condition / atomicity bugs",
+                  "Stored / reflected / DOM-based XSS",
+                  "CSRF and SameSite cookie bypass",
+                  "Open redirect → OAuth account takeover chains",
+                  "SSRF via avatar / preview / fetch endpoints",
+                  "Race conditions and atomicity bugs",
                 ].map((b) => (
                   <li key={b} className="flex gap-3">
                     <CheckCircle2 className="size-5 text-neon-cyan shrink-0 mt-0.5" />
