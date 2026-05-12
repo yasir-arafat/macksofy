@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ArrowLeft,
   BookOpen,
-  Check,
   CheckCircle2,
   Clock,
   Layers,
@@ -49,7 +48,6 @@ const SLUG_VIEW: Record<string, View> = {
   "osep": "track",
   "oswe": "track",
   "osed": "track",
-  "osee": "track",
   cpent: "track",
   ceh: "split",
   "ceh-practical": "split",
@@ -69,47 +67,24 @@ export function Curriculum({
   const defaultView: View = SLUG_VIEW[slug] ?? "split";
   const [view, setView] = useState<View>(defaultView);
   const [active, setActive] = useState(0);
-  const [completed, setCompleted] = useState<Set<number>>(new Set());
   const [filter, setFilter] = useState("");
 
-  // Load completion state from sessionStorage on mount
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const stored = sessionStorage.getItem(`mks-curr-${slug}`);
-      if (stored) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setCompleted(new Set(JSON.parse(stored) as number[]));
-      }
-    } catch {
-      /* ignore */
-    }
-  }, [slug]);
-
-  // Persist completion changes
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      sessionStorage.setItem(
-        `mks-curr-${slug}`,
-        JSON.stringify([...completed])
-      );
-    } catch {
-      /* ignore */
-    }
-  }, [completed, slug]);
-
-  const totalHours = useMemo(
+  const totalHoursFromModules = useMemo(
     () => modules.reduce((s, m) => s + (m.durationHours ?? 0), 0),
     [modules]
   );
+  const parsedDurationHours = useMemo(() => {
+    const m = (duration ?? "").match(/(\d+)\s*hours?/i);
+    return m ? parseInt(m[1], 10) : 0;
+  }, [duration]);
+  // Trust the explicit course duration when module-level hours are missing
+  // or smaller (e.g., only a Capstone has durationHours).
+  const totalHours = Math.max(totalHoursFromModules, parsedDurationHours);
+
   const totalTopics = useMemo(
     () => modules.reduce((s, m) => s + m.topics.length, 0),
     [modules]
   );
-
-  const progressPct =
-    modules.length === 0 ? 0 : (completed.size / modules.length) * 100;
 
   const filtered = useMemo(() => {
     const q = filter.trim().toLowerCase();
@@ -123,15 +98,6 @@ export function Curriculum({
       );
   }, [modules, filter]);
 
-  const toggleComplete = (idx: number) => {
-    setCompleted((prev) => {
-      const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx);
-      else next.add(idx);
-      return next;
-    });
-  };
-
   const go = (delta: number) => {
     setActive((v) => Math.max(0, Math.min(modules.length - 1, v + delta)));
   };
@@ -141,7 +107,7 @@ export function Curriculum({
       {/* HEADER STATS BAR */}
       <div className="rounded-2xl bg-bg-2/40 ring-1 ring-line p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1 min-w-0">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 flex-1 min-w-0">
             <Stat
               icon={Layers}
               label="Modules"
@@ -154,11 +120,6 @@ export function Curriculum({
               icon={ListOrdered}
               label="Topics"
               value={String(totalTopics)}
-            />
-            <Stat
-              icon={CheckCircle2}
-              label="Progress"
-              value={`${Math.round(progressPct)}%`}
             />
           </div>
 
@@ -189,26 +150,6 @@ export function Curriculum({
               <BookOpen className="size-3.5" />
               Track
             </button>
-          </div>
-        </div>
-
-        {/* Course progress bar */}
-        <div className="mt-4">
-          <div className="flex items-center justify-between mb-1.5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint font-semibold">
-              Course completion
-            </span>
-            <span className={`font-mono text-[10px] font-bold ${TONE.text}`}>
-              {completed.size} / {modules.length} modules
-            </span>
-          </div>
-          <div className="h-2 rounded-full bg-bg-1 overflow-hidden">
-            <motion.div
-              className={`h-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple`}
-              initial={false}
-              animate={{ width: `${progressPct}%` }}
-              transition={{ type: "spring", stiffness: 220, damping: 30 }}
-            />
           </div>
         </div>
 
@@ -256,8 +197,6 @@ export function Curriculum({
               total={modules.length}
               active={active}
               setActive={setActive}
-              completed={completed}
-              toggleComplete={toggleComplete}
               go={go}
               courseShortTitle={courseShortTitle}
             />
@@ -275,8 +214,6 @@ export function Curriculum({
               total={modules.length}
               active={active}
               setActive={setActive}
-              completed={completed}
-              toggleComplete={toggleComplete}
               duration={duration}
             />
           </motion.div>
@@ -325,8 +262,6 @@ function SplitView({
   total,
   active,
   setActive,
-  completed,
-  toggleComplete,
   go,
   courseShortTitle,
 }: {
@@ -334,8 +269,6 @@ function SplitView({
   total: number;
   active: number;
   setActive: (i: number) => void;
-  completed: Set<number>;
-  toggleComplete: (idx: number) => void;
   go: (delta: number) => void;
   courseShortTitle?: string;
 }) {
@@ -354,7 +287,6 @@ function SplitView({
         <ol>
           {modules.map((mod) => {
             const isActive = activeItem.idx === mod.idx;
-            const isDone = completed.has(mod.idx);
             return (
               <li key={mod.idx}>
                 <button
@@ -372,20 +304,14 @@ function SplitView({
                   )}
                   <div
                     className={`grid size-8 shrink-0 place-items-center rounded-lg transition-all ${
-                      isDone
-                        ? `${TONE.bg} text-bg ${TONE.glow}`
-                        : isActive
+                      isActive
                         ? `${TONE.bgSoft} ${TONE.text} ring-1 ${TONE.ring}`
                         : "bg-bg ring-1 ring-line text-fg-muted group-hover:text-fg"
                     }`}
                   >
-                    {isDone ? (
-                      <Check className="size-4" strokeWidth={3} />
-                    ) : (
-                      <span className="font-mono text-[11px] font-bold">
-                        {String(mod.idx + 1).padStart(2, "0")}
-                      </span>
-                    )}
+                    <span className="font-mono text-[11px] font-bold">
+                      {String(mod.idx + 1).padStart(2, "0")}
+                    </span>
                   </div>
                   <div className="min-w-0 flex-1">
                     <div
@@ -452,23 +378,6 @@ function SplitView({
                     <Clock className="size-3" /> {activeItem.durationHours}h
                   </span>
                 )}
-                <button
-                  type="button"
-                  onClick={() => toggleComplete(activeItem.idx)}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold transition-all ${
-                    completed.has(activeItem.idx)
-                      ? "bg-emerald-500/15 ring-1 ring-emerald-500/40 text-emerald-300"
-                      : "bg-bg-2 ring-1 ring-line text-fg-muted hover:text-fg"
-                  }`}
-                >
-                  {completed.has(activeItem.idx) ? (
-                    <>
-                      <Check className="size-3.5" strokeWidth={3} /> Completed
-                    </>
-                  ) : (
-                    <>Mark complete</>
-                  )}
-                </button>
               </div>
             </div>
 
@@ -530,16 +439,12 @@ function TrackView({
   total,
   active,
   setActive,
-  completed,
-  toggleComplete,
   duration,
 }: {
   modules: (CurriculumModule & { idx: number })[];
   total: number;
   active: number;
   setActive: (i: number) => void;
-  completed: Set<number>;
-  toggleComplete: (idx: number) => void;
   duration?: string;
 }) {
   // Track which modules are expanded (default first one open)
@@ -574,7 +479,6 @@ function TrackView({
         {modules.map((mod) => {
           const isExpanded = expanded.has(mod.idx);
           const isActive = active === mod.idx;
-          const isDone = completed.has(mod.idx);
           return (
             <motion.li
               key={mod.idx}
@@ -594,20 +498,14 @@ function TrackView({
                 }}
                 aria-label={`Toggle module ${mod.idx + 1}`}
                 className={`absolute left-2 lg:left-4 top-2 grid size-9 place-items-center rounded-full bg-bg ring-2 transition-all z-10 ${
-                  isDone
-                    ? `${TONE.ring} ${TONE.bg} text-bg ${TONE.glow}`
-                    : isActive
+                  isActive
                     ? `${TONE.ring} ${TONE.bgSoft} ${TONE.text} ${TONE.glow}`
                     : "ring-line text-fg-muted hover:ring-white/30"
                 }`}
               >
-                {isDone ? (
-                  <Check className="size-4" strokeWidth={3} />
-                ) : (
-                  <span className="font-mono text-[11px] font-bold">
-                    {String(mod.idx + 1).padStart(2, "0")}
-                  </span>
-                )}
+                <span className="font-mono text-[11px] font-bold">
+                  {String(mod.idx + 1).padStart(2, "0")}
+                </span>
               </button>
 
               <div
@@ -672,23 +570,6 @@ function TrackView({
                             </motion.li>
                           ))}
                         </ul>
-                        <button
-                          type="button"
-                          onClick={() => toggleComplete(mod.idx)}
-                          className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold transition-all ${
-                            isDone
-                              ? "bg-emerald-500/15 ring-1 ring-emerald-500/40 text-emerald-300"
-                              : `${TONE.bgSoft} ring-1 ${TONE.ring} ${TONE.text} hover:opacity-90`
-                          }`}
-                        >
-                          {isDone ? (
-                            <>
-                              <Check className="size-3.5" strokeWidth={3} /> Completed
-                            </>
-                          ) : (
-                            <>Mark complete</>
-                          )}
-                        </button>
                       </div>
                     </motion.div>
                   )}

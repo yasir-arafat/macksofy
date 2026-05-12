@@ -142,7 +142,6 @@ const STYLE_MAP: Record<string, { style: OutcomesStyle; accent: OutcomesAccent }
   "osda": { style: "capabilitybars", accent: "cyan" },
   "osed": { style: "skilltree", accent: "purple" },
   "osmr": { style: "skilltree", accent: "purple" },
-  "osee": { style: "skilltree", accent: "rose" },
   // CompTIA
   "cysa-plus": { style: "capabilitybars", accent: "cyan" },
   "linux-plus": { style: "achievementgrid", accent: "green" },

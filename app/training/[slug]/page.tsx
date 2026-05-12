@@ -84,16 +84,16 @@ export default async function CourseDetail({ params }: PageProps) {
           <div className="mt-10 grid gap-12 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7">
               {/* Course thumbnail */}
-              <div className="relative aspect-[16/9] mb-8 overflow-hidden rounded-2xl glass">
+              <div className="relative aspect-[16/9] mb-8 overflow-hidden rounded-2xl glass bg-bg">
                 <Image
                   src={c.image}
                   alt={c.title}
                   fill
                   priority
                   sizes="(max-width:1024px) 100vw, 700px"
-                  className="object-cover"
+                  className="object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-bg/80 via-bg/30 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-bg/40 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-3">
                   {(() => {
                     const v = vendorLogo(c.vendor);
@@ -200,9 +200,10 @@ export default async function CourseDetail({ params }: PageProps) {
                     Chat on WhatsApp
                   </a>
                   <Link
-                    href={`/training/${c.slug}/brochure`}
+                    href={`/training/${c.slug}/brochure?print=1`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Download ${c.shortTitle} brochure as PDF`}
                     className="flex items-center justify-center gap-2 rounded-full border border-line bg-bg-2 px-5 py-2.5 text-sm font-semibold text-fg-muted hover:text-neon-cyan hover:border-neon-cyan/40 transition-colors"
                   >
                     Download brochure (PDF)
@@ -262,9 +263,8 @@ export default async function CourseDetail({ params }: PageProps) {
             {c.duration.split(" · ")[1] ?? c.duration}.
           </h2>
           <p className="mt-3 max-w-2xl text-fg-muted text-pretty">
-            Search modules and topics, switch between Split and Track views, and
-            mark modules complete as you progress — your status is remembered for
-            this session.
+            Search modules and topics, and switch between Split and Track views to
+            see how every module flows into the next.
           </p>
           <div className="mt-10">
             <Curriculum
@@ -284,12 +284,13 @@ export default async function CourseDetail({ params }: PageProps) {
             <div className="lg:col-span-5">
               <Eyebrow>Tools you&rsquo;ll operate</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-                The same tooling pros use{" "}
-                <span className="gradient-text">on real engagements.</span>
+                The same toolkit our consultants{" "}
+                <span className="gradient-text">use on real engagements.</span>
               </h2>
-              <p className="mt-5 text-fg-muted">
-                Not academic toys. The tools below are what Macksofy consultants run on
-                paying client engagements every week.
+              <p className="mt-5 text-fg-muted leading-relaxed text-pretty">
+                Not academic exercises. The tools below are exactly what Macksofy
+                consultants run on paying client engagements every week — so the muscle
+                memory you build in class carries straight into your first job.
               </p>
             </div>
             <div className="lg:col-span-7 rounded-2xl glass p-6">

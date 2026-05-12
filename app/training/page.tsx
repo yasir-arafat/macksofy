@@ -85,7 +85,7 @@ export default function TrainingPage() {
                 <ArrowRight className="size-4" />
               </Link>
               <span className="text-xs text-fg-faint font-mono uppercase tracking-wider">
-                OSCP+ · OSEP · OSWE · OSWA · OSDA · OSED · OSMR · OSEE
+                OSCP+ · OSEP · OSWE · OSWA · OSDA · OSED · OSMR
               </span>
             </div>
           </div>

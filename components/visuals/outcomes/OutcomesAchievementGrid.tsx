@@ -109,8 +109,8 @@ export function OutcomesAchievementGrid({
         </motion.div>
       </AnimatePresence>
 
-      {/* Badge grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+      {/* Badge row — centered, wraps gracefully when there are fewer than 6 outcomes */}
+      <div className="flex flex-wrap justify-center gap-3">
         {outcomes.map((o, i) => {
           const meta = CATEGORY_META[o.category];
           const Icon = meta.icon;
@@ -130,7 +130,7 @@ export function OutcomesAchievementGrid({
                 damping: 22,
               }}
               whileHover={{ y: -4 }}
-              className={`group relative aspect-square rounded-2xl bg-bg-2 ring-1 transition-all p-3 flex flex-col items-center justify-center text-center ${
+              className={`group relative aspect-square w-[calc((100%-1.5rem)/3)] sm:w-[calc((100%-2.25rem)/4)] lg:w-[calc((100%-3.75rem)/6)] flex-none rounded-2xl bg-bg-2 ring-1 transition-all p-3 flex flex-col items-center justify-center text-center ${
                 isActive
                   ? `${tone.ring} ${tone.glow}`
                   : "ring-line hover:ring-white/30"
