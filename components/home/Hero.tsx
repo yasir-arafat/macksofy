@@ -9,6 +9,7 @@ import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { AuroraBackground } from "@/components/visuals/AuroraBackground";
 import { SpotlightCursor } from "@/components/visuals/SpotlightCursor";
+import { HeroVideoBackground } from "@/components/visuals/HeroVideoBackground";
 import {
   ScanLines,
   Vignette,
@@ -41,7 +42,13 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden min-h-[92vh] flex flex-col">
       {/* CINEMATIC BACKDROP STACK */}
-      <div className="absolute inset-0 bg-grid opacity-50" />
+      <HeroVideoBackground
+        src="/hero/macksofy-hero.mp4"
+        poster="/hero/macksofy-hero-poster.webp"
+        dim={0.6}
+        tint="cyan"
+      />
+      <div className="absolute inset-0 bg-grid opacity-30 mix-blend-screen" />
       <AuroraBackground />
       <ParticleBackground density={120} />
       <GlowOrb className="-top-40 left-1/2 -translate-x-1/2" color="cyan" size={700} intensity="strong" />
