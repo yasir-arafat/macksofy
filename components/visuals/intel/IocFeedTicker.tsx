@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Radar } from "lucide-react";
 
 const IOC_POOL = [
@@ -26,30 +26,33 @@ const SEV_COLORS: Record<string, string> = {
 
 export function IocFeedTicker() {
   const reduce = useReducedMotion();
-  const [items, setItems] = useState<{ id: number; ioc: typeof IOC_POOL[number]; ts: string }[]>([]);
+  const [liveItems, setLiveItems] = useState<{ id: number; ioc: typeof IOC_POOL[number]; ts: string }[]>([]);
+
+  const staticItems = useMemo(
+    () =>
+      IOC_POOL.slice(0, 6).map((ioc, i) => ({
+        id: i,
+        ioc,
+        ts: "—",
+      })),
+    []
+  );
 
   useEffect(() => {
-    if (reduce) {
-      setItems(
-        IOC_POOL.slice(0, 6).map((ioc, i) => ({
-          id: i,
-          ioc,
-          ts: new Date().toLocaleTimeString("en-IN", { hour12: false }),
-        }))
-      );
-      return;
-    }
+    if (reduce) return;
     let id = 0;
     const tick = () => {
       const ioc = IOC_POOL[Math.floor(Math.random() * IOC_POOL.length)];
       const ts = new Date().toLocaleTimeString("en-IN", { hour12: false });
       id += 1;
-      setItems((cur) => [{ id, ioc, ts }, ...cur].slice(0, 6));
+      setLiveItems((cur) => [{ id, ioc, ts }, ...cur].slice(0, 6));
     };
     tick();
     const it = window.setInterval(tick, 1900);
     return () => window.clearInterval(it);
   }, [reduce]);
+
+  const items = reduce ? staticItems : liveItems;
 
   return (
     <div className="rounded-2xl ring-1 ring-line bg-bg/80 overflow-hidden backdrop-blur-sm">

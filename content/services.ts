@@ -200,7 +200,7 @@ export const SERVICES: Service[] = [
         a: "Annual retainer programs typically reduce per-engagement cost by 25–35% compared to one-off engagements. Talk to us for a quote.",
       },
     ],
-    seoTitle: "Penetration Testing Services in India & UAE | CERT-In Empanelled | Macksofy",
+    seoTitle: "Penetration Testing Services India & UAE | CERT-In | Macksofy",
     seoDescription:
       "Manual + tooled penetration testing by OSCP/OSWE-certified consultants. CERT-In empanelled, free retest, MITRE ATT&CK mapping. Mumbai, India and UAE.",
     keywords: [
@@ -341,7 +341,7 @@ export const SERVICES: Service[] = [
         a: "Minimum annually for compliance. Mature programs run quarterly + after every major release. Macksofy offers retainer pricing for both.",
       },
     ],
-    seoTitle: "VAPT Services India | Vulnerability Assessment & Penetration Testing | Macksofy",
+    seoTitle: "VAPT Services India | Vulnerability Assessment + Pentest | Macksofy",
     seoDescription:
       "CERT-In empanelled VAPT services for BFSI, fintech, healthcare. Manual exploitation + scanner triage, regulator-format reports, free retest. Mumbai + UAE.",
     keywords: [
@@ -617,7 +617,7 @@ export const SERVICES: Service[] = [
         a: "Always. Mutual NDA is step 0 of every engagement.",
       },
     ],
-    seoTitle: "Web App & API Security Testing in Mumbai & India | OSWE Certified | Macksofy",
+    seoTitle: "Web App & API Security Testing India | OSWE-Led | Macksofy",
     seoDescription:
       "Manual + automated web + API security testing. OWASP Top 10 + OWASP API Top 10. OSWE-certified consultants, dev-ready reports, free retest.",
     keywords: [

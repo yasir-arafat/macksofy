@@ -1,11 +1,21 @@
-import { Skull, CheckCircle2 } from "lucide-react";
+import {
+  Skull,
+  CheckCircle2,
+  Globe,
+  Building2,
+  Network,
+  Users,
+  Award,
+  Brain,
+  Workflow,
+  Lock,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
-import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { ToolStack } from "@/components/visuals/ToolStack";
 import { RiskMeter } from "@/components/visuals/RiskMeter";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
@@ -73,7 +83,7 @@ export default function RedTeamPage() {
                 <Skull className="size-7" />
               </div>
               <h1 className="font-display text-4xl font-black sm:text-5xl lg:text-[3.6rem] text-balance leading-[1.05]">
-                Find out if your blue team can detect <span className="gradient-text">a real attacker.</span>
+                Red Team Services in India — <span className="gradient-text">adversary simulation</span> that actually tests your SOC.
               </h1>
             </div>
             <p className="mt-6 max-w-2xl text-lg text-fg-muted text-pretty leading-relaxed">
@@ -113,6 +123,117 @@ export default function RedTeamPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* TYPES OF RED TEAMING */}
+      <section id="engagement-modes" className="py-20 border-t border-line">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow color="amber">Engagement modes</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              One playbook. <span className="gradient-text">Four ways to start.</span>
+            </h2>
+            <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+              Real adversaries pick the path of least resistance. So do we. Pick the
+              starting position that matches the threat you actually worry about — or
+              talk to us and we&rsquo;ll co-design a hybrid that does.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                key: "external",
+                title: "External red team",
+                icon: Globe,
+                accent: "text-red-400 ring-red-400/40 bg-red-400/10",
+                lead: "Starts on the open internet, ends inside your crown jewels.",
+                points: [
+                  "Spear-phishing of named employees",
+                  "OSINT-led credential & token harvesting",
+                  "Exposed-asset and third-party-vendor compromise",
+                  "Initial access proven without insider help",
+                ],
+                duration: "8–12 weeks",
+              },
+              {
+                key: "internal",
+                title: "Internal / assumed breach",
+                icon: Building2,
+                accent: "text-amber-300 ring-amber-400/40 bg-amber-400/10",
+                lead: "Assume the phishing email already worked. What happens next?",
+                points: [
+                  "Drop a low-privilege foothold inside the LAN / VPN",
+                  "AD enumeration, BloodHound paths, ADCS abuse",
+                  "Lateral movement past Defender / CrowdStrike / SentinelOne",
+                  "Race to Domain Admin or business-impact target",
+                ],
+                duration: "4–8 weeks",
+              },
+              {
+                key: "hybrid",
+                title: "Hybrid red team",
+                icon: Network,
+                accent: "text-violet-300 ring-violet-400/40 bg-violet-400/10",
+                lead: "External entry, internal depth — one continuous campaign.",
+                points: [
+                  "Phase 1 ─ external breach to first internal foothold",
+                  "Phase 2 ─ pivot to internal-network depth with EDR live",
+                  "Phase 3 ─ cross-domain / cross-cloud lateral movement",
+                  "Single narrative, single ATT&CK heatmap, single report",
+                ],
+                duration: "10–14 weeks",
+              },
+              {
+                key: "purple",
+                title: "Purple team",
+                icon: Users,
+                accent: "text-emerald-300 ring-emerald-400/40 bg-emerald-400/10",
+                lead: "Same tradecraft, but your SOC is in the room with us.",
+                points: [
+                  "Live attack technique → live detection tuning loop",
+                  "Per-TTP score sheet against your SIEM / EDR rules",
+                  "Detection-engineering backlog handed over at debrief",
+                  "Best fit for mature SOCs measuring uplift",
+                ],
+                duration: "3–6 weeks",
+              },
+            ].map((mode) => {
+              const Icon = mode.icon;
+              return (
+                <div
+                  key={mode.key}
+                  className="rounded-2xl glass p-6 h-full flex flex-col lift"
+                >
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div
+                      className={`grid size-11 place-items-center rounded-xl ring-1 ${mode.accent}`}
+                    >
+                      <Icon className="size-5" />
+                    </div>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-fg-faint rounded-full border border-line px-2 py-0.5">
+                      {mode.duration}
+                    </span>
+                  </div>
+                  <div className="font-display text-base font-bold text-fg leading-tight">
+                    {mode.title}
+                  </div>
+                  <p className="mt-3 text-[13px] text-fg-muted leading-relaxed">
+                    {mode.lead}
+                  </p>
+                  <ul className="mt-4 space-y-1.5 text-[12px] text-fg-muted">
+                    {mode.points.map((pt) => (
+                      <li key={pt} className="flex gap-2">
+                        <span className="text-red-400/70 mt-1 shrink-0">▸</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -191,8 +312,95 @@ export default function RedTeamPage() {
         </Container>
       </section>
 
+      {/* WHY MACKSOFY */}
+      <section className="py-20 border-t border-line">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow color="amber">Why Macksofy for red team</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              Real operators. <span className="gradient-text">Real tradecraft.</span> No outsourcing.
+            </h2>
+            <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+              India has plenty of vendors who will sell you a red team and quietly run a
+              credentialed pentest. Macksofy doesn&rsquo;t. Here&rsquo;s what makes our
+              engagements different.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Skull,
+                title: "In-house operators only",
+                accent: "text-red-400 ring-red-400/40 bg-red-400/10",
+                desc: "Every operator on your engagement is a full-time Macksofy employee — OSCP / OSEP / CRTO / CRTL. No subcontractors, no offshore handoffs, no LinkedIn freelancers.",
+              },
+              {
+                icon: Lock,
+                title: "Dedicated C2 infrastructure",
+                accent: "text-violet-300 ring-violet-400/40 bg-violet-400/10",
+                desc: "Your campaign runs on a brand-new redirector tier, a fresh implant, and signatures no AV / EDR has seen. We do not share infrastructure across clients.",
+              },
+              {
+                icon: Brain,
+                title: "Threat-intel driven scenarios",
+                accent: "text-amber-300 ring-amber-400/40 bg-amber-400/10",
+                desc: "Engagements are scoped against the threat actors that actually target your sector — TA505, Conti splinters, FIN8, APT41 — not a generic playbook.",
+              },
+              {
+                icon: Workflow,
+                title: "Blue-team handoff included",
+                accent: "text-emerald-300 ring-emerald-400/40 bg-emerald-400/10",
+                desc: "Every engagement closes with a full ATT&CK-mapped detection-gap report and an optional 1-day purple-team workshop. Your SOC walks away genuinely better.",
+              },
+              {
+                icon: Award,
+                title: "CERT-In empanelled",
+                accent: "text-sky-300 ring-sky-400/40 bg-sky-400/10",
+                desc: "We&rsquo;re empanelled by CERT-In and our deliverables are accepted by RBI, SEBI, IRDAI and large-enterprise InfoSec committees without rework.",
+              },
+              {
+                icon: Users,
+                title: "Senior leads on every job",
+                accent: "text-pink-400 ring-pink-400/40 bg-pink-400/10",
+                desc: "A senior consultant with 8+ years of offensive experience leads every campaign end-to-end — from scoping call to board readout.",
+              },
+              {
+                icon: Building2,
+                title: "BFSI-deep, multi-sector",
+                accent: "text-cyan-300 ring-cyan-400/40 bg-cyan-400/10",
+                desc: "Deepest experience in BFSI (private banks, NBFCs, payment processors) plus IT services, SaaS, telecom and government — across India and the UAE.",
+              },
+              {
+                icon: Network,
+                title: "Cloud + AD + identity",
+                accent: "text-orange-300 ring-orange-400/40 bg-orange-400/10",
+                desc: "Our operators cross Azure ↔ Entra ↔ on-prem AD ↔ AWS ↔ K8s in a single engagement, because that&rsquo;s what real adversaries do.",
+              },
+            ].map((w) => {
+              const Icon = w.icon;
+              return (
+                <div key={w.title} className="rounded-2xl glass p-6 h-full flex flex-col">
+                  <div
+                    className={`grid size-11 place-items-center rounded-xl ring-1 ${w.accent} mb-4`}
+                  >
+                    <Icon className="size-5" />
+                  </div>
+                  <div className="font-display text-base font-bold text-fg leading-tight">
+                    {w.title}
+                  </div>
+                  <p className="mt-3 text-sm text-fg-muted leading-relaxed flex-1">
+                    {w.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
       {/* TOOL STACK */}
-      <section className="py-20">
+      <section className="py-20 bg-bg-1">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 items-end">
             <div className="lg:col-span-5">
@@ -201,7 +409,7 @@ export default function RedTeamPage() {
                 Custom C2. <span className="gradient-text">Custom payloads.</span>
               </h2>
               <p className="mt-5 text-fg-muted">
-                We don't share infrastructure. Every Macksofy red team gets a dedicated
+                We don&rsquo;t share infrastructure. Every Macksofy red team gets a dedicated
                 C2 tier and custom payloads with no signatures in any commercial AV/EDR.
               </p>
             </div>

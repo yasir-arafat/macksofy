@@ -47,7 +47,7 @@ export function RequestInspector() {
         </div>
         <div className="px-4 py-2 border-t border-line bg-amber-500/10 text-[10px] flex items-center gap-2 text-amber-300">
           <AlertCircle className="size-3.5" />
-          attacker requesting another user's order
+          attacker requesting another user&rsquo;s order
         </div>
       </motion.div>
 
@@ -66,20 +66,20 @@ export function RequestInspector() {
         <div className="p-4 space-y-1">
           <div className="text-fg-muted">{"{"}</div>
           <div className="pl-4">
-            <span className="text-neon-cyan">"order_id"</span>:{" "}
+            <span className="text-neon-cyan">{`"order_id"`}</span>:{" "}
             <span className="text-amber-300">4815</span>,
           </div>
           <div className="pl-4">
-            <span className="text-neon-cyan">"customer_id"</span>:{" "}
+            <span className="text-neon-cyan">{`"customer_id"`}</span>:{" "}
             <span className="text-red-300 font-bold">2911</span>
             <span className="text-fg-faint"> ← belongs to OTHER user</span>
           </div>
           <div className="pl-4">
-            <span className="text-neon-cyan">"amount"</span>:{" "}
-            <span className="text-amber-300">"₹ 4,82,000"</span>,
+            <span className="text-neon-cyan">{`"amount"`}</span>:{" "}
+            <span className="text-amber-300">{`"₹ 4,82,000"`}</span>,
           </div>
           <div className="pl-4">
-            <span className="text-neon-cyan">"pii"</span>:{" "}
+            <span className="text-neon-cyan">{`"pii"`}</span>:{" "}
             <span className="text-fg">{"{ name, addr, pan, phone }"}</span>
           </div>
           <div className="text-fg-muted">{"}"}</div>

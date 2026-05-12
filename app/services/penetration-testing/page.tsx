@@ -1,4 +1,4 @@
-import { Crosshair, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Crosshair, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
@@ -18,7 +18,7 @@ import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PentestTerminal } from "@/components/visuals/pentest/PentestTerminal";
-import { KillChainTimeline } from "@/components/visuals/pentest/KillChainTimeline";
+import { PTESMethodology } from "@/components/visuals/pentest/PTESMethodology";
 
 const SLUG = "penetration-testing";
 
@@ -69,7 +69,7 @@ export default function PentestPage() {
                   <Crosshair className="size-7" />
                 </div>
                 <h1 className="font-display text-4xl font-black sm:text-5xl lg:text-[3.4rem] text-balance leading-[1.05]">
-                  Find what attackers will. <span className="gradient-text">Before they do.</span>
+                  Penetration Testing Services in <span className="gradient-text">India &amp; UAE</span>.
                 </h1>
               </div>
               <p className="mt-6 max-w-2xl text-lg text-fg-muted text-pretty leading-relaxed">
@@ -110,7 +110,7 @@ export default function PentestPage() {
             engagement runs the same seven-phase protocol regardless of scope.
           </p>
           <div className="mt-12">
-            <KillChainTimeline phases={service.methodology} />
+            <PTESMethodology phases={service.methodology} />
           </div>
         </Container>
       </section>
@@ -213,11 +213,19 @@ export default function PentestPage() {
             <div className="lg:col-span-5">
               <Eyebrow>Tooling</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Industry-standard <span className="gradient-text">+ in-house</span>.
+                Tools we trust. <span className="gradient-text">And tools we built ourselves.</span>
               </h2>
-              <p className="mt-5 text-fg-muted">
-                Same tooling top BFSI red teams operate — plus Macksofy custom payloads and
-                Burp extensions where commercial tools fall short.
+              <p className="mt-5 text-fg-muted text-pretty leading-relaxed">
+                Burp, Nmap, BloodHound, Impacket — the open-source canon every senior
+                pentester reaches for first. We use them because they&rsquo;re battle-tested, and
+                because the operators on your engagement have spent thousands of hours
+                inside each one.
+              </p>
+              <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+                But every now and then we hit a wall the commercial tools can&rsquo;t break
+                through — and when that happens, we don&rsquo;t shrug. We write the Burp
+                extension, the recon helper, the AD primitive that gets us past it. Years
+                of that work adds up. Your engagement gets all of it.
               </p>
             </div>
             <div className="lg:col-span-7">

@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/Badge";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
-import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { ToolStack } from "@/components/visuals/ToolStack";
 import { RiskMeter } from "@/components/visuals/RiskMeter";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";

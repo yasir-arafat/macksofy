@@ -243,16 +243,16 @@ export function EngagementPhases() {
       {/* Stepper */}
       <div className="relative mb-10 hidden md:block">
         {/* Connector line */}
-        <div className="absolute top-6 left-6 right-6 h-px bg-line" aria-hidden />
+        <div className="absolute top-7 left-8 right-8 h-px bg-line" aria-hidden />
         <div
-          className="absolute top-6 left-6 h-px bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-green transition-[width] duration-500"
+          className="absolute top-7 left-8 h-px bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-green transition-[width] duration-500"
           style={{
-            width: `calc((100% - 48px) * ${active / (PHASES.length - 1)})`,
+            width: `calc((100% - 64px) * ${active / (PHASES.length - 1)})`,
           }}
           aria-hidden
         />
 
-        <ol className="relative grid grid-cols-6 gap-2">
+        <ol className="relative grid grid-cols-6 gap-4 lg:gap-6">
           {PHASES.map((p, i) => {
             const isActive = i === active;
             const isPast = i < active;
@@ -264,26 +264,28 @@ export function EngagementPhases() {
                   aria-label={`Phase ${p.num}: ${p.title}`}
                   aria-current={isActive ? "step" : undefined}
                   className={cn(
-                    "relative grid size-12 place-items-center rounded-full transition-all duration-300 ring-4",
+                    "relative grid size-14 place-items-center rounded-full transition-all duration-300 ring-2 ring-offset-2 ring-offset-bg-1",
                     isActive
-                      ? cn("bg-bg ring-current scale-110", p.accent.text, p.accent.glow)
+                      ? cn(
+                          "bg-bg-2 scale-110 ring-current",
+                          p.accent.text,
+                          p.accent.glow
+                        )
                       : isPast
-                        ? "bg-bg ring-neon-cyan/60 text-neon-cyan"
-                        : "bg-bg ring-line text-fg-faint hover:ring-line-strong"
+                        ? "bg-bg-2 ring-neon-cyan/60 text-neon-cyan"
+                        : "bg-bg-2 ring-line text-fg-faint hover:ring-line-strong hover:text-fg-muted"
                   )}
                 >
-                  {isActive && (
-                    <motion.span
-                      layoutId="phase-pulse"
-                      className={cn("absolute inset-0 rounded-full", p.accent.bg, "opacity-20")}
-                      transition={{ type: "spring", stiffness: 240, damping: 24 }}
-                    />
-                  )}
-                  <PIcon className="relative size-5" />
+                  <PIcon
+                    className={cn(
+                      "relative size-5 transition-colors",
+                      isActive && "drop-shadow-[0_0_6px_currentColor]"
+                    )}
+                  />
                 </button>
                 <div
                   className={cn(
-                    "mt-3 font-mono text-[10px] uppercase tracking-wider transition-colors",
+                    "mt-4 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors",
                     isActive ? "text-fg" : "text-fg-faint"
                   )}
                 >
@@ -291,7 +293,7 @@ export function EngagementPhases() {
                 </div>
                 <div
                   className={cn(
-                    "mt-1 text-xs leading-tight transition-colors line-clamp-2",
+                    "mt-1.5 text-xs leading-tight transition-colors line-clamp-2 min-h-[2.2em]",
                     isActive ? p.accent.text : "text-fg-muted"
                   )}
                 >

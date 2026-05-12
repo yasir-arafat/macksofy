@@ -95,7 +95,7 @@ export default function ThreatIntelPage() {
           <div className="max-w-3xl">
             <Eyebrow color="amber">Threat-actor profiling</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              Know who's <span className="gradient-text">actually</span> targeting your industry.
+              Know who&rsquo;s <span className="gradient-text">actually</span> targeting your industry.
             </h2>
             <p className="mt-4 text-fg-muted text-pretty">
               A real threat-intel program profiles the adversaries your sector faces — not

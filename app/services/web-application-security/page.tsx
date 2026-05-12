@@ -66,7 +66,7 @@ export default function WebSecPage() {
                 <Code2 className="size-7" />
               </div>
               <h1 className="font-display text-4xl font-black sm:text-5xl lg:text-[3.4rem] text-balance leading-[1.05]">
-                Test web apps the way <span className="gradient-text">attackers</span> do.
+                Web Application &amp; API Security Testing — <span className="gradient-text">India &amp; UAE</span>.
               </h1>
             </div>
             <p className="mt-6 max-w-2xl text-lg text-fg-muted text-pretty leading-relaxed">
@@ -101,9 +101,12 @@ export default function WebSecPage() {
                 The bug that <span className="gradient-text">no scanner</span> finds.
               </h2>
               <p className="mt-5 text-fg-muted text-pretty leading-relaxed">
-                Broken object-level authorization isn't visible to a generic scanner because it
-                requires knowing two valid IDs and which user owns which. Macksofy testers
-                spend 20–30% of every web engagement here.
+                Broken object-level authorization (BOLA) hides from scanners by design. Finding
+                it means guessing a second user&rsquo;s record ID and then proving the app
+                never checked who owned it — reasoning a tool can&rsquo;t do, but a human
+                tester can. Our team spends 20–30% of every web engagement here, because BOLA
+                is still the single most common cause of cross-tenant data leaks in Indian
+                fintech and SaaS.
               </p>
               <ul className="mt-6 space-y-2 text-sm">
                 {[
@@ -181,7 +184,7 @@ export default function WebSecPage() {
               </h2>
               <p className="mt-5 text-fg-muted">
                 We ship in-house Burp extensions for GraphQL recon, JWT abuse and BOLA scanning
-                that aren't on the BApp store.
+                that aren&rsquo;t on the BApp store.
               </p>
             </div>
             <div className="lg:col-span-7">

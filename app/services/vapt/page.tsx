@@ -173,7 +173,7 @@ export default function VaptServicePage() {
             <div className="lg:col-span-6">
               <p className="text-fg-muted text-pretty">
                 A VAPT scope is a 2D matrix: what we test (asset types) × how deep we test
-                (authenticated, manual exploitation, chained). The grid shows what's included
+                (authenticated, manual exploitation, chained). The grid shows what&rsquo;s included
                 in a Macksofy engagement.
               </p>
             </div>
@@ -190,11 +190,13 @@ export default function VaptServicePage() {
           <div className="max-w-3xl">
             <Eyebrow color="amber">Why exploitation matters</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              <span className="gradient-text">low + low + low</span> = critical.
+              <span className="gradient-text">Low + low + low</span> is how breaches actually start.
             </h2>
-            <p className="mt-4 text-fg-muted text-pretty">
-              Scanners report each finding in isolation. Attackers chain them. Macksofy's
-              chain-analysis is what separates a CVSS list from an actual breach narrative.
+            <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+              Scanners look at findings one at a time, and one at a time most of them really do
+              look low. Attackers don&rsquo;t read reports — they chain. Three innocuous
+              misconfigurations stitched together is how an unauthenticated foothold quietly
+              becomes domain admin. We show you that chain, not just the CVSS list.
             </p>
           </div>
           <div className="mt-12">
@@ -232,7 +234,7 @@ export default function VaptServicePage() {
                 Every report card has <span className="gradient-text">eight axes</span>.
               </h2>
               <p className="mt-4 text-fg-muted text-pretty">
-                CVSS isn't enough — we attach business-impact, MITRE technique, exploit
+                CVSS isn&rsquo;t enough — we attach business-impact, MITRE technique, exploit
                 weaponisation status, fix-effort estimate and re-introduction likelihood to
                 every High/Critical finding.
               </p>
@@ -266,11 +268,20 @@ export default function VaptServicePage() {
             <div className="lg:col-span-5">
               <Eyebrow>Tooling</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Industry-standard <span className="gradient-text">+ in-house</span>.
+                Tools we trust. <span className="gradient-text">And tools we built ourselves.</span>
               </h2>
-              <p className="mt-5 text-fg-muted">
-                Same tooling top BFSI red teams operate, plus Macksofy in-house extensions
-                where commercial scanners fall short.
+              <p className="mt-5 text-fg-muted text-pretty leading-relaxed">
+                Nessus, Qualys, Burp Pro, Nuclei, Trivy, Checkov — the same scanners every
+                senior BFSI red team runs first, because they catch the obvious things
+                quickly and free our operators to chase what really matters.
+              </p>
+              <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
+                But scanners only see what they were taught to see. When ours hit something
+                a commercial tool would miss — a chained CSP bypass, a quiet SSRF inside a
+                JSON proxy, a serverless privesc path — we don&rsquo;t shrug. We write the
+                Burp extension, the Nuclei template, the Pacu module that catches it. On
+                your engagement you get both: the tooling everyone else runs, and the bits
+                we built ourselves.
               </p>
             </div>
             <div className="lg:col-span-7">
