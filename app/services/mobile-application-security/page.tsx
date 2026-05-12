@@ -227,6 +227,9 @@ export default function MobileSecPage() {
               slug={SLUG}
               phases={service.methodology}
               subjectLabel="Mobile pentest"
+              phaseImages={[
+                "/methodology/mobile/scoping-and-threat-model.webp",
+              ]}
             />
           </div>
         </Container>

@@ -28,6 +28,12 @@ interface Props {
   /** Optional accent override. */
   accent?: MethodologyAccent;
   subjectLabel?: string;
+  /**
+   * Optional per-phase decorative image. Index matches `phases`. Each entry
+   * may be a public-path URL (e.g. "/methodology/foo.webp") or null/undefined
+   * to skip. Currently honoured by the "stepper" style; ignored by others.
+   */
+  phaseImages?: (string | null | undefined)[];
 }
 
 /* ============================================================ */
@@ -109,6 +115,7 @@ export function Methodology({
   style: styleOverride,
   accent: accentOverride,
   subjectLabel,
+  phaseImages,
 }: Props) {
   const resolved = resolveStyle(slug);
   const style = styleOverride ?? resolved.style;
@@ -118,7 +125,7 @@ export function Methodology({
 
   switch (style) {
     case "stepper":
-      return <MethodologyStepper {...props} />;
+      return <MethodologyStepper {...props} phaseImages={phaseImages} />;
     case "radial":
       return <MethodologyRadial {...props} />;
     case "journey":

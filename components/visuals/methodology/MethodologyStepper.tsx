@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
@@ -9,6 +10,7 @@ interface Props {
   phases: MethodologyPhase[];
   accent: MethodologyAccent;
   subjectLabel?: string;
+  phaseImages?: (string | null | undefined)[];
 }
 
 /**
@@ -16,7 +18,7 @@ interface Props {
  * Tabbed phase navigation. Left rail of clickable phase tabs, right side shows
  * a rich detail panel with activities, progress bar, and a "next phase" CTA.
  */
-export function MethodologyStepper({ phases, accent }: Props) {
+export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
   const [active, setActive] = useState(0);
   const tone = ACCENT_TOKEN[accent];
   const current = phases[active];
@@ -122,9 +124,24 @@ export function MethodologyStepper({ phases, accent }: Props) {
                   {Math.round(progressPct)}% complete
                 </div>
               </div>
-              <h4 className="mt-2 font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
-                {current.phase}
-              </h4>
+              <div className="mt-2 flex items-start gap-4">
+                {phaseImages?.[active] ? (
+                  <div
+                    className={`shrink-0 grid size-16 sm:size-20 place-items-center rounded-2xl ${tone.bgSoft} ring-1 ${tone.ring} ${tone.glow} overflow-hidden`}
+                  >
+                    <Image
+                      src={phaseImages[active] as string}
+                      alt={`${current.phase} icon`}
+                      width={64}
+                      height={64}
+                      className="size-12 sm:size-14 object-contain"
+                    />
+                  </div>
+                ) : null}
+                <h4 className="font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
+                  {current.phase}
+                </h4>
+              </div>
 
               <ul className="mt-6 grid gap-3 flex-1">
                 {current.activities.map((a, i) => (
