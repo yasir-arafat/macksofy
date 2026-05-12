@@ -7,7 +7,8 @@ import {
   Server,
   FileBadge,
   Landmark,
-  Video,
+  Code2,
+  KeyRound,
   RotateCcw,
   type LucideIcon,
 } from "lucide-react";
@@ -262,48 +263,49 @@ export default function MobileSecPage() {
           <div className="max-w-3xl">
             <Eyebrow color="purple">Why Macksofy for mobile VAPT</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              Six reasons CISOs <span className="gradient-text">pick us</span> over the scanner-shop.
+              The mobile pentest your <span className="gradient-text">scanner can&rsquo;t run</span>.
             </h2>
             <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
-              Most &ldquo;mobile pentests&rdquo; in the Indian + UAE market are a
-              MobSF scan with a logo. The findings that actually move
-              regulators or shut down a launch don&rsquo;t come from a tool &mdash;
-              they come from a human on a rooted device with Frida open and
-              an attacker&rsquo;s patience. Here&rsquo;s what changes when you
-              hire a team built around that.
+              Most &ldquo;mobile VAPT&rdquo; engagements in India and the GCC
+              ship a MobSF scan, a Drozer audit and a PDF. The findings that
+              actually unblock an RBI submission or close a CISO sign-off
+              don&rsquo;t come out of a tool &mdash; they come from a human
+              on a rooted device with Frida open. Here&rsquo;s the work that
+              goes into a Macksofy engagement that doesn&rsquo;t fit in a
+              YAML config.
             </p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <WhyCard
-              icon={Smartphone}
-              title="Rooted device fleet"
-              body="Pixel + Samsung + OnePlus Magisk-rooted Androids and jailbroken iPhones, plus Corellium for the iOS versions we don't yet own physically. We test the threat model an attacker actually has, not the one your RASP wishes for."
+              icon={KeyRound}
+              title="We bypass your RASP first."
+              body="Root detection, SafetyNet attestation, SSL pinning and anti-Frida hooks are defence layers — not audit blockers. Every engagement opens with a hand-tuned Frida bypass for your specific app, then the real testing begins on the attack surface those layers were supposed to protect."
+            />
+            <WhyCard
+              icon={Code2}
+              title="We read the binary the way attackers do."
+              body="Every APK gets jadx and apktool. Every IPA gets class-dump plus Hopper or Ghidra. We trawl resources.arsc, Info.plist, smali and Mach-O strings for hard-coded secrets, dev endpoints and shipped-but-disabled feature flags — context the scanner doesn&rsquo;t have."
             />
             <WhyCard
               icon={Server}
-              title="Backend in scope, always"
-              body="Most mobile pentests stop at the binary. Ours don't. The same APIs the app calls get the full BOLA / IDOR / JWT / mass-assignment treatment our OSWE-certified web team uses — because the chain is where the breach happens."
+              title="Your backend is in scope, too."
+              body="The app talks to an API. That API is also a Macksofy engagement. OSWE-trained consultants run BOLA, IDOR, mass-assignment and JWT-replay tradecraft against every endpoint the app calls — because the worst breaches start in the binary and end at the API."
             />
             <WhyCard
               icon={FileBadge}
-              title="OWASP MASVS attestation"
-              body="The deliverable carries an explicit verification level (L1, L2 or R) per the OWASP Mobile Application Security Verification Standard — a recognised third-party benchmark your enterprise customers and regulators can actually map to."
+              title="OWASP MASVS attestation, on paper."
+              body="The deliverable commits to an explicit verification level — L1, L2 or R — per the official OWASP Mobile Application Security Verification Standard. A number your enterprise customers, app-store reviewers and regulators can map. Not &ldquo;OWASP-aligned&rdquo; handwaving."
             />
             <WhyCard
               icon={Landmark}
-              title="RBI + UIDAI + DESC fluency"
-              body="CERT-In empanelled. Reports map directly to RBI's Master Direction on Mobile Banking, UIDAI Aadhaar Auth API controls, and (for UAE work) DESC ISR + UAE PDPL — so the same engagement covers India + Gulf compliance in one pass."
-            />
-            <WhyCard
-              icon={Video}
-              title="PoC video per finding"
-              body="Every High/Critical ships with a screen recording from a rooted/jailbroken device that walks the developer through reproduction. No 'we couldn't reproduce' standoffs three weeks later when the dev team finally opens the PDF."
+              title="RBI, UIDAI, DESC, PDPL — same report."
+              body="CERT-In empanelled. Every High and Critical finding maps to RBI&rsquo;s Master Direction on Mobile Banking, UIDAI Aadhaar Auth API controls, PCI DSS v4 and (for UAE work) DESC ISR plus UAE PDPL. India + GCC compliance settled in a single engagement."
             />
             <WhyCard
               icon={RotateCcw}
-              title="Free retest in 30 days"
-              body="One free verification cycle within 30 days of dev sign-off. We rerun the affected phases, validate fixes, and update the attestation report — so the regulator sees 'closed' instead of 'reported, remediation pending'."
+              title="Free retest. Closed, not pending."
+              body="One free verification cycle within 30 days of developer sign-off. We rerun the affected phases on the patched build, validate each fix on a rooted device and reissue the attestation — so the auditor and the SOC reader both see &lsquo;closed&rsquo;, never &lsquo;remediation pending&rsquo;."
             />
           </div>
 
@@ -311,7 +313,7 @@ export default function MobileSecPage() {
             <ShieldCheck className="size-5 text-neon-cyan shrink-0" />
             <p className="text-sm text-fg-muted leading-relaxed flex-1 min-w-[280px]">
               Mutual NDA is step zero of every engagement. Builds, exam
-              artefacts and findings stay on Macksofy infrastructure for the
+              artefacts and findings live on Macksofy infrastructure for the
               engagement window plus 90 days, then are securely destroyed
               against a CERT-In-acceptable retention policy.
             </p>
