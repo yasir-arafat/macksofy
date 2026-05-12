@@ -167,12 +167,33 @@ export default function ApiSecPage() {
             </div>
             <div className="lg:col-span-6">
               <p className="text-fg-muted text-pretty leading-relaxed">
-                Every Macksofy API engagement walks the OWASP API Security Top
-                10 end-to-end &mdash; from API inventory and shadow-route hunt
-                through to a per-endpoint attestation a regulator can read.
-                Postman / OpenAPI regression suites ship with the report so
-                your CI can re-run the test cases on every release.
+                A Macksofy API engagement walks the OWASP API Security Top 10
+                from first request to regulator-ready attestation. Each phase
+                puts BOLA, BFLA, mass-assignment, JWT abuse and resource-
+                consumption tradecraft against your endpoints &mdash; with a
+                consultant typing the exploit, not a tool clicking through a
+                YAML config. Findings cross-reference across phases (a shadow
+                endpoint surfaced in Phase 2 becomes a mass-assignment vector
+                in Phase 4, which unlocks a role-elevation chain in Phase 3)
+                so the deliverable reads like an attacker&rsquo;s logbook,
+                not a scanner export. Every report ships with a Postman /
+                OpenAPI regression suite your CI can re-execute on the next
+                release.
               </p>
+              <div className="mt-5 flex flex-wrap items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-fg-faint">
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  OWASP API Top 10 &middot; 2023
+                </span>
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  Postman regression suite
+                </span>
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  CERT-In format
+                </span>
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  RBI &middot; SEBI &middot; DPDP mapping
+                </span>
+              </div>
             </div>
           </div>
           <div className="mt-12">
