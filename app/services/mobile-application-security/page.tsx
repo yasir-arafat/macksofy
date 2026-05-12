@@ -287,18 +287,34 @@ export default function MobileSecPage() {
             <div className="lg:col-span-6">
               <Eyebrow>Testing methodology</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Six phases. <span className="gradient-text">All three approaches.</span>
+                Six phases. <span className="gradient-text">APK to attestation.</span>
               </h2>
             </div>
             <div className="lg:col-span-6">
               <p className="text-fg-muted text-pretty leading-relaxed">
-                A Macksofy mobile engagement follows the OWASP MASVS &amp; MSTG
-                testing guide end-to-end &mdash; not a one-shot MobSF run. Each
-                phase applies one or more of the three approaches above (SAST,
-                DAST, MAST) with a human consultant driving exploitation.
-                Findings link across phases so you see the chain, not just the
-                list.
+                A Macksofy engagement walks the OWASP MASVS + MSTG testing guide
+                from the moment we acquire your build to the moment we hand
+                back a regulator-ready attestation. Each phase applies SAST,
+                DAST or MAST &mdash; usually two of the three &mdash; with a
+                consultant typing the exploit, not a tool clicking through a
+                YAML config. Findings cross-reference across phases so the
+                deliverable reads like an attacker&rsquo;s logbook, not a
+                scanner export.
               </p>
+              <div className="mt-5 flex flex-wrap items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-fg-faint">
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  OWASP MASVS
+                </span>
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  MSTG-aligned
+                </span>
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  CERT-In format
+                </span>
+                <span className="rounded-full ring-1 ring-line/60 bg-bg/40 px-2.5 py-1">
+                  RBI &middot; UIDAI &middot; DESC mapping
+                </span>
+              </div>
             </div>
           </div>
           <div className="mt-12">
