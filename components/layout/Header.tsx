@@ -235,8 +235,10 @@ export function Header() {
       const navItem = NAV.find((n) => n.href === openMenu);
       const isAudit = navItem?.mega === "audit";
       const isServices = navItem?.mega === "services";
+      const isTraining = navItem?.mega === "training";
       const isMega = !!navItem?.mega;
-      const designedWidth = isAudit || isServices ? 1180 : isMega ? 860 : 320;
+      const designedWidth =
+        isAudit || isServices || isTraining ? 1180 : isMega ? 860 : 320;
       const cappedWidth = Math.min(designedWidth, headerRect.width * 0.94);
       const halfWidth = cappedWidth / 2;
       const padding = 12;
@@ -884,8 +886,20 @@ function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
     }));
   }
   if (type === "training") {
-    return COURSES.filter((c) => c.popular)
-      .slice(0, 8)
+    const vendorRank: Record<string, number> = {
+      OffSec: 0,
+      "EC-Council": 1,
+      CompTIA: 2,
+      Macksofy: 3,
+    };
+    return [...COURSES]
+      .sort((a, b) => {
+        const ra = vendorRank[a.vendor] ?? 99;
+        const rb = vendorRank[b.vendor] ?? 99;
+        if (ra !== rb) return ra - rb;
+        if (a.popular !== b.popular) return a.popular ? -1 : 1;
+        return 0;
+      })
       .map((c) => ({
         slug: c.slug,
         href: `/training/${c.slug}`,
@@ -902,6 +916,7 @@ function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
             : "green",
         icon: GraduationCapIcon,
         bullets: c.outcomes?.slice(0, 3),
+        group: c.vendor,
       }));
   }
   return AUDITS.map((a) => ({
@@ -975,7 +990,8 @@ function ListPreviewMegaMenu({
   const active = items.find((i) => i.slug === activeSlug) ?? items[0];
 
   const hasGroups = items.some((it) => !!it.group);
-  const wide = type === "services" && hasGroups;
+  const wide = (type === "services" || type === "training") && hasGroups;
+  const usePreview = type === "services";
 
   const groupOrder: string[] = [];
   const groupMap = new Map<string, MegaItem[]>();
@@ -991,11 +1007,19 @@ function ListPreviewMegaMenu({
     Offensive: { dot: "bg-red-400", text: "text-red-300" },
     Defensive: { dot: "bg-emerald-400", text: "text-emerald-300" },
     "Compliance Adjacent": { dot: "bg-amber-400", text: "text-amber-300" },
+    OffSec: { dot: "bg-neon-purple", text: "text-neon-purple" },
+    "EC-Council": { dot: "bg-neon-cyan", text: "text-neon-cyan" },
+    CompTIA: { dot: "bg-amber-400", text: "text-amber-300" },
+    Macksofy: { dot: "bg-emerald-400", text: "text-emerald-300" },
   };
   const groupCol: Record<string, string> = {
     Offensive: "col-span-12 sm:col-span-6 lg:col-span-4",
     Defensive: "col-span-12 sm:col-span-6 lg:col-span-3",
     "Compliance Adjacent": "col-span-12 sm:col-span-6 lg:col-span-3",
+    OffSec: "col-span-12 sm:col-span-6 lg:col-span-3",
+    "EC-Council": "col-span-12 sm:col-span-6 lg:col-span-3",
+    CompTIA: "col-span-12 sm:col-span-6 lg:col-span-3",
+    Macksofy: "col-span-12 sm:col-span-6 lg:col-span-3",
   };
 
   const preview = (
@@ -1144,7 +1168,9 @@ function ListPreviewMegaMenu({
                 </div>
               );
             })}
-            <div className="col-span-12 lg:col-span-5">{preview}</div>
+            {usePreview && (
+              <div className="col-span-12 lg:col-span-5">{preview}</div>
+            )}
           </>
         ) : (
           <>
