@@ -48,6 +48,7 @@ const BESPOKE_SLUGS = new Set([
   "digital-forensics-incident-response",
   "malware-analysis",
   "threat-intelligence",
+  "iot-ot-security",
 ]);
 
 export function generateStaticParams() {

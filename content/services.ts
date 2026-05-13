@@ -11,6 +11,7 @@ import {
   Radar,
   Smartphone,
   Webhook,
+  Factory,
 } from "lucide-react";
 
 export interface CaseStudy {
@@ -1623,6 +1624,172 @@ export const SERVICES: Service[] = [
       "MISP consulting India",
       "OpenCTI deployment",
       "threat intel program",
+    ],
+  },
+
+  // 10 ----------------------------------------------------------------
+  {
+    slug: "iot-ot-security",
+    title: "IoT & OT Security Assessment",
+    shortTitle: "IoT / OT",
+    icon: Factory,
+    iconName: "Factory",
+    category: "Offensive",
+    popular: true,
+    hero: {
+      eyebrow: "ICS / SCADA · IEC 62443 · NIST SP 800-82 · Purdue-aware",
+      tagline: "Where a typo on the HMI becomes a process incident.",
+      description:
+        "OT-aware penetration testing for industrial control systems, smart meters, BMS, medical devices and connected products. We test live without tripping safeties, map IT→OT pivot paths, and report in language your plant manager and your auditor both accept.",
+    },
+    realWorld:
+      "OT is not just IT with PLCs. A misfired Nmap on a Modbus segment can drop a turbine. Our operators carry IEC 62443 training alongside OSCP, work with your reliability engineers to define a clear safety envelope, and use passive-first techniques (Wireshark, GRASSMARLIN, ICS-NetGazer) before touching anything that talks Profinet or DNP3. When active testing is approved, we use ICS-validated tooling — never a generic vulnerability scanner pointed at the process network.",
+    businessImpact: [
+      "Avoid the headline-grade incidents (Colonial, Oldsmar, Stuxnet-class) before regulators force the question",
+      "Satisfy IEC 62443, NIS2, NCA-ECC OT controls and India's CEA cyber security guidelines for power utilities",
+      "Quantify IT→OT pivot risk concretely — not as 'air-gap assumed'",
+      "Build the OT asset inventory + network baseline that compliance keeps asking for",
+    ],
+    methodology: [
+      {
+        phase: "1 · Safety envelope & scoping",
+        activities: [
+          "Site walk-down with reliability + safety engineers",
+          "Process-impact assessment (PHA) review",
+          "Zone & conduit mapping per IEC 62443-3-2",
+          "Clear go / no-go signals for every test action",
+        ],
+      },
+      {
+        phase: "2 · Passive discovery",
+        activities: [
+          "SPAN / TAP-based protocol capture (Modbus, DNP3, S7, Profinet, OPC UA, BACnet, IEC 60870-5-104)",
+          "Asset inventory via passive fingerprinting (GRASSMARLIN, Claroty xDome read-only)",
+          "Communication baseline & anomaly hunting",
+        ],
+      },
+      {
+        phase: "3 · IT / OT boundary review",
+        activities: [
+          "DMZ + jump-host architecture audit",
+          "Engineering workstation hardening review",
+          "Remote-access (VPN, SD-WAN, vendor portals) attack-surface mapping",
+        ],
+      },
+      {
+        phase: "4 · Targeted active testing",
+        activities: [
+          "ICS-aware vulnerability validation (no scanner storms)",
+          "Authentication + authorization testing on HMIs, EWS, historians",
+          "Firmware reverse-engineering on representative devices",
+          "Wireless audit (802.15.4, LoRaWAN, ISA-100, cellular)",
+        ],
+      },
+      {
+        phase: "5 · Pivot simulation",
+        activities: [
+          "IT→OT lateral path demonstration (read-only by default)",
+          "Engineering workstation → PLC code-change capability",
+          "Safety-system isolation validation (SIS)",
+        ],
+      },
+      {
+        phase: "6 · Reporting & remediation",
+        activities: [
+          "Findings mapped to IEC 62443 SLs + MITRE ATT&CK for ICS",
+          "Plant-manager friendly executive summary",
+          "Compensating-control roadmap with operational reality in mind",
+          "Free retest of high/critical within 60 days",
+        ],
+      },
+    ],
+    toolStack: [
+      "Wireshark + ICS dissectors",
+      "GRASSMARLIN",
+      "Claroty CTD (read-only)",
+      "Nozomi Guardian (read-only)",
+      "ICSSPLOIT",
+      "PLCScan",
+      "Redpoint",
+      "ModScan / mbtget",
+      "S7scan",
+      "Shodan ICS filters",
+      "Binwalk + Ghidra (firmware)",
+      "HackRF + SDR tooling",
+    ],
+    industriesServed: [
+      "Power generation & T&D utilities",
+      "Oil & gas (upstream, midstream, refineries)",
+      "Water & wastewater",
+      "Manufacturing (discrete + process)",
+      "Smart buildings & data centres",
+      "Healthcare (connected medical devices)",
+      "Transportation & rail",
+      "Smart-city + critical infra programs",
+    ],
+    deliverables: [
+      "OT asset inventory + protocol baseline",
+      "Zone-and-conduit network diagram with risk overlays",
+      "Findings report with IEC 62443 SL gap analysis",
+      "MITRE ATT&CK for ICS technique mapping",
+      "Plant-manager + CISO + board-ready executive summary",
+      "Free retest of high/critical findings within 60 days",
+      "Evidence pack accepted by CEA / NIS2 / NCA-ECC auditors",
+    ],
+    caseStudies: [
+      {
+        industry: "State Electricity Utility (India)",
+        scope: "220 kV substation SCADA + RTU fleet",
+        finding: "Engineering workstation reachable from corporate AD with cached domain creds → PLC logic-modification capability across three substations",
+        impact: "Critical — IT→OT pivot path closed via jump-host + tiered admin model before the next CEA audit cycle",
+        severity: 3,
+      },
+      {
+        industry: "GCC Refinery Operator",
+        scope: "DCS + safety instrumented system review",
+        finding: "Vendor remote-support VPN terminated inside Level 2 with no MFA + shared service account",
+        impact: "High — replaced with broker-mediated session + per-engineer credential within the engagement window",
+        severity: 3,
+      },
+      {
+        industry: "Smart Building / Data Centre (Mumbai)",
+        scope: "BMS + CCTV + access-control fabric",
+        finding: "BACnet broadcast write-property exposed on guest VLAN → HVAC setpoint manipulation possible from break-room jack",
+        impact: "High — segmentation + BACnet/SC migration roadmap delivered",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Will testing take our plant down?",
+        a: "No — the engagement is built around a written safety envelope agreed with your reliability and safety engineers. We default to passive techniques, and any active testing happens against approved targets in approved windows with a documented stop-test signal. We have never caused a process trip on a Macksofy OT engagement.",
+      },
+      {
+        q: "Do you actually test live production, or just a lab?",
+        a: "Both, depending on risk tolerance. Greenfield projects and HMIs / historians at Level 3 are usually safe to test live. Level 1/2 PLC and SIS testing is normally done on a representative bench, on a sister unit during planned outage, or via vendor-supported lab — we'll recommend the right mix during scoping.",
+      },
+      {
+        q: "Which frameworks do you align reports to?",
+        a: "IEC 62443-2-1 / 2-4 / 3-2 / 3-3, NIST SP 800-82r3, MITRE ATT&CK for ICS, NIS2 (EU), NCA-ECC OT controls (KSA), India CEA cyber security guidelines for power utilities, and CERT-In OT advisories. Output is mapped so a single engagement produces evidence for multiple audits.",
+      },
+      {
+        q: "Do you also assess connected products and medical devices?",
+        a: "Yes — product-side IoT, IoMT (medical), connected-vehicle and smart-meter assessments are a large part of this practice. Scope typically covers firmware extraction + reverse engineering, hardware interfaces (UART, JTAG, SPI), wireless (BLE, Zigbee, LoRa, cellular), companion mobile app, cloud back-end and OTA update pipeline.",
+      },
+    ],
+    seoTitle: "IoT & OT / ICS Security Assessment India & UAE | IEC 62443 | Macksofy",
+    seoDescription:
+      "OT-aware penetration testing for SCADA, ICS, smart meters, BMS and connected products. IEC 62443 + NIST SP 800-82 aligned, MITRE ATT&CK for ICS mapping. India + UAE.",
+    keywords: [
+      "OT security assessment India",
+      "ICS penetration testing",
+      "SCADA security audit India",
+      "IEC 62443 assessment",
+      "IoT pentest India",
+      "smart meter security audit",
+      "BMS security audit",
+      "industrial cybersecurity Mumbai",
+      "OT pentest UAE",
     ],
   },
 ];
