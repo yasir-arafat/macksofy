@@ -234,8 +234,9 @@ export function Header() {
       // Estimate panel width by menu type (must stay under 94vw).
       const navItem = NAV.find((n) => n.href === openMenu);
       const isAudit = navItem?.mega === "audit";
+      const isServices = navItem?.mega === "services";
       const isMega = !!navItem?.mega;
-      const designedWidth = isAudit ? 1180 : isMega ? 860 : 320;
+      const designedWidth = isAudit || isServices ? 1180 : isMega ? 860 : 320;
       const cappedWidth = Math.min(designedWidth, headerRect.width * 0.94);
       const halfWidth = cappedWidth / 2;
       const padding = 12;
@@ -865,11 +866,12 @@ interface MegaItem {
   badgeTone?: "cyan" | "purple" | "amber" | "green";
   icon: React.ComponentType<{ className?: string }>;
   bullets?: string[];
+  group?: string;
 }
 
 function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
   if (type === "services") {
-    return SERVICES.slice(0, 9).map((s) => ({
+    return SERVICES.map((s) => ({
       slug: s.slug,
       href: `/services/${s.slug}`,
       title: s.shortTitle,
@@ -878,6 +880,7 @@ function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
       badgeTone: s.popular ? "cyan" : undefined,
       icon: s.icon,
       bullets: s.businessImpact?.slice(0, 3),
+      group: s.category,
     }));
   }
   if (type === "training") {
@@ -971,8 +974,104 @@ function ListPreviewMegaMenu({
   const [activeSlug, setActiveSlug] = useState(items[0]?.slug ?? "");
   const active = items.find((i) => i.slug === activeSlug) ?? items[0];
 
+  const hasGroups = items.some((it) => !!it.group);
+  const wide = type === "services" && hasGroups;
+
+  const groupOrder: string[] = [];
+  const groupMap = new Map<string, MegaItem[]>();
+  for (const it of items) {
+    const g = it.group ?? "Other";
+    if (!groupMap.has(g)) {
+      groupMap.set(g, []);
+      groupOrder.push(g);
+    }
+    groupMap.get(g)!.push(it);
+  }
+  const groupTone: Record<string, { dot: string; text: string }> = {
+    Offensive: { dot: "bg-red-400", text: "text-red-300" },
+    Defensive: { dot: "bg-emerald-400", text: "text-emerald-300" },
+    "Compliance Adjacent": { dot: "bg-amber-400", text: "text-amber-300" },
+  };
+  const groupCol: Record<string, string> = {
+    Offensive: "col-span-12 sm:col-span-6 lg:col-span-4",
+    Defensive: "col-span-12 sm:col-span-6 lg:col-span-3",
+    "Compliance Adjacent": "col-span-12 sm:col-span-6 lg:col-span-3",
+  };
+
+  const preview = (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={active?.slug ?? "empty"}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: 0.2 }}
+        className="h-full rounded-xl bg-gradient-to-br from-neon-cyan/[0.05] to-neon-purple/[0.05] ring-1 ring-white/[0.08] p-5 flex flex-col"
+      >
+        {active && (
+          <>
+            <div className="flex items-start gap-3">
+              <div className="grid size-12 place-items-center rounded-xl bg-bg ring-1 ring-neon-cyan/40 text-neon-cyan shadow-[0_0_24px_rgba(0,229,255,0.25)]">
+                <active.icon className="size-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                {active.badge && (
+                  <span
+                    className={cn(
+                      "inline-flex items-center gap-1 rounded-full ring-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                      badgeClass(active.badgeTone)
+                    )}
+                  >
+                    {active.badge}
+                  </span>
+                )}
+                <div className="mt-1 font-display text-base font-bold text-fg leading-tight">
+                  {active.title}
+                </div>
+              </div>
+            </div>
+            <p className="mt-3 text-xs text-fg-muted leading-relaxed">
+              {active.tagline}
+            </p>
+            {active.bullets && active.bullets.length > 0 && (
+              <ul className="mt-4 space-y-1.5">
+                {active.bullets.map((b, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.06 + i * 0.05 }}
+                    className="flex gap-2 text-[11.5px] text-fg-dim leading-snug"
+                  >
+                    <span className="mt-1 size-1 shrink-0 rounded-full bg-neon-cyan" />
+                    <span className="line-clamp-2">{b}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            )}
+            <Link
+              href={active.href}
+              onClick={onClose}
+              className="mt-auto pt-4 inline-flex items-center gap-1.5 text-xs font-bold text-neon-cyan hover:gap-2.5 transition-all"
+            >
+              Open page <ArrowRight className="size-3.5" />
+            </Link>
+          </>
+        )}
+      </motion.div>
+    </AnimatePresence>
+  );
+
+  let runningIndex = 0;
+
   return (
-    <div className="w-[860px] max-w-[90vw]">
+    <div
+      className={cn(
+        wide
+          ? "w-[1180px] max-w-[min(1180px,94vw)]"
+          : "w-[860px] max-w-[90vw]"
+      )}
+    >
       {/* HEADER STRIP */}
       <div className="flex items-end justify-between gap-6 mb-4 pb-4 border-b border-white/10">
         <div className="min-w-0">
@@ -997,88 +1096,75 @@ function ListPreviewMegaMenu({
         </div>
       </div>
 
-      {/* TWO-PANE BODY */}
+      {/* BODY */}
       <div className="grid grid-cols-12 gap-5">
-        {/* LIST */}
-        <div className="col-span-7">
-          <ul className="grid gap-1">
-            {items.map((it, i) => (
-              <MegaItemRow
-                key={it.slug}
-                item={it}
-                index={i}
-                active={it.slug === activeSlug}
-                onHover={() => setActiveSlug(it.slug)}
-                onClose={onClose}
-              />
-            ))}
-          </ul>
-        </div>
-
-        {/* PREVIEW */}
-        <div className="col-span-5">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active?.slug ?? "empty"}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="h-full rounded-xl bg-gradient-to-br from-neon-cyan/[0.05] to-neon-purple/[0.05] ring-1 ring-white/[0.08] p-5 flex flex-col"
-            >
-              {active && (
-                <>
-                  <div className="flex items-start gap-3">
-                    <div className="grid size-12 place-items-center rounded-xl bg-bg ring-1 ring-neon-cyan/40 text-neon-cyan shadow-[0_0_24px_rgba(0,229,255,0.25)]">
-                      <active.icon className="size-5" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      {active.badge && (
-                        <span
-                          className={cn(
-                            "inline-flex items-center gap-1 rounded-full ring-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider",
-                            badgeClass(active.badgeTone)
-                          )}
-                        >
-                          {active.badge}
-                        </span>
-                      )}
-                      <div className="mt-1 font-display text-base font-bold text-fg leading-tight">
-                        {active.title}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-xs text-fg-muted leading-relaxed">
-                    {active.tagline}
-                  </p>
-                  {active.bullets && active.bullets.length > 0 && (
-                    <ul className="mt-4 space-y-1.5">
-                      {active.bullets.map((b, i) => (
-                        <motion.li
-                          key={i}
-                          initial={{ opacity: 0, x: -6 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.06 + i * 0.05 }}
-                          className="flex gap-2 text-[11.5px] text-fg-dim leading-snug"
-                        >
-                          <span className="mt-1 size-1 shrink-0 rounded-full bg-neon-cyan" />
-                          <span className="line-clamp-2">{b}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  )}
-                  <Link
-                    href={active.href}
-                    onClick={onClose}
-                    className="mt-auto pt-4 inline-flex items-center gap-1.5 text-xs font-bold text-neon-cyan hover:gap-2.5 transition-all"
+        {wide ? (
+          <>
+            {groupOrder.map((g) => {
+              const groupItems = groupMap.get(g)!;
+              const tone = groupTone[g] ?? {
+                dot: "bg-neon-cyan",
+                text: "text-neon-cyan",
+              };
+              const colCls = groupCol[g] ?? "col-span-12 sm:col-span-6 lg:col-span-3";
+              return (
+                <div key={g} className={colCls}>
+                  <div
+                    className={cn(
+                      "inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] font-bold mb-2",
+                      tone.text
+                    )}
                   >
-                    Open page <ArrowRight className="size-3.5" />
-                  </Link>
-                </>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+                    <span
+                      className={cn(
+                        "size-1.5 rounded-full animate-pulse",
+                        tone.dot
+                      )}
+                    />
+                    {g}
+                    <span className="text-fg-faint font-mono">
+                      · {groupItems.length}
+                    </span>
+                  </div>
+                  <ul className="grid gap-1">
+                    {groupItems.map((it) => {
+                      const idx = runningIndex++;
+                      return (
+                        <MegaItemRow
+                          key={it.slug}
+                          item={it}
+                          index={idx}
+                          active={it.slug === activeSlug}
+                          onHover={() => setActiveSlug(it.slug)}
+                          onClose={onClose}
+                        />
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
+            <div className="col-span-12 lg:col-span-5">{preview}</div>
+          </>
+        ) : (
+          <>
+            <div className="col-span-7">
+              <ul className="grid gap-1">
+                {items.map((it, i) => (
+                  <MegaItemRow
+                    key={it.slug}
+                    item={it}
+                    index={i}
+                    active={it.slug === activeSlug}
+                    onHover={() => setActiveSlug(it.slug)}
+                    onClose={onClose}
+                  />
+                ))}
+              </ul>
+            </div>
+            <div className="col-span-5">{preview}</div>
+          </>
+        )}
       </div>
 
       {/* FOOTER STRIP */}
