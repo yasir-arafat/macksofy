@@ -1134,77 +1134,113 @@ function ListPreviewMegaMenu({
       </div>
 
       {/* BODY */}
-      <div className="grid grid-cols-12 gap-5">
-        {wide ? (
-          <>
-            {groupOrder.map((g) => {
-              const groupItems = groupMap.get(g)!;
-              const tone = groupTone[g] ?? {
-                dot: "bg-neon-cyan",
-                text: "text-neon-cyan",
-              };
-              const colCls = groupCol[g] ?? "col-span-12 sm:col-span-6 lg:col-span-3";
-              return (
-                <div key={g} className={colCls}>
-                  <div
-                    className={cn(
-                      "inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] font-bold mb-2",
-                      tone.text
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        "size-1.5 rounded-full animate-pulse",
-                        tone.dot
-                      )}
+      {(() => {
+        if (!wide) {
+          return (
+            <div className="grid grid-cols-12 gap-5">
+              <div className="col-span-7">
+                <ul className="grid gap-1">
+                  {items.map((it, i) => (
+                    <MegaItemRow
+                      key={it.slug}
+                      item={it}
+                      index={i}
+                      active={it.slug === activeSlug}
+                      onHover={() => setActiveSlug(it.slug)}
+                      onClose={onClose}
                     />
-                    {g}
-                    <span className="text-fg-faint font-mono">
-                      · {groupItems.length}
-                    </span>
-                  </div>
-                  <ul className="grid gap-1">
-                    {groupItems.map((it) => {
-                      const idx = runningIndex++;
-                      return (
-                        <MegaItemRow
-                          key={it.slug}
-                          item={it}
-                          index={idx}
-                          active={it.slug === activeSlug}
-                          onHover={() => setActiveSlug(it.slug)}
-                          onClose={onClose}
-                        />
-                      );
-                    })}
-                  </ul>
-                </div>
-              );
-            })}
-            {usePreview && (
-              <div className="col-span-12 lg:col-span-5">{preview}</div>
-            )}
-          </>
-        ) : (
-          <>
-            <div className="col-span-7">
+                  ))}
+                </ul>
+              </div>
+              <div className="col-span-5">{preview}</div>
+            </div>
+          );
+        }
+
+        const groupBlocks = groupOrder.map((g) => {
+          const groupItems = groupMap.get(g)!;
+          const tone = groupTone[g] ?? {
+            dot: "bg-neon-cyan",
+            text: "text-neon-cyan",
+          };
+          return (
+            <div key={g} className="min-w-0">
+              <div
+                className={cn(
+                  "flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.16em] font-bold mb-2",
+                  tone.text
+                )}
+              >
+                <span
+                  className={cn(
+                    "size-1.5 rounded-full animate-pulse shrink-0",
+                    tone.dot
+                  )}
+                />
+                <span className="break-words">{g}</span>
+                <span className="text-fg-faint font-mono shrink-0">
+                  · {groupItems.length}
+                </span>
+              </div>
               <ul className="grid gap-1">
-                {items.map((it, i) => (
-                  <MegaItemRow
-                    key={it.slug}
-                    item={it}
-                    index={i}
-                    active={it.slug === activeSlug}
-                    onHover={() => setActiveSlug(it.slug)}
-                    onClose={onClose}
-                  />
-                ))}
+                {groupItems.map((it) => {
+                  const idx = runningIndex++;
+                  return (
+                    <MegaItemRow
+                      key={it.slug}
+                      item={it}
+                      index={idx}
+                      active={it.slug === activeSlug}
+                      onHover={() => setActiveSlug(it.slug)}
+                      onClose={onClose}
+                    />
+                  );
+                })}
               </ul>
             </div>
-            <div className="col-span-5">{preview}</div>
-          </>
-        )}
-      </div>
+          );
+        });
+
+        if (usePreview) {
+          // Services: explicit col-spans on the 12-col grid + preview pane
+          return (
+            <div className="grid grid-cols-12 gap-5">
+              {groupOrder.map((g, i) => (
+                <div
+                  key={g}
+                  className={
+                    groupCol[g] ?? "col-span-12 sm:col-span-6 lg:col-span-3"
+                  }
+                >
+                  {groupBlocks[i]}
+                </div>
+              ))}
+              <div className="col-span-12 lg:col-span-5">{preview}</div>
+            </div>
+          );
+        }
+
+        // Training / audit: each group gets its own column. Use a grid
+        // sized to the number of groups so nothing wraps onto a 2nd row.
+        const lgCols =
+          groupOrder.length === 5
+            ? "lg:grid-cols-5"
+            : groupOrder.length === 4
+            ? "lg:grid-cols-4"
+            : groupOrder.length === 3
+            ? "lg:grid-cols-3"
+            : "lg:grid-cols-2";
+        return (
+          <div
+            className={cn(
+              "grid grid-cols-1 sm:grid-cols-2 gap-5",
+              lgCols
+            )}
+          >
+            {groupBlocks}
+          </div>
+        );
+      })()}
 
       {/* FOOTER STRIP */}
       <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between gap-3 flex-wrap">
