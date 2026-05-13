@@ -1310,6 +1310,56 @@ function MegaItemRow({
   // staggering in under ~0.5s (otherwise late items animate on top of
   // their settled neighbours).
   const delay = Math.min(0.04 + index * 0.02, 0.5);
+
+  if (compact) {
+    // Audit-style row: single-line, title + optional badge, no tagline,
+    // no boxed icon. Eliminates any possibility of multi-line description
+    // overlap and reads cleanly in narrow 5-column layout.
+    return (
+      <motion.li
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay, duration: 0.18 }}
+      >
+        <Link
+          href={item.href}
+          onClick={onClose}
+          onMouseEnter={onHover}
+          onFocus={onHover}
+          className={cn(
+            "group relative flex items-center gap-2 rounded-lg px-2.5 py-1.5 transition-colors",
+            active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
+          )}
+        >
+          <item.icon
+            className={cn(
+              "size-3.5 shrink-0 transition-colors",
+              active ? "text-neon-cyan" : "text-fg-faint group-hover:text-neon-cyan"
+            )}
+          />
+          <span
+            className={cn(
+              "min-w-0 flex-1 truncate text-[12px] font-semibold leading-tight transition-colors",
+              active ? "text-neon-cyan" : "text-fg group-hover:text-neon-cyan"
+            )}
+          >
+            {item.title}
+          </span>
+          {item.badge && (
+            <span
+              className={cn(
+                "shrink-0 rounded-full ring-1 px-1.5 text-[8px] font-bold uppercase tracking-wider",
+                badgeClass(item.badgeTone)
+              )}
+            >
+              {item.badge}
+            </span>
+          )}
+        </Link>
+      </motion.li>
+    );
+  }
+
   return (
     <motion.li
       initial={{ opacity: 0, y: 4 }}
@@ -1322,8 +1372,7 @@ function MegaItemRow({
         onMouseEnter={onHover}
         onFocus={onHover}
         className={cn(
-          "group relative flex items-center gap-3 rounded-xl transition-all overflow-hidden",
-          compact ? "px-2.5 py-1.5" : "px-3 py-2.5",
+          "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all overflow-hidden",
           active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
         )}
       >
@@ -1335,21 +1384,19 @@ function MegaItemRow({
         />
         <div
           className={cn(
-            "grid place-items-center rounded-lg ring-1 transition-all shrink-0",
-            compact ? "size-7" : "size-9",
+            "grid size-9 place-items-center rounded-lg ring-1 transition-all shrink-0",
             active
               ? "bg-neon-cyan/15 ring-neon-cyan/40 text-neon-cyan"
               : "bg-bg-2 ring-line text-fg-muted group-hover:text-neon-cyan group-hover:ring-neon-cyan/30"
           )}
         >
-          <item.icon className={compact ? "size-3.5" : "size-4"} />
+          <item.icon className="size-4" />
         </div>
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             <div
               className={cn(
-                "font-semibold transition-colors truncate leading-tight",
-                compact ? "text-[12px]" : "text-[13px]",
+                "text-[13px] font-semibold transition-colors truncate",
                 active ? "text-neon-cyan" : "text-fg group-hover:text-neon-cyan"
               )}
             >
@@ -1366,21 +1413,13 @@ function MegaItemRow({
               </span>
             )}
           </div>
-          {!compact && (
-            <div className="text-[11px] text-fg-dim leading-snug truncate">
-              {item.tagline}
-            </div>
-          )}
-          {compact && item.tagline && (
-            <div className="text-[10px] text-fg-dim leading-snug truncate mt-0.5">
-              {item.tagline}
-            </div>
-          )}
+          <div className="text-[11px] text-fg-dim leading-snug truncate">
+            {item.tagline}
+          </div>
         </div>
         <ArrowRight
           className={cn(
-            "shrink-0 transition-all",
-            compact ? "size-3" : "size-3.5",
+            "size-3.5 shrink-0 transition-all",
             active
               ? "opacity-100 translate-x-0 text-neon-cyan"
               : "opacity-0 -translate-x-2 text-fg-faint group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-neon-cyan"
