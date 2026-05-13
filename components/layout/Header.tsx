@@ -29,10 +29,6 @@ import { COURSES } from "@/content/courses";
 import { SERVICES } from "@/content/services";
 import {
   AUDITS,
-  AUDIT_CATEGORIES,
-  auditsByCategory,
-  type Audit,
-  type AuditCategory,
 } from "@/content/audits";
 
 /* ──────────────────────────────────────────────────────────────
@@ -919,16 +915,30 @@ function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
         group: c.vendor,
       }));
   }
-  return AUDITS.map((a) => ({
-    slug: a.slug,
-    href: `/audit/${a.slug}`,
-    title: a.shortTitle,
-    tagline: a.hero.tagline,
-    badge: a.authority ? "Authority" : undefined,
-    badgeTone: a.authority ? "amber" : undefined,
-    icon: a.icon,
-    bullets: a.applicability?.slice(0, 3),
-  }));
+  const catRank: Record<string, number> = {
+    Foundational: 0,
+    "Indian Regulatory": 1,
+    "International Standard": 2,
+    "Industry & Privacy": 3,
+    "GCC Regulatory": 4,
+  };
+  return [...AUDITS]
+    .sort((a, b) => {
+      const ra = catRank[a.category] ?? 99;
+      const rb = catRank[b.category] ?? 99;
+      return ra - rb;
+    })
+    .map((a) => ({
+      slug: a.slug,
+      href: `/audit/${a.slug}`,
+      title: a.shortTitle,
+      tagline: a.hero.tagline,
+      badge: a.authority ? "Authority" : undefined,
+      badgeTone: a.authority ? "amber" : undefined,
+      icon: a.icon,
+      bullets: a.applicability?.slice(0, 3),
+      group: a.category,
+    }));
 }
 
 const MEGA_HEADER = {
@@ -966,13 +976,6 @@ function MegaMenu({
   onClose: () => void;
 }) {
   const header = MEGA_HEADER[type];
-
-  // Audit gets a dedicated wide grid layout — 21 items grouped by category,
-  // all clickable, no preview pane.
-  if (type === "audit") {
-    return <AuditMegaGrid header={header} onClose={onClose} />;
-  }
-
   return <ListPreviewMegaMenu type={type} onClose={onClose} header={header} />;
 }
 
@@ -981,7 +984,7 @@ function ListPreviewMegaMenu({
   onClose,
   header,
 }: {
-  type: "services" | "training";
+  type: "services" | "training" | "audit";
   onClose: () => void;
   header: (typeof MEGA_HEADER)[keyof typeof MEGA_HEADER];
 }) {
@@ -990,7 +993,7 @@ function ListPreviewMegaMenu({
   const active = items.find((i) => i.slug === activeSlug) ?? items[0];
 
   const hasGroups = items.some((it) => !!it.group);
-  const wide = (type === "services" || type === "training") && hasGroups;
+  const wide = hasGroups;
   const usePreview = type === "services";
 
   const groupOrder: string[] = [];
@@ -1011,6 +1014,11 @@ function ListPreviewMegaMenu({
     "EC-Council": { dot: "bg-neon-cyan", text: "text-neon-cyan" },
     CompTIA: { dot: "bg-amber-400", text: "text-amber-300" },
     Macksofy: { dot: "bg-emerald-400", text: "text-emerald-300" },
+    Foundational: { dot: "bg-neon-cyan", text: "text-neon-cyan" },
+    "Indian Regulatory": { dot: "bg-amber-300", text: "text-amber-300" },
+    "International Standard": { dot: "bg-neon-purple", text: "text-neon-purple" },
+    "Industry & Privacy": { dot: "bg-emerald-400", text: "text-emerald-300" },
+    "GCC Regulatory": { dot: "bg-sky-400", text: "text-sky-300" },
   };
   const groupCol: Record<string, string> = {
     Offensive: "col-span-12 sm:col-span-6 lg:col-span-4",
@@ -1020,6 +1028,11 @@ function ListPreviewMegaMenu({
     "EC-Council": "col-span-12 sm:col-span-6 lg:col-span-3",
     CompTIA: "col-span-12 sm:col-span-6 lg:col-span-3",
     Macksofy: "col-span-12 sm:col-span-6 lg:col-span-3",
+    Foundational: "col-span-12 sm:col-span-6 lg:col-span-3",
+    "Indian Regulatory": "col-span-12 sm:col-span-6 lg:col-span-3",
+    "International Standard": "col-span-12 sm:col-span-6 lg:col-span-3",
+    "Industry & Privacy": "col-span-12 sm:col-span-6 lg:col-span-3",
+    "GCC Regulatory": "col-span-12 sm:col-span-6 lg:col-span-3",
   };
 
   const preview = (
@@ -1221,209 +1234,6 @@ function ListPreviewMegaMenu({
         </div>
       </div>
     </div>
-  );
-}
-
-/* ──────────────────────────────────────────────────────────────
-   AUDIT MEGA GRID — 4-column grouped layout, all items clickable
-   ────────────────────────────────────────────────────────────── */
-
-const CATEGORY_TONE: Record<
-  AuditCategory,
-  { dot: string; text: string; ring: string }
-> = {
-  Foundational: {
-    dot: "bg-neon-cyan",
-    text: "text-neon-cyan",
-    ring: "ring-neon-cyan/30",
-  },
-  "Indian Regulatory": {
-    dot: "bg-amber-300",
-    text: "text-amber-300",
-    ring: "ring-amber-300/30",
-  },
-  "International Standard": {
-    dot: "bg-neon-purple",
-    text: "text-neon-purple",
-    ring: "ring-neon-purple/30",
-  },
-  "Industry & Privacy": {
-    dot: "bg-emerald-400",
-    text: "text-emerald-300",
-    ring: "ring-emerald-400/30",
-  },
-  "GCC Regulatory": {
-    dot: "bg-neon-cyan",
-    text: "text-neon-cyan",
-    ring: "ring-neon-cyan/30",
-  },
-};
-
-function AuditMegaGrid({
-  header,
-  onClose,
-}: {
-  header: (typeof MEGA_HEADER)[keyof typeof MEGA_HEADER];
-  onClose: () => void;
-}) {
-  return (
-    <div className="w-[1180px] max-w-[min(1180px,94vw)]">
-      {/* HEADER STRIP */}
-      <div className="flex items-end justify-between gap-6 mb-5 pb-4 border-b border-white/10">
-        <div className="min-w-0">
-          <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan font-semibold">
-            <span className="size-1.5 rounded-full bg-neon-cyan animate-pulse" />
-            {header.eyebrow}
-          </div>
-          <div className="mt-2 font-display text-lg font-bold text-fg leading-tight">
-            {header.title}
-          </div>
-          <div className="mt-1 text-xs text-fg-dim">{header.description}</div>
-        </div>
-        <div className="shrink-0 text-right">
-          <div className="font-display text-2xl font-black gradient-text leading-none">
-            {AUDITS.length}
-          </div>
-          <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-fg-faint">
-            Compliance frameworks
-          </div>
-        </div>
-      </div>
-
-      {/* 4-COLUMN CATEGORY GRID */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {AUDIT_CATEGORIES.map((cat, ci) => {
-          const items = auditsByCategory(cat);
-          if (items.length === 0) return null;
-          const tone = CATEGORY_TONE[cat];
-          return (
-            <motion.div
-              key={cat}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.04 + ci * 0.05, duration: 0.25 }}
-              className="flex flex-col"
-            >
-              {/* Category header */}
-              <div
-                className={cn(
-                  "inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] font-bold mb-2",
-                  tone.text
-                )}
-              >
-                <span
-                  className={cn("size-1.5 rounded-full animate-pulse", tone.dot)}
-                />
-                {cat}
-                <span className="text-fg-faint font-mono">
-                  · {items.length}
-                </span>
-              </div>
-
-              {/* Items */}
-              <ul className="grid gap-1">
-                {items.map((a, ai) => (
-                  <AuditMegaItem
-                    key={a.slug}
-                    audit={a}
-                    tone={tone}
-                    index={ci * 7 + ai}
-                    onClose={onClose}
-                  />
-                ))}
-              </ul>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* FOOTER STRIP */}
-      <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between gap-3 flex-wrap">
-        <div className="flex items-center gap-2 text-[11px] text-fg-faint">
-          <Sparkles className="size-3.5 text-neon-cyan" />
-          <span>
-            Reports formatted for regulator submission · CERT-In empanelled ·
-            free 30-day retest
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Link
-            href="/contact"
-            onClick={onClose}
-            className="inline-flex items-center gap-1.5 rounded-full px-3 h-8 text-xs font-semibold text-fg-muted hover:text-neon-cyan hover:bg-white/5 transition-colors"
-          >
-            <Calendar className="size-3.5" /> Book consult
-          </Link>
-          <Link
-            href={header.cta.href}
-            onClick={onClose}
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-3.5 h-8 text-xs font-bold text-white shadow-[0_0_18px_rgba(0,229,255,0.35)] hover:shadow-[0_0_28px_rgba(168,85,247,0.5)] transition-shadow"
-          >
-            {header.cta.label}
-            <ArrowRight className="size-3.5" />
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AuditMegaItem({
-  audit,
-  tone,
-  index,
-  onClose,
-}: {
-  audit: Audit;
-  tone: { dot: string; text: string; ring: string };
-  index: number;
-  onClose: () => void;
-}) {
-  const Icon = audit.icon;
-  return (
-    <motion.li
-      initial={{ opacity: 0, y: 4 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.05 + index * 0.012, duration: 0.2 }}
-    >
-      <Link
-        href={`/audit/${audit.slug}`}
-        onClick={onClose}
-        className="group relative flex items-start gap-3 rounded-xl px-3 py-2.5 hover:bg-white/[0.05] transition-all overflow-hidden"
-      >
-        <span
-          className={cn(
-            "pointer-events-none absolute inset-y-1 left-0 w-0.5 rounded-r-full bg-gradient-to-b from-neon-cyan to-neon-purple opacity-0 group-hover:opacity-100 transition-opacity"
-          )}
-        />
-        <div
-          className={cn(
-            "grid size-8 shrink-0 place-items-center rounded-lg bg-bg-2 ring-1 transition-all",
-            tone.ring,
-            tone.text,
-            "group-hover:ring-neon-cyan/40 group-hover:bg-neon-cyan/10 group-hover:scale-110"
-          )}
-        >
-          <Icon className="size-4" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
-            <div className="text-[12.5px] font-bold text-fg group-hover:text-neon-cyan transition-colors truncate leading-tight">
-              {audit.shortTitle}
-            </div>
-            {audit.authority && (
-              <span className="inline-flex items-center rounded-full bg-amber-500/15 ring-1 ring-amber-500/40 px-1.5 text-[8px] font-bold uppercase tracking-wider text-amber-300 leading-tight">
-                Auth
-              </span>
-            )}
-          </div>
-          <div className="mt-0.5 text-[10.5px] text-fg-dim leading-snug line-clamp-2">
-            {audit.hero.tagline}
-          </div>
-        </div>
-        <ArrowRight className="size-3 shrink-0 text-fg-faint opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-neon-cyan transition-all mt-2" />
-      </Link>
-    </motion.li>
   );
 }
 
