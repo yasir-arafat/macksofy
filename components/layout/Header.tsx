@@ -516,7 +516,7 @@ export function Header() {
                 {/* Hover bridge: invisible padding above the panel covers the gap */}
                 <div className="pt-2">
                   {isMega ? (
-                    <div className="menu-surface p-6">
+                    <div className="menu-surface p-6 max-h-[calc(100vh-6rem)] overflow-y-auto overscroll-contain">
                       <MegaMenu type={item.mega!} onClose={closeAll} />
                     </div>
                   ) : (
@@ -1157,14 +1157,19 @@ function ListPreviewMegaMenu({
           );
         }
 
+        const MAX_VISIBLE = type === "audit" ? 8 : Infinity;
+        const compact = type === "audit";
+
         const groupBlocks = groupOrder.map((g) => {
           const groupItems = groupMap.get(g)!;
+          const visible = groupItems.slice(0, MAX_VISIBLE);
+          const overflowCount = groupItems.length - visible.length;
           const tone = groupTone[g] ?? {
             dot: "bg-neon-cyan",
             text: "text-neon-cyan",
           };
           return (
-            <div key={g} className="min-w-0">
+            <div key={g} className="min-w-0 flex flex-col">
               <div
                 className={cn(
                   "flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.16em] font-bold mb-2",
@@ -1182,8 +1187,8 @@ function ListPreviewMegaMenu({
                   · {groupItems.length}
                 </span>
               </div>
-              <ul className="grid gap-1">
-                {groupItems.map((it) => {
+              <ul className={cn("grid", compact ? "gap-0.5" : "gap-1")}>
+                {visible.map((it) => {
                   const idx = runningIndex++;
                   return (
                     <MegaItemRow
@@ -1193,10 +1198,23 @@ function ListPreviewMegaMenu({
                       active={it.slug === activeSlug}
                       onHover={() => setActiveSlug(it.slug)}
                       onClose={onClose}
+                      compact={compact}
                     />
                   );
                 })}
               </ul>
+              {overflowCount > 0 && (
+                <Link
+                  href={header.cta.href}
+                  onClick={onClose}
+                  className={cn(
+                    "mt-2 inline-flex items-center gap-1 px-3 text-[11px] font-semibold hover:gap-1.5 transition-all",
+                    tone.text
+                  )}
+                >
+                  +{overflowCount} more <ArrowRight className="size-3" />
+                </Link>
+              )}
             </div>
           );
         });
@@ -1279,18 +1297,24 @@ function MegaItemRow({
   active,
   onHover,
   onClose,
+  compact = false,
 }: {
   item: MegaItem;
   index: number;
   active: boolean;
   onHover: () => void;
   onClose: () => void;
+  compact?: boolean;
 }) {
+  // Cap per-item animation delay so wide menus with many rows finish
+  // staggering in under ~0.5s (otherwise late items animate on top of
+  // their settled neighbours).
+  const delay = Math.min(0.04 + index * 0.02, 0.5);
   return (
     <motion.li
-      initial={{ opacity: 0, y: 6 }}
+      initial={{ opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.04 + index * 0.025, duration: 0.2 }}
+      transition={{ delay, duration: 0.18 }}
     >
       <Link
         href={item.href}
@@ -1298,7 +1322,8 @@ function MegaItemRow({
         onMouseEnter={onHover}
         onFocus={onHover}
         className={cn(
-          "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all overflow-hidden",
+          "group relative flex items-center gap-3 rounded-xl transition-all overflow-hidden",
+          compact ? "px-2.5 py-1.5" : "px-3 py-2.5",
           active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
         )}
       >
@@ -1310,19 +1335,21 @@ function MegaItemRow({
         />
         <div
           className={cn(
-            "grid size-9 place-items-center rounded-lg ring-1 transition-all shrink-0",
+            "grid place-items-center rounded-lg ring-1 transition-all shrink-0",
+            compact ? "size-7" : "size-9",
             active
               ? "bg-neon-cyan/15 ring-neon-cyan/40 text-neon-cyan"
               : "bg-bg-2 ring-line text-fg-muted group-hover:text-neon-cyan group-hover:ring-neon-cyan/30"
           )}
         >
-          <item.icon className="size-4" />
+          <item.icon className={compact ? "size-3.5" : "size-4"} />
         </div>
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <div
               className={cn(
-                "text-[13px] font-semibold transition-colors truncate",
+                "font-semibold transition-colors truncate leading-tight",
+                compact ? "text-[12px]" : "text-[13px]",
                 active ? "text-neon-cyan" : "text-fg group-hover:text-neon-cyan"
               )}
             >
@@ -1339,13 +1366,21 @@ function MegaItemRow({
               </span>
             )}
           </div>
-          <div className="text-[11px] text-fg-dim leading-snug truncate">
-            {item.tagline}
-          </div>
+          {!compact && (
+            <div className="text-[11px] text-fg-dim leading-snug truncate">
+              {item.tagline}
+            </div>
+          )}
+          {compact && item.tagline && (
+            <div className="text-[10px] text-fg-dim leading-snug truncate mt-0.5">
+              {item.tagline}
+            </div>
+          )}
         </div>
         <ArrowRight
           className={cn(
-            "size-3.5 shrink-0 transition-all",
+            "shrink-0 transition-all",
+            compact ? "size-3" : "size-3.5",
             active
               ? "opacity-100 translate-x-0 text-neon-cyan"
               : "opacity-0 -translate-x-2 text-fg-faint group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-neon-cyan"
