@@ -6020,6 +6020,238 @@ export const AUDITS: Audit[] = [
       "NCA assessor support",
     ],
   },
+
+  // ====================================================================
+  // WASA — Web Application Security Assessment
+  // ====================================================================
+  {
+    slug: "wasa-audit",
+    title: "WASA — Web Application Security Assessment",
+    shortTitle: "WASA Audit",
+    icon: Lock,
+    iconName: "Lock",
+    category: "Indian Regulatory",
+    hero: {
+      eyebrow: "OWASP ASVS · SANS CWE Top 25 · Compliance-mapped",
+      tagline:
+        "Procurement-grade Web Application Security Assessment — design integrity, not just exploit-finding.",
+      description:
+        "WASA is a structured, framework-mapped evaluation of how a web application withstands real-world attack behavior across architecture, business logic, APIs, session handling and authentication. Macksofy delivers WASA reports that drop directly into enterprise procurement, RBI / SEBI / DPDP submissions, and SOC 2 / ISO 27001 evidence packs — without the rework most pentest PDFs trigger.",
+    },
+    whyItMatters:
+      "A modern enterprise buyer (and an increasing share of Indian BFSI auditors) doesn't want a raw pentest PDF. They want a Web Application Security Assessment that proves design integrity, maps every finding to a recognised control framework (OWASP Top 10, ASVS V4.0, SANS CWE Top 25, ISO 27001 Annex A, PCI DSS), and surfaces compound risk — the chained low-severity flaws that combine into account takeover, lateral movement or tenant-bleed. The 2025 State of Continuous Pentesting report attributes 96% of vulnerabilities in the last 12 months to web applications, and most of them are not zero-days; they are weak session controls, exposed API metadata and misconfigured headers that look minor in isolation but combine into compound exposure. Macksofy's WASA programme is purpose-built for that reality, with dual-layered AI-augmented + manual testing, threat-modelled scoping, and RFP-ready reporting that satisfies enterprise InfoSec, CERT-In format submission and the RBI Master Direction on IT Governance (November 2023) Annex-1 evidence the inspector reads.",
+    applicability: [
+      "B2B SaaS shipping enterprise security questionnaires (CAIQ, SIG, Shared Assessments)",
+      "Fintech / lending / payment-aggregator licensees needing RBI-format AppSec evidence",
+      "Healthtech / US-PHI GCC operators needing HIPAA Security Rule §164.308–312 evidence",
+      "BPO / KPO + IT-services majors with customer-third-party-AppSec-standard obligations",
+      "Public-sector and ministry-adjacent operators on the Digital India ecosystem",
+      "AI / LLM product companies adding OWASP LLM Top 10 (2025) coverage on AI surfaces",
+    ],
+    frameworks: [
+      "OWASP Top 10 (2021) + API Security Top 10 (2023)",
+      "OWASP ASVS V4.0 (Application Security Verification Standard)",
+      "SANS CWE Top 25",
+      "NIST SP 800-53 (IA-5, SC-7) + NIST SP 800-115 v2 testing methodology",
+      "ISO/IEC 27001:2022 Annex A.5, A.8 + ISO/IEC 27002:2022",
+      "PCI DSS v4.0 (clauses 6.x + 8.2.6 session controls)",
+      "OWASP Top 10 for LLM Applications (2025) — for AI surfaces in scope",
+      "CERT-In empanelled submission format (for Indian regulator inputs)",
+      "RBI Master Direction on IT Governance (Nov 2023) Annex-1 (for BFSI scopes)",
+    ],
+    methodology: [
+      {
+        phase: "Wk 1 · Threat-Modelled Scoping",
+        activities: [
+          "Architecture review and trust-boundary mapping with CTO + AppSec lead",
+          "Authorisation matrix discovery role-by-role (tenant / role / api-key / admin)",
+          "Sensitive-data flow inventory (PII, PHI, payment, regulated-financial-data)",
+          "Engagement letter with production safe-harbour + rules of engagement",
+        ],
+      },
+      {
+        phase: "Wk 2 · AI-Augmented Recon & DAST Baseline",
+        activities: [
+          "Authenticated and unauthenticated surface map (Burp Pro, Caido, Nuclei)",
+          "Misconfiguration, exposed-endpoint, insecure-header, CORS gap discovery",
+          "Known-CVE / dependency-vulnerability triage against the deployed stack",
+          "Dynamic attack-surface mapping for the manual phase to chain into",
+        ],
+      },
+      {
+        phase: "Wk 3 · Manual Context-Aware Testing",
+        activities: [
+          "Authentication & session — brute-force, MFA flow tampering, session fixation, token replay, refresh-token rotation, JWT algorithm confusion",
+          "Access control — broken object-level access (BOLA), IDOR chaining, tenant-bleed, SCIM impersonation, role-misassignment",
+          "API behaviour — fuzzing, parameter pollution, endpoint over-exposure, rate-limit bypass",
+          "Business logic — order manipulation, unauthorised workflow branching, billing abuse, design-flaw exploitation",
+          "Error & info leakage — debug-trace exposure, verbose error handling, stack metadata in UI responses",
+        ],
+      },
+      {
+        phase: "Wk 4 · Chained Exploit Modelling",
+        activities: [
+          "Combine low-severity findings into compound exploit narratives (account takeover, privilege escalation, data leakage)",
+          "Map each chain to MITRE ATT&CK techniques where applicable",
+          "Validate proof-of-exploit with reproducible curl / Burp .req / Python harness",
+          "Tie every finding to the threat-model output and the framework control it violates",
+        ],
+      },
+      {
+        phase: "Wk 5 · RFP-Ready Reporting",
+        activities: [
+          "Executive summary in buyer-readable language (InfoSec + procurement)",
+          "Framework crosswalk per finding (OWASP, ASVS, SANS CWE Top 25, ISO 27001 Annex A, PCI DSS)",
+          "CERT-In empanelled format + RBI Master Direction Annex-1 mapping where Indian scope applies",
+          "Vendor-pack annex for customer-security-questionnaire attachment (CAIQ, SIG, Shared Assessments)",
+        ],
+      },
+      {
+        phase: "Wk 6 · Remediation & Validation",
+        activities: [
+          "60-day re-test of every Critical and High finding at no extra cost",
+          "Updated severity scoring with clean validation output per finding",
+          "Engineer-readable remediation guidance with reproducible repros",
+          "Risk-register sync to the customer's GRC tool (Archer / ServiceNow IRM / Vanta / Drata)",
+        ],
+      },
+    ],
+    deliverables: [
+      "WASA report with framework-mapped findings (OWASP Top 10, ASVS V4.0, SANS CWE Top 25, ISO 27001 Annex A, PCI DSS)",
+      "Reproducible exploit code (curl / Burp .req / Python) per High and Critical finding",
+      "Chained-exploit narrative with MITRE ATT&CK technique mapping",
+      "Threat-model output document — architecture, trust boundaries, authorisation matrix",
+      "CERT-In empanelled submission-format report for Indian regulator scope",
+      "Vendor-pack annex for enterprise procurement (CAIQ, SIG, Shared Assessments) attachment",
+      "60-day re-test of every Critical and High at no extra cost",
+      "Post-engagement risk-register sync to GRC tool (Archer / ServiceNow IRM / Vanta / Drata)",
+    ],
+    pillars: [
+      {
+        title: "Authentication & session integrity",
+        blurb: "Where most procurement-questionnaire callouts originate — auth flows, MFA tampering, session lifecycle.",
+        points: [
+          "Brute-force resistance, MFA flow tampering, credential stuffing",
+          "Session fixation, token replay, refresh-token rotation",
+          "JWT algorithm confusion, audience-claim handling, PKCE enforcement",
+        ],
+      },
+      {
+        title: "Access control & multi-tenant authz",
+        blurb: "Broken Object Level Authorisation (BOLA) remains OWASP API Top 10 #1 — exercised role-by-role.",
+        points: [
+          "BOLA + IDOR chaining across every role boundary",
+          "Tenant-bleed and shared-store impersonation",
+          "SCIM impersonation paths in enterprise-customer-driven SaaS",
+        ],
+      },
+      {
+        title: "API behaviour",
+        blurb: "Modern web apps are API surfaces — fuzzing, rate-limit and endpoint over-exposure are first-class scope.",
+        points: [
+          "Input fuzzing, parameter pollution, mass-assignment",
+          "Endpoint over-exposure and shadow-API discovery",
+          "Rate-limit bypass and abuse-case testing on partner-API trust chains",
+        ],
+      },
+      {
+        title: "Business logic",
+        blurb: "The flaws automation cannot find — design-level abuse paths tied to real business impact.",
+        points: [
+          "Order / billing / workflow manipulation",
+          "Unauthorised workflow branching and state-machine abuse",
+          "Privilege escalation through legitimate-looking sequences",
+        ],
+      },
+      {
+        title: "Error & info leakage",
+        blurb: "Verbose errors and stack traces hand attackers the exploit blueprint — removed at source.",
+        points: [
+          "Debug / verbose error suppression at the application boundary",
+          "Stack-metadata and tech-stack-disclosure removal",
+          "Header hygiene (HSTS, CSP, X-Frame-Options, X-Content-Type-Options)",
+        ],
+      },
+      {
+        title: "AI / LLM application surface",
+        blurb: "OWASP Top 10 for LLM Applications (2025) coverage on any AI feature in scope.",
+        points: [
+          "Direct + indirect prompt-injection (via RAG corpus or upstream customer data)",
+          "Tool-use abuse on agent reasoning",
+          "Training-data exfiltration via inference-API probing",
+        ],
+      },
+    ],
+    caseStudies: [
+      {
+        industry: "Series-D B2B SaaS (US-Fortune-500 enterprise customer base)",
+        engagement: "Annual WASA tied to next SOC 2 Type II audit + customer-procurement evidence pack",
+        outcome:
+          "23 chained-exploit findings closed pre-disclosure; report shipped as vendor-pack annex for 18 enterprise RFPs over the next 12 months; SOC 2 Type II audit cleared with zero AppSec findings carried forward.",
+      },
+      {
+        industry: "RBI PA-PG licensee (Sector 18, Noida)",
+        engagement: "WASA + CERT-In submission-format report + RBI Master Direction Annex-1 crosswalk",
+        outcome:
+          "Three settlement-flow abuse paths closed pre-disclosure; one indirect-prompt-injection-via-RAG path on the AI customer-service assistant closed; RBI DPSS thematic review cleared with zero clarifications.",
+      },
+      {
+        industry: "Healthtech SaaS (US-PHI, India-built)",
+        engagement: "WASA + HIPAA Security Rule §164.308–312 evidence + DPDP §16 cross-border-transfer attestation",
+        outcome:
+          "Three SCIM impersonation paths closed; HIPAA evidence pack accepted by two US-customer compliance functions on first read; DPDP §16 attestation accepted by sponsor DPO.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How is WASA different from a regular web app pentest?",
+        a: "A pentest is scoped to break things — it answers 'can this be exploited?'. WASA is scoped to evaluate design integrity and control coverage — it answers 'why was this possible, what trust assumptions broke, and what else does this expose?'. WASA is broader, context-aware, framework-mapped and produces RFP-ready output. Most Macksofy buyers run both annually — pentest for the audit committee's adversary-realism question, WASA for the procurement-and-compliance evidence cycle.",
+      },
+      {
+        q: "Will the WASA report satisfy our enterprise customers' security questionnaires (CAIQ / SIG / Shared Assessments)?",
+        a: "Yes. Every WASA engagement ships a vendor-pack annex written in customer-security-questionnaire language, with framework crosswalk to OWASP, ASVS, ISO 27001:2022 Annex A and (where applicable) HIPAA / PCI DSS. The pack is the operational-evidence attachment your customer-success team uses on enterprise RFPs.",
+      },
+      {
+        q: "Does WASA close my CERT-In + RBI Master Direction obligations?",
+        a: "For BFSI / fintech / payment-aggregator scope, yes. The WASA deliverable is shipped in CERT-In empanelled submission format with explicit crosswalk to RBI Master Direction on IT Governance (Nov 2023) Annex-1 clauses. The same evidence inputs the next CSITE Cell or DPSS thematic review without rework.",
+      },
+      {
+        q: "How long does a WASA engagement take?",
+        a: "5–6 weeks for a mid-sized SaaS or fintech scope. Larger / multi-tenant / multi-region scopes stretch to 7–8 weeks. The closing week is dedicated to remediation validation and the 60-day re-test window covers every Critical and High finding.",
+      },
+      {
+        q: "Do you cover AI / LLM application security in WASA scope?",
+        a: "Yes — OWASP Top 10 for LLM Applications (2025) is the default catalogue for any AI surface in scope. Direct + indirect prompt-injection, tool-use abuse, training-data exfiltration, and domain-specific impersonation paths are tested as base scope.",
+      },
+      {
+        q: "Will the report drop into our GRC tool?",
+        a: "Yes. Findings export to Archer, ServiceNow IRM, Vanta, Drata, Tugboat Logic, OneTrust or Jira / Linear / GitHub Issues with owner, severity, CWE and ETA. The risk-register sync happens at engagement closure as part of the standard deliverable.",
+      },
+      {
+        q: "How is WASA priced?",
+        a: "Fixed-fee SoW sized by application count, tenant model and framework-overlay scope. Pricing transparency is standard — methodology document, lead consultant credentials, comparable-engagement references and a sample anonymised report are shared at the proposal stage.",
+      },
+    ],
+    seoTitle: "WASA Audit India | Web App Security Assessment | Macksofy",
+    seoDescription:
+      "WASA — Web Application Security Assessment in India + UAE. OWASP ASVS V4.0 + SANS CWE Top 25 + ISO 27001 Annex A + CERT-In format + RBI Master Direction crosswalk. RFP-ready.",
+    keywords: [
+      "WASA audit",
+      "WASA audit India",
+      "Web Application Security Assessment",
+      "OWASP ASVS audit",
+      "WASA report",
+      "WASA vs pentest",
+      "WASA checklist",
+      "web application security audit India",
+      "CERT-In WASA",
+      "RBI WASA audit",
+      "WASA SaaS audit",
+      "WASA compliance audit",
+      "WASA Mumbai",
+      "WASA Bengaluru",
+    ],
+  },
 ];
 
 export const getAuditBySlug = (slug: string) =>
