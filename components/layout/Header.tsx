@@ -261,6 +261,37 @@ export function Header() {
     };
   }, []);
 
+  // Lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (mobileOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [mobileOpen]);
+
+  // Close drawer + dropdowns when the route changes (handles in-app navigation)
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileOpen(false);
+    setOpenMenu(null);
+    setSearchOpen(false);
+  }, [pathname]);
+
+  // Close drawer when viewport grows past the lg breakpoint
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (mql.matches) setMobileOpen(false);
+    };
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
   const dismissAnnouncement = () => {
     setAnnDismissed(true);
     if (typeof window !== "undefined")
@@ -473,11 +504,15 @@ export function Header() {
 
           {/* Mobile trigger — only below lg */}
           <button
+            type="button"
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden grid size-10 place-items-center rounded-lg text-fg hover:bg-white/5"
             aria-label="Open menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-drawer"
+            style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
+            className="lg:hidden inline-flex items-center justify-center size-10 rounded-lg text-fg hover:bg-white/5 active:bg-white/10 cursor-pointer select-none"
           >
-            <Menu className="size-6" />
+            <Menu className="size-6 pointer-events-none" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -587,11 +622,16 @@ export function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", stiffness: 260, damping: 28 }}
-            className="fixed inset-0 z-50 bg-bg lg:hidden overflow-y-auto"
+            style={{ height: "100dvh" }}
+            className="fixed inset-0 z-50 bg-bg lg:hidden overflow-y-auto overscroll-contain"
           >
             <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 size-[400px] rounded-full bg-neon-cyan/20 blur-[120px] pointer-events-none" />
@@ -605,11 +645,13 @@ export function Header() {
                 Macksofy
               </Link>
               <button
+                type="button"
                 onClick={() => setMobileOpen(false)}
-                className="grid size-10 place-items-center rounded-lg hover:bg-white/5 text-fg"
                 aria-label="Close menu"
+                style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
+                className="inline-flex items-center justify-center size-10 rounded-lg hover:bg-white/5 active:bg-white/10 text-fg cursor-pointer select-none"
               >
-                <X className="size-6" />
+                <X className="size-6 pointer-events-none" aria-hidden="true" />
               </button>
             </div>
             <nav className="relative flex flex-col p-5 gap-1">
