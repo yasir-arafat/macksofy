@@ -103,6 +103,7 @@ const NAV: NavItem[] = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -141,6 +142,7 @@ export function Header() {
 
   const closeAll = () => {
     setMobileOpen(false);
+    setMobileExpanded(null);
     setOpenMenu(null);
     setSearchOpen(false);
   };
@@ -234,7 +236,7 @@ export function Header() {
       const isTraining = navItem?.mega === "training";
       const isMega = !!navItem?.mega;
       const designedWidth =
-        isAudit || isServices || isTraining ? 1180 : isMega ? 860 : 320;
+        isAudit || isServices || isTraining ? 1380 : isMega ? 860 : 320;
       const cappedWidth = Math.min(designedWidth, headerRect.width * 0.94);
       const halfWidth = cappedWidth / 2;
       const padding = 12;
@@ -277,6 +279,7 @@ export function Header() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
+    setMobileExpanded(null);
     setOpenMenu(null);
     setSearchOpen(false);
   }, [pathname]);
@@ -286,7 +289,10 @@ export function Header() {
     if (typeof window === "undefined") return;
     const mql = window.matchMedia("(min-width: 1024px)");
     const onChange = () => {
-      if (mql.matches) setMobileOpen(false);
+      if (mql.matches) {
+        setMobileOpen(false);
+        setMobileExpanded(null);
+      }
     };
     mql.addEventListener("change", onChange);
     return () => mql.removeEventListener("change", onChange);
@@ -631,12 +637,12 @@ export function Header() {
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", stiffness: 260, damping: 28 }}
             style={{ height: "100dvh" }}
-            className="fixed inset-0 z-50 bg-bg lg:hidden overflow-y-auto overscroll-contain"
+            className="fixed inset-0 z-50 bg-bg lg:hidden flex flex-col"
           >
             <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 size-[400px] rounded-full bg-neon-cyan/20 blur-[120px] pointer-events-none" />
 
-            <div className="relative flex items-center justify-between px-5 h-16 border-b border-line">
+            <div className="relative flex items-center justify-between px-5 h-16 border-b border-line shrink-0">
               <Link
                 href="/"
                 onClick={closeAll}
@@ -654,67 +660,150 @@ export function Header() {
                 <X className="size-6 pointer-events-none" aria-hidden="true" />
               </button>
             </div>
-            <nav className="relative flex flex-col p-5 gap-1">
-              {NAV.map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: 16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + i * 0.04 }}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={closeAll}
-                    className="flex items-center justify-between px-4 py-3.5 rounded-xl text-lg font-semibold text-fg hover:bg-white/5"
-                  >
-                    <span>{item.label}</span>
-                    <ArrowRight className="size-4 text-fg-faint" />
-                  </Link>
-                  {item.dropdown && (
-                    <ul className="mt-1 ml-4 mb-2 grid gap-1 border-l border-line pl-4">
-                      {item.dropdown
-                        .filter((d) => d.href !== item.href)
-                        .map((d) => (
-                          <li key={d.href}>
-                            <Link
-                              href={d.href}
-                              onClick={closeAll}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-fg-muted hover:text-neon-cyan hover:bg-white/5"
-                            >
-                              <d.icon className="size-4" />
-                              {d.label}
-                            </Link>
-                          </li>
-                        ))}
-                    </ul>
-                  )}
-                </motion.div>
-              ))}
+            <nav className="relative flex-1 overflow-y-auto overscroll-contain px-4 pt-3 pb-6">
+              <ul className="grid gap-1">
+                {NAV.map((item, i) => {
+                  const hasMobileMenu = !!item.mega || !!item.dropdown;
+                  const expanded = mobileExpanded === item.href;
+                  const active =
+                    pathname === item.href ||
+                    (item.href !== "/" && pathname.startsWith(item.href));
+
+                  return (
+                    <motion.li
+                      key={item.href}
+                      initial={{ opacity: 0, x: 16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.04 + i * 0.03 }}
+                    >
+                      {hasMobileMenu ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setMobileExpanded(expanded ? null : item.href)
+                            }
+                            aria-expanded={expanded}
+                            aria-controls={`mobile-panel-${item.href}`}
+                            className={cn(
+                              "w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-semibold transition-colors",
+                              expanded || active
+                                ? "bg-white/5 text-fg"
+                                : "text-fg hover:bg-white/5"
+                            )}
+                          >
+                            <span>{item.label}</span>
+                            <ChevronDown
+                              className={cn(
+                                "size-4 text-fg-muted transition-transform duration-200",
+                                expanded && "rotate-180 text-neon-cyan"
+                              )}
+                            />
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {expanded && (
+                              <motion.div
+                                key="panel"
+                                id={`mobile-panel-${item.href}`}
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.22, ease: "easeOut" }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pt-1 pb-2 pl-3">
+                                  <Link
+                                    href={item.href}
+                                    onClick={closeAll}
+                                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-[12px] font-mono uppercase tracking-[0.16em] text-neon-cyan hover:bg-neon-cyan/5"
+                                  >
+                                    View all {item.label}
+                                    <ArrowRight className="size-3.5" />
+                                  </Link>
+                                  {item.mega ? (
+                                    <MobileMegaList
+                                      type={item.mega}
+                                      onClose={closeAll}
+                                      pathname={pathname}
+                                    />
+                                  ) : (
+                                    <ul className="mt-1 grid gap-0.5 border-l border-line/60 ml-3 pl-3">
+                                      {item.dropdown!.map((d) => {
+                                        const subActive =
+                                          pathname === d.href ||
+                                          (d.href !== "/" &&
+                                            pathname.startsWith(d.href));
+                                        return (
+                                          <li key={d.href}>
+                                            <Link
+                                              href={d.href}
+                                              onClick={closeAll}
+                                              className={cn(
+                                                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[14px]",
+                                                subActive
+                                                  ? "text-neon-cyan bg-white/5"
+                                                  : "text-fg-muted hover:text-neon-cyan hover:bg-white/5"
+                                              )}
+                                            >
+                                              <d.icon className="size-4 shrink-0" />
+                                              <span className="min-w-0 truncate">
+                                                {d.label}
+                                              </span>
+                                            </Link>
+                                          </li>
+                                        );
+                                      })}
+                                    </ul>
+                                  )}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={closeAll}
+                          className={cn(
+                            "flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-semibold transition-colors",
+                            active
+                              ? "text-neon-cyan bg-white/5"
+                              : "text-fg hover:bg-white/5"
+                          )}
+                        >
+                          <span>{item.label}</span>
+                          <ArrowRight className="size-4 text-fg-faint" />
+                        </Link>
+                      )}
+                    </motion.li>
+                  );
+                })}
+              </ul>
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6 grid gap-3"
+                transition={{ delay: 0.3 }}
+                className="mt-6 grid gap-2.5"
               >
                 <button
                   onClick={() => {
                     setMobileOpen(false);
                     setSearchOpen(true);
                   }}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-line h-12 px-5 text-sm font-semibold text-fg-muted hover:text-fg hover:border-neon-cyan/40 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-line h-11 px-5 text-[13px] font-semibold text-fg-muted hover:text-fg hover:border-neon-cyan/40 transition-colors"
                 >
                   <Search className="size-4" /> Search…
                 </button>
                 <a
                   href={`tel:${SITE.phone}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-neon-cyan h-12 px-5 text-sm font-bold text-neon-cyan hover:bg-neon-cyan hover:text-bg transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-neon-cyan h-11 px-5 text-[13px] font-bold text-neon-cyan hover:bg-neon-cyan hover:text-bg transition-colors"
                 >
                   <Phone className="size-4" /> Call {SITE.phoneDisplay}
                 </a>
                 <Link
                   href="/contact"
                   onClick={closeAll}
-                  className="btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple h-12 px-5 text-sm font-bold text-white"
+                  className="btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple h-11 px-5 text-[13px] font-bold text-white"
                 >
                   Book Consultation <ArrowRight className="size-4" />
                 </Link>
@@ -1021,6 +1110,103 @@ function MegaMenu({
   return <ListPreviewMegaMenu type={type} onClose={onClose} header={header} />;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   MOBILE MEGA LIST — grouped sub-items inside the mobile drawer
+   ────────────────────────────────────────────────────────────── */
+function MobileMegaList({
+  type,
+  onClose,
+  pathname,
+}: {
+  type: "services" | "training" | "audit";
+  onClose: () => void;
+  pathname: string;
+}) {
+  const items = buildMegaItems(type);
+  const groupOrder: string[] = [];
+  const groupMap = new Map<string, MegaItem[]>();
+  for (const it of items) {
+    const g = it.group ?? "Other";
+    if (!groupMap.has(g)) {
+      groupMap.set(g, []);
+      groupOrder.push(g);
+    }
+    groupMap.get(g)!.push(it);
+  }
+  const groupTone: Record<string, string> = {
+    Offensive: "text-red-300",
+    Defensive: "text-emerald-300",
+    "Compliance Adjacent": "text-amber-300",
+    OffSec: "text-neon-purple",
+    "EC-Council": "text-neon-cyan",
+    CompTIA: "text-amber-300",
+    Macksofy: "text-emerald-300",
+    Foundational: "text-neon-cyan",
+    "Indian Regulatory": "text-amber-300",
+    "International Standard": "text-neon-purple",
+    "Industry & Privacy": "text-emerald-300",
+    "GCC Regulatory": "text-sky-300",
+  };
+
+  return (
+    <div className="mt-1 ml-3 pl-3 border-l border-line/60 grid gap-3">
+      {groupOrder.map((g) => {
+        const groupItems = groupMap.get(g)!;
+        const tone = groupTone[g] ?? "text-neon-cyan";
+        return (
+          <div key={g}>
+            <div
+              className={cn(
+                "px-2 mb-1 font-mono text-[10px] uppercase tracking-[0.18em] font-bold flex items-center gap-2",
+                tone
+              )}
+            >
+              <span>{g}</span>
+              <span className="text-fg-faint font-mono">· {groupItems.length}</span>
+            </div>
+            <ul className="grid gap-0.5">
+              {groupItems.map((it) => {
+                const subActive =
+                  pathname === it.href ||
+                  (it.href !== "/" && pathname.startsWith(it.href));
+                return (
+                  <li key={it.slug}>
+                    <Link
+                      href={it.href}
+                      onClick={onClose}
+                      className={cn(
+                        "flex items-center gap-2.5 px-2 py-2 rounded-lg text-[13px] leading-tight",
+                        subActive
+                          ? "bg-white/5 text-neon-cyan"
+                          : "text-fg-muted hover:text-neon-cyan hover:bg-white/5"
+                      )}
+                    >
+                      <it.icon className="size-3.5 shrink-0" />
+                      <span className="min-w-0 flex-1 truncate font-medium">
+                        {it.title}
+                      </span>
+                      {it.badge && (
+                        <span
+                          className={cn(
+                            "shrink-0 rounded-full ring-1 px-1.5 text-[8px] font-bold uppercase tracking-wider",
+                            badgeClass(it.badgeTone)
+                          )}
+                        >
+                          {it.badge}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function ListPreviewMegaMenu({
   type,
   onClose,
@@ -1036,7 +1222,7 @@ function ListPreviewMegaMenu({
 
   const hasGroups = items.some((it) => !!it.group);
   const wide = hasGroups;
-  const usePreview = type === "services";
+  const usePreview = type === "services" || type === "audit";
 
   const groupOrder: string[] = [];
   const groupMap = new Map<string, MegaItem[]>();
@@ -1147,7 +1333,7 @@ function ListPreviewMegaMenu({
     <div
       className={cn(
         wide
-          ? "w-[1180px] max-w-[min(1180px,94vw)]"
+          ? "w-[1380px] max-w-[min(1380px,96vw)]"
           : "w-[860px] max-w-[90vw]"
       )}
     >
@@ -1262,6 +1448,43 @@ function ListPreviewMegaMenu({
         });
 
         if (usePreview) {
+          // Audit: 5 groups won't fit alongside a preview as 5 separate
+          // columns. Pair smaller groups into stacked columns so each
+          // visual column has comfortable width.
+          if (type === "audit") {
+            const auditColumns: { groups: string[]; colSpan: string }[] = [
+              {
+                groups: ["Foundational", "Indian Regulatory"],
+                colSpan: "lg:col-span-3",
+              },
+              {
+                groups: ["International Standard", "Industry & Privacy"],
+                colSpan: "lg:col-span-2",
+              },
+              { groups: ["GCC Regulatory"], colSpan: "lg:col-span-2" },
+            ];
+            return (
+              <div className="grid grid-cols-12 gap-5">
+                {auditColumns.map((col, ci) => (
+                  <div
+                    key={ci}
+                    className={cn(
+                      "col-span-12 sm:col-span-6 flex flex-col gap-5",
+                      col.colSpan
+                    )}
+                  >
+                    {col.groups.map((g) => {
+                      const idx = groupOrder.indexOf(g);
+                      return idx >= 0 ? (
+                        <div key={g}>{groupBlocks[idx]}</div>
+                      ) : null;
+                    })}
+                  </div>
+                ))}
+                <div className="col-span-12 lg:col-span-5">{preview}</div>
+              </div>
+            );
+          }
           // Services: explicit col-spans on the 12-col grid + preview pane
           return (
             <div className="grid grid-cols-12 gap-5">
@@ -1309,6 +1532,7 @@ function ListPreviewMegaMenu({
           <span>
             {type === "services" && "All engagements include free 30-day retest."}
             {type === "training" && "Mentor support until you pass — no extra fee."}
+            {type === "audit" && "CERT-In empanelled · 11+ years auditing experience."}
           </span>
         </div>
         <div className="flex items-center gap-2">
