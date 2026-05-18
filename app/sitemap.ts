@@ -54,6 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/clients", 0.7, "monthly"),
     stat("/awards", 0.7, "monthly"),
     stat("/press", 0.7, "monthly"),
+    stat("/products/pentaudit", 0.9, "monthly"),
+    stat("/products/learn-to-exploit", 0.85, "monthly"),
     stat("/privacy", 0.4, "monthly"),
     stat("/case-studies", 0.9, "monthly"),
     ...CASE_STUDIES.map((c) => stat(`/case-studies/${c.slug}`, 0.85, "monthly")),

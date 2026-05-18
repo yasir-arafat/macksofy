@@ -36,6 +36,75 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Services where indicative tiered pricing would mislead — quote
+// depends on KLOC / hours / asset count / regulatory footprint.
+// Renders a centered CTA + "Request a scoped quote" instead.
+const CTA_INSTEAD_OF_PRICING: Record<
+  string,
+  { eyebrow: string; headline: React.ReactNode; body: string; primaryCta: string }
+> = {
+  "source-code-review": {
+    eyebrow: "Scope-driven pricing",
+    headline: (
+      <>
+        Every codebase is different.{" "}
+        <span className="gradient-text">So is every quote.</span>
+      </>
+    ),
+    body:
+      "Source review pricing depends on KLOC, language mix and crown-jewel module count — not a fixed tier. Share your stack and we'll send a fixed-price proposal within 48 hours, NDA-first.",
+    primaryCta: "Request a scoped quote",
+  },
+  vciso: {
+    eyebrow: "Retainer-based engagement",
+    headline: (
+      <>
+        Senior CISO leadership,{" "}
+        <span className="gradient-text">priced for your stage.</span>
+      </>
+    ),
+    body:
+      "vCISO retainers run ₹4–18 L per month depending on day-count, seniority and regulatory footprint. 12-month minimum. Tell us where you are in your security journey and we'll send a scoped proposal within 48 hours.",
+    primaryCta: "Book a discovery call",
+  },
+  "annual-security-program": {
+    eyebrow: "12-month program — bespoke scope",
+    headline: (
+      <>
+        One contract.{" "}
+        <span className="gradient-text">Twelve months of assurance.</span>
+      </>
+    ),
+    body:
+      "Annual program pricing runs ₹40 L–₹2.5 Cr per year depending on asset count, product portfolio and regulatory footprint — at a 25–35% discount vs. one-off engagement pricing. Quote within 5 working days of scoping.",
+    primaryCta: "Scope the annual program",
+  },
+  "managed-security-services": {
+    eyebrow: "Predictable monthly retainer",
+    headline: (
+      <>
+        Outsourced security operations,{" "}
+        <span className="gradient-text">priced like a utility.</span>
+      </>
+    ),
+    body:
+      "MSS pricing scales with monitored asset count, log volume and required SLA. 12-month minimum, billed monthly. Share your environment size and we'll send a tier-based proposal within 5 working days.",
+    primaryCta: "Request an MSS proposal",
+  },
+  "staffing-service": {
+    eyebrow: "Rate-card driven",
+    headline: (
+      <>
+        Vetted bench, deployed in{" "}
+        <span className="gradient-text">5–10 working days.</span>
+      </>
+    ),
+    body:
+      "Staffing rates scale with seniority, certification (OSCP / OSCP+ / ISO 27001 LA / CISSP), shift pattern and clearance. Tell us roles, count and start date — we'll send a candidate slate + rate card within 5 working days.",
+    primaryCta: "Request candidates + rate card",
+  },
+};
+
 const BESPOKE_SLUGS = new Set([
   "vapt",
   "penetration-testing",
@@ -301,11 +370,43 @@ export default async function ServiceDetail({ params }: PageProps) {
         </section>
       )}
 
-      {/* PRICING */}
-      <PricingTiers
-        pkg={getServicePricing(service.slug, service.category)}
-        contactInterest={service.title}
-      />
+      {/* PRICING — replaced by a CTA on services where scope is too
+          engagement-specific to publish indicative tiers. */}
+      {CTA_INSTEAD_OF_PRICING[service.slug] ? (
+        <section className="py-20 bg-bg-1">
+          <Container>
+            <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-14 text-center glow-blend">
+              <GlowOrb className="-top-20 left-1/2 -translate-x-1/2" color="cyan" size={420} />
+              <div className="relative">
+                <Eyebrow>{CTA_INSTEAD_OF_PRICING[service.slug].eyebrow}</Eyebrow>
+                <h2 className="mt-4 font-display text-3xl font-black sm:text-4xl lg:text-5xl text-balance leading-[1.05]">
+                  {CTA_INSTEAD_OF_PRICING[service.slug].headline}
+                </h2>
+                <p className="mt-5 mx-auto max-w-2xl text-fg-muted text-pretty">
+                  {CTA_INSTEAD_OF_PRICING[service.slug].body}
+                </p>
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  <LinkButton
+                    href={`/contact?interest=${encodeURIComponent(service.title)}`}
+                    size="lg"
+                    withArrow
+                  >
+                    {CTA_INSTEAD_OF_PRICING[service.slug].primaryCta}
+                  </LinkButton>
+                  <LinkButton href="#methodology" variant="outline" size="lg">
+                    Review the methodology
+                  </LinkButton>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      ) : (
+        <PricingTiers
+          pkg={getServicePricing(service.slug, service.category)}
+          contactInterest={service.title}
+        />
+      )}
 
       {/* TRUST STRIP */}
       <TrustStrip />

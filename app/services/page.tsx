@@ -36,6 +36,7 @@ export const metadata = buildMetadata({
 export default function ServicesPage() {
   const offensive = SERVICES.filter((s) => s.category === "Offensive");
   const defensive = SERVICES.filter((s) => s.category === "Defensive");
+  const managed = SERVICES.filter((s) => s.category === "Managed Services");
 
   return (
     <>
@@ -60,7 +61,9 @@ export default function ServicesPage() {
         <Container className="relative pt-12 pb-20 sm:pt-16 sm:pb-28">
           <Breadcrumbs items={[{ name: "Services", href: "/services" }]} />
           <div className="mt-8 max-w-4xl">
-            <Eyebrow>9 Services · Offensive + Defensive</Eyebrow>
+            <Eyebrow>
+              {SERVICES.length} Services · Offensive · Defensive · Managed
+            </Eyebrow>
             <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
               Cybersecurity services that{" "}
               <span className="gradient-text">find what others miss.</span>
@@ -94,6 +97,23 @@ export default function ServicesPage() {
       <section className="relative py-24 bg-bg-1 overflow-hidden">
         <Container>
           <ServiceShowcase
+            tone="managed"
+            eyebrow="Managed Security Services"
+            title={
+              <>
+                Operate the security program{" "}
+                <span className="gradient-text">on your behalf.</span>
+              </>
+            }
+            kicker="Outsourced SOC, fractional CISO leadership, annual assurance retainers, threat-intel programmes and vetted staffing — predictable monthly cost, CERT-In empanelled, India data-residency."
+            serviceSlugs={managed.map((s) => s.slug)}
+          />
+        </Container>
+      </section>
+
+      <section className="relative py-24 overflow-hidden">
+        <Container>
+          <ServiceShowcase
             tone="defensive"
             eyebrow="Defensive Engineering"
             title={
@@ -102,7 +122,7 @@ export default function ServicesPage() {
                 <span className="gradient-text">recover.</span>
               </>
             }
-            kicker="SOC build-outs, SIEM tuning, DFIR retainers and threat-intel programmes engineered to cut alert noise, contain incidents quickly and recover with auditable evidence."
+            kicker="DFIR retainers and malware-analysis capability engineered to contain incidents quickly and recover with auditable evidence."
             serviceSlugs={defensive.map((s) => s.slug)}
           />
         </Container>

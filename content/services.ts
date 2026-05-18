@@ -12,6 +12,15 @@ import {
   Smartphone,
   Webhook,
   Factory,
+  FileScan,
+  ShieldCheck,
+  CalendarClock,
+  UserCog,
+  Combine,
+  Users,
+  BrainCircuit,
+  Wifi,
+  Network,
 } from "lucide-react";
 
 export interface CaseStudy {
@@ -28,7 +37,11 @@ export interface Service {
   shortTitle: string;
   icon: LucideIcon;
   iconName: string;
-  category: "Offensive" | "Defensive" | "Compliance Adjacent";
+  category:
+    | "Offensive"
+    | "Defensive"
+    | "Compliance Adjacent"
+    | "Managed Services";
   popular?: boolean;
   hero: {
     eyebrow: string;
@@ -364,7 +377,7 @@ export const SERVICES: Service[] = [
     shortTitle: "SOC + SIEM",
     icon: Activity,
     iconName: "Activity",
-    category: "Defensive",
+    category: "Managed Services",
     hero: {
       eyebrow: "Wazuh · ELK · Splunk · Microsoft Sentinel",
       tagline: "A SOC that detects what matters. Not just what's loud.",
@@ -1509,11 +1522,11 @@ export const SERVICES: Service[] = [
   // 9 -----------------------------------------------------------------
   {
     slug: "threat-intelligence",
-    title: "Threat Intelligence",
+    title: "Cyber Threat Intelligence",
     shortTitle: "Threat Intel",
     icon: Radar,
     iconName: "Radar",
-    category: "Defensive",
+    category: "Managed Services",
     hero: {
       eyebrow: "Strategic · Operational · Tactical",
       tagline: "Move from reactive defense to proactive hunting.",
@@ -1790,6 +1803,1407 @@ export const SERVICES: Service[] = [
       "BMS security audit",
       "industrial cybersecurity Mumbai",
       "OT pentest UAE",
+    ],
+  },
+
+  // 11 ----------------------------------------------------------------
+  {
+    slug: "source-code-review",
+    title: "Secure Source Code Review",
+    shortTitle: "Code Review",
+    icon: FileScan,
+    iconName: "FileScan",
+    category: "Offensive",
+    hero: {
+      eyebrow: "Manual + SAST + SCA · OWASP / SANS 25 / CWE-aligned",
+      tagline: "Find the flaw at line 412 — before it ships to prod.",
+      description:
+        "Line-by-line review of your source by OSCP/OSWE-trained reviewers, paired with commercial SAST and SCA tooling. Covers Java, .NET, Node.js, Python, Go, PHP, Ruby, Swift and Kotlin — mapped to OWASP Top 10, SANS Top 25 and the CWE taxonomy your auditor expects.",
+    },
+    realWorld:
+      "We don't ship a Semgrep dump with our logo on the cover. A typical engagement starts with a dependency graph and SBOM, builds a SAST baseline across the codebase, then a senior reviewer spends 60–70% of the engagement on manual deep-dives in the spots tools miss: authentication and session handling, crypto, deserialization, business-logic authorization, file handling and race conditions. Every finding ships with the exact file:line, a runnable PoC, the secure-coding pattern to replace it with, and a CI rule to prevent regression.",
+    businessImpact: [
+      "Catch flaws at SDLC stage where remediation costs ~10× less than post-prod",
+      "Satisfy CERT-In, RBI IT Governance, SEBI CSCRF, ISO 27001 A.14 and SOC 2 SDLC controls",
+      "De-risk pre-launch releases and M&A code due diligence (SBOM + risk inventory)",
+      "Reduce production CVSS exposure surface before a public push",
+      "Train your dev team on secure-by-default patterns via the walkthrough handoff",
+    ],
+    methodology: [
+      {
+        phase: "1 · Pre-engagement & scope",
+        activities: [
+          "Mutual NDA + source-handling agreement (on-prem review or read-only repo grant)",
+          "Language + framework inventory, third-party dependency list",
+          "Crown-jewel module identification (auth, payments, PII handling, admin)",
+          "Branch / tag pin so the review is reproducible",
+        ],
+      },
+      {
+        phase: "2 · Automated baseline",
+        activities: [
+          "SAST sweep (Semgrep, SonarQube, CodeQL, Checkmarx / Fortify when client-licensed)",
+          "SCA + SBOM (OWASP Dependency-Check, Snyk, Trivy) — known CVEs in third-party libs",
+          "Secrets scan (Gitleaks, TruffleHog) across full git history, not just HEAD",
+          "Lint + style baseline to surface dead branches and unreachable code",
+        ],
+      },
+      {
+        phase: "3 · Manual deep-dive review",
+        activities: [
+          "Authentication, session and password handling",
+          "Cryptography: algorithm choice, key handling, IV/nonce reuse, JWT pitfalls",
+          "Input validation, output encoding, injection sinks (SQLi, XSS, SSRF, RCE, XXE, LDAP, NoSQL)",
+          "Business-logic authorization (BOLA, IDOR, mass-assignment, race conditions)",
+          "Deserialization, file upload, path traversal, SSRF + DNS rebinding",
+          "Logging, error handling, secret material in logs",
+        ],
+      },
+      {
+        phase: "4 · Data-flow / taint analysis",
+        activities: [
+          "Source-to-sink tracing for high-risk sinks (CodeQL queries + manual)",
+          "Trust-boundary crossing review (request → DB, request → file, request → shell)",
+          "Tenant-isolation review for multi-tenant SaaS",
+        ],
+      },
+      {
+        phase: "5 · Triage & validation",
+        activities: [
+          "False-positive elimination — every reported finding is human-confirmed",
+          "Exploitability + business-impact scoring (CVSS 3.1 + Macksofy risk rating)",
+          "PoC or repro snippet for every High / Critical",
+        ],
+      },
+      {
+        phase: "6 · Reporting",
+        activities: [
+          "Executive summary (board-ready, 2–3 pages)",
+          "Findings inventory: file:line, CWE, CVSS, exploitability, recommended fix",
+          "Inline patched code snippets — copy-pasteable, not pseudo-code",
+          "SDLC-integration recommendations (pre-commit hooks, CI gates, IDE plugins)",
+        ],
+      },
+      {
+        phase: "7 · Walkthrough & retest",
+        activities: [
+          "Live walkthrough session with the development team",
+          "Q&A on secure-coding patterns and refactor strategy",
+          "Free retest of remediated findings within 30 days of fix submission",
+          "Compliance evidence letter (ISO 27001 A.14 / SOC 2 / CERT-In / PCI-DSS req 6.3)",
+        ],
+      },
+    ],
+    toolStack: [
+      "Semgrep",
+      "SonarQube",
+      "CodeQL",
+      "Checkmarx (client-licensed)",
+      "Fortify SCA (client-licensed)",
+      "Brakeman (Ruby on Rails)",
+      "Bandit (Python)",
+      "gosec (Go)",
+      "ESLint security plugins",
+      "Snyk Code + Snyk Open Source",
+      "OWASP Dependency-Check",
+      "Trivy (containers + SBOM)",
+      "Gitleaks",
+      "TruffleHog",
+      "Custom Semgrep + CodeQL queries",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Fintech & Payments",
+      "Insurance & InsurTech",
+      "Healthcare & HealthTech",
+      "SaaS & Product Companies",
+      "Government & PSU",
+      "E-commerce & D2C",
+      "Telecom",
+    ],
+    deliverables: [
+      "Executive summary (board-ready, 2–3 pages)",
+      "Per-finding report: file:line, CWE, CVSS 3.1, exploitability, business impact",
+      "Runnable PoC or repro for every High / Critical finding",
+      "Inline fix snippets — production-ready, not pseudo-code",
+      "Software Bill of Materials (SBOM) in CycloneDX / SPDX format",
+      "SDLC-integration playbook: pre-commit hooks, CI gates, IDE plugins",
+      "Free retest of fixed findings within 30 days",
+      "Compliance evidence letter (ISO 27001 A.14 / SOC 2 / CERT-In / PCI-DSS 6.3)",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed Fintech (Bengaluru)",
+        scope: "Customer-facing Java / Spring Boot monolith, ~340 KLOC",
+        finding: "7 hardcoded JWT secrets across env profiles + 3 second-order SQLi in admin module surfaced via Semgrep custom rules and confirmed manually",
+        impact: "Critical — pre-prod fix shipped before public launch; saved estimated ₹3 Cr breach-cost exposure",
+        severity: 3,
+      },
+      {
+        industry: "HealthTech SaaS (Mumbai)",
+        scope: "Node.js + Python microservices (12 services, ~180 KLOC)",
+        finding: "Insecure Jackson deserialization → RCE in 2 microservices, traced via CodeQL taint analysis from REST handlers to ObjectMapper.readValue",
+        impact: "Critical — patched in 5 working days; HIPAA-aligned customer notification avoided",
+        severity: 3,
+      },
+      {
+        industry: "Government PSU (Delhi NCR)",
+        scope: ".NET 6 portal + Python report-generation service",
+        finding: "SSRF in PDF generation library (chained Server-Side request → internal metadata service) and IDOR across 4 admin endpoints",
+        impact: "High — disclosed to internal SOC; remediated under CERT-In coordinated disclosure",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Which languages and frameworks do you cover?",
+        a: "Java (Spring, Struts, JSP), .NET (Framework + Core), Node.js (Express, NestJS, Fastify), Python (Django, Flask, FastAPI), Go, PHP (Laravel, Symfony, WordPress plugins), Ruby on Rails, Swift / Kotlin (mobile), and a long tail of Scala, Rust, Elixir, C / C++ on request. We assign reviewers by language proficiency, not as a generalist pool.",
+      },
+      {
+        q: "Do you need our full repo? Can the review happen on-prem?",
+        a: "Both options. Default is read-only access to a pinned branch in your repo (GitHub / GitLab / Bitbucket / Azure DevOps). For sensitive codebases — BFSI, defence, healthcare — we run on-prem from a Macksofy laptop inside your office, or in a jump-host VM you control. NDA + source-handling agreement are mandatory either way.",
+      },
+      {
+        q: "Is this just a SAST tool run, or actual manual review?",
+        a: "Roughly 30% automated baseline, 70% manual. SAST and SCA give us coverage and triage speed; the bulk of value comes from a senior reviewer walking authentication, crypto, business-logic authorization, deserialization and trust-boundary code by hand. Every finding we ship is human-confirmed — no raw tool dumps.",
+      },
+      {
+        q: "Can you integrate the findings into our CI / SDLC?",
+        a: "Yes. The report includes a SDLC-integration playbook: pre-commit hooks (Semgrep CI, Gitleaks, custom rules tuned to your repo), CI gates (fail-the-build thresholds), IDE plugins for developers, and a Jira / Linear import of all findings as actionable tickets. We can run a follow-on engagement to set this up.",
+      },
+      {
+        q: "How long does a typical engagement run?",
+        a: "5–20 working days depending on KLOC, language count and crown-jewel scope. A focused module review (e.g. payment service, auth subsystem) is usually 5–7 days. A full-codebase review of a mid-size SaaS is 12–20. Fixed-price proposal within 48 hours of scoping.",
+      },
+      {
+        q: "Is our source code kept confidential?",
+        a: "Yes. Mutual NDA signed before any code is shared. Source is stored encrypted at rest, only the assigned reviewer has access, and everything is wiped 30 days after the retest closes. We never copy, fork or retain your code beyond the engagement window. On-prem review option is available for the most sensitive engagements.",
+      },
+    ],
+    seoTitle: "Secure Source Code Review Services India & UAE | SAST + Manual | Macksofy",
+    seoDescription:
+      "Manual + SAST source code review by OSCP/OSWE-trained reviewers. Java, .NET, Node.js, Python, Go. OWASP / SANS 25 / CWE-aligned. CERT-In + ISO 27001 + SOC 2 ready. India + UAE.",
+    keywords: [
+      "secure code review India",
+      "source code review services",
+      "SAST consulting India",
+      "code review company Mumbai",
+      "secure code review UAE",
+      "OWASP secure code review",
+      "Java code review India",
+      ".NET code review India",
+      "Node.js security audit",
+      "Python code audit",
+      "CERT-In code review",
+      "SDLC security review India",
+    ],
+  },
+
+  // 12 — Managed Services umbrella ------------------------------------
+  {
+    slug: "managed-security-services",
+    title: "Managed Security Services (MSSP)",
+    shortTitle: "MSSP",
+    icon: ShieldCheck,
+    iconName: "ShieldCheck",
+    category: "Managed Services",
+    hero: {
+      eyebrow: "24×7 · CERT-In Empanelled · India Data-Residency",
+      tagline: "Your security operations team — without the 18-month hiring cycle.",
+      description:
+        "Outsource the heavy lifting of day-to-day security operations to a CERT-In empanelled team. Managed SOC, managed EDR/XDR, managed vulnerability operations, managed identity hygiene and incident response — all under one SLA, one ticketing pane and one quarterly board report.",
+    },
+    realWorld:
+      "Most mid-market security teams in India and the GCC have 2–4 in-house engineers covering 200+ assets across cloud, on-prem and SaaS. Macksofy plugs in a 24×7 analyst pod (L1/L2/L3 + IR on-call), a tuned SIEM you keep ownership of, and a quarterly governance forum that measures MTTD, MTTR, control coverage and risk burn-down. You stop chasing alerts. We stop talking about tools and start talking about outcomes.",
+    businessImpact: [
+      "Predictable monthly cost vs. fully-loaded ₹3–5 Cr/yr for a 24×7 in-house SOC",
+      "Coverage maturity in 30–60 days instead of 12–18 months of hiring",
+      "Single accountable provider for SOC, EDR, IR, vuln-ops and reporting",
+      "Quarterly board pack auditors and regulators accept as-is (CERT-In · RBI · SEBI · ISO 27001)",
+    ],
+    methodology: [
+      {
+        phase: "1 · Onboarding & baseline",
+        activities: [
+          "Asset and identity inventory · crown-jewel tagging",
+          "Risk baseline + control coverage gap analysis",
+          "SIEM / EDR / IDS / cloud-log connector mapping",
+          "Runbook + escalation matrix sign-off",
+        ],
+      },
+      {
+        phase: "2 · Detection engineering",
+        activities: [
+          "MITRE ATT&CK coverage map (current → target)",
+          "Use-case backlog prioritised by risk + business impact",
+          "Custom detection rules · noise tuning · KPI baselining (MTTD / MTTR / false-positive ratio)",
+        ],
+      },
+      {
+        phase: "3 · 24×7 operations",
+        activities: [
+          "Tier-1 triage SLA 15 minutes · Tier-2 investigation SLA 30 minutes",
+          "Threat hunting cycles aligned to MITRE TTPs and your industry threat actors",
+          "Managed vulnerability operations: prioritisation, exception tracking, remediation chasing",
+          "Identity hygiene watch (stale accounts, MFA exceptions, privileged access drift)",
+        ],
+      },
+      {
+        phase: "4 · Incident response on-call",
+        activities: [
+          "DFIR retainer hours rolled into the MSS contract",
+          "Containment + eradication playbooks pre-approved with your IT team",
+          "Forensic preservation + chain-of-custody if litigation likely",
+        ],
+      },
+      {
+        phase: "5 · Reporting & governance",
+        activities: [
+          "Monthly operations report (MTTD, MTTR, top-10 risks, control gaps)",
+          "Quarterly business review with security leadership + finance",
+          "Annual program maturity assessment (NIST CSF / ISO 27001 alignment)",
+          "Evidence pack ready for CERT-In, RBI, SEBI, SOC 2 and ISO 27001 audits",
+        ],
+      },
+    ],
+    toolStack: [
+      "Wazuh + ELK (open-source)",
+      "Splunk · Microsoft Sentinel · IBM QRadar (client-licensed)",
+      "CrowdStrike Falcon · SentinelOne · Microsoft Defender XDR",
+      "Tenable · Qualys · Rapid7 InsightVM",
+      "TheHive + Cortex",
+      "MISP · OpenCTI",
+      "Custom SOAR playbooks",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Fintech & Payments",
+      "Healthcare & HealthTech",
+      "Insurance & InsurTech",
+      "SaaS & Product Companies",
+      "Government & PSU",
+      "Manufacturing & Energy",
+      "Telecom",
+    ],
+    deliverables: [
+      "24×7 monitoring + Tier-1 to Tier-3 triage and investigation",
+      "Managed EDR / XDR + managed vulnerability operations",
+      "Incident response retainer hours (included)",
+      "Monthly operations report + quarterly business review",
+      "MITRE ATT&CK coverage map kept current",
+      "Annual program maturity assessment",
+      "Audit-ready evidence pack for CERT-In · RBI · SEBI · ISO 27001 · SOC 2",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed NBFC (Mumbai)",
+        scope: "24×7 MSS across AWS + on-prem AD, 1,800 endpoints",
+        finding: "Detected and contained a ransomware-precursor (Cobalt Strike beacon) inside 22 minutes of initial access — domain compromise avoided",
+        impact: "Critical — regulator notification not required; full forensic timeline delivered in 48 hours",
+        severity: 3,
+      },
+      {
+        industry: "Fintech Lending Platform (Bengaluru)",
+        scope: "Managed SOC + managed EDR + DFIR retainer",
+        finding: "MTTD reduced from 6.8 hours to 18 minutes over 90-day baseline period",
+        impact: "Material — measurable risk reduction reported to board + SEBI System Audit",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you own our SIEM or do we?",
+        a: "You own the SIEM, the data, and the detection content — always. We deploy, tune and operate it under your tenancy. If the engagement ends, you keep everything: rules, dashboards, historical logs, runbooks. No lock-in.",
+      },
+      {
+        q: "Where do logs and case data reside?",
+        a: "Inside your environment by default (your AWS / Azure / GCP tenant or on-prem datacenter). India data-residency available on demand. For regulated clients (RBI, SEBI, CERT-In), we run the full stack in-country and produce data-localisation evidence on request.",
+      },
+      {
+        q: "What's the minimum engagement?",
+        a: "12 months. Onboarding takes 30–60 days; we want a clean baseline period to demonstrate measurable MTTD / MTTR improvement. 24- and 36-month engagements unlock discounted rates and rolled-in DFIR hours.",
+      },
+      {
+        q: "Can you co-source rather than fully outsource?",
+        a: "Yes. Co-managed SOC is common — your in-house team owns Tier-1 + business context, we own Tier-2/3 + detection engineering + 24×7 cover. Pricing scales with split.",
+      },
+      {
+        q: "How does this differ from your SOC + SIEM build engagement?",
+        a: "The SOC build engagement is a one-time setup; MSS is the run-state operation. Many clients buy the build first, then transition into MSS for the operate phase. The contracts integrate cleanly.",
+      },
+    ],
+    seoTitle: "Managed Security Services (MSSP) India & UAE | 24×7 SOC | Macksofy",
+    seoDescription:
+      "CERT-In empanelled managed security services — 24×7 SOC, managed EDR/XDR, managed vuln-ops, IR retainer included. India data-residency. Predictable monthly cost vs. in-house SOC.",
+    keywords: [
+      "managed security services India",
+      "MSSP India",
+      "managed SOC India",
+      "managed XDR India",
+      "MSSP Mumbai",
+      "MSSP UAE",
+      "co-managed SIEM India",
+      "24x7 SOC services India",
+      "managed security services Dubai",
+    ],
+  },
+
+  // 13 — Annual Security Program (advisory retainer) ------------------
+  {
+    slug: "annual-security-program",
+    title: "Annual Security Program",
+    shortTitle: "Annual Program",
+    icon: CalendarClock,
+    iconName: "CalendarClock",
+    category: "Managed Services",
+    hero: {
+      eyebrow: "Continuous Assurance · Quarterly Cadence · Single Retainer",
+      tagline: "One annual partner. Every assessment, every quarter, every audit.",
+      description:
+        "Bundle your pentest, VAPT, code review, configuration audits and tabletop exercises into a single 12-month program with a quarterly cadence — at a 25–35% discount to one-off pricing. Audit-evidence-ready, board-reportable, regulator-defensible.",
+    },
+    realWorld:
+      "The annual security program replaces the panic-driven one-off engagement cycle. We sit with your CISO, map the 12-month assessment plan against your regulatory deadlines (RBI System Audit, SEBI CSCRF, CERT-In, ISO 27001 surveillance, SOC 2 Type 2), and execute on a rolling quarterly cadence. Findings flow into a single risk register. Remediation gets chased between quarters. Free retests are unlimited within the contract window. Your board sees one trend chart, not 11 disconnected PDFs.",
+    businessImpact: [
+      "25–35% lower spend vs. one-off engagement pricing across the same scope",
+      "Single risk register across pentest + audit + code review + tabletop findings",
+      "Regulator-defensible evidence package — no last-minute scramble before audit",
+      "Continuous remediation chasing (we don't just hand over a PDF and disappear)",
+      "Quarterly board / risk-committee deck produced for you",
+    ],
+    methodology: [
+      {
+        phase: "1 · Annual scoping & roadmap",
+        activities: [
+          "Regulatory calendar mapping (RBI · SEBI · CERT-In · ISO · SOC 2 · PCI-DSS)",
+          "Asset + product roadmap intake",
+          "12-month assessment cadence designed jointly with your CISO",
+          "Risk-register baseline established",
+        ],
+      },
+      {
+        phase: "2 · Quarter 1 execution",
+        activities: [
+          "Baseline external + internal pentest",
+          "Cloud configuration audit (CIS / Macksofy hardening pack)",
+          "Identity hygiene + privileged access review",
+        ],
+      },
+      {
+        phase: "3 · Quarter 2 execution",
+        activities: [
+          "Web + API VAPT across new releases",
+          "Source code review on crown-jewel modules",
+          "Tabletop exercise (incident response + business continuity)",
+        ],
+      },
+      {
+        phase: "4 · Quarter 3 execution",
+        activities: [
+          "Red team / assumed-breach exercise (assumed-breach scope)",
+          "Mobile + thick-client testing",
+          "Vendor / third-party risk spot-checks",
+        ],
+      },
+      {
+        phase: "5 · Quarter 4 execution",
+        activities: [
+          "Re-pentest of remediated findings (closure validation)",
+          "ISO 27001 / SOC 2 readiness sweep",
+          "Annual maturity assessment + next-year planning",
+        ],
+      },
+      {
+        phase: "6 · Continuous governance",
+        activities: [
+          "Single risk register updated quarterly",
+          "Unlimited free retests within the contract window",
+          "Quarterly business review with security leadership",
+          "Year-end board pack + auditor evidence package",
+        ],
+      },
+    ],
+    toolStack: [
+      "Macksofy proprietary risk-register platform",
+      "Tenable / Qualys / Rapid7 InsightVM (configuration audits)",
+      "Burp Suite Pro · Nuclei · Custom tooling (pentest cadence)",
+      "Semgrep · CodeQL · Snyk (code review cadence)",
+      "TheHive + Cortex (tabletop exercise infrastructure)",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Fintech & Payments",
+      "Insurance & InsurTech",
+      "Healthcare & HealthTech",
+      "Government & PSU",
+      "SaaS & Product Companies",
+      "Manufacturing & Energy",
+    ],
+    deliverables: [
+      "12-month assessment roadmap aligned to your regulatory calendar",
+      "Quarterly execution: pentest · VAPT · code review · audit · tabletop",
+      "Single consolidated risk register (Macksofy platform)",
+      "Quarterly business review + board-ready trend chart",
+      "Unlimited free retests within the contract window",
+      "Year-end auditor evidence package (CERT-In · RBI · SEBI · ISO · SOC 2)",
+      "Annual maturity assessment (NIST CSF + ISO 27001 alignment)",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed Insurance MNC (Mumbai BKC)",
+        scope: "12-month program: 4 pentests + 2 code reviews + 1 red team + 4 audits",
+        finding: "Consolidated savings of ₹68 L vs. one-off pricing; closed 91% of High/Critical findings inside the contract window",
+        impact: "Material — passed IRDAI System Audit + ISO 27001 surveillance with zero major non-conformities",
+        severity: 2,
+      },
+      {
+        industry: "Regulated Fintech (Bengaluru)",
+        scope: "12-month program for SEBI CSCRF + RBI master direction readiness",
+        finding: "Found 3 Critical issues in pre-prod that would have triggered SEBI CSCRF non-conformity; remediated before go-live",
+        impact: "High — avoided regulatory delay of new investment platform launch",
+        severity: 3,
+      },
+    ],
+    faqs: [
+      {
+        q: "Can we customise the quarterly mix?",
+        a: "Yes — the cadence above is a template. We sit with your CISO during scoping and re-balance based on your regulatory deadlines, product roadmap and where past assessments found weaknesses. The total scope, not the exact split, is what's contracted.",
+      },
+      {
+        q: "What if our scope grows mid-year?",
+        a: "Scope adjustments are handled via change-orders at the discounted retainer rate, not at one-off pricing. The annual program is designed to flex.",
+      },
+      {
+        q: "Is this just a pre-paid block of hours?",
+        a: "No — it's outcomes-based. The deliverables list above is contractually committed. Hours are tracked for transparency but the contract is for the assessments + deliverables, not a bucket of consulting time.",
+      },
+      {
+        q: "How is this different from a vCISO retainer?",
+        a: "The annual program is execution-heavy (we run the assessments). The vCISO is leadership-heavy (we sit in your governance forums, set policy, advise on architecture). Most regulated mid-market clients buy both — the vCISO designs the program, this contract executes it.",
+      },
+      {
+        q: "What's the typical contract size?",
+        a: "Ranges from ₹40 L to ₹2.5 Cr depending on asset count, product portfolio and regulatory footprint. Fixed price for the year, billed quarterly. Quote within 5 working days of scoping.",
+      },
+    ],
+    seoTitle: "Annual Security Program India | Continuous VAPT + Audit + Code Review | Macksofy",
+    seoDescription:
+      "12-month security assurance program — pentest, VAPT, code review, audit, red team bundled at 25–35% discount. Quarterly cadence. CERT-In + RBI + SEBI evidence. India + UAE.",
+    keywords: [
+      "annual security program India",
+      "continuous assurance India",
+      "annual VAPT retainer",
+      "security retainer Mumbai",
+      "RBI annual security audit",
+      "SEBI CSCRF program India",
+      "annual penetration testing retainer",
+      "security program management India",
+    ],
+  },
+
+  // 14 — Virtual CISO ------------------------------------------------
+  {
+    slug: "vciso",
+    title: "Virtual CISO (vCISO)",
+    shortTitle: "vCISO",
+    icon: UserCog,
+    iconName: "UserCog",
+    category: "Managed Services",
+    hero: {
+      eyebrow: "Fractional CISO · India + GCC · Board-Ready",
+      tagline: "C-suite security leadership — fractional, accountable, board-ready.",
+      description:
+        "An experienced CISO embedded in your leadership team on a fractional basis — 1, 2 or 4 days a week. Sets policy, owns risk register, presents to the board, manages regulators, mentors your in-house team and stays accountable to outcomes, not hours billed.",
+    },
+    realWorld:
+      "A vCISO is not an advisor who emails recommendations. Macksofy vCISOs (15–22 years experience, prior in-house CISO roles at BFSI / fintech / SaaS) join your leadership calendar, attend your board / risk committee meetings, own the security strategy, sign off on the risk register, sit across the table from RBI / SEBI / CERT-In inspectors, and mentor your 2–6 person security team. They report to your CEO or COO, not to us. The model fits start-ups and mid-market firms who need real CISO leadership without the ₹2–4 Cr/yr fully-loaded cost.",
+    businessImpact: [
+      "C-level security leadership at 25–40% of the fully-loaded in-house cost",
+      "Board + risk-committee reporting handled by someone who has done it before",
+      "Regulator-facing interlocutor (CERT-In · RBI · SEBI · DPDP Authority · DESC / NCA in GCC)",
+      "Mentorship pipeline for your in-house engineers (career-ladder, training plan)",
+      "Continuity through founder departures, fundraises and M&A diligence",
+    ],
+    methodology: [
+      {
+        phase: "1 · Onboarding (Month 1)",
+        activities: [
+          "Stakeholder interviews (board, CEO, CTO, CFO, audit, legal, ops)",
+          "Asset, vendor and regulator inventory",
+          "Current-state risk register + maturity baseline (NIST CSF · ISO 27001)",
+          "12-month security strategy + budget draft",
+        ],
+      },
+      {
+        phase: "2 · Strategy ratification (Month 2)",
+        activities: [
+          "Strategy presented to board / risk committee",
+          "Policy stack reviewed or rewritten (information security · acceptable use · incident response · vendor risk · DPDP / GDPR)",
+          "KRIs and KPIs agreed with leadership",
+        ],
+      },
+      {
+        phase: "3 · Operate (Months 3–12)",
+        activities: [
+          "Monthly risk-committee chair + quarterly board reporting",
+          "Regulator engagement (CERT-In · RBI · SEBI · DESC · NCA · DPDP)",
+          "Architecture review on every major change (cloud, third-party, product)",
+          "In-house team mentoring + recruitment / interview support",
+          "Incident command during High / Critical incidents",
+        ],
+      },
+      {
+        phase: "4 · Annual cycle",
+        activities: [
+          "Annual maturity reassessment + strategy refresh",
+          "Annual board pack + audit readiness sign-off",
+          "Succession-planning for in-house CISO hire (if applicable)",
+        ],
+      },
+    ],
+    toolStack: [
+      "Macksofy risk-register platform",
+      "Vanta · Drata · Sprinto (compliance automation, if client-licensed)",
+      "JIRA / Linear (risk-treatment tracking)",
+      "Confluence / Notion (policy stack)",
+    ],
+    industriesServed: [
+      "Fintech & Payments",
+      "SaaS & Product Companies",
+      "Banking & Financial Services",
+      "Insurance & InsurTech",
+      "Healthcare & HealthTech",
+      "E-commerce & D2C",
+      "Government & PSU",
+      "Series-A to Series-D startups",
+    ],
+    deliverables: [
+      "12-month security strategy + budget signed off by board",
+      "Policy stack (10–14 core policies) — drafted or refreshed",
+      "Monthly risk-committee meetings chaired",
+      "Quarterly board pack (trend chart, top risks, regulator status, hiring plan)",
+      "Regulator interlocutor for CERT-In · RBI · SEBI · DPDP · DESC · NCA",
+      "Incident command during High / Critical events",
+      "Mentorship + interview support for in-house security hires",
+      "Annual maturity reassessment (NIST CSF + ISO 27001)",
+    ],
+    caseStudies: [
+      {
+        industry: "Series-C Fintech (Bengaluru)",
+        scope: "vCISO 2 days/week for 14 months",
+        finding: "Built security from 1-person to 4-person team; passed SOC 2 Type 2 and SEBI CSCRF; supported successful Series-D due diligence",
+        impact: "Strategic — avoided estimated ₹2.5 Cr/yr full-time CISO cost during pre-IPO scaling phase",
+        severity: 0,
+      },
+      {
+        industry: "Listed Insurance MNC (Mumbai BKC)",
+        scope: "vCISO 4 days/week — interim coverage during in-house CISO transition",
+        finding: "Continuity through 7-month CISO transition; chaired IRDAI inspection response; closed 14 of 17 audit observations before handover",
+        impact: "Material — zero regulatory observation carried into the new CISO tenure",
+        severity: 1,
+      },
+      {
+        industry: "GCC SaaS (Dubai)",
+        scope: "vCISO 1 day/week + 24×7 IR on-call",
+        finding: "Built UAE PDPL + ISO 27001 program from scratch; passed ISO certification within 9 months of engagement",
+        impact: "Strategic — unlocked GCC enterprise sales channel previously blocked on certification gap",
+        severity: 0,
+      },
+    ],
+    faqs: [
+      {
+        q: "Who actually does the vCISO work — a junior or a real CISO?",
+        a: "A senior practitioner. Macksofy vCISOs are 15–22 years experienced, every one of them has held an in-house CISO or Deputy CISO role at a regulated firm. We do not staff this with junior consultants. You meet the named vCISO before contract sign-off.",
+      },
+      {
+        q: "How many days a week?",
+        a: "1, 2 or 4 days/week are standard. 1-day plans suit early-stage startups (governance + policy + board reporting). 4-day plans suit mid-market firms in active regulatory cycles or M&A. We don't sell hourly — the engagement is for outcomes, with time committed up-front.",
+      },
+      {
+        q: "Will the vCISO sit in our office?",
+        a: "Hybrid by default — typically 1 day/week on-site (Mumbai · Bengaluru · Delhi NCR · Dubai · Abu Dhabi) plus remote attendance at all leadership and risk-committee meetings. Fully on-site engagements are available for sensitive sectors.",
+      },
+      {
+        q: "Does the vCISO own incident response?",
+        a: "Yes — they are your Incident Commander during High / Critical events, work alongside your IT lead, manage breach communications and regulator notifications, and bring in Macksofy DFIR forensics as needed under the same contract.",
+      },
+      {
+        q: "What happens when we're ready to hire a full-time CISO?",
+        a: "The vCISO supports the search — writes the JD, interviews shortlist, advises on package, then runs a structured 4–8 week handover. Several Macksofy vCISO engagements end in a recruited full-time CISO; that's a success metric, not a churn risk.",
+      },
+      {
+        q: "Pricing?",
+        a: "₹4–18 L per month depending on day-count and seniority. Quote within 48 hours of a discovery call. 12-month minimum.",
+      },
+    ],
+    seoTitle: "Virtual CISO (vCISO) Services India & UAE | Fractional CISO | Macksofy",
+    seoDescription:
+      "Fractional CISO leadership for fintech, BFSI, SaaS — board reporting, regulator engagement, policy, IR command. 15+ year practitioners. India + UAE. From ₹4 L/month.",
+    keywords: [
+      "virtual CISO India",
+      "vCISO India",
+      "fractional CISO India",
+      "vCISO Mumbai",
+      "vCISO Bengaluru",
+      "virtual CISO Dubai",
+      "vCISO UAE",
+      "vCISO fintech India",
+      "vCISO SaaS India",
+      "CISO as a service India",
+    ],
+  },
+
+  // 15 — Purple Teaming ----------------------------------------------
+  {
+    slug: "purple-teaming",
+    title: "Purple Team Exercises",
+    shortTitle: "Purple Team",
+    icon: Combine,
+    iconName: "Combine",
+    category: "Offensive",
+    hero: {
+      eyebrow: "Red + Blue · MITRE ATT&CK · Detection Validation",
+      tagline: "Test the detection, not just the defence.",
+      description:
+        "Collaborative red + blue team exercises that validate your detection and response capability against real adversary TTPs — running side-by-side with your SOC analysts so every missed alert becomes a tuned rule before the engagement closes.",
+    },
+    realWorld:
+      "Most red team reports tell you what got missed. A purple team engagement makes sure it stops getting missed. Macksofy red operators execute a MITRE ATT&CK-aligned playbook in agreed phases — initial access, persistence, lateral movement, exfiltration — with your SOC watching live. When a technique slips past detection, we pause, write the rule together, replay, and confirm the alert fires. The output is a tuned SIEM, a measurably hardened MITRE coverage map, and SOC analysts who have seen the attacker's actual tradecraft.",
+    businessImpact: [
+      "Convert red team findings into shipped detection rules — not next-quarter remediation tickets",
+      "Measurable MITRE ATT&CK coverage improvement (baseline → target) with evidence",
+      "Train Tier-1 and Tier-2 SOC analysts on real adversary tradecraft, not vendor demos",
+      "Build the executive evidence pack: '92 ATT&CK techniques tested, 78 detected, 14 hardened'",
+    ],
+    methodology: [
+      {
+        phase: "1 · Pre-engagement",
+        activities: [
+          "Threat-model intake: industry-relevant APTs and ransomware families",
+          "MITRE ATT&CK baseline assessment of current detection coverage",
+          "Joint engagement charter signed by red + blue + IT leads",
+        ],
+      },
+      {
+        phase: "2 · Phase-by-phase execution",
+        activities: [
+          "Initial access scenarios (phishing, exposed services, supply-chain)",
+          "Execution + persistence + privilege escalation",
+          "Lateral movement + credential access",
+          "Defense evasion + collection + exfiltration",
+          "Each phase: red executes → blue detects/misses → joint tuning → replay",
+        ],
+      },
+      {
+        phase: "3 · Detection engineering co-build",
+        activities: [
+          "Sigma / Splunk / Sentinel / Wazuh rule authoring with your analysts",
+          "False-positive tuning against your baseline noise profile",
+          "Validation: re-execute technique until the alert fires reliably",
+        ],
+      },
+      {
+        phase: "4 · ATT&CK coverage hardening",
+        activities: [
+          "Coverage map: techniques tested vs. detected vs. blocked vs. tuned",
+          "Gap inventory ranked by likelihood + business impact",
+          "Quick-win + medium-term hardening roadmap",
+        ],
+      },
+      {
+        phase: "5 · Reporting & retest",
+        activities: [
+          "Executive summary with coverage delta (before / after)",
+          "Per-technique writeup: PoC, detection rule shipped, remaining gap",
+          "30-day retest of the hardened rule set",
+        ],
+      },
+    ],
+    toolStack: [
+      "MITRE Caldera",
+      "Atomic Red Team",
+      "Prelude Operator",
+      "Cobalt Strike (RoE-permitting)",
+      "Covenant + Sliver",
+      "BloodHound",
+      "Custom EDR-evasion tooling",
+      "Sigma · Splunk SPL · KQL · Wazuh rule editor",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Fintech & Payments",
+      "Insurance & InsurTech",
+      "SaaS & Product Companies",
+      "Government & PSU",
+      "Healthcare & HealthTech",
+      "Telecom",
+    ],
+    deliverables: [
+      "MITRE ATT&CK coverage heatmap (before / after)",
+      "Per-technique evidence pack (red PoC + blue detection rule shipped)",
+      "Tuned Sigma / Splunk / Sentinel / Wazuh rule set",
+      "Detection engineering runbook + future-cadence recommendation",
+      "Free 30-day retest of the hardened rule set",
+      "Executive coverage delta report",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed Bank (Mumbai BKC)",
+        scope: "5-day on-site purple team across AD + endpoint + email gateway",
+        finding: "Lifted ATT&CK coverage from 47% to 71% across 18 techniques; shipped 14 new SIEM rules during the engagement",
+        impact: "Material — passed RBI System Audit detection-control test on the same quarter",
+        severity: 2,
+      },
+      {
+        industry: "Fintech Lending Platform (Bengaluru)",
+        scope: "Phishing → lateral → exfil scenario with managed SOC live in the loop",
+        finding: "Discovered that EDR detected the technique but the alert never reached the SOC queue (broken connector) — fixed mid-engagement",
+        impact: "Critical — silent detection-pipeline failure that would have hidden a real ransomware precursor",
+        severity: 3,
+      },
+    ],
+    faqs: [
+      {
+        q: "How is this different from a red team engagement?",
+        a: "A red team runs covert and reports at the end. A purple team runs collaboratively — red executes a technique, blue tries to detect, we pause and tune together, then replay. The deliverable is shipped detection rules + a hardened MITRE map, not just a list of what got missed.",
+      },
+      {
+        q: "Do we need a SOC for this to work?",
+        a: "You need a SIEM + analysts (in-house or MSSP-provided). If you're early-stage, our SOC Setup or MSS engagement makes more sense first; purple teaming is the validate-and-tune step that comes after you have a SOC running.",
+      },
+      {
+        q: "How long does a typical engagement run?",
+        a: "5–15 working days. Focused scope (email phishing + AD lateral, for example) is 5 days. Full estate (cloud + endpoint + identity + email) is 10–15. Quote within 48 hours of scoping.",
+      },
+      {
+        q: "Can you run this against our MSSP?",
+        a: "Yes — we run purple teaming against client-operated SOCs, MSSP-operated SOCs and hybrid setups. We're tone-neutral about who operates blue; the goal is to leave your detection coverage measurably better.",
+      },
+    ],
+    seoTitle: "Purple Team Exercises India & UAE | MITRE ATT&CK Validation | Macksofy",
+    seoDescription:
+      "Collaborative red + blue purple team exercises — validate detection coverage against MITRE ATT&CK, ship tuned SIEM rules during the engagement. India + UAE. CERT-In empanelled.",
+    keywords: [
+      "purple team India",
+      "purple teaming services",
+      "MITRE ATT&CK validation India",
+      "detection engineering India",
+      "red blue purple team Mumbai",
+      "purple team Dubai",
+      "SIEM rule tuning India",
+      "SOC validation services",
+    ],
+  },
+
+  // 16 — Network Pentesting ------------------------------------------
+  {
+    slug: "network-pentesting",
+    title: "Network Penetration Testing",
+    shortTitle: "Network Pentest",
+    icon: Network,
+    iconName: "Network",
+    category: "Offensive",
+    hero: {
+      eyebrow: "Internal · External · AD · Hybrid Cloud",
+      tagline: "Find the path from the perimeter to the domain controller.",
+      description:
+        "Goal-oriented network penetration testing across your external attack surface, internal segments, Active Directory and cloud-to-on-prem boundaries. We chain misconfigurations, exposed services and credential weaknesses the way a real attacker would — and report so your network team can fix, not just acknowledge.",
+    },
+    realWorld:
+      "A Macksofy network pentest is not a Nessus scan with a logo. We map your external footprint (ASN, DNS, certificate transparency), find the exposed Citrix portal or Confluence instance, get the foothold, kerberoast a service account, run BloodHound, find the over-permissioned admin path, and demonstrate the domain compromise. Then we test segmentation — does compromising the user VLAN actually reach the database tier? We pair the findings with concrete remediation: ACL changes, GPO updates, segmentation rules, EDR exclusions reviewed.",
+    businessImpact: [
+      "Quantify real network-side risk vs. theoretical CVSS scores",
+      "Satisfy CERT-In annual VAPT, RBI System Audit, SEBI CSCRF and ISO 27001 network testing requirements",
+      "Validate that segmentation actually segments — not just on paper",
+      "De-risk M&A integrations and datacenter migrations",
+    ],
+    methodology: [
+      {
+        phase: "1 · External attack surface mapping",
+        activities: [
+          "ASN, subdomain, certificate transparency, OSINT recon",
+          "Exposed service enumeration (VPN, mail, web, API, file-share, RDP)",
+          "Cloud-edge attack surface (S3, ALB, exposed buckets, public endpoints)",
+        ],
+      },
+      {
+        phase: "2 · External exploitation",
+        activities: [
+          "Authenticated + unauthenticated scanning (Nessus, Nuclei) with manual triage",
+          "Manual exploitation of misconfigurations, default credentials, exposed admin",
+          "Phishing as a controlled initial-access vector (RoE-permitting)",
+        ],
+      },
+      {
+        phase: "3 · Internal lateral movement",
+        activities: [
+          "Network reconnaissance and segment mapping",
+          "Active Directory enumeration (BloodHound, AdRecon)",
+          "Kerberoasting, AS-REP roasting, NTLM relay, ADCS abuse",
+          "Lateral movement via WMI, PSExec, WinRM, SSH",
+        ],
+      },
+      {
+        phase: "4 · Privilege escalation + domain compromise",
+        activities: [
+          "Local-admin to domain-admin path discovery",
+          "Constrained / unconstrained delegation abuse",
+          "Kerberos delegation attacks (Resource-Based, S4U2Self)",
+          "Demonstrated DA compromise (read-only by RoE default)",
+        ],
+      },
+      {
+        phase: "5 · Segmentation validation",
+        activities: [
+          "User VLAN → server VLAN reachability testing",
+          "DMZ → internal trust path discovery",
+          "Cloud → on-prem hybrid trust validation",
+          "EDR / IDS bypass attempts within agreed scope",
+        ],
+      },
+      {
+        phase: "6 · Reporting & retest",
+        activities: [
+          "Executive summary with attack-path diagram",
+          "Per-finding writeup (CVSS, PoC, remediation snippet)",
+          "MITRE ATT&CK TTP mapping",
+          "Free retest within 30 days of fix submission",
+        ],
+      },
+    ],
+    toolStack: [
+      "Nmap",
+      "Nessus",
+      "Nuclei",
+      "Metasploit",
+      "BloodHound + SharpHound",
+      "CrackMapExec / NetExec",
+      "Impacket",
+      "Responder + NTLMRelayX",
+      "Mimikatz / Rubeus",
+      "Hashcat",
+      "Custom Macksofy tooling",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Insurance & InsurTech",
+      "Government & PSU",
+      "Manufacturing & Energy",
+      "Healthcare & HealthTech",
+      "Telecom",
+      "Retail & E-commerce",
+      "SaaS & Product Companies",
+    ],
+    deliverables: [
+      "Executive summary (board-ready, 2–3 pages)",
+      "Technical report with CVSS 3.1 scoring and PoC per finding",
+      "Attack-path diagram (perimeter → domain compromise)",
+      "Segmentation validation matrix",
+      "MITRE ATT&CK TTP mapping",
+      "Remediation guidance per finding (network-team friendly)",
+      "Free retest within 30 days of fix submission",
+      "CERT-In / ISO 27001 / SOC 2 compliance letter",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed Manufacturer (Pune)",
+        scope: "External + internal + AD, 8 sites + DR datacenter",
+        finding: "External Citrix → kerberoast → DA in 6 hours via misconfigured constrained delegation",
+        impact: "Critical — fixed before next IT-audit cycle, no incident occurred",
+        severity: 3,
+      },
+      {
+        industry: "Government Department (Delhi)",
+        scope: "Internal pentest of segmented citizen-data network",
+        finding: "User VLAN → database VLAN reachable via unfiltered SMB on a forgotten jump-host",
+        impact: "High — segmentation gap remediated, MeitY data-localisation control restored",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "External, internal, or both?",
+        a: "Both is the common scope — external proves the perimeter, internal proves what an insider or post-phish attacker can reach. We quote them independently or bundled.",
+      },
+      {
+        q: "Do you actually compromise domain admin or just demonstrate the path?",
+        a: "We demonstrate the technique to the point of validated impact, never operationally use it. DA compromise is signalled (e.g., dumping our own canary password hash, not your CFO's) unless explicitly authorised in the RoE.",
+      },
+      {
+        q: "Will it crash production?",
+        a: "Network pentesting against modern infrastructure is low-risk if scoped well. We coordinate scan windows with your NOC, avoid known-fragile devices (printers, legacy SCADA), and pause on any operational impact signal.",
+      },
+    ],
+    seoTitle: "Network Penetration Testing India & UAE | External + Internal + AD | Macksofy",
+    seoDescription:
+      "External + internal + Active Directory network pentest. CERT-In empanelled, OSCP/OSEP operators, MITRE ATT&CK mapped reports. Mumbai, India and UAE.",
+    keywords: [
+      "network penetration testing India",
+      "internal network pentest India",
+      "external pentest India",
+      "Active Directory pentest India",
+      "network VAPT Mumbai",
+      "network pentest Dubai",
+      "AD security assessment",
+      "network pentest CERT-In",
+    ],
+  },
+
+  // 17 — Wireless Pentesting -----------------------------------------
+  {
+    slug: "wireless-pentesting",
+    title: "Wireless Network Penetration Testing",
+    shortTitle: "Wireless Pentest",
+    icon: Wifi,
+    iconName: "Wifi",
+    category: "Offensive",
+    hero: {
+      eyebrow: "WPA2 / WPA3 · 802.1X · Guest · IoT · Bluetooth",
+      tagline: "Find the WiFi that lets the parking lot onto your finance VLAN.",
+      description:
+        "On-site wireless penetration testing across corporate, guest, IoT, BYOD and Bluetooth attack surfaces. We test WPA2/WPA3-Enterprise authentication, rogue AP scenarios, evil-twin attacks, client-side credential capture and post-association lateral movement into the wired network.",
+    },
+    realWorld:
+      "Wireless is the attack surface most internal pentests skip. A Macksofy wireless engagement walks the site with directional antennas, captures EAP/WPA handshakes, attacks captured handshakes offline, runs evil-twin attacks against employees who roam to the parking-lot SSID, and — when an SSID gets cracked — pivots straight to the corporate VLAN to demonstrate the segmentation gap. We also assess Bluetooth + BLE attack surface (beacons, conference systems, ID badges, IoT) and the 2.4 / 5 / 6 GHz noise floor for rogue APs.",
+    businessImpact: [
+      "Surface the unauthorised AP in the boardroom that nobody admits installing",
+      "Validate that the guest WiFi actually segments from corporate (and not just on paper)",
+      "Identify weak PSK / EAP credentials before an attacker in the car-park does",
+      "Satisfy CERT-In annual VAPT and PCI-DSS req 11.1 wireless scanning requirements",
+    ],
+    methodology: [
+      {
+        phase: "1 · Site survey & passive recon",
+        activities: [
+          "RF survey of corporate + guest + IoT SSIDs across all floors",
+          "Rogue AP discovery (employee-installed, attacker-installed)",
+          "Client device profiling (who is connecting where)",
+          "Bluetooth / BLE beacon enumeration",
+        ],
+      },
+      {
+        phase: "2 · WPA2 / WPA3 attack",
+        activities: [
+          "EAPOL / 4-way handshake capture",
+          "Offline cracking (Hashcat, John, custom wordlists)",
+          "WPA3 SAE attack scenarios (Dragonblood-class)",
+          "WPS Pixie-Dust where enabled",
+        ],
+      },
+      {
+        phase: "3 · 802.1X / EAP attack",
+        activities: [
+          "EAP method enumeration (PEAP, EAP-TTLS, EAP-TLS)",
+          "Certificate validation bypass testing (EAP-PWN-style)",
+          "Rogue RADIUS attack (hostapd-wpe) for credential capture",
+          "Privilege analysis post-authentication",
+        ],
+      },
+      {
+        phase: "4 · Evil-twin & client attacks",
+        activities: [
+          "Evil-twin AP impersonation",
+          "Karma-style auto-connect exploitation",
+          "Captive-portal credential phishing (with RoE consent)",
+          "Roaming behaviour analysis",
+        ],
+      },
+      {
+        phase: "5 · Post-association lateral movement",
+        activities: [
+          "Once on the WiFi, attempt lateral movement into wired VLANs",
+          "Guest → corporate segmentation validation",
+          "IoT VLAN → corporate VLAN reachability",
+        ],
+      },
+      {
+        phase: "6 · Reporting & retest",
+        activities: [
+          "Site-by-site report with floor-plan heat maps",
+          "Per-finding remediation (RADIUS hardening, certificate pinning, segmentation)",
+          "Free retest within 30 days",
+        ],
+      },
+    ],
+    toolStack: [
+      "Aircrack-ng suite",
+      "Bettercap",
+      "hostapd-wpe / hostapd-mana",
+      "EAPHammer",
+      "WiFi Pineapple",
+      "Kismet",
+      "Wireshark + tshark",
+      "Hashcat",
+      "Bluetooth: bettercap-ble · gattool · btscanner",
+      "Software-Defined Radio (SDR) for Sub-GHz",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Insurance & InsurTech",
+      "Government & PSU",
+      "Healthcare & HealthTech",
+      "Manufacturing & Energy",
+      "Retail & E-commerce",
+      "Hospitality",
+      "SaaS & Product Companies",
+    ],
+    deliverables: [
+      "Site-by-site wireless coverage + risk heat map",
+      "Rogue AP inventory (employee + attacker-installed)",
+      "Per-SSID finding writeups (authentication weakness, segmentation, EAP)",
+      "Wired-side blast-radius assessment from each cracked SSID",
+      "Hardening recommendations: RADIUS, certificate pinning, segmentation, IDS",
+      "Free retest within 30 days of fix submission",
+      "PCI-DSS req 11.1 evidence pack (if in scope)",
+    ],
+    caseStudies: [
+      {
+        industry: "BFSI (Mumbai BKC)",
+        scope: "12-floor corporate HQ, all SSIDs + Bluetooth",
+        finding: "Evil-twin rogue AP impersonating corporate SSID captured 8 employee credentials; 1 captured certificate would have enabled VPN access from the car-park",
+        impact: "Critical — pre-incident discovery; certificate revoked + RADIUS hardened",
+        severity: 3,
+      },
+      {
+        industry: "Hospital Group (Bengaluru)",
+        scope: "Patient-care WiFi + IoT medical-device WiFi",
+        finding: "IoT VLAN allowed lateral movement to HMIS web interface via unfiltered IPv6 neighbour discovery",
+        impact: "High — segmentation rule added; HIPAA-aligned exposure closed",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you need to be on-site?",
+        a: "Yes — wireless testing is fundamentally a physical-layer activity. Macksofy operators travel to your site (Mumbai · Delhi NCR · Bengaluru · Hyderabad · Chennai · Pune · Ahmedabad · Dubai · Abu Dhabi) with kit. Remote-assisted scope is possible if you have a trusted local operator, but the bulk of value comes from on-site.",
+      },
+      {
+        q: "Will testing disrupt our WiFi?",
+        a: "Active attacks (deauth, evil-twin) can briefly affect connectivity in the targeted area; we coordinate with your IT team to schedule disruptive tests outside business hours. Passive recon and offline cracking are zero-impact.",
+      },
+      {
+        q: "Is Bluetooth / BLE always in scope?",
+        a: "Optional — Bluetooth assessment adds 1–2 days per site but surfaces a real attack surface (conference bridges, ID badges, IoT, smart locks). Recommended for sensitive sites; optional for general corporate.",
+      },
+    ],
+    seoTitle: "Wireless Penetration Testing India & UAE | WPA2 / WPA3 / 802.1X | Macksofy",
+    seoDescription:
+      "On-site wireless pentest — WPA2/WPA3, 802.1X, rogue AP, evil-twin, Bluetooth. PCI-DSS 11.1 evidence, CERT-In empanelled, segmentation validation included. Mumbai, India + UAE.",
+    keywords: [
+      "wireless penetration testing India",
+      "WiFi pentest India",
+      "wireless VAPT Mumbai",
+      "WPA2 WPA3 audit India",
+      "wireless pentest Dubai",
+      "rogue AP detection",
+      "802.1X security audit",
+      "Bluetooth pentest India",
+    ],
+  },
+
+  // 18 — AI Pentesting -----------------------------------------------
+  {
+    slug: "ai-pentesting",
+    title: "AI / LLM Security Testing",
+    shortTitle: "AI Pentest",
+    icon: BrainCircuit,
+    iconName: "BrainCircuit",
+    category: "Offensive",
+    hero: {
+      eyebrow: "OWASP LLM Top 10 · MITRE ATLAS · MLSecOps",
+      tagline: "Test the model. Test the agent. Test the pipeline.",
+      description:
+        "Security testing for production AI / LLM systems — prompt injection, jailbreaks, data exfiltration via context windows, model supply-chain risks, RAG pipeline poisoning, agentic tool-call abuse and ML training-data integrity. Mapped to OWASP LLM Top 10 and MITRE ATLAS, with deliverables your AI safety team and your CISO both accept.",
+    },
+    realWorld:
+      "AI security is not a generic pentest with the word 'AI' added. A Macksofy AI engagement tests the live model behind your chatbot, the RAG pipeline that retrieves context, the tools your agent can invoke, the training data your fine-tune ingests, and the supply chain (HuggingFace weights, embedding models, vector DBs) underneath. We chain: prompt injection → tool-call abuse → data exfiltration. We test for membership inference, model inversion, and PII leakage from training corpora. And we ship rules — guardrail prompts, output validators, sandboxing patterns — that your platform team can deploy on Monday.",
+    businessImpact: [
+      "De-risk customer-facing LLM products before regulator or media exposure",
+      "Satisfy emerging AI-governance frameworks: EU AI Act, India DPDP Act AI-system controls, NIST AI RMF, ISO/IEC 42001",
+      "Catch RAG-pipeline data leakage before it becomes a customer-data incident",
+      "Validate agentic systems (function-calling, tool-use, MCP) for unintended actions",
+    ],
+    methodology: [
+      {
+        phase: "1 · Threat model & scope",
+        activities: [
+          "Architecture review: model, RAG, agent tools, fine-tune pipeline, deployment surface",
+          "Data-flow review: training data, embeddings, vector store, output channels",
+          "Threat model aligned to OWASP LLM Top 10 + MITRE ATLAS",
+        ],
+      },
+      {
+        phase: "2 · Prompt injection & jailbreak",
+        activities: [
+          "Direct + indirect (RAG-borne) prompt injection",
+          "Jailbreak technique sweep (DAN, roleplay, encoding, multi-turn)",
+          "System-prompt extraction attempts",
+          "Output-format hijack (markdown, link, image injection)",
+        ],
+      },
+      {
+        phase: "3 · RAG pipeline testing",
+        activities: [
+          "Indirect prompt injection via poisoned documents in the corpus",
+          "Embedding-space attacks (adversarial similar-meaning queries)",
+          "Cross-tenant retrieval leakage testing for multi-tenant RAG",
+          "Vector-DB access control and authorization review",
+        ],
+      },
+      {
+        phase: "4 · Agentic / tool-use abuse",
+        activities: [
+          "Function-call schema fuzzing",
+          "Tool-chain confused-deputy testing (agent invoking privileged tools on user behalf)",
+          "MCP server enumeration and abuse",
+          "Sandbox escape from code-execution tools",
+        ],
+      },
+      {
+        phase: "5 · Training-data + supply chain",
+        activities: [
+          "Training-data integrity review (poisoning vectors)",
+          "Model supply chain (HuggingFace weights, embedding-model provenance)",
+          "Membership inference + model inversion testing",
+          "PII leakage from training corpus probing",
+        ],
+      },
+      {
+        phase: "6 · Guardrail validation",
+        activities: [
+          "Output-classifier coverage testing (toxicity, PII, secrets, prompt-leak)",
+          "Rate-limit + abuse-detection circumvention attempts",
+          "Cost-amplification attack scenarios (long-context, tool-loop)",
+        ],
+      },
+      {
+        phase: "7 · Reporting & guardrail co-build",
+        activities: [
+          "Per-finding writeup with reproducer prompt",
+          "Suggested guardrail prompt + output-validator rule",
+          "Free retest of guardrails within 30 days",
+        ],
+      },
+    ],
+    toolStack: [
+      "PyRIT (Microsoft AI red-teaming)",
+      "Garak (LLM vulnerability scanner)",
+      "promptfoo (regression + eval)",
+      "LLM Guard / Lakera Guard / Guardrails AI",
+      "Custom Macksofy prompt-injection corpus",
+      "MITRE ATLAS technique playbooks",
+      "OpenAI Evals + Inspect AI",
+    ],
+    industriesServed: [
+      "SaaS & Product Companies",
+      "Fintech & Payments",
+      "Banking & Financial Services",
+      "Healthcare & HealthTech",
+      "EdTech",
+      "Government & PSU",
+      "E-commerce & D2C",
+      "Series-A to Series-D startups",
+    ],
+    deliverables: [
+      "OWASP LLM Top 10 + MITRE ATLAS findings inventory",
+      "Reproducer prompts for every finding (copy-pasteable)",
+      "Recommended guardrail prompts + output-validator rules",
+      "RAG pipeline + vector-store hardening checklist",
+      "Agent tool-use sandboxing patterns",
+      "Training-data integrity + supply-chain risk register",
+      "Free retest within 30 days of guardrail deployment",
+    ],
+    caseStudies: [
+      {
+        industry: "Fintech Chatbot SaaS (Bengaluru)",
+        scope: "Customer-facing GPT-4o-powered support agent + RAG over support docs",
+        finding: "Indirect prompt injection via a poisoned support article let an attacker exfiltrate other tenants' chat history via the agent's retrieval tool",
+        impact: "Critical — patched via guardrail prompt + retrieval-tenancy enforcement; cross-tenant leakage closed before launch",
+        severity: 3,
+      },
+      {
+        industry: "HealthTech Triage Bot (Mumbai)",
+        scope: "Patient-symptom triage LLM with EMR tool-call access",
+        finding: "Tool-call confused-deputy: a craftily-phrased patient prompt caused the agent to retrieve another patient's record via the EMR lookup tool",
+        impact: "Critical — authz enforced at the tool layer not the agent layer; remediated before clinical rollout",
+        severity: 3,
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you test foundation models or only our application?",
+        a: "Both layers. Foundation-model behaviour (jailbreak resistance, refusal patterns) is part of the assessment, but the highest-impact findings usually live in your application layer — the RAG pipeline, the agent tools, the guardrails. We test the full stack.",
+      },
+      {
+        q: "Which models do you cover?",
+        a: "OpenAI (GPT-4o / o1 / o3 family), Anthropic (Claude 4.x), Google (Gemini 2.x), Meta (Llama 3.x / 4), Mistral, open-source via vLLM / Ollama, and custom fine-tunes. Provider-agnostic — we test what you ship.",
+      },
+      {
+        q: "Is this just prompt-injection testing?",
+        a: "No — prompt injection is one of seven phases. The high-impact engagements typically uncover issues in RAG tenancy, agentic tool-use authorization, training-data leakage, or supply-chain trust (e.g. embedding model from an unknown HuggingFace org).",
+      },
+      {
+        q: "Can you also test our MCP servers?",
+        a: "Yes — MCP server security is a fast-growing engagement type. We enumerate exposed tools, fuzz parameters, test authorization boundaries and look for confused-deputy patterns where the agent invokes privileged MCP tools on the user's behalf.",
+      },
+    ],
+    seoTitle: "AI / LLM Penetration Testing India & UAE | OWASP LLM Top 10 + MITRE ATLAS | Macksofy",
+    seoDescription:
+      "Security testing for LLM apps, RAG pipelines, AI agents and MCP servers. OWASP LLM Top 10 + MITRE ATLAS aligned. Prompt injection, jailbreak, tool-use abuse, supply-chain. India + UAE.",
+    keywords: [
+      "AI penetration testing India",
+      "LLM security testing India",
+      "AI red teaming India",
+      "prompt injection testing",
+      "OWASP LLM Top 10 audit",
+      "MITRE ATLAS assessment",
+      "RAG security testing",
+      "AI security audit Mumbai",
+      "LLM security Dubai",
+      "MCP server pentest",
+    ],
+  },
+
+  // 19 — Staffing Service --------------------------------------------
+  {
+    slug: "staffing-service",
+    title: "Cybersecurity Staffing & Resource Augmentation",
+    shortTitle: "Staffing",
+    icon: Users,
+    iconName: "Users",
+    category: "Managed Services",
+    hero: {
+      eyebrow: "L1–L4 SOC · Pentest · GRC · DFIR · vCISO Pool",
+      tagline: "Plug Macksofy people into your team — same week, vetted, deployable.",
+      description:
+        "Contract, contract-to-hire and managed-pool staffing for SOC analysts (L1–L4), penetration testers (OSCP+), GRC consultants (ISO 27001 / SOC 2 LA), DFIR responders and fractional CISOs. Bench depth lets us deploy in 5–10 working days, not the 90-day hiring cycle.",
+    },
+    realWorld:
+      "Cybersecurity hiring in India and the GCC takes 60–120 days, and the candidates who pass technical screens take another 4-week notice period. Macksofy maintains a vetted bench: ~80 SOC analysts (Wazuh + ELK + Splunk + Sentinel experience), ~25 OSCP-certified pentesters, ~15 OSCP+/OSWE/OSEP-certified senior consultants, ~12 ISO 27001 Lead Auditors, and ~6 fractional CISOs. We deploy under your management, on your tooling, with our QA layer behind them. Roll-on, roll-off, or convert-to-direct hire — all three contracts available.",
+    businessImpact: [
+      "5–10 working day deployment vs. 60–120 day in-house hiring cycle",
+      "Roll-on / roll-off model for surge capacity (audit season, M&A diligence, incident response)",
+      "Contract-to-hire option converts to your direct payroll after 6 months with no placement fee",
+      "Macksofy QA layer (peer review + cadence) behind every deployed resource — not the body-shopping model",
+    ],
+    methodology: [
+      {
+        phase: "1 · Discovery & scoping",
+        activities: [
+          "Skill matrix + clearance requirements intake",
+          "Tooling / environment + shift / location requirements",
+          "Engagement model: contract · contract-to-hire · managed pool",
+        ],
+      },
+      {
+        phase: "2 · Candidate match",
+        activities: [
+          "3–5 candidates shortlisted from bench within 5 working days",
+          "CV pack + Macksofy internal evaluation scorecards",
+          "Client technical + culture interviews scheduled inside the same week",
+        ],
+      },
+      {
+        phase: "3 · Onboarding & deployment",
+        activities: [
+          "NDA + access provisioning checklist",
+          "Macksofy senior buddy assigned for first 30 days",
+          "Tooling familiarisation + your runbook handover",
+        ],
+      },
+      {
+        phase: "4 · Quality assurance",
+        activities: [
+          "Weekly cadence with Macksofy delivery manager",
+          "Monthly performance review with client lead",
+          "Peer review of deliverables (rule writes, reports, RCAs)",
+        ],
+      },
+      {
+        phase: "5 · Lifecycle management",
+        activities: [
+          "Backfill within 5 working days if a resource exits",
+          "Convert-to-hire pathway at 6 months (no placement fee)",
+          "Knowledge-transfer pack on roll-off",
+        ],
+      },
+    ],
+    toolStack: [
+      "Bench skills: Wazuh · ELK · Splunk · Sentinel · CrowdStrike · SentinelOne · Defender XDR",
+      "Pentest: Burp Pro · Metasploit · BloodHound · Cobalt Strike",
+      "GRC: ISO 27001 · SOC 2 · CERT-In · RBI · SEBI · PCI-DSS · HIPAA · GDPR · DPDP",
+      "DFIR: Volatility · Velociraptor · Plaso · X-Ways",
+      "Cloud: AWS · Azure · GCP security specialists",
+    ],
+    industriesServed: [
+      "Banking & Financial Services",
+      "Fintech & Payments",
+      "Insurance & InsurTech",
+      "SaaS & Product Companies",
+      "Healthcare & HealthTech",
+      "Manufacturing & Energy",
+      "Government & PSU",
+      "Big-4 audit firm subcontracting",
+    ],
+    deliverables: [
+      "Resource deployed in 5–10 working days from contract sign",
+      "Macksofy delivery manager + senior buddy attached for first 30 days",
+      "Weekly cadence + monthly performance review with client lead",
+      "Backfill SLA: 5 working days if resource exits",
+      "Convert-to-hire pathway at 6 months — no placement fee",
+      "Knowledge-transfer pack on roll-off",
+    ],
+    caseStudies: [
+      {
+        industry: "Big-4 Consulting Firm (Mumbai)",
+        scope: "30-day surge: 8 OSCP pentesters for BFSI client engagement",
+        finding: "All 8 deployed inside 7 working days; engagement closed 2 weeks ahead of schedule",
+        impact: "Strategic — won follow-on framework deal at the same Big-4",
+        severity: 0,
+      },
+      {
+        industry: "Listed Insurance MNC (Mumbai BKC)",
+        scope: "12-month contract-to-hire: 4 L2 SOC analysts",
+        finding: "3 of 4 converted to direct hire at month 6; 4th rolled into Macksofy MSS",
+        impact: "Material — bridged 90-day hiring gap without disrupting 24×7 cover",
+        severity: 0,
+      },
+    ],
+    faqs: [
+      {
+        q: "Is this body-shopping or managed deployment?",
+        a: "Managed deployment. Every deployed resource has a Macksofy delivery manager attached, a senior buddy for the first 30 days, and a peer-review layer for deliverables. You get the productivity of an in-house hire with a quality net behind them.",
+      },
+      {
+        q: "What's the typical cost vs. in-house?",
+        a: "Contract rates are 1.15–1.35× a fully-loaded equivalent in-house FTE (depending on seniority and clearance) — the premium covers Macksofy's bench, QA, training and backfill SLA. Most clients find it cheaper than the hire-then-retrain cycle when you factor in time-to-productivity.",
+      },
+      {
+        q: "Can we go to direct hire later?",
+        a: "Yes — convert-to-hire at month 6 with no placement fee is the standard option. Earlier conversion is possible with a buy-out (typically equivalent to 1 month's billing).",
+      },
+      {
+        q: "What clearances and certifications are on the bench?",
+        a: "OSCP, OSCP+, OSWE, OSEP, OSED, CRTP, CRTO, CISSP, ISO 27001 LA, SOC 2 PSAC, CEH, Splunk certified, AWS / Azure / GCP security specialty, CHFI, GCFA, GREM. Indian PoS clearance available for government engagements; UAE PCC available for GCC deployments.",
+      },
+      {
+        q: "Can you support a 24×7 SOC pod?",
+        a: "Yes — multi-shift SOC pods (2 analysts × 4 shifts × 6 days, etc.) are a common engagement model. Roster management + leave coverage is Macksofy's responsibility, not yours.",
+      },
+    ],
+    seoTitle: "Cybersecurity Staffing & Resource Augmentation India & UAE | OSCP + SOC Bench | Macksofy",
+    seoDescription:
+      "Vetted cybersecurity contractor pool: SOC L1–L4, OSCP+ pentesters, ISO 27001 LA, DFIR, vCISO. 5–10 day deployment, contract / contract-to-hire / managed pool. India + UAE.",
+    keywords: [
+      "cybersecurity staffing India",
+      "SOC analyst staffing India",
+      "OSCP pentester contract India",
+      "GRC consultant staffing",
+      "DFIR contractor India",
+      "security resource augmentation",
+      "contract pentester India",
+      "cybersecurity staff augmentation Dubai",
+      "ISO 27001 LA contractor India",
     ],
   },
 ];

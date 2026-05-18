@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { SERVICES, type Service } from "@/content/services";
 
-type Tone = "offensive" | "defensive";
+type Tone = "offensive" | "defensive" | "managed";
 
 const TONE = {
   offensive: {
@@ -21,6 +21,8 @@ const TONE = {
     glow: "rgba(0, 229, 255, 0.18)",
     pattern: "rgba(0, 229, 255, 0.42)",
     fromGrad: "from-neon-cyan/40",
+    accentVia: "via-neon-cyan",
+    label: "Attack-side",
   },
   defensive: {
     eyebrowColor: "purple" as const,
@@ -33,6 +35,22 @@ const TONE = {
     glow: "rgba(168, 85, 247, 0.18)",
     pattern: "rgba(168, 85, 247, 0.42)",
     fromGrad: "from-neon-purple/40",
+    accentVia: "via-neon-purple",
+    label: "Defence-side",
+  },
+  managed: {
+    eyebrowColor: "green" as const,
+    iconRing: "ring-neon-green/30",
+    iconText: "text-neon-green",
+    titleHover: "group-hover:text-neon-green",
+    arrowHover: "group-hover:text-neon-green",
+    countText: "text-neon-green",
+    chipBorder: "ring-neon-green/30",
+    glow: "rgba(0, 255, 157, 0.18)",
+    pattern: "rgba(0, 255, 157, 0.42)",
+    fromGrad: "from-neon-green/40",
+    accentVia: "via-neon-green",
+    label: "Operate-side",
   },
 } as const;
 
@@ -194,9 +212,7 @@ function ServiceCard({
         {/* Bottom accent line */}
         <span
           aria-hidden
-          className={`pointer-events-none absolute inset-x-6 bottom-0 h-px translate-y-px bg-gradient-to-r from-transparent ${
-            tone === "offensive" ? "via-neon-cyan" : "via-neon-purple"
-          } to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-90`}
+          className={`pointer-events-none absolute inset-x-6 bottom-0 h-px translate-y-px bg-gradient-to-r from-transparent ${cfg.accentVia} to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-90`}
         />
 
         {/* Top corner glow */}
@@ -344,7 +360,7 @@ function SectionOrnament({ tone, count }: { tone: Tone; count: number }) {
       </motion.div>
       <div>
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
-          {tone === "offensive" ? "Attack-side" : "Defence-side"}
+          {cfg.label}
         </div>
         <div
           className={`mt-1 font-display text-5xl font-black leading-none ${cfg.countText}`}

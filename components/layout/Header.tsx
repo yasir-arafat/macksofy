@@ -22,6 +22,9 @@ import {
   BookOpenText,
   Library,
   Newspaper,
+  Rss,
+  Terminal,
+  Gauge,
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -85,6 +88,28 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     description: "Mid-day · ABP · CNN News 18 · Entrepreneur features",
     icon: Newspaper,
   },
+  {
+    label: "Blog",
+    href: "/blog",
+    description: "Field notes from the SOC, the red team and the audit floor",
+    icon: Rss,
+  },
+];
+
+const PRODUCT_DROPDOWN: DropdownItem[] = [
+  {
+    label: "Pentaudit",
+    href: "/products/pentaudit",
+    description:
+      "AI-driven continuous VAPT + compliance readiness across cloud, web, mobile",
+    icon: Gauge,
+  },
+  {
+    label: "LearnToExploit",
+    href: "/products/learn-to-exploit",
+    description: "Hands-on cyber range — vulnerable labs you actually pwn",
+    icon: Terminal,
+  },
 ];
 
 // Logo serves as Home — we drop the "Home" item to free up nav width.
@@ -92,8 +117,8 @@ const NAV: NavItem[] = [
   { label: "Security Assessment", href: "/services", mega: "services" },
   { label: "Training", href: "/training", mega: "training" },
   { label: "Security Compliance", href: "/audit", mega: "audit" },
+  { label: "Products", href: "/products/pentaudit", dropdown: PRODUCT_DROPDOWN },
   { label: "About", href: "/about", dropdown: ABOUT_DROPDOWN },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -537,6 +562,10 @@ export function Header() {
             const item = NAV.find((n) => n.href === openMenu);
             if (!item || (!item.mega && !item.dropdown)) return null;
             const isMega = !!item.mega;
+            const isWideMega =
+              item.mega === "audit" ||
+              item.mega === "services" ||
+              item.mega === "training";
             return (
               <motion.div
                 key={openMenu}
@@ -551,13 +580,25 @@ export function Header() {
                 }}
                 onMouseEnter={cancelClose}
                 onMouseLeave={scheduleClose}
-                style={{ left: `${menuLeft}px` }}
-                className="absolute top-full mt-2 -translate-x-1/2 z-50"
+                style={isWideMega ? undefined : { left: `${menuLeft}px` }}
+                className={cn(
+                  "absolute top-full mt-2 z-50",
+                  isWideMega
+                    ? "inset-x-4 sm:inset-x-6 lg:inset-x-8"
+                    : "-translate-x-1/2"
+                )}
               >
                 {/* Hover bridge: invisible padding above the panel covers the gap */}
                 <div className="pt-2">
                   {isMega ? (
-                    <div className="menu-surface p-6 max-h-[calc(100vh-6rem)] overflow-y-auto overscroll-contain">
+                    <div
+                      className={cn(
+                        "menu-surface p-6 overflow-y-auto overscroll-contain",
+                        isWideMega
+                          ? "max-h-[calc(100vh-7rem)]"
+                          : "max-h-[calc(100vh-6rem)]"
+                      )}
+                    >
                       <MegaMenu type={item.mega!} onClose={closeAll} />
                     </div>
                   ) : (
@@ -860,6 +901,19 @@ function CommandPalette({
       keywords: "csi google ec-council",
     },
     { label: "Blog", href: "/blog", group: "Pages" },
+    {
+      label: "Pentaudit",
+      href: "/products/pentaudit",
+      group: "Products",
+      keywords:
+        "continuous pentest AI compliance ISO SOC2 PCI HIPAA GDPR DPDP CERT-In readiness platform vapt cloud web mobile",
+    },
+    {
+      label: "LearnToExploit",
+      href: "/products/learn-to-exploit",
+      group: "Products",
+      keywords: "cyber range vulnerable labs ctf pwn hands-on",
+    },
     { label: "Contact", href: "/contact", group: "Pages" },
     { label: "All Services", href: "/services", group: "Services" },
     { label: "All Training", href: "/training", group: "Training" },
@@ -1000,17 +1054,28 @@ interface MegaItem {
 
 function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
   if (type === "services") {
-    return SERVICES.map((s) => ({
-      slug: s.slug,
-      href: `/services/${s.slug}`,
-      title: s.shortTitle,
-      tagline: s.hero.tagline,
-      badge: s.popular ? "Popular" : undefined,
-      badgeTone: s.popular ? "cyan" : undefined,
-      icon: s.icon,
-      bullets: s.businessImpact?.slice(0, 3),
-      group: s.category,
-    }));
+    // Pin category order so the mega menu reads Offensive →
+    // Managed Services → Defensive → Compliance Adjacent regardless
+    // of declaration order in content/services.ts.
+    const catRank: Record<string, number> = {
+      Offensive: 0,
+      "Managed Services": 1,
+      Defensive: 2,
+      "Compliance Adjacent": 3,
+    };
+    return [...SERVICES]
+      .sort((a, b) => (catRank[a.category] ?? 9) - (catRank[b.category] ?? 9))
+      .map((s) => ({
+        slug: s.slug,
+        href: `/services/${s.slug}`,
+        title: s.shortTitle,
+        tagline: s.hero.tagline,
+        badge: s.popular ? "Popular" : undefined,
+        badgeTone: s.popular ? "cyan" : undefined,
+        icon: s.icon,
+        bullets: s.businessImpact?.slice(0, 3),
+        group: s.category,
+      }));
   }
   if (type === "training") {
     const vendorRank: Record<string, number> = {
@@ -1237,6 +1302,7 @@ function ListPreviewMegaMenu({
   const groupTone: Record<string, { dot: string; text: string }> = {
     Offensive: { dot: "bg-red-400", text: "text-red-300" },
     Defensive: { dot: "bg-emerald-400", text: "text-emerald-300" },
+    "Managed Services": { dot: "bg-neon-green", text: "text-neon-green" },
     "Compliance Adjacent": { dot: "bg-amber-400", text: "text-amber-300" },
     OffSec: { dot: "bg-neon-purple", text: "text-neon-purple" },
     "EC-Council": { dot: "bg-neon-cyan", text: "text-neon-cyan" },
@@ -1248,9 +1314,13 @@ function ListPreviewMegaMenu({
     "Industry & Privacy": { dot: "bg-emerald-400", text: "text-emerald-300" },
     "GCC Regulatory": { dot: "bg-sky-400", text: "text-sky-300" },
   };
+  // Services full-width column layout: Offensive (13 items, internal
+  // 2-col) col-span-4; Managed Services (6) col-span-3; Defensive (2)
+  // col-span-2; preview pane col-span-3. Total = 12.
   const groupCol: Record<string, string> = {
     Offensive: "col-span-12 sm:col-span-6 lg:col-span-4",
-    Defensive: "col-span-12 sm:col-span-6 lg:col-span-3",
+    "Managed Services": "col-span-12 sm:col-span-6 lg:col-span-3",
+    Defensive: "col-span-12 sm:col-span-6 lg:col-span-2",
     "Compliance Adjacent": "col-span-12 sm:col-span-6 lg:col-span-3",
     OffSec: "col-span-12 sm:col-span-6 lg:col-span-3",
     "EC-Council": "col-span-12 sm:col-span-6 lg:col-span-3",
@@ -1332,7 +1402,9 @@ function ListPreviewMegaMenu({
   return (
     <div
       className={cn(
-        wide
+        type === "audit" || type === "services" || type === "training"
+          ? "w-full"
+          : wide
           ? "w-[1380px] max-w-[min(1380px,96vw)]"
           : "w-[860px] max-w-[90vw]"
       )}
@@ -1385,8 +1457,19 @@ function ListPreviewMegaMenu({
           );
         }
 
-        const MAX_VISIBLE = type === "audit" ? 8 : Infinity;
         const compact = type === "audit";
+        // Show every item in the audit mega — Indian Regulatory has 14
+        // frameworks that all need to surface in nav.
+        const MAX_VISIBLE = Infinity;
+        // Per-group internal UL column count. Big groups split into a
+        // 2-col internal grid so the mega menu still fits viewport
+        // height without scroll (Indian Regulatory: 14 frameworks,
+        // Offensive: 8 services).
+        const groupUlCols: Record<string, string> = {
+          "Indian Regulatory": "grid-cols-2 gap-x-2",
+          Offensive: "grid-cols-2 gap-x-2",
+          OffSec: "grid-cols-2 gap-x-2",
+        };
 
         const groupBlocks = groupOrder.map((g) => {
           const groupItems = groupMap.get(g)!;
@@ -1396,6 +1479,7 @@ function ListPreviewMegaMenu({
             dot: "bg-neon-cyan",
             text: "text-neon-cyan",
           };
+          const ulCols = groupUlCols[g] ?? "grid-cols-1";
           return (
             <div key={g} className="min-w-0 flex flex-col">
               <div
@@ -1415,7 +1499,13 @@ function ListPreviewMegaMenu({
                   · {groupItems.length}
                 </span>
               </div>
-              <ul className={cn("grid", compact ? "gap-0.5" : "gap-1")}>
+              <ul
+                className={cn(
+                  "grid",
+                  ulCols,
+                  compact ? "gap-0.5" : "gap-1"
+                )}
+              >
                 {visible.map((it) => {
                   const idx = runningIndex++;
                   return (
@@ -1452,13 +1542,20 @@ function ListPreviewMegaMenu({
           // columns. Pair smaller groups into stacked columns so each
           // visual column has comfortable width.
           if (type === "audit") {
+            // 9 cols of groups + 3 col preview. Indian Regulatory gets
+            // a wide column with internal 2-col list (handled in
+            // groupUlCols above) so all 14 frameworks fit vertically.
             const auditColumns: { groups: string[]; colSpan: string }[] = [
               {
-                groups: ["Foundational", "Indian Regulatory"],
+                groups: ["Foundational", "Industry & Privacy"],
+                colSpan: "lg:col-span-2",
+              },
+              {
+                groups: ["Indian Regulatory"],
                 colSpan: "lg:col-span-3",
               },
               {
-                groups: ["International Standard", "Industry & Privacy"],
+                groups: ["International Standard"],
                 colSpan: "lg:col-span-2",
               },
               { groups: ["GCC Regulatory"], colSpan: "lg:col-span-2" },
@@ -1481,11 +1578,14 @@ function ListPreviewMegaMenu({
                     })}
                   </div>
                 ))}
-                <div className="col-span-12 lg:col-span-5">{preview}</div>
+                <div className="col-span-12 lg:col-span-3">{preview}</div>
               </div>
             );
           }
-          // Services: explicit col-spans on the 12-col grid + preview pane
+          // Services: full-width — group cols sum to 9 (Offensive 5 +
+          // Defensive 4) leaving col-span-3 for the preview pane.
+          // Offensive's 8 services render in a 2-col internal grid
+          // (via groupUlCols) so the panel sits at ~4 rows tall.
           return (
             <div className="grid grid-cols-12 gap-5">
               {groupOrder.map((g, i) => (
@@ -1498,13 +1598,44 @@ function ListPreviewMegaMenu({
                   {groupBlocks[i]}
                 </div>
               ))}
-              <div className="col-span-12 lg:col-span-5">{preview}</div>
+              <div className="col-span-12 lg:col-span-3">{preview}</div>
             </div>
           );
         }
 
-        // Training / audit: each group gets its own column. Use a grid
-        // sized to the number of groups so nothing wraps onto a 2nd row.
+        // Training: full-width, weighted column widths. OffSec (9
+        // courses, internal 2-col via groupUlCols) gets the widest
+        // slot; CompTIA + Macksofy stack vertically inside one column
+        // since both are 3-item lists.
+        if (type === "training") {
+          const trainingColumns: { groups: string[]; colSpan: string }[] = [
+            { groups: ["OffSec"], colSpan: "lg:col-span-5" },
+            { groups: ["EC-Council"], colSpan: "lg:col-span-4" },
+            { groups: ["CompTIA", "Macksofy"], colSpan: "lg:col-span-3" },
+          ];
+          return (
+            <div className="grid grid-cols-12 gap-5">
+              {trainingColumns.map((col, ci) => (
+                <div
+                  key={ci}
+                  className={cn(
+                    "col-span-12 sm:col-span-6 flex flex-col gap-5",
+                    col.colSpan
+                  )}
+                >
+                  {col.groups.map((g) => {
+                    const idx = groupOrder.indexOf(g);
+                    return idx >= 0 ? (
+                      <div key={g}>{groupBlocks[idx]}</div>
+                    ) : null;
+                  })}
+                </div>
+              ))}
+            </div>
+          );
+        }
+
+        // Other no-preview megas: each group gets its own column.
         const lgCols =
           groupOrder.length === 5
             ? "lg:grid-cols-5"
@@ -1578,9 +1709,9 @@ function MegaItemRow({
   const delay = Math.min(0.04 + index * 0.02, 0.5);
 
   if (compact) {
-    // Audit-style row: single-line, title + optional badge, no tagline,
-    // no boxed icon. Eliminates any possibility of multi-line description
-    // overlap and reads cleanly in narrow 5-column layout.
+    // Audit-style row: title + optional badge on row 1, small tagline
+    // liner on row 2. Icon sits flush left, no boxed treatment, so the
+    // 5-column audit grid still reads dense without overlap.
     return (
       <motion.li
         initial={{ opacity: 0, y: 4 }}
@@ -1593,34 +1724,43 @@ function MegaItemRow({
           onMouseEnter={onHover}
           onFocus={onHover}
           className={cn(
-            "group relative flex items-center gap-2 rounded-lg px-2.5 py-1.5 transition-colors",
+            "group relative flex items-start gap-2 rounded-lg px-2.5 py-1.5 transition-colors",
             active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
           )}
         >
           <item.icon
             className={cn(
-              "size-3.5 shrink-0 transition-colors",
+              "size-3.5 mt-0.5 shrink-0 transition-colors",
               active ? "text-neon-cyan" : "text-fg-faint group-hover:text-neon-cyan"
             )}
           />
-          <span
-            className={cn(
-              "min-w-0 flex-1 truncate text-[12px] font-semibold leading-tight transition-colors",
-              active ? "text-neon-cyan" : "text-fg group-hover:text-neon-cyan"
-            )}
-          >
-            {item.title}
-          </span>
-          {item.badge && (
-            <span
-              className={cn(
-                "shrink-0 rounded-full ring-1 px-1.5 text-[8px] font-bold uppercase tracking-wider",
-                badgeClass(item.badgeTone)
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5">
+              <span
+                className={cn(
+                  "min-w-0 flex-1 truncate text-[12px] font-semibold leading-tight transition-colors",
+                  active ? "text-neon-cyan" : "text-fg group-hover:text-neon-cyan"
+                )}
+              >
+                {item.title}
+              </span>
+              {item.badge && (
+                <span
+                  className={cn(
+                    "shrink-0 rounded-full ring-1 px-1.5 text-[8px] font-bold uppercase tracking-wider",
+                    badgeClass(item.badgeTone)
+                  )}
+                >
+                  {item.badge}
+                </span>
               )}
-            >
-              {item.badge}
-            </span>
-          )}
+            </div>
+            {item.tagline && (
+              <div className="mt-0.5 text-[10.5px] text-fg-dim leading-snug line-clamp-2">
+                {item.tagline}
+              </div>
+            )}
+          </div>
         </Link>
       </motion.li>
     );
