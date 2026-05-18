@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     default: `${SITE.name} — ${SITE.positioning}`,
     template: `%s | ${SITE.shortName}`,
   },
+  icons: {
+  icon: "/favicon.ico",
+},
   description: SITE.description,
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: SITE.url }],
