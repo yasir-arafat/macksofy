@@ -402,12 +402,12 @@ export function Header() {
         >
           <span className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-neon-cyan/0 via-neon-cyan/30 to-neon-purple/0 opacity-0 blur-xl group-hover:opacity-100 transition-opacity" />
           <Image
-            src="/logo.png"
+            src="/macksofywhite.png"
             alt="Macksofy Technologies"
-            width={140}
-            height={40}
+            width={160}
+            height={50}
             priority
-            className="relative h-8 lg:h-9 w-auto transition-transform group-hover:scale-105"
+            className="relative h-8 lg:h-12 lg:w- w-auto transition-transform group-hover:scale-105"
           />
         </Link>
 
