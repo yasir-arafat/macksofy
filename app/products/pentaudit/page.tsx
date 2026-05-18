@@ -313,7 +313,7 @@ export default function PentauditPage() {
                 <Eyebrow color="purple">Platform at a glance</Eyebrow>
                 <ul className="mt-5 space-y-3 text-sm">
                   {[
-                    ["First scan", "&lt; 15 minutes"],
+                    ["First scan", "< 15 minutes"],
                     ["Pentest surfaces", "Cloud · Web · Mobile · API"],
                     ["Frameworks", "12+ regulator + global"],
                     ["Scan cadence", "On commit · daily · on demand"],
@@ -325,10 +325,9 @@ export default function PentauditPage() {
                       className="flex items-center justify-between gap-2 border-b border-line/60 pb-2 last:border-0"
                     >
                       <span className="text-fg-muted">{k}</span>
-                      <span
-                        className="font-semibold text-fg text-right"
-                        dangerouslySetInnerHTML={{ __html: v }}
-                      />
+                      <span className="font-semibold text-fg text-right">
+                        {v}
+                      </span>
                     </li>
                   ))}
                 </ul>

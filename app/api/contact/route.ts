@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 import { SITE } from "@/lib/site";
+import {
+  clientIp,
+  createRateLimiter,
+  verifyTurnstile,
+  escapeHtml,
+} from "@/lib/security";
 
 const Schema = z.object({
   name: z.string().min(2).max(120),
@@ -18,72 +24,11 @@ const Schema = z.object({
 
 export const runtime = "nodejs";
 
-// Cloudflare Turnstile test secret that always validates — used in dev when no
-// real secret is configured. Set TURNSTILE_SECRET_KEY in .env.local to enforce.
-const TURNSTILE_SECRET =
-  process.env.TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA";
-
-// In-memory per-IP rate limit. Persists for the lifetime of the Node process.
-// 5 submissions per 10 minutes per IP. Switch to Redis / Upstash for multi-instance deployments.
-const RATE_WINDOW_MS = 10 * 60_000;
-const RATE_LIMIT = 5;
-const ipHits = new Map<string, number[]>();
-
-function clientIp(request: Request): string {
-  const fwd = request.headers.get("x-forwarded-for");
-  if (fwd) return fwd.split(",")[0].trim();
-  return (
-    request.headers.get("x-real-ip") ??
-    request.headers.get("cf-connecting-ip") ??
-    "unknown"
-  );
-}
-
-function rateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (ipHits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
-  if (recent.length >= RATE_LIMIT) {
-    ipHits.set(ip, recent);
-    return true;
-  }
-  recent.push(now);
-  ipHits.set(ip, recent);
-  if (ipHits.size > 5000) {
-    for (const [k, v] of ipHits) {
-      if (v.every((t) => now - t > RATE_WINDOW_MS)) ipHits.delete(k);
-    }
-  }
-  return false;
-}
-
-async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
-  try {
-    const body = new URLSearchParams();
-    body.append("secret", TURNSTILE_SECRET);
-    body.append("response", token);
-    if (ip && ip !== "unknown") body.append("remoteip", ip);
-
-    const res = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      { method: "POST", body, signal: AbortSignal.timeout(5000) }
-    );
-    if (!res.ok) {
-      console.warn("[contact] Turnstile siteverify HTTP", res.status);
-      return false;
-    }
-    const data: {
-      success: boolean;
-      "error-codes"?: string[];
-    } = await res.json();
-    if (!data.success) {
-      console.warn("[contact] Turnstile rejected:", data["error-codes"]);
-    }
-    return data.success === true;
-  } catch (err) {
-    console.warn("[contact] Turnstile verification error", err);
-    return false;
-  }
-}
+// 5 submissions per 10 minutes per IP.
+const rateLimited = createRateLimiter({
+  windowMs: 10 * 60_000,
+  max: 5,
+});
 
 export async function POST(request: Request) {
   const ip = clientIp(request);
@@ -124,7 +69,7 @@ export async function POST(request: Request) {
   }
 
   // Captcha — verify with Cloudflare.
-  const ok = await verifyTurnstile(data.cfToken, ip);
+  const ok = await verifyTurnstile(data.cfToken, ip, "contact");
   if (!ok) {
     return NextResponse.json(
       {
@@ -195,13 +140,4 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 }

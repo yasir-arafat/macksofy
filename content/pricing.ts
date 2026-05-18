@@ -473,7 +473,8 @@ const AUDIT_OVERRIDES: Record<string, PricingPackage> = {
 export type ServiceCategory =
   | "Offensive"
   | "Defensive"
-  | "Compliance Adjacent";
+  | "Compliance Adjacent"
+  | "Managed Services";
 
 export type AuditCategory =
   | "Indian Regulatory"
@@ -485,12 +486,11 @@ export function getServicePricing(
   slug: string,
   category: ServiceCategory
 ): PricingPackage {
-  return (
-    SERVICE_OVERRIDES[slug] ??
-    (category === "Defensive"
-      ? SERVICE_DEFAULT_DEFENSIVE
-      : SERVICE_DEFAULT_OFFENSIVE)
-  );
+  if (SERVICE_OVERRIDES[slug]) return SERVICE_OVERRIDES[slug];
+  if (category === "Defensive" || category === "Managed Services") {
+    return SERVICE_DEFAULT_DEFENSIVE;
+  }
+  return SERVICE_DEFAULT_OFFENSIVE;
 }
 
 export function getAuditPricing(
