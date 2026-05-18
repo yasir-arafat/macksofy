@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import { PHP_REDIRECTS } from "./lib/legacy-redirects";
-
 const nextConfig: NextConfig = {
+  images: {
+    unoptimized: true,
+  },
+
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+
   allowedDevOrigins: [
     "localhost",
     "127.0.0.1",
@@ -11,9 +15,11 @@ const nextConfig: NextConfig = {
     "192.168.0.*",
     "10.*",
   ],
+
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+
   async redirects() {
     return PHP_REDIRECTS.map((r) => ({ ...r, statusCode: 301 as const }));
   },
