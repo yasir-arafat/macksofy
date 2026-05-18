@@ -26,17 +26,21 @@ const nextConfig: NextConfig = {
 
   async headers() {
     const csp = [
-      "default-src 'self'",
-      "base-uri 'self'",
-      "frame-ancestors 'self'",
-      "form-action 'self'",
-      "img-src 'self' data: blob: https:",
-      "font-src 'self' data: https://fonts.gstatic.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com",
-      "connect-src 'self' https://challenges.cloudflare.com https://api.resend.com",
-      "object-src 'none'",
-    ].join("; ");
+  "default-src 'self'",
+  "base-uri 'self'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+
+  // ✅ REQUIRED FOR TURNSTILE
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com",
+  "frame-src https://challenges.cloudflare.com",
+  "connect-src 'self' https://challenges.cloudflare.com https://api.resend.com",
+
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "object-src 'none'",
+].join("; ");
 
     return [
       {
