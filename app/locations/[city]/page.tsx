@@ -39,14 +39,46 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
+// Loose mapping of city slug → ISO 3166-2 region. Keeps page-level geo
+// meta truthful: a Bengaluru page emits "IN-KA", not "IN-MH"; a Dubai
+// page emits "AE-DU". Falls back to the country if state is unmapped.
+const CITY_ISO_REGION: Record<string, string> = {
+  mumbai: "IN-MH",
+  pune: "IN-MH",
+  delhi: "IN-DL",
+  bengaluru: "IN-KA",
+  hyderabad: "IN-TG",
+  chennai: "IN-TN",
+  kolkata: "IN-WB",
+  ahmedabad: "IN-GJ",
+  gurugram: "IN-HR",
+  noida: "IN-UP",
+  chandigarh: "IN-CH",
+  jaipur: "IN-RJ",
+  kochi: "IN-KL",
+  dubai: "AE-DU",
+  "abu-dhabi": "AE-AZ",
+  sharjah: "AE-SH",
+  uae: "AE",
+};
+
 export async function generateMetadata({ params }: PageProps) {
   const { city } = await params;
   const c = getCityBySlug(city);
   if (!c) return {};
+  const isUAE = c.state.toLowerCase().includes("united arab")
+    || ["dubai", "abu-dhabi", "sharjah", "uae"].includes(c.slug);
   return buildMetadata({
     title: `Cybersecurity Company in ${c.name} 2026 — VAPT · Audit · Training | Macksofy`,
     description: c.seoDescription,
     path: `/locations/${c.slug}`,
+    geo: {
+      region: CITY_ISO_REGION[c.slug] ?? (isUAE ? "AE" : "IN"),
+      placename: c.name,
+      lat: c.geo.lat,
+      lng: c.geo.lng,
+    },
+    locale: isUAE ? "en_AE" : "en_IN",
     keywords: [
       `cybersecurity ${c.name}`,
       `cybersecurity company ${c.name}`,

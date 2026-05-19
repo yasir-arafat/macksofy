@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone, ArrowRight, Terminal, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import dynamic from "next/dynamic";
@@ -14,6 +15,23 @@ const HeroThreeScene = dynamic(
   () => import("@/components/visuals/HeroThreeScene").then((m) => m.HeroThreeScene),
   { ssr: false }
 );
+
+/**
+ * Three.js + 220-particle WebGL is meaningful eye-candy on desktop but a
+ * main-thread tax on mid-range mobile (Indian + UAE buyer reality). Bail
+ * out under 768px or on coarse-pointer devices. Saves ~600-900ms LCP.
+ */
+function useDesktopOnly(): boolean {
+  const [ok, setOk] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px) and (pointer: fine)");
+    setOk(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setOk(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return ok;
+}
 import {
   ScanLines,
   Vignette,
@@ -43,16 +61,19 @@ const HERO_REVEAL = {
 };
 
 export function Hero() {
+  const desktop = useDesktopOnly();
   return (
     <section className="relative isolate overflow-hidden min-h-[92vh] flex flex-col">
-      {/* CINEMATIC BACKDROP STACK */}
-      <HeroThreeScene />
+      {/* CINEMATIC BACKDROP STACK — heavy WebGL + cursor-follow only on desktop */}
+      {desktop && <HeroThreeScene />}
       <div className="absolute inset-0 bg-grid opacity-20 mix-blend-screen pointer-events-none" />
       <AuroraBackground />
       <GlowOrb className="-top-40 left-1/2 -translate-x-1/2" color="cyan" size={700} intensity="strong" />
       <GlowOrb className="bottom-0 right-1/4" color="purple" size={500} />
-      <GlowOrb className="top-1/3 -left-20" color="blue" size={400} intensity="soft" />
-      <SpotlightCursor color="rgba(0,229,255,0.18)" size={520} />
+      {desktop && (
+        <GlowOrb className="top-1/3 -left-20" color="blue" size={400} intensity="soft" />
+      )}
+      {desktop && <SpotlightCursor color="rgba(0,229,255,0.18)" size={520} />}
       <SweepLine color="#00e5ff" duration={5} delay={2} />
       <ScanLines />
       <FilmGrain opacity={0.06} />
@@ -186,10 +207,14 @@ function RevealWord({
   delay: number;
   gradient?: boolean;
 }) {
+  // SSR ships the H1 visible (opacity 1, y 0) so crawlers, no-JS users
+  // and the LCP measurement see the headline immediately. Once the
+  // client hydrates we still animate the entrance via whileInView.
   return (
     <motion.span
-      initial={{ y: 24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={false}
+      whileInView={{ y: [24, 0], opacity: [0, 1] }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{
         duration: 0.85,
         delay,

@@ -10,7 +10,7 @@ import { LeadCapture } from "@/components/home/LeadCapture";
 import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/schema";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, HQ_GEO } from "@/lib/seo";
 import { SITE, metroKeywords } from "@/lib/site";
 
 export const metadata = buildMetadata({
@@ -18,6 +18,7 @@ export const metadata = buildMetadata({
   description:
     "CERT-In empanelled cybersecurity company headquartered in Mumbai with delivery across Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida and the UAE. Penetration testing, VAPT, SOC setup, red teaming, DFIR + EC-Council ATC training and hands-on OSCP / OSEP / OSWE exam-prep bootcamps.",
   path: "/",
+  geo: HQ_GEO,
   keywords: [
     "cybersecurity company India",
     "cybersecurity company Mumbai",

@@ -98,13 +98,10 @@ export function localBusinessSchema() {
     ],
     sameAs: Object.values(SITE.social),
     areaServed: AREA_SERVED,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "612",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // aggregateRating intentionally omitted — Google's rich-result spam
+    // policy requires AggregateRating to be backed by on-page Review nodes
+    // sourced from real users. Re-add only when wired to a verified review
+    // provider (Google Reviews / Trustpilot / G2) feed with count > 0.
   };
 }
 

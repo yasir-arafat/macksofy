@@ -59,13 +59,14 @@ export const SITE = {
   ],
 
   /**
-   * Search-engine verification codes. Replace empty strings with the values
-   * Google Search Console / Bing Webmaster Tools / Yandex emit.
+   * Search-engine verification codes — sourced from env so codes can rotate
+   * without a deploy. Set NEXT_PUBLIC_VERIFY_GOOGLE / _BING / _YANDEX in
+   * .env.local (or your hosting provider's env panel).
    */
   verification: {
-    google: "",
-    bing: "",
-    yandex: "",
+    google: process.env.NEXT_PUBLIC_VERIFY_GOOGLE ?? "",
+    bing: process.env.NEXT_PUBLIC_VERIFY_BING ?? "",
+    yandex: process.env.NEXT_PUBLIC_VERIFY_YANDEX ?? "",
   },
 } as const;
 

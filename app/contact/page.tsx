@@ -23,7 +23,7 @@ import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { CertInBadge } from "@/components/visuals/CertInBadge";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, HQ_GEO } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { LOCATIONS } from "@/components/contact/Locations";
 import { MapSwitcher } from "@/components/contact/MapSwitcher";
@@ -39,6 +39,7 @@ export const metadata = buildMetadata({
   description:
     "Reach Macksofy across our five delivery cities. Live local times, interactive city map, 60-second scope wizard, and a CERT-In empanelled consultant available within 4 business hours.",
   path: "/contact",
+  geo: HQ_GEO,
   keywords: [
     "Macksofy contact Mumbai",
     "cybersecurity company contact India",

@@ -7,7 +7,7 @@ import { ClientsMarquee } from "@/components/clients/ClientsMarquee";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, HQ_GEO } from "@/lib/seo";
 
 import { AboutHero } from "@/components/about/AboutHero";
 import { Manifesto } from "@/components/about/Manifesto";
@@ -28,6 +28,7 @@ export const metadata = buildMetadata({
   description:
     "Founded 2014 in Mumbai. CERT-In empanelled cybersecurity consulting firm with EC-Council ATC training division and hands-on Offensive Security exam-prep bootcamps. Engagements across India + UAE. 20,000+ alumni, 250+ enterprise clients, 5 countries served.",
   path: "/about",
+  geo: HQ_GEO,
   keywords: [
     "about Macksofy",
     "Macksofy Technologies Mumbai",

@@ -1,6 +1,20 @@
 import type { Metadata } from "next";
 import { SITE } from "./site";
 
+/**
+ * Geo-meta block for a page. Pass per-city / per-country values from
+ * location-aware routes. Pass `null` to opt out of geo meta entirely
+ * (use this on non-location pages so Mumbai doesn't get pinned to the
+ * UAE page, the OSCP course page, etc.).
+ */
+export interface PageGeo {
+  /** ISO 3166-2 region code, e.g. "IN-MH", "IN-KA", "AE-DU". */
+  region: string;
+  placename: string;
+  lat: number;
+  lng: number;
+}
+
 interface BuildMetadataInput {
   title: string;
   description: string;
@@ -12,6 +26,13 @@ interface BuildMetadataInput {
   publishedTime?: string;
   modifiedTime?: string;
   authors?: string[];
+  /**
+   * Geo signals for this page. Default: undefined → no geo meta is emitted.
+   * Pass an object to scope this page to a city/country; pass null also = no geo.
+   */
+  geo?: PageGeo | null;
+  /** Open Graph locale override. Default: "en_IN". UAE pages should use "en_AE". */
+  locale?: string;
 }
 
 function abs(path: string): string {
@@ -30,10 +51,25 @@ export function buildMetadata({
   publishedTime,
   modifiedTime,
   authors,
+  geo,
+  locale = "en_IN",
 }: BuildMetadataInput): Metadata {
   const includesBrand = title.includes(SITE.shortName);
   const url = abs(path);
   const ogImage = image ? abs(image) : abs(SITE.ogImage);
+
+  // Geo meta is opt-in per page. Pages that pass nothing emit no geo
+  // signals — better than pinning Mumbai globally and confusing
+  // local-pack relevance on UAE / Bengaluru / etc.
+  const geoMeta: Record<string, string> =
+    geo == null
+      ? {}
+      : {
+          "geo.region": geo.region,
+          "geo.placename": geo.placename,
+          "geo.position": `${geo.lat};${geo.lng}`,
+          ICBM: `${geo.lat}, ${geo.lng}`,
+        };
 
   return {
     title: includesBrand ? { absolute: title } : title,
@@ -50,7 +86,7 @@ export function buildMetadata({
       description,
       url,
       siteName: SITE.name,
-      locale: "en_IN",
+      locale,
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
       ...(publishedTime && { publishedTime }),
       ...(modifiedTime && { modifiedTime }),
@@ -62,12 +98,7 @@ export function buildMetadata({
       description,
       images: [ogImage],
     },
-    other: {
-      "geo.region": "IN-MH",
-      "geo.placename": "Mumbai",
-      "geo.position": `${SITE.geo.lat};${SITE.geo.lng}`,
-      ICBM: `${SITE.geo.lat}, ${SITE.geo.lng}`,
-    },
+    ...(Object.keys(geoMeta).length > 0 && { other: geoMeta }),
     robots: noIndex
       ? { index: false, follow: false }
       : {
@@ -83,3 +114,14 @@ export function buildMetadata({
         },
   };
 }
+
+/**
+ * Convenience: HQ geo for the homepage / about / contact. Other pages
+ * should pass their own (city geo from content/cities.ts) or skip.
+ */
+export const HQ_GEO: PageGeo = {
+  region: "IN-MH",
+  placename: "Mumbai",
+  lat: SITE.geo.lat,
+  lng: SITE.geo.lng,
+};
