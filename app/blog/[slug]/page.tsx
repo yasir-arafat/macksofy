@@ -13,6 +13,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { POSTS, getPostBySlug } from "@/content/blog";
+import { getAuthor, authorSchema } from "@/content/authors";
 import { BlogContent, BlogToc } from "@/components/blog/BlogContent";
 import { BlogHeroVisual } from "@/components/blog/BlogHero";
 import { SITE } from "@/lib/site";
@@ -53,6 +54,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const fallbackRelated = POSTS.filter((r) => r.slug !== p.slug).slice(0, 3);
   const finalRelated = related.length > 0 ? related : fallbackRelated;
   const url = `${SITE.url}/blog/${p.slug}`;
+  const author = getAuthor(p.author);
 
   return (
     <>
@@ -72,13 +74,10 @@ export default async function BlogPostPage({ params }: PageProps) {
             keywords: p.keywords.join(", "),
             articleSection: p.category,
             inLanguage: "en-IN",
-            author: {
-              "@type": "Organization",
-              name: SITE.name,
-              url: SITE.url,
-            },
+            author: authorSchema(author),
             publisher: {
               "@type": "Organization",
+              "@id": `${SITE.url}#organization`,
               name: SITE.name,
               url: SITE.url,
               logo: {

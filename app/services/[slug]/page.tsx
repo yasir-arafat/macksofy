@@ -23,7 +23,9 @@ import {
   breadcrumbSchema,
   faqSchema,
   serviceSchema,
+  methodologyHowToSchema,
 } from "@/lib/schema";
+import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { SERVICES, getServiceBySlug } from "@/content/services";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
@@ -157,6 +159,11 @@ export default async function ServiceDetail({ params }: PageProps) {
             { name: service.title, url: `/services/${service.slug}` },
           ]),
           faqSchema(service.faqs),
+          methodologyHowToSchema({
+            subjectLabel: service.shortTitle,
+            url: `${SITE.url}/services/${service.slug}#methodology`,
+            phases: service.methodology,
+          }),
         ]}
       />
 

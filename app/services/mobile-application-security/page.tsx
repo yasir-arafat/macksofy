@@ -27,7 +27,8 @@ import { RiskMeter } from "@/components/visuals/RiskMeter";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, serviceSchema, methodologyHowToSchema } from "@/lib/schema";
+import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
@@ -61,6 +62,11 @@ export default function MobileSecPage() {
             { name: service.title, url: `/services/${service.slug}` },
           ]),
           faqSchema(service.faqs),
+          methodologyHowToSchema({
+            subjectLabel: service.shortTitle,
+            url: `${SITE.url}/services/${service.slug}#methodology`,
+            phases: service.methodology,
+          }),
         ]}
       />
 

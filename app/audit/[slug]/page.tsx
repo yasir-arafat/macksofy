@@ -12,8 +12,14 @@ import { CertInHero } from "@/components/visuals/CertInBadge";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, faqSchema, auditSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqSchema,
+  auditSchema,
+  methodologyHowToSchema,
+} from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 import { AUDITS, getAuditBySlug } from "@/content/audits";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AuditDeepDive } from "@/components/visuals/audit/AuditDeepDive";
@@ -59,6 +65,11 @@ export default async function AuditDetail({ params }: PageProps) {
             { name: a.shortTitle, url: `/audit/${a.slug}` },
           ]),
           faqSchema(a.faqs),
+          methodologyHowToSchema({
+            subjectLabel: a.shortTitle,
+            url: `${SITE.url}/audit/${a.slug}#methodology`,
+            phases: a.methodology,
+          }),
         ]}
       />
 
@@ -173,7 +184,7 @@ export default async function AuditDetail({ params }: PageProps) {
       )}
 
       {/* METHODOLOGY */}
-      <section className="py-20 bg-bg-1">
+      <section id="methodology" className="py-20 bg-bg-1">
         <Container>
           <Eyebrow>Methodology</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">

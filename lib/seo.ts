@@ -78,6 +78,13 @@ export function buildMetadata({
     metadataBase: new URL(SITE.url),
     alternates: {
       canonical: url,
+      // hreflang: this URL is intentionally declared as the canonical
+      // target for both en-IN and en-AE audiences. Google's docs (and
+      // hreflang RFC) explicitly support a single URL serving multiple
+      // English-locale regions; the signal helps region-aware ranking
+      // in both Indian and UAE SERPs without requiring per-locale URLs.
+      // OG locale is set per-page via the `locale` arg (en_AE on UAE
+      // pages, en_IN by default).
       languages: { "en-IN": url, "en-AE": url, "x-default": url },
     },
     openGraph: {
