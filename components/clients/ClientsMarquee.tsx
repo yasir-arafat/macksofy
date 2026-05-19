@@ -62,7 +62,7 @@ function MarqueeRow({
           >
             <Image
               src={c.logo}
-              alt={c.name}
+              alt={`${c.name} logo — Macksofy client`}
               fill
               sizes="176px"
               className="object-contain p-2"

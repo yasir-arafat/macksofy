@@ -13,11 +13,43 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { POSTS, getPostBySlug } from "@/content/blog";
+import type { BlogBlock } from "@/content/blog";
 import { getAuthor, authorSchema } from "@/content/authors";
 import { SERVICES } from "@/content/services";
 import { BlogContent, BlogToc } from "@/components/blog/BlogContent";
 import { BlogHeroVisual } from "@/components/blog/BlogHero";
 import { SITE } from "@/lib/site";
+import { dynamicOgImage } from "@/lib/seo";
+
+/**
+ * Word count from a post's blocks — used in BlogPosting schema's
+ * `wordCount` field. Google references it for read-time signals; AI
+ * search engines use it to gauge depth before deciding to cite.
+ */
+function postWordCount(blocks: BlogBlock[]): number {
+  let words = 0;
+  for (const b of blocks) {
+    if ("text" in b && typeof b.text === "string") {
+      words += b.text.trim().split(/\s+/).filter(Boolean).length;
+    }
+    if ("rows" in b && Array.isArray((b as { rows: string[][] }).rows)) {
+      for (const row of (b as { rows: string[][] }).rows) {
+        for (const cell of row) {
+          words += cell.trim().split(/\s+/).filter(Boolean).length;
+        }
+      }
+    }
+  }
+  return words;
+}
+
+/** Pull the first lead block as the article body excerpt for schema. */
+function postExcerpt(blocks: BlogBlock[]): string {
+  const lead = blocks.find((b) => b.type === "lead") as
+    | Extract<BlogBlock, { type: "lead" }>
+    | undefined;
+  return lead?.text ?? "";
+}
 
 /**
  * Pick up to 3 services to surface as "related" on a blog post.
@@ -88,6 +120,13 @@ export default async function BlogPostPage({ params }: PageProps) {
   const url = `${SITE.url}/blog/${p.slug}`;
   const author = getAuthor(p.author);
   const relatedServices = pickRelatedServices(p.tags, p.keywords);
+  const wordCount = postWordCount(p.blocks);
+  const excerpt = postExcerpt(p.blocks);
+  const postOgImage = dynamicOgImage({
+    title: p.title,
+    eyebrow: p.category,
+    kind: "blog",
+  });
 
   return (
     <>
@@ -100,12 +139,22 @@ export default async function BlogPostPage({ params }: PageProps) {
           {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
+            "@id": `${url}#article`,
             headline: p.title,
             description: p.description,
+            // `image` as an array satisfies Google's Article rich-result
+            // requirement (≥1 image, ideally with aspect ratios for
+            // 16x9 / 4x3 / 1x1). The dynamic OG image is 1200x630
+            // (16x9-ish) — single entry is OK, Google fills missing
+            // aspect ratios from this one if needed.
+            image: [postOgImage],
             datePublished: p.date,
             dateModified: p.updated ?? p.date,
             keywords: p.keywords.join(", "),
             articleSection: p.category,
+            wordCount,
+            ...(excerpt && { articleBody: excerpt }),
+            isAccessibleForFree: true,
             inLanguage: "en-IN",
             author: authorSchema(author),
             publisher: {
@@ -119,6 +168,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               },
             },
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
+            isPartOf: { "@id": `${SITE.url}#website` },
+            about: p.tags.map((t) => ({ "@type": "Thing", name: t })),
             // speakable: marks parts of the page that voice assistants
             // (Google Assistant, Bing voice) are licensed to read aloud
             // and AI summarisers prefer when extracting a one-line

@@ -59,8 +59,16 @@ export default async function BlogPagedIndex({ params }: PageProps) {
   const start = (n - 1) * POSTS_PER_PAGE;
   const pagePosts = sorted.slice(start, start + POSTS_PER_PAGE);
 
+  // Build prev/next URLs. Page 2's prev is `/blog`, not `/blog/page/1`.
+  const prevHref =
+    n === 2 ? `${SITE.url}/blog` : `${SITE.url}/blog/page/${n - 1}`;
+  const nextHref = n < tp ? `${SITE.url}/blog/page/${n + 1}` : null;
+
   return (
     <>
+      {/* Pagination chain. React 19 hoists to head. */}
+      <link rel="prev" href={prevHref} />
+      {nextHref && <link rel="next" href={nextHref} />}
       <JsonLd
         data={[
           breadcrumbSchema([

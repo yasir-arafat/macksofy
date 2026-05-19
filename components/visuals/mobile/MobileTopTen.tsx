@@ -135,7 +135,10 @@ export function MobileTopTen() {
                   {it.image ? (
                     <Image
                       src={it.image}
-                      alt={`${it.code} icon`}
+                      // Decorative — accompanying text labels the
+                      // OWASP item right next to the icon.
+                      alt=""
+                      aria-hidden="true"
                       width={56}
                       height={56}
                       className="size-12 sm:size-14 object-contain"

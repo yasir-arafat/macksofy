@@ -156,7 +156,7 @@ function ClientCard({ name, logo }: { name: string; logo: string }) {
       <div className="relative aspect-[7/5] overflow-hidden rounded-xl bg-white ring-1 ring-line transition-all duration-300 hover:ring-neon-cyan/50 hover:shadow-[0_0_24px_rgba(0,229,255,0.25)] hover:-translate-y-0.5">
         <Image
           src={logo}
-          alt={name}
+          alt={`${name} logo`}
           fill
           sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 200px"
           className="object-contain p-3"

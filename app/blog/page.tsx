@@ -39,6 +39,12 @@ export default function BlogIndexPage() {
 
   return (
     <>
+      {/* Pagination chain — rel="next" points at the next page so
+          Bing crawls efficiently and browsers can prefetch. No "prev"
+          on page 1 because there isn't one. React 19 hoists to head. */}
+      {totalPages > 1 && (
+        <link rel="next" href={`${SITE.url}/blog/page/2`} />
+      )}
       <JsonLd
         data={[
           breadcrumbSchema([{ name: "Blog", url: "/blog" }]),

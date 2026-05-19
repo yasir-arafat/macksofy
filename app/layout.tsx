@@ -116,7 +116,31 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} ${mono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-bg text-fg">
-        {/* RSS auto-discovery — hoisted to <head> by React 19. */}
+        {/* React 19 hoists these to <head>. */}
+
+        {/* Preconnect / dns-prefetch for the third-party origins we
+            hit in the critical user flow — Turnstile (contact form)
+            and Google Maps (contact page office map). Preconnect saves
+            ~100-300ms on first interaction by paying DNS+TCP+TLS up
+            front. dns-prefetch is cheaper for less-critical origins. */}
+        <link rel="preconnect" href="https://challenges.cloudflare.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://challenges.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://api.resend.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+
+        {/* Skip-link — visually-hidden but keyboard-focusable. First
+            stop on the tab order; lets keyboard / screen-reader users
+            jump past nav directly to content. Lighthouse a11y score
+            requires this; a11y is a soft ranking factor on mobile. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-bg focus:text-fg focus:ring-2 focus:ring-neon-cyan focus:px-4 focus:py-2 focus:font-semibold"
+        >
+          Skip to content
+        </a>
+
+        {/* RSS auto-discovery. */}
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -128,6 +152,7 @@ export default function RootLayout({
         />
         <Header />
         <main
+          id="main"
           className="flex-1"
           style={{ paddingTop: "var(--header-h, 80px)" }}
         >

@@ -131,7 +131,11 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
                   >
                     <Image
                       src={phaseImages[active] as string}
-                      alt={`${current.phase} icon`}
+                      // Decorative — phase title is rendered as an
+                      // adjacent H4 (visible to AT users). Empty alt
+                      // prevents screen-readers double-announcing.
+                      alt=""
+                      aria-hidden="true"
                       width={64}
                       height={64}
                       className="size-12 sm:size-14 object-contain"

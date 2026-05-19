@@ -3,6 +3,7 @@ import type { Course } from "@/content/courses";
 import type { Service } from "@/content/services";
 import type { Audit } from "@/content/audits";
 import type { CaseStudyHero } from "@/content/caseStudies";
+import { AWARDS } from "@/content/awards";
 
 const BASE = SITE.url;
 
@@ -24,6 +25,15 @@ function abs(path: string): string {
 }
 
 export function organizationSchema() {
+  // Awards block — pulled live from content/awards.ts so additions
+  // there flow into the Organization graph node automatically. Each
+  // entry is a CreativeWork representing the award itself.
+  const awardEntries = AWARDS.map((a) => ({
+    "@type": "CreativeWork",
+    name: a.title,
+    ...(typeof a.year === "number" && { dateCreated: `${a.year}` }),
+  }));
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -32,9 +42,31 @@ export function organizationSchema() {
     legalName: SITE.legalName,
     alternateName: SITE.shortName,
     url: BASE,
-    logo: `${BASE}/logo.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BASE}/logo.png`,
+      width: 512,
+      height: 512,
+    },
+    image: `${BASE}/logo.png`,
     description: SITE.description,
+    slogan: SITE.tagline,
     foundingDate: SITE.founded,
+    foundingLocation: {
+      "@type": "Place",
+      name: `${SITE.hq.city}, ${SITE.hq.region}, ${SITE.hq.country}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: SITE.hq.city,
+        addressRegion: SITE.hq.region,
+        addressCountry: SITE.hq.country,
+      },
+    },
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      minValue: 50,
+      maxValue: 200,
+    },
     email: SITE.email,
     telephone: SITE.phone,
     address: {
@@ -45,8 +77,31 @@ export function organizationSchema() {
       postalCode: SITE.hq.postalCode,
       addressCountry: SITE.hq.country,
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        telephone: SITE.phone,
+        email: SITE.email,
+        areaServed: ["IN", "AE"],
+        availableLanguage: ["en", "hi"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: SITE.email,
+        areaServed: ["IN", "AE"],
+        availableLanguage: ["en"],
+      },
+    ],
     sameAs: Object.values(SITE.social),
     areaServed: AREA_SERVED,
+    award: awardEntries.map((a) => a.name),
+    hasCredential: SITE.trustSignals.map((t) => ({
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Certification / Empanelment",
+      name: t,
+    })),
     knowsAbout: [
       "Penetration Testing",
       "VAPT",
@@ -55,11 +110,21 @@ export function organizationSchema() {
       "ISO 27001 Implementation",
       "RBI Cyber Security Framework Audit",
       "SEBI CSCRF Audit",
+      "IRDAI Cyber Security",
+      "DPDPA Compliance",
+      "NESA UAE",
+      "ADHICS",
+      "DESC ISR",
       "Digital Forensics",
       "Incident Response",
       "Threat Intelligence",
+      "Managed SOC",
+      "Wazuh SIEM",
+      "Microsoft Sentinel",
       "OSCP Training",
       "CEH Training",
+      "Cloud Security",
+      "Mobile Application Security",
     ],
   };
 }
@@ -163,7 +228,20 @@ export function websiteSchema() {
     name: SITE.name,
     description: SITE.description,
     publisher: { "@id": `${BASE}#organization` },
-    inLanguage: "en-IN",
+    inLanguage: ["en-IN", "en-AE"],
+    // SearchAction — makes the site eligible for Google's sitelinks
+    // search box. The search URL points to /blog?q={query} which is
+    // the site's blog search; if a dedicated /search route ships
+    // later, update target accordingly. urlTemplate must use the
+    // EntryPoint shape and the SearchTerms placeholder exactly.
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BASE}/blog?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
