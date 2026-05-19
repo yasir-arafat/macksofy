@@ -57,7 +57,10 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "lead":
       return (
-        <p className="text-xl leading-relaxed text-fg text-pretty mb-10 first-letter:text-5xl first-letter:font-display first-letter:font-black first-letter:text-neon-cyan first-letter:mr-2 first-letter:float-left first-letter:leading-none first-letter:mt-1">
+        <p
+          data-speakable="lead"
+          className="text-xl leading-relaxed text-fg text-pretty mb-10 first-letter:text-5xl first-letter:font-display first-letter:font-black first-letter:text-neon-cyan first-letter:mr-2 first-letter:float-left first-letter:leading-none first-letter:mt-1"
+        >
           {block.text}
         </p>
       );

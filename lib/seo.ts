@@ -15,10 +15,30 @@ export interface PageGeo {
   lng: number;
 }
 
+/**
+ * Content kind drives the accent colour + chip on the dynamic OG image.
+ * Keep keys aligned with `app/api/og/route.tsx`'s accentByKind map.
+ */
+export type OgKind =
+  | "service"
+  | "audit"
+  | "training"
+  | "course"
+  | "blog"
+  | "city"
+  | "product"
+  | "case"
+  | "industry"
+  | "macksofy";
+
 interface BuildMetadataInput {
   title: string;
   description: string;
   path: string;
+  /**
+   * Explicit OG image override. If omitted, a dynamic OG image is built
+   * from `ogTitle ?? title` + `ogEyebrow` + `ogKind` via /api/og.
+   */
   image?: string;
   keywords?: string[];
   noIndex?: boolean;
@@ -33,6 +53,30 @@ interface BuildMetadataInput {
   geo?: PageGeo | null;
   /** Open Graph locale override. Default: "en_IN". UAE pages should use "en_AE". */
   locale?: string;
+  /** OG image: short title rendered as the big bottom-left line. */
+  ogTitle?: string;
+  /** OG image: small uppercase eyebrow above the title. */
+  ogEyebrow?: string;
+  /** OG image: kind chip + accent colour. */
+  ogKind?: OgKind;
+}
+
+/**
+ * Build the dynamic OG image URL for a page. Always returns an absolute
+ * URL — `metadata.openGraph.images[*].url` must be absolute or social
+ * scrapers fail to fetch it.
+ */
+export function dynamicOgImage(args: {
+  title: string;
+  eyebrow: string;
+  kind: OgKind;
+}): string {
+  const params = new URLSearchParams({
+    title: args.title,
+    eyebrow: args.eyebrow,
+    kind: args.kind,
+  });
+  return `${SITE.url}/api/og?${params.toString()}`;
 }
 
 function abs(path: string): string {
@@ -53,10 +97,26 @@ export function buildMetadata({
   authors,
   geo,
   locale = "en_IN",
+  ogTitle,
+  ogEyebrow,
+  ogKind,
 }: BuildMetadataInput): Metadata {
   const includesBrand = title.includes(SITE.shortName);
   const url = abs(path);
-  const ogImage = image ? abs(image) : abs(SITE.ogImage);
+  // Dynamic OG image is the default: every page gets a brand-consistent
+  // 1200x630 generated via /api/og. Pages can opt out by passing an
+  // explicit `image`. Pages can fine-tune the rendering by passing
+  // ogTitle / ogEyebrow / ogKind. If none of those are supplied we
+  // derive sane defaults from the metadata title.
+  const ogImage = image
+    ? abs(image)
+    : ogKind
+    ? dynamicOgImage({
+        title: ogTitle ?? title,
+        eyebrow: ogEyebrow ?? type.toUpperCase(),
+        kind: ogKind,
+      })
+    : abs(SITE.ogImage);
 
   // Geo meta is opt-in per page. Pages that pass nothing emit no geo
   // signals — better than pinning Mumbai globally and confusing

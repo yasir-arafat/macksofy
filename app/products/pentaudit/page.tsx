@@ -28,6 +28,7 @@ import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title:
@@ -242,16 +243,33 @@ export default function PentauditPage() {
           {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
+            "@id": `${SITE.url}/products/pentaudit#product`,
             name: "Pentaudit",
+            url: `${SITE.url}/products/pentaudit`,
             applicationCategory: "SecurityApplication",
+            applicationSubCategory: "Continuous Penetration Testing & Compliance Automation",
             operatingSystem: "Web",
             description:
               "AI-driven continuous pentesting and compliance-readiness platform. On-spot VAPT for cloud, web and mobile. Readiness scoring for ISO 27001, SOC 2, PCI-DSS, HIPAA, GDPR, DPDP, RBI and CERT-In.",
+            image: `${SITE.url}/og-default.png`,
+            brand: { "@type": "Brand", name: "Pentaudit" },
+            publisher: { "@id": `${SITE.url}#organization` },
+            featureList: [
+              "Continuous cloud / web / mobile pentesting",
+              "Multi-cloud posture management (AWS, Azure, GCP, OCI)",
+              "ISO 27001 readiness scoring",
+              "SOC 2 readiness scoring",
+              "PCI-DSS readiness scoring",
+              "HIPAA / GDPR / DPDP / RBI / CERT-In readiness scoring",
+              "Auto-evidence collection for auditors",
+              "Severity-prioritised remediation queue",
+            ],
             offers: {
               "@type": "Offer",
               price: "0",
               priceCurrency: "INR",
               description: "Free 14-day trial",
+              url: `${SITE.url}/contact?interest=Pentaudit`,
             },
           },
           faqSchema(FAQS),

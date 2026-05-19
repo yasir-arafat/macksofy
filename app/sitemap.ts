@@ -9,6 +9,7 @@ import { CASE_STUDIES } from "@/content/caseStudies";
 import { RESOURCES } from "@/content/resources";
 import { COMBO_PAIRS } from "@/content/combos";
 import { AWARDS } from "@/content/awards";
+import { INDUSTRIES } from "@/content/industries";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
@@ -80,6 +81,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...CASE_STUDIES.map((c) => stat(`/case-studies/${c.slug}`, 0.85, "monthly")),
     stat("/resources", 0.9, "monthly"),
     ...RESOURCES.map((r) => stat(`/resources/${r.slug}`, 0.8, "monthly")),
+    stat("/industries", 0.9, "monthly"),
+    ...INDUSTRIES.map((i) => stat(`/industries/${i.slug}`, 0.85, "monthly")),
     stat("/locations", 0.85, "monthly"),
     ...CITIES.map((c) =>
       stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "monthly")

@@ -47,6 +47,9 @@ export async function generateMetadata({ params }: PageProps) {
     description: c.seoDescription,
     path: `/training/${c.slug}`,
     keywords: c.keywords,
+    ogKind: "training",
+    ogTitle: c.code,
+    ogEyebrow: "Macksofy Training",
   });
 }
 

@@ -55,9 +55,15 @@ const TYPEWRITER_PHRASES = [
 const HEADLINE_LINE_1 = ["Securing", "businesses."];
 const HEADLINE_LINE_2 = ["Training", "cyber", "warriors."];
 
+// SSR-visible reveal: start fully visible so crawlers and no-JS users
+// see the content; client hydration plays a brief blur-up via
+// whileInView (`initial:false`). This trades the per-load page-load
+// animation for a viewport-trigger animation but matches what users
+// actually perceive — the hero is in the viewport when they land.
 const HERO_REVEAL = {
-  initial: { opacity: 0, y: 24, filter: "blur(8px)" },
-  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+  initial: false as const,
+  whileInView: { opacity: [0, 1], y: [24, 0], filter: ["blur(8px)", "blur(0px)"] },
+  viewport: { once: true, amount: 0.1 },
 };
 
 export function Hero() {
@@ -86,8 +92,9 @@ export function Hero() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-7">
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={false}
+              whileInView={{ opacity: [0, 1], y: [8, 0] }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
             >
               <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
@@ -120,7 +127,8 @@ export function Hero() {
 
             <motion.div
               initial={HERO_REVEAL.initial}
-              animate={HERO_REVEAL.animate}
+              whileInView={HERO_REVEAL.whileInView}
+              viewport={HERO_REVEAL.viewport}
               transition={{ duration: 0.7, delay: 0.7 }}
               className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted text-pretty"
             >
@@ -135,7 +143,8 @@ export function Hero() {
 
             <motion.div
               initial={HERO_REVEAL.initial}
-              animate={HERO_REVEAL.animate}
+              whileInView={HERO_REVEAL.whileInView}
+              viewport={HERO_REVEAL.viewport}
               transition={{ duration: 0.7, delay: 0.85 }}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
@@ -155,8 +164,9 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={false}
+              whileInView={{ opacity: [0, 1] }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.7, delay: 1 }}
               className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 max-w-xl"
             >

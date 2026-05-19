@@ -14,9 +14,38 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { POSTS, getPostBySlug } from "@/content/blog";
 import { getAuthor, authorSchema } from "@/content/authors";
+import { SERVICES } from "@/content/services";
 import { BlogContent, BlogToc } from "@/components/blog/BlogContent";
 import { BlogHeroVisual } from "@/components/blog/BlogHero";
 import { SITE } from "@/lib/site";
+
+/**
+ * Pick up to 3 services to surface as "related" on a blog post.
+ * Heuristic: case-insensitive substring match between any of the
+ * post's tags / keywords and service shortTitle. If nothing matches,
+ * fall back to the universal-intent set (VAPT, Pentest, MSSP) which
+ * fits most cybersecurity-blog readers. Server-side, no allocation
+ * per-render at scale — runs once per post during SSG.
+ */
+function pickRelatedServices(tags: string[], keywords: string[]) {
+  const haystack = [...tags, ...keywords].map((s) => s.toLowerCase());
+  const scored = SERVICES.map((s) => {
+    const needle = s.shortTitle.toLowerCase();
+    const matches = haystack.filter(
+      (h) => h.includes(needle) || needle.includes(h.split(" ")[0])
+    ).length;
+    return { service: s, matches };
+  })
+    .filter((r) => r.matches > 0)
+    .sort((a, b) => b.matches - a.matches)
+    .slice(0, 3)
+    .map((r) => r.service);
+  if (scored.length >= 2) return scored;
+  const defaults = ["vapt", "penetration-testing", "managed-soc"];
+  return defaults
+    .map((slug) => SERVICES.find((s) => s.slug === slug))
+    .filter((s): s is (typeof SERVICES)[number] => Boolean(s));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -41,6 +70,9 @@ export async function generateMetadata({ params }: PageProps) {
     publishedTime: p.date,
     modifiedTime: p.updated ?? p.date,
     authors: [p.author],
+    ogKind: "blog",
+    ogTitle: p.title,
+    ogEyebrow: p.category,
   });
 }
 
@@ -55,6 +87,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const finalRelated = related.length > 0 ? related : fallbackRelated;
   const url = `${SITE.url}/blog/${p.slug}`;
   const author = getAuthor(p.author);
+  const relatedServices = pickRelatedServices(p.tags, p.keywords);
 
   return (
     <>
@@ -86,6 +119,14 @@ export default async function BlogPostPage({ params }: PageProps) {
               },
             },
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
+            // speakable: marks parts of the page that voice assistants
+            // (Google Assistant, Bing voice) are licensed to read aloud
+            // and AI summarisers prefer when extracting a one-line
+            // takeaway. CSS-selector form — Google's recommended shape.
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", "[data-speakable='lead']", "article h2"],
+            },
           },
           ...(p.faqs ? [faqSchema(p.faqs)] : []),
         ]}
@@ -194,6 +235,43 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan">
                     Read article <ArrowRight className="size-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {relatedServices.length > 0 && (
+        <section className="py-16 bg-bg-1">
+          <Container>
+            <Eyebrow color="cyan">Macksofy delivers</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl sm:text-3xl font-black text-fg">
+              Need help putting this into practice?
+            </h2>
+            <p className="mt-3 max-w-2xl text-fg-muted text-pretty">
+              These Macksofy engagements line up with the topics in this post —
+              fixed-price proposals within 48 hours, CERT-In format reports.
+            </p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-3">
+              {relatedServices.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  className="group rounded-2xl glass p-5 hover:border-neon-cyan/40 transition-all flex flex-col"
+                >
+                  <Badge variant="cyan" className="self-start">
+                    {s.category}
+                  </Badge>
+                  <h3 className="mt-4 font-display font-bold text-fg group-hover:text-neon-cyan">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-fg-muted line-clamp-3 flex-1">
+                    {s.hero.tagline}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan">
+                    Explore service <ArrowRight className="size-4" />
                   </span>
                 </Link>
               ))}

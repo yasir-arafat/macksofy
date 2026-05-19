@@ -31,6 +31,7 @@ import { SERVICES, getServiceBySlug } from "@/content/services";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { PricingTiers } from "@/components/PricingTiers";
 import { TrustStrip } from "@/components/TrustStrip";
+import { WhereWeDeliver } from "@/components/sections/WhereWeDeliver";
 import { getServicePricing } from "@/content/pricing";
 import { DownloadButton } from "@/components/DownloadButton";
 
@@ -137,6 +138,9 @@ export async function generateMetadata({ params }: PageProps) {
     description: s.seoDescription,
     path: `/services/${s.slug}`,
     keywords: s.keywords,
+    ogKind: "service",
+    ogTitle: s.shortTitle,
+    ogEyebrow: s.category,
   });
 }
 
@@ -467,6 +471,12 @@ export default async function ServiceDetail({ params }: PageProps) {
           </Container>
         </section>
       )}
+
+      <WhereWeDeliver
+        subject={service.shortTitle}
+        subjectShort={service.shortTitle}
+        serviceSlug={service.slug}
+      />
 
       <LeadCapture />
     </>

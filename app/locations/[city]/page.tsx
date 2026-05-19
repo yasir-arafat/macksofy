@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: PageProps) {
   const isUAE = c.state.toLowerCase().includes("united arab")
     || ["dubai", "abu-dhabi", "sharjah", "uae"].includes(c.slug);
   return buildMetadata({
-    title: `Cybersecurity Company in ${c.name} 2026 — VAPT · Audit · Training | Macksofy`,
+    title: `Cybersecurity Company in ${c.name} ${new Date().getFullYear()} — VAPT · Audit · Training | Macksofy`,
     description: c.seoDescription,
     path: `/locations/${c.slug}`,
     geo: {
@@ -79,6 +79,9 @@ export async function generateMetadata({ params }: PageProps) {
       lng: c.geo.lng,
     },
     locale: isUAE ? "en_AE" : "en_IN",
+    ogKind: "city",
+    ogTitle: `Cybersecurity in ${c.name}`,
+    ogEyebrow: isUAE ? "UAE · Macksofy" : "India · Macksofy",
     keywords: [
       `cybersecurity ${c.name}`,
       `cybersecurity company ${c.name}`,

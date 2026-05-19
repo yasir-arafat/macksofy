@@ -4,6 +4,7 @@ import { AUDITS } from "@/content/audits";
 import { COURSES } from "@/content/courses";
 import { CITIES } from "@/content/cities";
 import { POSTS } from "@/content/blog";
+import { INDUSTRIES } from "@/content/industries";
 
 export const dynamic = "force-static";
 
@@ -48,6 +49,14 @@ export async function GET() {
   lines.push("## Training & Certifications");
   for (const c of COURSES) {
     lines.push(`- [${c.title}](${SITE.url}/training/${c.slug}): ${c.code}`);
+  }
+  lines.push("");
+
+  lines.push("## Industries Served");
+  for (const i of INDUSTRIES) {
+    lines.push(
+      `- [${i.name}](${SITE.url}/industries/${i.slug}): ${i.hero.headline}`
+    );
   }
   lines.push("");
 

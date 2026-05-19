@@ -10,6 +10,7 @@ import { ToolStack } from "@/components/visuals/ToolStack";
 import { RiskMeter } from "@/components/visuals/RiskMeter";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
+import { WhereWeDeliver } from "@/components/sections/WhereWeDeliver";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema, serviceSchema, methodologyHowToSchema } from "@/lib/schema";
 import { SITE } from "@/lib/site";
@@ -29,6 +30,9 @@ export async function generateMetadata() {
     description: s.seoDescription,
     path: `/services/${s.slug}`,
     keywords: s.keywords,
+    ogKind: "service",
+    ogTitle: s.shortTitle,
+    ogEyebrow: s.category,
   });
 }
 
@@ -219,6 +223,12 @@ export default function ThreatIntelPage() {
           </div>
         </Container>
       </section>
+
+      <WhereWeDeliver
+        subject={service.shortTitle}
+        subjectShort={service.shortTitle}
+        serviceSlug={service.slug}
+      />
 
       <LeadCapture />
     </>

@@ -45,6 +45,9 @@ export async function generateMetadata({ params }: PageProps) {
     description: a.seoDescription,
     path: `/audit/${a.slug}`,
     keywords: a.keywords,
+    ogKind: "audit",
+    ogTitle: a.shortTitle,
+    ogEyebrow: a.category,
   });
 }
 
