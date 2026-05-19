@@ -101,7 +101,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center group">
               <Image
-                src="/logo.png"
+                src="/macksofywhite.png"
                 alt="Macksofy Technologies"
                 width={180}
                 height={50}

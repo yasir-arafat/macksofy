@@ -25,16 +25,17 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
-    const csp = [
+   const csp = [
   "default-src 'self'",
   "base-uri 'self'",
   "frame-ancestors 'self'",
   "form-action 'self'",
 
-  // ✅ REQUIRED FOR TURNSTILE
   "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com",
-  "frame-src https://challenges.cloudflare.com",
-  "connect-src 'self' https://challenges.cloudflare.com https://api.resend.com",
+
+  "frame-src 'self' https://challenges.cloudflare.com https://maps.google.com https://www.google.com https://www.google.com/maps",
+
+  "connect-src 'self' https://challenges.cloudflare.com https://api.resend.com https://maps.googleapis.com https://www.google.com",
 
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
