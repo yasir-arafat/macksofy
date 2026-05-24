@@ -1,0 +1,40 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/about-us.php", "destination": "/about", "permanent": true },
+    { "source": "/clients.php", "destination": "/clients", "permanent": true },
+    { "source": "/contact-macksofy.php", "destination": "/contact", "permanent": true },
+
+    { "source": "/best-ethical-hacking-training-in-mumbai.php", "destination": "/training/ceh", "permanent": true },
+    { "source": "/best-ethical-hacking-course-in-mumbai.php", "destination": "/training/ceh", "permanent": true },
+    { "source": "/best-certified-ethical-hacking-training-in-mumbai.php", "destination": "/training/ceh", "permanent": true },
+    { "source": "/best-certified-forensic-investigator-training-in-mumbai.php", "destination": "/training/chfi", "permanent": true },
+    { "source": "/best-security-analyst-training-in-mumbai.php", "destination": "/training/csa", "permanent": true },
+
+    { "source": "/best-penetration-testing-company-in-mumbai.php", "destination": "/services/penetration-testing", "permanent": true },
+    { "source": "/best-web-application-penetration-company-in-mumbai.php", "destination": "/services/web-application-security", "permanent": true },
+    { "source": "/cloud-penetration-testing-in-mumbai.php", "destination": "/services/cloud-security", "permanent": true },
+    { "source": "/mobile-penetration-testing-in-mumbai.php", "destination": "/services/penetration-testing", "permanent": true },
+    { "source": "/code-review-company-in-mumbai.php", "destination": "/services", "permanent": true },
+
+    { "source": "/cehv9-brochure.pdf", "destination": "/training/ceh/brochure", "permanent": true },
+    { "source": "/ecsa-v9-brochure.pdf", "destination": "/training/cpent/brochure", "permanent": true },
+    { "source": "/chfi-brochure.pdf", "destination": "/training/chfi/brochure", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/best-graphic-designing-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/best-search-engine-optimization-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/online-reputation-management-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/best-email-marketing-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/internet-website-designers-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/best-website-designing-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/best-social-media-marketing-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/web-application-development-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/software-application.php", "destination": "/api/legacy-gone" },
+    { "source": "/digital-marketing-company-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/best-ecommerce-website-developers-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/professional-graphic-designing-in-mumbai.php", "destination": "/api/legacy-gone" },
+    { "source": "/js/style-switcher/color-switcher.html", "destination": "/api/legacy-gone" },
+    { "source": "/js/style-switcher/styleselector.html", "destination": "/api/legacy-gone" }
+  ]
+}
