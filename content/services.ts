@@ -21,6 +21,7 @@ import {
   BrainCircuit,
   Wifi,
   Network,
+  Fish,
 } from "lucide-react";
 
 export interface CaseStudy {
@@ -3533,6 +3534,166 @@ export const SERVICES: Service[] = [
       "Illumio India",
       "Palo Alto firewall review",
       "network architecture audit Mumbai",
+    ],
+  },
+
+  // 24 — Phishing Simulation & Awareness Programmes ---------------------
+  {
+    slug: "phishing-simulation",
+    title: "Phishing Simulation & Awareness",
+    shortTitle: "Phishing Sim",
+    icon: Fish,
+    iconName: "Fish",
+    category: "Managed Services",
+    hero: {
+      eyebrow: "Targeted campaigns · Click-rate metrics · Repeat-offender coaching",
+      tagline: "Train the human firewall against the threats actually hitting India.",
+      description:
+        "Realistic phishing-simulation programmes calibrated to Indian-context lures — UPI fraud pretexts, GST refund spoofs, payroll-portal redirects, vendor-invoice BEC. Quarterly cadence with role-segmented templates, click-rate benchmarks, and just-in-time coaching for repeat clickers.",
+    },
+    realWorld:
+      "Phishing is still the #1 initial-access vector for ransomware and BEC in India, but the off-the-shelf international templates miss the Indian context — your accounts team will click an HSBC London invoice once, but they'll click a GSTN refund-credit lure every Tuesday. Macksofy runs the simulation from our own GoPhish-based lab so payloads stay in-scope (no third-party processor exposure), templates are written for Indian regulators (CBDT, GSTN, EPFO, RBI circulars, BSE / NSE notices) and the post-campaign coaching is delivered in Hindi / English / regional language as required.",
+    businessImpact: [
+      "Cut click-through rate from industry-baseline 15-22% to <5% within 4 quarters",
+      "Identify repeat-clicker populations needing targeted coaching",
+      "Build evidence pack for SEBI / RBI / ISO 27001 awareness-control requirements",
+      "Reduce successful BEC + ransomware initial-access incidents",
+      "Quantify human-risk metric for board-level dashboards",
+    ],
+    methodology: [
+      {
+        phase: "1 · Baseline + scoping",
+        activities: [
+          "Email-environment review (M365 / Workspace, MTA, gateway, DMARC posture)",
+          "Workforce segmentation by role + risk tier (finance, HR, engineering, exec)",
+          "Lure-library calibration to client industry + India regulatory context",
+          "Allow-list set-up with mail-security vendor (Proofpoint, Mimecast, ATP)",
+        ],
+      },
+      {
+        phase: "2 · Campaign design",
+        activities: [
+          "Pretext selection — GST refund, UPI alert, payroll, vendor BEC, internal IT",
+          "Landing page design (credential capture, attachment, MFA-fatigue, OAuth grant)",
+          "Difficulty tiering — easy / medium / hard / spear",
+          "Schedule + send-window with global / regional timezone awareness",
+        ],
+      },
+      {
+        phase: "3 · Execution + telemetry",
+        activities: [
+          "Phased send-out from Macksofy's GoPhish-based platform",
+          "Real-time click, credential-entry, attachment-open, MFA-grant tracking",
+          "Reporter-button telemetry (positive behaviour signal)",
+          "Immediate just-in-time microlearning for clickers (60s screen)",
+        ],
+      },
+      {
+        phase: "4 · Coaching + remediation",
+        activities: [
+          "Role-segmented post-campaign report with click-rate benchmarking",
+          "Repeat-offender list + 1:1 coaching path (or HR escalation)",
+          "Manager-tier dashboards for line-of-business owners",
+          "Awareness-content refresh: short videos, posters, intranet articles",
+        ],
+      },
+      {
+        phase: "5 · Quarterly cadence + reporting",
+        activities: [
+          "Quarterly campaign with rotating pretexts (avoid pattern adaptation)",
+          "Trendline dashboards — click-rate, report-rate, time-to-report",
+          "ISO 27001 A.6.3 / SEBI / RBI evidence pack",
+          "Annual exec readout with industry-benchmark comparison",
+        ],
+      },
+    ],
+    toolStack: [
+      "GoPhish (Macksofy-hosted)",
+      "Macksofy Phishing-Sim Lab (in-house)",
+      "Microsoft Defender for O365 allow-list",
+      "Proofpoint / Mimecast integration",
+      "KnowBe4 (optional content library)",
+      "Cofense PhishMe (reporter button)",
+      "Custom Indian lure templates (CBDT / GSTN / EPFO / RBI / NSE / BSE)",
+    ],
+    industriesServed: [
+      "BFSI (RBI / SEBI / IRDAI awareness controls)",
+      "Fintech & payment aggregators (RBI PA-PG)",
+      "SaaS / product (SOC 2 CC1.4 + ISO A.6.3)",
+      "Manufacturing (ransomware initial-access reduction)",
+      "Healthcare (ADHICS / HIPAA workforce-training requirement)",
+      "Government / PSU (CERT-In awareness mandates)",
+    ],
+    deliverables: [
+      "Campaign design pack + lure-library selections",
+      "Per-campaign telemetry report (click / credential / MFA / report)",
+      "Repeat-offender list + coaching plan",
+      "Quarterly trendline + benchmark report",
+      "ISO / SEBI / RBI awareness-evidence pack",
+      "Annual exec dashboard with year-over-year human-risk metric",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed NBFC",
+        scope: "Quarterly phishing-sim across 4,200 staff, 4 quarters",
+        finding: "Q1 click-rate 19%; finance & ops teams 28%",
+        impact: "Q4 click-rate 4.1%; SEBI awareness-control evidence passed first-pass",
+        severity: 2,
+      },
+      {
+        industry: "B2B SaaS (Series C)",
+        scope: "Pre-SOC 2 Type II awareness baseline + 2 quarters",
+        finding: "Engineering grade tier showed 23% click on internal-IT lures",
+        impact: "Q2 click-rate to 6%; SOC 2 CC1.4 + ISO A.6.3 evidence cleared",
+        severity: 2,
+      },
+      {
+        industry: "Pharma manufacturer",
+        scope: "Plant-floor + corporate awareness for ransomware-readiness",
+        finding: "Plant-engineer population had 31% click on vendor-portal lure",
+        impact: "Targeted local-language coaching; click-rate to 8% in 6 months",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Why a Macksofy programme vs an off-the-shelf KnowBe4 subscription?",
+        a: "Off-the-shelf libraries are 80% US/EU lures (DocuSign, Amazon Prime, HR portal). Macksofy templates are built for Indian context — GST refunds, EPFO notices, RBI circulars, NSE/BSE compliance notes — which is what your staff actually fall for. We can also operate alongside an existing KnowBe4 if you want both.",
+      },
+      {
+        q: "Is the platform hosted in India?",
+        a: "Yes — Macksofy's GoPhish-based platform is hosted in our India infrastructure. No client PII, mail content or click telemetry leaves Indian jurisdiction, which simplifies DPDP §16 and CERT-In data-residency posture.",
+      },
+      {
+        q: "What if our existing mail security blocks the simulation emails?",
+        a: "We set up the allow-list with your mail-security vendor (Defender for O365, Proofpoint, Mimecast, Cisco) as part of phase 1 scoping. Standard setup takes 1-2 days and is reversible.",
+      },
+      {
+        q: "How do you handle repeat clickers without it becoming punitive?",
+        a: "First two clicks — just-in-time 60-second microlearning, no escalation. Third click — 1:1 coaching with their manager + Macksofy. Fourth-plus — HR escalation path if your policy demands it. We document, you decide on enforcement.",
+      },
+      {
+        q: "Can you also run targeted spear-phishing tests for the C-suite?",
+        a: "Yes — bespoke spear-phishing campaigns against pre-agreed exec / board / CFO / CISO targets using OSINT-derived pretexts. Engagement runs under a separate written authorisation; results are CISO-only by default.",
+      },
+    ],
+    seoTitle: "Phishing Simulation Services India | BFSI BEC Awareness | Macksofy",
+    seoDescription:
+      "India-context phishing simulation (GST, UPI, EPFO, RBI lures), quarterly campaigns, repeat-clicker coaching and SEBI / ISO 27001 awareness evidence.",
+    keywords: [
+      "phishing simulation India",
+      "phishing awareness training India",
+      "BEC simulation India",
+      "GoPhish India",
+      "spear phishing test India",
+      "security awareness programme India",
+      "phishing test BFSI",
+      "phishing test SEBI compliance",
+      "phishing simulation Mumbai",
+      "phishing awareness Dubai",
+      "human-risk metric India",
+      "ISO 27001 awareness evidence",
+      "RBI awareness control",
     ],
   },
 ];

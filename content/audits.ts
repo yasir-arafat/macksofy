@@ -15,6 +15,7 @@ import {
   TrendingUp,
   Receipt,
   Database,
+  Building,
 } from "lucide-react";
 
 export type AuditCategory =
@@ -6250,6 +6251,199 @@ export const AUDITS: Audit[] = [
       "WASA compliance audit",
       "WASA Mumbai",
       "WASA Bengaluru",
+    ],
+  },
+
+  // NCIIPC CII Audit — government / critical infrastructure -----------
+  {
+    slug: "nciipc-cii-audit",
+    title: "NCIIPC Critical Information Infrastructure Audit",
+    shortTitle: "NCIIPC CII Audit",
+    icon: Building,
+    iconName: "Building",
+    category: "Indian Regulatory",
+    hero: {
+      eyebrow: "IT Act 2000 §70 · NCIIPC · MeitY",
+      tagline: "Audit your Critical Information Infrastructure the way NCIIPC inspectors do.",
+      description:
+        "Macksofy delivers NCIIPC-aligned audits for entities operating Critical Information Infrastructure (CII) — Government, PSU, banking, power, telecom, transport and strategic-public-enterprise assets notified under IT Act §70. CERT-In empanelled, NCIIPC-framework mapped, inspection-evidence ready.",
+    },
+    whyItMatters:
+      "If your organisation operates assets that have been notified as Critical Information Infrastructure under IT Act §70, you are subject to NCIIPC oversight. The National Critical Information Infrastructure Protection Centre publishes baseline-security guidelines, mandates incident reporting timelines, and conducts inspections. A non-compliant CII finding can result in operational restrictions, public-record sanction or — for designated essential services — Cabinet-level attention. Most operators have never been audited in the NCIIPC format specifically; an ISO 27001 or RBI CSF audit does not substitute. Macksofy walks an estate that has only ever been audited in another format through the gap-closure required to clear an NCIIPC inspection without rework.",
+    applicability: [
+      "Government IT systems notified as CII under IT Act §70",
+      "Public-sector banks (notified CII assets)",
+      "Power & energy sector — generation, transmission, distribution (notified CII)",
+      "Telecom & internet infrastructure operators (notified CII)",
+      "Transport — railways, airports, ports (notified CII)",
+      "Strategic & public enterprise IT systems (notified CII)",
+      "Health-sector CII (notified state / central facilities)",
+      "Defence-public-sector undertakings (notified CII)",
+    ],
+    frameworks: [
+      "NCIIPC Guidelines for Protection of CII (current revision)",
+      "IT Act 2000 §70 + Rules 2013",
+      "MeitY Information Security Policy",
+      "CERT-In Empanelled Auditor Scope of Work",
+      "ISO 27001:2022 (Annex A crosswalk)",
+      "NIST SP 800-53 (control-family crosswalk)",
+      "RBI CSF (banking-sector CII overlap)",
+      "TRAI / DoT Security Conditions (telecom CII overlap)",
+    ],
+    methodology: [
+      {
+        phase: "1 · CII scoping confirmation",
+        activities: [
+          "Confirm notified CII assets with the designated Authority (CISO / CIO)",
+          "Map notified assets to operational systems + data flows",
+          "Identify dependency-chain CII (upstream / downstream)",
+          "Cross-reference NCIIPC sectoral guidance if sector-specific notification exists",
+        ],
+      },
+      {
+        phase: "2 · NCIIPC baseline-control gap analysis",
+        activities: [
+          "Walk the NCIIPC baseline-security guidelines control-by-control",
+          "Map existing controls (ISO / RBI / NIST) to NCIIPC control families",
+          "Identify NCIIPC-specific controls without prior coverage",
+          "Risk-rank gaps with NCIIPC-inspector severity weighting",
+        ],
+      },
+      {
+        phase: "3 · Technical assessment",
+        activities: [
+          "Vulnerability assessment of notified CII assets",
+          "Penetration test scoped to CII boundary",
+          "Network segmentation review (CII vs non-CII)",
+          "Incident-response readiness drill against CII attack scenarios",
+        ],
+      },
+      {
+        phase: "4 · Evidence pack + inspection readiness",
+        activities: [
+          "NCIIPC-format inspection-readiness evidence pack",
+          "Designated-Authority sign-off pack",
+          "Sectoral-CERT (CERT-Sec, CERT-Fin, CERT-Power) reporting templates",
+          "Incident-reporting playbook with NCIIPC-mandated timelines",
+        ],
+      },
+      {
+        phase: "5 · Continuous compliance",
+        activities: [
+          "Quarterly drift audit against NCIIPC baseline",
+          "Inspection-prep rehearsal 60 days before scheduled NCIIPC visit",
+          "Sectoral threat-intel briefings calibrated to CII operators",
+          "Annual re-assessment cadence",
+        ],
+      },
+    ],
+    deliverables: [
+      "NCIIPC-format inspection-readiness evidence pack",
+      "Gap-closure register with risk-ranked actions and target dates",
+      "Designated-Authority briefing pack (board / CISO level)",
+      "Sectoral CERT reporting playbook with NCIIPC timelines",
+      "Macksofy CERT-In empanelment confirmation letter",
+      "Quarterly drift-audit reports (retainer)",
+    ],
+    pillars: [
+      {
+        title: "NCIIPC baseline-control adherence",
+        blurb: "The control families NCIIPC inspectors actually check.",
+        points: [
+          "Information security policy + governance",
+          "Asset management + CII boundary",
+          "Access control + privileged access",
+          "Cryptographic controls",
+          "Physical & environmental security",
+          "Communications security + network segmentation",
+          "System acquisition / development / maintenance security",
+          "Supplier / third-party security (sectoral relevance)",
+          "Incident management + sectoral-CERT reporting",
+          "BCP / DR aligned to CII service-restoration RTO",
+        ],
+      },
+      {
+        title: "Inspection readiness",
+        blurb: "What an NCIIPC inspector asks for, in the order they ask.",
+        points: [
+          "Designated-Officer + ISC composition + meeting records",
+          "Updated CII inventory + dependency map",
+          "Risk-assessment & risk-treatment plan",
+          "Pentest / VAPT reports for notified CII assets",
+          "Incident register with sectoral-CERT timelines met",
+          "DR / BCP exercise records (annual minimum)",
+          "Training & awareness records for CII personnel",
+          "Third-party / supplier-security evidence",
+        ],
+      },
+      {
+        title: "Sectoral overlap",
+        blurb: "Where NCIIPC meets RBI / SEBI / TRAI / DoT / health-regulatory.",
+        points: [
+          "Public-sector bank: NCIIPC + RBI CSF crosswalk",
+          "Power utility: NCIIPC + CEA Cyber Security in Power Sector",
+          "Telecom: NCIIPC + DoT licence security conditions",
+          "Government IT system: NCIIPC + CERT-In + DPDP §16",
+          "Health-CII: NCIIPC + DPDP + IT Act §43A overlap",
+        ],
+      },
+    ],
+    caseStudies: [
+      {
+        industry: "Public-sector bank (NCIIPC-notified)",
+        engagement: "First-time NCIIPC inspection-readiness audit + RBI CSF crosswalk",
+        outcome: "Cleared NCIIPC inspection with zero major non-conformance; RBI CSF evidence re-used 70% of artefacts.",
+      },
+      {
+        industry: "Central PSU power utility",
+        engagement: "NCIIPC + CEA crosswalk for transmission OT/IT estate",
+        outcome: "Boundary clarified between IT (CII) and OT (sectoral); audit cycle compressed from 16 to 9 weeks.",
+      },
+      {
+        industry: "State government IT department",
+        engagement: "Notified-application inventory + NCIIPC baseline gap closure",
+        outcome: "20-application portfolio cleared in 12 weeks; sectoral-CERT reporting workflow operational.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is our organisation actually under NCIIPC oversight?",
+        a: "Only if one or more of your information infrastructure assets has been notified as Critical Information Infrastructure under IT Act §70 by a competent authority. Notification is published in the Gazette or communicated by the designated sectoral CERT. If you are unsure, we help you confirm with the Designated Authority during phase-1 scoping — it's a 1-week activity.",
+      },
+      {
+        q: "How does NCIIPC audit differ from a CERT-In empanelled audit?",
+        a: "A CERT-In audit certifies controls against the CERT-In Information Security Audit scope (broadly aligned with ISO and CIS). An NCIIPC audit specifically tests adherence to the NCIIPC baseline-security guidelines for Critical Information Infrastructure — a tighter, sector-aware control set with mandatory sectoral-CERT incident-reporting timelines. Macksofy is empanelled with CERT-In; the audit is delivered against the NCIIPC framework.",
+      },
+      {
+        q: "Can we crosswalk an existing ISO 27001 audit?",
+        a: "Up to a point. ISO 27001 Annex A maps to perhaps 60% of NCIIPC baseline controls. The remaining 40% — sectoral-CERT reporting, dependency-chain risk, BCP RTOs for CII service-restoration, supplier-security depth for sectoral suppliers — needs dedicated work.",
+      },
+      {
+        q: "What's the typical engagement timeline?",
+        a: "First-time NCIIPC inspection-readiness: 12-16 weeks for an estate of ~30 notified CII assets. Subsequent annual re-assessment: 4-6 weeks. Quarterly drift audit (retainer): 1 week each.",
+      },
+      {
+        q: "Do you handle the sectoral-CERT reporting set-up too?",
+        a: "Yes — we set up the workflow with your sectoral CERT (CERT-Sec for state-government, CERT-Fin for BFSI, CERT-Power for power-utility, etc.) including reporting-form templates, escalation matrix and the mandatory NCIIPC timelines.",
+      },
+    ],
+    seoTitle: "NCIIPC CII Audit India | Critical Info Infrastructure | Macksofy",
+    seoDescription:
+      "NCIIPC-framework audits for IT Act §70 notified Critical Information Infrastructure. Government, PSU, power, telecom, transport. CERT-In empanelled.",
+    keywords: [
+      "NCIIPC audit India",
+      "CII audit India",
+      "Critical Information Infrastructure audit",
+      "NCIIPC inspection readiness",
+      "IT Act §70 audit",
+      "government IT system audit India",
+      "PSU cybersecurity audit",
+      "MeitY information security audit",
+      "CERT-In NCIIPC audit",
+      "power sector CII audit",
+      "telecom CII audit India",
+      "sectoral CERT reporting",
+      "NCIIPC baseline controls",
     ],
   },
 ];
