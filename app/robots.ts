@@ -1,9 +1,80 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
+/**
+ * robots.txt — explicit allow-list for major AI / LLM crawlers in
+ * addition to the default `User-agent: *` rule.
+ *
+ * Why explicit when `*` already permits everything?
+ *
+ *   1. Signal — some sites Disallow these by default. An explicit
+ *      Allow tells the crawler operator "this site wants to be cited."
+ *   2. Future-proof — if a crawler changes its default (e.g., honors
+ *      noai conventions, restricts crawl scope based on missing
+ *      explicit allow), we're already opted-in.
+ *   3. Granularity — if we ever want to differentiate (e.g., allow
+ *      real-time fetch but disallow training), the structure is ready.
+ *
+ * Coverage as of 2026-05: every major LLM / AI-search product that
+ * publicly identifies a UA gets an explicit Allow block. Crawlers
+ * not in this list still get the open `*` rule.
+ *
+ * The Disallow on /api/ and /_next/ is repeated per-crawler because
+ * a crawler with a specific User-agent block ignores the catch-all
+ * `*` rules — must be repeated in each block to apply.
+ */
+
+const COMMON_RULES = { allow: "/", disallow: ["/api/", "/_next/"] };
+
+// Bots welcomed by name. Grouped by operator for readability.
+const AI_CRAWLERS = [
+  // OpenAI — ChatGPT training + ChatGPT-search + user-initiated fetch
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  // Anthropic — Claude training + Claude web fetch
+  "ClaudeBot",
+  "Claude-Web",
+  "anthropic-ai",
+  // Google — Gemini training (separate from Googlebot which is search)
+  "Google-Extended",
+  // Apple — Apple Intelligence training
+  "Applebot-Extended",
+  // Perplexity — search-time + training
+  "PerplexityBot",
+  "Perplexity-User",
+  // Microsoft / Bing Copilot uses Bingbot (already implicit) but listed for clarity
+  "Bingbot",
+  // ByteDance — TikTok / Doubao
+  "Bytespider",
+  // Common Crawl — used by many open LLMs as a training source
+  "CCBot",
+  // Amazon — Alexa, Amazon Q
+  "Amazonbot",
+  // Meta — Llama training
+  "FacebookBot",
+  "Meta-ExternalAgent",
+  // DuckDuckGo — DuckAssist
+  "DuckAssistBot",
+  // Cohere — Command models
+  "cohere-ai",
+  // Mistral — Le Chat real-time fetch
+  "mistralai-User",
+  // Other AI-focused crawlers
+  "Diffbot",
+  "Omgilibot",
+  "Omgili",
+  "YouBot",
+];
+
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/_next/"] }],
+    rules: [
+      // Default — every other UA
+      { userAgent: "*", ...COMMON_RULES },
+      // Each AI crawler gets its own explicit Allow block
+      ...AI_CRAWLERS.map((ua) => ({ userAgent: ua, ...COMMON_RULES })),
+    ],
     sitemap: `${SITE.url}/sitemap.xml`,
     host: SITE.url,
   };
