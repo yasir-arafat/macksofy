@@ -25,8 +25,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema, cityLocalBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { CITIES, getCityBySlug } from "@/content/cities";
-import { SERVICES } from "@/content/services";
+import { SERVICES, getServiceBySlug } from "@/content/services";
 import { AUDITS } from "@/content/audits";
+import { COMBOS } from "@/content/combos";
 import { SITE, metroKeywords } from "@/lib/site";
 
 interface PageProps {
@@ -340,6 +341,49 @@ export default async function CityPage({ params }: PageProps) {
               </ul>
             </div>
           </div>
+
+          {/* City × Service deep-dives — every combo for this city.
+             Adds internal-link coverage so combo pages aren't orphans
+             from a discovery standpoint (was a major contributor to
+             GSC "Discovered – not indexed" on the 2026-05 cutover). */}
+          {(() => {
+            const cityCombos = COMBOS.filter((co) => co.citySlug === c.slug);
+            if (cityCombos.length === 0) return null;
+            return (
+              <div className="mt-14">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan font-semibold mb-4">
+                  Service deep-dives for {c.name}
+                </div>
+                <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {cityCombos.map((co) => {
+                    const svc = getServiceBySlug(co.serviceSlug);
+                    if (!svc) return null;
+                    const Icon = svc.icon;
+                    return (
+                      <li key={`${co.citySlug}-${co.serviceSlug}`}>
+                        <Link
+                          href={`/locations/${co.citySlug}/${co.serviceSlug}`}
+                          className="group flex items-start gap-3 rounded-xl bg-bg-2/40 ring-1 ring-line p-4 hover:ring-neon-cyan/40 transition-all h-full"
+                        >
+                          <div className="grid size-9 place-items-center rounded-lg bg-bg ring-1 ring-neon-cyan/30 text-neon-cyan shrink-0">
+                            <Icon className="size-4" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="font-display text-sm font-bold text-fg group-hover:text-neon-cyan leading-tight">
+                              {co.headline}
+                            </div>
+                            <div className="mt-1 text-xs text-fg-muted line-clamp-2 leading-snug">
+                              {co.lead}
+                            </div>
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })()}
         </Container>
       </section>
 
