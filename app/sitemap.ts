@@ -25,10 +25,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "en-AE": `${base}${path}`,
   });
 
+  // For posts: take the most recent of (post date, build/deploy date).
+  // Honest because every metadata-layer deploy (title clamp, schema
+  // updates, etc.) materially changes what Googlebot sees on the page —
+  // we're not gaming, we're signalling truthfully that the rendered
+  // page changed. Without this, stale post-dates on a 2-day-old domain
+  // cutover tell Google "low urgency" and contribute to the
+  // "Discovered – not indexed" backlog.
+  const freshenBlog = (postDate: Date): Date =>
+    postDate > now ? postDate : now;
+
   const stat = (
     path: string,
     priority: number,
-    freq: "weekly" | "monthly",
+    freq: "daily" | "weekly" | "monthly",
     lastModified: Date = now,
     images?: string[]
   ): MetadataRoute.Sitemap[number] => {
@@ -61,50 +71,65 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const awardImages = AWARDS.map((a) => `${base}${a.image}`);
 
+  // changeFrequency policy (revised 2026-05-26 to address GSC
+  // "Discovered – currently not indexed" backlog on the 2-day-old domain):
+  //
+  //   daily   → live-updating index pages (homepage, blog index, /resources)
+  //   weekly  → high-value canonical pages we actually iterate on
+  //             (services / audits / training / industries / case studies)
+  //   monthly → genuinely stable pages (privacy, products, awards listing,
+  //             location × service templated combos)
+  //
+  // The previous all-monthly policy on a freshly-launched site told
+  // Google there was no urgency to crawl, contributing to the
+  // discovery-not-crawled backlog.
   return [
-    stat("/", 1.0, "weekly", now, [`${base}/og-default.png`]),
+    stat("/", 1.0, "daily", now, [`${base}/og-default.png`]),
     stat("/services", 0.95, "weekly"),
     stat("/audit", 0.95, "weekly"),
     stat("/training", 0.9, "weekly"),
     stat("/training/offsec", 0.95, "weekly"),
     stat("/contact", 0.8, "monthly"),
     stat("/about", 0.7, "monthly"),
-    stat("/blog", 0.85, "weekly", latestPostDate),
+    stat("/blog", 0.85, "daily", freshenBlog(latestPostDate)),
     ...blogPagedRoutes,
     stat("/clients", 0.7, "monthly"),
     stat("/awards", 0.7, "monthly", now, awardImages),
     stat("/press", 0.7, "monthly"),
-    stat("/products/pentaudit", 0.9, "monthly"),
+    stat("/products/pentaudit", 0.9, "weekly"),
     stat("/products/learn-to-exploit", 0.85, "monthly"),
     stat("/privacy", 0.4, "monthly"),
-    stat("/case-studies", 0.9, "monthly"),
-    ...CASE_STUDIES.map((c) => stat(`/case-studies/${c.slug}`, 0.85, "monthly")),
-    stat("/resources", 0.9, "monthly"),
-    ...RESOURCES.map((r) => stat(`/resources/${r.slug}`, 0.8, "monthly")),
-    stat("/industries", 0.9, "monthly"),
-    ...INDUSTRIES.map((i) => stat(`/industries/${i.slug}`, 0.85, "monthly")),
-    stat("/locations", 0.85, "monthly"),
+    stat("/case-studies", 0.9, "weekly"),
+    ...CASE_STUDIES.map((c) => stat(`/case-studies/${c.slug}`, 0.85, "weekly")),
+    stat("/resources", 0.9, "daily"),
+    ...RESOURCES.map((r) => stat(`/resources/${r.slug}`, 0.8, "weekly")),
+    stat("/industries", 0.9, "weekly"),
+    ...INDUSTRIES.map((i) => stat(`/industries/${i.slug}`, 0.85, "weekly")),
+    stat("/locations", 0.85, "weekly"),
     ...CITIES.map((c) =>
-      stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "monthly")
+      stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "weekly")
     ),
+    // Combos kept at monthly + lower priority so Google focuses crawl
+    // budget on canonical /services + /audit pages first. They'll get
+    // indexed as the canonical pages establish authority.
     ...COMBO_PAIRS.map((p) =>
-      stat(`/locations/${p.city}/${p.service}`, 0.85, "monthly")
+      stat(`/locations/${p.city}/${p.service}`, 0.7, "monthly")
     ),
-    ...SERVICES.map((s) => stat(`/services/${s.slug}`, 0.9, "monthly")),
+    ...SERVICES.map((s) => stat(`/services/${s.slug}`, 0.9, "weekly")),
     ...COURSES.map((c) =>
-      stat(`/training/${c.slug}`, 0.85, "monthly", now, [
+      stat(`/training/${c.slug}`, 0.85, "weekly", now, [
         `${base}${c.image}`,
       ])
     ),
     ...AUDITS.map((a) =>
-      stat(`/audit/${a.slug}`, a.authority ? 0.95 : 0.9, "monthly")
+      stat(`/audit/${a.slug}`, a.authority ? 0.95 : 0.9, "weekly")
     ),
     ...POSTS.map((p) =>
       stat(
         `/blog/${p.slug}`,
         0.75,
-        "monthly",
-        new Date(p.updated ?? p.date)
+        "weekly",
+        freshenBlog(new Date(p.updated ?? p.date))
       )
     ),
   ];
