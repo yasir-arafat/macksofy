@@ -15,6 +15,12 @@
  *   1. Add a `type: "person"` entry with full name + sameAs LinkedIn URL.
  *   2. Change the post's `author:` field in `content/blog.ts` to the new key.
  * No other code change needed.
+ *
+ * NOTE (2026-05-26): Person entries deliberately empty. Adding Person
+ * bylines without real expert names + verifiable LinkedIn URLs would
+ * fabricate identity for SEO — counterproductive (Google checks `sameAs`
+ * URLs) and unethical. Send real expert names / credentials / LinkedIn
+ * URLs through the user and we'll wire them up here.
  */
 
 import { SITE } from "@/lib/site";
@@ -67,9 +73,9 @@ export const AUTHORS: Record<string, Author> = {
     type: "team",
     key: "Macksofy SOC Lead",
     name: "Macksofy SOC Lead",
-    role: "Blue-team operations",
+    role: "Blue-team operations · OSCP / GCDA / GCFA-certified consultants",
     description:
-      "The SOC engineering & detection-content team behind Macksofy's managed-SOC and Wazuh + ELK + Sentinel deployments. Operates 24×7 across BFSI, fintech and SaaS clients in India and the UAE.",
+      "The SOC engineering & detection-content team behind Macksofy's managed-SOC and Wazuh + ELK + Sentinel deployments. Operates 24×7 across BFSI, fintech and SaaS clients in India and the UAE. Consultants hold GCDA, GCFA, OSCP, GMON and CySA+ certifications.",
     knowsAbout: [
       "SOC Operations",
       "SIEM Engineering",
@@ -144,6 +150,49 @@ export const AUTHORS: Record<string, Author> = {
       "Resume Review",
     ],
   },
+  "Macksofy DFIR Team": {
+    type: "team",
+    key: "Macksofy DFIR Team",
+    name: "Macksofy DFIR Team",
+    role: "Digital forensics & incident response · GCFA / GREM / CHFI-certified",
+    description:
+      "Macksofy's Digital Forensics and Incident Response practice — first-responders on ransomware, BEC and AD-compromise engagements across Indian BFSI, manufacturing and SaaS. Consultants hold GCFA, GREM, CHFI and EnCEP certifications. CERT-In empanelled audit team operates the same DFIR workflow under inspection mandates.",
+    knowsAbout: [
+      "Digital Forensics",
+      "Incident Response",
+      "Memory Forensics",
+      "Malware Analysis",
+      "Active Directory Forensics",
+      "Ransomware Recovery",
+      "Business Email Compromise",
+      "CERT-In Incident Reporting",
+      "Volatility 3",
+      "KAPE",
+      "Velociraptor",
+    ],
+  },
+  "Macksofy Audit Team": {
+    type: "team",
+    key: "Macksofy Audit Team",
+    name: "Macksofy Audit Team",
+    role: "Compliance & regulatory audit · ISO 27001 LA / ISO 22301 LA / CISA",
+    description:
+      "Macksofy's compliance audit practice — CERT-In empanelled auditors delivering ISO 27001, SOC 2, RBI CSF, SEBI CSCRF, NCIIPC CII, PCI-DSS, DPDP, NESA, ADHICS and PDPL engagements across India and the UAE. Lead auditors hold ISO 27001 LA / 22301 LA / 27701 LA, CISA, CISM, CRISC and CDPSE certifications.",
+    knowsAbout: [
+      "ISO 27001 Audit",
+      "SOC 2 Audit",
+      "RBI Cyber Security Framework",
+      "SEBI CSCRF",
+      "NCIIPC Critical Information Infrastructure",
+      "PCI-DSS QSA Coordination",
+      "DPDP Act Compliance",
+      "CERT-In Audit Scope",
+      "NESA Audit",
+      "ADHICS Audit",
+      "UAE PDPL",
+      "Risk Assessment",
+    ],
+  },
 };
 
 /**
@@ -187,5 +236,9 @@ export function authorSchema(author: Author): Record<string, unknown> {
     parentOrganization: { "@id": `${SITE.url}#organization` },
     knowsAbout: author.knowsAbout,
     ...(author.profileUrl && { url: `${SITE.url}${author.profileUrl}` }),
+    // Honest verification anchor — the parent Macksofy LinkedIn page
+    // exists and surfaces every sub-team's work. Better than emitting no
+    // sameAs at all on Team authors.
+    sameAs: [SITE.social.linkedin],
   };
 }

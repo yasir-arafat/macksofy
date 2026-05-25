@@ -6,6 +6,8 @@ import {
   Activity,
   Cloud,
   ShieldAlert,
+  UserCog,
+  Building,
 } from "lucide-react";
 
 export type Sector =
@@ -955,6 +957,334 @@ export const CASE_STUDIES: CaseStudyHero[] = [
       "Citrix VDI lockdown bypass",
       "BFSI internal network pentest",
       "tier-0 service account audit",
+    ],
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     7. Listed Bank Identity & Zero Trust — Tier-0 isolation + PAM consolidation
+     ───────────────────────────────────────────────────────────── */
+  {
+    slug: "listed-bank-iam-zero-trust-mumbai",
+    clientType: "Mumbai-headquartered Listed Private Bank",
+    sector: "BFSI",
+    region: "India",
+    size: "Enterprise",
+    engagement: "Application Security",
+    serviceSlug: "identity-security-zero-trust",
+    duration: "10 weeks",
+    year: "2026",
+    icon: UserCog,
+    iconName: "UserCog",
+    accent: "purple",
+    headline:
+      "Mumbai listed bank cut standing privilege 78% in 60 days — pre-inspection IAM tightening with dual-vault rationalisation",
+    summary:
+      "A BSE-listed Mumbai private bank engaged Macksofy 90 days before the annual RBI CSITE Cell inspection. BloodHound + ROADrecon enumeration surfaced six kerberoastable tier-0 service accounts and an ESC4 path from junior-RM workstations to Domain Admin. Sixty days later, standing privilege was down 78%, dual PAM vaults were rationalised by scope (not by swap), and the inspection cleared first-pass.",
+    challenge: [
+      {
+        title: "Inspection clock + dual-vault sprawl",
+        body: "The bank's RBI inspection was 90 days out and the CISO's prior internal audit had flagged 'identity controls' as the single highest-priority remediation theme. Two PAM vaults — a 2014-vintage CyberArk instance owned by IT Ops and a 2019-vintage Delinea instance owned by treasury — sat in unresolved tension, with privileged accounts duplicated, password-rotation cadence inconsistent, and break-glass procedures undocumented in writing. Service-account sprawl was the unspoken backlog: 1,400+ service accounts in the core-banking realm, 30% of which were marked `password-never-expires` and another 12% with domain-admin-equivalent rights.",
+      },
+      {
+        title: "Three-shift treasury operation",
+        body: "Treasury ran a three-shift operation across BKC HQ and the Mahape DR site. Any tier-0 control change had to survive the shift handover, the SWIFT operator's after-hours break-glass workflow, and the Mahape-site contractor-access path. A previous IAM consultant had attempted a phishing-resistant MFA rollout that triggered three after-hours incidents and had been rolled back; the CISO needed a methodology that wouldn't repeat that failure.",
+      },
+    ],
+    approach: [
+      {
+        phase: "01 · Identity inventory + tiering",
+        activities: [
+          "Authoritative-directory mapping across on-prem AD (5 forests), Entra ID, ADFS and the bank's two third-party IdP federations",
+          "Tier-0 / tier-1 / tier-2 classification of 8,200 human + 1,400 service identities",
+          "Privileged-account census reconciled against the CyberArk and Delinea vault inventories",
+          "Shadow-IAM discovery via SaaS SSO logs + finance-procurement records",
+        ],
+      },
+      {
+        phase: "02 · Attack-path enumeration",
+        activities: [
+          "BloodHound CE enumeration across the core-banking forest — 412k edges processed",
+          "ROADrecon Azure AD enumeration including dynamic-group rule analysis",
+          "ADCS certificate-template path validation (ESC1–ESC8)",
+          "Service-account kerberoasting + DCSync rights enumeration",
+        ],
+      },
+      {
+        phase: "03 · PAM rationalisation (no vendor swap)",
+        activities: [
+          "Vault-by-vault privileged-account census across CyberArk + Delinea",
+          "Scope-by-team consolidation plan — IT keeps CyberArk, treasury keeps Delinea, dual-vaulted accounts collapsed by ownership",
+          "JIT / JEA workflow design for break-glass with dual-control + alerting",
+          "Service-account migration to gMSAs + LAPS for local-admin sprawl",
+        ],
+      },
+      {
+        phase: "04 · MFA rollout + tier-0 isolation",
+        activities: [
+          "FIDO2 phishing-resistant MFA pilot on tier-0 admins (38 users)",
+          "Phased rollout sequence aligned to treasury shift schedule and Mahape break-glass workflow",
+          "Conditional Access policy redesign in Entra ID with location + risk + device gates",
+          "AAD Connect server reclassified as tier-0; hardening checklist applied",
+        ],
+      },
+      {
+        phase: "05 · Evidence + audit-committee dashboard",
+        activities: [
+          "RBI MD-ITGRC + SEBI CSCRF clause-mapped evidence pack",
+          "Board-level identity-risk dashboard (standing-privilege count, MFA %, JIT activations, trend)",
+          "12-month Zero Trust maturity roadmap with CAB-aware change windows",
+          "Audit-committee briefing slide for the quarterly cyber review",
+        ],
+      },
+    ],
+    findings: [
+      {
+        severity: "critical",
+        title: "ADCS ESC4 — junior-RM workstation to Domain Admin",
+        impact: "A misconfigured certificate template allowed any domain user to enrol with arbitrary SAN. From a junior-RM workstation we forged a certificate as a Domain Admin in under 4 minutes. Closed pre-disclosure by removing the unsafe enrolment ACL and re-templating.",
+      },
+      {
+        severity: "critical",
+        title: "Six kerberoastable tier-0 service accounts",
+        impact: "Three accounts had `password-never-expires` set, two had passwords last rotated in 2018, one had domain-admin-equivalent rights and was still member of a defunct treasury group. All six surrendered hashes to a standard kerberoasting workflow inside 30 seconds; password complexity allowed offline cracking in under 4 hours for two of them.",
+      },
+      {
+        severity: "critical",
+        title: "Dual-vault break-glass gap",
+        impact: "Neither vault's break-glass procedure was documented for the after-hours SWIFT operator workflow. A live drill surfaced a 22-minute window during a shift handover where a tier-0 break-glass could have been used without dual-control or alerting. Closed with a documented workflow and alerting gates inside two weeks.",
+      },
+      {
+        severity: "high",
+        title: "AAD Connect server reachable from corporate-network tier",
+        impact: "The AAD Connect server sat in the corporate-network VLAN with workstation-reachability. Compromise of AAD Connect would have yielded synchronised privileged credentials to the cloud tier. Reclassified as tier-0, isolated to a dedicated VLAN, and added to the protected-systems list.",
+      },
+      {
+        severity: "high",
+        title: "Standing-privilege sprawl in service accounts",
+        impact: "168 service accounts with domain-admin-equivalent rights, 312 with cross-realm DCSync. Inventory + tiered remediation cut count to 36 (DA-equivalent) and 71 (DCSync) inside 60 days.",
+      },
+      {
+        severity: "medium",
+        title: "Stale ADFS administrators",
+        impact: "Twelve departed-employee accounts still active in the ADFS administrators group, three of which had not signed-in since 2022. Removed and replaced with a quarterly review workflow tied to HR offboarding.",
+      },
+    ],
+    outcome: [
+      {
+        title: "First-pass RBI inspection clearance",
+        body: "The annual RBI CSITE Cell inspection cleared on first-pass with no clarification request on identity controls. The inspector explicitly commended the ADCS ESC4 closure and the dual-vault scope-by-team rationalisation as 'mature, documented and demonstrably enforced'.",
+      },
+      {
+        title: "78% standing-privilege reduction in 60 days",
+        body: "From baseline standing-privilege count (1,712 tier-0/1 standing accounts including service identities) to 376 in 60 days. The remaining 376 accounts have documented business justification, vault custody and quarterly-review cadence.",
+      },
+      {
+        title: "Phishing-resistant MFA rolled out without after-hours incident",
+        body: "FIDO2 / passkey-based MFA across 4,800 admin and finance accounts in three phases, sequenced against treasury shift schedule. Zero after-hours break-glass incidents during rollout. The prior consultant's failed attempt was specifically referenced by the CISO as the methodology baseline this engagement had to beat.",
+      },
+      {
+        title: "Dual-vault rationalisation deferred 18 months without operational risk",
+        body: "Rather than the expensive single-vendor migration the bank had been preparing to budget for, the scope-by-team consolidation kept both vaults in production with clean ownership boundaries. The CISO's IT-investment plan deferred a ~₹7 crore vault migration by 18 months.",
+      },
+    ],
+    metrics: [
+      { value: "78%", label: "standing privilege reduction", sub: "60-day window" },
+      { value: "6", label: "kerberoastable tier-0 svc accts closed" },
+      { value: "0", label: "after-hours incidents", sub: "during MFA rollout" },
+      { value: "~₹7 cr", label: "deferred PAM migration spend", sub: "18-month deferral" },
+    ],
+    quote: {
+      text: "The previous IAM consultant rolled back after three break-glass incidents. Macksofy planned around our three-shift treasury, sequenced the changes with our CAB calendar, and got us through the RBI inspection without a single clarification request. That's the methodology we wanted.",
+      author: "CISO, Mumbai-listed Private Bank",
+    },
+    tags: [
+      "Active Directory",
+      "Zero Trust",
+      "PAM",
+      "BloodHound",
+      "ROADrecon",
+      "FIDO2",
+      "BFSI",
+      "RBI MD-ITGRC",
+      "SEBI CSCRF",
+      "Mumbai",
+    ],
+    seoTitle: "Case Study: Listed Bank IAM & Zero Trust Mumbai | Macksofy",
+    seoDescription:
+      "Mumbai-listed private bank cut standing privilege 78% in 60 days. BloodHound + ROADrecon, dual-PAM consolidation, FIDO2 MFA, clean first-pass RBI inspection.",
+    keywords: [
+      "IAM case study Mumbai",
+      "Zero Trust case study India",
+      "PAM consolidation case study",
+      "FIDO2 MFA Mumbai bank",
+      "BloodHound BFSI case study",
+      "ADCS ESC4 closure",
+      "tier-0 isolation Mumbai",
+      "RBI MD-ITGRC inspection",
+      "CyberArk Delinea rationalisation",
+    ],
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     8. Pharma Manufacturer Ransomware DFIR — 6-hour CERT-In window
+     ───────────────────────────────────────────────────────────── */
+  {
+    slug: "pharma-ransomware-dfir-india-2026",
+    clientType: "Indian Listed Pharma Manufacturer (Gujarat / Ahmedabad)",
+    sector: "Manufacturing",
+    region: "India",
+    size: "Enterprise",
+    engagement: "DFIR",
+    serviceSlug: "digital-forensics-incident-response",
+    duration: "First 72h + 30-day recovery",
+    year: "2026",
+    icon: Skull,
+    iconName: "Skull",
+    accent: "red",
+    headline:
+      "Pharma ransomware containment under the CERT-In 6-hour clock — Ahmedabad plant + Mumbai HQ recovered with USFDA-inspection-ready evidence",
+    summary:
+      "An Ahmedabad-headquartered listed pharma manufacturer detected ransomware activity on the corporate-network at 03:42 IST. By 09:30 the CERT-In incident report was filed. By hour 72, containment was complete, the Ahmedabad plant had resumed batch operations from clean backups, and the evidence pack was assembled to USFDA Pre-Approval Inspection standard. Initial-access was traced to a vendor-portal credential reuse from a 2024 third-party breach.",
+    challenge: [
+      {
+        title: "USFDA-inspection window + CERT-In 6-hour clock",
+        body: "The client had a USFDA Pre-Approval Inspection scheduled for the Pirana site three weeks out. Any plant-floor disruption risked the inspection slot. CERT-In's 6-hour reporting window started at 03:42 IST detection; the bank's previous CERT-In incident response (a phishing event two years earlier) had filed at hour 9 and drawn an in-writing reminder from the sectoral CERT. This engagement could not repeat that pattern.",
+      },
+      {
+        title: "Corporate-IT + plant-OT interdependency",
+        body: "The Ahmedabad plant ran SAP S/4 batch-process integration with the Mumbai corporate-IT estate. The ransomware was active on the corporate-IT side; the plant's batch-execution system depended on the corporate ERP. Containment had to isolate without breaking the plant's in-progress batch records — 21 CFR Part 11 audit-trail integrity is the USFDA-defining control.",
+      },
+      {
+        title: "Domain Controller compromise suspected",
+        body: "Initial telemetry showed the ransomware encryptor running with SYSTEM-level privileges on multiple file servers. Domain Admin compromise was the working hypothesis until forensics could confirm. KRBTGT extraction risk drove the recovery sequence even before the forensic confirmation arrived 11 hours into the engagement.",
+      },
+    ],
+    approach: [
+      {
+        phase: "01 · Detection → Incident Command (hour 0–1)",
+        activities: [
+          "Confirmed encryption activity across 12 corporate-IT file servers and 3 application servers",
+          "Identified ransomware family (LockBit variant; ransom note + leak-site banner match)",
+          "Activated Incident Command — CISO, IT-Ops Lead, Plant-Operations Lead, Legal, Macksofy DFIR retainer mobilised",
+          "VLAN-level isolation of affected segments; memory captures from non-encrypted hosts using winpmem",
+        ],
+      },
+      {
+        phase: "02 · Containment + CERT-In reporting (hour 1–6)",
+        activities: [
+          "Cut external connectivity to affected segments; preserved Mumbai-Ahmedabad WAN link for ERP-batch-record traffic",
+          "Disabled AD accounts known-good before encryption window to halt lateral spread",
+          "Snapshot all VMs; began disk imaging on patient-zero candidates",
+          "Filed CERT-In incident report at hour 5:48 via incident.cert-in.org.in",
+        ],
+      },
+      {
+        phase: "03 · Forensic preservation + scope expansion (hour 6–24)",
+        activities: [
+          "Memory captures from every still-running endpoint (priority: DCs, file servers, jump hosts)",
+          "Disk imaging from 22 hosts using FTK Imager with SHA-256 hash chain-of-custody",
+          "Patient-zero identification — vendor-portal credential reuse traced to a 2024 third-party breach (verified via HIBP API)",
+          "DPDP § 16 cross-border-transfer evidence assembled (data didn't leave India in the encryption-only phase; exfil window analysed and bounded)",
+        ],
+      },
+      {
+        phase: "04 · KRBTGT double-reset + tier-0 rebuild (hour 24–72)",
+        activities: [
+          "KRBTGT reset #1; Repadmin /syncall across all DCs",
+          "24-hour wait window; documented evidence of ticket expiry",
+          "KRBTGT reset #2; replication health verified",
+          "Privileged credential reset sweep; LAPS rotation across server local-admins; ADFS administrators reviewed and pruned",
+        ],
+      },
+      {
+        phase: "05 · Recovery + evidence + USFDA-ready report (day 4–14)",
+        activities: [
+          "Corporate-IT file servers restored from offline backup with malware-free validation (YARA scan against LockBit family)",
+          "Endpoints wiped and re-imaged; EDR baseline before re-joining domain",
+          "Plant-floor SAP batch-execution validated for 21 CFR Part 11 audit-trail integrity",
+          "Final report assembled to USFDA Pre-Approval Inspection standard — chain-of-custody, indicator timelines, root-cause, remediation evidence",
+        ],
+      },
+    ],
+    findings: [
+      {
+        severity: "critical",
+        title: "Initial-access via vendor-portal credential reuse",
+        impact: "Patient-zero credential was a procurement-team account used at the client AND at a 2024 third-party SaaS that was breached. The credential was identical (same password used) and had been on HIBP since the third-party breach. MFA was not enforced on the vendor-portal at the time of attack. Closed with bank-wide MFA enforcement + the HIBP-credential monitoring service activated for the procurement team.",
+      },
+      {
+        severity: "critical",
+        title: "Domain Admin reached via golden-ticket-feasible window",
+        impact: "Forensics confirmed lsass.exe dumps from a DC during the attacker's dwell. KRBTGT extraction could not be definitively ruled out. KRBTGT double-reset executed as a precaution; no post-IR re-engagement attempts observed in the 30-day monitoring window.",
+      },
+      {
+        severity: "critical",
+        title: "Backup-server credential reused for production",
+        impact: "The Veeam backup-service-account had the same password as a domain-admin equivalent account. Attacker pivoted from compromised endpoint to backup infrastructure within 4 hours of initial access. Backup encryption attempted but defeated by an air-gapped offsite copy that had been refreshed 18 hours earlier. Closed with credential-isolation and an explicit air-gap-validation cadence.",
+      },
+      {
+        severity: "high",
+        title: "EDR alert backlog not triaged",
+        impact: "Three EDR alerts in the 48 hours preceding the encryption event indicated lateral-movement patterns. None were investigated by the in-house SOC team because the alert queue was 800 deep. Closed with an alert-triage SLA and an EDR detection-tuning engagement layered into the post-IR program.",
+      },
+      {
+        severity: "high",
+        title: "Plant-OT engineering laptop in same VLAN as corporate-IT",
+        impact: "An engineering laptop with vendor-mandated batch-process-control software was in the corporate-IT VLAN — IEC 62443 zoning violation. The ransomware did not reach the OT side, but the path was open. Closed with IT-OT zones-and-conduits redesign in a follow-on engagement.",
+      },
+    ],
+    outcome: [
+      {
+        title: "CERT-In reporting hit at hour 5:48 (within 6-hour window)",
+        body: "First file at hour 5:48; updated reports filed at hour 24, day 7 and day 30 as scope evolved. The sectoral CERT response was a single-line acknowledgment with no clarification request — a measurable improvement vs the client's prior incident.",
+      },
+      {
+        title: "USFDA Pre-Approval Inspection passed three weeks later",
+        body: "The Pirana site inspection went ahead as scheduled. The 21 CFR Part 11 audit-trail integrity was demonstrated for every batch in the affected window; the post-IR evidence pack was specifically reviewed and accepted. No 483 observation, no Warning Letter follow-up.",
+      },
+      {
+        title: "Plant-floor batch operations resumed at hour 38",
+        body: "Plant-floor batch operations resumed at hour 38 — well inside the worst-case 72-hour business-survival window the client's BCP had modelled. Corporate-IT applications restored progressively over days 4–10.",
+      },
+      {
+        title: "Zero post-IR re-engagement in 30-day monitoring window",
+        body: "Sigma rules deployed for the specific TTPs the attacker used were monitored 30+ days. Zero attacker re-engagement attempts; the threat-intel signal from Macksofy's broader feed showed the actor group active against other Indian-pharma targets in the same window, confirming the closure held.",
+      },
+    ],
+    metrics: [
+      { value: "5h:48m", label: "CERT-In report filing time", sub: "6h window" },
+      { value: "38h", label: "plant batch ops resumed", sub: "72h BCP target" },
+      { value: "0", label: "USFDA 483 observations", sub: "3 weeks post-IR" },
+      { value: "0", label: "post-IR re-engagements", sub: "30-day monitoring" },
+    ],
+    quote: {
+      text: "The CERT-In clock starting at 03:42 is the moment that defines whether you have a cyber event or a regulator problem. Macksofy mobilised inside the retainer SLA, filed at hour 5:48, and the plant batch operations were back at hour 38. The USFDA inspection three weeks later cleared without observation. That's what 'IR-ready' has to mean.",
+      author: "Group CISO, Listed Pharma Manufacturer",
+    },
+    tags: [
+      "Ransomware",
+      "DFIR",
+      "CERT-In",
+      "USFDA",
+      "Pharma",
+      "21 CFR Part 11",
+      "KRBTGT",
+      "LockBit",
+      "Active Directory",
+      "Ahmedabad",
+    ],
+    seoTitle: "Case Study: Pharma Ransomware DFIR · CERT-In 6h | Macksofy",
+    seoDescription:
+      "Listed pharma ransomware IR: CERT-In report at hour 5:48, plant batch ops resumed at 38h, USFDA inspection passed 3 weeks later with zero observation.",
+    keywords: [
+      "ransomware case study India",
+      "pharma DFIR case study",
+      "CERT-In 6 hour reporting case study",
+      "USFDA ransomware recovery",
+      "LockBit India",
+      "KRBTGT double reset case study",
+      "21 CFR Part 11 audit trail",
+      "Ahmedabad pharma cyber attack",
     ],
   },
 ];
