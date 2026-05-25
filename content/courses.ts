@@ -217,7 +217,7 @@ export const COURSES: Course[] = [
     image: "/courses/CHFI.jpg",
     duration: "40 hours · 5 days",
     format: "Live instructor-led · Online + Mumbai BKC",
-    priceINR: 30000,
+    priceINR: 45000,
     hero: {
       eyebrow: "EC-Council Authorized Training Center",
       tagline: "Investigate. Reconstruct. Testify.",
@@ -268,11 +268,11 @@ export const COURSES: Course[] = [
     ],
     faqs: [
       { q: "Is CHFI accepted by Indian law enforcement?", a: "Yes — widely recognized by Indian police forces, CBI and corporate legal teams. Macksofy has trained Maharashtra Police on this curriculum." },
-      { q: "What's the price in Mumbai?", a: "₹30,000 all-inclusive: training, official courseware, exam voucher and lab access." },
+      { q: "What's the price in Mumbai?", a: "₹45,000 all-inclusive: training, official courseware, exam voucher and lab access." },
       { q: "How does CHFI map to ISO 27037?", a: "CHFI methodology aligns with ISO 27037 (digital evidence handling) and Section 65B of the Indian Evidence Act for court admissibility." },
     ],
     seoTitle: "CHFI Digital Forensics Training Mumbai | EC-Council ATC | Macksofy",
-    seoDescription: "EC-Council CHFI v11 forensics training in Mumbai. Hands-on disk, memory, network, mobile and cloud forensics. ₹30,000 includes exam voucher.",
+    seoDescription: "EC-Council CHFI v11 forensics training in Mumbai. Hands-on disk, memory, network, mobile and cloud forensics. ₹45,000 includes exam voucher.",
     keywords: ["CHFI training Mumbai", "digital forensics course India", "computer forensics Mumbai", "CHFI v11 India", "Autopsy training"],
   },
 
