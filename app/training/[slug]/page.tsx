@@ -88,14 +88,14 @@ export default async function CourseDetail({ params }: PageProps) {
           <div className="mt-10 grid gap-12 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7">
               {/* Course thumbnail */}
-              <div className="relative aspect-[16/9] mb-8 overflow-hidden rounded-2xl glass bg-bg">
+              <div className="relative aspect-[3/2] mb-8 overflow-hidden rounded-2xl glass bg-bg">
                 <Image
                   src={c.image}
                   alt={c.title}
                   fill
                   priority
                   sizes="(max-width:1024px) 100vw, 700px"
-                  className="object-contain"
+                  className="object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-bg/40 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-3">
