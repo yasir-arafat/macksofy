@@ -3206,6 +3206,335 @@ export const SERVICES: Service[] = [
       "ISO 27001 LA contractor India",
     ],
   },
+
+  // 22 — Identity Security & Zero Trust ---------------------------------
+  {
+    slug: "identity-security-zero-trust",
+    title: "Identity Security & Zero Trust",
+    shortTitle: "Identity & ZT",
+    icon: UserCog,
+    iconName: "UserCog",
+    category: "Defensive",
+    hero: {
+      eyebrow: "IAM · PAM · SSO · Zero Trust Architecture",
+      tagline: "Identity is the new perimeter. Audit it like one.",
+      description:
+        "End-to-end identity security: IAM topology review, privileged-access (PAM) tightening, SSO / OIDC / SAML hardening, conditional-access design and a phased Zero Trust roadmap mapped to NIST SP 800-207 and India's CERT-In + DPDP authentication expectations.",
+    },
+    realWorld:
+      "Most Indian enterprises run a sprawl of identity systems — on-prem Active Directory still authoritative, Entra ID syncing a partial estate, Okta or Azure AD federating SaaS, three separate PAM tools owned by three different teams, and ~40% of admin accounts shared. Macksofy enumerates every authentication boundary, maps lateral-movement paths from a phished user to crown jewels, and ships a 90-day plan that closes the worst paths first — phishing-resistant MFA on tier-0, JIT for break-glass, RBAC consolidation, and a measured Zero Trust rollout that survives contact with the change-advisory-board.",
+    businessImpact: [
+      "Phishing-resistant MFA on tier-0 and admin populations",
+      "Cut blast radius — kill standing privilege, enforce JIT/JEA",
+      "Pass RBI / SEBI / DPDP authentication evidence asks on first pass",
+      "Reduce identity-related audit findings to near-zero within one cycle",
+      "Cost-rationalise overlapping IAM/PAM tooling",
+    ],
+    methodology: [
+      {
+        phase: "1 · Identity inventory",
+        activities: [
+          "Enumerate every IdP, directory, federation and break-glass account",
+          "Crowdsource shadow-IAM via SaaS SSO logs + finance procurement data",
+          "Tier-0 / Tier-1 / Tier-2 classification of human + service identities",
+          "Privileged-account census — domain, cloud, app and DB admins",
+        ],
+      },
+      {
+        phase: "2 · Attack-path mapping",
+        activities: [
+          "BloodHound + Azure AD attack-path enumeration",
+          "Kerberoasting, AS-REP, ACL-abuse and constrained-delegation review",
+          "Cloud lateral movement — IAM trust policies, role chaining, secrets",
+          "SaaS-to-SaaS OAuth scope abuse and stale grants",
+        ],
+      },
+      {
+        phase: "3 · Zero Trust architecture",
+        activities: [
+          "Trust-boundary diagram aligned to NIST 800-207 + CISA ZTMM",
+          "Conditional access policy design (Entra ID / Okta / Ping)",
+          "Phishing-resistant MFA rollout plan — FIDO2 / passkeys / certificate-based",
+          "Microsegmentation design for east-west traffic",
+        ],
+      },
+      {
+        phase: "4 · PAM tightening",
+        activities: [
+          "Vault rationalisation across CyberArk / Delinea / HashiCorp Vault",
+          "JIT / JEA workflows; break-glass with dual-control + alerting",
+          "Service-account rotation, password-less wherever possible",
+          "Privileged session recording + UEBA alerting",
+        ],
+      },
+      {
+        phase: "5 · Roadmap & evidence",
+        activities: [
+          "90-day quick wins backlog + 12-month maturity plan",
+          "RBI / SEBI / DPDP authentication-evidence pack",
+          "Quarterly red-team identity validation (optional retainer)",
+          "Board-level metrics: standing-privilege count, MFA coverage, JIT %",
+        ],
+      },
+    ],
+    toolStack: [
+      "BloodHound CE / Enterprise",
+      "PingCastle",
+      "ROADrecon",
+      "Microsoft Entra ID / Azure AD",
+      "Okta",
+      "Ping Identity",
+      "CyberArk",
+      "Delinea Secret Server",
+      "HashiCorp Vault",
+      "Sailpoint",
+      "Saviynt",
+    ],
+    industriesServed: [
+      "BFSI (RBI / SEBI / IRDAI authentication evidence)",
+      "Fintech, payment aggregators (RBI PA-PG)",
+      "SaaS / product (SOC 2 CC6 controls)",
+      "Healthcare (ADHICS / HIPAA access control)",
+      "Manufacturing / OT (IEC 62443 SR 1.1–1.13 identification & authentication)",
+      "Government / PSU (CERT-In RBAC + privileged-access audit)",
+    ],
+    deliverables: [
+      "Identity inventory + tiering memo",
+      "Attack-path map with prioritised closure backlog",
+      "Zero Trust target-state architecture diagram + 12-month roadmap",
+      "PAM tightening plan with vault-by-vault remediation tasks",
+      "Phishing-resistant MFA rollout playbook for tier-0",
+      "Regulator-mapped authentication evidence pack",
+    ],
+    caseStudies: [
+      {
+        industry: "Listed Bank",
+        scope: "Tier-0 path mapping + PAM consolidation",
+        finding: "Kerberoastable tier-0 service account + dormant CyberArk safes with 100+ unused admins",
+        impact: "Standing privilege cut 78% in 60 days; clean RBI inspection",
+        severity: 3,
+      },
+      {
+        industry: "B2B SaaS",
+        scope: "Zero Trust architecture for SOC 2 + EU customers",
+        finding: "Public-app to admin-app lateral path via shared OAuth client",
+        impact: "Split-tenant identity model shipped pre-Series-C diligence",
+        severity: 2,
+      },
+      {
+        industry: "Pharma manufacturer",
+        scope: "IT-OT identity boundary for IEC 62443",
+        finding: "OT engineering laptops domain-joined to IT AD; flat trust",
+        impact: "Dedicated OT realm + jump-host model; USFDA-PAI ready",
+        severity: 2,
+      },
+    ],
+    faqs: [
+      {
+        q: "Is this a tool implementation or an assessment?",
+        a: "Both — we start with assessment + architecture (no tool bias), then optionally help implement. Macksofy is vendor-neutral; CyberArk, Delinea, HashiCorp Vault, Sailpoint and Saviynt are all in our delivery toolkit.",
+      },
+      {
+        q: "How do you handle hybrid AD + Entra ID environments?",
+        a: "Hybrid is the norm in India. We enumerate the sync boundary (AAD Connect / Cloud Sync), find privilege leaks across it (e.g., on-prem admin → cloud Global Admin), and design tier-0 isolation on both sides.",
+      },
+      {
+        q: "Can you map findings to RBI / SEBI / DPDP?",
+        a: "Yes. Every finding is mapped to RBI Cyber Security Framework, SEBI CSCRF authentication controls, DPDP §8 reasonable-security-practices, and ISO 27001:2022 A.5.15 / A.5.16 / A.5.17 / A.8.5.",
+      },
+      {
+        q: "What's the typical timeline?",
+        a: "8–12 weeks for assessment + Zero Trust roadmap on a ~5,000-identity estate. PAM-only tightening: 4–6 weeks. Full multi-year ZT execution is a retainer model.",
+      },
+      {
+        q: "Do you do phishing-resistant MFA rollout?",
+        a: "Yes — FIDO2 / passkey / certificate-based MFA design and phased rollout, including the awkward bits (legacy MFA, helpdesk reset paths, contractor access, third-party vendor identities).",
+      },
+    ],
+    seoTitle: "Identity Security & Zero Trust India | IAM PAM Audit | Macksofy",
+    seoDescription:
+      "IAM audit, PAM tightening and Zero Trust roadmap for Indian BFSI, SaaS, healthcare and OT. NIST 800-207 + CERT-In + DPDP authentication evidence.",
+    keywords: [
+      "Zero Trust India",
+      "IAM audit India",
+      "PAM consulting India",
+      "Active Directory security assessment",
+      "BloodHound assessment India",
+      "Entra ID security audit",
+      "Okta security review",
+      "CyberArk consulting India",
+      "phishing-resistant MFA rollout",
+      "RBI authentication controls",
+      "SEBI CSCRF identity",
+      "DPDP authentication evidence",
+      "Zero Trust architecture Mumbai",
+    ],
+  },
+
+  // 23 — Network Security Architecture & Segmentation -------------------
+  {
+    slug: "network-security-architecture",
+    title: "Network Security Architecture & Segmentation",
+    shortTitle: "Network Security",
+    icon: Network,
+    iconName: "Network",
+    category: "Defensive",
+    hero: {
+      eyebrow: "Segmentation · Firewall Review · SASE · Microsegmentation",
+      tagline: "Stop east-west blast radius before the next ransomware does.",
+      description:
+        "Defensive network engineering — segmentation strategy, firewall rule-base reviews, SASE / ZTNA design, OT-IT boundary architecture and microsegmentation roadmaps that survive procurement and the change-advisory-board. Distinct from our network-pentesting service: this is design and review, not exploitation.",
+    },
+    realWorld:
+      "Indian enterprise networks accrete. Two acquisitions later, the firewall rule base has 12,000 rules, half of them ANY-ANY-ANY, with comments like 'temporary - 2018'. A typical Macksofy engagement starts with a rule-base cleanup that drops 35–50% of dead rules without breaking a single application, then layers segmentation by trust zone — corporate, OT, DMZ, PCI, tier-0 — with documented exceptions. We close with a microsegmentation roadmap (NSX / Illumio / Cisco ACI / native cloud) that gives the SOC a fighting chance during the next ransomware blast.",
+    businessImpact: [
+      "Eliminate flat-network lateral movement during incidents",
+      "Pass RBI / SEBI / ISO / PCI segmentation evidence asks",
+      "Cut firewall change-failure rate; recover engineering velocity",
+      "Reduce attack surface visible to compromised endpoints",
+      "Future-proof against board-level ransomware scenario asks",
+    ],
+    methodology: [
+      {
+        phase: "1 · Topology + asset discovery",
+        activities: [
+          "Passive discovery (NetFlow, sFlow, span ports) — no agents required",
+          "Active discovery where allowed (Nmap, Forescout, native cloud)",
+          "Trust-zone classification — tier-0 / OT / PCI / DMZ / corporate",
+          "Crown-jewel mapping with business + data-flow owners",
+        ],
+      },
+      {
+        phase: "2 · Firewall + rule-base review",
+        activities: [
+          "Multi-vendor rule analysis (Palo Alto, Check Point, Fortinet, Cisco, Juniper)",
+          "Dead rule + shadowed rule + overly-permissive rule identification",
+          "Object cleanup + zone-based rebase plan",
+          "Risk-ranked rule-by-rule remediation with rollback windows",
+        ],
+      },
+      {
+        phase: "3 · Segmentation strategy",
+        activities: [
+          "Target-state segmentation map per trust zone",
+          "OT / ICS demarcation per IEC 62443-3-2 zones & conduits",
+          "PCI cardholder-data-environment boundary memo",
+          "Vendor-network and BYOD isolation design",
+        ],
+      },
+      {
+        phase: "4 · SASE / ZTNA / microsegmentation",
+        activities: [
+          "SASE vendor short-list (Zscaler, Netskope, Cisco, Palo Alto Prisma)",
+          "ZTNA design for remote + branch + third-party",
+          "Microsegmentation tool short-list (Illumio, Akamai Guardicore, NSX, native cloud)",
+          "Phased rollout plan that survives a 12-month CAB calendar",
+        ],
+      },
+      {
+        phase: "5 · Evidence + handover",
+        activities: [
+          "Regulator-mapped segmentation evidence pack (RBI / SEBI / ISO / PCI)",
+          "Network architecture diagram suite — current vs target",
+          "Change-management playbook + rollback-tested templates",
+          "Optional 90-day quarterly drift audit (retainer)",
+        ],
+      },
+    ],
+    toolStack: [
+      "Nmap",
+      "Forescout",
+      "Tufin",
+      "AlgoSec",
+      "FireMon",
+      "Skybox",
+      "Cisco DNA / ACI",
+      "Palo Alto Panorama",
+      "VMware NSX",
+      "Illumio",
+      "Akamai Guardicore",
+      "Zscaler / Netskope",
+    ],
+    industriesServed: [
+      "BFSI (RBI Cyber Security Framework network controls)",
+      "Manufacturing / OT (IEC 62443 zones & conduits)",
+      "Healthcare (ADHICS / HIPAA network safeguards)",
+      "Payment processors (PCI-DSS 1.x scoping)",
+      "SaaS / data-centre tenants (multi-tenant isolation)",
+      "Government / PSU (CERT-In network architecture audit)",
+    ],
+    deliverables: [
+      "Network topology + trust-zone map (current state)",
+      "Firewall rule-base cleanup plan with risk-ranked actions",
+      "Target-state segmentation architecture + diagrams",
+      "SASE / ZTNA / microsegmentation vendor short-list memo",
+      "12-month phased rollout plan with CAB-aware change windows",
+      "Regulator-mapped segmentation evidence pack",
+    ],
+    caseStudies: [
+      {
+        industry: "Multinational Bank",
+        scope: "12,000-rule firewall cleanup + zone rebase",
+        finding: "47% rules dead or shadowed; tier-0 reachable from BYOD VLAN",
+        impact: "Rule count to 6,400 with zero outage; RBI inspection clean",
+        severity: 3,
+      },
+      {
+        industry: "Pharma manufacturer (USFDA-regulated)",
+        scope: "IT-OT segmentation per IEC 62443",
+        finding: "Engineering workstation in same VLAN as plant historian",
+        impact: "Zone & conduit redesign; USFDA pre-approval inspection ready",
+        severity: 3,
+      },
+      {
+        industry: "Payment aggregator",
+        scope: "PCI-DSS 1.x CDE scoping + microsegmentation pilot",
+        finding: "CDE not properly isolated; sandbox env reachable from CDE",
+        impact: "CDE blast radius reduced 80%; QSA pass on first attempt",
+        severity: 3,
+      },
+    ],
+    faqs: [
+      {
+        q: "How is this different from your network-pentesting service?",
+        a: "Network-pentesting is offensive — we attack your existing network and report findings. This service is defensive — we design segmentation, review firewall rule bases, and roadmap microsegmentation. Many clients buy both; the pentest validates the architecture work.",
+      },
+      {
+        q: "Do you work with a specific firewall vendor?",
+        a: "No — vendor neutral. We hold delivery experience across Palo Alto, Check Point, Fortinet, Cisco ASA / FTD, Juniper SRX, and the native cloud security groups (AWS, Azure, GCP).",
+      },
+      {
+        q: "Can you handle OT segmentation?",
+        a: "Yes — IEC 62443-3-2 zones & conduits, plus the practical realities of Indian manufacturing (legacy PLCs, vendor-mandated flat networks, engineering laptop hygiene). We've delivered this for pharma, automotive and process industries.",
+      },
+      {
+        q: "What's the typical engagement size?",
+        a: "Rule-base review only: 3–4 weeks. Full segmentation architecture for a ~3,000-host estate: 8–10 weeks. Microsegmentation pilot + 12-month rollout plan: 12 weeks for design, then a retainer.",
+      },
+      {
+        q: "Do you stay through implementation?",
+        a: "Optional. We can hand-over to your network engineering team, or stay as architecture advisors during a phased rollout. We do not resell firewall licences — neutrality matters.",
+      },
+    ],
+    seoTitle: "Network Security Architecture & Segmentation India | Macksofy",
+    seoDescription:
+      "Firewall rule-base review, segmentation strategy, SASE / ZTNA design and IEC 62443 OT zoning for Indian BFSI, manufacturing, healthcare and payments.",
+    keywords: [
+      "network segmentation India",
+      "firewall rule review India",
+      "SASE architecture India",
+      "ZTNA design India",
+      "microsegmentation consulting India",
+      "IEC 62443 OT segmentation",
+      "RBI network security framework",
+      "PCI-DSS CDE segmentation",
+      "Cisco ACI consulting India",
+      "VMware NSX consulting India",
+      "Illumio India",
+      "Palo Alto firewall review",
+      "network architecture audit Mumbai",
+    ],
+  },
 ];
 
 export const getServiceBySlug = (slug: string) => SERVICES.find((s) => s.slug === slug);
