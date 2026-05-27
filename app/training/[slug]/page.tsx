@@ -224,7 +224,7 @@ export default async function CourseDetail({ params }: PageProps) {
                     ["EMI", "3 / 6 / 12 months"],
                     ["Format", c.format.includes("Online") ? "Online + Mumbai" : c.format],
                     ["Mentor", "Until you pass"],
-                    ["Vouchers", "Included"],
+                    ["Vouchers", c.priceNote ? "Extra" : "Included"],
                   ].map(([k, v]) => (
                     <div key={k} className="rounded-md bg-white/5 p-2">
                       <div className="font-mono text-[9px] uppercase tracking-wider text-fg-faint">
