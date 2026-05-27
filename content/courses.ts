@@ -401,6 +401,7 @@ export const COURSES: Course[] = [
     duration: "40 hours · 5 days bootcamp + 24-hour exam",
     format: "Live instructor-led · hands-on lab environment",
     priceINR: 40000,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     popular: true,
     hero: {
       eyebrow: "EC-Council Authorized Training Center",
