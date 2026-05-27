@@ -17,6 +17,8 @@ export interface Course {
   priceINR?: number;
   originalPriceINR?: number;
   discountPercent?: number;
+  /** Short disclosure rendered under the price (e.g. exclusions, extras). */
+  priceNote?: string;
   popular?: boolean;
   hero: {
     eyebrow: string;
@@ -462,6 +464,7 @@ export const COURSES: Course[] = [
     duration: "10 weeks · 80 hours including labs",
     format: "Live instructor-led · OffSec lab access",
     priceINR: 60000,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "OffSec's entry point into the cybersecurity career stack.",
@@ -545,6 +548,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     popular: true,
     hero: {
       eyebrow: "Hands-on certification bootcamp",
@@ -686,6 +690,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "Bypass EDRs. Breach modern defenses.",
@@ -784,6 +789,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "White-box web exploitation. Source-code-driven.",
@@ -873,6 +879,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "Foundational web pentest credential — black box.",
@@ -961,6 +968,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "Master Wi-Fi attacks. Earn OSWP.",
@@ -1042,6 +1050,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "OffSec's blue-team flagship.",
@@ -1137,6 +1146,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "Develop your own Windows exploits.",
@@ -1225,6 +1235,7 @@ export const COURSES: Course[] = [
     priceINR: 145000,
     originalPriceINR: 170588,
     discountPercent: 15,
+    priceNote: "Training and mentor charges are not included — extra charges apply.",
     hero: {
       eyebrow: "Hands-on certification bootcamp",
       tagline: "macOS-specific exploitation tradecraft.",

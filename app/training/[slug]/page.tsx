@@ -184,6 +184,11 @@ export default async function CourseDetail({ params }: PageProps) {
                         Save {formatINR(c.originalPriceINR - c.priceINR)}
                       </div>
                     )}
+                    {c.priceNote && (
+                      <p className="mt-3 rounded-md border border-amber-500/40 bg-amber-500/5 px-3 py-2 text-xs text-amber-200">
+                        {c.priceNote}
+                      </p>
+                    )}
                   </div>
                 )}
 
