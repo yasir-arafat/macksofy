@@ -68,6 +68,9 @@ export interface Resource {
   /** External href for aggregator entries (brochures) */
   externalHref?: string;
 
+  /** Designed PDF edition served from /public — surfaces a download button on the resource page */
+  pdfHref?: string;
+
   /** Content blocks for owned resources (whitepapers + checklists) */
   intro?: string;
   blocks?: ResourceBlock[];
@@ -2054,6 +2057,116 @@ export const RESOURCES: Resource[] = [
       "DFIR Active Directory",
       "domain admin compromise IR",
       "Macksofy AD IR",
+    ],
+  },
+
+  {
+    slug: "cert-in-12-hour-patch-mandate",
+    type: "Whitepaper",
+    title: "CERT-In's 12-Hour Patch Mandate — Research Note",
+    subtitle:
+      "India's AI-paced patching standard: the tiered remediation schedule, the exploit-window data that justifies it, and what security teams should do now.",
+    summary:
+      "CERT-In's May 2026 AI Threat Landscape guidance sets an indicative 12-hour window to remediate exploited vulnerabilities on internet-facing systems. This research note breaks down the tiered schedule, the collapsing CVE-to-exploit data, the compensating-control path, India's position vs CISA, and a 30/60/90-day action list.",
+    refNo: "MKS-WP-CERTIN12H-2026",
+    pageCount: "5-page research note",
+    sector: ["Cross-sector"],
+    region: ["India"],
+    topics: ["CERT-In", "Patch Management", "Compliance"],
+    publishedYear: "2026",
+    icon: ShieldAlert,
+    accent: "red",
+    pdfHref: "/cert-in-12-hour-patch-mandate.pdf",
+    relatedServiceSlugs: ["vapt", "managed-soc", "threat-intelligence"],
+    intro:
+      "On 25 May 2026 CERT-In set an indicative 12-hour expectation for containing or remediating known exploited vulnerabilities (KEVs) on internet-facing and high-value crown-jewel systems — a timeline calibrated to the speed at which AI-assisted attacks now weaponise disclosed flaws. This note distils what was published, the data behind it, and the practical response.",
+    blocks: [
+      { type: "heading", text: "The tiered remediation schedule" },
+      {
+        type: "table",
+        head: ["Window", "Vulnerability & exposure profile", "What qualifies"],
+        rows: [
+          ["12 hours", "KEV on internet-exposed / high-value system", "Already exploited in the wild; internet-facing or crown-jewel asset"],
+          ["24 hours", "Critical, not yet exploited, externally exposed", "Critical severity with external exposure, no confirmed exploitation"],
+          ["3 days", "Critical on internal high-value system", "Critical severity, high-value, not directly internet-facing"],
+          ["5 days", "High-severity, below critical threshold", "High severity flaws outside the critical band"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        title: "Indicative, not statutory — yet",
+        body: "CERT-In framed these as indicative expectations rather than legally binding obligations. The signal is unambiguous: the regulator is benchmarking patch cadence against AI-speed exploitation. The 12-hour clock is an obligation to act — patch or contain — not exclusively to apply a software fix.",
+      },
+      { type: "heading", text: "Why 12 hours — the exploit window has collapsed" },
+      {
+        type: "stats",
+        items: [
+          { value: "56d → ~10h", label: "Average CVE-to-exploit window, 2024 vs mid-2026" },
+          { value: "28.3%", label: "Of CVEs exploited within 24h of disclosure (Mandiant M-Trends 2026)" },
+          { value: "51% @ $2.77", label: "Of 2024–25 CVEs auto-reproduced as working exploits, per-CVE cost (CVE-Genie research)" },
+        ],
+      },
+      { type: "para", text: "AI frameworks that generate working exploits from a CVE description in minutes have changed the economics of weaponisation. Any organisation holding 30-day or even 7-day windows for internet-exposed systems is running a risk posture formulated before the current AI capability environment existed." },
+      { type: "heading", text: "When you can't patch in time — compensating controls" },
+      { type: "para", text: "CERT-In explicitly accepts interim containment where vendor patches don't exist or deployment can't be compressed. A documented measure executed within 12 hours satisfies the intent of the standard:" },
+      { type: "list", items: [
+        "Network isolation of the affected system from non-essential reachability.",
+        "Access restriction — authenticated users only; tighten firewall and identity policy.",
+        "WAF rule deployment to virtually patch the exploited path at the edge.",
+        "Segmentation, JIT access and protocol restriction that neutralise the exposure.",
+      ] },
+      { type: "heading", text: "India vs the current US federal posture" },
+      {
+        type: "table",
+        head: ["", "CERT-In (India) · May 2026", "CISA KEV (US) · 2026"],
+        rows: [
+          ["Window", "12 hours for KEVs on internet-facing / crown-jewel systems", "~14-day average remediation deadlines"],
+          ["Structure", "Tiered by severity × exposure (12h / 24h / 3d / 5d)", "Moving toward a 14-day default window"],
+          ["Calibration", "Explicitly calibrated to AI exploitation speed", "Three-day KEV standard reportedly under consideration"],
+          ["Flexibility", "Compensating controls accepted as interim compliance", "Same AI threat data informing the debate"],
+        ],
+      },
+      { type: "heading", text: "What to do in the next 30 / 60 / 90 days" },
+      {
+        type: "checklist",
+        items: [
+          { item: "Audit internet-facing assets and map them against CERT-In advisories and the CISA KEV catalog" },
+          { item: "Integrate a near-real-time KEV threat-intelligence feed with alerting tied to the asset inventory" },
+          { item: "Build and test a compensating-control playbook executable inside 12 hours" },
+          { item: "Stand up tested emergency patch-deployment automation for the internet-facing tier" },
+          { item: "Add vulnerability-triggered containment scenarios to incident-response playbooks" },
+          { item: "Run a live-KEV tabletop: CVE lands 09:00 with confirmed exploitation — contained by 21:00?" },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Download the designed edition",
+        body: "A 5-page Macksofy-branded research note PDF — the tiered schedule, exploit-window data, compensating-control path and action list — is available for download at the top of this page. Built from public facts; sources cited; not affiliated with CERT-In or the Cloud Security Alliance.",
+      },
+      { type: "heading", text: "Sources" },
+      { type: "list", items: [
+        "CERT-In — AI Threat Landscape guidance, 25 May 2026.",
+        "Cloud Security Alliance — research note on CERT-In's 12-hour patch mandate, May 2026.",
+        "Mandiant — M-Trends 2026 (time-to-exploit metrics).",
+        "CVE-Genie / \"From CVE Entries to Verifiable Exploits\" — arXiv:2509.01835, 2026.",
+        "CISA — Known Exploited Vulnerabilities catalog (remediation deadlines, 2026).",
+        "Full analysis: /blog/cert-in-12-hour-patch-mandate-ai-exploitation-2026",
+      ] },
+    ],
+    seoTitle: "CERT-In 12-Hour Patch Mandate — Research Note (PDF) | Macksofy",
+    seoDescription:
+      "Free Macksofy research note on CERT-In's May 2026 12-hour patch mandate: the tiered remediation schedule, the collapsing exploit-window data, compensating controls, India vs CISA, and a 30/60/90-day action list. PDF download.",
+    keywords: [
+      "CERT-In 12 hour patch mandate",
+      "CERT-In AI threat landscape guidance 2026",
+      "India 12 hour patching standard",
+      "CERT-In KEV remediation timeline",
+      "CERT-In tiered patch schedule",
+      "AI exploitation patch window India",
+      "CERT-In vulnerability management India",
+      "Macksofy research note CERT-In",
     ],
   },
 ];

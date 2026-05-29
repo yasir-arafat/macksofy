@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Download } from "lucide-react";
 import type { Metadata } from "next";
 import { PrintLayout } from "@/components/print/PrintLayout";
 import { ResourceContent } from "@/components/resources/ResourceContent";
@@ -94,6 +95,20 @@ export default async function ResourceDetailPage({ params }: PageProps) {
         {r.intro && (
           <section className="print-section mb-10 not-prose">
             <p className="text-lg leading-relaxed text-slate-700">{r.intro}</p>
+          </section>
+        )}
+
+        {/* Designed PDF download — only for resources with a branded PDF edition */}
+        {r.pdfHref && (
+          <section className="print-section mb-10 not-prose print:hidden">
+            <a
+              href={r.pdfHref}
+              download
+              className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-700"
+            >
+              <Download className="size-4" />
+              Download the PDF — {r.pageCount}
+            </a>
           </section>
         )}
 
