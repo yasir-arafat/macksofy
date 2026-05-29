@@ -19,7 +19,9 @@
 
     { "source": "/cehv9-brochure.pdf", "destination": "/training/ceh/brochure", "permanent": true },
     { "source": "/ecsa-v9-brochure.pdf", "destination": "/training/cpent/brochure", "permanent": true },
-    { "source": "/chfi-brochure.pdf", "destination": "/training/chfi/brochure", "permanent": true }
+    { "source": "/chfi-brochure.pdf", "destination": "/training/chfi/brochure", "permanent": true },
+
+    { "source": "/cert-in-12-hour-patch-mandate-macksofy-brief.pdf", "destination": "/cert-in-12-hour-patch-mandate.pdf", "permanent": true }
   ],
   "rewrites": [
     { "source": "/best-graphic-designing-company-in-mumbai.php", "destination": "/api/legacy-gone" },
