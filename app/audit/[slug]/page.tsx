@@ -21,6 +21,8 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { AUDITS, getAuditBySlug } from "@/content/audits";
+import { POSTS } from "@/content/blog";
+import { pickRelatedAudits, pickBlogPostsForAudit } from "@/lib/related";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AuditDeepDive } from "@/components/visuals/audit/AuditDeepDive";
 import { TrustStrip } from "@/components/TrustStrip";
@@ -56,7 +58,8 @@ export default async function AuditDetail({ params }: PageProps) {
   const a = getAuditBySlug(slug);
   if (!a) notFound();
   const Icon = a.icon;
-  const related = AUDITS.filter((x) => x.slug !== a.slug).slice(0, 3);
+  const related = pickRelatedAudits(a, AUDITS, 3);
+  const relatedPosts = pickBlogPostsForAudit(a, POSTS, 3);
 
   return (
     <>
@@ -309,6 +312,39 @@ export default async function AuditDetail({ params }: PageProps) {
                   </Link>
                 );
               })}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {relatedPosts.length > 0 && (
+        <section className="py-20">
+          <Container>
+            <Eyebrow color="cyan">Further reading</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl text-balance">
+              Field notes from {a.shortTitle} engagements.
+            </h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-3">
+              {relatedPosts.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                >
+                  <span className="text-xs font-mono uppercase tracking-wider text-neon-cyan">
+                    {p.category}
+                  </span>
+                  <h3 className="mt-3 font-display text-base font-bold text-fg group-hover:text-neon-cyan line-clamp-2">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-fg-muted line-clamp-2">
+                    {p.description}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan">
+                    Read article <ArrowRight className="size-4" />
+                  </span>
+                </Link>
+              ))}
             </div>
           </Container>
         </section>

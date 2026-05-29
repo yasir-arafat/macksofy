@@ -26,6 +26,7 @@ import { SITE } from "@/lib/site";
 import { INDUSTRIES, getIndustryBySlug } from "@/content/industries";
 import { SERVICES } from "@/content/services";
 import { AUDITS } from "@/content/audits";
+import { pickRelatedIndustries } from "@/lib/related";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -64,6 +65,7 @@ export default async function IndustryDetail({ params }: PageProps) {
   const audits = industry.topAudits
     .map((a) => AUDITS.find((x) => x.slug === a))
     .filter((a): a is (typeof AUDITS)[number] => Boolean(a));
+  const relatedIndustries = pickRelatedIndustries(industry, INDUSTRIES, 3);
 
   return (
     <>
@@ -339,6 +341,42 @@ export default async function IndustryDetail({ params }: PageProps) {
         subject={`${industry.shortName} cybersecurity`}
         subjectShort={industry.shortName}
       />
+
+      {relatedIndustries.length > 0 && (
+        <section className="py-20">
+          <Container>
+            <Eyebrow color="purple">Other verticals we serve</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl text-balance">
+              Cross-sector cybersecurity coverage.
+            </h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-3">
+              {relatedIndustries.map((r) => {
+                const RIcon = r.icon;
+                return (
+                  <Link
+                    key={r.slug}
+                    href={`/industries/${r.slug}`}
+                    className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                  >
+                    <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
+                      <RIcon className="size-5" />
+                    </div>
+                    <h3 className="mt-4 font-display text-base font-bold text-fg group-hover:text-neon-cyan">
+                      {r.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-fg-muted line-clamp-2">
+                      {r.hero.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan">
+                      Explore vertical <ArrowRight className="size-4" />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <LeadCapture />
     </>

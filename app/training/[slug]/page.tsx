@@ -22,6 +22,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, courseProductSchema, courseSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { COURSES, getCourseBySlug } from "@/content/courses";
+import { pickRelatedCourses } from "@/lib/related";
 import { vendorLogo } from "@/content/vendorLogos";
 import { SITE } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
@@ -57,7 +58,7 @@ export default async function CourseDetail({ params }: PageProps) {
   const { slug } = await params;
   const c = getCourseBySlug(slug);
   if (!c) notFound();
-  const related = COURSES.filter((x) => x.slug !== c.slug).slice(0, 3);
+  const related = pickRelatedCourses(c, COURSES, 3);
 
   return (
     <>

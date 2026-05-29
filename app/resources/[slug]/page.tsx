@@ -8,6 +8,8 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { RESOURCES, getResourceBySlug } from "@/content/resources";
 import { SERVICES } from "@/content/services";
+import { AUDITS } from "@/content/audits";
+import { pickAuditsForResource } from "@/lib/related";
 import { SITE } from "@/lib/site";
 
 interface PageProps {
@@ -67,6 +69,7 @@ export default async function ResourceDetailPage({ params }: PageProps) {
   const related = r.relatedServiceSlugs
     ?.map((s) => SERVICES.find((sv) => sv.slug === s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s)) ?? [];
+  const relatedAudits = pickAuditsForResource(r, AUDITS, 2);
 
   return (
     <>
@@ -99,8 +102,8 @@ export default async function ResourceDetailPage({ params }: PageProps) {
           <ResourceContent blocks={r.blocks} />
         </section>
 
-        {/* Related services */}
-        {related.length > 0 && (
+        {/* Related services + audits */}
+        {(related.length > 0 || relatedAudits.length > 0) && (
           <section className="print-section mt-14 not-prose print:break-inside-avoid">
             <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
               <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
@@ -122,6 +125,17 @@ export default async function ResourceDetailPage({ params }: PageProps) {
                       className="text-sm font-semibold text-slate-900 hover:underline"
                     >
                       {s.title} →
+                    </Link>
+                  </li>
+                ))}
+                {relatedAudits.map((a) => (
+                  <li key={a.slug} className="flex items-start gap-2">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-slate-700" />
+                    <Link
+                      href={`/audit/${a.slug}`}
+                      className="text-sm font-semibold text-slate-900 hover:underline"
+                    >
+                      {a.title} audit →
                     </Link>
                   </li>
                 ))}
