@@ -7,12 +7,14 @@ import {
   Bug,
   ShieldCheck,
   FileText,
+  Clock,
   type LucideIcon,
 } from "lucide-react";
 
 interface Phase {
   phase: string;
   activities: string[];
+  duration?: string;
 }
 
 const ICONS: LucideIcon[] = [Compass, Search, Bug, ShieldCheck, FileText];
@@ -24,11 +26,17 @@ const ACCENTS = [
   "text-emerald-300 ring-emerald-400/40 bg-emerald-400/10",
 ];
 
+/** Typical pentest engagement cadence — used when a phase has no explicit duration. */
+const DEFAULT_DURATIONS = ["Week 1", "Weeks 1–2", "Weeks 2–4", "Weeks 4–5", "Weeks 5–6"];
+
 const cleanLabel = (s: string) => s.replace(/^\d+\s*[·.\-]\s*/, "");
 const pad = (i: number) => String(i + 1).padStart(2, "0");
+const durationOf = (p: Phase, i: number) => p.duration ?? DEFAULT_DURATIONS[i] ?? null;
 
 export function ComboTimeline({ phases }: { phases: Phase[] }) {
   const n = phases.length;
+  // inset the connecting rail so it runs marker-center → marker-center (gap-4 = 1rem)
+  const railInset = `calc((100% - ${n - 1}rem) / ${2 * n})`;
 
   return (
     <div className="relative">
@@ -38,20 +46,21 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
           className="relative grid gap-4"
           style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}
         >
-          {/* connecting rail behind the station markers */}
+          {/* connecting rail — terminates at the first and last station markers */}
           <motion.span
             aria-hidden
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            style={{ originX: 0 }}
-            className="pointer-events-none absolute inset-x-0 top-7 z-0 h-px bg-gradient-to-r from-neon-cyan via-amber-300 to-emerald-300 opacity-60"
+            style={{ originX: 0, left: railInset, right: railInset }}
+            className="pointer-events-none absolute top-7 z-0 h-px bg-gradient-to-r from-neon-cyan via-amber-300 to-emerald-300 opacity-60"
           />
           {phases.map((p, i) => {
             const Icon = ICONS[i % ICONS.length];
             const accent = ACCENTS[i % ACCENTS.length];
             const dot = accent.split(" ")[0];
+            const dur = durationOf(p, i);
             return (
               <motion.li
                 key={p.phase}
@@ -83,6 +92,12 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
                   <h3 className="mt-1.5 font-display text-[15px] font-bold leading-tight text-fg">
                     {cleanLabel(p.phase)}
                   </h3>
+                  {dur && (
+                    <span className="mx-auto mt-2.5 inline-flex items-center gap-1 rounded-full border border-line/70 bg-bg-2/60 px-2.5 py-0.5 font-mono text-[10px] text-fg-muted">
+                      <Clock className="size-3 opacity-70" />
+                      {dur}
+                    </span>
+                  )}
                   <span
                     className={`mx-auto mt-3 block h-px w-8 bg-current opacity-40 ${dot}`}
                   />
@@ -107,17 +122,14 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
       </div>
 
       {/* ─── MOBILE / TABLET (<lg): vertical timeline ─── */}
-      <div className="relative pl-[4.5rem] lg:hidden">
-        {/* vertical rail */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute left-6 top-5 bottom-5 w-px bg-gradient-to-b from-neon-cyan via-amber-300 to-emerald-300 opacity-50"
-        />
-        <ol className="space-y-4">
+      <div className="lg:hidden">
+        <ol>
           {phases.map((p, i) => {
             const Icon = ICONS[i % ICONS.length];
             const accent = ACCENTS[i % ACCENTS.length];
             const dot = accent.split(" ")[0];
+            const dur = durationOf(p, i);
+            const last = i === n - 1;
             return (
               <motion.li
                 key={p.phase}
@@ -125,41 +137,55 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: i * 0.06, duration: 0.4 }}
-                className="relative"
+                className="flex gap-4"
               >
-                {/* marker sitting on the rail */}
-                <div
-                  className={`absolute -left-[4.5rem] top-0 grid size-12 place-items-center rounded-2xl bg-bg-2 ring-1 ${accent}`}
-                >
-                  <Icon className="size-5" />
-                </div>
-                <div className="rounded-2xl glass p-4">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <span
-                      className={`font-mono text-[10px] font-semibold uppercase tracking-[0.2em] ${dot}`}
-                    >
-                      Phase {pad(i)}
-                    </span>
-                    <span className="font-mono text-base font-black leading-none text-fg-faint">
-                      {pad(i)}
-                    </span>
+                {/* gutter: marker + connector that grows to the next marker */}
+                <div className="flex flex-col items-center">
+                  <div
+                    className={`grid size-12 shrink-0 place-items-center rounded-2xl bg-bg-2 ring-1 ${accent}`}
+                  >
+                    <Icon className="size-5" />
                   </div>
-                  <h3 className="mt-1 font-display text-sm font-bold leading-tight text-fg">
-                    {cleanLabel(p.phase)}
-                  </h3>
-                  <ul className="mt-2.5 space-y-1.5">
-                    {p.activities.slice(0, 5).map((act) => (
-                      <li
-                        key={act}
-                        className="flex gap-2 text-[12px] leading-snug text-fg-muted"
+                  {!last && (
+                    <span
+                      aria-hidden
+                      className={`my-1.5 w-px flex-1 bg-current opacity-30 ${dot}`}
+                    />
+                  )}
+                </div>
+                {/* card */}
+                <div className={`min-w-0 flex-1 ${last ? "" : "pb-5"}`}>
+                  <div className="rounded-2xl glass p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <span
+                        className={`font-mono text-[10px] font-semibold uppercase tracking-[0.2em] ${dot}`}
                       >
-                        <span
-                          className={`mt-[6px] size-1 shrink-0 rounded-full bg-current ${dot}`}
-                        />
-                        <span>{act}</span>
-                      </li>
-                    ))}
-                  </ul>
+                        Phase {pad(i)}
+                      </span>
+                      {dur && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-line/70 bg-bg-2/60 px-2 py-0.5 font-mono text-[10px] text-fg-muted">
+                          <Clock className="size-3 opacity-70" />
+                          {dur}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="mt-1.5 font-display text-sm font-bold leading-tight text-fg">
+                      {cleanLabel(p.phase)}
+                    </h3>
+                    <ul className="mt-2.5 space-y-1.5">
+                      {p.activities.slice(0, 5).map((act) => (
+                        <li
+                          key={act}
+                          className="flex gap-2 text-[12px] leading-snug text-fg-muted"
+                        >
+                          <span
+                            className={`mt-[6px] size-1 shrink-0 rounded-full bg-current ${dot}`}
+                          />
+                          <span>{act}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </motion.li>
             );

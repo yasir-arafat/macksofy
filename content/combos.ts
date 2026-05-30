@@ -31,8 +31,10 @@ export interface CityServiceCombo {
 
   /** Animated stat strip (4 entries). */
   stats?: { value: string; label: string }[];
-  /** 4-5 phase mini-methodology (drives horizontal timeline). */
-  methodology?: { phase: string; activities: string[] }[];
+  /** 4-5 phase mini-methodology (drives horizontal timeline).
+   *  `duration` is an optional per-phase timeline label (e.g. "Week 1",
+   *  "Weeks 2–4"). When omitted the timeline falls back to a typical cadence. */
+  methodology?: { phase: string; activities: string[]; duration?: string }[];
   /** Industry verticals served in this city × service. */
   industries?: { name: string; blurb: string }[];
   /** 6-8 concrete deliverables. */
