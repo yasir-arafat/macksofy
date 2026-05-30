@@ -251,21 +251,23 @@ export default async function CityServiceComboPage({ params }: PageProps) {
       {wantsTimeline && (
         <section className="py-20">
           <Container>
-            <div className="max-w-3xl">
-              <FadeIn>
-                <Eyebrow color="amber">Engagement workflow</Eyebrow>
-                <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  Five phases. <span className="gradient-text">{c.name} timeline.</span>
-                </h2>
-                <p className="mt-3 text-fg-muted text-pretty leading-relaxed">
+            <FadeIn>
+              <div className="grid items-end gap-6 lg:grid-cols-12">
+                <div className="lg:col-span-7">
+                  <Eyebrow color="amber">Engagement workflow</Eyebrow>
+                  <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+                    Five phases. <span className="gradient-text">{c.name} timeline.</span>
+                  </h2>
+                </div>
+                <p className="text-fg-muted text-pretty leading-relaxed lg:col-span-5 lg:pb-1">
                   Every Macksofy {s.shortTitle.toLowerCase()} engagement in {c.name} runs
                   through the same phased protocol — adapted to {c.name}-specific
                   procurement, regulator and delivery realities.
                 </p>
-              </FadeIn>
-              <div className="mt-12">
-                <ComboTimeline phases={combo.methodology!} />
               </div>
+            </FadeIn>
+            <div className="mt-12">
+              <ComboTimeline phases={combo.methodology!} />
             </div>
           </Container>
         </section>

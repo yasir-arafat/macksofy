@@ -24,75 +24,147 @@ const ACCENTS = [
   "text-emerald-300 ring-emerald-400/40 bg-emerald-400/10",
 ];
 
+const cleanLabel = (s: string) => s.replace(/^\d+\s*[·.\-]\s*/, "");
+const pad = (i: number) => String(i + 1).padStart(2, "0");
+
 export function ComboTimeline({ phases }: { phases: Phase[] }) {
   const n = phases.length;
+
   return (
     <div className="relative">
-      {/* horizontal flow on lg+, stacked on mobile */}
-      <div className="relative overflow-x-auto pb-4 lg:overflow-visible">
-        <div
-          className="relative min-w-[720px] lg:min-w-0"
-          style={{
-            display: "grid",
-            gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))`,
-            columnGap: "1rem",
-          }}
+      {/* ─── DESKTOP (lg+): horizontal connected card-stepper ─── */}
+      <div className="hidden lg:block">
+        <ol
+          className="relative grid gap-4"
+          style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}
         >
-          {/* sweeping gradient rail */}
+          {/* connecting rail behind the station markers */}
           <motion.span
             aria-hidden
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             style={{ originX: 0 }}
-            className="absolute left-0 right-0 top-[22px] h-px bg-gradient-to-r from-neon-cyan via-amber-300 to-emerald-300"
+            className="pointer-events-none absolute inset-x-0 top-7 z-0 h-px bg-gradient-to-r from-neon-cyan via-amber-300 to-emerald-300 opacity-60"
           />
           {phases.map((p, i) => {
             const Icon = ICONS[i % ICONS.length];
             const accent = ACCENTS[i % ACCENTS.length];
+            const dot = accent.split(" ")[0];
             return (
-              <motion.div
+              <motion.li
                 key={p.phase}
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: 0.25 + i * 0.1, duration: 0.45 }}
-                className="relative flex flex-col items-stretch text-center"
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  delay: 0.1 + i * 0.09,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="relative z-10 pt-7"
               >
-                {/* station marker */}
-                <div className="relative flex justify-center">
+                {/* station marker straddling the card's top edge */}
+                <div className="absolute left-1/2 top-0 -translate-x-1/2">
                   <div
-                    className={`relative grid size-12 place-items-center rounded-full bg-bg-2 ring-2 ${accent}`}
+                    className={`grid size-14 place-items-center rounded-2xl bg-bg-2 ring-1 ${accent}`}
                   >
-                    <Icon className="size-5" />
-                    <span className="absolute -top-1.5 -right-1.5 grid size-5 place-items-center rounded-full bg-bg ring-1 ring-line font-mono text-[9px] font-bold text-fg-muted">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    <Icon className="size-6" />
                   </div>
                 </div>
-                <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-faint">
-                  Phase {String(i + 1).padStart(2, "0")}
+                {/* phase card */}
+                <div className="flex h-full flex-col rounded-2xl glass px-5 pb-5 pt-10 text-center transition-colors hover:border-line lift">
+                  <span
+                    className={`font-mono text-[10px] font-semibold uppercase tracking-[0.2em] ${dot}`}
+                  >
+                    Phase {pad(i)}
+                  </span>
+                  <h3 className="mt-1.5 font-display text-[15px] font-bold leading-tight text-fg">
+                    {cleanLabel(p.phase)}
+                  </h3>
+                  <span
+                    className={`mx-auto mt-3 block h-px w-8 bg-current opacity-40 ${dot}`}
+                  />
+                  <ul className="mt-4 space-y-2 text-left">
+                    {p.activities.slice(0, 5).map((act) => (
+                      <li
+                        key={act}
+                        className="flex gap-2 text-[12px] leading-snug text-fg-muted"
+                      >
+                        <span
+                          className={`mt-[6px] size-1 shrink-0 rounded-full bg-current ${dot}`}
+                        />
+                        <span>{act}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="mt-1.5 font-display text-sm font-bold text-fg leading-tight line-clamp-2 min-h-[2.5em]">
-                  {p.phase.replace(/^\d+\s*[·.\-]\s*/, "")}
-                </div>
-                {/* activity bullets */}
-                <ul className="mt-3 text-left space-y-1.5 px-1">
-                  {p.activities.slice(0, 4).map((a) => (
-                    <li
-                      key={a}
-                      className="text-[11px] leading-snug text-fg-muted flex gap-1.5"
-                    >
-                      <span className={`mt-1 size-1 shrink-0 rounded-full bg-current opacity-70 ${accent.split(" ")[0]}`} />
-                      <span>{a}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              </motion.li>
             );
           })}
-        </div>
+        </ol>
+      </div>
+
+      {/* ─── MOBILE / TABLET (<lg): vertical timeline ─── */}
+      <div className="relative pl-[4.5rem] lg:hidden">
+        {/* vertical rail */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute left-6 top-5 bottom-5 w-px bg-gradient-to-b from-neon-cyan via-amber-300 to-emerald-300 opacity-50"
+        />
+        <ol className="space-y-4">
+          {phases.map((p, i) => {
+            const Icon = ICONS[i % ICONS.length];
+            const accent = ACCENTS[i % ACCENTS.length];
+            const dot = accent.split(" ")[0];
+            return (
+              <motion.li
+                key={p.phase}
+                initial={{ opacity: 0, x: 12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                className="relative"
+              >
+                {/* marker sitting on the rail */}
+                <div
+                  className={`absolute -left-[4.5rem] top-0 grid size-12 place-items-center rounded-2xl bg-bg-2 ring-1 ${accent}`}
+                >
+                  <Icon className="size-5" />
+                </div>
+                <div className="rounded-2xl glass p-4">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span
+                      className={`font-mono text-[10px] font-semibold uppercase tracking-[0.2em] ${dot}`}
+                    >
+                      Phase {pad(i)}
+                    </span>
+                    <span className="font-mono text-base font-black leading-none text-fg-faint">
+                      {pad(i)}
+                    </span>
+                  </div>
+                  <h3 className="mt-1 font-display text-sm font-bold leading-tight text-fg">
+                    {cleanLabel(p.phase)}
+                  </h3>
+                  <ul className="mt-2.5 space-y-1.5">
+                    {p.activities.slice(0, 5).map((act) => (
+                      <li
+                        key={act}
+                        className="flex gap-2 text-[12px] leading-snug text-fg-muted"
+                      >
+                        <span
+                          className={`mt-[6px] size-1 shrink-0 rounded-full bg-current ${dot}`}
+                        />
+                        <span>{act}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.li>
+            );
+          })}
+        </ol>
       </div>
     </div>
   );
