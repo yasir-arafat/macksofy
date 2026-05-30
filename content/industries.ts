@@ -25,6 +25,8 @@ export interface IndustryFAQ {
 }
 
 export interface Industry {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   slug: string;
   name: string;
   shortName: string;

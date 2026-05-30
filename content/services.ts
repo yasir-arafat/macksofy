@@ -33,6 +33,8 @@ export interface CaseStudy {
 }
 
 export interface Service {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   slug: string;
   title: string;
   shortTitle: string;

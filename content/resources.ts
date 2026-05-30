@@ -51,6 +51,8 @@ export type ResourceBlock =
   | { type: "stats"; items: { value: string; label: string }[] };
 
 export interface Resource {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   slug: string;
   type: ResourceType;
   title: string;

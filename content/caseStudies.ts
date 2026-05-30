@@ -33,6 +33,8 @@ export type EngagementType =
   | "Mobile Security";
 
 export interface CaseStudyHero {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   slug: string;
 
   /* Identity (always anonymised) */

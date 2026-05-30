@@ -4,6 +4,8 @@ export type CourseLevel = "Foundation" | "Intermediate" | "Professional";
 export type CourseVendor = "EC-Council" | "OffSec" | "CompTIA" | "Mile2" | "Macksofy";
 
 export interface Course {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   slug: string;
   code: string;
   title: string;

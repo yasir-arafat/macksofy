@@ -34,6 +34,8 @@ export const AUDIT_CATEGORIES: AuditCategory[] = [
 ];
 
 export interface Audit {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   slug: string;
   title: string;
   shortTitle: string;

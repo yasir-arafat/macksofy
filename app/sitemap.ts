@@ -15,6 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
   const now = new Date();
 
+  // Stable lastmod baseline for pages without their own `updated` date.
+  // Using this instead of `now` stops every deploy from re-stamping ~190
+  // stable URLs with the build date (which makes <lastmod> meaningless to
+  // Google). Per-item `updated` overrides it when a page actually changes.
+  const CONTENT_REV = new Date(SITE.contentRevision);
+  const rev = (updated?: string): Date =>
+    updated ? new Date(updated) : CONTENT_REV;
+
   // hreflang: every URL serves both en-IN and en-AE — declaring both
   // (with x-default) tells Google the same content is targeted at both
   // markets, avoiding duplicate-content penalties without per-locale URLs.
@@ -25,21 +33,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "en-AE": `${base}${path}`,
   });
 
-  // For posts: take the most recent of (post date, build/deploy date).
-  // Honest because every metadata-layer deploy (title clamp, schema
-  // updates, etc.) materially changes what Googlebot sees on the page —
-  // we're not gaming, we're signalling truthfully that the rendered
-  // page changed. Without this, stale post-dates on a 2-day-old domain
-  // cutover tell Google "low urgency" and contribute to the
-  // "Discovered – not indexed" backlog.
+  // Post lastmod = the post's own date (clamping any future-dated drafts to
+  // now). Revised 2026-05-31: previously this returned max(postDate, now),
+  // bumping every post's lastmod to build time on each deploy. That was a
+  // launch-window hack to fight the new-domain "Discovered – not indexed"
+  // backlog; now that the domain is cut over and indexing, a truthful
+  // per-post date is the stronger signal (Google distrusts a sitemap where
+  // every URL changes on every deploy). Use a post's `updated` field to
+  // signal a genuine revision.
   const freshenBlog = (postDate: Date): Date =>
-    postDate > now ? postDate : now;
+    postDate > now ? now : postDate;
 
   const stat = (
     path: string,
     priority: number,
     freq: "daily" | "weekly" | "monthly",
-    lastModified: Date = now,
+    lastModified: Date = CONTENT_REV,
     images?: string[]
   ): MetadataRoute.Sitemap[number] => {
     const entry: MetadataRoute.Sitemap[number] = {
@@ -94,17 +103,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/blog", 0.85, "daily", freshenBlog(latestPostDate)),
     ...blogPagedRoutes,
     stat("/clients", 0.7, "monthly"),
-    stat("/awards", 0.7, "monthly", now, awardImages),
+    stat("/awards", 0.7, "monthly", CONTENT_REV, awardImages),
     stat("/press", 0.7, "monthly"),
     stat("/products/pentaudit", 0.9, "weekly"),
     stat("/products/learn-to-exploit", 0.85, "monthly"),
     stat("/privacy", 0.4, "monthly"),
     stat("/case-studies", 0.9, "weekly"),
-    ...CASE_STUDIES.map((c) => stat(`/case-studies/${c.slug}`, 0.85, "weekly")),
+    ...CASE_STUDIES.map((c) =>
+      stat(`/case-studies/${c.slug}`, 0.85, "weekly", rev(c.updated))
+    ),
     stat("/resources", 0.9, "daily"),
-    ...RESOURCES.map((r) => stat(`/resources/${r.slug}`, 0.8, "weekly")),
+    ...RESOURCES.map((r) =>
+      stat(`/resources/${r.slug}`, 0.8, "weekly", rev(r.updated))
+    ),
     stat("/industries", 0.9, "weekly"),
-    ...INDUSTRIES.map((i) => stat(`/industries/${i.slug}`, 0.85, "weekly")),
+    ...INDUSTRIES.map((i) =>
+      stat(`/industries/${i.slug}`, 0.85, "weekly", rev(i.updated))
+    ),
     stat("/locations", 0.85, "weekly"),
     ...CITIES.map((c) =>
       stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "weekly")
@@ -113,16 +128,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // budget on canonical /services + /audit pages first. They'll get
     // indexed as the canonical pages establish authority.
     ...COMBO_PAIRS.map((p) =>
-      stat(`/locations/${p.city}/${p.service}`, 0.7, "monthly")
+      stat(`/locations/${p.city}/${p.service}`, 0.7, "monthly", rev(p.updated))
     ),
-    ...SERVICES.map((s) => stat(`/services/${s.slug}`, 0.9, "weekly")),
+    ...SERVICES.map((s) =>
+      stat(`/services/${s.slug}`, 0.9, "weekly", rev(s.updated))
+    ),
     ...COURSES.map((c) =>
-      stat(`/training/${c.slug}`, 0.85, "weekly", now, [
+      stat(`/training/${c.slug}`, 0.85, "weekly", rev(c.updated), [
         `${base}${c.image}`,
       ])
     ),
     ...AUDITS.map((a) =>
-      stat(`/audit/${a.slug}`, a.authority ? 0.95 : 0.9, "weekly")
+      stat(`/audit/${a.slug}`, a.authority ? 0.95 : 0.9, "weekly", rev(a.updated))
     ),
     ...POSTS.map((p) =>
       stat(

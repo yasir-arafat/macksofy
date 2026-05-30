@@ -10,6 +10,8 @@
  */
 
 export interface CityServiceCombo {
+  /** ISO date of last meaningful content change (drives sitemap lastmod). */
+  updated?: string;
   citySlug: string;
   serviceSlug: string;
   /** SEO H1 + page title (≤72 chars). */
@@ -9033,4 +9035,5 @@ export const getCombo = (
 export const COMBO_PAIRS = COMBOS.map((c) => ({
   city: c.citySlug,
   service: c.serviceSlug,
+  updated: c.updated,
 }));

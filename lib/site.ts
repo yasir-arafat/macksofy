@@ -9,6 +9,10 @@ export const SITE = {
   url: "https://www.macksofy.com",
   ogImage: "/og-default.png",
   founded: "2014",
+  // Stable sitemap lastmod baseline for pages without a per-item `updated`
+  // date. Bump ONLY when content is broadly revised — never on unrelated
+  // deploys — so <lastmod> stays a truthful freshness signal.
+  contentRevision: "2026-05-31",
 
   email: "services@macksofy.com",
   phone: "+919930824239",
