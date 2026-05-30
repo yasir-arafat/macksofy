@@ -7,8 +7,75 @@ import {
   Lightbulb,
   ArrowRight,
 } from "lucide-react";
+import type { ReactNode } from "react";
 import type { BlogBlock } from "@/content/blog";
 import { BlogDiagram } from "./BlogDiagram";
+
+// ── Inline links in prose ────────────────────────────────────────────────
+// Supports markdown-style links `[label](/path)` for clean anchor text, and
+// also auto-links bare internal paths (`/audit/...`, `/services/...`) so older
+// posts that embed raw paths in prose still emit real internal links. The
+// bare-path whitelist of top-level segments avoids false positives like
+// "30/60/90" or "24/7".
+const INLINE_LINK_CLS =
+  "text-neon-cyan underline decoration-neon-cyan/30 underline-offset-2 hover:decoration-neon-cyan transition-colors";
+const MD_LINK = /\[([^\]]+)\]\((\/[^)\s]+|https?:\/\/[^)\s]+)\)/g;
+const BARE_PATH =
+  /\/(?:services|audit|industries|resources|locations|training|blog|products|case-studies|about|contact|clients|press|privacy)(?:\/[a-z0-9-]+)*/g;
+
+function InlineLink({ href, children }: { href: string; children: ReactNode }) {
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={INLINE_LINK_CLS}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={INLINE_LINK_CLS}>
+      {children}
+    </a>
+  );
+}
+
+function autolinkBare(text: string, keyBase: string): ReactNode[] {
+  const out: ReactNode[] = [];
+  let last = 0;
+  let k = 0;
+  BARE_PATH.lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = BARE_PATH.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push(
+      <InlineLink key={`${keyBase}-b${k++}`} href={m[0]}>
+        {m[0]}
+      </InlineLink>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
+/** Render prose text with markdown links + bare-path autolinks. */
+function inline(text: string): ReactNode {
+  const out: ReactNode[] = [];
+  let last = 0;
+  let k = 0;
+  MD_LINK.lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = MD_LINK.exec(text)) !== null) {
+    if (m.index > last) out.push(...autolinkBare(text.slice(last, m.index), `s${k}`));
+    out.push(
+      <InlineLink key={`md${k++}`} href={m[2]}>
+        {m[1]}
+      </InlineLink>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(...autolinkBare(text.slice(last), `s${k}`));
+  return out.length === 1 ? out[0] : out;
+}
 
 const CALLOUT_TONES = {
   info: {
@@ -61,7 +128,7 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
           data-speakable="lead"
           className="text-xl leading-relaxed text-fg text-pretty mb-10 first-letter:text-5xl first-letter:font-display first-letter:font-black first-letter:text-neon-cyan first-letter:mr-2 first-letter:float-left first-letter:leading-none first-letter:mt-1"
         >
-          {block.text}
+          {inline(block.text)}
         </p>
       );
 
@@ -81,7 +148,7 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
     case "para":
       return (
         <p className="my-5 text-base leading-relaxed text-fg-muted text-pretty">
-          {block.text}
+          {inline(block.text)}
         </p>
       );
 
@@ -97,7 +164,7 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
         >
           {block.items.map((it, j) => (
             <li key={j} className="leading-relaxed pl-1">
-              {it}
+              {inline(it)}
             </li>
           ))}
         </Tag>
@@ -122,7 +189,7 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
                 {block.title ?? tone.label}
               </div>
               <p className="mt-2 text-sm sm:text-base leading-relaxed text-fg">
-                {block.text}
+                {inline(block.text)}
               </p>
             </div>
           </div>
