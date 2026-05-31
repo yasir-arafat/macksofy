@@ -30,6 +30,7 @@ export function ConversionPing({
     const w = window as unknown as {
       dataLayer?: Record<string, unknown>[];
       gtag?: (...args: unknown[]) => void;
+      fbq?: (...args: unknown[]) => void;
     };
     w.dataLayer = w.dataLayer || [];
     w.dataLayer.push({
@@ -42,6 +43,10 @@ export function ConversionPing({
     });
     if (typeof w.gtag === "function") {
       w.gtag("event", "generate_lead", { currency, value, course });
+    }
+    // Meta (Facebook/Instagram) Pixel conversion.
+    if (typeof w.fbq === "function") {
+      w.fbq("track", "Lead", { content_name: course, currency, value });
     }
   }, [value, currency, course]);
 
