@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ShieldCheck,
   Phone,
@@ -18,12 +19,35 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
 import { LinkButton } from "@/components/ui/Button";
+import { GlowOrb } from "@/components/visuals/GlowOrb";
+import { ClientsMarquee } from "@/components/clients/ClientsMarquee";
 import { LeadForm } from "@/components/lp/LeadForm";
+import { LiteYouTube } from "@/components/lp/LiteYouTube";
 import { SITE } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
 
 const LP_URL = `${SITE.url}/lp/ceh-certification`;
 const PRICE = formatINR(50000);
+// EC-Council's official CEH overview video ("Becoming an Ethical Hacker | CEH").
+const CEH_VIDEO_ID = "a0pL7v6QVAk";
+
+const ACCREDITATIONS = [
+  { src: "/partners/ec-council.jpg", alt: "EC-Council Accredited Training Center" },
+  { src: "/partners/cert-in.png", alt: "CERT-In Empanelled Auditor" },
+  { src: "/partners/comptia.jpg", alt: "CompTIA Authorized Partner" },
+  { src: "/partners/iso-27001.webp", alt: "ISO 27001 Certified" },
+  { src: "/partners/offsec.jpg", alt: "Offensive Security exam-prep" },
+  { src: "/partners/startup-india.png", alt: "Startup India Recognized" },
+];
+
+const INCLUDED = [
+  "Official EC-Council CEH v13 e-courseware & iLabs access",
+  "One CEH v13 (312-50) exam voucher included in the fee",
+  "40 hours live training + recorded sessions for revision",
+  "Capstone mock exam under real, timed conditions",
+  "Certificate of completion + mentor support until you clear CEH",
+  "Placement support — resume, mock interviews & hiring intros",
+];
 const WHATSAPP = SITE.whatsappLink(
   "Hi Macksofy, I'd like details on the CEH v13 training — fees, batch dates and syllabus."
 );
@@ -130,9 +154,16 @@ export default function CehLandingPage() {
       {/* ---- Minimal top bar (logo + click-to-call) ---- */}
       <header className="sticky top-0 z-30 border-b border-line bg-bg/80 backdrop-blur">
         <Container className="flex h-16 items-center justify-between">
-          <Link href="/" className="font-display text-lg font-bold tracking-tight">
-            Macksofy
-            <span className="ml-2 align-middle text-[10px] font-mono uppercase tracking-[0.2em] text-fg-faint">
+          <Link href="/" aria-label="Macksofy Technologies — Home" className="flex items-center gap-2.5">
+            <Image
+              src="/macksofywhite.png"
+              alt="Macksofy Technologies"
+              width={160}
+              height={50}
+              priority
+              className="h-8 w-auto sm:h-9"
+            />
+            <span className="hidden align-middle font-mono text-[10px] uppercase tracking-[0.2em] text-fg-faint sm:inline">
               Training
             </span>
           </Link>
@@ -151,9 +182,21 @@ export default function CehLandingPage() {
       <section className="relative overflow-hidden">
         <div className="spotlight-cyan pointer-events-none absolute inset-0 opacity-60" />
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-[0.15]" />
+        <GlowOrb color="cyan" size={520} intensity="soft" className="-left-40 -top-32" />
+        <GlowOrb color="purple" size={480} intensity="soft" className="-right-32 top-20" />
         <Container className="relative grid gap-12 py-12 lg:grid-cols-[1.15fr_0.85fr] lg:py-16">
           {/* Left: pitch */}
           <div>
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-line bg-bg-1/70 px-3 py-1.5">
+              <Image
+                src="/partners/ec-council.jpg"
+                alt="EC-Council"
+                width={88}
+                height={28}
+                className="h-5 w-auto rounded bg-white px-1"
+              />
+              <span className="text-xs font-semibold text-fg-muted">Accredited Training Center</span>
+            </div>
             <Eyebrow>EC-Council Accredited Training Center</Eyebrow>
             <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tighter text-balance sm:text-5xl">
               Certified Ethical Hacker{" "}
@@ -222,6 +265,28 @@ export default function CehLandingPage() {
         </Container>
       </section>
 
+      {/* ---- Accreditations ---- */}
+      <section className="border-t border-line bg-bg-1/30 py-9">
+        <Container>
+          <p className="text-center font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-fg-faint">
+            Accredited, empanelled &amp; authorized by industry bodies
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            {ACCREDITATIONS.map((a) => (
+              <div
+                key={a.src}
+                className="flex h-14 items-center justify-center rounded-xl bg-white px-5 shadow-sm"
+                title={a.alt}
+              >
+                <div className="relative h-8 w-24">
+                  <Image src={a.src} alt={a.alt} fill sizes="96px" className="object-contain" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* ---- Trust stats ---- */}
       <section className="border-y border-line bg-bg-1/40">
         <Container className="grid grid-cols-2 gap-6 py-8 sm:grid-cols-4">
@@ -231,6 +296,41 @@ export default function CehLandingPage() {
               <div className="mt-1 text-xs text-fg-muted">{s.label}</div>
             </div>
           ))}
+        </Container>
+      </section>
+
+      {/* ---- Video ---- */}
+      <section className="relative overflow-hidden border-b border-line py-14">
+        <GlowOrb color="purple" size={460} intensity="soft" className="-right-40 top-0" />
+        <Container className="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <Eyebrow color="purple">Watch · 2 min</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+              What does a Certified Ethical Hacker actually do?
+            </h2>
+            <p className="mt-4 text-fg-muted">
+              A quick overview of the CEH certification from EC-Council — the credential employers
+              ask for by name. Then we make it real with 40 hours of hands-on labs.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Globally recognised, ANSI-accredited certification",
+                "Maps directly to SOC, VAPT and red-team job roles",
+                "v13 adds AI-driven offense across every attack phase",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 text-sm">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-neon-purple" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7">
+              <LinkButton href="#enquiry" size="lg">
+                Talk to a CEH counsellor
+              </LinkButton>
+            </div>
+          </div>
+          <LiteYouTube id={CEH_VIDEO_ID} title="Becoming an Ethical Hacker | CEH | EC-Council" />
         </Container>
       </section>
 
@@ -249,6 +349,40 @@ export default function CehLandingPage() {
                 <p className="mt-2 text-sm leading-relaxed text-fg-muted">{body}</p>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- Inside the program (image + what's included) ---- */}
+      <section className="border-t border-line py-14">
+        <Container className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-neon-cyan/20 to-neon-purple/20 blur-2xl" />
+            <Image
+              src="/courses/CEH.jpg"
+              alt="Macksofy CEH v13 training cohort"
+              width={900}
+              height={650}
+              className="relative w-full rounded-2xl border border-line object-cover shadow-2xl"
+            />
+            <div className="absolute bottom-4 left-4 rounded-xl border border-line bg-bg/80 px-4 py-2 backdrop-blur">
+              <div className="font-display text-lg font-bold">{PRICE}</div>
+              <div className="text-[11px] text-fg-muted">all-inclusive · EMI available</div>
+            </div>
+          </div>
+          <div>
+            <Eyebrow color="green">What&apos;s included</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+              Everything you need to certify — in one fee
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {INCLUDED.map((i) => (
+                <li key={i} className="flex items-start gap-3 text-sm">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-neon-green" />
+                  <span>{i}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>
@@ -276,6 +410,16 @@ export default function CehLandingPage() {
             ))}
           </div>
         </Container>
+      </section>
+
+      {/* ---- Client trust marquee ---- */}
+      <section className="border-t border-line bg-bg-1/40 py-12">
+        <Container className="mb-7">
+          <p className="text-center font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-fg-faint">
+            Our consultants secure 250+ enterprises across India &amp; UAE
+          </p>
+        </Container>
+        <ClientsMarquee />
       </section>
 
       {/* ---- Career outcomes ---- */}
@@ -403,6 +547,13 @@ export default function CehLandingPage() {
       <footer className="border-t border-line bg-bg-1/50 py-10 text-sm text-fg-muted">
         <Container className="grid gap-6 sm:grid-cols-2">
           <div>
+            <Image
+              src="/macksofywhite.png"
+              alt="Macksofy Technologies"
+              width={150}
+              height={47}
+              className="mb-3 h-8 w-auto"
+            />
             <div className="font-display text-base font-bold text-fg">{SITE.legalName}</div>
             <p className="mt-2 leading-relaxed">
               {SITE.hq.street}, {SITE.hq.locality}, {SITE.hq.city} {SITE.hq.postalCode},{" "}
