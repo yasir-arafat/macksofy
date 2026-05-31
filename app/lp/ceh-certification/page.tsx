@@ -1,0 +1,442 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ShieldCheck,
+  Phone,
+  MessageCircle,
+  CheckCircle2,
+  Award,
+  FlaskConical,
+  Users,
+  Briefcase,
+  Clock,
+  MapPin,
+  GraduationCap,
+  Star,
+} from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/SectionTitle";
+import { Badge } from "@/components/ui/Badge";
+import { LinkButton } from "@/components/ui/Button";
+import { LeadForm } from "@/components/lp/LeadForm";
+import { SITE } from "@/lib/site";
+import { formatINR } from "@/lib/utils";
+
+const LP_URL = `${SITE.url}/lp/ceh-certification`;
+const PRICE = formatINR(50000);
+const WHATSAPP = SITE.whatsappLink(
+  "Hi Macksofy, I'd like details on the CEH v13 training — fees, batch dates and syllabus."
+);
+
+export const metadata: Metadata = {
+  // Full self-contained title — the /lp layout sets a pass-through template
+  // so this is used verbatim (no "| Macksofy" suffix is appended).
+  title: "CEH v13 Training in Mumbai — Certified Ethical Hacker Course | Macksofy",
+  description:
+    "EC-Council Accredited CEH v13 training in Mumbai & live-online. 40 hours hands-on labs, official courseware, exam voucher, mentor-led prep & placement support. All-inclusive ₹50,000. Book a free counselling call.",
+  alternates: { canonical: LP_URL },
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: "CEH v13 Training — Certified Ethical Hacker | Macksofy",
+    description:
+      "Hands-on, EC-Council Accredited CEH v13 training. Official courseware + exam voucher + placement support. ₹50,000 all-inclusive.",
+    url: LP_URL,
+    type: "website",
+  },
+};
+
+const HERO_BULLETS = [
+  "40 hours of live, instructor-led, 100% hands-on training",
+  "Official EC-Council courseware + one CEH v13 (312-50) exam voucher",
+  "Real attack labs — Nmap, Burp Suite, Metasploit, Wireshark & more",
+  "Mentor-led exam prep that continues until you clear the exam",
+  "Resume, mock interviews & introductions to our hiring network",
+];
+
+const WHY = [
+  {
+    icon: Award,
+    title: "EC-Council Accredited Training Center",
+    body: "Official curriculum, courseware and exam voucher — delivered by EC-Council–certified instructors.",
+  },
+  {
+    icon: FlaskConical,
+    title: "100% practical labs",
+    body: "Every module is hands-on on real targets — recon, web exploitation, privilege escalation and AI-driven offense (new in v13).",
+  },
+  {
+    icon: GraduationCap,
+    title: "Mentor-led until you clear it",
+    body: "A capstone mock exam under timed conditions, plus mentor support that runs right up to your CEH attempt.",
+  },
+  {
+    icon: Briefcase,
+    title: "Placement support",
+    body: "1:1 resume & LinkedIn rewrite, mock interviews, and direct introductions to 80+ hiring partners across India & UAE.",
+  },
+];
+
+const LEARN = [
+  "Footprinting, reconnaissance & OSINT",
+  "Network scanning, enumeration & vulnerability analysis",
+  "System hacking & privilege escalation (Linux + Windows)",
+  "OWASP Top 10 web & API exploitation with Burp Suite",
+  "SQL injection, sniffing & session hijacking",
+  "Wireless, mobile, IoT/OT & cloud attacks",
+  "Malware threats, social engineering & evasion",
+  "AI-assisted recon, prompt injection & LLM attacks (v13)",
+];
+
+const ROLES = [
+  { role: "SOC Analyst (L1 / L2)", salary: "₹4–7 LPA", exp: "0–2 yrs" },
+  { role: "Junior Penetration Tester", salary: "₹6–10 LPA", exp: "1–3 yrs" },
+  { role: "Vulnerability Analyst", salary: "₹6–9 LPA", exp: "1–2 yrs" },
+  { role: "Cybersecurity Consultant", salary: "₹8–12 LPA", exp: "2–4 yrs" },
+];
+
+const FAQS = [
+  {
+    q: "Is Macksofy an authorized CEH v13 provider?",
+    a: "Yes — Macksofy Technologies is an EC-Council Accredited Training Center (ATC). You receive official EC-Council courseware, lab access throughout the programme, and one CEH v13 (312-50) exam voucher.",
+  },
+  {
+    q: "What is the CEH v13 fee?",
+    a: `${PRICE} all-inclusive — training, official EC-Council courseware, lab access, exam voucher and our placement support. EMI options are available.`,
+  },
+  {
+    q: "Can I take the course online?",
+    a: "Yes. Every batch runs live online with on-camera trainer interaction, and at our Mumbai BKC center. Session recordings are available for revision.",
+  },
+  {
+    q: "Do I need prior experience?",
+    a: "No prior hacking experience is required — we cover the basics. A working knowledge of TCP/IP and comfort with the Linux and Windows command lines helps.",
+  },
+  {
+    q: "Do you guarantee a job?",
+    a: "No honest training company can guarantee placement, and we don't. What we do provide is structured placement support — resume help, mock interviews and direct introductions to our hiring network.",
+  },
+];
+
+const STATS = [
+  { value: `${SITE.stats.yearsInBusiness}+ yrs`, label: "Training cyber talent" },
+  { value: `${(SITE.stats.learnersTrained / 1000).toFixed(0)}k+`, label: "Learners trained" },
+  { value: "80+", label: "Hiring partners" },
+  { value: "EC-Council", label: "Accredited Training Center" },
+];
+
+export default function CehLandingPage() {
+  return (
+    <div className="relative min-h-screen bg-bg text-fg">
+      {/* ---- Minimal top bar (logo + click-to-call) ---- */}
+      <header className="sticky top-0 z-30 border-b border-line bg-bg/80 backdrop-blur">
+        <Container className="flex h-16 items-center justify-between">
+          <Link href="/" className="font-display text-lg font-bold tracking-tight">
+            Macksofy
+            <span className="ml-2 align-middle text-[10px] font-mono uppercase tracking-[0.2em] text-fg-faint">
+              Training
+            </span>
+          </Link>
+          <a
+            href={`tel:${SITE.phone}`}
+            className="inline-flex items-center gap-2 rounded-full border border-neon-cyan/40 px-4 py-2 text-sm font-semibold text-neon-cyan transition-colors hover:bg-neon-cyan hover:text-bg"
+          >
+            <Phone className="size-4" />
+            <span className="hidden sm:inline">{SITE.phoneDisplay}</span>
+            <span className="sm:hidden">Call now</span>
+          </a>
+        </Container>
+      </header>
+
+      {/* ---- Hero + lead form ---- */}
+      <section className="relative overflow-hidden">
+        <div className="spotlight-cyan pointer-events-none absolute inset-0 opacity-60" />
+        <div className="bg-grid pointer-events-none absolute inset-0 opacity-[0.15]" />
+        <Container className="relative grid gap-12 py-12 lg:grid-cols-[1.15fr_0.85fr] lg:py-16">
+          {/* Left: pitch */}
+          <div>
+            <Eyebrow>EC-Council Accredited Training Center</Eyebrow>
+            <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tighter text-balance sm:text-5xl">
+              Certified Ethical Hacker{" "}
+              <span className="gradient-text">(CEH v13)</span> Training in Mumbai
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-fg-muted text-pretty">
+              The world&apos;s most recognised ethical-hacking certification — taught the way it
+              should be: live, instructor-led and 100% hands-on, online or at our Mumbai BKC
+              center. Mentor support runs until you clear the exam.
+            </p>
+
+            <ul className="mt-7 space-y-3">
+              {HERO_BULLETS.map((b) => (
+                <li key={b} className="flex items-start gap-3 text-sm text-fg">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-neon-cyan" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Badge variant="cert">
+                <Award className="size-3.5" /> {PRICE} all-inclusive
+              </Badge>
+              <Badge variant="cyan">
+                <Clock className="size-3.5" /> 5 days or 8 weekends
+              </Badge>
+              <Badge variant="green">
+                <ShieldCheck className="size-3.5" /> CERT-In empanelled firm
+              </Badge>
+              <Badge variant="purple">
+                <MapPin className="size-3.5" /> Online + Mumbai (BKC)
+              </Badge>
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <LinkButton href="#enquiry" size="lg">
+                Book a free counselling call
+              </LinkButton>
+              <LinkButton
+                href={WHATSAPP}
+                variant="secondary"
+                size="lg"
+                target="_blank"
+                rel="noopener"
+              >
+                <MessageCircle className="size-4" /> WhatsApp us
+              </LinkButton>
+            </div>
+          </div>
+
+          {/* Right: lead form */}
+          <div id="enquiry" className="scroll-mt-24">
+            <div className="glass-strong rounded-2xl border border-line p-6 shadow-2xl sm:p-7">
+              <h2 className="font-display text-xl font-bold tracking-tight">
+                Get fees, batch dates &amp; syllabus
+              </h2>
+              <p className="mt-1.5 text-sm text-fg-muted">
+                Tell us where to reach you — a CEH counsellor will call you back today.
+              </p>
+              <div className="mt-5">
+                <LeadForm />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- Trust stats ---- */}
+      <section className="border-y border-line bg-bg-1/40">
+        <Container className="grid grid-cols-2 gap-6 py-8 sm:grid-cols-4">
+          {STATS.map((s) => (
+            <div key={s.label} className="text-center">
+              <div className="font-display text-2xl font-bold text-fg sm:text-3xl">{s.value}</div>
+              <div className="mt-1 text-xs text-fg-muted">{s.label}</div>
+            </div>
+          ))}
+        </Container>
+      </section>
+
+      {/* ---- Why Macksofy ---- */}
+      <section className="py-14">
+        <Container>
+          <Eyebrow color="purple">Why train with Macksofy</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+            Built to make you job-ready, not just exam-ready
+          </h2>
+          <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {WHY.map(({ icon: Icon, title, body }) => (
+              <div key={title} className="glass lift rounded-2xl border border-line p-6">
+                <Icon className="size-7 text-neon-cyan" />
+                <h3 className="mt-4 font-display text-lg font-bold tracking-tight">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- What you'll learn ---- */}
+      <section className="border-t border-line py-14">
+        <Container>
+          <Eyebrow>Hands-on curriculum</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+            20 modules. Every one of them practical.
+          </h2>
+          <p className="mt-4 max-w-2xl text-fg-muted">
+            Aligned to the official EC-Council CEH v13 syllabus — including the new AI-driven
+            offense modules — and rehearsed in our labs before you ever sit the exam.
+          </p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {LEARN.map((l) => (
+              <div
+                key={l}
+                className="flex items-start gap-3 rounded-xl border border-line bg-bg-1/40 px-4 py-3 text-sm"
+              >
+                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-neon-green" />
+                <span>{l}</span>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- Career outcomes ---- */}
+      <section className="border-t border-line py-14">
+        <Container>
+          <div className="flex items-center gap-3">
+            <Users className="size-6 text-neon-purple" />
+            <h2 className="font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+              Where CEH can take you
+            </h2>
+          </div>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-line">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-bg-1/60 text-fg-muted">
+                <tr>
+                  <th className="px-5 py-3 font-semibold">Role</th>
+                  <th className="px-5 py-3 font-semibold">Indicative salary*</th>
+                  <th className="px-5 py-3 font-semibold">Experience</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ROLES.map((r, i) => (
+                  <tr key={r.role} className={i % 2 ? "bg-bg-1/20" : ""}>
+                    <td className="px-5 py-3 font-medium">{r.role}</td>
+                    <td className="px-5 py-3 text-neon-cyan">{r.salary}</td>
+                    <td className="px-5 py-3 text-fg-muted">{r.exp}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs text-fg-faint">
+            *Indicative India market ranges that vary by role, employer, city and experience. Not a
+            guarantee of salary or placement.
+          </p>
+        </Container>
+      </section>
+
+      {/* ---- Testimonials ---- */}
+      <section className="border-t border-line py-14">
+        <Container>
+          <Eyebrow color="amber">From our learners</Eyebrow>
+          <div className="mt-7 grid gap-5 sm:grid-cols-2">
+            {[
+              {
+                quote:
+                  "Macksofy's labs were the difference — I'd already faced everything before exam day. Cleared CEH v13 on my first attempt.",
+                name: "Rohan M.",
+                role: "SOC Analyst, BFSI",
+              },
+              {
+                quote:
+                  "Came in with zero security background. A few weeks later I was running Burp Suite and Metasploit confidently.",
+                name: "Priya S.",
+                role: "Cybersecurity Engineer",
+              },
+            ].map((t) => (
+              <figure key={t.name} className="glass rounded-2xl border border-line p-6">
+                <div className="flex gap-1 text-amber-400">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="size-4 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 text-sm leading-relaxed text-fg">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-4 text-sm">
+                  <span className="font-semibold">{t.name}</span>
+                  <span className="text-fg-muted"> · {t.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- FAQ ---- */}
+      <section className="border-t border-line py-14">
+        <Container size="narrow">
+          <h2 className="font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+            Frequently asked questions
+          </h2>
+          <div className="mt-8 space-y-3">
+            {FAQS.map((f) => (
+              <details
+                key={f.q}
+                className="group rounded-xl border border-line bg-bg-1/40 px-5 py-4"
+              >
+                <summary className="cursor-pointer list-none font-semibold marker:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    {f.q}
+                    <span className="text-neon-cyan transition-transform group-open:rotate-45">
+                      +
+                    </span>
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-fg-muted">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- Final CTA ---- */}
+      <section className="border-t border-line py-16">
+        <Container className="text-center">
+          <h2 className="font-display text-3xl font-bold tracking-tighter sm:text-4xl">
+            Ready to start your CEH v13?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-fg-muted">
+            Talk to a CEH counsellor today about fees, the next batch dates and EMI options.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <LinkButton href="#enquiry" size="lg">
+              Get a callback
+            </LinkButton>
+            <LinkButton href={`tel:${SITE.phone}`} variant="outline" size="lg">
+              <Phone className="size-4" /> {SITE.phoneDisplay}
+            </LinkButton>
+          </div>
+        </Container>
+      </section>
+
+      {/* ---- Minimal footer (business identity + privacy) ---- */}
+      <footer className="border-t border-line bg-bg-1/50 py-10 text-sm text-fg-muted">
+        <Container className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <div className="font-display text-base font-bold text-fg">{SITE.legalName}</div>
+            <p className="mt-2 leading-relaxed">
+              {SITE.hq.street}, {SITE.hq.locality}, {SITE.hq.city} {SITE.hq.postalCode},{" "}
+              {SITE.hq.region}, India
+            </p>
+            <p className="mt-2">
+              <a href={`tel:${SITE.phone}`} className="hover:text-fg">
+                {SITE.phoneDisplay}
+              </a>{" "}
+              ·{" "}
+              <a href={`mailto:${SITE.email}`} className="hover:text-fg">
+                {SITE.email}
+              </a>
+            </p>
+          </div>
+          <div className="sm:text-right">
+            <div className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end">
+              <Link href="/privacy" className="hover:text-fg">
+                Privacy Policy
+              </Link>
+              <Link href="/training/ceh" className="hover:text-fg">
+                Full course details
+              </Link>
+              <Link href="/contact" className="hover:text-fg">
+                Contact
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-fg-faint">
+              © {new Date().getFullYear()} {SITE.legalName}. CEH and Certified Ethical Hacker are
+              trademarks of EC-Council. All rights reserved.
+            </p>
+          </div>
+        </Container>
+      </footer>
+    </div>
+  );
+}

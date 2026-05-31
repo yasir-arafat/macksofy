@@ -3,6 +3,7 @@ import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Shell } from "@/components/layout/Shell";
 import { LazyClientWidgets } from "@/components/widgets/LazyClientWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -150,16 +151,16 @@ export default function RootLayout({
         <JsonLd
           data={[organizationSchema(), localBusinessSchema(), websiteSchema()]}
         />
-        <Header />
-        <main
-          id="main"
-          className="flex-1"
-          style={{ paddingTop: "var(--header-h, 80px)" }}
+        {/* Shell renders the global chrome (Header/Footer/widgets) on every
+            page EXCEPT paid-ad landing pages under /lp, which are intentionally
+            chrome-free. See components/layout/Shell.tsx. */}
+        <Shell
+          header={<Header />}
+          footer={<Footer />}
+          widgets={<LazyClientWidgets />}
         >
           {children}
-        </main>
-        <Footer />
-        <LazyClientWidgets />
+        </Shell>
       </body>
     </html>
   );
