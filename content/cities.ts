@@ -1120,6 +1120,111 @@ export const CITIES: City[] = [
     geo: { lat: 25.2048, lng: 55.2708 },
     mapQuery: "DIFC, Dubai, United Arab Emirates",
   },
+  // ===================================================================
+  // 12. ABU DHABI — UAE capital · ADHICS · ADGM/FSRA · energy CII
+  // ===================================================================
+  {
+    slug: "abu-dhabi",
+    name: "Abu Dhabi",
+    state: "United Arab Emirates",
+    category: "Government / PSU hub",
+    hero: {
+      eyebrow: "Cybersecurity in Abu Dhabi · ADHICS · ADGM/FSRA · NESA",
+      headline: "Abu Dhabi cybersecurity — ADHICS, ADGM/FSRA + NESA aligned.",
+      description:
+        "Macksofy services Abu Dhabi with ADHICS healthcare-sector audits, ADGM/FSRA cyber programmes, NESA / UAE IA Standards VAPT and red-team engagements — across energy CII, sovereign-investment, government and healthcare entities on Al Maryah Island, Masdar City, Yas Island and KIZAD.",
+    },
+    cityContext: [
+      "Abu Dhabi is the UAE’s capital and the centre of gravity for the things the federation guards hardest — sovereign wealth (ADIA, Mubadala, ADQ), the national energy operator (ADNOC and its OT-heavy upstream/downstream estate), federal government, and a fast-growing financial free zone in ADGM on Al Maryah Island regulated by the FSRA. The cyber-buyer profile is therefore split between deeply regulated government-and-energy entities and a sophisticated ADGM fintech / asset-management cluster.",
+      "The regulatory stack is layered and emirate-specific. ADHICS — the Abu Dhabi Healthcare Information and Cyber Security standard from the Department of Health (DoH) — is mandatory for every Abu Dhabi healthcare entity. ADGM runs its own Data Protection Regulations 2021 (with the Office of Data Protection) and FSRA cyber expectations, distinct from DIFC in Dubai. Over the top sits the federal layer: NESA / UAE Information Assurance Standards (TDRA) and the Federal PDPL 2021. Abu Dhabi government entities additionally align to the Abu Dhabi Digital Authority (ADDA) information-security standards and the TAMM platform.",
+      "Macksofy delivers Abu Dhabi through senior consultants flying Mumbai BKC → AUH (~3.5 hours) for kickoff, key reviews and exit briefings — most client sites on Al Maryah Island, in the Corniche/Capital Gate district, Masdar City or KIZAD are 30-45 minutes from the airport. For multi-quarter Abu Dhabi programmes, especially energy-CII and government work, we maintain an embedded UAE lead consultant and brief on data-residency and onsite-handling constraints up front.",
+    ],
+    regulators: [
+      "DoH Abu Dhabi · ADHICS Standard (healthcare)",
+      "ADGM · FSRA cyber expectations + Data Protection Regulations 2021",
+      "TDRA · NESA / UAE IA Standards",
+      "Federal PDPL 2021 · UAE Data Office",
+      "Abu Dhabi Digital Authority (ADDA) information-security standards",
+      "Central Bank of UAE — banking cyber expectations",
+    ],
+    industries: [
+      "Energy / oil & gas (ADNOC ecosystem, OT/ICS)",
+      "Sovereign wealth + investment (ADIA, Mubadala, ADQ)",
+      "ADGM fintech + asset management",
+      "Government / federal + Abu Dhabi entities",
+      "Healthcare (DoH / ADHICS)",
+      "Aviation + aerospace (Etihad, EDGE, Mubadala aerospace)",
+      "Utilities + smart-city (Masdar, EWEC)",
+    ],
+    topServices: [
+      "vapt",
+      "managed-soc",
+      "cloud-security",
+      "penetration-testing",
+      "red-teaming",
+      "network-security-architecture",
+      "digital-forensics-incident-response",
+    ],
+    topAudits: [
+      "adhics",
+      "nesa-uae-ias",
+      "uae-pdpl",
+      "iso-27001",
+      "iso-27017",
+      "soc-2",
+      "pci-dss",
+      "cert-in-empanelled-audit",
+    ],
+    caseStudy: {
+      industry: "Abu Dhabi Healthcare Group (DoH-licensed)",
+      scope:
+        "ADHICS control implementation review + submission pack across a hospital network, NESA-format VAPT for 9 internet-facing apps + the patient-portal API, and a medical-device/OT segmentation review of the imaging and lab estate",
+      outcome:
+        "ADHICS evidence pack accepted by the DoH-aligned internal audit on first read; 11 highs + 31 mediums closed in 9 weeks; medical-device network re-segmented into a dedicated VLAN with documented north-south controls.",
+    },
+    stats: [
+      { value: "Mumbai → AUH", label: "~3.5-hour flight" },
+      { value: "ADHICS", label: "Healthcare mandate" },
+      { value: "ADGM / FSRA", label: "Financial free zone" },
+      { value: "Energy CII", label: "ADNOC-ecosystem focus" },
+    ],
+    delivery:
+      "Mumbai → AUH is roughly a 3.5-hour flight. Senior consultants reach Al Maryah Island (ADGM), the Corniche, Masdar City or KIZAD in 30-45 minutes from the airport. Quarterly onsite cycles suit most Abu Dhabi government, energy and BFSI clients; remote VAPT and audit-evidence work runs through the week. Energy-CII and government engagements are scoped with data-residency and onsite-only-handling constraints agreed before kickoff. For sustained programmes we maintain an embedded UAE lead consultant.",
+    faqs: [
+      {
+        q: "Do you deliver ADHICS audits for Abu Dhabi healthcare entities?",
+        a: "Yes — ADHICS (Abu Dhabi Healthcare Information and Cyber Security) from the Department of Health is mandatory for Abu Dhabi healthcare providers. Macksofy maintains the latest ADHICS control mapping and submission templates, runs the control-implementation review, and delivers the evidence pack in the format DoH-aligned auditors read, including medical-device and OT segmentation considerations.",
+      },
+      {
+        q: "Can you cover ADGM / FSRA cyber expectations, not just DIFC?",
+        a: "Yes. ADGM is Abu Dhabi’s financial free zone on Al Maryah Island, regulated by the FSRA, with its own Data Protection Regulations 2021 and Office of Data Protection — distinct from Dubai’s DIFC regime. We deliver FSRA-aligned cyber-resilience assessments and ADGM data-protection programmes, and can run a unified evidence register where a group spans both ADGM and DIFC.",
+      },
+      {
+        q: "Do you handle energy / OT and critical-infrastructure scope in Abu Dhabi?",
+        a: "Yes. Abu Dhabi’s energy and utilities estate (the ADNOC ecosystem, EWEC, Masdar) is OT-heavy and treated as critical infrastructure. We scope IT/OT-segmented assessments with IEC 62443-aligned methodology, passive-first techniques in production OT zones, and onsite-only handling where required — mapped to NESA / UAE IA Standards and ADDA expectations.",
+      },
+      {
+        q: "How do federal NESA and Federal PDPL fit alongside the Abu Dhabi-specific standards?",
+        a: "Every Abu Dhabi entity also sits under the federal layer — NESA / UAE Information Assurance Standards (TDRA) and the Federal PDPL 2021. We map controls once and present them in each required format (ADHICS or ADGM at the emirate/free-zone level, NESA and PDPL at the federal level) so you collect evidence a single time rather than running parallel compliance tracks.",
+      },
+    ],
+    seoDescription:
+      "Cybersecurity services in Abu Dhabi — ADHICS healthcare audits, ADGM/FSRA cyber, NESA / UAE IA Standards VAPT and red-team for energy, government, sovereign-investment and healthcare entities.",
+    extraKeywords: [
+      "cybersecurity Abu Dhabi",
+      "ADHICS audit Abu Dhabi",
+      "ADGM FSRA cyber security",
+      "VAPT services Abu Dhabi",
+      "NESA audit Abu Dhabi",
+      "Abu Dhabi penetration testing",
+      "ADNOC OT security",
+      "Al Maryah Island cybersecurity",
+      "Masdar City cyber audit",
+      "Abu Dhabi managed SOC",
+    ],
+    geo: { lat: 24.4539, lng: 54.3773 },
+    mapQuery: "Al Maryah Island, Abu Dhabi, United Arab Emirates",
+  },
 ];
 
 export const getCityBySlug = (slug: string) =>
