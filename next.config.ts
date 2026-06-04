@@ -33,6 +33,33 @@ const nextConfig: NextConfig = {
     // accepted trade-off without nonces. frame-src whitelists
     // Turnstile + Google Maps embeds. connect-src whitelists Turnstile
     // siteverify + Resend + Maps tile fetch.
+    //
+    // Analytics origins: gtag.js / GTM load from www.googletagmanager.com and
+    // beacon to *.google-analytics.com (regional collect endpoints) and
+    // *.analytics.google.com (Google Signals). The Meta Pixel loads from
+    // connect.facebook.net and beacons to www.facebook.com. The /lp paid pages
+    // also fire Google Ads conversions via googleadservices.com / doubleclick.
+    // Without these, the browser silently blocks every analytics hit — which is
+    // exactly what left GA4 Realtime empty.
+    const analyticsScriptSrc = [
+      "https://www.googletagmanager.com",
+      "https://www.google-analytics.com",
+      "https://ssl.google-analytics.com",
+      "https://connect.facebook.net",
+      "https://www.googleadservices.com",
+      "https://googleads.g.doubleclick.net",
+    ];
+    const analyticsConnectSrc = [
+      "https://www.googletagmanager.com",
+      "https://www.google-analytics.com",
+      "https://*.google-analytics.com",
+      "https://*.analytics.google.com",
+      "https://connect.facebook.net",
+      "https://www.facebook.com",
+      "https://www.googleadservices.com",
+      "https://googleads.g.doubleclick.net",
+      "https://*.g.doubleclick.net",
+    ];
     const csp = [
       "default-src 'self'",
       "base-uri 'self'",
@@ -41,9 +68,9 @@ const nextConfig: NextConfig = {
       "img-src 'self' data: blob: https:",
       "font-src 'self' data: https://fonts.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com",
+      `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com ${analyticsScriptSrc.join(" ")}`,
       "frame-src 'self' https://challenges.cloudflare.com https://maps.google.com https://www.google.com https://www.google.com/maps",
-      "connect-src 'self' https://challenges.cloudflare.com https://api.resend.com https://maps.googleapis.com https://www.google.com",
+      `connect-src 'self' https://challenges.cloudflare.com https://api.resend.com https://maps.googleapis.com https://www.google.com ${analyticsConnectSrc.join(" ")}`,
       "object-src 'none'",
       "upgrade-insecure-requests",
     ].join("; ");
