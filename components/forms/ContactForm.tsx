@@ -7,6 +7,7 @@ import { z } from "zod";
 import { Send, CheckCircle2, AlertTriangle, ShieldCheck, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Turnstile } from "./Turnstile";
+import { trackGenerateLead } from "@/lib/analytics";
 
 // ---------------------------------------------------------------------------
 // Schema
@@ -140,6 +141,13 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error ?? "Submission failed");
+
+      // GA4 conversion — fire only on a server-confirmed successful submission.
+      trackGenerateLead({
+        form_location: "contact_page",
+        lead_type: "contact_form",
+        interest: values.interest,
+      });
 
       setStatus("ok");
       setStatusMessage(data.message ?? "Thanks — we'll be in touch shortly.");
