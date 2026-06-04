@@ -2,8 +2,6 @@
 
 import { useEffect } from "react";
 
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-EM9DC46JX3";
-
 /**
  * Fires the lead conversion exactly once, on mount of the thank-you page.
  *

@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Shell } from "@/components/layout/Shell";
 import { LazyClientWidgets } from "@/components/widgets/LazyClientWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import {
   organizationSchema,
   localBusinessSchema,
@@ -146,6 +147,11 @@ fbq('track', 'PageView');`,
       )}
       <body className="min-h-full flex flex-col bg-bg text-fg">
         {/* React 19 hoists these to <head>. */}
+
+        {/* Google Analytics 4 — site-wide. Loads gtag.js once for the whole
+            app (including the nested /lp landing pages) and tracks a pageview
+            on every App Router navigation. */}
+        <GoogleAnalytics />
 
         {META_PIXEL_ID && (
           <noscript>

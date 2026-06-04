@@ -4,23 +4,22 @@ import Script from "next/script";
 /**
  * Layout for paid-ad landing pages (/lp/*).
  *
- *  • Loads Google Analytics 4 (gtag.js) and — when configured — a Google Tag
- *    Manager container, so Google Ads can measure the `generate_lead`
- *    conversion fired on the thank-you page.
+ *  • Loads an optional Google Tag Manager container so Google Ads can measure
+ *    the `generate_lead` conversion fired on the thank-you page.
  *  • Marks every landing page `noindex` (follow) — these are dedicated paid
  *    pages and should stay out of the organic Search index. They are NOT in
  *    sitemap.ts (which is built from explicit content arrays), so no extra
  *    exclusion is needed.
  *
- * IDs are read from env so they can rotate without a deploy:
- *    NEXT_PUBLIC_GA4_ID  — GA4 Measurement ID  (defaults to the live property)
- *    NEXT_PUBLIC_GTM_ID  — GTM container ID     (optional; e.g. GTM-XXXXXXX)
+ * Note: Google Analytics 4 (gtag.js) is loaded site-wide in the root layout
+ * (components/analytics/GoogleAnalytics.tsx) and inherited here — it is NOT
+ * loaded again, to avoid a double gtag instance. The Meta Pixel likewise lives
+ * site-wide in the root layout's <head>. Only GTM is /lp-scoped.
+ *
+ * GTM ID is read from env so it can rotate without a deploy:
+ *    NEXT_PUBLIC_GTM_ID  — GTM container ID  (optional; e.g. GTM-XXXXXXX)
  */
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-EM9DC46JX3";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "";
-// Note: the Meta Pixel base code lives site-wide in the root layout's <head>
-// (app/layout.tsx). It is intentionally NOT duplicated here — the /lp pages
-// inherit it. The `Lead` conversion still fires on the thank-you page.
 
 export const metadata: Metadata = {
   // Neutralise the root layout's "%s | Macksofy" title template for all
@@ -36,25 +35,6 @@ export default function LandingLayout({
 }) {
   return (
     <>
-      {/* Google Analytics 4 — gtag.js */}
-      {GA4_ID && (
-        <>
-          <Script
-            id="ga4-src"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga4-init" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA4_ID}');
-            `}
-          </Script>
-        </>
-      )}
-
       {/* Google Tag Manager (optional — set NEXT_PUBLIC_GTM_ID to enable) */}
       {GTM_ID && (
         <>
