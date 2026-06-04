@@ -11,8 +11,10 @@ import { GAPageView } from "./GAPageView";
  * ConversionPing.tsx) reuses the same gtag instance, so GA4 must NOT be loaded a
  * second time inside app/lp/layout.tsx.
  *
- * `send_page_view:false` defers all pageview accounting to <GAPageView/>, which
- * fires one page_view per App Router navigation (the initial load included).
+ * The `config` command sends the reliable initial pageview (it fires whenever
+ * gtag.js finishes loading, with no dependency on React effect timing).
+ * <GAPageView/> then sends one page_view per *subsequent* App Router navigation
+ * (it skips the first run so the landing page isn't double-counted).
  *
  * The Measurement ID is env-overridable so it can rotate without a code change:
  *    NEXT_PUBLIC_GA4_ID — GA4 Measurement ID (defaults to the live property).
@@ -34,7 +36,7 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA4_ID}', { send_page_view: false });
+          gtag('config', '${GA4_ID}');
         `}
       </Script>
       <Suspense fallback={null}>
