@@ -19,7 +19,7 @@ import { GAPageView } from "./GAPageView";
  * The Measurement ID is env-overridable so it can rotate without a code change:
  *    NEXT_PUBLIC_GA4_ID — GA4 Measurement ID (defaults to the live property).
  */
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-DYZL44TQ73";
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-CMLLDWEPC3";
 
 export function GoogleAnalytics() {
   if (!GA4_ID) return null;
