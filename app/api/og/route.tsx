@@ -81,6 +81,188 @@ export async function GET(req: Request) {
   // social / OG share cards.
   const isCard = (searchParams.get("variant") ?? "social") === "card";
 
+  const opts = {
+    width: 1200,
+    height: 630,
+    headers: {
+      "Cache-Control": "public, immutable, no-transform, max-age=31536000",
+    },
+  };
+
+  // Card variant — a CENTERED composition (no headline) so that object-cover
+  // cropping on the page (featured card's tall column, hero, grid thumbs) keeps
+  // the focal motif + label visible regardless of aspect ratio.
+  if (isCard) {
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            background:
+              "linear-gradient(135deg, #050510 0%, #0a0a1f 40%, #0a0a18 100%)",
+            color: "white",
+            fontFamily: "system-ui, -apple-system, sans-serif",
+            position: "relative",
+            padding: "70px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `radial-gradient(circle at 50% 40%, ${accent}29, transparent 60%)`,
+            }}
+          />
+          {/* Faint centered watermark glyph */}
+          <div
+            style={{
+              position: "absolute",
+              display: "flex",
+              fontSize: glyph.length > 3 ? 300 : glyph.length > 2 ? 360 : 460,
+              fontWeight: 900,
+              color: accent,
+              opacity: 0.08,
+              lineHeight: 1,
+              letterSpacing: "-0.04em",
+            }}
+          >
+            {glyph}
+          </div>
+          {/* Brand — top-left */}
+          <div
+            style={{
+              position: "absolute",
+              top: 46,
+              left: 60,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              fontSize: 24,
+              fontWeight: 800,
+            }}
+          >
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 9,
+                background: `linear-gradient(135deg, ${accent} 0%, #a855f7 100%)`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#050510",
+                fontWeight: 900,
+                fontSize: 24,
+              }}
+            >
+              M
+            </div>
+            <span>Macksofy</span>
+          </div>
+          {/* Category chip — top-right */}
+          <div
+            style={{
+              position: "absolute",
+              top: 50,
+              right: 60,
+              display: "flex",
+              padding: "8px 16px",
+              borderRadius: 999,
+              border: `1px solid ${accent}66`,
+              background: `${accent}1a`,
+              color: accent,
+              fontSize: 16,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.16em",
+            }}
+          >
+            {eyebrow}
+          </div>
+          {/* Centered focal stack: motif tile + topical label */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              zIndex: 1,
+              gap: 30,
+            }}
+          >
+            <div
+              style={{
+                width: 168,
+                height: 168,
+                borderRadius: 34,
+                border: `2px solid ${accent}66`,
+                background: `linear-gradient(135deg, ${accent}30, transparent)`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: accent,
+                fontSize: glyph.length > 3 ? 58 : glyph.length > 2 ? 74 : 94,
+                fontWeight: 900,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              {glyph}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 60,
+                fontWeight: 900,
+                letterSpacing: "-0.03em",
+                color: "white",
+                lineHeight: 1.05,
+                textAlign: "center",
+                maxWidth: 920,
+              }}
+            >
+              {chipLabel}
+            </div>
+          </div>
+          {/* Trust strip — bottom */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 46,
+              display: "flex",
+              gap: 20,
+              fontSize: 16,
+              color: "rgba(255,255,255,0.6)",
+              fontWeight: 600,
+            }}
+          >
+            <span>CERT-In Empanelled</span>
+            <span style={{ color: accent }}>·</span>
+            <span>EC-Council ATC</span>
+            <span style={{ color: accent }}>·</span>
+            <span>ISO 27001</span>
+          </div>
+          {/* Accent ribbon */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 8,
+              height: "100%",
+              background: `linear-gradient(180deg, ${accent}, transparent)`,
+              opacity: 0.7,
+            }}
+          />
+        </div>
+      ),
+      opts
+    );
+  }
+
   return new ImageResponse(
     (
       <div
@@ -226,35 +408,19 @@ export async function GET(req: Request) {
           >
             {eyebrow}
           </div>
-          {isCard ? (
-            <div
-              style={{
-                display: "flex",
-                fontSize: 64,
-                fontWeight: 900,
-                lineHeight: 1.05,
-                letterSpacing: "-0.03em",
-                color: "white",
-                maxWidth: 760,
-              }}
-            >
-              {chipLabel}
-            </div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                fontSize: title.length > 64 ? 56 : 72,
-                fontWeight: 900,
-                lineHeight: 1.05,
-                letterSpacing: "-0.03em",
-                color: "white",
-                maxWidth: 1040,
-              }}
-            >
-              {title}
-            </div>
-          )}
+          <div
+            style={{
+              display: "flex",
+              fontSize: title.length > 64 ? 56 : 72,
+              fontWeight: 900,
+              lineHeight: 1.05,
+              letterSpacing: "-0.03em",
+              color: "white",
+              maxWidth: 1040,
+            }}
+          >
+            {title}
+          </div>
         </div>
 
         {/* Bottom row: trust strip */}
