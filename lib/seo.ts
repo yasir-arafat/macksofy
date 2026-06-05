@@ -66,17 +66,43 @@ interface BuildMetadataInput {
  * URL — `metadata.openGraph.images[*].url` must be absolute or social
  * scrapers fail to fetch it.
  */
-export function dynamicOgImage(args: {
+function ogQuery(args: {
   title: string;
   eyebrow: string;
   kind: OgKind;
+  topic?: string;
 }): string {
   const params = new URLSearchParams({
     title: args.title,
     eyebrow: args.eyebrow,
     kind: args.kind,
   });
-  return `${SITE.url}/api/og?${params.toString()}`;
+  if (args.topic) params.set("topic", args.topic);
+  return params.toString();
+}
+
+/** Absolute /api/og URL — for OG/Twitter meta tags (must be absolute). */
+export function dynamicOgImage(args: {
+  title: string;
+  eyebrow: string;
+  kind: OgKind;
+  topic?: string;
+}): string {
+  return `${SITE.url}/api/og?${ogQuery(args)}`;
+}
+
+/**
+ * Relative /api/og path — for on-page <img> (hero, cards). Same-origin so the
+ * current deployment (incl. preview/local) serves its own image rather than
+ * pointing at production.
+ */
+export function dynamicOgImagePath(args: {
+  title: string;
+  eyebrow: string;
+  kind: OgKind;
+  topic?: string;
+}): string {
+  return `/api/og?${ogQuery(args)}`;
 }
 
 function abs(path: string): string {

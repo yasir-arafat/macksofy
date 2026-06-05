@@ -9,11 +9,15 @@ import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, dynamicOgImagePath } from "@/lib/seo";
+import type { BlogPost } from "@/content/blog";
 import { POSTS, POST_CATEGORIES, POSTS_PER_PAGE } from "@/content/blog";
-import { BlogHeroVisual } from "@/components/blog/BlogHero";
 import { BlogPagination } from "@/components/blog/BlogPagination";
 import { SITE } from "@/lib/site";
+
+/** Topical featured image for a post, via the /api/og generator (relative). */
+const postImage = (p: BlogPost) =>
+  dynamicOgImagePath({ title: p.title, eyebrow: p.category, kind: "blog", topic: p.category });
 
 export const metadata = buildMetadata({
   title: "Cybersecurity Blog & Career Guides — Macksofy",
@@ -123,7 +127,15 @@ export default function BlogIndexPage() {
         >
           <div className="grid lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <BlogHeroVisual kind={featured.heroKind} slug={featured.slug} className="h-full" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={postImage(featured)}
+                alt={`${featured.title} — ${featured.category} · Macksofy`}
+                width={1200}
+                height={630}
+                fetchPriority="high"
+                className="h-full w-full object-cover min-h-[240px]"
+              />
             </div>
             <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-2">
@@ -166,7 +178,15 @@ export default function BlogIndexPage() {
               href={`/blog/${p.slug}`}
               className="group flex flex-col overflow-hidden rounded-2xl glass hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
             >
-              <BlogHeroVisual kind={p.heroKind} slug={p.slug} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={postImage(p)}
+                alt={`${p.title} — ${p.category} · Macksofy`}
+                width={1200}
+                height={630}
+                loading="lazy"
+                className="aspect-[1200/630] w-full object-cover"
+              />
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-2">
                   <Badge variant="purple">{p.category}</Badge>

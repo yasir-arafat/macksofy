@@ -17,9 +17,8 @@ import type { BlogBlock } from "@/content/blog";
 import { getAuthor, authorSchema } from "@/content/authors";
 import { SERVICES } from "@/content/services";
 import { BlogContent, BlogToc } from "@/components/blog/BlogContent";
-import { BlogHeroVisual } from "@/components/blog/BlogHero";
 import { SITE } from "@/lib/site";
-import { dynamicOgImage } from "@/lib/seo";
+import { dynamicOgImage, dynamicOgImagePath } from "@/lib/seo";
 
 /**
  * Word count from a post's blocks — used in BlogPosting schema's
@@ -126,6 +125,14 @@ export default async function BlogPostPage({ params }: PageProps) {
     title: p.title,
     eyebrow: p.category,
     kind: "blog",
+    topic: p.category,
+  });
+  // Same image, relative path — rendered as the on-page featured hero.
+  const heroImage = dynamicOgImagePath({
+    title: p.title,
+    eyebrow: p.category,
+    kind: "blog",
+    topic: p.category,
   });
 
   return (
@@ -230,7 +237,15 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <BlogHeroVisual kind={p.heroKind} slug={p.slug} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImage}
+                alt={`${p.title} — ${p.category} · Macksofy`}
+                width={1200}
+                height={630}
+                fetchPriority="high"
+                className="w-full rounded-2xl border border-line shadow-2xl shadow-black/40"
+              />
             </div>
           </div>
         </Container>
