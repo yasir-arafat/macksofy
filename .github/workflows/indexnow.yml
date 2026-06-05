@@ -1,0 +1,37 @@
+name: IndexNow
+
+# Pings IndexNow (Bing / Yandex / Seznam / Naver) with the live sitemap's URLs
+# right after a Vercel PRODUCTION deploy goes live, so newly published or changed
+# pages get crawled fast. Triggered by Vercel's GitHub deployment status (the
+# vercel[bot] sets environment "Production" → state "success" when the build is
+# live), so there's no fragile fixed-time wait. Also runnable manually.
+on:
+  deployment_status:
+  workflow_dispatch:
+
+# Never run two submissions at once / collapse rapid deploys.
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  indexnow:
+    # Only on a SUCCESSFUL PRODUCTION deploy (skip previews + pending/failed),
+    # or a manual dispatch.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment_status.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          # IndexNow keys are PUBLIC by design (the matching file is served at
+          # https://www.macksofy.com/<key>.txt), so this is safe to commit.
+          # Rotate by changing BOTH this value and public/<key>.txt.
+          INDEXNOW_KEY: f53939f92a38bf2770b945345d4e7084f021896535a421732da83966d0ce3a51
+        run: node scripts/indexnow-submit.mjs
