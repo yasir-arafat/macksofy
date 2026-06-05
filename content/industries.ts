@@ -17,6 +17,8 @@ import {
   Cloud,
   Factory,
   Landmark,
+  Zap,
+  Umbrella,
 } from "lucide-react";
 
 export interface IndustryFAQ {
@@ -516,6 +518,193 @@ export const INDUSTRIES: Industry[] = [
       "smart city cybersecurity",
       "Aadhaar integration audit",
       "GeM cybersecurity vendor",
+    ],
+  },
+
+  // =================================================================
+  // 6. ENERGY & UTILITIES (Critical Information Infrastructure)
+  // =================================================================
+  {
+    updated: "2026-06-05",
+    slug: "energy-utilities",
+    name: "Energy, Power & Utilities (Critical Infrastructure)",
+    shortName: "Energy & Utilities",
+    icon: Zap,
+    hero: {
+      eyebrow: "Industry · Power · Oil & Gas · NCIIPC · CEA · IEC 62443",
+      headline: "OT-aware cybersecurity for critical infrastructure.",
+      description:
+        "Power generation, transmission and distribution, load-despatch, oil & gas, renewables and water utilities are India's most consequential cyber targets — and most are designated Critical Information Infrastructure. Macksofy secures the IT and the OT, safety-first, mapped to NCIIPC, the CEA Power-Sector guidelines and IEC 62443.",
+    },
+    context: [
+      "Energy and utilities operate the one cyber-risk class where a breach is measured in megawatts and human safety, not just data. SCADA, PLCs, RTUs and safety instrumented systems run the physical process, and most of this estate is designated Critical Information Infrastructure under Section 70A of the IT Act — placing it squarely under NCIIPC. Power-sector operators additionally answer to the Central Electricity Authority's Cyber Security in Power Sector Guidelines 2021 (a mandatory framework with an ISMS, audits, a CISO and IT/OT segregation), and everyone reports incidents to CERT-In within six hours.",
+      "Macksofy runs energy engagements as a safety-first OT programme, not an IT audit pointed at a plant. We begin with passive asset discovery and an IT/OT path map, design zones and conduits to IEC 62443, and deliver OT-aware testing that uses passive analysis and twin/shutdown-window testing rather than live active scanning that could trip a running process. The same evidence base is mapped to NCIIPC and the CEA guidelines so the regulator review and the security programme are one effort, not two.",
+      "What's specific to energy vs. a generic engagement: the air-gap is almost always already bridged (engineering laptops, vendor VPNs, IIoT gateways, historians replicating to the corporate data lake), so connectivity is assumed and every path is found; OT devices are 15–30-year assets the OEM forbids you to patch or run EDR on, so segmentation and passive monitoring carry the load; and the incident-response plan's first question is whether the process and the people are safe, with named OT and safety-engineer escalation.",
+    ],
+    regulators: [
+      "NCIIPC — Critical Information Infrastructure protection under IT Act §70A",
+      "Central Electricity Authority — Cyber Security in Power Sector Guidelines 2021",
+      "CERT-In — 6-hour incident reporting + log retention (incl. OT operators)",
+      "IEC 62443 / ISA-99 — Industrial Automation & Control Systems security",
+      "PNGRB + sector ministries — oil & gas and pipeline cyber expectations",
+      "ISO 27001 — ISMS backbone run jointly with the CEA / NESA mappings",
+    ],
+    topServices: [
+      "iot-ot-security",
+      "network-security-architecture",
+      "vapt",
+      "managed-soc",
+      "digital-forensics-incident-response",
+      "red-teaming",
+    ],
+    topAudits: [
+      "nciipc-cii-audit",
+      "nist-csf",
+      "iso-27001",
+    ],
+    outcomes: [
+      "Passive OT asset inventory + full IT/OT path map (the air-gap myth, dispelled)",
+      "IEC 62443 zones-and-conduits design with a hardened Level 3.5 DMZ",
+      "Controls mapped once to NCIIPC + CEA Power-Sector guidelines — one evidence base, two regulators",
+      "OT-aware monitoring (Modbus/DNP3/OPC/PROFINET) into a SOC with process context",
+      "An incident-response runbook whose first move protects the process and the people",
+    ],
+    caseStudy: {
+      profile: "State power-distribution utility · multiple grid sub-stations + a SCADA/DMS control centre",
+      scope:
+        "Passive OT discovery across RTUs, IEDs and the SCADA/DMS estate; IT/OT path mapping; IEC 62443 zones-and-conduits design; gap assessment against the CEA Power-Sector guidelines and NCIIPC controls; OT-aware SOC monitoring pilot.",
+      finding:
+        "The 'air-gapped' control network had three live paths to corporate IT — a vendor remote-support VPN left dialled-up, an engineering laptop that also reached email, and a historian replicating to the enterprise data lake. A flat OT VLAN let a single compromised HMI reach every RTU.",
+      outcome:
+        "Vendor access re-brokered through a monitored MFA jump host, the historian flow moved to a one-way data diode through a new Level 3.5 DMZ, the OT estate re-segmented into IEC 62443 zones, and the CEA IT/OT-segregation finding closed ahead of the regulator review. Passive ICS monitoring now feeds the SOC.",
+    },
+    faqs: [
+      {
+        q: "Can you test our live SCADA / power-control systems without causing an outage?",
+        a: "Yes — by not testing them the way IT is tested. Active scanning or exploitation against fragile legacy controllers can trip the physical process, so OT assessment is passive-first: traffic capture and protocol analysis, configuration and firmware review, and architecture assessment against IEC 62443. Active testing is reserved for a lab, a digital twin or an agreed maintenance shutdown. You get the same findings with zero risk to safety or uptime.",
+      },
+      {
+        q: "Are you familiar with the CEA Cyber Security in Power Sector Guidelines?",
+        a: "Yes. The CEA's 2021 guidelines are a mandatory framework for power generation, transmission, distribution and load-despatch — an ISMS, periodic audits, a designated CISO, IT/OT network segregation and incident reporting. We gap-assess your estate against them, prioritise the IT/OT-segregation finding (the most common gap), and map the same control set to NCIIPC and ISO 27001 so you maintain one programme, not three.",
+      },
+      {
+        q: "What is NCIIPC and does it apply to us?",
+        a: "NCIIPC — the National Critical Information Infrastructure Protection Centre, under Section 70A of the IT Act — protects designated Critical Information Infrastructure across power, oil & gas, transport and other strategic sectors. If your systems are designated CII (most large grid, generation and pipeline operators are), you carry protection, reporting and baseline-control obligations to NCIIPC. We help you meet them and produce the evidence a review will ask for.",
+      },
+      {
+        q: "Do you secure renewables, oil & gas and water utilities too, or only power grids?",
+        a: "All of them. The OT security model — passive discovery, IEC 62443 zones and conduits, OT-aware monitoring and a safety-first IR plan — applies across power (thermal, hydro, solar/wind farms, load-despatch), oil & gas (PNGRB-regulated pipelines and refineries) and water/wastewater utilities. The regulators differ by sub-sector; the engineering discipline is the same.",
+      },
+    ],
+    seoTitle:
+      "Energy & Utilities Cybersecurity — NCIIPC · CEA · IEC 62443 | Macksofy",
+    seoDescription:
+      "OT-aware cybersecurity for Indian power, oil & gas, renewables and water utilities. SCADA/ICS security, IEC 62443 segmentation, NCIIPC + CEA Power-Sector compliance, safety-first IR.",
+    keywords: [
+      "energy cybersecurity India",
+      "power sector cybersecurity India",
+      "SCADA ICS security India",
+      "NCIIPC CII compliance",
+      "CEA cyber security power sector guidelines",
+      "IEC 62443 India",
+      "OT security utilities",
+      "oil and gas cybersecurity India",
+      "critical infrastructure security India",
+      "grid SCADA penetration testing",
+    ],
+  },
+
+  // =================================================================
+  // 7. INSURANCE (insurer-specific deep vertical — IRDAI)
+  // =================================================================
+  {
+    updated: "2026-06-05",
+    slug: "insurance",
+    name: "Insurance — Life, General, Health & Reinsurance",
+    shortName: "Insurance",
+    icon: Umbrella,
+    hero: {
+      eyebrow: "Industry · IRDAI · ISNP · DPDPA · Health Data",
+      headline: "Cybersecurity built for insurers and insurtech.",
+      description:
+        "Insurers sit on the most sensitive personal data outside healthcare — health records, financials, KYC and claims — across sprawling agent, broker, web-aggregator and insurtech ecosystems. Macksofy delivers IRDAI-aligned cybersecurity audits, VAPT and Managed SOC for life, general, health and reinsurance carriers.",
+    },
+    context: [
+      "Insurance is regulated as part of BFSI but carries its own cyber profile. The IRDAI Information & Cyber Security Guidelines set the baseline — a board-approved security policy, a CISO, periodic VAPT and audits, incident reporting and third-party risk management — and they reach the entire distribution chain: insurers, ISNP (Insurance Self-Network Platform) operators, web aggregators, corporate agents, brokers and the growing insurtech layer. Overlaid on this is the DPDP Act, because an insurer's data estate is dominated by sensitive personal and health data, and CERT-In's 6-hour incident-reporting and log-retention directions.",
+      "Macksofy delivers IRDAI-aligned audits, application and API VAPT, cloud security and 24×7 Managed SOC into life, general (motor/property/marine), standalone health insurers and reinsurers. Most engagements run as an annual programme — periodic VAPT across the policy-admin system, customer and agent portals, mobile apps, the ISNP and the API estate that connects aggregators and insurtech partners — plus the point-in-time IRDAI audit and a CISO-on-tap retainer.",
+      "What's specific to insurance vs. generic BFSI: the attack surface is dominated by web and API channels (aggregator integrations, agent portals, claims and onboarding APIs) and by a long tail of third-party insurtech and TPA integrations; the data sensitivity is health-grade, so DPDPA and breach exposure are acute; and claims-fraud and account-takeover detection belong in the SOC alongside classic web/API threats. Reports follow the IRDAI format and map cleanly to ISO 27001 and the DPDP Act.",
+    ],
+    regulators: [
+      "IRDAI — Information & Cyber Security Guidelines for insurers and intermediaries",
+      "IRDAI — ISNP (Insurance Self-Network Platform) security requirements",
+      "DPDP Act 2023 — sensitive personal + health data of policyholders",
+      "CERT-In — 6-hour incident reporting + log retention + empanelled audit",
+      "ISO 27001 — ISMS run jointly with the IRDAI control mapping",
+      "SOC 2 — for insurtech / SaaS platforms serving carriers",
+    ],
+    topServices: [
+      "vapt",
+      "web-application-security",
+      "api-security",
+      "managed-soc",
+      "cloud-security",
+      "penetration-testing",
+    ],
+    topAudits: [
+      "irdai-compliance",
+      "iso-27001",
+      "dpdp-act",
+      "soc-2",
+    ],
+    outcomes: [
+      "IRDAI-format reports accepted by the regulator and internal audit on the first read",
+      "Year-round VAPT across policy-admin, portals, mobile, the ISNP and the aggregator/insurtech API estate",
+      "DPDPA-aligned handling of policyholder health and financial data, with breach-readiness",
+      "24×7 Managed SOC tuned for claims fraud, account-takeover and OWASP API Top 10",
+      "Third-party / insurtech / TPA integration risk assessed and continuously monitored",
+    ],
+    caseStudy: {
+      profile: "Standalone health insurer · pan-India · web-aggregator + agent + insurtech distribution",
+      scope:
+        "Annual programme — IRDAI Information & Cyber Security Guidelines gap closure, quarterly VAPT across the policy-admin system, customer/agent portals, mobile app and the claims/onboarding API estate, plus a review of web-aggregator and TPA integrations.",
+      finding:
+        "A claims-upload API exposed an IDOR that let an authenticated policyholder enumerate and download other claimants' medical documents. A web-aggregator integration trusted a partner-supplied identifier without server-side authorisation.",
+      outcome:
+        "Object-level authorisation enforced on every claims/document endpoint, the aggregator integration moved to signed, server-validated tokens, and the SOC gained detections for cross-account enumeration. IRDAI gap items closed and the evidence pack mapped to ISO 27001 + DPDP Act in one report set.",
+    },
+    faqs: [
+      {
+        q: "Are Macksofy reports aligned to the IRDAI cyber security guidelines?",
+        a: "Yes. We deliver against the IRDAI Information & Cyber Security Guidelines — periodic VAPT, the control-area gap assessment, incident-reporting and third-party-risk requirements — in the format IRDAI and your internal audit expect. Macksofy is CERT-In empanelled, and we map the same findings to ISO 27001 and the DPDP Act so one evidence base serves all three.",
+      },
+      {
+        q: "Do you cover ISNP and web-aggregator / insurtech integrations?",
+        a: "Yes — that's where most insurer risk now lives. We test the ISNP (Insurance Self-Network Platform), agent and customer portals, mobile apps, and critically the API estate that connects web aggregators, TPAs and insurtech partners. API authorisation flaws (IDOR/BOLA), token trust issues and weak partner integrations are the most common high-severity findings we surface.",
+      },
+      {
+        q: "How do you handle policyholder health data under the DPDP Act?",
+        a: "An insurer's data estate is health-grade, so we treat DPDPA as a first-class scope item, not an afterthought. We map where sensitive personal and health data is collected, processed, stored and shared (including with TPAs and reinsurers), flag the high-risk flows, and align the security controls and breach-response runbook to the DPDP Act alongside the IRDAI requirements.",
+      },
+      {
+        q: "Can you secure an insurtech / SaaS platform that sells to carriers?",
+        a: "Yes. Insurtech and SaaS platforms serving insurers need both the security depth (application + API VAPT, cloud security, a Managed SOC) and the assurance artefacts their carrier customers demand — typically SOC 2 and ISO 27001 alongside an IRDAI-aligned posture. We run these as one programme so you can answer a carrier's security due-diligence without a separate project each time.",
+      },
+    ],
+    seoTitle:
+      "Insurance Cybersecurity — IRDAI · ISNP · DPDPA | Macksofy",
+    seoDescription:
+      "CERT-In empanelled cybersecurity for Indian life, general, health & reinsurance carriers and insurtech. IRDAI-aligned audits, web/API VAPT, Managed SOC, DPDPA + ISO 27001.",
+    keywords: [
+      "insurance cybersecurity India",
+      "IRDAI cyber security guidelines audit",
+      "insurer VAPT India",
+      "ISNP security requirements",
+      "health insurance data protection DPDP",
+      "insurtech security SOC 2",
+      "web aggregator API security",
+      "claims fraud detection SOC",
+      "reinsurance cybersecurity",
+      "IRDAI compliance audit India",
     ],
   },
 ];
