@@ -69,7 +69,7 @@ const nextConfig: NextConfig = {
       "font-src 'self' data: https://fonts.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com ${analyticsScriptSrc.join(" ")}`,
-      "frame-src 'self' https://challenges.cloudflare.com https://maps.google.com https://www.google.com https://www.google.com/maps",
+      "frame-src 'self' https://challenges.cloudflare.com https://maps.google.com https://www.google.com https://www.google.com/maps https://www.googletagmanager.com https://td.doubleclick.net https://googleads.g.doubleclick.net",
       `connect-src 'self' https://challenges.cloudflare.com https://api.resend.com https://maps.googleapis.com https://www.google.com ${analyticsConnectSrc.join(" ")}`,
       "object-src 'none'",
       "upgrade-insecure-requests",

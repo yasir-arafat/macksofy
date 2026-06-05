@@ -7,6 +7,7 @@ import { Shell } from "@/components/layout/Shell";
 import { LazyClientWidgets } from "@/components/widgets/LazyClientWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
 import {
   organizationSchema,
   localBusinessSchema,
@@ -146,6 +147,12 @@ fbq('track', 'PageView');`,
       )}
       <body className="min-h-full flex flex-col bg-bg text-fg">
         {/* React 19 hoists these to <head>. */}
+
+        {/* Google Tag Manager — site-wide. Fires the Google Ads Conversion tag
+            off the `generate_lead` Custom Event pushed by the contact form
+            (lib/analytics.ts) and the /lp thank-you page (ConversionPing.tsx).
+            Inert until NEXT_PUBLIC_GTM_ID is set. */}
+        <GoogleTagManager />
 
         {/* Google Analytics 4 — site-wide. Loads gtag.js once for the whole
             app (including the nested /lp landing pages) and tracks a pageview
