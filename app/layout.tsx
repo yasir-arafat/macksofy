@@ -129,7 +129,6 @@ export default function RootLayout({
         <head>
           <script
             id="meta-pixel"
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -155,6 +154,9 @@ fbq('track', 'PageView');`,
 
         {META_PIXEL_ID && (
           <noscript>
+            {/* Meta requires a raw 1×1 <img> beacon; next/image can't render
+                inside <noscript>, so the rule is intentionally disabled here. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               height="1"
               width="1"

@@ -7,7 +7,6 @@ import {
   Cloud,
   ShieldAlert,
   UserCog,
-  Building,
 } from "lucide-react";
 
 export type Sector =

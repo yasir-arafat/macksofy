@@ -35,6 +35,15 @@ const TURNSTILE_SITE_KEY =
 
 const THANK_YOU_PATH = "/lp/ceh-certification/thank-you";
 
+// Lightweight submit signal pushed to the GTM dataLayer. Kept at module scope
+// so the global `window.dataLayer` mutation lives outside component render
+// (the conversion itself fires on the thank-you page — see ConversionPing).
+function pushLeadSubmit() {
+  const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event: "lead_submit", form: "ceh_lp" });
+}
+
 export function LeadForm() {
   const router = useRouter();
   const {
@@ -106,9 +115,7 @@ export function LeadForm() {
 
       // Lightweight submit signal (conversion itself fires on the thank-you
       // page, so reaching that URL is the single source of truth).
-      const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
-      w.dataLayer = w.dataLayer || [];
-      w.dataLayer.push({ event: "lead_submit", form: "ceh_lp" });
+      pushLeadSubmit();
 
       router.push(THANK_YOU_PATH);
     } catch (err) {
@@ -119,7 +126,7 @@ export function LeadForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+    <form onSubmit={(e) => handleSubmit(onSubmit)(e)} className="space-y-4" noValidate>
       <Field label="Full name *" error={errors.name?.message}>
         <input
           type="text"

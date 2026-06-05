@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useRef, useCallback } from "react";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Send, CheckCircle2, AlertTriangle, ShieldCheck, RefreshCw } from "lucide-react";
@@ -64,7 +64,7 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors, isSubmitting, touchedFields },
     reset,
     trigger,
@@ -105,14 +105,6 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
     setCfExpired(false);
     setResetKey((k) => k + 1);
   }, [clearToken]);
-
-  // Warn the user when the token expires mid-session
-  useEffect(() => {
-    if (cfExpired) {
-      setStatus("error");
-      setStatusMessage("Verification expired — please complete the check again.");
-    }
-  }, [cfExpired]);
 
   // --- Submit ---
   async function onSubmit(values: FormValues) {
@@ -162,11 +154,13 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
     }
   }
 
-  // Watch fields so the "verified" badge / button state reacts in real time
-  const watchedValues = watch();
+  // Watch only the optional company field so its "valid" styling reacts in
+  // real time. useWatch (vs the full watch()) is React-Compiler-safe — it
+  // returns a value, not a function, so the component still memoizes.
+  const companyValue = useWatch({ control, name: "company" });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+    <form onSubmit={(e) => handleSubmit(onSubmit)(e)} className="space-y-5" noValidate>
       {/* Name + Email */}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name *" error={errors.name?.message}>
@@ -205,7 +199,7 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
           <input
             type="text"
             autoComplete="organization"
-            className={inputCls(false, !!(touchedFields.company && watchedValues.company))}
+            className={inputCls(false, !!(touchedFields.company && companyValue))}
             {...register("company")}
           />
         </Field>
@@ -327,6 +321,11 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
           onExpire={() => {
             setCfExpired(true);
             clearToken();
+            // Warn the user inline at the moment the token expires (event-driven
+            // rather than via an effect watching cfExpired — avoids a cascading
+            // render and the set-state-in-effect lint rule).
+            setStatus("error");
+            setStatusMessage("Verification expired — please complete the check again.");
           }}
         />
 

@@ -68,7 +68,7 @@ export default function IndustriesPage() {
             <p className="mt-6 text-lg text-fg-muted text-pretty">
               A BFSI VAPT looks nothing like a hospital VAPT. SaaS SOC 2 evidence
               looks nothing like a CERT-In submission. Government bidding works
-              nothing like enterprise procurement. Macksofy's vertical practices
+              nothing like enterprise procurement. Macksofy&apos;s vertical practices
               are staffed by people who&apos;ve done the work before — regulator-
               aware reporting, sector-tuned methodology, evidence in the format
               your specific audience reads.

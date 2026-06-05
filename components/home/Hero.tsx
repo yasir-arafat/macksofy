@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone, ArrowRight, Terminal, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import dynamic from "next/dynamic";
@@ -21,16 +21,20 @@ const HeroThreeScene = dynamic(
  * main-thread tax on mid-range mobile (Indian + UAE buyer reality). Bail
  * out under 768px or on coarse-pointer devices. Saves ~600-900ms LCP.
  */
+const DESKTOP_QUERY = "(min-width: 768px) and (pointer: fine)";
+
+function subscribeDesktop(callback: () => void) {
+  const mq = window.matchMedia(DESKTOP_QUERY);
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
 function useDesktopOnly(): boolean {
-  const [ok, setOk] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px) and (pointer: fine)");
-    setOk(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setOk(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-  return ok;
+  return useSyncExternalStore(
+    subscribeDesktop,
+    () => window.matchMedia(DESKTOP_QUERY).matches,
+    () => false, // SSR snapshot: ship mobile-safe (no WebGL on first paint)
+  );
 }
 import {
   ScanLines,
