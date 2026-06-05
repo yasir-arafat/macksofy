@@ -66,6 +66,13 @@ interface BuildMetadataInput {
  * URL — `metadata.openGraph.images[*].url` must be absolute or social
  * scrapers fail to fetch it.
  */
+// Cache-bust token for the /api/og generator. The generated PNGs are served
+// `immutable` for a year (good for perf), so editing the generator would
+// otherwise serve stale images forever from browser + CDN caches. BUMP THIS
+// whenever the /api/og visual design changes — it changes every image URL and
+// forces a fresh fetch everywhere.
+const OG_VERSION = "3";
+
 function ogQuery(args: {
   title: string;
   eyebrow: string;
@@ -80,6 +87,7 @@ function ogQuery(args: {
   });
   if (args.topic) params.set("topic", args.topic);
   if (args.variant === "card") params.set("variant", "card");
+  params.set("v", OG_VERSION);
   return params.toString();
 }
 
