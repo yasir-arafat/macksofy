@@ -16,10 +16,18 @@ import { GAPageView } from "./GAPageView";
  * <GAPageView/> then sends one page_view per *subsequent* App Router navigation
  * (it skips the first run so the landing page isn't double-counted).
  *
- * The Measurement ID is env-overridable so it can rotate without a code change:
- *    NEXT_PUBLIC_GA4_ID — GA4 Measurement ID (defaults to the live property).
+ * The IDs are env-overridable so they can rotate without a code change:
+ *    NEXT_PUBLIC_GA4_ID        — GA4 Measurement ID (defaults to the live property).
+ *    NEXT_PUBLIC_GOOGLE_ADS_ID — Google Ads Google tag (G-/AW- prefix). Configured
+ *                                as a second destination on the SAME gtag.js
+ *                                instance, so Ads conversions + remarketing share
+ *                                the one tag load (no second script, no extra CSP
+ *                                origin). Conversion actions still fire via gtag
+ *                                'event' calls / GTM triggers — this only registers
+ *                                the Ads tag so those events have a destination.
  */
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-CMLLDWEPC3";
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "G-EM9DC46JX3";
 
 export function GoogleAnalytics() {
   if (!GA4_ID) return null;
@@ -37,6 +45,7 @@ export function GoogleAnalytics() {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${GA4_ID}');
+          ${ADS_ID && ADS_ID !== GA4_ID ? `gtag('config', '${ADS_ID}');` : ""}
         `}
       </Script>
       <Suspense fallback={null}>
