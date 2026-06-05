@@ -71,6 +71,7 @@ function ogQuery(args: {
   eyebrow: string;
   kind: OgKind;
   topic?: string;
+  variant?: "social" | "card";
 }): string {
   const params = new URLSearchParams({
     title: args.title,
@@ -78,10 +79,14 @@ function ogQuery(args: {
     kind: args.kind,
   });
   if (args.topic) params.set("topic", args.topic);
+  if (args.variant === "card") params.set("variant", "card");
   return params.toString();
 }
 
-/** Absolute /api/og URL — for OG/Twitter meta tags (must be absolute). */
+/**
+ * Absolute /api/og URL — for OG/Twitter meta tags (must be absolute). Defaults
+ * to the "social" variant (title baked in) — correct for share previews.
+ */
 export function dynamicOgImage(args: {
   title: string;
   eyebrow: string;
@@ -94,15 +99,17 @@ export function dynamicOgImage(args: {
 /**
  * Relative /api/og path — for on-page <img> (hero, cards). Same-origin so the
  * current deployment (incl. preview/local) serves its own image rather than
- * pointing at production.
+ * pointing at production. Defaults to the "card" variant (no baked-in headline)
+ * since the page already renders the title and the image is cropped to fit.
  */
 export function dynamicOgImagePath(args: {
   title: string;
   eyebrow: string;
   kind: OgKind;
   topic?: string;
+  variant?: "social" | "card";
 }): string {
-  return `/api/og?${ogQuery(args)}`;
+  return `/api/og?${ogQuery({ variant: "card", ...args })}`;
 }
 
 function abs(path: string): string {

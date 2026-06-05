@@ -75,6 +75,11 @@ export async function GET(req: Request) {
       .slice(0, 4)
       .toUpperCase() || "SEC");
   const chipLabel = theme?.label ?? (kind === "macksofy" ? "Macksofy" : kind);
+  // variant=card → no baked-in headline (used for on-page hero + index cards,
+  // where the page already shows the title and the image is cropped to fit, so
+  // a long title would be clipped + duplicated). Default keeps the title for
+  // social / OG share cards.
+  const isCard = (searchParams.get("variant") ?? "social") === "card";
 
   return new ImageResponse(
     (
@@ -198,7 +203,8 @@ export async function GET(req: Request) {
           </div>
         </div>
 
-        {/* Body: eyebrow + title */}
+        {/* Body: eyebrow + (title on social cards / topical label on the
+            no-headline card variant used for on-page heroes + index cards). */}
         <div
           style={{
             display: "flex",
@@ -220,19 +226,35 @@ export async function GET(req: Request) {
           >
             {eyebrow}
           </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: title.length > 64 ? 56 : 72,
-              fontWeight: 900,
-              lineHeight: 1.05,
-              letterSpacing: "-0.03em",
-              color: "white",
-              maxWidth: 1040,
-            }}
-          >
-            {title}
-          </div>
+          {isCard ? (
+            <div
+              style={{
+                display: "flex",
+                fontSize: 64,
+                fontWeight: 900,
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+                color: "white",
+                maxWidth: 760,
+              }}
+            >
+              {chipLabel}
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                fontSize: title.length > 64 ? 56 : 72,
+                fontWeight: 900,
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+                color: "white",
+                maxWidth: 1040,
+              }}
+            >
+              {title}
+            </div>
+          )}
         </div>
 
         {/* Bottom row: trust strip */}
