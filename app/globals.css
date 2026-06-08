@@ -131,12 +131,12 @@ body {
   color: #050510;
 }
 
-/* Type voice: mono (--font-display = JetBrains Mono) is reserved for the BIG
-   headings — the hero and section titles (h1, h2). Sub-headings (h3–h6, card
-   titles, sub-section heads) revert to Space Grotesk for readability, even
-   when they carry the `font-display` utility. Unlayered so it beats the
-   layered `.font-display` utility; font-mono labels/eyebrows are unaffected
-   (they're spans/divs, not h3–h6). */
+/* Type voice: mono (--font-display = JetBrains Mono) is reserved for the HERO
+   / page-title headings (h1) only. Section titles (h2) and all sub-headings
+   (h3–h6, card titles) use Space Grotesk for readability, even when they carry
+   the `font-display` utility. Unlayered so it beats the layered `.font-display`
+   utility; font-mono labels/eyebrows are unaffected (spans/divs, not h2–h6). */
+h2,
 h3,
 h4,
 h5,
