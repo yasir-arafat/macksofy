@@ -75,7 +75,7 @@ export function LeadMagnetPopup() {
             {!submitted ? (
               <>
                 <div className="inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/30 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-neon-cyan">
-                  <Download className="size-3" /> Free Download · 38 pages
+                  <Download className="size-3" /> Free Download · PDF
                 </div>
                 <h3 className="mt-4 font-display text-2xl font-black text-fg leading-tight">
                   The 2026 Cyber Resilience Guide for Indian Boards
@@ -111,15 +111,25 @@ export function LeadMagnetPopup() {
                   <ShieldCheck className="size-7 text-emerald-400" />
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-black text-fg">
-                  Sent. Check your inbox.
+                  Your guide is ready.
                 </h3>
                 <p className="mt-2 text-sm text-fg-muted">
-                  Your copy of the guide is on its way. Reply to the email if you want a
-                  follow-up call with a Macksofy consultant.
+                  Download your copy below. A Macksofy consultant may reach out —
+                  reply any time if you would like a follow-up call.
                 </p>
+                <a
+                  href="/cyber-resilience-guide-2026.pdf"
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 rounded-xl bg-neon-cyan px-5 py-2.5 text-sm font-bold text-bg hover:bg-neon-cyan/90 transition-colors"
+                >
+                  <Download className="size-4" />
+                  Download the guide (PDF)
+                </a>
                 <button
                   onClick={() => setOpen(false)}
-                  className="mt-5 text-sm font-semibold text-neon-cyan hover:underline"
+                  className="mt-4 block w-full text-sm font-semibold text-fg-muted hover:text-fg"
                 >
                   Close
                 </button>
