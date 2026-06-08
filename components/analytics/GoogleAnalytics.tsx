@@ -27,7 +27,7 @@ import { GAPageView } from "./GAPageView";
  *                                the Ads tag so those events have a destination.
  */
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-CMLLDWEPC3";
-const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "G-EM9DC46JX3";
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "AW-959458305";
 
 export function GoogleAnalytics() {
   if (!GA4_ID) return null;
