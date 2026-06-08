@@ -131,6 +131,19 @@ body {
   color: #050510;
 }
 
+/* Type voice: mono (--font-display = JetBrains Mono) is reserved for the BIG
+   headings — the hero and section titles (h1, h2). Sub-headings (h3–h6, card
+   titles, sub-section heads) revert to Space Grotesk for readability, even
+   when they carry the `font-display` utility. Unlayered so it beats the
+   layered `.font-display` utility; font-mono labels/eyebrows are unaffected
+   (they're spans/divs, not h3–h6). */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+}
+
 /* Mono headings (JetBrains Mono display) are ~15–20% wider than the old
    proportional faces, and CSS `text-wrap: balance` (Tailwind `text-balance`,
    used on 200+ headings) prioritises line balance over fitting — so on narrow
