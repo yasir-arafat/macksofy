@@ -56,6 +56,20 @@ function detectAiBot(ua: string | null): string | null {
 export function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
+  // ── Canonical host: 301 non-www → www ─────────────────────────────
+  // Both the apex (macksofy.com) and www resolve to this app on Vercel.
+  // Without this redirect they serve duplicate 200s, splitting crawl and
+  // indexing signals across two hosts. The whole site canonicalises to
+  // https://www.macksofy.com (SITE.url, every <link rel=canonical>, the
+  // sitemap, and robots Host), so send the apex there — preserving path +
+  // query. EXACT hostname match (not a regex) so www never matches itself
+  // → no redirect loop. Localhost / preview hosts are untouched.
+  const host = req.headers.get("host");
+  if (host === "macksofy.com") {
+    const dest = new URL(path + req.nextUrl.search, "https://www.macksofy.com");
+    return NextResponse.redirect(dest, 301);
+  }
+
   // ── AI crawler hit logging ────────────────────────────────────────
   // Runs on every matched path. Structured log line goes to Vercel
   // runtime logs. View in Vercel dashboard → Logs → filter
