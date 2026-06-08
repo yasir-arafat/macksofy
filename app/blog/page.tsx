@@ -81,7 +81,7 @@ export default function BlogIndexPage() {
           <div className="mt-10 grid gap-12 lg:grid-cols-12 items-end">
             <div className="lg:col-span-8">
               <Eyebrow>Insights · Updated weekly</Eyebrow>
-              <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
+              <h1 className="mt-4 font-display text-4xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
                 Cybersecurity insights{" "}
                 <span className="gradient-text">from the trenches.</span>
               </h1>

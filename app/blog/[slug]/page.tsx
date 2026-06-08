@@ -252,11 +252,11 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       <Container className="py-10">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <aside className="lg:col-span-3 hidden lg:block">
             <BlogToc blocks={p.blocks} />
           </aside>
-          <article className="lg:col-span-9 max-w-3xl mx-auto lg:mx-0 prose-article">
+          <article className="lg:col-span-9 min-w-0 w-full max-w-3xl mx-auto lg:mx-0 prose-article">
             <BlogContent blocks={p.blocks} />
           </article>
         </div>

@@ -173,7 +173,7 @@ export default function VaptServicePage() {
       {/* COVERAGE MATRIX */}
       <section className="py-20">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 items-end">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-end">
             <div className="lg:col-span-6">
               <Eyebrow color="purple">Coverage</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
@@ -237,7 +237,7 @@ export default function VaptServicePage() {
       {/* SAMPLE FINDING */}
       <section className="py-20 bg-bg-1">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 items-center">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
             <div className="lg:col-span-5">
               <Eyebrow color="purple">Anatomy of a finding</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
@@ -274,7 +274,7 @@ export default function VaptServicePage() {
       {/* TOOL STACK */}
       <section className="py-20">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 items-end">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-end">
             <div className="lg:col-span-5">
               <Eyebrow>Tooling</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
@@ -306,7 +306,7 @@ export default function VaptServicePage() {
       {/* DELIVERABLES + INDUSTRIES */}
       <section className="py-20 bg-bg-1">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Eyebrow>Deliverables</Eyebrow>
               <h3 className="mt-3 font-display text-2xl font-black sm:text-3xl">

@@ -31,11 +31,13 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+// JetBrains Mono drives both the code/labels AND (now) the headings for a
+// terminal look — so load the full variable axis (100–800) instead of three
+// static weights. Tailwind font-black (900) clamps to its 800 max cleanly.
 const mono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {

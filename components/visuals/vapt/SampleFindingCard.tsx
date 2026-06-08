@@ -32,7 +32,7 @@ export function SampleFindingCard() {
       <div className="p-7">
         {/* header */}
         <div className="flex items-start justify-between gap-4">
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-red-300">
               <ShieldOff className="size-3.5" />
               Critical · validated · weaponised

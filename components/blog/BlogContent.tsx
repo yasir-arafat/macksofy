@@ -136,7 +136,7 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
       const Tag = block.level === 2 ? "h2" : "h3";
       const cls =
         block.level === 2
-          ? "mt-14 mb-5 font-display text-3xl sm:text-4xl font-black text-fg text-balance leading-tight scroll-mt-28"
+          ? "mt-14 mb-5 font-display text-3xl sm:text-4xl font-black text-fg leading-tight scroll-mt-28"
           : "mt-10 mb-4 font-display text-xl font-bold text-fg scroll-mt-28";
       return (
         <Tag id={block.id} className={cls}>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone, ArrowRight, Terminal, Sparkles } from "lucide-react";
-import { useSyncExternalStore } from "react";
+import { Fragment, useSyncExternalStore } from "react";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import dynamic from "next/dynamic";
@@ -93,7 +93,7 @@ export function Hero() {
       <CinematicTicker />
 
       <Container className="relative flex-1 flex items-center pt-20 pb-32 sm:pt-24 sm:pb-36 lg:pt-28">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-7">
             <motion.div
               initial={false}
@@ -112,19 +112,21 @@ export function Hero() {
             </motion.div>
 
             {/* Word-by-word headline reveal */}
-            <h1 className="mt-7 font-display text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-balance leading-[0.92]">
+            <h1 className="mt-7 font-display text-4xl font-black tracking-tight sm:text-5xl lg:text-7xl xl:text-[5.25rem] leading-[1.05] sm:leading-[0.95]">
               <span className="block">
                 {HEADLINE_LINE_1.map((w, i) => (
-                  <RevealWord key={i} delay={0.15 + i * 0.08}>
-                    {w}
-                  </RevealWord>
+                  <Fragment key={i}>
+                    <RevealWord delay={0.15 + i * 0.08}>{w}</RevealWord>{" "}
+                  </Fragment>
                 ))}
               </span>
               <span className="block mt-1">
                 {HEADLINE_LINE_2.map((w, i) => (
-                  <RevealWord key={i} delay={0.35 + i * 0.08} gradient>
-                    {w}
-                  </RevealWord>
+                  <Fragment key={i}>
+                    <RevealWord delay={0.35 + i * 0.08} gradient>
+                      {w}
+                    </RevealWord>{" "}
+                  </Fragment>
                 ))}
               </span>
             </h1>
@@ -235,7 +237,7 @@ function RevealWord({
         ease: [0.22, 1, 0.36, 1],
       }}
       className={cn(
-        "inline-block mr-3 lg:mr-4 leading-[1.1] pb-[0.12em]",
+        "inline-block leading-[1.1] pb-[0.12em]",
         gradient && "gradient-text"
       )}
     >

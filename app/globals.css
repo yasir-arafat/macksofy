@@ -48,7 +48,8 @@
 
   /* Fonts */
   --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  /* Headings use the mono family for a terminal look; body stays Space Grotesk. */
+  --font-display: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Shadows + glow */
@@ -128,6 +129,27 @@ body {
 ::selection {
   background: var(--color-neon-cyan);
   color: #050510;
+}
+
+/* Mono headings (JetBrains Mono display) are ~15–20% wider than the old
+   proportional faces, and CSS `text-wrap: balance` (Tailwind `text-balance`,
+   used on 200+ headings) prioritises line balance over fitting — so on narrow
+   screens a short heading line can stay on one line and overflow/clip instead
+   of wrapping. Downgrade balance → pretty on phones: same orphan-avoidance,
+   no overflow. Desktop keeps balanced headings (it has the width). */
+/* A bare `grid` (display:grid with columns set only at a larger breakpoint,
+   e.g. `grid ... lg:grid-cols-12`) falls back to a single IMPLICIT `auto`
+   column, which grows to its widest content's max-content — so a wide mono
+   heading expands the track past the viewport and clips instead of wrapping.
+   Default such grids to one CONSTRAINED column so content wraps to the screen.
+   Lives in @layer base, so ANY `grid-cols-*` utility (higher layer) still wins
+   — this only fills the gap when no column is set. grid-flow-col grids (the
+   horizontal ATT&CK heatmap) genuinely need multiple auto columns, so exclude
+   them. */
+@layer base {
+  .grid:not(.grid-flow-col) {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* Custom scrollbar */
