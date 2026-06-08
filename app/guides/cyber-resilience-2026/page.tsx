@@ -33,7 +33,7 @@ const REG_STACK: [string, string, string][] = [
   [
     "DPDP Act 2023",
     "Any organisation processing digital personal data of individuals in India",
-    "Lawful-basis consent, breach notification to the Data Protection Board, and Significant-Data-Fiduciary duties.",
+    "Consent-based processing, breach notification to the Data Protection Board, and Significant-Data-Fiduciary duties.",
   ],
   [
     "IT Act s.70 / NCIIPC",
@@ -54,7 +54,7 @@ const CHECKLIST: { group: string; items: string[] }[] = [
       "A board-approved information-security / cyber-security policy exists and was reviewed in the last 12 months.",
       "A named CISO (or equivalent) reports cyber risk to the board or a board committee at least quarterly.",
       "Cyber risk appears on the enterprise risk register with a defined owner, appetite statement and treatment plan.",
-      "Roles and reserve powers are defined in a Cyber-Crisis Management Plan that the board has seen.",
+      "Roles and decision rights are defined in a Cyber-Crisis Management Plan that the board has seen.",
       "Directors-and-officers (D&O) cover and a standalone cyber-insurance policy have been reviewed against current exposure.",
     ],
   },
@@ -62,7 +62,7 @@ const CHECKLIST: { group: string; items: string[] }[] = [
     group: "RBI / banking controls (if regulated)",
     items: [
       "The bank is mapped to the correct RBI tier and the corresponding baseline controls are evidenced.",
-      "A 24x7 Security Operations Centre is operational, in-house or via an accountable MSSP, with defined SLAs.",
+      "A 24×7 Security Operations Centre is operational, in-house or via an accountable MSSP, with defined SLAs.",
       "Critical and high-severity vulnerabilities from the last VAPT are closed or have board-noted compensating controls.",
       "The IT Governance, IT Outsourcing and Digital-Lending controls are evidenced where applicable.",
     ],
@@ -137,7 +137,7 @@ const ROADMAP: { phase: string; theme: string; actions: string[] }[] = [
       "Asset & data inventory; classify crown-jewel systems and personal-data stores.",
       "Gap assessment against the applicable regulator framework (RBI / SEBI / CERT-In / DPDP).",
       "Board-approved cyber-security policy refreshed; CISO accountability confirmed.",
-      "Stand up or contract a 24x7 SOC; confirm 180-day log retention in India.",
+      "Stand up or contract a 24×7 SOC; confirm 180-day log retention in India.",
     ],
   },
   {
@@ -249,15 +249,15 @@ export default function CyberResilienceGuide2026() {
           CERT-In Directions compress incident reporting to six hours. The RBI
           and SEBI frameworks make the board — not just the CISO — accountable
           for a tested security programme. The DPDP Act puts personal-data
-          breaches under a statutory regulator with real penalties. A director
-          can no longer treat security as something delegated and forgotten.
+          breaches under a statutory regulator that can levy penalties of up to
+          &#8377;250 crore. For a director, cyber risk can no longer be
+          delegated downward and forgotten.
         </p>
         <p>
-          This guide is written for that director. It does not assume a
-          technical background. It gives you the questions to ask, the controls
-          to insist on, a 12-month roadmap to get there, and a clear picture of
-          what good — an independent, regulator-format audit — actually looks
-          like.
+          This guide is written for that director, and assumes no technical
+          background. It sets out the questions to ask, the controls to insist
+          on, a 12-month roadmap to get there, and a clear picture of what good
+          looks like — an independent, regulator-format audit.
         </p>
       </section>
 
@@ -407,8 +407,8 @@ export default function CyberResilienceGuide2026() {
         <h2>8. The first 72 hours of a major incident</h2>
         <p>
           When an incident hits, the board does not run the response — but it
-          must know the response runs. This is the clock the organisation should
-          be able to execute without improvising.
+          must know the response runs. This is the clock your organisation
+          should be able to keep without improvising on the night.
         </p>
         <table className="not-prose w-full text-sm border border-slate-300 border-collapse">
           <tbody>
@@ -452,7 +452,7 @@ export default function CyberResilienceGuide2026() {
           Macksofy Technologies is a CERT-In empanelled information-security
           auditor and consulting firm. We take boards from gap assessment to
           regulator-ready in a single accountable engagement: VAPT and red
-          teaming, RBI / SEBI / CERT-In / DPDP audits, 24x7 managed SOC, DFIR
+          teaming, RBI / SEBI / CERT-In / DPDP audits, 24×7 managed SOC, DFIR
           retainers and ISO 27001 readiness — delivered for BFSI, fintech and
           government clients across India and the GCC.
         </p>
