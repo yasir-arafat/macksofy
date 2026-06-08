@@ -99,10 +99,10 @@ export function PrintLayout({
         <header className="cover-page py-16 print:py-24 border-b-2 border-slate-900 mb-12">
           <div className="flex items-start justify-between gap-6">
             <Image
-              src="/logo.png"
+              src="/logo-black.png"
               alt="Macksofy Technologies"
-              width={280}
-              height={80}
+              width={813}
+              height={254}
               className="h-16 w-auto"
               priority
             />
@@ -173,10 +173,10 @@ export function PrintLayout({
         <footer className="border-t border-slate-200 mt-16 py-8 text-xs text-slate-500 grid grid-cols-3 gap-4 items-center">
           <div className="flex items-center gap-3">
             <Image
-              src="/logo.png"
+              src="/logo-black.png"
               alt="Macksofy Technologies"
-              width={140}
-              height={40}
+              width={813}
+              height={254}
               className="h-8 w-auto"
             />
             <div>

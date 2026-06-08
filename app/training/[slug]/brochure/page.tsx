@@ -11,10 +11,10 @@ function SectionHeader({ number, title }: { number: string; title: string }) {
     <>
       <div className="not-prose flex items-center gap-3 mt-2 mb-3 print:mt-1">
         <Image
-          src="/logo.png"
+          src="/logo-black.png"
           alt="Macksofy Technologies"
-          width={140}
-          height={40}
+          width={813}
+          height={254}
           className="h-7 w-auto"
         />
         <div className="h-px flex-1 bg-slate-200" />
@@ -307,10 +307,10 @@ export default async function CourseBrochure({ params }: PageProps) {
       {/* Closing — Talk to us */}
       <section className="not-prose print-section mt-16 print:mt-12 rounded-2xl border-2 border-slate-900 bg-slate-50 p-10 text-center page-break-before">
         <Image
-          src="/logo.png"
+          src="/logo-black.png"
           alt="Macksofy Technologies"
-          width={320}
-          height={90}
+          width={813}
+          height={254}
           className="mx-auto h-20 w-auto"
         />
         <div className="mt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-red-600 font-bold">
