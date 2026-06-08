@@ -98,6 +98,20 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   background-color: #050510;
+  /* Seed the fixed-header offset to the REAL SSR header height (announcement
+     bar shown) per breakpoint, so <main>'s padding-top is correct on first
+     paint. Header.tsx's useLayoutEffect re-measures and writes the same value
+     post-mount — now a no-op. Previously the offset relied on the JS fallback
+     (80px), so every fresh load jumped 80px→106/114px after hydration and
+     dragged the viewport-spanning hero glow-orbs, spiking CLS to ~0.8 mobile
+     / ~0.46 desktop. Keep these in sync with the header's measured height. */
+  --header-h: 106px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    --header-h: 114px;
+  }
 }
 
 body {

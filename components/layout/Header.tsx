@@ -343,7 +343,12 @@ export function Header() {
       <AnimatePresence>
         {!annDismissed && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            // initial={false}: render at full height on first paint (no 0→auto
+            // entrance animation). The height-grow entrance fed the header's
+            // ResizeObserver → --header-h → <main> padding every load, animating
+            // the whole page down ~36px = CLS. Exit still animates on dismiss
+            // (user-initiated, excluded from CLS by hadRecentInput).
+            initial={false}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
