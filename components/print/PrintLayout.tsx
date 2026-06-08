@@ -103,14 +103,14 @@ export function PrintLayout({
               alt="Macksofy Technologies"
               width={813}
               height={254}
-              className="h-16 w-auto"
+              className="h-16 w-auto shrink-0"
               priority
             />
-            <div className="text-right">
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-red-600 font-bold">
+            <div className="text-right shrink-0">
+              <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-red-600 font-bold whitespace-nowrap">
                 CERT-In Empanelled
               </div>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-slate-500 mt-1">
+              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-slate-500 mt-1 whitespace-nowrap">
                 Govt of India · MeitY
               </div>
             </div>
@@ -212,15 +212,34 @@ export function PrintLayout({
           .print-doc {
             font-size: 10.5pt;
           }
+          .print-doc * { box-sizing: border-box; }
+          /* Fit the document to the printable width so nothing clips at the
+             right edge (the cover header and long table cells used to spill). */
+          .print-doc article {
+            max-width: 100% !important;
+            width: 100% !important;
+            /* tiny symmetric inset so flush-right content never touches the
+               printable boundary and gets sub-pixel clipped */
+            padding-left: 1.5mm !important;
+            padding-right: 1.5mm !important;
+            overflow-wrap: break-word;
+          }
+          .print-doc img,
+          .print-doc table { max-width: 100% !important; }
           h1 { font-size: 24pt; }
-          h2 { font-size: 16pt; page-break-after: avoid; }
-          h3 { font-size: 13pt; page-break-after: avoid; }
-          .cover-page { page-break-after: always; }
+          h2 { font-size: 16pt; page-break-after: avoid; break-after: avoid; }
+          h3 { font-size: 13pt; page-break-after: avoid; break-after: avoid; }
+          p, li { orphans: 2; widows: 2; }
+          .cover-page { page-break-after: always; break-after: page; }
+          /* Keep whole sections and table rows from being sliced across a page
+             break; tall sections simply start on a fresh page. */
           section, .print-section {
             page-break-inside: avoid;
+            break-inside: avoid;
           }
+          thead, tr { break-inside: avoid; }
           a { color: inherit; text-decoration: none; }
-          @page { margin: 18mm 14mm; }
+          @page { size: A4; margin: 15mm 13mm; }
         }
       `}</style>
     </div>
