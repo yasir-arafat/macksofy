@@ -57,12 +57,17 @@ async function pageEndpoint() {
   throw new Error("Chromium page target never came up");
 }
 
-// Kept short and balanced: an over-long centre string makes flex space-between
-// shove the side spans into the page margin, where Chrome clips them.
+// The header/footer templates double as the page's top/bottom MARGIN: each is a
+// full white strip that fills its reserved margin band. This is deliberate —
+// Chrome leaves the margin region transparent (renders dark in viewers), so the
+// strips paint it white while also carrying the running footer + page numbers.
+const HEADER = `<div style="width:100%;height:100%;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;"></div>`;
+
 const FOOTER = `
-<div style="font-family:Arial,Helvetica,sans-serif;font-size:7px;color:#64748b;
-            width:100%;padding:0 16mm;display:flex;justify-content:space-between;
-            align-items:center;-webkit-print-color-adjust:exact;">
+<div style="width:100%;height:100%;margin:0;box-sizing:border-box;background:#fff;
+            -webkit-print-color-adjust:exact;print-color-adjust:exact;
+            font-family:Arial,Helvetica,sans-serif;font-size:7px;color:#64748b;
+            display:flex;align-items:center;justify-content:space-between;padding:0 14mm;">
   <span style="font-weight:bold;color:#0f172a;letter-spacing:.06em;white-space:nowrap;">MACKSOFY&nbsp;TECHNOLOGIES</span>
   <span style="white-space:nowrap;">MKS-BOARD-GUIDE-2026</span>
   <span style="white-space:nowrap;">Page&nbsp;<span class="pageNumber"></span>&nbsp;of&nbsp;<span class="totalPages"></span></span>
@@ -104,12 +109,15 @@ async function main() {
     preferCSSPageSize: false,
     paperWidth: 8.27, // A4
     paperHeight: 11.69,
+    // Left/right = 0 (side margins come from the article's 14mm padding so they
+    // stay identical on every page). Top/bottom reserve the white header/footer
+    // strips that paint those bands white + carry the page numbers.
     marginTop: 0.55,
-    marginBottom: 0.7,
-    marginLeft: 0.55,
-    marginRight: 0.55,
+    marginBottom: 0.62,
+    marginLeft: 0,
+    marginRight: 0,
     displayHeaderFooter: true,
-    headerTemplate: "<span></span>",
+    headerTemplate: HEADER,
     footerTemplate: FOOTER,
   });
 

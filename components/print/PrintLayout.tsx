@@ -71,6 +71,10 @@ export function PrintLayout({
 
   return (
     <div className="print-doc bg-white text-slate-900 min-h-screen">
+      {/* Full-bleed white backdrop — painted on every printed page so the
+          sheet is white edge-to-edge (see print CSS for why this is needed). */}
+      <div id="print-bleed" aria-hidden className="hidden" />
+
       {/* ─── Toolbar (hidden on print) ─── */}
       <div className="print:hidden sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto max-w-5xl px-6 h-14 flex items-center justify-between">
@@ -201,27 +205,41 @@ export function PrintLayout({
         }
         @media print {
           html, body {
-            background: white !important;
+            background: #fff !important;
             color: #0f172a !important;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
+            margin: 0 !important;
+            padding: 0 !important;
           }
           .print\\:hidden {
             display: none !important;
+          }
+          /* Full-bleed white layer. Chrome leaves the @page / CDP margin region
+             TRANSPARENT, which renders near-black in many PDF viewers — that was
+             the "black edges". A fixed inset:0 element repeats on every printed
+             page and is what actually paints the sheet white corner-to-corner. */
+          #print-bleed {
+            display: block !important;
+            position: fixed;
+            inset: 0;
+            background: #fff !important;
+            /* behind ALL content (negative, so non-positioned flow content
+               still paints on top of it on every page) */
+            z-index: -1;
           }
           .print-doc {
             font-size: 10.5pt;
           }
           .print-doc * { box-sizing: border-box; }
-          /* Fit the document to the printable width so nothing clips at the
-             right edge (the cover header and long table cells used to spill). */
+          /* Left/right margins via padding so they're identical on every page.
+             Top/bottom margins are reserved by the generator's white header/
+             footer strips (scripts/generate-guide-pdf.mjs). @page margin is 0
+             so the bleed layer can cover the whole sheet. */
           .print-doc article {
             max-width: 100% !important;
             width: 100% !important;
-            /* tiny symmetric inset so flush-right content never touches the
-               printable boundary and gets sub-pixel clipped */
-            padding-left: 1.5mm !important;
-            padding-right: 1.5mm !important;
+            padding: 0 14mm !important;
             overflow-wrap: break-word;
           }
           .print-doc img,
@@ -239,7 +257,7 @@ export function PrintLayout({
           }
           thead, tr { break-inside: avoid; }
           a { color: inherit; text-decoration: none; }
-          @page { size: A4; margin: 15mm 13mm; }
+          @page { size: A4; margin: 0 !important; }
         }
       `}</style>
     </div>

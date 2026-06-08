@@ -344,9 +344,23 @@ h6 {
    We hide the global site chrome so the printable page reads
    cleanly on screen and in PDF output.
    ─────────────────────────────────────────────────────────── */
+/* Whiten the <html> ROOT too, not just <body>. Chrome's printBackground
+   paints the html background across the WHOLE page — including the margins —
+   so leaving html at its dark #050510 made every PDF margin render near-black. */
+html.print-mode,
 html.print-mode body {
-  background: white !important;
+  background: #fff !important;
+  background-color: #fff !important;
   color: #0f172a;
+}
+/* Real print context (e.g. headless CDP render) — independent of the
+   print-mode class being applied by the time the page is printed. */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    background-color: #fff !important;
+  }
 }
 html.print-mode body > header,
 html.print-mode body > footer,
