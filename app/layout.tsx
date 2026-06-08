@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -21,17 +21,14 @@ import { SITE } from "@/lib/site";
 // thank-you page (see components/lp/ConversionPing.tsx). ID is env-overridable.
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "657263208736543";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Space Grotesk — single techy/grotesk family for body + headings (the
+// site's "hacker-adjacent" type voice). Variable font (axis 300–700), so no
+// weight array is needed; Tailwind's font-black (900) clamps to its 700 max,
+// which is Space Grotesk's intended bold and renders cleanly (no faux-bold).
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["600", "700", "900"],
 });
 
 const mono = JetBrains_Mono({
@@ -122,7 +119,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${inter.variable} ${poppins.variable} ${mono.variable} h-full antialiased scroll-smooth`}
+      className={`${spaceGrotesk.variable} ${mono.variable} h-full antialiased scroll-smooth`}
     >
       {/* Meta Pixel base code — placed in the literal <head>, site-wide,
           per Meta's "paste in the header of your website" instruction. */}
