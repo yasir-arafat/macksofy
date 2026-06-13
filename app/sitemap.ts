@@ -7,7 +7,7 @@ import { POSTS, POSTS_PER_PAGE } from "@/content/blog";
 import { CITIES } from "@/content/cities";
 import { CASE_STUDIES } from "@/content/caseStudies";
 import { RESOURCES } from "@/content/resources";
-import { COMBO_PAIRS } from "@/content/combos";
+import { SITEMAP_COMBO_PAIRS } from "@/content/combos";
 import { AWARDS } from "@/content/awards";
 import { INDUSTRIES } from "@/content/industries";
 
@@ -124,10 +124,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...CITIES.map((c) =>
       stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "weekly")
     ),
-    // Combos kept at monthly + lower priority so Google focuses crawl
-    // budget on canonical /services + /audit pages first. They'll get
-    // indexed as the canonical pages establish authority.
-    ...COMBO_PAIRS.map((p) =>
+    // Combos are released to the sitemap in WAVES (see SITEMAP_COMBO_PAIRS
+    // / RELEASED_THROUGH_WAVE in content/combos.ts). On the young domain,
+    // submitting all 66 at once produced 236 "Discovered – not indexed"
+    // URLs (GSC 2026-06-13). We now hand Google a focused wave at a time so
+    // crawl budget concentrates on canonical pages + the released combos;
+    // held combos stay live + crawlable via in-page links, just not in the
+    // sitemap. Bump the wave once the current batch indexes.
+    ...SITEMAP_COMBO_PAIRS.map((p) =>
       stat(`/locations/${p.city}/${p.service}`, 0.7, "monthly", rev(p.updated))
     ),
     ...SERVICES.map((s) =>

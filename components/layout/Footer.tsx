@@ -351,19 +351,27 @@ function PreFooterCTA() {
             </div>
           </div>
 
-          {/* Locations chips */}
+          {/* Locations — real crawlable links to the /locations pillar.
+             Every footer instance (i.e. every page) now feeds the location
+             subtree, fixing the orphaned-pillar gap behind the GSC
+             "Discovered – currently not indexed" backlog. Cities below all
+             resolve to live /locations/<slug> pages. */}
           <div className="lg:col-span-5">
-            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint mb-3">
+            <Link
+              href="/locations"
+              className="group inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint mb-3 hover:text-neon-cyan transition-colors"
+            >
               Where we engage
-            </div>
+              <ChevronRight className="size-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { city: "Mumbai", role: "Global HQ", flag: "🇮🇳", primary: true },
-                { city: "Hyderabad", role: "South India", flag: "🇮🇳" },
-                { city: "Dubai", role: "UAE delivery", flag: "🇦🇪", primary: true },
-                { city: "Muscat", role: "Oman", flag: "🇴🇲" },
-                { city: "Toronto", role: "North America", flag: "🇨🇦" },
-                { city: "Online", role: "Anywhere", flag: "🌐" },
+                { city: "Mumbai", role: "Global HQ", flag: "🇮🇳", slug: "mumbai", primary: true },
+                { city: "Bengaluru", role: "South India", flag: "🇮🇳", slug: "bengaluru" },
+                { city: "Delhi NCR", role: "North India", flag: "🇮🇳", slug: "delhi" },
+                { city: "Hyderabad", role: "Deccan", flag: "🇮🇳", slug: "hyderabad" },
+                { city: "Dubai", role: "UAE delivery", flag: "🇦🇪", slug: "dubai", primary: true },
+                { city: "Abu Dhabi", role: "UAE federal", flag: "🇦🇪", slug: "abu-dhabi" },
               ].map((l, i) => (
                 <motion.div
                   key={l.city}
@@ -371,23 +379,34 @@ function PreFooterCTA() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.05 }}
-                  className={cn(
-                    "rounded-xl glass p-3 flex items-center gap-3 hover:border-neon-cyan/40 transition-colors",
-                    l.primary && "ring-1 ring-neon-cyan/30"
-                  )}
                 >
-                  <span className="text-xl">{l.flag}</span>
-                  <div className="min-w-0">
-                    <div className="text-sm font-semibold text-fg truncate">
-                      {l.city}
+                  <Link
+                    href={`/locations/${l.slug}`}
+                    className={cn(
+                      "rounded-xl glass p-3 flex items-center gap-3 hover:border-neon-cyan/40 transition-colors h-full",
+                      l.primary && "ring-1 ring-neon-cyan/30"
+                    )}
+                  >
+                    <span className="text-xl">{l.flag}</span>
+                    <div className="min-w-0">
+                      <div className="text-sm font-semibold text-fg truncate">
+                        {l.city}
+                      </div>
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-fg-faint truncate">
+                        {l.role}
+                      </div>
                     </div>
-                    <div className="font-mono text-[10px] uppercase tracking-wider text-fg-faint truncate">
-                      {l.role}
-                    </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
+            <Link
+              href="/locations"
+              className="group mt-3 inline-flex items-center gap-1 text-xs font-semibold text-neon-cyan hover:text-fg transition-colors"
+            >
+              View all locations
+              <ArrowUpRight className="size-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
           </div>
         </div>
       </motion.div>

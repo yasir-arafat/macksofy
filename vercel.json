@@ -1,6 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
+    { "source": "/services/dfir", "destination": "/services/digital-forensics-incident-response", "permanent": true },
+
     { "source": "/about-us.php", "destination": "/about", "permanent": true },
     { "source": "/clients.php", "destination": "/clients", "permanent": true },
     { "source": "/contact-macksofy.php", "destination": "/contact", "permanent": true },

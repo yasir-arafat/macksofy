@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description:
     "Macksofy sample CERT-In format audit report — RBI / SEBI / UIDAI submission structure, control attestation, findings register, regulator-format compliance statement.",
   robots: { index: false, follow: false },
+  // Self-referencing canonical (otherwise inherits the homepage default).
+  alternates: { canonical: "/sample-reports/cert-in-audit" },
 };
 
 export default function SampleCertInAuditReport() {

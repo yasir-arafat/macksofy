@@ -47,6 +47,10 @@ export async function generateMetadata({
     title: `${c.title} — Brochure | Macksofy Technologies`,
     description: `Macksofy ${c.shortTitle} course brochure — curriculum, outcomes, prerequisites, fees and placement support. ${c.duration}.`,
     robots: { index: false, follow: false },
+    // Self-referencing canonical. Without this the page inherits the root
+    // layout's default (the homepage) — harmless while noindex, but wrong if
+    // the page is ever made indexable.
+    alternates: { canonical: `/training/${slug}/brochure` },
   };
 }
 
