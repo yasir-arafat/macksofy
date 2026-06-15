@@ -171,6 +171,8 @@ export function Footer() {
             <FooterLinkAnimated href="/awards">Awards</FooterLinkAnimated>
             <FooterLinkAnimated href="/press">Press</FooterLinkAnimated>
             <FooterLinkAnimated href="/blog">Blog</FooterLinkAnimated>
+            <FooterLinkAnimated href="/products/pentaudit">Pentaudit</FooterLinkAnimated>
+            <FooterLinkAnimated href="/products/learn-to-exploit">LearnToExploit</FooterLinkAnimated>
             <FooterLinkAnimated href="/contact">Contact</FooterLinkAnimated>
             <FooterLinkAnimated href="/sitemap.xml">Sitemap</FooterLinkAnimated>
           </FooterCol>

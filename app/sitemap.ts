@@ -3,7 +3,7 @@ import { SITE } from "@/lib/site";
 import { COURSES } from "@/content/courses";
 import { SERVICES } from "@/content/services";
 import { AUDITS } from "@/content/audits";
-import { POSTS, POSTS_PER_PAGE } from "@/content/blog";
+import { POSTS } from "@/content/blog";
 import { CITIES } from "@/content/cities";
 import { CASE_STUDIES } from "@/content/caseStudies";
 import { RESOURCES } from "@/content/resources";
@@ -62,21 +62,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return entry;
   };
 
-  const totalBlogPages = Math.max(
-    1,
-    Math.ceil(POSTS.length / POSTS_PER_PAGE)
-  );
-
   // Most recent post date (used as lastModified for /blog index pages)
   const latestPostDate = POSTS.reduce<Date>((latest, p) => {
     const d = new Date(p.date);
     return d > latest ? d : latest;
   }, new Date(0));
 
-  const blogPagedRoutes = Array.from(
-    { length: totalBlogPages - 1 },
-    (_, i) => stat(`/blog/page/${i + 2}`, 0.6, "weekly", latestPostDate)
-  );
+  // Paginated blog archives (/blog/page/N) are deliberately EXCLUDED from the
+  // sitemap (2026-06-15). On the crawl-budget-starved young domain they are
+  // low-value list pages that dilute Googlebot's attention away from real
+  // content. They remain fully crawlable via the /blog pagination UI, so post
+  // discovery is unaffected — this only removes them from sitemap promotion.
 
   const awardImages = AWARDS.map((a) => `${base}${a.image}`);
 
@@ -101,7 +97,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/contact", 0.8, "monthly"),
     stat("/about", 0.7, "monthly"),
     stat("/blog", 0.85, "daily", freshenBlog(latestPostDate)),
-    ...blogPagedRoutes,
     stat("/clients", 0.7, "monthly"),
     stat("/awards", 0.7, "monthly", CONTENT_REV, awardImages),
     stat("/press", 0.7, "monthly"),
