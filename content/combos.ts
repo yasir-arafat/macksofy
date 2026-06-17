@@ -10603,6 +10603,515 @@ export const COMBOS: CityServiceCombo[] = [
       { q: "How is the engagement delivered?", a: "Largely remotely against scoped read-only audit roles, with senior consultants flying Mumbai BKC → AUH (~3.5 hours) for the kickoff, landing-zone workshop and exit readout. For sensitive government and energy scope we agree the access and data-handling model before kickoff, and run quarterly posture re-reviews tied to your migration velocity." },
     ],
   },
+
+  // ════════════════════════════════════════════════════════════════════
+  // WEEK-3 UAE EXPANSION — BATCH 2 (added 2026-06-18)
+  // Abu Dhabi × red-teaming / DFIR / network-security-architecture
+  // + Dubai × DFIR. Held from sitemap (no COMBO_WAVES entry) until the
+  // young-domain indexing backlog clears; live + crawlable via city hubs.
+  // ════════════════════════════════════════════════════════════════════
+
+  // ─────────────────────────────────────────────────────────────────────
+  // Abu Dhabi × Red Teaming
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    updated: "2026-06-18",
+    citySlug: "abu-dhabi",
+    serviceSlug: "red-teaming",
+    headline: "Red Team Operations in Abu Dhabi · Energy, ADGM & Gov",
+    lead: "Intelligence-led adversary simulation for Abu Dhabi — the ADNOC energy ecosystem and its OT estate, sovereign-investment entities, ADGM fintech and government — mapped to NESA / UAE IAS, ADDA, FSRA and parent-group TIBER-style frameworks.",
+    body: [
+      "Abu Dhabi’s red-team demand is shaped by what the capital protects hardest, and it does not look like Dubai’s. Four segments dominate. The ADNOC energy ecosystem — upstream, refining, ADNOC Gas, ADNOC Distribution and the OT-heavy process estate across Ruwais, Das Island and the offshore fields — wants scenarios that respect a safety-critical environment and the NESA Critical Information Infrastructure Protection posture. Sovereign-investment entities (ADIA, Mubadala, ADQ and their portfolio operating companies) want adversary simulation against deal-flow, treasury and beneficial-ownership data with extreme discretion. The ADGM financial free zone on Al Maryah Island — FSRA-supervised banks, asset managers and the fast-growing fintech cluster — wants intelligence-led operations mapped to FSRA cyber expectations and the parent group’s TIBER / CBEST / iCAST catalogue. And federal and Abu Dhabi government entities want scenarios against citizen-services, UAE PASS integrations and the ADDA-governed estate.",
+      "Abu Dhabi is governed federally for red-team purposes — there is no Abu Dhabi equivalent of Dubai’s DESC ISR pre-notification regime, so the discipline runs through NESA / UAE Information Assurance Standards, the UAE Cybersecurity Council’s expectations, ADDA standards for government entities, and aeCERT/TDRA deconfliction. We treat that as a feature, not a gap: the rules of engagement, white-cell composition and adversary-action audit trail are agreed and retained to the standard the entity’s own governance and the federal regulator expect, with tamper-evident storage and a multi-year retention disposition fixed in the engagement letter. For sovereign-investment and energy scope the letter of authorisation is board-issued, counter-signed and filed with the entity’s legal counsel for the operation plus the agreed retention window.",
+      "For ADGM-supervised BFSI and fintech we run intelligence-led adversary simulation: open-source recon of the entity, its vendor ecosystem and public-disclosure leakage (ADGM Registration Authority filings, FSRA registers, LinkedIn drift); spear-phishing pretexts tuned to regional norms (Ramadan working hours, the regional-board cadence, the ADIPEC / Abu Dhabi Finance Week / IDEX event-window pretext); initial access via the partner-API or third-party IT-services surface; lateral movement via Azure AD / Okta / PingFederate IdP-token theft and ADCS misuse; and exploitation chains targeting settlement, customer-data and beneficial-ownership stores. The single operation produces the NESA / UAE IAS evidence, the FSRA-supervisor detail and the parent-group TIBER / CBEST / iCAST artefact, plus a detection-engineering backlog the SOC actually uses.",
+      "For the ADNOC ecosystem and utilities the operation is OT-aware by design and safety-first throughout. We model the IT-to-OT attack path — the corporate-to-process-network boundary, the engineering-workstation and historian exposure, the jump-host and vendor remote-access route into the Purdue lower levels — but we stop at the demonstrated-and-documented boundary rather than acting inside a live process zone. No scenario is permitted that could trip a process, degrade a safety-instrumented system or risk plant uptime; the IEC 62443 zone-and-conduit model frames where the simulated adversary is allowed to operate, and an onsite client safety representative is part of the white cell for any process-adjacent objective. This is the difference between an energy red-team an ADNOC-ecosystem operator will authorise and one they will not.",
+      "For sovereign-investment and government entities discretion is the operating constraint. Recon and pretexting are calibrated to Abu Dhabi building and access conventions — Al Maryah Island (ADGM Square, the financial towers), the Corniche and Capital Gate district, Masdar City, KIZAD and the government precincts — not US or European templates, with the prayer-time and Eid / National Day calendar driving the foot-traffic and courier windows. Physical pretexting, where in scope, is rehearsed against the actual reception, escort and out-of-hours conventions of those buildings. Reports are produced dual-language where the federal regulator or government recipient requires Arabic alongside the English primary.",
+      "Engagements run 6–10 weeks for an ADGM BFSI / fintech scenario, 8–12 weeks for a government scenario including the citizen-services and UAE PASS boundary, and 10–14 weeks for an energy / OT-adjacent scenario with the safety-representative oversight. We keep a UAE-resident lead consultant onsite for the operation, with senior support flying Mumbai BKC → AUH (~3.5 hours) for the operational-planning review, the mid-operation white-cell pulse and the board after-action review. The detection-engineering backlog handed to the client SOC at close is the actionable output — typically 20–40 SIEM rule additions, 5–10 EDR detection-tuning items and a small set of architecture-level guardrails the enterprise-architecture team adopts in the next release.",
+      "Commercial nuance is local. Billing is in AED with the 5% UAE VAT line, invoiced from our regional billing entity; the engagement is letter-of-authorisation-led with explicit scope, white-cell composition, rules of engagement and indemnity; and for government-adjacent and energy operations the letter additionally records the aeCERT/TDRA deconfliction channel so any regulator-side inquiry during the operation meets a pre-agreed escalation chain rather than a scramble.",
+    ],
+    buyerConcerns: [
+      "ADNOC-ecosystem and utilities OT attack-path simulation that never risks a process trip or safety system",
+      "ADGM fintech / BFSI adversary simulation mapped to FSRA cyber expectations and ADGM data-protection",
+      "Sovereign-investment (ADIA / Mubadala / ADQ) deal-flow, treasury and beneficial-ownership attack paths with discretion",
+      "Government / citizen-services + UAE PASS scenarios mapped to ADDA standards",
+      "NESA / UAE IAS Tier evidence + UAE Cybersecurity Council alignment from a single operation",
+      "Parent-group TIBER / CBEST / iCAST framework artefact alongside the UAE regulator evidence",
+      "Arabic-English bilingual reporting for federal / government handover",
+      "Purple-team handover with SIEM tuning backlog to a well-resourced energy / government SOC",
+      "Letter-of-authorisation with tamper-evident retention and aeCERT/TDRA deconfliction recorded",
+    ],
+    differentiators: [
+      "Scenario library specific to Abu Dhabi’s four demand segments — ADNOC energy / OT, sovereign investment, ADGM fintech, government — not Dubai or US-bank templates.",
+      "Genuinely OT-aware and safety-first: the IT-to-OT path is demonstrated to a documented boundary under IEC 62443 framing with a client safety representative in the white cell — never an action that could trip a live process zone.",
+      "UAE-resident lead consultant onsite throughout, with senior support from Mumbai BKC for board reviews — not a fly-in-fly-out red team that can’t rehearse Abu Dhabi building conventions.",
+      "Single operation produces parallel artefacts for NESA / UAE IAS, FSRA supervisor detail, ADDA government standards and the parent group’s TIBER / CBEST / iCAST control catalogue.",
+      "Federal-discipline literate — NESA / UAE Cybersecurity Council / aeCERT-TDRA deconfliction handled correctly given Abu Dhabi has no DESC-style emirate pre-notification regime.",
+      "Detection-engineering backlog handed to the SOC at close — 20–40 SIEM rules plus EDR tuning the energy / government SOC deploys in-tenant, so the operation is a detection uplift, not just a defect list.",
+    ],
+    seoDescription:
+      "Intelligence-led red team operations in Abu Dhabi for the ADNOC energy ecosystem, sovereign investment, ADGM fintech and government — NESA / UAE IAS, ADDA, FSRA + TIBER-style.",
+    keywords: [
+      "red team Abu Dhabi",
+      "adversary simulation Abu Dhabi",
+      "NESA UAE IAS red team",
+      "ADGM FSRA red team",
+      "ADNOC OT red team",
+      "energy red team Abu Dhabi",
+      "ADDA government red team",
+      "TIBER red team UAE",
+      "purple team Abu Dhabi SOC",
+    ],
+    stats: [
+      { value: "4 segments", label: "Energy · Sovereign · ADGM · Government" },
+      { value: "6-14 wk", label: "Operation duration by scope" },
+      { value: "Safety-first", label: "IEC 62443-framed OT boundary, no process trip" },
+      { value: "20-40", label: "SIEM rule additions handed to client SOC" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Letter of Authorisation + Deconfliction",
+        duration: "Week 1",
+        activities: [
+          "Board-issued letter of authorisation + white-cell composition disclosure",
+          "aeCERT / TDRA deconfliction channel recorded for government-adjacent and energy operations",
+          "Rules of engagement, indemnity scope and tamper-evident retention setup",
+          "Parent-group TIBER / CBEST / iCAST control-catalogue alignment confirmed",
+        ],
+      },
+      {
+        phase: "02 · Intelligence + Threat Model",
+        duration: "Weeks 1–2",
+        activities: [
+          "Open-source recon — ADGM Registration Authority filings, FSRA registers, vendor mapping, LinkedIn drift",
+          "Regional adversary modelling — MuddyWater / APT34 / energy-sector OT actors / financially-motivated crews",
+          "Pretext development tuned to UAE norms + Arabic-English bilingual; ADIPEC / ADFW / IDEX event-window pretexts",
+          "Abu Dhabi building-convention recon — Al Maryah Island, Capital Gate, Masdar City, KIZAD",
+        ],
+      },
+      {
+        phase: "03 · Initial Access + Lateral",
+        duration: "Weeks 2–4",
+        activities: [
+          "Spear-phishing + vishing + physical pretext per agreed rules of engagement",
+          "Partner-API / third-party IT-services / supply-chain compromise paths",
+          "Azure AD / Okta / PingFederate IdP-token theft + ADCS misuse",
+          "Lateral toward settlement / sovereign-investment data / the IT-to-OT boundary (energy)",
+        ],
+      },
+      {
+        phase: "04 · Objective + Safety Discipline",
+        duration: "Weeks 4–6",
+        activities: [
+          "Crown-jewel objective achievement under pre-agreed rules of engagement",
+          "Energy: IT-to-OT path demonstrated to a documented boundary — no action inside a live process zone",
+          "Client safety representative touchpoint for any process-adjacent objective",
+          "Adversary-action audit trail in tamper-evident storage to the agreed retention disposition",
+        ],
+      },
+      {
+        phase: "05 · Purple Handover + Reporting",
+        duration: "Weeks 6–10+",
+        activities: [
+          "Purple-team replay with client SOC + SIEM tuning backlog (20–40 rules typical)",
+          "NESA / UAE IAS evidence + FSRA supervisor detail + ADDA / parent-group TIBER artefact",
+          "Bilingual English / Arabic report where federal / government handover requires it",
+          "Board-level after-action review with detection-engineering recommendations",
+        ],
+      },
+    ],
+    industries: [
+      { name: "ADNOC energy ecosystem + utilities", blurb: "OT-aware, safety-first IT-to-OT path simulation under IEC 62443 framing with a client safety representative in the white cell." },
+      { name: "ADGM fintech + BFSI", blurb: "FSRA-supervised banks, asset managers and fintechs — settlement and customer-data scenarios mapped to FSRA + ADGM data-protection." },
+      { name: "Sovereign investment (ADIA / Mubadala / ADQ)", blurb: "Deal-flow, treasury and beneficial-ownership attack paths run with maximum discretion and a tightly scoped white cell." },
+      { name: "Federal / Abu Dhabi government", blurb: "Citizen-services + UAE PASS + ADDA-governed estate scenarios with bilingual handover where required." },
+      { name: "DoH-licensed healthcare", blurb: "Patient-data and tele-health scenarios with the ADHICS control set as the reporting frame." },
+    ],
+    deliverables: [
+      "Board-issued letter of authorisation + aeCERT/TDRA deconfliction record (where applicable)",
+      "NESA / UAE IAS red-team evidence pack",
+      "FSRA supervisor detail for ADGM-regulated entities + ADGM data-protection overlay",
+      "ADDA government-standard evidence for government-adjacent operations",
+      "Parent-group TIBER / CBEST / iCAST artefact aligned to the parent’s control catalogue",
+      "Bilingual English / Arabic report where federal / government handover required",
+      "Purple-team SIEM tuning backlog handed to client SOC (20–40 rule additions typical)",
+      "Adversary-action audit trail in tamper-evident storage to the agreed retention disposition",
+    ],
+    caseStudy: {
+      industry: "ADGM-licensed asset manager (Al Maryah Island) — TIBER-style operation with parent group in London",
+      scope:
+        "8-week intelligence-led red-team objective — reach the order-management and beneficial-ownership stores without SOC detection, with NESA / UAE IAS evidence, FSRA supervisor detail and parent-group TIBER control-catalogue alignment",
+      outcome:
+        "Initial access via spear-phish against a corporate-services lead during the ADFW event window; lateral via Azure AD token theft + an ADCS template misconfiguration; objective reached at D+11 with 12 missed alerts mapped to SIEM rule gaps; 27 detection-engineering items handed to the client SOC and parent-group global SOC; NESA / UAE IAS evidence and TIBER artefact accepted on first read.",
+    },
+    faqs: [
+      { q: "Abu Dhabi has no DESC — how do you run the regulatory discipline?", a: "Correct: DESC ISR pre-notification is a Dubai-government regime and does not apply in Abu Dhabi. Here the discipline runs federally — NESA / UAE Information Assurance Standards, the UAE Cybersecurity Council’s expectations, ADDA standards for government entities, and aeCERT / TDRA deconfliction. We agree rules of engagement, white-cell composition and a tamper-evident adversary-action audit trail to that standard, recorded in a board-issued letter of authorisation and filed with the entity’s legal counsel for the operation plus the agreed retention window." },
+      { q: "Can you red-team the ADNOC ecosystem without risking a process trip?", a: "Yes — and the boundary is absolute. For energy and OT-adjacent scope we model and demonstrate the IT-to-OT attack path up to a documented boundary, framed by the IEC 62443 zone-and-conduit model, but we take no action inside a live process zone and run nothing that could trip a process or degrade a safety-instrumented system. A client safety representative sits in the white cell for any process-adjacent objective. That constraint is what makes the operation authorisable for an ADNOC-ecosystem operator." },
+      { q: "Can a single operation produce our parent group’s TIBER / CBEST / iCAST artefact?", a: "Yes — alongside NESA / UAE IAS evidence, FSRA supervisor detail for ADGM entities and ADDA government-standard evidence. Same operation, same evidence base. We confirm the parent’s specific framework (TIBER-EU, TIBER-DE, CBEST UK PRA, iCAST HKMA, MAS AAP) at letter-of-authorisation stage and align the operational reporting accordingly." },
+      { q: "Do you have UAE-resident red-team consultants?", a: "Yes — for the duration of every operation we keep a UAE-resident lead consultant onsite, with senior support flying from Mumbai BKC for the operational-planning review, the mid-operation white-cell pulse and the board after-action review. Fly-in-fly-out red teams do not work for Abu Dhabi energy, sovereign or government scope, where building-convention rehearsal and continuous presence matter." },
+      { q: "Is the ADGM regime different from Dubai’s DIFC?", a: "Yes. ADGM on Al Maryah Island is supervised by the FSRA with its own Data Protection Regulations 2021, entirely distinct from Dubai’s DIFC / DFSA. We map the operation to FSRA cyber expectations and ADGM data-protection, not DIFC — getting this wrong is a common error from firms that assume the two free zones share a regulator." },
+      { q: "What is the purple-team handover model?", a: "Purple-team replay with the client SOC plus a SIEM tuning backlog — typically 20–40 SIEM rule additions, 5–10 EDR detection-tuning items and a small set of architecture-level guardrails, walked through in a half-day session at close. The detection-engineering backlog goes into the client’s own tenant; the SOC owns the rules, and the after-action review is filed with the board with a closure timeline committed." },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // Abu Dhabi × Digital Forensics & Incident Response
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    updated: "2026-06-18",
+    citySlug: "abu-dhabi",
+    serviceSlug: "digital-forensics-incident-response",
+    headline: "Incident Response & DFIR in Abu Dhabi · Energy & Gov",
+    lead: "NESA / aeCERT-aligned incident response and digital forensics for Abu Dhabi energy, government, ADGM and healthcare — OT-aware containment, multi-regulator breach reporting, retainer-backed, delivered Mumbai BKC → AUH.",
+    body: [
+      "When an Abu Dhabi entity is breached, the response has to satisfy more than one clock at once, and none of them is India’s CERT-In six-hour rule. UAE notification obligations stack: aeCERT / TDRA expects prompt incident notification, NESA / UAE IAS sets the incident-handling controls a critical-infrastructure operator is measured against, the PDPL (Federal Decree-Law 45/2021) requires breach notification to the UAE Data Office and affected individuals without undue delay, and the sector regulator adds its own — FSRA for ADGM entities, ADHICS for DoH-licensed healthcare, ADDA for government entities. Macksofy’s DFIR practice runs the response so each of those obligations is met from one coordinated incident, with a UAE-resident responder onsite and senior forensic support flying Mumbai BKC → AUH within hours.",
+      "The first hours decide the engagement, and our triage runs in parallel rather than in sequence: one responder scopes blast radius and preserves volatile evidence, a second opens the regulator-notification workstream (aeCERT/TDRA, PDPL Data Office, and the sector regulator), and a third agrees the containment plan with the client SOC. Acquisition is forensically sound from the first image — memory, disk and cloud-snapshot captures with cryptographic hashes and a documented chain of custody — because in an Abu Dhabi energy, sovereign or government incident the same artefacts will be examined by an internal-audit function, the federal regulator and potentially a court. Containment is calibrated to keep safety- and money-critical systems stable without destroying the evidence that explains the intrusion.",
+      "Abu Dhabi incidents cluster into patterns we scope to directly. Energy and utilities incidents demand OT-aware forensics: an IT-side compromise that reached or threatened the process-network boundary needs the historian, engineering-workstation and jump-host timeline reconstructed without disturbing a running process, and the analysis must answer the operator’s real question — did the attacker cross into OT, and is the plant safe. Human-operated ransomware and pre-ransomware intrusions demand AD-forest forensics (Kerberoasting and ADCS-abuse traces, golden/silver-ticket detection, lateral-movement timelines). ADGM-fintech and BFSI incidents demand settlement- and customer-data-flow forensics. Government incidents demand identity, session and access-log reconstruction across the ADDA-governed estate. Each gets a documented timeline, a root-cause narrative and an indicator set the SOC can hunt across the rest of the estate.",
+      "Eradication and recovery are part of the engagement, not a hand-off. We verify the attacker is fully evicted before rebuild — no half-cleaned forest, no surviving backdoor, no rogue trust, and for energy scope, explicit confirmation that no OT-side persistence remains — and we pair recovery with hardening so the same path cannot be re-walked: identity tightening, ADCS template fixes, IT/OT segmentation, and detection-engineering so this incident’s indicators become permanent SOC coverage. For retainer clients we run a post-incident tabletop and feed the lessons into the IR playbook.",
+      "The output is built for the people who will read it under pressure. The technical report carries the timeline, the forensic findings with evidence references, the malware and TTP analysis mapped to MITRE ATT&CK (and ATT&CK for ICS where OT is involved), and the root cause. The regulator-facing pack assembles the aeCERT/TDRA notification record, the NESA / UAE IAS incident evidence, the PDPL breach-notification trail to the UAE Data Office and affected individuals, and the sector overlay — FSRA, ADHICS or ADDA — in the format the Abu Dhabi reviewer reads. The board pack carries the one-page narrative, the exposure, and the remediation commitments the audit committee will track, in Arabic alongside English where the recipient requires it.",
+      "Retainer is the right posture for Abu Dhabi’s critical-infrastructure and regulated entities, and we structure it that way: guaranteed response SLAs, pre-agreed rules of engagement and data-handling, named responders who already know the environment, a UAE-resident lead, and a banked block of hours that turns an emergency procurement scramble into a phone call. Remote forensic acquisition starts within the hour while senior support travels; billing is in AED with the 5% VAT line; and for sensitive government and energy scope the onsite-only-handling and log-residency constraints are agreed before any incident, not negotiated mid-crisis.",
+    ],
+    buyerConcerns: [
+      "Multi-regulator notification done right — aeCERT / TDRA, PDPL Data Office, plus FSRA / ADHICS / ADDA as applicable",
+      "OT-aware forensics for the ADNOC ecosystem and utilities — did the attacker cross into the process network, and is the plant safe",
+      "Forensically-sound acquisition with hashes and chain of custody for internal-audit, regulator and legal use",
+      "Human-operated ransomware and AD-forest forensics (ADCS, Kerberoast, golden-ticket)",
+      "ADGM-fintech / BFSI settlement and customer-data-flow forensics",
+      "PDPL breach notification to the UAE Data Office and affected individuals without undue delay",
+      "Full attacker eradication verified before rebuild — including OT-side persistence checks",
+      "An IR retainer with guaranteed SLAs, a UAE-resident lead and named responders who know the estate",
+    ],
+    differentiators: [
+      "Parallel triage that satisfies the UAE’s stacked clocks — containment, evidence preservation and the aeCERT/TDRA + PDPL + sector-regulator notification workstreams run simultaneously, not in sequence.",
+      "Genuinely OT-aware DFIR: for energy and utilities we reconstruct the IT-to-OT boundary timeline without disturbing a running process, and answer the safety question first — mapped to ATT&CK for ICS.",
+      "Evidence handled to internal-audit, regulator and legal standard — hashes and chain of custody from the first image, because Abu Dhabi energy / sovereign / government artefacts face exactly that scrutiny.",
+      "UAE-resident lead responder onsite with senior forensic support flying Mumbai BKC → AUH (~3.5 hours); remote acquisition starts within the hour while they travel.",
+      "Retainer model with guaranteed SLAs, named responders, banked hours and pre-agreed onsite-only-handling / log-residency constraints for sensitive government and energy scope — no mid-incident procurement scramble.",
+    ],
+    seoDescription:
+      "DFIR & incident response in Abu Dhabi for energy, government, ADGM & healthcare — aeCERT / NESA-aligned reporting, OT-aware ransomware & AD forensics, PDPL breach notification, retainer.",
+    keywords: [
+      "incident response Abu Dhabi",
+      "DFIR services Abu Dhabi",
+      "digital forensics Abu Dhabi",
+      "ransomware incident response Abu Dhabi",
+      "NESA incident response UAE",
+      "aeCERT incident reporting",
+      "OT incident response ADNOC",
+      "PDPL breach notification UAE",
+      "cyber incident response retainer Abu Dhabi",
+    ],
+    stats: [
+      { value: "Multi-clock", label: "aeCERT · PDPL · sector regulator" },
+      { value: "<1 hr", label: "Remote acquisition start" },
+      { value: "OT-aware", label: "ATT&CK for ICS, safety-first" },
+      { value: "24×7", label: "Retainer response, UAE-resident lead" },
+    ],
+    methodology: [
+      { phase: "01 · Triage & notify", duration: "Hour 0–6", activities: [
+        "Parallel kickoff — blast-radius scoping, volatile-evidence preservation and the regulator-notification workstream at once",
+        "aeCERT / TDRA, PDPL Data Office and sector-regulator (FSRA / ADHICS / ADDA) notification paths opened",
+        "Containment plan agreed with the SOC, calibrated to protect safety- and money-critical systems without destroying evidence",
+        "Rules of engagement, legal/privilege and a UAE-resident-led communications channel established",
+      ] },
+      { phase: "02 · Acquire & contain", duration: "Day 1", activities: [
+        "Forensically-sound memory, disk and cloud-snapshot acquisition with hashes and chain of custody",
+        "Account, session and access containment — disable, rotate, isolate — without tipping a destructive actor",
+        "AD-forest integrity check (ADCS templates, trusts, privileged groups); for energy, the IT/OT boundary state captured first",
+        "Initial regulator notifications filed; sector-regulator incident note prepared",
+      ] },
+      { phase: "03 · Analyse & investigate", duration: "Days 1–3", activities: [
+        "Timeline reconstruction, malware analysis and TTP mapping to MITRE ATT&CK (and ATT&CK for ICS where OT is in scope)",
+        "Root-cause determination — initial access, persistence, privilege escalation, lateral movement",
+        "Energy: confirm whether the attacker crossed the IT/OT boundary and assess process-safety implications",
+        "Scope confirmation: personal data accessed/exfiltrated for the PDPL breach-notification decision",
+      ] },
+      { phase: "04 · Eradicate & recover", duration: "Days 3–7", activities: [
+        "Verified attacker eviction — no surviving backdoor, rogue trust, half-cleaned forest, or OT-side persistence",
+        "Recovery sequencing with hardening: identity tightening, ADCS fixes, IT/OT segmentation",
+        "Detection-engineering — incident indicators converted to permanent Sigma / SIEM SOC coverage",
+        "PDPL notification to the UAE Data Office and affected individuals where required",
+      ] },
+      { phase: "05 · Report & learn", duration: "Week 2+", activities: [
+        "Technical, regulator-facing and board-level reports with evidence references (bilingual where required)",
+        "aeCERT / NESA follow-up closure and sector-regulator (FSRA / ADHICS / ADDA) note finalised",
+        "Post-incident tabletop and IR-playbook update for retainer clients",
+        "Hardening roadmap tracked against the audit-committee’s commitments",
+      ] },
+    ],
+    industries: [
+      { name: "Energy / oil & gas (ADNOC ecosystem)", blurb: "OT-aware IR — IT/OT boundary timeline, historian and engineering-workstation forensics, process-safety assessment, ATT&CK for ICS." },
+      { name: "Utilities + critical infrastructure", blurb: "NESA CIIP-aligned incident handling with onsite-only handling and log-residency agreed before the incident." },
+      { name: "ADGM fintech + BFSI", blurb: "Settlement and customer-data-flow forensics with FSRA incident evidence and ADGM data-protection breach handling." },
+      { name: "DoH-licensed healthcare", blurb: "Patient-record and tele-health incident forensics with ADHICS incident-reporting and PDPL notification support." },
+      { name: "Federal / Abu Dhabi government", blurb: "Identity, session and access-log reconstruction across the ADDA-governed estate with bilingual board reporting." },
+      { name: "Sovereign investment + portfolio cos", blurb: "BEC, ransomware and data-theft response with maximum discretion and tightly scoped evidence handling." },
+    ],
+    deliverables: [
+      "aeCERT / TDRA notification record and follow-up closure",
+      "Forensic evidence set with hashes and documented chain of custody",
+      "Incident timeline and root-cause report mapped to MITRE ATT&CK (and ATT&CK for ICS where OT in scope)",
+      "NESA / UAE IAS incident evidence + sector-regulator note (FSRA / ADHICS / ADDA)",
+      "PDPL breach-notification trail to the UAE Data Office and affected individuals",
+      "Eradication verification — including OT-side persistence checks — and a hardening roadmap with detection rules",
+      "Board-level one-page narrative with exposure and remediation commitments (bilingual where required)",
+      "Post-incident tabletop and IR-playbook update (retainer)",
+    ],
+    caseStudy: {
+      industry: "Abu Dhabi utilities operator — human-operated ransomware that reached the IT/OT boundary",
+      scope:
+        "Emergency IR + forensics across the corporate AD forest, file servers and the OT jump-host; multi-regulator notification (aeCERT/TDRA, NESA, PDPL); process-safety assessment of the historian and engineering-workstation estate",
+      outcome:
+        "Contained inside 11 hours with regulator notifications filed without undue delay; root cause traced to an ADCS ESC1 escalation from a VPN foothold, with the attacker stopped at the OT jump-host before crossing into the process zone (confirmed, plant safe); forest hardened and the IT/OT boundary re-segmented pre-rebuild; incident indicators shipped to the SOC as permanent detections; 9 highs + 22 mediums closed in the remediation window.",
+    },
+    faqs: [
+      { q: "Is there a six-hour reporting rule in the UAE like India’s CERT-In?", a: "No — the UAE does not have a single fixed-hour federal rule equivalent to CERT-In’s six hours. Instead obligations stack: aeCERT / TDRA expects prompt notification, NESA / UAE IAS sets the incident-handling controls a critical-infrastructure operator is measured against, the PDPL (Federal Decree-Law 45/2021) requires breach notification to the UAE Data Office and affected individuals without undue delay, and the sector regulator (FSRA, ADHICS or ADDA) adds its own. Our triage opens all the applicable workstreams in parallel so each is met from one coordinated incident." },
+      { q: "Can you do OT-aware incident response for the ADNOC ecosystem?", a: "Yes — and the safety question comes first. For energy and utilities we capture the IT/OT boundary state before anything else, reconstruct the historian, engineering-workstation and jump-host timeline without disturbing a running process, and answer the operator’s real question: did the attacker cross into the process network, and is the plant safe. Analysis is mapped to ATT&CK for ICS, and we confirm no OT-side persistence remains before any rebuild." },
+      { q: "Do you handle the PDPL breach-notification side?", a: "Yes. As part of the investigation we determine what personal data was accessed or exfiltrated and support the PDPL notification to the UAE Data Office and affected individuals without undue delay, alongside the aeCERT / TDRA and sector-regulator reporting — one coordinated response across every obligation, not separate workstreams that contradict each other." },
+      { q: "How fast can you respond onsite in Abu Dhabi?", a: "Remote forensic acquisition starts within the hour while senior support flies Mumbai BKC → AUH (~3.5 hours). For retainer clients a UAE-resident lead responder is onsite same-day across the Abu Dhabi island, Al Maryah, Mussafah, KIZAD and the Ruwais industrial corridor, with a guaranteed SLA and named responders who already know the estate." },
+      { q: "Is your forensic evidence usable for audit and legal proceedings?", a: "Yes. We acquire memory, disk and cloud snapshots to a forensically-sound standard with cryptographic hashes and a documented chain of custody from the first image. Abu Dhabi energy, sovereign and government incidents are examined by internal audit, the federal regulator and sometimes courts, so we handle evidence to that bar from the outset — and for sensitive scope we agree onsite-only handling and log-residency before any incident." },
+      { q: "Do you work on an IR retainer?", a: "Yes, and for Abu Dhabi critical-infrastructure and regulated entities it’s the recommended posture. A retainer gives you guaranteed response SLAs, pre-agreed rules of engagement and data-handling, a UAE-resident lead, named responders who know your environment, and a banked block of hours — so a breach becomes a phone call, not an emergency-procurement scramble in the middle of a crisis." },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // Abu Dhabi × Network Security Architecture
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    updated: "2026-06-18",
+    citySlug: "abu-dhabi",
+    serviceSlug: "network-security-architecture",
+    headline: "Network Security Architecture in Abu Dhabi · OT & Gov",
+    lead: "IT/OT segmentation, firewall rule-base cleanup, microsegmentation and SASE / ZTNA roadmaps for the ADNOC energy ecosystem, ADGM, government and healthcare — vendor-neutral, NESA / IEC 62443-mapped, delivered Mumbai BKC → AUH.",
+    body: [
+      "Macksofy delivers defensive network engineering for Abu Dhabi’s critical-infrastructure operators, ADGM financial entities, government bodies and DoH-licensed healthcare, with the capital’s defining characteristic — a heavy OT estate — at the centre of the work. The ADNOC ecosystem, the utilities operators and the industrial estates across Mussafah, KIZAD and the Ruwais corridor run process networks that, almost universally, started life flat: PLCs, DCS, SCADA, historians and engineering laptops sharing broadcast domains, with vendor-mandated flat designs and a maintenance-vendor remote-access path that is rarely segmented. Our engagement makes that estate auditable and then layers zones and conduits in a sequence the change-advisory board and the plant-availability constraints can absorb.",
+      "IT/OT segmentation per IEC 62443-3-2 is the headline engagement class in Abu Dhabi, not an afterthought. We map the estate to the Purdue model, define security zones and conduits by criticality, and design the IT-to-OT boundary the way NESA Critical Information Infrastructure Protection expects an operator to demonstrate it — a controlled north-south path, a hardened jump-host / remote-access route for maintenance vendors, the engineering-workstation and historian exposure closed, and the safety-instrumented-system network deliberately isolated. The redesign is calibrated to operational reality: a process plant cannot take a flag-day cutover, so the rollout is staged around turnaround windows and the safety case, with passive discovery (NetFlow / span ports / OT-aware passive sensors) doing the heavy lifting rather than active scanning inside a live process zone.",
+      "Firewall rule-base cleanup is risk-managed, not bulk. A long-lived Abu Dhabi enterprise firewall estate carries the usual fifteen-year accretion — thousands of rules, a third or more dead or shadowed, and a tail of overly-permissive ANY-service exceptions with no business owner. We classify each rule into dead (zero hits in 90 days), shadowed, overly-permissive and unjustified; every removal gets a rollback window and an explicit business-owner sign-off; and the client network team executes during scheduled maintenance windows with Macksofy senior on standby. The workflow is conservative by design — a single business-impacting rollback forces re-scoping, so we do not bulk-delete.",
+      "The regulator-evidence layer is what closes the engagement. NESA / UAE IAS expects trust-zone isolation a critical-infrastructure operator can demonstrate; ADDA sets the information-security standards a government entity is held to; FSRA cyber expectations and ADGM data-protection govern the financial free-zone estate; and ADHICS governs DoH-licensed healthcare. Macksofy’s deliverable is the segmentation-evidence binder that maps the current-state and target-state architecture to whichever of those sets governs the client — so the same engagement produces the federal evidence and the sector-regulator evidence from one body of work, in the format the Abu Dhabi reviewer reads.",
+      "SASE / ZTNA vendor selection and microsegmentation are part of roadmap-scale projects, and Macksofy is vendor-neutral — we do not resell Zscaler, Netskope, Cisco, Palo Alto Prisma, Cloudflare, Illumio, Guardicore or NSX licences. The short-list is driven by the client’s existing investment, the connectivity vendor’s edge presence in the UAE, the data-residency posture on cloud-mediated traffic (a real constraint for government and energy scope), and the rollout cadence the change calendar can absorb. Microsegmentation pilots typically run on a 250-host scope before expanding, validating agent footprint, policy-modelling effort, SIEM integration and the change-failure rate — and for a critical-infrastructure operator the full rollout is planned as a multi-quarter programme, never a six-week sprint.",
+      "Deliverables include the NESA / ADDA / FSRA / ADHICS-mapped segmentation-evidence binder, the current-state and target-state network and IT/OT architecture diagrams, the IEC 62443 zone-and-conduit model, the phased rollout plan with change-window discipline tied to plant turnarounds, the change-management playbook with rollback-tested templates, and an optional quarterly drift audit. Senior consultants fly Mumbai BKC → AUH (~3.5 hours) for the discovery workshop, the design review and the rollout-supervision touchpoints, with a UAE-resident lead for multi-quarter programmes; billing is in AED with the 5% VAT line.",
+    ],
+    buyerConcerns: [
+      "IT/OT segmentation per IEC 62443-3-2 for the ADNOC ecosystem, utilities and industrial estates",
+      "NESA CIIP-demonstrable trust-zone isolation for critical-infrastructure operators",
+      "Firewall rule-base cleanup with documented rollback per change",
+      "Safety-instrumented-system network isolation and a hardened maintenance-vendor remote-access path",
+      "ADDA / FSRA / ADHICS segmentation evidence for government, ADGM and healthcare estates",
+      "SASE / ZTNA vendor-neutral short-list with data-residency posture for cloud-mediated traffic",
+      "Microsegmentation pilot (Illumio / Guardicore / NSX / native cloud) before rollout",
+      "Change windows that respect plant turnarounds and a multi-quarter critical-infrastructure calendar",
+    ],
+    differentiators: [
+      "OT-first by design — IEC 62443-3-2 zones-and-conduits for the ADNOC ecosystem and utilities, with the safety-instrumented-system network isolated and passive discovery inside live process zones, never an active scan at a PLC.",
+      "Vendor-neutral SASE / ZTNA / microsegmentation short-list — Macksofy does not resell firewall, SASE or microsegmentation licences, so recommendations follow the estate and the residency posture, not a SPIFF.",
+      "NESA / ADDA / FSRA / ADHICS clause-mapped evidence binder from a single engagement closes the federal and sector-regulator segmentation asks together.",
+      "Rule-base cleanup with documented rollback per rule and explicit business-owner sign-off — conservative by design, executed in the client’s maintenance windows with Macksofy senior on standby.",
+      "Plant-availability literate — the rollout is staged around turnaround windows and the safety case, planned as a multi-quarter programme, not a flag-day cutover a process plant can’t absorb.",
+    ],
+    seoDescription:
+      "Abu Dhabi IT/OT segmentation, firewall rule-base review, SASE / ZTNA roadmap and IEC 62443 OT zoning for energy, ADGM, government & healthcare. Vendor-neutral, NESA-mapped evidence.",
+    keywords: [
+      "network segmentation Abu Dhabi",
+      "IT OT segmentation ADNOC",
+      "IEC 62443 Abu Dhabi",
+      "firewall rule review Abu Dhabi",
+      "NESA segmentation evidence",
+      "SASE consulting Abu Dhabi",
+      "ZTNA Abu Dhabi",
+      "microsegmentation UAE energy",
+      "OT network security Abu Dhabi",
+    ],
+    stats: [
+      { value: "IEC 62443", label: "Zones-and-conduits OT redesign" },
+      { value: "Vendor-neutral", label: "No firewall / SASE / microseg resale" },
+      { value: "Safety-first", label: "Passive discovery in live process zones" },
+      { value: "Multi-quarter", label: "Rollout staged to plant turnarounds" },
+    ],
+    methodology: [
+      { phase: "01 · Topology + asset discovery", duration: "Weeks 1–2", activities: [
+        "Passive discovery via NetFlow / sFlow / span ports and OT-aware passive sensors (no active scan in live process zones)",
+        "Trust-zone classification — tier-0 / OT (Purdue levels) / regulated / DMZ / corporate",
+        "Crown-jewel and safety-instrumented-system mapping with business and process owners",
+        "Maintenance-vendor remote-access and jump-host path inventory",
+      ] },
+      { phase: "02 · Firewall + rule-base review", duration: "Weeks 2–3", activities: [
+        "Multi-vendor analysis (Palo Alto, Fortinet, Check Point, Cisco, Juniper)",
+        "Dead / shadowed / overly-permissive / unjustified rule identification",
+        "Object cleanup + zone-based rebase plan",
+        "Risk-ranked rule-by-rule remediation with rollback windows and business-owner sign-off",
+      ] },
+      { phase: "03 · Segmentation + IT/OT zoning", duration: "Weeks 3–5", activities: [
+        "Target-state segmentation map per trust zone",
+        "IEC 62443-3-2 zones-and-conduits model with the safety-instrumented-system network isolated",
+        "Hardened IT-to-OT north-south boundary and maintenance-vendor remote-access design",
+        "ADGM / healthcare / government zone isolation design where applicable",
+      ] },
+      { phase: "04 · SASE / ZTNA / microsegmentation", duration: "Weeks 5–7", activities: [
+        "Vendor-neutral short-list (Zscaler, Netskope, Cisco, Palo Alto Prisma, Cloudflare) with residency posture",
+        "ZTNA design for remote + branch + third-party maintenance vendor",
+        "Microsegmentation tool short-list (Illumio, Guardicore, NSX, native cloud)",
+        "Phased rollout plan staged around plant turnarounds and the change calendar",
+      ] },
+      { phase: "05 · Evidence + handover", duration: "Weeks 7–8", activities: [
+        "NESA / ADDA / FSRA / ADHICS-mapped segmentation-evidence binder",
+        "Current-state and target-state network + IT/OT architecture diagrams",
+        "Change-management playbook + rollback-tested templates",
+        "Quarterly drift audit (optional retainer)",
+      ] },
+    ],
+    industries: [
+      { name: "Energy / oil & gas (ADNOC ecosystem)", blurb: "IEC 62443-3-2 zones-and-conduits, safety-instrumented-system isolation, hardened maintenance-vendor access — Ruwais / Das Island / Mussafah estates." },
+      { name: "Utilities + critical infrastructure", blurb: "NESA CIIP-demonstrable IT/OT trust-zone isolation with passive-first discovery inside live process networks." },
+      { name: "ADGM fintech + BFSI", blurb: "Al Maryah Island financial estate — trust-zone isolation and PCI-style CDE scoping mapped to FSRA + ADGM data-protection." },
+      { name: "Federal / Abu Dhabi government", blurb: "ADDA-standard segmentation evidence with data-residency posture on cloud-mediated traffic." },
+      { name: "DoH-licensed healthcare", blurb: "Medical-device / OT and patient-data zone isolation mapped to the ADHICS control set." },
+      { name: "Industrial estates (KIZAD / Mussafah)", blurb: "Manufacturing and process estates — IT/OT zoning calibrated to vendor-mandated flat-network reality." },
+    ],
+    deliverables: [
+      "Current-state network + IT/OT topology and trust-zone map",
+      "Firewall rule-base cleanup plan with risk-ranked actions + rollback windows",
+      "IEC 62443-3-2 zones-and-conduits model with safety-instrumented-system isolation",
+      "Target-state segmentation architecture + diagrams (IT and OT)",
+      "Vendor-neutral SASE / ZTNA / microsegmentation short-list memo with residency posture",
+      "Phased rollout plan staged around plant turnarounds and the change calendar",
+      "NESA / ADDA / FSRA / ADHICS segmentation-evidence binder",
+      "Change-management playbook + rollback-tested templates",
+    ],
+    caseStudy: {
+      industry: "Abu Dhabi utilities operator (process estate + corporate HQ)",
+      scope:
+        "Flat process network shared between PLCs, historians and engineering laptops; corporate firewall estate of ~9,000 rules with the OT jump-host reachable from the corporate VLAN; NESA CIIP segmentation evidence required",
+      outcome:
+        "IT/OT boundary redrawn to an IEC 62443-3-2 zone model with the safety-instrumented-system network isolated and the maintenance-vendor remote-access path hardened to a single brokered jump-host; corporate rule count cut by ~45% with zero business-impacting rollback, executed across two turnaround windows; NESA CIIP segmentation-evidence binder accepted by internal audit on first read; quarterly drift audit retained.",
+    },
+    faqs: [
+      { q: "How is this different from a network pentest?", a: "A pentest is offensive — we attack your existing network and report findings. This service is defensive engineering — we design IT/OT segmentation, clean up the firewall rule-base and roadmap microsegmentation. Abu Dhabi critical-infrastructure operators often buy both: the architecture work first, then a pentest in the next cycle to validate it." },
+      { q: "Can you do IT/OT segmentation without disrupting a running plant?", a: "Yes — that constraint shapes the whole engagement. Discovery inside live process zones is passive (NetFlow, span ports, OT-aware passive sensors), never an active scan at a PLC; the safety-instrumented-system network is isolated as a priority; and the rollout is staged around turnaround windows and the safety case rather than a flag-day cutover. We plan a critical-infrastructure rollout as a multi-quarter programme for exactly this reason." },
+      { q: "Which Abu Dhabi regulators does the evidence binder map to?", a: "Whichever govern you: NESA / UAE IAS and its Critical Information Infrastructure Protection posture at the federal level, ADDA information-security standards for government entities, FSRA cyber expectations plus ADGM data-protection for the financial free zone, and ADHICS for DoH-licensed healthcare. The binder maps the current-state and target-state architecture to the relevant set from a single engagement." },
+      { q: "Are you tied to a particular firewall or SASE vendor?", a: "No — Macksofy is vendor-neutral and does not resell firewall, SASE or microsegmentation licences. Abu Dhabi enterprise estates typically run a Palo Alto / Fortinet / Cisco / Check Point mix; we hold delivery experience across those plus Juniper and the native cloud security groups, and the SASE / ZTNA / microsegmentation short-list follows your estate and your residency posture, not a reseller incentive." },
+      { q: "Do you handle the maintenance-vendor remote-access path?", a: "Yes — it’s one of the highest-risk findings in an OT estate. We inventory every maintenance-vendor remote-access route, then design a hardened, brokered jump-host path with strong identity, session recording and time-bound access, so the vendor connectivity that keeps the plant running doesn’t become the attacker’s way into the process network." },
+      { q: "How is the engagement delivered from India?", a: "Senior consultants fly Mumbai BKC → AUH (~3.5 hours) for the discovery workshop, the design review and the rollout-supervision touchpoints, reaching Al Maryah, Mussafah, KIZAD or the Ruwais corridor from the airport; the analysis and design work runs remotely against the captured topology. For multi-quarter critical-infrastructure programmes we maintain a UAE-resident lead consultant, and billing is in AED with the 5% VAT line." },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────
+  // Dubai × Digital Forensics & Incident Response
+  // ─────────────────────────────────────────────────────────────────────
+  {
+    updated: "2026-06-18",
+    citySlug: "dubai",
+    serviceSlug: "digital-forensics-incident-response",
+    headline: "Incident Response & DFIR in Dubai · DIFC, DESC & Gov",
+    lead: "DESC- and aeCERT-aligned incident response and digital forensics for Dubai — DIFC BFSI, Smart Dubai / government, free-zone fintech and DXB / DWC aviation — rapid containment, multi-regulator breach reporting, retainer-backed, delivered Mumbai BKC → AUH.",
+    body: [
+      "When a Dubai entity is breached, the response has to satisfy Dubai-specific and federal obligations at once. Dubai-government and Dubai-government-adjacent entities sit under the DESC (Dubai Electronic Security Centre) Information Security Regulation, which carries its own incident-reporting and handling expectations; on top of that the federal layer applies — aeCERT / TDRA expects prompt notification, NESA / UAE IAS sets the incident-handling controls, and the PDPL (Federal Decree-Law 45/2021) requires breach notification to the UAE Data Office and affected individuals without undue delay. DIFC-regulated entities add the DFSA Technology Risk expectations and the DIFC Data Protection Law breach-notification regime, distinct from the federal PDPL. Macksofy runs the response so every applicable obligation is met from one coordinated incident, with a UAE-resident responder onsite and senior forensic support flying Mumbai BKC → AUH within hours.",
+      "The first hours decide the engagement, and our triage runs in parallel: one responder scopes blast radius and preserves volatile evidence, a second opens the notification workstreams (DESC where applicable, aeCERT/TDRA, the PDPL or DIFC DP regulator, and the sector regulator), and a third agrees containment with the client SOC. Acquisition is forensically sound from the first image — memory, disk and cloud-snapshot captures with cryptographic hashes and chain of custody — because a Dubai DIFC, government or aviation incident will be examined by internal audit, the DFSA or DESC, and potentially a court. Containment is calibrated to keep money-movement and operational systems stable without destroying the evidence that explains the intrusion.",
+      "Dubai incidents cluster into patterns we scope to. DIFC BFSI and free-zone fintech incidents demand money-movement and settlement-flow forensics, account-takeover and BEC reconstruction, and — for the LAPSUS$-style IdP-token-theft pattern that hit regional banks in 2024–25 — Azure AD / Okta / PingFederate and ADCS-abuse forensics. Human-operated ransomware demands AD-forest forensics: Kerberoasting and ADCS-abuse traces, golden/silver-ticket detection, lateral-movement timelines. Smart Dubai and government incidents demand identity, session and citizen-services access-log reconstruction with the DESC handling discipline. Aviation incidents at the Emirates Group and Dubai Airports estates demand passenger-systems, cargo and ground-operations forensics handled inside Annex 17 operational-safety constraints. Each gets a documented timeline, a root-cause narrative and an indicator set the SOC can hunt across the estate.",
+      "Eradication and recovery are part of the engagement, not a hand-off. We verify the attacker is fully evicted before rebuild — no half-cleaned forest, no surviving backdoor, no rogue trust — and pair recovery with hardening so the same path can’t be re-walked: identity tightening, ADCS template fixes, segmentation, and detection-engineering so this incident’s indicators become permanent SOC coverage. For retainer clients we run a post-incident tabletop and feed the lessons into the IR playbook. For DESC-regulated entities the adversary-action and response audit trail is retained in tamper-evident storage to the disposition DESC expects.",
+      "The output is built for the people who will read it under pressure. The technical report carries the timeline, the forensic findings with evidence references, the malware and TTP analysis mapped to MITRE ATT&CK, and the root cause. The regulator-facing pack assembles the DESC ISR notification record (where applicable), the aeCERT/TDRA notification, the NESA / UAE IAS incident evidence, the DFSA Technology Risk supervisor note for DIFC entities, and the PDPL or DIFC Data Protection breach-notification trail — in the format the Dubai reviewer reads. The board pack carries the one-page narrative, the exposure, and the remediation commitments the audit committee will track, in Arabic alongside English where the recipient requires it.",
+      "Retainer is the right posture for Dubai’s regulated and government-adjacent entities, and we structure it that way: guaranteed response SLAs, pre-agreed rules of engagement and data-handling, a UAE-resident lead, named responders who already know the environment, and a banked block of hours that turns an emergency procurement scramble into a phone call. Remote forensic acquisition starts within the hour while senior support travels; onsite is same-day across DIFC, Business Bay, Internet City and the wider emirate; billing is in AED with the 5% VAT line; and for DESC-regulated and DIFC scope the data-handling and retention constraints are agreed before any incident, not negotiated mid-crisis.",
+    ],
+    buyerConcerns: [
+      "DESC ISR incident-reporting and handling discipline for Dubai-government-adjacent entities",
+      "Multi-regulator notification — aeCERT / TDRA, PDPL or DIFC DP, plus DFSA for DIFC entities",
+      "DIFC BFSI money-movement, settlement and account-takeover / BEC forensics",
+      "Human-operated ransomware and AD-forest forensics (ADCS, Kerberoast, golden-ticket)",
+      "IdP-token-theft (Azure AD / Okta / PingFederate) reconstruction — the regional 2024–25 pattern",
+      "Aviation (DXB / DWC) passenger-systems and cargo forensics inside Annex 17 constraints",
+      "PDPL / DIFC Data Protection breach notification to the regulator and affected individuals",
+      "An IR retainer with guaranteed SLAs, a UAE-resident lead and tamper-evident retention for DESC scope",
+    ],
+    differentiators: [
+      "Dubai-regulatory literate — DESC ISR handling discipline for government-adjacent entities and the DIFC / DFSA + DIFC Data Protection regime for the financial free zone, on top of the federal aeCERT / NESA / PDPL layer, satisfied from one coordinated incident.",
+      "Parallel triage across the stacked clocks — containment, evidence preservation and every applicable notification workstream run simultaneously, not in sequence.",
+      "BFSI-pattern forensics tuned to how Dubai incidents actually unfold — money-movement, IdP-token theft and AD-forest reconstruction mapped to MITRE ATT&CK.",
+      "Evidence handled to internal-audit, regulator and legal standard from the first image, with tamper-evident retention to the DESC disposition for government-adjacent scope.",
+      "UAE-resident lead responder onsite with senior forensic support flying Mumbai BKC → AUH; remote acquisition starts within the hour while they travel, and a retainer removes the mid-incident procurement scramble.",
+    ],
+    seoDescription:
+      "DFIR & incident response in Dubai for DIFC BFSI, Smart Dubai / government, fintech & aviation — DESC ISR, aeCERT / NESA-aligned reporting, ransomware & AD forensics, PDPL / DIFC DP, retainer.",
+    keywords: [
+      "incident response Dubai",
+      "DFIR services Dubai",
+      "digital forensics Dubai",
+      "ransomware incident response Dubai",
+      "DESC incident reporting Dubai",
+      "DIFC breach forensics",
+      "aeCERT incident reporting UAE",
+      "cyber incident response retainer Dubai",
+      "DFSA incident response Dubai",
+    ],
+    stats: [
+      { value: "Multi-clock", label: "DESC · aeCERT · PDPL / DIFC DP" },
+      { value: "<1 hr", label: "Remote acquisition start" },
+      { value: "ATT&CK", label: "TTP-mapped BFSI forensics" },
+      { value: "24×7", label: "Retainer response, UAE-resident lead" },
+    ],
+    methodology: [
+      { phase: "01 · Triage & notify", duration: "Hour 0–6", activities: [
+        "Parallel kickoff — blast-radius scoping, volatile-evidence preservation and the notification workstreams at once",
+        "DESC ISR (where applicable), aeCERT / TDRA, PDPL or DIFC DP, and DFSA (DIFC) notification paths opened",
+        "Containment plan agreed with the SOC, calibrated to protect money-movement and operational systems without destroying evidence",
+        "Rules of engagement, legal/privilege and a UAE-resident-led communications channel established",
+      ] },
+      { phase: "02 · Acquire & contain", duration: "Day 1", activities: [
+        "Forensically-sound memory, disk and cloud-snapshot acquisition with hashes and chain of custody",
+        "Account, session and access containment — disable, rotate, isolate — without tipping a destructive actor",
+        "AD-forest integrity check (ADCS templates, trusts, privileged groups) and IdP-token-theft check",
+        "Initial regulator notifications filed; DFSA / sector incident note prepared",
+      ] },
+      { phase: "03 · Analyse & investigate", duration: "Days 1–3", activities: [
+        "Timeline reconstruction, malware analysis and TTP mapping to MITRE ATT&CK",
+        "Root-cause determination — initial access, persistence, privilege escalation, lateral movement",
+        "Money-movement / settlement forensics, BEC or identity-takeover reconstruction as applicable",
+        "Scope confirmation: personal data accessed/exfiltrated for the PDPL / DIFC DP breach-notification decision",
+      ] },
+      { phase: "04 · Eradicate & recover", duration: "Days 3–7", activities: [
+        "Verified attacker eviction — no surviving backdoor, rogue trust or half-cleaned forest",
+        "Recovery sequencing with hardening: identity tightening, ADCS fixes, segmentation",
+        "Detection-engineering — incident indicators converted to permanent Sigma / SIEM SOC coverage",
+        "PDPL / DIFC DP notification to the regulator and affected individuals where required",
+      ] },
+      { phase: "05 · Report & learn", duration: "Week 2+", activities: [
+        "Technical, regulator-facing and board-level reports with evidence references (bilingual where required)",
+        "DESC ISR follow-up, aeCERT / NESA closure and DFSA supervisor note finalised",
+        "Post-incident tabletop and IR-playbook update for retainer clients",
+        "Hardening roadmap tracked against the audit-committee’s commitments; DESC-disposition tamper-evident retention",
+      ] },
+    ],
+    industries: [
+      { name: "DIFC-regulated BFSI", blurb: "Banks, payment institutions, broker-dealers and asset managers — money-movement, settlement and account-takeover forensics with DFSA Technology Risk evidence." },
+      { name: "DIFC Innovation Hub fintechs", blurb: "Embedded-finance and partner-API fintechs — BEC and IdP-token-theft reconstruction with DIFC Data Protection breach handling." },
+      { name: "Smart Dubai + government", blurb: "Citizen-services and identity-platform incident forensics with the DESC ISR handling discipline and tamper-evident retention." },
+      { name: "Emirates Group + Dubai Airports", blurb: "Passenger-systems, cargo and ground-operations forensics handled inside Annex 17 operational-safety constraints." },
+      { name: "Free-zone enterprises (JLT / Internet City)", blurb: "MEA regional HQs — ransomware, BEC and data-theft response with board-pack reporting." },
+      { name: "Hospitality + retail groups", blurb: "POS, loyalty and PII-exposure incident response with PDPL notification support." },
+    ],
+    deliverables: [
+      "DESC ISR notification record (where applicable) and aeCERT / TDRA notification + follow-up closure",
+      "Forensic evidence set with hashes and documented chain of custody",
+      "Incident timeline and root-cause report mapped to MITRE ATT&CK",
+      "NESA / UAE IAS incident evidence + DFSA Technology Risk supervisor note (DIFC entities)",
+      "PDPL / DIFC Data Protection breach-notification trail to the regulator and affected individuals",
+      "Eradication verification and a hardening roadmap with detection rules",
+      "Board-level one-page narrative with exposure and remediation commitments (bilingual where required)",
+      "Tamper-evident adversary-action / response audit trail to the DESC disposition (government-adjacent scope)",
+    ],
+    caseStudy: {
+      industry: "DIFC-licensed payment institution (Gate Village) — BEC into a settlement-fraud attempt",
+      scope:
+        "Emergency IR + forensics across Microsoft 365, the AD forest and the settlement-reconciliation stack; multi-regulator notification (DFSA, aeCERT/TDRA, DIFC Data Protection); IdP-token-theft and money-movement forensics",
+      outcome:
+        "Contained inside 8 hours with the DFSA supervisor note and aeCERT notification filed promptly; root cause traced to an OAuth-token theft following an MFA-fatigue phish, with the fraudulent settlement instruction intercepted before value moved; forest and tenant hardened, conditional-access tightened, and the IdP-token-theft indicators shipped to the SOC as permanent detections; DIFC Data Protection notification supported; 7 highs + 18 mediums closed in the remediation window.",
+    },
+    faqs: [
+      { q: "Do you operate under the DESC ISR incident discipline in Dubai?", a: "Yes — for any Dubai-government or government-adjacent entity, the DESC (Dubai Electronic Security Centre) Information Security Regulation carries its own incident-reporting and handling expectations, and the response audit trail is retained in tamper-evident storage to the disposition DESC expects. On top of that the federal layer applies — aeCERT / TDRA, NESA / UAE IAS and the PDPL — and for DIFC entities the DFSA and DIFC Data Protection Law. Our triage opens every applicable workstream in parallel so all are met from one coordinated incident." },
+      { q: "Is the DIFC breach regime different from the federal PDPL?", a: "Yes — and getting this right matters. DIFC-regulated entities sit under the DIFC Data Protection Law (administered by the DIFC Commissioner of Data Protection), which is distinct from the federal PDPL (Federal Decree-Law 45/2021) administered by the UAE Data Office. We determine which applies to the affected data and entity and support the correct breach notification to the right regulator and affected individuals, alongside the DFSA Technology Risk note where the entity is DFSA-supervised." },
+      { q: "Can you handle the Emirates Group / Dubai Airports operational-safety constraints during IR?", a: "Yes. Aviation incident response inside the DXB / DWC and Emirates Group estate is handled within Annex 17 ICAO operational-safety constraints — forensic acquisition and containment are sequenced so they cannot degrade flight-safety or passenger-throughput, and the response is coordinated with the airline / airport safety-and-security committee. Passenger-systems, cargo, crew systems and the corporate IT estate are all in scope under those constraints." },
+      { q: "How fast can you respond onsite in Dubai?", a: "Remote forensic acquisition starts within the hour while senior support flies Mumbai BKC → AUH (~3.5 hours, then a short transfer to Dubai) — or directly to DXB where the schedule fits. For retainer clients a UAE-resident lead responder is onsite same-day across DIFC, Business Bay, Internet City, JLT and the wider emirate, with a guaranteed SLA and named responders who already know the estate." },
+      { q: "Do you handle the PDPL / DIFC breach-notification side as well?", a: "Yes. As part of the investigation we determine what personal data was accessed or exfiltrated and support the notification — to the UAE Data Office under the PDPL, or to the DIFC Commissioner of Data Protection for DIFC entities — and to affected individuals, alongside the DESC, aeCERT and DFSA reporting. One coordinated response across every obligation." },
+      { q: "Do you work on an IR retainer?", a: "Yes, and for Dubai regulated and government-adjacent entities it’s the recommended posture. A retainer gives you guaranteed response SLAs, pre-agreed rules of engagement and data-handling, a UAE-resident lead, named responders who know your environment, tamper-evident retention for DESC scope, and a banked block of hours — so a breach becomes a phone call, not an emergency-procurement scramble in the middle of a crisis." },
+    ],
+  },
 ];
 
 export const getCombo = (
