@@ -11147,7 +11147,7 @@ export const COMBO_PAIRS = COMBOS.map((c) => ({
  * GSC (Page Indexing → Indexed), then bump RELEASED_THROUGH_WAVE by ONE.
  * Assign new (city/service) keys to a wave number in COMBO_WAVES below.
  * ────────────────────────────────────────────────────────────────────── */
-export const RELEASED_THROUGH_WAVE = 1;
+export const RELEASED_THROUGH_WAVE = 2;
 
 /** Combos with no explicit wave are held out of the sitemap until promoted. */
 const HELD_WAVE = 99;
@@ -11174,6 +11174,23 @@ const COMBO_WAVES: Record<string, number> = {
   "chennai/penetration-testing": 1,
   "dubai/vapt": 1,
   "dubai/penetration-testing": 1,
+
+  // ── Wave 2 (14, promoted 2026-06-18): next-tier high-intent — completes the
+  //    flagship-metro × core-service matrix + Dubai SOC/cloud + UAE cloud hub ──
+  "delhi/managed-soc": 2,
+  "delhi/web-application-security": 2,
+  "bengaluru/managed-soc": 2,
+  "hyderabad/penetration-testing": 2,
+  "hyderabad/web-application-security": 2,
+  "chennai/vapt": 2,
+  "chennai/web-application-security": 2,
+  "pune/vapt": 2,
+  "noida/vapt": 2,
+  "noida/penetration-testing": 2,
+  "gurugram/penetration-testing": 2,
+  "dubai/managed-soc": 2,
+  "dubai/cloud-security": 2,
+  "uae/cloud-security": 2,
 };
 
 const comboWave = (c: CityServiceCombo): number =>
