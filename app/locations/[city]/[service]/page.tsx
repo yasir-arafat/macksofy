@@ -85,6 +85,8 @@ export default async function CityServiceComboPage({ params }: PageProps) {
   const s = getServiceBySlug(service);
   if (!combo || !c || !s) notFound();
   const ServiceIcon = s.icon;
+  // "An Abu Dhabi…" / "An Ahmedabad…" but "A UAE…" (sounds like "you") — A/E/I/O only.
+  const cityArticle = /^[AEIO]/.test(c.name) ? "An" : "A";
 
   const siblingsInCity = COMBO_PAIRS.filter(
     (p) => p.city === city && p.service !== service
@@ -351,7 +353,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <FadeIn>
                 <Eyebrow color="amber">Recent {c.name} engagement</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  A {c.name} <span className="gradient-text">{s.shortTitle.toLowerCase()}</span> case study.
+                  {cityArticle} {c.name} <span className="gradient-text">{s.shortTitle.toLowerCase()}</span> case study.
                 </h2>
               </FadeIn>
               <div className="mt-10 rounded-2xl glass p-6 sm:p-8 lift">
