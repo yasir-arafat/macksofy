@@ -75,7 +75,7 @@ export default function robots(): MetadataRoute.Robots {
       // Each AI crawler gets its own explicit Allow block
       ...AI_CRAWLERS.map((ua) => ({ userAgent: ua, ...COMMON_RULES })),
     ],
-    sitemap: `${SITE.url}/sitemap.xml`,
+    sitemap: [`${SITE.url}/sitemap.xml`, `${SITE.url}/sitemap-full.xml`],
     host: SITE.url,
   };
 }
