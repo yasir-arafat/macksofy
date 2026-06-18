@@ -5,8 +5,6 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
 <url>
   <loc>https://www.macksofy.com/</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -402,11 +400,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/audit/cybersecurity-audit</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -553,41 +547,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.macksofy.com/contact?interest=Pentaudit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Penetration%20Testing</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CERT-In%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Teaming</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Training%20(OSCP%2FCEH)</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>https://www.macksofy.com/locations/mumbai/penetration-testing</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
@@ -667,11 +626,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Managed%20SOC</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/mumbai/managed-soc</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -712,11 +667,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/mumbai/web-application-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -757,11 +708,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=API%20Security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/mumbai/api-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -774,51 +721,6 @@
 </url>
 <url>
   <loc>https://www.macksofy.com/locations/bengaluru/api-security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Mobile%20App%20Security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CERT-In%20Empanelled%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CEH%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSCP%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CHFI%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CySA%2B%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20Analyst%20Track%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Security%20Track%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Mumbai</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -857,11 +759,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/delhi/digital-forensics-incident-response</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -872,11 +770,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/bengaluru/cloud-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -897,11 +791,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/hyderabad/cloud-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -912,31 +802,19 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Chennai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/chennai/cloud-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Pune</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/pune/cloud-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Ahmedabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/ahmedabad/vapt</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -947,11 +825,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/gurugram/red-teaming</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -962,11 +836,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Noida</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/noida/cloud-security</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -977,11 +847,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/dubai/vapt</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -1012,11 +878,7 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20Abu%20Dhabi</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/locations/abu-dhabi/vapt</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -1048,37 +910,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.macksofy.com/contact?interest=IoT%20%26%20OT%20Security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CSA%20(EC-Council)%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CPENT%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=ISO%2027001%20Consulting%20%26%20Implementation</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>https://www.macksofy.com/blog/cert-in-empanelled-vs-iso-27001-2026</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%202%20Type%201%20%2B%20Type%202%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=RBI%20Cyber%20Security%20Framework%20Audit</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -1089,16 +921,6 @@
 </url>
 <url>
   <loc>https://www.macksofy.com/blog/ransomware-readiness-bfsi-india-2026</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=PCI-DSS%20v4.0%20Compliance</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DPDP%20Act%20Compliance</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -1278,667 +1100,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.macksofy.com/blog/page/2</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/blog/page/3</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/blog/page/4</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=LearnToExploit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Secure%20Source%20Code%20Review</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Purple%20Team%20Exercises</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Network%20Penetration%20Testing</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Wireless%20Network%20Penetration%20Testing</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=AI%20%2F%20LLM%20Security%20Testing</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Threat%20Intelligence</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Managed%20Security%20Services%20(MSSP)</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Annual%20Security%20Program</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Virtual%20CISO%20(vCISO)</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20Staffing%20%26%20Resource%20Augmentation</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Phishing%20Simulation%20%26%20Awareness</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DFIR%20Retainer</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Malware%20Analysis</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Identity%20Security%20%26%20Zero%20Trust</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Network%20Security%20Architecture%20%26%20Segmentation</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CEH%20Practical%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CTIA%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SEC-100%20%2F%20OSCC%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSEP%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSWE%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSWA%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSWP%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC-200%20%2F%20OSDA%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSED%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=OSMR%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Linux%2B%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Server%2B%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Corporate%20Training%20Training</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20Audit%20Services</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SEBI%20CSCRF%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SEBI%20System%20Audit%20Report%20(SAR)</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=IRDAI%20Information%20Security%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CICRA%20Compliance%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20for%20RBI%20%2F%20PCI-DSS</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=RBI%20Digital%20Lending%20Guidelines%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=RBI%20IT%20Governance%20Master%20Direction%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=RBI%20IT%20Outsourcing%20Master%20Direction%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SEBI%20MII%20Cybersecurity%20Framework%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DPDP%20Significant%20Data%20Fiduciary%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=WASA%20%E2%80%94%20Web%20Application%20Security%20Assessment</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=NCIIPC%20Critical%20Information%20Infrastructure%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=UAE%20PDPL%20Compliance%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=UAE%20Information%20Assurance%20(NESA%20%2F%20IAS)%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=ADHICS%20Compliance%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Dubai%20DESC%20ISR%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SAMA%20Cyber%20Security%20Framework%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=CBUAE%20Cyber%20%26%20Digital%20Banking%20Compliance</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Saudi%20NCA%20ECC-2%3A2024%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=ISO%2FIEC%2027017%20%E2%80%94%20Cloud%20Security%20Certification</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=ISO%2FIEC%2027018%20%E2%80%94%20PII%20in%20Public%20Cloud</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=ISO%2FIEC%2027701%20%E2%80%94%20Privacy%20Information%20Management</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=ISO%2FIEC%2042001%20%E2%80%94%20AI%20Management%20System</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=NIST%20Cybersecurity%20Framework%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=HIPAA%20Compliance%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=GDPR%20Compliance%20Audit</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Compliance%20%26%20Regulatory%20Audits</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20Risk%20Assessment</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Chennai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Pune</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Noida</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Chennai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Pune</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Noida</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Chennai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Pune</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Noida</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Chennai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Pune</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Noida</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Web%20App%20Pentest%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=API%20Pentest%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=API%20Pentest%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=API%20Pentest%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
   <loc>https://www.macksofy.com/locations/uae/cloud-security</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Identity%20%26%20ZT%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Phishing%20Sim%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Network%20Security%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DFIR%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=vCISO%20Mumbai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DFIR%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=vCISO%20Delhi%20NCR</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DFIR%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=vCISO%20Bengaluru</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team%20Hyderabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Chennai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Pune</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Ahmedabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Ahmedabad</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Gurugram</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Noida</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cybersecurity%20in%20UAE</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Pentest%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DFIR%20Dubai</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=VAPT%20Abu%20Dhabi</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SOC%20%2B%20SIEM%20Abu%20Dhabi</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20Abu%20Dhabi</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Red%20Team%20Abu%20Dhabi</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=DFIR%20Abu%20Dhabi</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Network%20Security%20Abu%20Dhabi</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.51</priority>
 </url>
@@ -2082,31 +1244,19 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.51</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Cloud%20Security%20UAE</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/industries</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.41</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=SaaS%20%C2%B7%20Fintech%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/industries/healthcare</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.41</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Manufacturing%20%C2%B7%20OT%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/industries/government-psu</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
@@ -2117,36 +1267,10 @@
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.41</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=BFSI%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
+
 <url>
   <loc>https://www.macksofy.com/industries/insurance</loc>
   <lastmod>2026-06-18T10:26:48+00:00</lastmod>
   <priority>0.33</priority>
 </url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Healthcare%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.33</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Government%20%C2%B7%20PSU%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.33</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Energy%20%26%20Utilities%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.33</priority>
-</url>
-<url>
-  <loc>https://www.macksofy.com/contact?interest=Insurance%20engagement</loc>
-  <lastmod>2026-06-18T10:26:48+00:00</lastmod>
-  <priority>0.26</priority>
-</url>
-
-
 </urlset>

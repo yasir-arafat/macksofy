@@ -11,7 +11,18 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { CITIES } from "@/content/cities";
+import { COMBOS } from "@/content/combos";
+import { getServiceBySlug } from "@/content/services";
 import { SITE } from "@/lib/site";
+
+// Combos grouped by city, ordered to follow the CITIES list. Drives the
+// "service deep-dives by city" section below — giving every /locations/[city]/
+// [service] page a shallow (depth-2 from home) inbound link from this indexed
+// hub, which is the main lever against "Discovered – currently not indexed".
+const COMBOS_BY_CITY = CITIES.map((c) => ({
+  city: c,
+  combos: COMBOS.filter((co) => co.citySlug === c.slug),
+})).filter((g) => g.combos.length > 0);
 
 export const metadata = buildMetadata({
   title:
@@ -118,6 +129,51 @@ export default function LocationsPage() {
           ))}
         </div>
       </Container>
+
+      <section className="relative border-t border-white/5 bg-bg-2/40">
+        <Container className="py-16">
+          <div className="max-w-3xl">
+            <Eyebrow>Service deep-dives by city</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl font-black sm:text-4xl text-balance leading-tight">
+              City + service pages
+            </h2>
+            <p className="mt-4 text-fg-muted text-pretty">
+              Dedicated pages for each service in each city — local regulators,
+              industries and engagement scope. Browse the full set below.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {COMBOS_BY_CITY.map(({ city, combos }) => (
+              <div key={city.slug}>
+                <Link
+                  href={`/locations/${city.slug}`}
+                  className="group inline-flex items-center gap-2 font-display text-lg font-black text-fg hover:text-neon-cyan"
+                >
+                  <MapPin className="size-4 text-neon-cyan" />
+                  {city.name}
+                  <ArrowRight className="size-4 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                </Link>
+                <ul className="mt-3 space-y-1.5 border-l border-white/10 pl-4">
+                  {combos.map((co) => {
+                    const s = getServiceBySlug(co.serviceSlug);
+                    return (
+                      <li key={co.serviceSlug}>
+                        <Link
+                          href={`/locations/${co.citySlug}/${co.serviceSlug}`}
+                          className="text-sm text-fg-muted hover:text-neon-cyan transition-colors"
+                        >
+                          {s?.shortTitle ?? co.serviceSlug} in {city.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <LeadCapture />
     </>
