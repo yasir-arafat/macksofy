@@ -127,12 +127,44 @@ const nextConfig: NextConfig = {
         ],
       },
 
-      // Note: HTML responses intentionally do NOT have a Cache-Control
-      // override here. Next.js will apply sensible defaults
-      // (s-maxage=0, stale-while-revalidate) per route, and the CDN
-      // layer can apply its own HTML caching policy. The previous
-      // "no-store, must-revalidate" override killed CDN HTML caching
-      // and hurt TTFB on repeat visits — removed.
+      // Keep statically-prerendered content pages warm at the CDN edge.
+      // These sections all use generateStaticParams + dynamicParams=false,
+      // so their HTML only changes on a redeploy — and Vercel purges the
+      // CDN cache on every deploy — which makes a long s-maxage safe.
+      // Why this matters for SEO: deep, rarely-trafficked pages were
+      // cold-missing the edge cache and answering Googlebot in ~10s
+      // (origin cold-fetch). Slow responses on the exact pages Google is
+      // already reluctant to crawl signal poor crawl-health and suppress
+      // crawl rate — feeding the "Discovered – currently not indexed /
+      // last crawled N/A" backlog. s-maxage pins the prerendered HTML at
+      // the edge so Googlebot always gets an instant HIT. max-age=0 keeps
+      // browsers revalidating so users never see stale HTML after a deploy.
+      ...[
+        "services",
+        "audit",
+        "locations",
+        "industries",
+        "training",
+        "resources",
+        "case-studies",
+        "products",
+        "blog",
+      ].map((seg) => ({
+        // `/:path*` matches the section root and all descendants.
+        source: `/${seg}/:path*`,
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      })),
+
+      // Note: the homepage and other top-level HTML responses intentionally
+      // keep Next.js's per-route defaults. The previous site-wide
+      // "no-store, must-revalidate" override killed CDN HTML caching and
+      // hurt TTFB on repeat visits — do not reintroduce it.
     ];
   },
 };
