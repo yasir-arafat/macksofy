@@ -75,7 +75,10 @@ export default function robots(): MetadataRoute.Robots {
       // Each AI crawler gets its own explicit Allow block
       ...AI_CRAWLERS.map((ua) => ({ userAgent: ua, ...COMMON_RULES })),
     ],
-    sitemap: [`${SITE.url}/sitemap.xml`, `${SITE.url}/sitemap-full.xml`],
+    // Only advertise the wave-gated sitemap. sitemap-full.xml stays reachable
+    // by direct URL but is no longer announced to crawlers, so held combos
+    // don't dilute crawl budget while indexed count is still climbing.
+    sitemap: `${SITE.url}/sitemap.xml`,
     host: SITE.url,
   };
 }
