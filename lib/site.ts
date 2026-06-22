@@ -68,7 +68,9 @@ export const SITE = {
    * .env.local (or your hosting provider's env panel).
    */
   verification: {
-    google: process.env.NEXT_PUBLIC_VERIFY_GOOGLE ?? "",
+    google:
+      process.env.NEXT_PUBLIC_VERIFY_GOOGLE ??
+      "_7n6QfR9eSqlekRSGQND6tr0kZShp_75kNKRQNGQVBM",
     bing: process.env.NEXT_PUBLIC_VERIFY_BING ?? "",
     yandex: process.env.NEXT_PUBLIC_VERIFY_YANDEX ?? "",
   },
