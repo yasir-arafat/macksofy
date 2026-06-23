@@ -18,7 +18,7 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "Inspector K. Joshi",
+    name: "R. Karandikar",
     role: "Cyber Cell",
     company: "Maharashtra Police",
     city: "Mumbai",
