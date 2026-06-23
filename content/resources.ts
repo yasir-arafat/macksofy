@@ -2171,6 +2171,162 @@ export const RESOURCES: Resource[] = [
       "Macksofy research note CERT-In",
     ],
   },
+
+  {
+    slug: "cloud-security-india-2026",
+    type: "Whitepaper",
+    title: "Cloud Security for Indian Enterprises · 2026",
+    subtitle:
+      "A practitioner's guide to securing AWS, Azure and GCP estates under RBI, SEBI, DPDP and CERT-In — the shared-responsibility line, the misconfigurations that actually breach, the CSPM/CNAPP tooling choice, and a 90-day rollout.",
+    summary:
+      "How Indian enterprises secure multi-cloud estates without drowning in dashboards: where the cloud provider's responsibility ends and yours begins, the handful of misconfiguration classes behind most cloud breaches, how to choose between CSPM, CWPP, CIEM and CNAPP, the India regulatory cloud stack, and a 90-day programme that turns posture findings into closed risk.",
+    refNo: "MKS-WP-CLOUD-2026",
+    pageCount: "14-page whitepaper",
+    sector: ["BFSI", "Fintech", "SaaS"],
+    region: ["India"],
+    topics: ["Cloud Security", "CSPM", "CNAPP", "Multi-cloud", "Compliance"],
+    publishedYear: "2026",
+    icon: Cloud,
+    accent: "cyan",
+    relatedServiceSlugs: ["cloud-security", "managed-soc", "vapt"],
+    intro:
+      "Most Indian enterprises did not decide to run a cloud security programme — they woke up with one. Workloads moved to AWS, Azure and GCP a service at a time, each team bringing its own accounts, IAM habits and blind spots. The result is an estate no single person fully maps, audited against frameworks (RBI, SEBI CSCRF, DPDP, CERT-In) that increasingly ask cloud-specific questions. This whitepaper is the practitioner's version: where responsibility actually splits, the misconfigurations that breach, the tooling that finds them, and a 90-day plan to close the gap.",
+    blocks: [
+      {
+        type: "heading",
+        text: "1. The shared-responsibility line is where breaches live",
+      },
+      {
+        type: "para",
+        text: "Every cloud provider publishes a shared-responsibility model, and almost every team misreads it the same way. The provider secures the cloud — physical data centres, the hypervisor, the managed-service control plane. You secure what you put in the cloud — identities, data, network exposure, workload configuration. The breaches we investigate almost never come from the provider's side of the line. They come from a public storage bucket, an over-permissive IAM role, a long-lived access key in a repo, or a security group left open to the internet 'temporarily' eighteen months ago.",
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        title: "Managed services move the line — they don't remove it.",
+        body: "A managed database or Kubernetes service shifts patching and infrastructure to the provider, but identity, network exposure, encryption settings and data classification stay yours. Teams routinely assume 'managed' means 'secured by default' and leave a managed estate wide open at the access layer.",
+      },
+      {
+        type: "heading",
+        text: "2. The misconfiguration classes that actually breach",
+      },
+      {
+        type: "para",
+        text: "Cloud breaches are boringly consistent. Across Indian BFSI, fintech and SaaS estates we assess, the same handful of classes recur — and they are all configuration, not zero-days. Fix these and you have closed the routes behind the overwhelming majority of real-world cloud compromise.",
+      },
+      {
+        type: "list",
+        items: [
+          "Public object storage — S3 buckets / Azure Blob / GCS exposed to anonymous read, usually holding logs, backups or customer documents nobody remembered classifying.",
+          "Over-permissive IAM — wildcard policies, unused admin roles, and human users with standing privileges that should be just-in-time. This is the single highest-leverage finding in any cloud audit.",
+          "Long-lived credentials — access keys and service-account JSONs checked into code, baked into images, or never rotated. One leaked key is frequently the whole breach.",
+          "Internet-exposed management surfaces — RDP/SSH, database ports, and admin consoles open to 0.0.0.0/0 via a forgotten security-group rule.",
+          "Disabled or unmonitored logging — CloudTrail / Azure Activity / GCP Audit Logs off, sampled, or flowing to a SIEM nobody reads, so the compromise is invisible until a customer reports it.",
+          "Unencrypted or unmanaged data stores — volumes, snapshots and databases without encryption-at-rest or with keys the cloud account itself can read.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "IAM is the new perimeter.",
+        body: "In cloud, identity is the control plane. A blast-radius review of who-can-assume-what across your accounts finds more real risk than a month of vulnerability scanning. Start there.",
+      },
+      {
+        type: "heading",
+        text: "3. CSPM, CWPP, CIEM, CNAPP — what the acronyms actually buy you",
+      },
+      {
+        type: "para",
+        text: "The tooling market is deliberately confusing. Stripped of marketing, there are four jobs, and a CNAPP is simply a platform that does several of them at once. Buy for the job you have, not the acronym.",
+      },
+      {
+        type: "table",
+        head: ["Capability", "What it does", "Buy it when"],
+        rows: [
+          ["CSPM (posture)", "Continuously checks cloud config against benchmarks — public buckets, open ports, IAM drift", "You need to find and track misconfigurations across accounts — the universal starting point"],
+          ["CWPP (workload)", "Protects the running workload — VMs, containers, serverless — vulnerabilities, malware, runtime", "You run significant compute and need workload-level visibility, not just config"],
+          ["CIEM (entitlements)", "Maps and right-sizes cloud identities and permissions; finds toxic privilege paths", "IAM sprawl is your biggest risk — usually true in mature multi-account estates"],
+          ["CNAPP (platform)", "Unifies CSPM + CWPP + CIEM (+ often IaC and code scanning) in one console with shared context", "You have more than one of the above needs and don't want three disconnected tools"],
+        ],
+      },
+      {
+        type: "para",
+        text: "For most Indian mid-market and BFSI estates, the pragmatic path is: start with CSPM to get posture visibility and a backlog, add CIEM as soon as IAM sprawl is visible, and consolidate into a CNAPP once you're running enough workloads that three tools become their own operational burden. The tool is not the programme — a dashboard full of unactioned findings is worse than no dashboard, because it manufactures a false sense of coverage.",
+      },
+      {
+        type: "heading",
+        text: "4. The India regulatory cloud stack",
+      },
+      {
+        type: "para",
+        text: "Cloud no longer gets a regulatory pass in India. The frameworks that bind you now ask cloud-specific questions, and an auditor who knows cloud will ask them.",
+      },
+      {
+        type: "list",
+        items: [
+          "RBI — the Cyber Security Framework and the IT-Governance / outsourcing directions expect documented cloud risk assessment, data-localisation for payment data, exit and concentration-risk planning, and the right to audit your cloud provider.",
+          "SEBI CSCRF — capital-market entities must extend the framework's controls to cloud-hosted systems, including monitoring, access governance and resilience testing of cloud workloads.",
+          "DPDP Act — data residency and transfer obligations make where your data physically lives a board-level question; cloud region choice and cross-border replication are now compliance decisions, not just architecture ones.",
+          "CERT-In — the six-hour incident-reporting clock and log-retention directions apply to cloud workloads exactly as they do on-prem; your cloud logging must be able to feed an incident report on that timeline.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Region choice is a compliance control.",
+        body: "Under DPDP and RBI localisation expectations, the AWS/Azure/GCP region your data sits in — and where backups and DR replicas land — is a regulatory decision. Map data classes to regions before you map workloads to accounts.",
+      },
+      {
+        type: "heading",
+        text: "5. A 90-day cloud security rollout",
+      },
+      {
+        type: "para",
+        text: "You cannot fix an estate you cannot see, and you cannot sustain fixes you cannot monitor. This is the sequence we run with clients — visibility first, identity next, then continuous assurance.",
+      },
+      {
+        type: "checklist",
+        items: [
+          { item: "Weeks 1–3 — Visibility", sub: "Inventory every cloud account and subscription, enable posture management (CSPM) across all of them, and turn on and centralise audit logging. Produce one ranked backlog of misconfigurations." },
+          { item: "Weeks 3–6 — Identity & exposure", sub: "Run an IAM blast-radius review, eliminate wildcard and unused admin policies, rotate and vault all long-lived credentials, and close internet-exposed management surfaces." },
+          { item: "Weeks 5–9 — Data & encryption", sub: "Classify data, confirm encryption-at-rest with customer-managed keys, lock down public storage, and align region/residency choices to DPDP and RBI expectations." },
+          { item: "Weeks 8–12 — Continuous assurance", sub: "Wire cloud logs into a monitored SOC, set guardrails (IaC policy, preventive controls) so new resources are born compliant, and stand up a recurring cloud-pentest and posture-review cadence." },
+        ],
+      },
+      {
+        type: "heading",
+        text: "6. Engaging Macksofy",
+      },
+      {
+        type: "para",
+        text: "Macksofy is a CERT-In empanelled cybersecurity auditor. Our cloud security engagements run the full arc — multi-cloud posture and IAM blast-radius assessment, cloud penetration testing, landing-zone and guardrail design, and a managed SOC that monitors the estate continuously — mapped to the RBI, SEBI CSCRF, DPDP and CERT-In obligations that bind your sector. Reports are accepted by the major audit and Big-4 firms without rework.",
+      },
+      {
+        type: "heading",
+        text: "Further reading",
+      },
+      {
+        type: "list",
+        items: [
+          "CSPM vs CNAPP vs CWPP — choosing cloud tooling: /blog/cspm-vs-cnapp-india-2026",
+          "The cloud misconfigurations that fail RBI and SEBI audits: /blog/cloud-misconfigurations-rbi-sebi-audit-2026",
+          "Multi-cloud security for Indian BFSI — landing zones and data residency: /blog/multi-cloud-security-bfsi-india-2026",
+        ],
+      },
+    ],
+    seoTitle: "Cloud Security for Indian Enterprises 2026 — CSPM, CNAPP, RBI/SEBI/DPDP | Macksofy",
+    seoDescription:
+      "A practitioner's cloud security whitepaper for India: the shared-responsibility line, the misconfigurations that breach, CSPM vs CNAPP, the RBI/SEBI/DPDP/CERT-In cloud stack and a 90-day rollout. Free from CERT-In empanelled Macksofy.",
+    keywords: [
+      "cloud security India 2026",
+      "CSPM CNAPP India",
+      "cloud security whitepaper India",
+      "AWS Azure GCP security India",
+      "cloud security RBI SEBI DPDP",
+      "multi-cloud security BFSI",
+      "cloud misconfiguration audit India",
+    ],
+  },
 ];
 
 export const getResourceBySlug = (slug: string) =>

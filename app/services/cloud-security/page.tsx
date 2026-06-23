@@ -16,6 +16,7 @@ import {
   Building2,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Badge } from "@/components/ui/Badge";
@@ -598,6 +599,59 @@ export default function CloudSecurityPage() {
             <div className="mt-10">
               <FAQAccordion faqs={service.faqs} />
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>Further reading</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              Go deeper on cloud security.
+            </h2>
+            <ul className="mt-8 space-y-4">
+              {[
+                {
+                  href: "/resources/cloud-security-india-2026",
+                  label: "Cloud Security for Indian Enterprises · 2026 (guide)",
+                  blurb:
+                    "The shared-responsibility line, the misconfigurations that breach, CSPM vs CNAPP, the RBI/SEBI/DPDP/CERT-In stack and a 90-day rollout.",
+                },
+                {
+                  href: "/blog/cspm-vs-cnapp-india-2026",
+                  label: "CSPM vs CNAPP vs CWPP — choosing cloud tooling",
+                  blurb:
+                    "What each acronym actually buys you, and a practical buying sequence for Indian BFSI, fintech and SaaS estates.",
+                },
+                {
+                  href: "/blog/cloud-misconfigurations-rbi-sebi-audit-2026",
+                  label: "The cloud misconfigurations that fail RBI and SEBI audits",
+                  blurb:
+                    "The specific AWS/Azure/GCP findings auditors flag — public storage, IAM sprawl, weak logging, residency gaps — and how to close them.",
+                },
+                {
+                  href: "/blog/multi-cloud-security-bfsi-india-2026",
+                  label: "Multi-cloud security for Indian BFSI",
+                  blurb:
+                    "Landing-zone guardrails, data residency under RBI and DPDP, identity blast-radius control, and one monitoring pane across AWS, Azure and GCP.",
+                },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="group block rounded-xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-cyan-400/40 hover:bg-white/[0.04]"
+                  >
+                    <span className="font-display font-bold text-white transition-colors group-hover:text-cyan-300">
+                      {item.label}
+                    </span>
+                    <span className="mt-1.5 block text-sm leading-relaxed text-slate-400">
+                      {item.blurb}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>
