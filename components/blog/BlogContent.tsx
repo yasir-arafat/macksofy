@@ -340,7 +340,13 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
       );
     }
 
-    case "cta":
+    case "cta": {
+      // External CTAs (e.g. a download link to an official source) open in a
+      // new tab with rel="noopener noreferrer", mirroring InlineLink. Internal
+      // CTAs use Next <Link> for client-side navigation.
+      const ctaIsExternal = /^https?:\/\//.test(block.href);
+      const ctaCls =
+        "inline-flex shrink-0 items-center gap-2 rounded-xl bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-5 py-2.5 text-sm font-semibold text-neon-cyan hover:bg-neon-cyan/25 transition-colors";
       return (
         <div className="my-10 not-prose rounded-2xl gradient-border p-px">
           <div className="rounded-2xl bg-bg-2 p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
@@ -352,16 +358,26 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
                 {block.text}
               </p>
             </div>
-            <Link
-              href={block.href}
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-5 py-2.5 text-sm font-semibold text-neon-cyan hover:bg-neon-cyan/25 transition-colors"
-            >
-              {block.cta}
-              <ArrowRight className="size-4" />
-            </Link>
+            {ctaIsExternal ? (
+              <a
+                href={block.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={ctaCls}
+              >
+                {block.cta}
+                <ArrowRight className="size-4" />
+              </a>
+            ) : (
+              <Link href={block.href} className={ctaCls}>
+                {block.cta}
+                <ArrowRight className="size-4" />
+              </Link>
+            )}
           </div>
         </div>
       );
+    }
 
     default:
       return null;

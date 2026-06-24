@@ -77,6 +77,111 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // 0. CERT-In Comprehensive Cyber Security Audit Policy Guidelines 2025
+  // ===================================================================
+  {
+    slug: "cert-in-cyber-security-audit-policy-guidelines-2025",
+    title: "CERT-In's Comprehensive Cyber Security Audit Policy Guidelines (2025): What Every CISO and Auditee Must Know",
+    description:
+      "CERT-In's Comprehensive Cyber Security Audit Policy Guidelines (Version 1.0, 25 July 2025) rewrite how empanelled audits are scoped, scored and reported in India. Download the official PDF and read our section-by-section analysis of what changes for auditees and auditors.",
+    date: "2026-06-24",
+    author: "Macksofy Audit Team",
+    authorRole: "Compliance & regulatory audit practice",
+    readingTime: "14 min read",
+    category: "Compliance",
+    tags: ["CERT-In", "Cyber Security Audit", "VAPT", "Compliance", "Empanelment", "Audit Guidelines"],
+    heroKind: "blue-team",
+    heroEyebrow: "India · CERT-In · Audit Policy",
+    keywords: [
+      "CERT-In cyber security audit policy guidelines",
+      "CERT-In comprehensive audit guidelines 2025",
+      "CERT-In audit guidelines PDF download",
+      "CERT-In empanelled auditor requirements",
+      "CERT-In VAPT audit standard India",
+      "CVSS EPSS audit report CERT-In",
+      "CERT-In audit metadata five days",
+      "CERT-In 282 control points checklist",
+      "CERT-In audit compliance India 2026",
+    ],
+    blocks: [
+      { type: "lead", text: "On 25 July 2025 CERT-In published its Comprehensive Cyber Security Audit Policy Guidelines (Version 1.0) — the first time India's national cyber agency has set out, end to end, how an empanelled cyber security audit must actually be scoped, conducted, scored and reported. If you are a CISO who commissions VAPT, an auditee preparing for a regulatory inspection, or a CERT-In empanelled auditor, this document now defines the floor you are measured against. Here is our section-by-section analysis, with the official PDF to download." },
+      { type: "para", text: "The guidelines are issued under CERT-In's statutory authority — Section 70B of the Information Technology Act, 2000 and Rule 9 of the CERT-In Rules, 2013 — and run to 20 sections covering applicability, definitions, scope of engagements, basic principles, applicable standards, auditee and auditor responsibilities, auditor selection, audit planning, performance, reporting, evidence and the consequences of non-compliance. They are binding context for the empanelment relationship: failure to follow them carries punitive action under Section 70B(7) and the terms of empanelment. Our reading below is sourced directly from the published document; the framing is ours, the requirements are CERT-In's." },
+      { type: "cta", title: "Download the official CERT-In guidelines (PDF)", text: "Read the source document yourself — the Comprehensive Cyber Security Audit Policy Guidelines, Version 1.0 dated 25 July 2025, published by CERT-In / MeitY. This link opens the official PDF hosted on cert-in.org.in.", href: "https://www.cert-in.org.in/PDF/Comprehensive_Cyber_Security_Audit_Policy_Guidelines.pdf", cta: "Download official PDF" },
+      { type: "heading", level: 2, id: "what-it-is", text: "What the guidelines are — and who they bind" },
+      { type: "para", text: "The document has a deliberately dual audience. It tells auditee organisations how to prepare for an audit, understand the requirements and close deficiencies; and it gives CERT-In empanelled auditing organisations a structured framework to conduct rigorous, fair and transparent audits. Applicability is explicit on both sides." },
+      { type: "list", items: [
+        "CERT-In empanelled auditing organisations — the firms empanelled to perform vulnerability assessment and penetration testing of systems, networks and applications across government and other sectors, who must deliver in accordance with their commercial contract and the conditions of empanelment.",
+        "Auditee organisations — any public- or private-sector entity that owns or operates the systems being assessed, whether they are required to be audited or are seeking to evaluate their posture, identify vulnerabilities and demonstrate regulatory compliance.",
+      ] },
+      { type: "callout", tone: "info", title: "This is a policy floor, not a suggestion.", text: "Because the guidelines flow from Section 70B and the empanelment terms, they function as the minimum standard an empanelled audit must meet. An auditee accepting a report that does not follow them, or an auditor producing one, is exposed — the document ends with a graded 'Deter & Punishment matrix' for auditors who fall short." },
+      { type: "heading", level: 2, id: "biggest-shift", text: "The biggest shift: OWASP Top 10 is no longer a 'standard'" },
+      { type: "para", text: "The single most consequential change for buyers of audit services is in Section 8. CERT-In states plainly that limited lists such as the OWASP Top 10 and SANS Top 25 must not be treated as standards or references for an audit. A test that simply walks the Top 10 and produces a clean certificate no longer satisfies the guideline. Instead, audits must discover all known vulnerabilities against comprehensive frameworks." },
+      { type: "list", items: [
+        "ISO/IEC standards and CERT-In's own 'Cyber Security Audit Baseline Requirements'.",
+        "CSA Cloud Controls Matrix (CCM) for cloud security.",
+        "OSSTMM3 (Open Source Security Testing Methodology Manual).",
+        "OWASP Web Security Testing Guide (WSTG) for web apps, Application Security Verification Standard (ASVS) for control verification, and the Mobile Security Testing Guide (MSTG) for mobile apps.",
+        "OWASP DevSecOps Maturity Model for CI/CD pipeline security, plus all applicable regulatory directions issued from time to time by CERT-In and sector regulators.",
+      ] },
+      { type: "callout", tone: "warning", title: "Tool-only audits are explicitly discouraged.", text: "The guidelines warn that solely tools-based testing may focus on automated processes and overlook manual components, producing an incomplete view of security. If your last 'VAPT' was a Nessus or Acunetix scan with the logo swapped, it would not meet this standard. Manual, methodology-driven testing is now the expectation." },
+      { type: "heading", level: 2, id: "cvss-epss", text: "Reporting: CVSS and EPSS are both mandatory now" },
+      { type: "para", text: "Section 16 reshapes the audit report itself. Every observation must be scored on two axes, not one: CVSS for technical severity and EPSS (the Exploit Prediction Scoring System) for the likelihood of real-world exploitation. Severity alone is no longer enough — the report has to tell the board how likely a flaw is to actually be weaponised. On top of the scores, every reported vulnerability must be mapped to a CWE (Common Weakness Enumeration) and a CVE (Common Vulnerabilities and Exposures) identifier." },
+      { type: "table", caption: "What a compliant CERT-In audit report must now carry (Section 16)", headers: ["Requirement", "Detail"], rows: [
+        ["Dual scoring", "CVSS for severity AND EPSS for exploitation likelihood on every observation"],
+        ["Standardised mapping", "Every finding mapped to a CWE and a CVE number"],
+        ["Executive summary", "Board-level summary translating technical findings into business risk"],
+        ["Live notification", "Critical / high findings reported to the auditee as-and-when found, not just at the end"],
+        ["Sign-off", "Audit certificate signed by both the Lead Auditor and the Head of the Auditing Organisation (Director / Partner / CEO)"],
+        ["Closure & follow-up", "Final report issued only after vulnerabilities are closed and a follow-up audit confirms it — on production, not staging"],
+      ] },
+      { type: "callout", tone: "danger", title: "High-risk findings must be reported immediately.", text: "Discovered breaches, vulnerabilities with known high exploitation rates, unmonitored or untraceable access, or anything that could pose an immediate risk to life must be reported to the auditee the moment they are found, with a practical remediation recommendation — not held for the final report." },
+      { type: "heading", level: 2, id: "production-staging", text: "Final reports are for production — and follow-up is built in" },
+      { type: "para", text: "A subtle but important rule: the final audit report is to be issued only after vulnerabilities are closed and a follow-up audit has verified that closure on the application as hosted in the production environment. If the audit scope was limited to a staging platform, the report must explicitly say so. This kills the common pattern of certifying a staging build that never matches what is actually exposed to the internet." },
+      { type: "heading", level: 2, id: "data-handling", text: "Data handling: NDAs, no overseas transfer, 5-day CERT-In reporting" },
+      { type: "para", text: "The guidelines tighten the chain of custody around audit data considerably, which matters to any organisation worried about where its findings end up." },
+      { type: "list", items: [
+        "A formal NDA must be signed before work starts, and auditors are ethically bound to confidentiality regardless of whether an NDA exists.",
+        "Auditee data must not be shared with or disclosed to any overseas entity or partner unless the auditee authorises it in writing — disclosures mandated by law or to CERT-In are the exception.",
+        "Reports must be delivered only to a named Point of Contact, over secure channels (passwords, encryption), from official email IDs.",
+        "Crucially, auditing organisations must inform the auditee before work begins that audit metadata and the audit reports will be shared with CERT-In within five days of audit completion.",
+      ] },
+      { type: "callout", tone: "tip", title: "The 5-day CERT-In data-sharing rule changes your consent paperwork.", text: "Because the auditor is required to push audit metadata and reports to CERT-In within five days of completion, auditees should expect — and pre-authorise — this in the engagement letter. It is not a leak; it is a designed feature of the empanelment regime. Build it into your data-handling and vendor-risk documentation now." },
+      { type: "heading", level: 2, id: "282-checklist", text: "The 282-control-point checklist for critical government PII systems" },
+      { type: "para", text: "For audits of critical applications, databases or platforms of Ministries, Departments, Secretariats and Offices that handle sensitive personally identifiable information, the guidelines make the 'Comprehensive Audit Program Checklist – Cyber and Information Security Audit' — 282 control points, drawn from the MeitY Guidelines on Mandatory Features of Cybersecurity Architecture — the default mandatory scope. If you operate or audit a government PII system, that 282-point checklist is now your baseline coverage, not an optional add-on." },
+      { type: "heading", level: 2, id: "secure-sdlc", text: "Insecure apps should not be audited at all" },
+      { type: "para", text: "One provision will surprise a lot of teams: an application developed without secure design and development practices should not be accepted for assessment or audit. Where an auditor finds this, they must inform the auditee in writing — with a copy marked to CERT-In. The expectation is that auditees adopt the practices in CERT-In's 'Guidelines for Secure Application Design, Development, Implementation & Operations' before they ever book a pen test. Audit is positioned as verification of a secure SDLC, not a substitute for one." },
+      { type: "heading", level: 2, id: "consequences", text: "What happens to auditors who fall short" },
+      { type: "para", text: "Section 19 sets out a graded 'Deter & Punishment matrix' for empanelled auditors whose work is inadequate or who breach the guidelines. For auditees, this is a quality signal: it tells you what a serious regulator will do to a firm that ships a weak report — and therefore what to look for when you select one." },
+      { type: "table", caption: "CERT-In's graded consequences for non-compliant auditors (Section 19)", headers: ["Action", "Triggered by (indicative)"], rows: [
+        ["Move to watch list (warning + written commitment)", "Inadequate closure of non-compliances, weak sampling, minor terms violations, first instance of non-compliance to the data-collection framework"],
+        ["Suspension", "Adverse auditee feedback on technical competency, repeated failures in planning or coverage, issues appearing soon after an audit, major terms violations"],
+        ["Withdrawal of empanelment / de-empanelment", "Auditing malpractices, substandard services, failure to cover scope — actioned per GFR rules"],
+        ["Penal & legal action", "Breach of trust, digital break-in, damage or attempted damage to auditee interests and infrastructure"],
+      ] },
+      { type: "heading", level: 2, id: "what-to-do", text: "What auditees should do in the next 30 / 60 / 90 days" },
+      { type: "list", ordered: true, items: [
+        "Re-read your last audit report against Section 16: does it carry both CVSS and EPSS, CWE and CVE mappings, and a board-level executive summary? If not, your next one should.",
+        "Stop accepting OWASP-Top-10-only or scanner-only 'VAPT'. Ask your auditor in writing which comprehensive frameworks (ISO/IEC, CERT-In Baseline, OWASP WSTG/ASVS/MSTG, OSSTMM3, CSA CCM, DevSecOps Maturity Model) they test against.",
+        "Update your engagement letters and data-handling policy to pre-authorise the auditor's mandatory CERT-In metadata/report sharing within five days of completion, and to prohibit overseas transfer of audit data without written consent.",
+        "If you run a critical government PII system, map your scope to the 282-control-point Comprehensive Audit Program Checklist before the next cycle.",
+        "Adopt CERT-In's secure application design and development guidelines in your SDLC — an app that cannot show secure-by-design practice may be refused for audit.",
+        "Insist that the final report follows closure and a follow-up audit on production, and that critical/high findings are escalated to you live during the engagement, not buried in the deliverable.",
+      ] },
+      { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
+      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy already runs to this standard: manual, methodology-driven VAPT mapped to ISO/IEC, OWASP WSTG/ASVS/MSTG, OSSTMM3 and CERT-In's Baseline Requirements rather than a scanner pass; reports carrying CVSS and EPSS scoring with CWE/CVE mapping and a board-ready executive summary; secure, named-PoC delivery; and follow-up audits that verify closure on production. See /services/vapt for the assessment scope, /audit/cert-in-empanelled-audit for an empanelled-format engagement, /services/web-application-security and /services/mobile-application-security for app-layer testing aligned to the OWASP guides, and /services/cloud-security for CSA CCM-based cloud audits. If you want a second opinion on whether your last report would survive these guidelines, we will review it." },
+    ],
+    faqs: [
+      { q: "What are CERT-In's Comprehensive Cyber Security Audit Policy Guidelines?", a: "They are CERT-In's Version 1.0 guidelines, dated 25 July 2025, that define end to end how a cyber security audit by a CERT-In empanelled auditing organisation must be scoped, conducted, scored and reported. Issued under Section 70B of the IT Act 2000, they bind both empanelled auditors and the auditee organisations they assess, across the public and private sectors." },
+      { q: "Where can I download the official CERT-In audit guidelines PDF?", a: "The official document is hosted on CERT-In's website at cert-in.org.in. You can download it directly from the link in this article — it opens the Comprehensive Cyber Security Audit Policy Guidelines, Version 1.0 dated 25 July 2025, published by CERT-In and the Ministry of Electronics and Information Technology." },
+      { q: "Is the OWASP Top 10 still acceptable for a CERT-In audit?", a: "No — not as the standard. The guidelines explicitly state that limited lists like the OWASP Top 10 and SANS Top 25 must not be treated as standards or references for an audit. Audits must instead discover all known vulnerabilities against comprehensive frameworks such as ISO/IEC, CERT-In's Cyber Security Audit Baseline Requirements, OWASP WSTG/ASVS/MSTG, OSSTMM3, CSA CCM and the OWASP DevSecOps Maturity Model. Tool-only testing is discouraged." },
+      { q: "Do CERT-In audit reports now need both CVSS and EPSS?", a: "Yes. Section 16 requires auditors to apply both the Common Vulnerability Scoring System (CVSS) for severity and the Exploit Prediction Scoring System (EPSS) for the likelihood of real-world exploitation on every observation. In addition, every reported vulnerability must be mapped to a CWE and a CVE identifier, and the report must include a board-level executive summary." },
+      { q: "What is the 5-day CERT-In data-sharing rule?", a: "Empanelled auditing organisations must inform the auditee, before the engagement begins, that audit metadata and the audit reports will be shared with CERT-In within five days of audit completion. It is a designed feature of the empanelment regime, so auditees should pre-authorise it in their engagement letters and data-handling policies rather than treat it as an exception." },
+      { q: "Can an application be refused for a CERT-In audit?", a: "Yes. An application developed without secure design and development practices should not be accepted for assessment, and the auditor must inform the auditee in writing with a copy to CERT-In. The guidelines expect auditees to adopt CERT-In's secure application design and development practices first, treating audit as verification of a secure SDLC rather than a replacement for one." },
+      { q: "What happens to an empanelled auditor who produces a weak report?", a: "Section 19 sets out a graded 'Deter & Punishment matrix': being moved to a watch list with a warning and written commitment, suspension, withdrawal of empanelment / de-empanelment under GFR rules, and — for breach of trust or damage to the auditee — penal and legal action. For auditees, it is a useful signal of what separates a serious empanelled firm from a box-ticking one." },
+    ],
+  },
+
+  // ===================================================================
   // 1. SOC Analyst Training in India 2026 (CSA vs SOC-200 vs CySA+)
   // ===================================================================
   {
