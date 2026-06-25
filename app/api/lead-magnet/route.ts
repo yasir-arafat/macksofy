@@ -29,12 +29,13 @@ export const runtime = "nodejs";
 const rateLimited = createRateLimiter({
   windowMs: 10 * 60_000,
   max: 3,
+  prefix: "lead-magnet",
 });
 
 export async function POST(request: Request) {
   const ip = clientIp(request);
 
-  if (rateLimited(ip)) {
+  if (await rateLimited(ip)) {
     return NextResponse.json(
       { error: "Too many requests. Please retry in a few minutes." },
       { status: 429, headers: { "Retry-After": "600" } }
