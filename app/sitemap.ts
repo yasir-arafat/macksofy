@@ -51,12 +51,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: Date = CONTENT_REV,
     images?: string[]
   ): MetadataRoute.Sitemap[number] => {
+    // Normalise the homepage to the no-trailing-slash form so the sitemap URL
+    // matches the page's own rel=canonical (SITE.url, no slash). Otherwise the
+    // sitemap advertises `${base}/` while the page canonicalises to `${base}`,
+    // a (minor) self-inconsistency that asks Google to reconcile two URLs.
+    const p = path === "/" ? "" : path;
     const entry: MetadataRoute.Sitemap[number] = {
-      url: `${base}${path}`,
+      url: `${base}${p}`,
       lastModified,
       changeFrequency: freq,
       priority,
-      alternates: { languages: altLanguages(path) },
+      alternates: { languages: altLanguages(p) },
     };
     if (images && images.length > 0) entry.images = images;
     return entry;
