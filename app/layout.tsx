@@ -8,6 +8,8 @@ import { LazyClientWidgets } from "@/components/widgets/LazyClientWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
+import { ConsentMode } from "@/components/analytics/ConsentMode";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import {
   organizationSchema,
   localBusinessSchema,
@@ -123,27 +125,10 @@ export default function RootLayout({
       lang="en-IN"
       className={`${spaceGrotesk.variable} ${mono.variable} h-full antialiased scroll-smooth`}
     >
-      {/* Meta Pixel base code — placed in the literal <head>, site-wide,
-          per Meta's "paste in the header of your website" instruction. */}
-      {META_PIXEL_ID && (
-        <head>
-          <script
-            id="meta-pixel"
-            dangerouslySetInnerHTML={{
-              __html: `!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '${META_PIXEL_ID}');
-fbq('track', 'PageView');`,
-            }}
-          />
-        </head>
-      )}
+      {/* Google Consent Mode v2 — sets all non-essential storage to "denied"
+          BEFORE any analytics/ads tag loads, so the first hit is consent-aware
+          (GDPR/DPDP). Must precede GoogleAnalytics / GoogleTagManager. */}
+      <ConsentMode />
       <body className="min-h-full flex flex-col bg-bg text-fg">
         {/* React 19 hoists these to <head>. */}
 
@@ -158,20 +143,11 @@ fbq('track', 'PageView');`,
             on every App Router navigation. */}
         <GoogleAnalytics />
 
-        {META_PIXEL_ID && (
-          <noscript>
-            {/* Meta requires a raw 1×1 <img> beacon; next/image can't render
-                inside <noscript>, so the rule is intentionally disabled here. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              height="1"
-              width="1"
-              style={{ display: "none" }}
-              alt=""
-              src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-            />
-          </noscript>
-        )}
+        {/* Meta Pixel — consent-gated. Loads ONLY after the visitor grants
+            "marketing" consent in the cookie banner (M-04). The old
+            unconditional inline pixel + <noscript> beacon were removed: a
+            no-JS visitor can't be shown the banner, so can't be tracked. */}
+        {META_PIXEL_ID && <MetaPixel pixelId={META_PIXEL_ID} />}
 
         {/* Preconnect / dns-prefetch for the third-party origins we
             hit in the critical user flow — Turnstile (contact form)

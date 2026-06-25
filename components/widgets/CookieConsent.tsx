@@ -13,17 +13,18 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const STORAGE_KEY = "macksofy-cookie-consent";
-const VERSION = "v1";
+import {
+  CONSENT_STORAGE_KEY,
+  CONSENT_VERSION,
+  CONSENT_EVENT,
+  updateGtagConsent,
+  type StoredConsent as Consent,
+} from "@/lib/consent";
 
-interface Consent {
-  version: string;
-  decidedAt: string;
-  necessary: true;
-  functional: boolean;
-  analytics: boolean;
-  marketing: boolean;
-}
+// Re-export the shared contract under the local names this component already
+// uses, so the banner can never drift from ConsentMode / MetaPixel.
+const STORAGE_KEY = CONSENT_STORAGE_KEY;
+const VERSION = CONSENT_VERSION;
 
 const ACCEPT_ALL = {
   necessary: true as const,
@@ -103,10 +104,11 @@ export function CookieConsent() {
       /* ignore */
     }
     setShow(false);
-    // Broadcast to listeners (e.g., analytics loaders).
-    window.dispatchEvent(
-      new CustomEvent("macksofy:cookie-consent", { detail: c })
-    );
+    // Tell Google Consent Mode v2 about the decision so GA4 / Ads switch
+    // between cookieless pings and full measurement (M-04).
+    updateGtagConsent(choice);
+    // Broadcast to other listeners (e.g., the consent-gated Meta Pixel).
+    window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: c }));
   };
 
   return (

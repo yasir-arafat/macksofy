@@ -28,11 +28,25 @@ const nextConfig: NextConfig = {
 
   async headers() {
     // Content-Security-Policy — frame-ancestors enforces clickjacking
-    // protection. script-src keeps 'unsafe-inline' / 'unsafe-eval'
-    // because Next.js inlines hydration and framer-motion uses eval —
-    // accepted trade-off without nonces. frame-src whitelists
-    // Turnstile + Google Maps embeds. connect-src whitelists Turnstile
-    // siteverify + Resend + Maps tile fetch.
+    // protection. frame-src whitelists Turnstile + Google Maps embeds.
+    // connect-src whitelists Turnstile siteverify + Resend + Maps tile fetch.
+    //
+    // script-src hardening (L-02):
+    //   • 'unsafe-eval' is REMOVED — nothing in the app uses eval/new Function,
+    //     and framer-motion v12 no longer requires it. This eliminates the
+    //     dynamic-code-execution capability outright.
+    //   • 'unsafe-inline' is RETAINED, by necessity: Next.js App Router emits
+    //     per-page inline RSC bootstrap scripts (self.__next_f.push(...)) that
+    //     have no stable hash, so the only way to drop 'unsafe-inline' is a
+    //     per-request nonce via middleware — which forces every route into
+    //     DYNAMIC rendering and destroys the static prerender + s-maxage edge
+    //     cache this site depends on for crawl-health/SEO. The residual risk is
+    //     low and bounded: there is NO HTML-injection sink (the only
+    //     dangerouslySetInnerHTML is JSON-LD with <-escaping), and object-src
+    //     'none' + base-uri 'self' + frame-ancestors 'self' + form-action 'self'
+    //     block the usual escalation paths.
+    //   • EXIT CRITERIA to remove 'unsafe-inline': adopt nonce-based CSP only if
+    //     the site moves to dynamic/SSR rendering (accepting the caching cost).
     //
     // Analytics origins: gtag.js / GTM load from www.googletagmanager.com and
     // beacon to *.google-analytics.com (regional collect endpoints) and
@@ -68,7 +82,7 @@ const nextConfig: NextConfig = {
       "img-src 'self' data: blob: https:",
       "font-src 'self' data: https://fonts.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com ${analyticsScriptSrc.join(" ")}`,
+      `script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com ${analyticsScriptSrc.join(" ")}`,
       "frame-src 'self' https://challenges.cloudflare.com https://maps.google.com https://www.google.com https://www.google.com/maps https://www.googletagmanager.com https://td.doubleclick.net https://googleads.g.doubleclick.net",
       `connect-src 'self' https://challenges.cloudflare.com https://api.resend.com https://maps.googleapis.com https://www.google.com ${analyticsConnectSrc.join(" ")}`,
       "object-src 'none'",
