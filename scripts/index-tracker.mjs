@@ -21,7 +21,7 @@
 //
 // Usage:
 //   node scripts/index-tracker.mjs                 # check watched combos
-//   node scripts/index-tracker.mjs --all           # check ALL sitemap-full URLs
+//   node scripts/index-tracker.mjs --all           # check ALL sitemap URLs
 //   node scripts/index-tracker.mjs --refresh       # rebuild the watch list
 //   node scripts/index-tracker.mjs --delay=12000   # ms between queries (jittered)
 //   node scripts/index-tracker.mjs --limit=20      # only check first N (testing)
@@ -72,7 +72,10 @@ async function getWatchList() {
   if (!flag("refresh") && existsSync(WATCH_FILE)) {
     return JSON.parse(await readFile(WATCH_FILE, "utf8"));
   }
-  const all = await fetchSitemapUrls(`${SITE_URL}/sitemap-full.xml`);
+  // sitemap.xml is now the single authoritative sitemap (the stale
+  // sitemap-full.xml was deleted 2026-06-26) and contains every URL,
+  // including all city×service combos.
+  const all = await fetchSitemapUrls(`${SITE_URL}/sitemap.xml`);
   const combos = all.filter((u) =>
     /\/locations\/[^/]+\/[^/]+$/.test(u.replace(SITE_URL, ""))
   );
