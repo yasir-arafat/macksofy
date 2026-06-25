@@ -25,6 +25,11 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   { source: "/mobile-penetration-testing-in-mumbai.php", destination: "/services/penetration-testing" },
   { source: "/code-review-company-in-mumbai.php", destination: "/services" },
 
+  // Was 410 Gone, but it surfaced in GSC as "Not found (404)". Redirect the
+  // residual link equity to the closest live page (we no longer offer web
+  // design; /services is the nearest intent match). 2026-06-26.
+  { source: "/best-website-designing-company-in-mumbai.php", destination: "/services" },
+
   { source: "/cehv9-brochure.pdf", destination: "/training/ceh/brochure" },
   { source: "/ecsa-v9-brochure.pdf", destination: "/training/cpent/brochure" },
   { source: "/chfi-brochure.pdf", destination: "/training/chfi/brochure" },
@@ -36,7 +41,8 @@ export const PHP_GONE: string[] = [
   "/online-reputation-management-company-in-mumbai.php",
   "/best-email-marketing-company-in-mumbai.php",
   "/internet-website-designers-in-mumbai.php",
-  "/best-website-designing-company-in-mumbai.php",
+  // "/best-website-designing-company-in-mumbai.php" — moved to PHP_REDIRECTS
+  // (301 → /services) on 2026-06-26 to clear a GSC "Not found (404)".
   "/best-social-media-marketing-company-in-mumbai.php",
   "/web-application-development-in-mumbai.php",
   "/software-application.php",

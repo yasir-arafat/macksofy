@@ -70,6 +70,21 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(dest, 301);
   }
 
+  // ── Strip stray non-analytics tracking params ─────────────────────
+  // The homepage was crawled as /?referral_url=… and flagged in GSC as
+  // "Duplicate without user-selected canonical". The self-referencing
+  // canonical already resolves it, but 301-stripping the param kills the
+  // duplicate URL at the source so Google never has to reconcile it.
+  // We ONLY strip params with no attribution value — utm_*, gclid, fbclid,
+  // msclkid are deliberately preserved so paid-campaign analytics keep
+  // working (those are consumed client-side after the page loads).
+  const STRIP_PARAMS = ["referral_url", "ref"];
+  if (STRIP_PARAMS.some((p) => req.nextUrl.searchParams.has(p))) {
+    const clean = req.nextUrl.clone();
+    for (const p of STRIP_PARAMS) clean.searchParams.delete(p);
+    return NextResponse.redirect(clean, 301);
+  }
+
   // ── AI crawler hit logging ────────────────────────────────────────
   // Runs on every matched path. Structured log line goes to Vercel
   // runtime logs. View in Vercel dashboard → Logs → filter

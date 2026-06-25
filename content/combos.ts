@@ -11127,83 +11127,28 @@ export const COMBO_PAIRS = COMBOS.map((c) => ({
 }));
 
 /* ──────────────────────────────────────────────────────────────────────
- * Sitemap release waves — P0 crawl-budget control (added 2026-06-14)
+ * Sitemap inclusion — FULL RELEASE (2026-06-26)
  *
- * We do NOT submit all 66 city×service combos to Google at once. On a young
- * domain a sudden bulk of templated URLs triggers "Discovered – currently
- * not indexed" at scale — GSC Page Indexing (2026-06-13) showed 236 such
- * URLs after the 2026-05 cutover, with only ~34 of 248 sitemap URLs indexed.
- * Instead we release combos to the sitemap in small waves and let each wave
- * get indexed before promoting the next.
+ * History: from 2026-06-14 combos were released to the sitemap in "waves"
+ * (RELEASED_THROUGH_WAVE / COMBO_WAVES) — a young-domain crawl-budget hedge
+ * against a bulk of templated URLs landing as "Discovered – not indexed".
  *
- * IMPORTANT: this gates SITEMAP INCLUSION ONLY. Every combo stays fully
- * routed (generateStaticParams still builds all 66) and crawlable via the
- * in-page internal links — city pages list their combos, and WhereWeDeliver
- * on every service page links combo routes. Held combos are therefore never
- * deindexed; Google simply isn't handed the low-priority bulk list up front,
- * so crawl budget concentrates on canonical pages + the released wave.
+ * That gating is now RETIRED (see git history for the wave map) because it
+ * had become counter-productive:
+ *   1. A stale public/sitemap-full.xml was advertising the *held* combos
+ *      anyway, so Google discovered them via a second, conflicting sitemap
+ *      while the primary one withheld them — the worst of both worlds.
+ *   2. A uniqueness audit (5-gram Jaccard across every combo body) found the
+ *      vast majority are <10% similar to their nearest sibling and none exceed
+ *      30% — these are substantial, locally-grounded pages, not thin doorways,
+ *      so there's no quality reason to withhold any of them.
  *
- * TO PROMOTE THE NEXT WAVE: confirm the current wave is mostly indexed in
- * GSC (Page Indexing → Indexed), then bump RELEASED_THROUGH_WAVE by ONE.
- * Assign new (city/service) keys to a wave number in COMBO_WAVES below.
+ * We now hand Google ONE authoritative sitemap containing every combo. Every
+ * combo was already fully routed (generateStaticParams builds all of them) and
+ * internally linked (city pages + WhereWeDeliver), so this only adds them to
+ * the sitemap — nothing about routing or crawlability changes.
  * ────────────────────────────────────────────────────────────────────── */
-export const RELEASED_THROUGH_WAVE = 2;
-
-/** Combos with no explicit wave are held out of the sitemap until promoted. */
-const HELD_WAVE = 99;
-
-/**
- * Wave assignment keyed by `${citySlug}/${serviceSlug}`.
- * Wave 1 = highest-intent combos in our flagship metros + UAE delivery hubs.
- * Everything unlisted defaults to HELD_WAVE (kept out of the sitemap).
- */
-const COMBO_WAVES: Record<string, number> = {
-  // ── Wave 1 (15): flagship metros × flagship services ──
-  "mumbai/vapt": 1,
-  "mumbai/penetration-testing": 1,
-  "mumbai/managed-soc": 1,
-  "mumbai/web-application-security": 1,
-  "bengaluru/vapt": 1,
-  "bengaluru/penetration-testing": 1,
-  "bengaluru/web-application-security": 1,
-  "delhi/vapt": 1,
-  "delhi/penetration-testing": 1,
-  "gurugram/vapt": 1,
-  "hyderabad/vapt": 1,
-  "pune/penetration-testing": 1,
-  "chennai/penetration-testing": 1,
-  "dubai/vapt": 1,
-  "dubai/penetration-testing": 1,
-
-  // ── Wave 2 (14, promoted 2026-06-18): next-tier high-intent — completes the
-  //    flagship-metro × core-service matrix + Dubai SOC/cloud + UAE cloud hub ──
-  "delhi/managed-soc": 2,
-  "delhi/web-application-security": 2,
-  "bengaluru/managed-soc": 2,
-  "hyderabad/penetration-testing": 2,
-  "hyderabad/web-application-security": 2,
-  "chennai/vapt": 2,
-  "chennai/web-application-security": 2,
-  "pune/vapt": 2,
-  "noida/vapt": 2,
-  "noida/penetration-testing": 2,
-  "gurugram/penetration-testing": 2,
-  "dubai/managed-soc": 2,
-  "dubai/cloud-security": 2,
-  "uae/cloud-security": 2,
-};
-
-const comboWave = (c: CityServiceCombo): number =>
-  COMBO_WAVES[`${c.citySlug}/${c.serviceSlug}`] ?? HELD_WAVE;
-
-/**
- * Combos cleared for sitemap inclusion at the current release wave.
- * `app/sitemap.ts` uses THIS, not COMBO_PAIRS — routing/linking still use
- * the full COMBO_PAIRS so held combos remain live and crawlable.
- */
-export const SITEMAP_COMBO_PAIRS = COMBOS.filter(
-  (c) => comboWave(c) <= RELEASED_THROUGH_WAVE
-).map((c) => ({
+export const SITEMAP_COMBO_PAIRS = COMBOS.map((c) => ({
   city: c.citySlug,
   service: c.serviceSlug,
   updated: c.updated,
