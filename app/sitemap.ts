@@ -101,6 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/training/offsec", 0.95, "weekly"),
     stat("/contact", 0.8, "monthly"),
     stat("/about", 0.7, "monthly"),
+    stat("/best-cybersecurity-company", 0.9, "weekly"),
     stat("/blog", 0.85, "daily", freshenBlog(latestPostDate)),
     stat("/clients", 0.7, "monthly"),
     stat("/awards", 0.7, "monthly", CONTENT_REV, awardImages),

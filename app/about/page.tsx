@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
@@ -142,6 +143,18 @@ export default function AboutPage() {
                 <>
                   Six reasons CISOs and L&D heads{" "}
                   <span className="gradient-text">keep coming back.</span>
+                </>
+              }
+              description={
+                <>
+                  It&rsquo;s also why Macksofy is consistently ranked among the{" "}
+                  <Link
+                    href="/best-cybersecurity-company"
+                    className="font-semibold text-neon-cyan hover:text-fg transition-colors"
+                  >
+                    best cybersecurity companies in Mumbai &amp; India
+                  </Link>
+                  .
                 </>
               }
             />

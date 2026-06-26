@@ -37,6 +37,16 @@ export function CertInSection() {
                 <ArrowRight className="size-4" />
               </Link>
             </div>
+            <p className="mt-5 text-sm text-fg-muted">
+              Want the full picture?{" "}
+              <Link
+                href="/best-cybersecurity-company"
+                className="font-semibold text-neon-cyan hover:text-fg transition-colors"
+              >
+                Why Macksofy is rated among the best cybersecurity companies in Mumbai &amp; India
+                <ArrowRight className="ml-1 inline size-3.5" />
+              </Link>
+            </p>
           </FadeIn>
           <FadeIn className="lg:col-span-5" delay={0.15}>
             <CertInHero />

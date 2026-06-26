@@ -165,6 +165,9 @@ export function Footer() {
 
           <FooterCol title="Company">
             <FooterLinkAnimated href="/about">About</FooterLinkAnimated>
+            <FooterLinkAnimated href="/best-cybersecurity-company">
+              Best Cybersecurity Company
+            </FooterLinkAnimated>
             <FooterLinkAnimated href="/clients">Clients</FooterLinkAnimated>
             <FooterLinkAnimated href="/case-studies">Case Studies</FooterLinkAnimated>
             <FooterLinkAnimated href="/resources">Resources</FooterLinkAnimated>
