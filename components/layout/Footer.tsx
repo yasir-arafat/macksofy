@@ -150,7 +150,19 @@ export function Footer() {
           </FooterCol>
 
           <FooterCol title="Security Compliance">
-            {(["iso-27001", "soc-2", "rbi-csf", "pci-dss", "dpdp-act"] as const)
+            {(
+              [
+                "cert-in-empanelled-audit",
+                "iso-27001",
+                "soc-2",
+                "rbi-csf",
+                "sebi-cscrf",
+                "pci-dss",
+                "dpdp-act",
+                "hipaa",
+                "uae-pdpl",
+              ] as const
+            )
               .map((slug) => AUDITS.find((a) => a.slug === slug))
               .filter((a): a is (typeof AUDITS)[number] => Boolean(a))
               .map((a) => (

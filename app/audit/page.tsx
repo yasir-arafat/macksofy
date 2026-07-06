@@ -38,8 +38,7 @@ import { metroKeywords } from "@/lib/site";
 export const metadata = buildMetadata({
   title:
     "Audit & Compliance in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune — CERT-In · RBI · SEBI · ISO · SOC 2",
-  description:
-    "21 audit and compliance services across Indian regulators (CERT-In, RBI, SEBI, IRDAI, DPDP, CICRA), international standards (ISO 27001/17/18/701/42001, SOC 2, NIST CSF) and industry / privacy (PCI-DSS, HIPAA, GDPR). CERT-In empanelled. Delivery across Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai, Pune and the UAE.",
+  description: `${AUDITS.length} audit and compliance services across Indian regulators (CERT-In, RBI, SEBI, IRDAI, DPDP, CICRA), international standards (ISO 27001/17/18/701/42001, SOC 2, NIST CSF) and industry / privacy (PCI-DSS, HIPAA, GDPR). CERT-In empanelled. Delivery across Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai, Pune and the UAE.`,
   path: "/audit",
   keywords: [
     "CERT-In audit India",
@@ -176,7 +175,7 @@ export default function AuditPage() {
                   href="#catalog"
                   className="inline-flex items-center gap-2 rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-5 h-11 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/25 transition-colors"
                 >
-                  Browse all 21 audits
+                  Browse all {AUDITS.length} audits
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link

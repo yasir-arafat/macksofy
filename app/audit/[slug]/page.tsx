@@ -22,7 +22,12 @@ import { buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { AUDITS, getAuditBySlug } from "@/content/audits";
 import { POSTS } from "@/content/blog";
-import { pickRelatedAudits, pickBlogPostsForAudit } from "@/lib/related";
+import { SERVICES } from "@/content/services";
+import {
+  pickRelatedAudits,
+  pickBlogPostsForAudit,
+  pickServicesForAudit,
+} from "@/lib/related";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AuditDeepDive } from "@/components/visuals/audit/AuditDeepDive";
 import { TrustStrip } from "@/components/TrustStrip";
@@ -60,6 +65,7 @@ export default async function AuditDetail({ params }: PageProps) {
   const Icon = a.icon;
   const related = pickRelatedAudits(a, AUDITS, 3);
   const relatedPosts = pickBlogPostsForAudit(a, POSTS, 3);
+  const relatedServices = pickServicesForAudit(a, SERVICES, 3);
 
   return (
     <>
@@ -143,9 +149,9 @@ export default async function AuditDetail({ params }: PageProps) {
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7">
-              <Eyebrow>Why this matters</Eyebrow>
+              <Eyebrow>Why {a.shortTitle} matters</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Compliance is leverage,{" "}
+                {a.shortTitle} is leverage,{" "}
                 <span className="gradient-text">not paperwork.</span>
               </h2>
               <p className="mt-6 text-lg text-fg-muted leading-relaxed text-pretty">
@@ -217,8 +223,8 @@ export default async function AuditDetail({ params }: PageProps) {
             <div className="lg:col-span-5">
               <Eyebrow color="purple">Deliverables</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Everything you need to{" "}
-                <span className="gradient-text">satisfy auditors.</span>
+                What your {a.shortTitle} engagement{" "}
+                <span className="gradient-text">puts on the table.</span>
               </h2>
             </div>
             <ul className="lg:col-span-7 grid gap-4 sm:grid-cols-2">
@@ -275,7 +281,7 @@ export default async function AuditDetail({ params }: PageProps) {
           <div className="max-w-3xl">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-              Things compliance leads ask before signing.
+              {a.shortTitle} — what compliance leads ask before signing.
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={a.faqs} />
@@ -317,8 +323,50 @@ export default async function AuditDetail({ params }: PageProps) {
         </section>
       )}
 
-      {relatedPosts.length > 0 && (
+      {relatedServices.length > 0 && (
         <section className="py-20">
+          <Container>
+            <Eyebrow color="cyan">Pair with an assessment</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl text-balance">
+              {a.shortTitle} evidence starts with{" "}
+              <span className="gradient-text">hands-on testing.</span>
+            </h2>
+            <p className="mt-3 max-w-2xl text-fg-muted text-pretty">
+              A clean {a.shortTitle} report rests on real technical assurance.
+              These Macksofy assessments generate the vulnerability, penetration
+              and control-effectiveness evidence your auditor expects to see.
+            </p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-3">
+              {relatedServices.map((s) => {
+                const SIcon = s.icon;
+                return (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}`}
+                    className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                  >
+                    <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
+                      <SIcon className="size-5" />
+                    </div>
+                    <h3 className="mt-4 font-display text-base font-bold text-fg group-hover:text-neon-cyan leading-tight">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-fg-muted line-clamp-2">
+                      {s.hero.tagline}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan">
+                      Explore service <ArrowRight className="size-4" />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {relatedPosts.length > 0 && (
+        <section className="py-20 bg-bg-1">
           <Container>
             <Eyebrow color="cyan">Further reading</Eyebrow>
             <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl text-balance">

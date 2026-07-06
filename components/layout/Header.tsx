@@ -1156,8 +1156,8 @@ const MEGA_HEADER = {
     title: "Career-grade tracks with mentor support",
     description:
       "EC-Council Accredited Training Center. 20,000+ professionals trained.",
-    cta: { label: "View all 22 courses", href: "/training" },
-    stat: { value: "22", label: "Active courses" },
+    cta: { label: `View all ${COURSES.length} courses`, href: "/training" },
+    stat: { value: `${COURSES.length}`, label: "Active courses" },
   },
   audit: {
     eyebrow: "Security Compliance",

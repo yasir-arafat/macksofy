@@ -17,6 +17,7 @@ import type { Course } from "@/content/courses";
 import type { Industry } from "@/content/industries";
 import type { BlogPost } from "@/content/blog";
 import type { Resource } from "@/content/resources";
+import type { Service } from "@/content/services";
 
 type Scored<T> = { item: T; score: number };
 
@@ -154,6 +155,77 @@ export function pickBlogPostsForAudit(
     return { item: p, score };
   });
   return topN(scored, n);
+}
+
+/**
+ * Pick assessment/services to surface on an audit detail page and
+ * vice-versa. Prior to this the audit ↔ service subtrees only linked
+ * "upward" to their hubs, leaving deep audit pages with thin inbound
+ * internal PageRank (a driver of the "Discovered – currently not
+ * indexed" backlog). A reciprocal, topically-scored cross-link densifies
+ * the graph so Googlebot has more crawlable paths into each deep page.
+ *
+ * Score = keyword overlap (audit.keywords ↔ service.keywords, +2 each)
+ *       + framework/term appearing in the other side's title/keywords (+1).
+ * Falls back to popular services / first audits when nothing scores.
+ */
+export function pickServicesForAudit(
+  audit: Audit,
+  services: Service[],
+  n = 3
+): Service[] {
+  const auditTerms = lower([
+    audit.shortTitle,
+    ...audit.frameworks,
+    ...audit.keywords,
+  ]);
+  const scored: Scored<Service>[] = services.map((s) => {
+    let score = overlapCount(s.keywords, auditTerms) * 2;
+    const svcTerms = lower([s.shortTitle, s.title, ...s.keywords]);
+    for (const t of auditTerms) if (svcTerms.has(t)) score += 1;
+    return { item: s, score };
+  });
+  const picked = topN(scored, n);
+  if (picked.length >= n) return picked;
+  const seen = new Set(picked.map((p) => p.slug));
+  // Deterministic fallback: popular services first, then declaration order.
+  const rest = [...services].sort(
+    (a, b) => Number(!!b.popular) - Number(!!a.popular)
+  );
+  for (const s of rest) {
+    if (picked.length >= n) break;
+    if (!seen.has(s.slug)) picked.push(s);
+  }
+  return picked;
+}
+
+export function pickAuditsForService(
+  service: Service,
+  audits: Audit[],
+  n = 3
+): Audit[] {
+  const svcTerms = lower([
+    service.shortTitle,
+    service.title,
+    ...service.keywords,
+  ]);
+  const scored: Scored<Audit>[] = audits.map((a) => {
+    let score = overlapCount(a.keywords, svcTerms) * 2;
+    const auditTerms = lower([a.shortTitle, ...a.frameworks, ...a.keywords]);
+    for (const t of svcTerms) if (auditTerms.has(t)) score += 1;
+    return { item: a, score };
+  });
+  const picked = topN(scored, n);
+  if (picked.length >= n) return picked;
+  const seen = new Set(picked.map((p) => p.slug));
+  const rest = [...audits].sort(
+    (a, b) => Number(!!b.authority) - Number(!!a.authority)
+  );
+  for (const a of rest) {
+    if (picked.length >= n) break;
+    if (!seen.has(a.slug)) picked.push(a);
+  }
+  return picked;
 }
 
 /**

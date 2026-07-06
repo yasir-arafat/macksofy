@@ -5,8 +5,34 @@ import { CertInHero } from "@/components/visuals/CertInBadge";
 import { ComplianceMatrix } from "@/components/visuals/ComplianceMatrix";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { AUDITS } from "@/content/audits";
+
+// Curated deep-links surfaced from the homepage into the /audit subtree.
+// The homepage is the site's most-crawled page; before this the section
+// only linked the CERT-In authority page + the /audit hub, so Googlebot
+// had no direct homepage path to the individual framework pages (a factor
+// in their "Discovered – currently not indexed" status). Slugs are matched
+// against AUDITS so a rename silently drops rather than 404s.
+const HOME_AUDIT_SLUGS = [
+  "cert-in-empanelled-audit",
+  "iso-27001",
+  "soc-2",
+  "rbi-csf",
+  "sebi-cscrf",
+  "pci-dss",
+  "dpdp-act",
+  "hipaa",
+  "gdpr",
+  "nist-csf",
+  "uae-pdpl",
+  "sama-csf",
+];
 
 export function CertInSection() {
+  const homeAudits = HOME_AUDIT_SLUGS.map((slug) =>
+    AUDITS.find((a) => a.slug === slug)
+  ).filter((a): a is (typeof AUDITS)[number] => Boolean(a));
+
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 spotlight-cyan opacity-50" />
@@ -60,6 +86,34 @@ export function CertInSection() {
             engagement — saving you months of redundant audit cycles.
           </p>
           <ComplianceMatrix />
+        </FadeIn>
+
+        {/* Deep links into the /audit subtree — crawlable framework chips */}
+        <FadeIn delay={0.15}>
+          <div className="mt-14">
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <Eyebrow color="amber">Popular frameworks</Eyebrow>
+              <Link
+                href="/audit"
+                className="group inline-flex items-center gap-1 text-sm font-semibold text-neon-cyan hover:text-fg transition-colors"
+              >
+                All {AUDITS.length} audit &amp; compliance frameworks
+                <ArrowRight className="size-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              {homeAudits.map((a) => (
+                <Link
+                  key={a.slug}
+                  href={`/audit/${a.slug}`}
+                  className="group inline-flex items-center gap-1.5 rounded-full glass px-4 h-9 text-sm font-medium text-fg-muted hover:text-neon-cyan hover:border-neon-cyan/40 transition-colors"
+                >
+                  {a.shortTitle}
+                  <ArrowRight className="size-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-neon-cyan" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </FadeIn>
       </Container>
     </section>
