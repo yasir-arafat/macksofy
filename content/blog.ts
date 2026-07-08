@@ -105,6 +105,8 @@ export const POSTS: BlogPost[] = [
       "cyber security audit company india",
       "cert-in empanelled vapt company",
       "macksofy technologies cyber security mumbai",
+      "CERT-In empanelled auditor",
+      "CERT-In empanelment Mumbai",
     ],
     blocks: [
       { type: "lead", text: "Mumbai is the financial capital of India — home to the RBI, SEBI, the NSE and BSE, NPCI and the country's largest concentration of banks, NBFCs, insurers and fintechs. That makes it the single densest market for cyber security services in the country, and also the most regulated. If you are shortlisting cyber security companies in Mumbai or anywhere in India in 2026, one credential now separates a firm that can sign a regulator-ready audit from one that cannot: CERT-In empanelment. This guide explains why, how to verify it, and where Macksofy Technologies — a CERT-In empanelled auditor based in Bandra Kurla Complex, Mumbai — fits." },
@@ -259,7 +261,7 @@ export const POSTS: BlogPost[] = [
         "Insist that the final report follows closure and a follow-up audit on production, and that critical/high findings are escalated to you live during the engagement, not buried in the deliverable.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy already runs to this standard: manual, methodology-driven VAPT mapped to ISO/IEC, OWASP WSTG/ASVS/MSTG, OSSTMM3 and CERT-In's Baseline Requirements rather than a scanner pass; reports carrying CVSS and EPSS scoring with CWE/CVE mapping and a board-ready executive summary; secure, named-PoC delivery; and follow-up audits that verify closure on production. See /services/vapt for the assessment scope, /audit/cert-in-empanelled-audit for an empanelled-format engagement, /services/web-application-security and /services/mobile-application-security for app-layer testing aligned to the OWASP guides, and /services/cloud-security for CSA CCM-based cloud audits. If you want a second opinion on whether your last report would survive these guidelines, we will review it." },
+      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy already runs to this standard: manual, methodology-driven VAPT mapped to ISO/IEC, OWASP WSTG/ASVS/MSTG, OSSTMM3 and CERT-In's Baseline Requirements rather than a scanner pass; reports carrying CVSS and EPSS scoring with CWE/CVE mapping and a board-ready executive summary; secure, named-PoC delivery; and follow-up audits that verify closure on production. See /services/vapt for the assessment scope, /audit/cert-in-empanelled-audit for an empanelled-format engagement, /services/web-application-security and /services/mobile-application-security for app-layer testing aligned to the OWASP guides, and /services/cloud-security for CSA CCM-based cloud audits. If you want a second opinion on whether your last report would survive these guidelines, we will review it. If you are still shortlisting a partner, our guide to [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) walks through how to verify CERT-In empanelment and what separates an audit-grade firm from a scanner-and-logo one." },
     ],
     faqs: [
       { q: "What are CERT-In's Comprehensive Cyber Security Audit Policy Guidelines?", a: "They are CERT-In's Version 1.0 guidelines, dated 25 July 2025, that define end to end how a cyber security audit by a CERT-In empanelled auditing organisation must be scoped, conducted, scored and reported. Issued under Section 70B of the IT Act 2000, they bind both empanelled auditors and the auditee organisations they assess, across the public and private sectors." },
@@ -847,7 +849,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Median time-to-first-role for our SOC Analyst track graduates in Mumbai is 5.4 weeks. The variance comes down to two factors: portfolio quality and interview reps. Candidates who built a Wazuh deployment or wrote 5+ Sigma rules during the course land jobs ~30% faster than those with just the cert.",
+        text: "Median time-to-first-role for our SOC Analyst track graduates in Mumbai is 5.4 weeks. The variance comes down to two factors: portfolio quality and interview reps. Candidates who built a Wazuh deployment or wrote 5+ Sigma rules during the course land jobs ~30% faster than those with just the cert. It also helps to know who is hiring — our guide to the leading [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) maps the CERT-In empanelled firms and consultancies that drive the city's security hiring.",
       },
       {
         type: "heading",
