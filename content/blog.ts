@@ -4509,6 +4509,10 @@ def fetch_logs(service: str) -> str:
           "Cross-border (India + UAE) → add DFSA CYB / UAE IAS mapping to CFL, dual-residency data plan",
         ],
       },
+      {
+        type: "para",
+        text: "Both frameworks lean on independent VAPT and audit evidence, and for regulated finance that testing should come from a CERT-In empanelled auditor. If you are choosing a partner in the financial capital, our guide to the leading [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) explains how to verify empanelment and judge audit quality before you sign.",
+      },
       MACKSOFY_CTA("compliance-bfsi", "Macksofy's RBI CSF and SEBI CSCRF readiness programmes"),
     ],
     faqs: [
@@ -4945,6 +4949,10 @@ def fetch_logs(service: str) -> str:
       {
         type: "para",
         text: "Indian companies operating in the UAE will be asked for the Information Security Regulation (Dubai Government), the UAE Information Assurance Standards (TDRA), and increasingly DESC's Cybersecurity Standard. None of these are exact CERT-In analogues — they sit closer to ISO 27001 in framing. The cleanest cross-border architecture is ISO 27001:2022 as the management-system spine, with CERT-In VAPT layered for India workloads and ISR/NESA mapping for UAE workloads.",
+      },
+      {
+        type: "para",
+        text: "Whichever route your mandate points to, the certificate is only as credible as the firm behind it — for the CERT-In side that means an empanelled auditor. If you are shortlisting one, our guide to the leading [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) covers how to verify empanelment on the official CERT-In list and what separates an audit-grade partner from a scanner-and-logo one.",
       },
       MACKSOFY_CTA("compliance-vapt", "Macksofy's CERT-In VAPT and ISO 27001 dual-track"),
     ],
