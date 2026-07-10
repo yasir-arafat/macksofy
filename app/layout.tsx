@@ -31,6 +31,11 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
+  // next/font already emits a metric-adjusted fallback (adjustFontFallback is
+  // on by default), so the swap from fallback → Space Grotesk causes no reflow.
+  // Declaring the fallback stack explicitly makes that guarantee robust even if
+  // the adjusted @font-face fails to load.
+  fallback: ["system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
 // JetBrains Mono drives both the code/labels AND (now) the headings for a
@@ -40,6 +45,7 @@ const mono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
 });
 
 export const metadata: Metadata = {

@@ -411,7 +411,12 @@ export function Header() {
             alt="Macksofy Technologies"
             width={160}
             height={50}
-            priority
+            // The 160×50 nav logo is never the LCP element on any route, so it
+            // must NOT be `priority` (nor `loading="eager"` — in Next 16 both
+            // inject a site-wide `<link rel=preload as=image>` that competed
+            // with the true LCP resource, the hero H1's font / real hero image).
+            // Default lazy-loading is correct: the browser still fetches an
+            // in-viewport image promptly, just without the wasteful preload.
             className="relative h-8 lg:h-12 lg:w- w-auto transition-transform group-hover:scale-105"
           />
         </Link>

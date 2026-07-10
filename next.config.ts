@@ -10,6 +10,21 @@ const nextConfig: NextConfig = {
   // problem (see Cache-Control section below), not an image problem.
   pageExtensions: ["ts", "tsx", "md", "mdx"],
 
+  images: {
+    // Serve AVIF first (≈20-30% smaller than WebP at equal quality), then WebP,
+    // then the original as a last resort. Directly shrinks the LCP image byte
+    // weight on mobile. Next negotiates per-request via the Accept header, so
+    // older browsers still get WebP/original — no compatibility risk.
+    formats: ["image/avif", "image/webp"],
+    // All <Image> sources on this site are local /public assets (logos, award
+    // badges, client logos, accreditation marks). The only "remote-looking"
+    // image — the blog featured image — is the same-origin /api/og Satori
+    // endpoint, and it is intentionally rendered with a plain <img> (the
+    // optimizer can't improve a dynamically-rendered OG card), so it never hits
+    // the optimizer. Hence no remotePatterns are required. Add one here only if
+    // a genuine third-party <Image> host is introduced later.
+  },
+
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },

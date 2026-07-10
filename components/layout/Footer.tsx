@@ -106,7 +106,10 @@ export function Footer() {
                 width={180}
                 height={50}
                 className="h-11 w-auto transition-transform group-hover:scale-105"
-                priority
+                // Footer sits below the fold on every page — it must NOT be
+                // `priority` (that preloaded it into the LCP critical path
+                // site-wide). Default lazy-loading is correct here.
+                loading="lazy"
               />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-fg-muted max-w-sm">

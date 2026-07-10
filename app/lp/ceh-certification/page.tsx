@@ -160,7 +160,9 @@ export default function CehLandingPage() {
               alt="Macksofy Technologies"
               width={160}
               height={50}
-              priority
+              // Nav logo — never the LCP (the hero H1 text is). Not `priority`
+              // and not `eager` (both preload it in Next 16); default lazy still
+              // fetches an in-viewport image promptly, minus the wasteful preload.
               className="h-8 w-auto sm:h-9"
             />
             <span className="hidden align-middle font-mono text-[10px] uppercase tracking-[0.2em] text-fg-faint sm:inline">
