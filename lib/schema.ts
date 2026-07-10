@@ -254,13 +254,16 @@ export function courseSchema(course: Course) {
     description: course.hero.description,
     url: `${BASE}/training/${course.slug}`,
     image: course.image.startsWith("http") ? course.image : `${BASE}${course.image}`,
+    // Reference the canonical Organization node (defined site-wide in the
+    // root layout) by @id. Its real name/url/logo/sameAs live there; do
+    // NOT re-declare a bare `sameAs: <own homepage>` here — sameAs is for
+    // external authoritative profiles, and self-referencing it is invalid.
     provider: {
       "@type": "Organization",
       "@id": `${BASE}#organization`,
       name: SITE.name,
       url: BASE,
       logo: `${BASE}/logo.png`,
-      sameAs: BASE,
     },
     educationalCredentialAwarded: course.code,
     courseCode: course.code,
@@ -365,6 +368,7 @@ export function serviceSchema(service: Service) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${BASE}/services/${service.slug}#service`,
     name: service.title,
     description: service.hero.description,
     provider: { "@id": `${BASE}#organization` },
@@ -378,6 +382,7 @@ export function auditSchema(audit: Audit) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${BASE}/audit/${audit.slug}#service`,
     name: audit.title,
     description: audit.hero.description,
     provider: { "@id": `${BASE}#organization` },

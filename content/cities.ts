@@ -1229,3 +1229,55 @@ export const CITIES: City[] = [
 
 export const getCityBySlug = (slug: string) =>
   CITIES.find((c) => c.slug === slug);
+
+/**
+ * City slug → ISO 3166-2 region. Keeps page-level `geo.region` meta
+ * truthful per city (a Bengaluru page emits "IN-KA", a Dubai page
+ * "AE-DU"). Single source of truth shared by /locations/[city] and the
+ * /locations/[city]/[service] combo pages so the two never drift.
+ */
+export const CITY_ISO_REGION: Record<string, string> = {
+  mumbai: "IN-MH",
+  pune: "IN-MH",
+  delhi: "IN-DL",
+  bengaluru: "IN-KA",
+  hyderabad: "IN-TG",
+  chennai: "IN-TN",
+  kolkata: "IN-WB",
+  ahmedabad: "IN-GJ",
+  gurugram: "IN-HR",
+  noida: "IN-UP",
+  chandigarh: "IN-CH",
+  jaipur: "IN-RJ",
+  kochi: "IN-KL",
+  dubai: "AE-DU",
+  "abu-dhabi": "AE-AZ",
+  sharjah: "AE-SH",
+  uae: "AE",
+};
+
+/** True when a city is in the UAE (drives en_AE locale + AE geo). */
+export const isUaeCity = (c: City): boolean =>
+  c.state.toLowerCase().includes("united arab") ||
+  ["dubai", "abu-dhabi", "sharjah", "uae"].includes(c.slug);
+
+/**
+ * Truthful per-city geo + locale for `buildMetadata`. Returns the
+ * `geo` object (region/placename/lat/lng) plus the matching
+ * OpenGraph `locale` so location pages emit accurate local signals.
+ */
+export function cityGeoMeta(c: City): {
+  geo: { region: string; placename: string; lat: number; lng: number };
+  locale: "en_AE" | "en_IN";
+} {
+  const uae = isUaeCity(c);
+  return {
+    geo: {
+      region: CITY_ISO_REGION[c.slug] ?? (uae ? "AE" : "IN"),
+      placename: c.name,
+      lat: c.geo.lat,
+      lng: c.geo.lng,
+    },
+    locale: uae ? "en_AE" : "en_IN",
+  };
+}

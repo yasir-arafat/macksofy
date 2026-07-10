@@ -30,7 +30,7 @@ import {
   faqSchema,
 } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
-import { getCityBySlug } from "@/content/cities";
+import { getCityBySlug, cityGeoMeta } from "@/content/cities";
 import { getServiceBySlug } from "@/content/services";
 import { COMBO_PAIRS, getCombo } from "@/content/combos";
 import { SITE } from "@/lib/site";
@@ -53,11 +53,20 @@ export async function generateMetadata({ params }: PageProps) {
   const c = getCityBySlug(city);
   const s = getServiceBySlug(service);
   if (!combo || !c || !s) return {};
+  const { geo, locale } = cityGeoMeta(c);
   return buildMetadata({
     title: combo.headline,
     description: combo.seoDescription,
     path: `/locations/${city}/${service}`,
     keywords: combo.keywords,
+    // Match the parent /locations/[city] page: truthful per-city geo,
+    // correct en_AE/en_IN locale, and a tailored dynamic OG card
+    // instead of the generic static default on these indexable combos.
+    geo,
+    locale,
+    ogKind: "city",
+    ogTitle: `${s.shortTitle ?? s.title} in ${c.name}`,
+    ogEyebrow: locale === "en_AE" ? "UAE · Macksofy" : "India · Macksofy",
   });
 }
 

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     "A board-level playbook for cyber-risk oversight under India's 2026 regulatory regime — CERT-In, RBI, SEBI and the DPDP Act. Compliance checklist, sample audit-report structure and a 12-month resilience roadmap.",
   // Lead-magnet deliverable, not an SEO surface — keep it out of the index.
   robots: { index: false, follow: false },
+  // Self-canonical so it never inherits the root layout's homepage
+  // canonical (defensive: correct even if noindex is ever lifted).
+  alternates: { canonical: "/guides/cyber-resilience-2026" },
 };
 
 /* ------------------------------------------------------------------ */

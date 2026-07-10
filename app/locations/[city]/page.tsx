@@ -24,7 +24,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema, cityLocalBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
-import { CITIES, getCityBySlug } from "@/content/cities";
+import { CITIES, getCityBySlug, cityGeoMeta, isUaeCity } from "@/content/cities";
 import { SERVICES, getServiceBySlug } from "@/content/services";
 import { AUDITS } from "@/content/audits";
 import { COMBOS } from "@/content/combos";
@@ -40,46 +40,20 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-// Loose mapping of city slug → ISO 3166-2 region. Keeps page-level geo
-// meta truthful: a Bengaluru page emits "IN-KA", not "IN-MH"; a Dubai
-// page emits "AE-DU". Falls back to the country if state is unmapped.
-const CITY_ISO_REGION: Record<string, string> = {
-  mumbai: "IN-MH",
-  pune: "IN-MH",
-  delhi: "IN-DL",
-  bengaluru: "IN-KA",
-  hyderabad: "IN-TG",
-  chennai: "IN-TN",
-  kolkata: "IN-WB",
-  ahmedabad: "IN-GJ",
-  gurugram: "IN-HR",
-  noida: "IN-UP",
-  chandigarh: "IN-CH",
-  jaipur: "IN-RJ",
-  kochi: "IN-KL",
-  dubai: "AE-DU",
-  "abu-dhabi": "AE-AZ",
-  sharjah: "AE-SH",
-  uae: "AE",
-};
-
 export async function generateMetadata({ params }: PageProps) {
   const { city } = await params;
   const c = getCityBySlug(city);
   if (!c) return {};
-  const isUAE = c.state.toLowerCase().includes("united arab")
-    || ["dubai", "abu-dhabi", "sharjah", "uae"].includes(c.slug);
+  // Truthful per-city geo + locale (ISO-region map lives in content/cities.ts,
+  // shared with the /locations/[city]/[service] combo pages so they never drift).
+  const { geo, locale } = cityGeoMeta(c);
+  const isUAE = isUaeCity(c);
   return buildMetadata({
     title: `Cybersecurity Company in ${c.name} ${new Date().getFullYear()} — VAPT · Audit · Training | Macksofy`,
     description: c.seoDescription,
     path: `/locations/${c.slug}`,
-    geo: {
-      region: CITY_ISO_REGION[c.slug] ?? (isUAE ? "AE" : "IN"),
-      placename: c.name,
-      lat: c.geo.lat,
-      lng: c.geo.lng,
-    },
-    locale: isUAE ? "en_AE" : "en_IN",
+    geo,
+    locale,
     ogKind: "city",
     ogTitle: `Cybersecurity in ${c.name}`,
     ogEyebrow: isUAE ? "UAE · Macksofy" : "India · Macksofy",

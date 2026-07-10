@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   title: "Thank you — CEH v13 enquiry received | Macksofy",
   description: "Your CEH v13 training enquiry has been received. A counsellor will call you shortly.",
   robots: { index: false, follow: false },
+  // Self-canonical so it never inherits the root layout's homepage canonical.
+  alternates: { canonical: "/lp/ceh-certification/thank-you" },
 };
 
 export default function ThankYouPage() {
