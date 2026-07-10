@@ -53,7 +53,7 @@ const nextConfig: NextConfig = {
     //   • 'unsafe-inline' is RETAINED, by necessity: Next.js App Router emits
     //     per-page inline RSC bootstrap scripts (self.__next_f.push(...)) that
     //     have no stable hash, so the only way to drop 'unsafe-inline' is a
-    //     per-request nonce via middleware — which forces every route into
+    //     per-request nonce via proxy — which forces every route into
     //     DYNAMIC rendering and destroys the static prerender + s-maxage edge
     //     cache this site depends on for crawl-health/SEO. The residual risk is
     //     low and bounded: there is NO HTML-injection sink (the only

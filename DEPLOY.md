@@ -100,7 +100,7 @@ End result — only one canonical host serves content. Every other variant 301s 
 The PHP→Next.js migration map is wired into the app itself:
 
 - **15 × 301** redirects in `next.config.ts` (driven by `lib/legacy-redirects.ts`).
-- **14 × 410 Gone** responses via `middleware.ts` for out-of-scope legacy pages (graphic design, SMM, etc. — signals Google to deindex).
+- **14 × 410 Gone** responses via `proxy.ts` for out-of-scope legacy pages (graphic design, SMM, etc. — signals Google to deindex).
 
 Nothing for the dev team to configure here. After cutover, hitting `https://www.macksofy.com/about-us.php` will 301 to `/about` automatically.
 

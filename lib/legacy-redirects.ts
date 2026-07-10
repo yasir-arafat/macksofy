@@ -3,7 +3,7 @@
 //
 // Two lists:
 //   PHP_REDIRECTS  — permanent 301s wired into next.config.ts
-//   PHP_GONE       — 410 Gone responses returned by middleware.ts
+//   PHP_GONE       — 410 Gone responses returned by proxy.ts
 // Adding/removing entries here updates both layers.
 
 export type PhpRedirect = { source: string; destination: string };

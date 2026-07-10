@@ -53,7 +53,7 @@ function detectAiBot(ua: string | null): string | null {
   return null;
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
   // ── Canonical host: 301 non-www → www ─────────────────────────────
