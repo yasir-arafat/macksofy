@@ -21,6 +21,7 @@ import { SiemDashboard } from "@/components/visuals/soc/SiemDashboard";
 import { AlertFunnel } from "@/components/visuals/soc/AlertFunnel";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "managed-soc";
 
@@ -282,6 +283,7 @@ export default function ManagedSocPage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/managed-soc" />
       <LeadCapture />
     </>
   );

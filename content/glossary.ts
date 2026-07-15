@@ -1085,3 +1085,33 @@ export function glossaryByCategory(category: string): GlossaryTerm[] {
 export function getGlossaryTerm(slug: string): GlossaryTerm | undefined {
   return GLOSSARY.find((t) => t.slug === slug);
 }
+
+/**
+ * Reciprocal linking: the glossary terms most relevant to a money page.
+ * Inverts each term's `link` (term → page) to build page → terms, then
+ * expands via each primary term's `related` graph so a page gets a small,
+ * topically-tight set (not just the one term that names it). Returns [] when
+ * nothing maps, so the <GlossaryLinks> block simply doesn't render.
+ *
+ * Powers the hub-and-spoke: /glossary links down to money pages; money pages
+ * link back to /glossary#<term> anchors.
+ */
+export function glossaryTermsFor(
+  href: string,
+  max = 6
+): { slug: string; term: string }[] {
+  const seen = new Set<string>();
+  const out: GlossaryTerm[] = [];
+  const add = (t?: GlossaryTerm) => {
+    if (t && !seen.has(t.slug)) {
+      seen.add(t.slug);
+      out.push(t);
+    }
+  };
+  const primary = GLOSSARY.filter((t) => t.link?.href === href);
+  primary.forEach((t) => {
+    add(t);
+    (t.related ?? []).forEach((r) => add(getGlossaryTerm(r)));
+  });
+  return out.slice(0, max).map((t) => ({ slug: t.slug, term: t.term }));
+}

@@ -38,6 +38,7 @@ import { MobileTopTen } from "@/components/visuals/mobile/MobileTopTen";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "mobile-application-security";
 
@@ -526,6 +527,7 @@ export default function MobileSecPage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/mobile-application-security" />
       <LeadCapture />
     </>
   );

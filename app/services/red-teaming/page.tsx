@@ -32,6 +32,7 @@ import { KillChainGraph } from "@/components/visuals/redteam/KillChainGraph";
 import { AttackHeatmap } from "@/components/visuals/redteam/AttackHeatmap";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "red-teaming";
 
@@ -465,6 +466,7 @@ export default function RedTeamPage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/red-teaming" />
       <LeadCapture />
     </>
   );

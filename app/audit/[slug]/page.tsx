@@ -34,6 +34,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { DownloadButton } from "@/components/DownloadButton";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -410,6 +411,7 @@ export default async function AuditDetail({ params }: PageProps) {
         </section>
       )}
 
+      <GlossaryLinks href={`/audit/${a.slug}`} />
       <LeadCapture />
     </>
   );

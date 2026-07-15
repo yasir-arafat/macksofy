@@ -32,6 +32,7 @@ import { OwaspMap } from "@/components/visuals/web/OwaspMap";
 import { RequestInspector } from "@/components/visuals/web/RequestInspector";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "web-application-security";
 
@@ -326,6 +327,7 @@ export default function WebSecPage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/web-application-security" />
       <LeadCapture />
     </>
   );

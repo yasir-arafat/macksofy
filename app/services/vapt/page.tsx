@@ -26,6 +26,7 @@ import { SampleFindingCard } from "@/components/visuals/vapt/SampleFindingCard";
 import { VAvsPT } from "@/components/visuals/vapt/VAvsPT";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "vapt";
 
@@ -370,6 +371,7 @@ export default function VaptServicePage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/vapt" />
       <LeadCapture />
     </>
   );

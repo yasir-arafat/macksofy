@@ -33,6 +33,7 @@ import { OwaspApiMap } from "@/components/visuals/api/OwaspApiMap";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "api-security";
 
@@ -386,6 +387,7 @@ export default function ApiSecPage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/api-security" />
       <LeadCapture />
     </>
   );

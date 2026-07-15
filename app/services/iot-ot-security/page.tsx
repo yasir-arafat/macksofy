@@ -42,6 +42,7 @@ import { ICSProtocolGrid } from "@/components/visuals/iot/ICSProtocolGrid";
 import { OTHmiPanel } from "@/components/visuals/iot/OTHmiPanel";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
+import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 
 const SLUG = "iot-ot-security";
 
@@ -684,6 +685,7 @@ export default function IotOtSecurityPage() {
         serviceSlug={service.slug}
       />
 
+      <GlossaryLinks href="/services/iot-ot-security" />
       <LeadCapture />
     </>
   );
