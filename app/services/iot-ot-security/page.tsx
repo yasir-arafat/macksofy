@@ -40,6 +40,8 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { PurdueModelStack } from "@/components/visuals/iot/PurdueModelStack";
 import { ICSProtocolGrid } from "@/components/visuals/iot/ICSProtocolGrid";
 import { OTHmiPanel } from "@/components/visuals/iot/OTHmiPanel";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "iot-ot-security";
 
@@ -59,6 +61,7 @@ export async function generateMetadata() {
 
 export default function IotOtSecurityPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:iot-ot-security");
 
   return (
     <>
@@ -137,6 +140,14 @@ export default function IotOtSecurityPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* OT ≠ IT */}
       <section className="py-16 sm:py-20 border-t border-line">

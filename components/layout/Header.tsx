@@ -25,6 +25,7 @@ import {
   Rss,
   Terminal,
   Gauge,
+  Factory,
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -57,6 +58,12 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     href: "/about",
     description: "Founded 2014 · Mumbai HQ · India + UAE delivery",
     icon: Building2,
+  },
+  {
+    label: "Industries",
+    href: "/industries",
+    description: "BFSI, healthcare, fintech, manufacturing/OT, government & more",
+    icon: Factory,
   },
   {
     label: "Our Clients",
@@ -891,6 +898,12 @@ function CommandPalette({
   const ENTRIES: Entry[] = [
     { label: "Home", href: "/", group: "Pages" },
     { label: "About Us", href: "/about", group: "Pages" },
+    {
+      label: "Industries",
+      href: "/industries",
+      group: "Pages",
+      keywords: "bfsi banking healthcare fintech saas manufacturing ot government psu energy insurance verticals",
+    },
     { label: "Our Clients", href: "/clients", group: "Pages" },
     {
       label: "Case Studies",

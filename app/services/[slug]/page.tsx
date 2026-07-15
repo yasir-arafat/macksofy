@@ -34,6 +34,8 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { WhereWeDeliver } from "@/components/sections/WhereWeDeliver";
 import { getServicePricing } from "@/content/pricing";
 import { DownloadButton } from "@/components/DownloadButton";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -149,6 +151,7 @@ export default async function ServiceDetail({ params }: PageProps) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
   const Icon = service.icon;
+  const sa = getShortAnswer(`service:${slug}`);
   const related = SERVICES.filter(
     (s) => s.slug !== service.slug && s.category === service.category
   ).slice(0, 3);
@@ -235,6 +238,15 @@ export default async function ServiceDetail({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* REAL WORLD */}
       <section className="py-20 bg-bg-1">

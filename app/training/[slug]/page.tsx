@@ -28,6 +28,8 @@ import { SITE } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
 import { Outcomes } from "@/components/visuals/outcomes/Outcomes";
 import { Curriculum } from "@/components/visuals/curriculum/Curriculum";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -58,6 +60,7 @@ export default async function CourseDetail({ params }: PageProps) {
   const { slug } = await params;
   const c = getCourseBySlug(slug);
   if (!c) notFound();
+  const sa = getShortAnswer(`course:${slug}`);
   const related = pickRelatedCourses(c, COURSES, 3);
 
   return (
@@ -240,6 +243,15 @@ export default async function CourseDetail({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* OUTCOMES */}
       <section className="py-20 bg-bg-1">

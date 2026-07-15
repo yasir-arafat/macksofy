@@ -8,6 +8,9 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { StatsBand } from "@/components/home/StatsBand";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { MetroCoverage } from "@/components/home/MetroCoverage";
+import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/SectionTitle";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/schema";
 import { buildMetadata, HQ_GEO } from "@/lib/seo";
@@ -75,6 +78,22 @@ export default function HomePage() {
       />
       <Testimonials />
       <StatsBand />
+      {/* Visible FAQ — the same 5 Q&A emitted as FAQPage JSON-LD above.
+          Rendering them keeps the structured data matched to on-page content
+          (Google policy) and gives AI Overviews / voice a real answer surface. */}
+      <section className="py-20">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              Questions buyers ask about <span className="gradient-text">Macksofy</span>.
+            </h2>
+            <div className="mt-10">
+              <FAQAccordion faqs={HOME_FAQS} />
+            </div>
+          </div>
+        </Container>
+      </section>
       <LeadCapture />
     </>
   );

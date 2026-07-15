@@ -19,6 +19,8 @@ import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
 import { SiemDashboard } from "@/components/visuals/soc/SiemDashboard";
 import { AlertFunnel } from "@/components/visuals/soc/AlertFunnel";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "managed-soc";
 
@@ -38,6 +40,7 @@ export async function generateMetadata() {
 
 export default function ManagedSocPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:managed-soc");
 
   return (
     <>
@@ -98,6 +101,14 @@ export default function ManagedSocPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* WHY WAZUH */}
       <section className="py-20 bg-bg-1">

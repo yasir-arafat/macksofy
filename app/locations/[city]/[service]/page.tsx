@@ -28,6 +28,7 @@ import {
   breadcrumbSchema,
   cityLocalBusinessSchema,
   faqSchema,
+  methodologyHowToSchema,
 } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { getCityBySlug, cityGeoMeta } from "@/content/cities";
@@ -36,6 +37,8 @@ import { COMBO_PAIRS, getCombo } from "@/content/combos";
 import { SITE } from "@/lib/site";
 import { ComboStats } from "@/components/visuals/combo/ComboStats";
 import { ComboTimeline } from "@/components/visuals/combo/ComboTimeline";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { comboShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ city: string; service: string }>;
@@ -94,6 +97,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
   const s = getServiceBySlug(service);
   if (!combo || !c || !s) notFound();
   const ServiceIcon = s.icon;
+  const sa = comboShortAnswer(service, s.shortTitle, c.name);
   // "An Abu Dhabi…" / "An Ahmedabad…" but "A UAE…" (sounds like "you") — A/E/I/O only.
   const cityArticle = /^[AEIO]/.test(c.name) ? "An" : "A";
 
@@ -134,6 +138,18 @@ export default async function CityServiceComboPage({ params }: PageProps) {
             url: pageUrl,
           },
           ...(wantsFaqs ? [faqSchema(combo.faqs!)] : []),
+          // HowTo mirrors the methodology timeline rendered below — parity
+          // with /services and /audit templates, and a structured walkthrough
+          // for AI search across every combo that ships a methodology.
+          ...(wantsTimeline
+            ? [
+                methodologyHowToSchema({
+                  subjectLabel: `${s.shortTitle} in ${c.name}`,
+                  url: `${pageUrl}#methodology`,
+                  phases: combo.methodology!,
+                }),
+              ]
+            : []),
         ]}
       />
 
@@ -200,6 +216,15 @@ export default async function CityServiceComboPage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* ─── SHORT ANSWER (AEO/GEO) ─── */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
+
       {/* ─── ANIMATED STATS STRIP ─── */}
       {wantsStats && (
         <section className="py-12 sm:py-16 border-t border-line">
@@ -260,7 +285,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
 
       {/* ─── METHODOLOGY HORIZONTAL TIMELINE ─── */}
       {wantsTimeline && (
-        <section className="py-20">
+        <section id="methodology" className="py-20">
           <Container>
             <FadeIn>
               <div className="grid items-end gap-6 lg:grid-cols-12">

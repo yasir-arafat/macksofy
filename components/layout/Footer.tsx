@@ -183,6 +183,7 @@ export function Footer() {
             <FooterLinkAnimated href="/best-cybersecurity-company">
               Best Cybersecurity Company
             </FooterLinkAnimated>
+            <FooterLinkAnimated href="/industries">Industries</FooterLinkAnimated>
             <FooterLinkAnimated href="/clients">Clients</FooterLinkAnimated>
             <FooterLinkAnimated href="/case-studies">Case Studies</FooterLinkAnimated>
             <FooterLinkAnimated href="/resources">Resources</FooterLinkAnimated>

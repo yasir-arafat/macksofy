@@ -38,6 +38,8 @@ import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
 import { CloudArchitecture } from "@/components/visuals/cloud/CloudArchitecture";
 import { IamBlastRadius } from "@/components/visuals/cloud/IamBlastRadius";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "cloud-security";
 
@@ -57,6 +59,7 @@ export async function generateMetadata() {
 
 export default function CloudSecurityPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:cloud-security");
 
   return (
     <>
@@ -117,6 +120,14 @@ export default function CloudSecurityPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* CLOUD LAYERS COVERED — IaaS / PaaS / SaaS */}
       <section className="py-16 sm:py-20 border-t border-line">

@@ -31,6 +31,8 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { RequestInspector } from "@/components/visuals/web/RequestInspector";
 import { OwaspApiMap } from "@/components/visuals/api/OwaspApiMap";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "api-security";
 
@@ -50,6 +52,7 @@ export async function generateMetadata() {
 
 export default function ApiSecPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:api-security");
 
   return (
     <>
@@ -111,6 +114,14 @@ export default function ApiSecPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* PROTOCOL STRIP */}
       <section className="border-y border-line bg-bg-1/60">

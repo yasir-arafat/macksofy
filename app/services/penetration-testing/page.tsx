@@ -21,6 +21,8 @@ import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PentestTerminal } from "@/components/visuals/pentest/PentestTerminal";
 import { PTESMethodology } from "@/components/visuals/pentest/PTESMethodology";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "penetration-testing";
 
@@ -40,6 +42,7 @@ export async function generateMetadata() {
 
 export default function PentestPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:penetration-testing");
 
   return (
     <>
@@ -107,6 +110,14 @@ export default function PentestPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* PTES KILL CHAIN */}
       <section id="methodology" className="py-20 bg-bg-1">

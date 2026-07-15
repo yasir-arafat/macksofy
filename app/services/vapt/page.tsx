@@ -24,6 +24,8 @@ import { RadarPulse } from "@/components/visuals/vapt/RadarPulse";
 import { CoverageMatrix } from "@/components/visuals/vapt/CoverageMatrix";
 import { SampleFindingCard } from "@/components/visuals/vapt/SampleFindingCard";
 import { VAvsPT } from "@/components/visuals/vapt/VAvsPT";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "vapt";
 
@@ -43,6 +45,7 @@ export async function generateMetadata() {
 
 export default function VaptServicePage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:vapt");
 
   return (
     <>
@@ -110,6 +113,14 @@ export default function VaptServicePage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* AT-A-GLANCE STATS */}
       <section className="border-y border-line/60 bg-bg-1/40 py-8">

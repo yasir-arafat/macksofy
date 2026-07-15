@@ -36,6 +36,8 @@ import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { MobileTopTen } from "@/components/visuals/mobile/MobileTopTen";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "mobile-application-security";
 
@@ -55,6 +57,7 @@ export async function generateMetadata() {
 
 export default function MobileSecPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:mobile-application-security");
 
   return (
     <>
@@ -116,6 +119,14 @@ export default function MobileSecPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* PLATFORM STRIP */}
       <section className="border-y border-line bg-bg-1/60">

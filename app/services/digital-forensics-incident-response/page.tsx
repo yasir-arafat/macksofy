@@ -18,6 +18,8 @@ import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
 import { IncidentTimeline } from "@/components/visuals/dfir/IncidentTimeline";
 import { ChainOfCustody } from "@/components/visuals/dfir/ChainOfCustody";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "digital-forensics-incident-response";
 
@@ -37,6 +39,7 @@ export async function generateMetadata() {
 
 export default function DfirPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:digital-forensics-incident-response");
 
   return (
     <>
@@ -123,6 +126,14 @@ export default function DfirPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* IR TIMELINE */}
       <section className="py-20 bg-bg-1">

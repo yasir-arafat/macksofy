@@ -32,6 +32,8 @@ import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AuditDeepDive } from "@/components/visuals/audit/AuditDeepDive";
 import { TrustStrip } from "@/components/TrustStrip";
 import { DownloadButton } from "@/components/DownloadButton";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -63,6 +65,7 @@ export default async function AuditDetail({ params }: PageProps) {
   const a = getAuditBySlug(slug);
   if (!a) notFound();
   const Icon = a.icon;
+  const sa = getShortAnswer(`audit:${slug}`);
   const related = pickRelatedAudits(a, AUDITS, 3);
   const relatedPosts = pickBlogPostsForAudit(a, POSTS, 3);
   const relatedServices = pickServicesForAudit(a, SERVICES, 3);
@@ -143,6 +146,15 @@ export default async function AuditDetail({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* WHY IT MATTERS */}
       <section className="py-20 bg-bg-1">

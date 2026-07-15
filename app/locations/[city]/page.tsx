@@ -29,6 +29,8 @@ import { SERVICES, getServiceBySlug } from "@/content/services";
 import { AUDITS } from "@/content/audits";
 import { COMBOS } from "@/content/combos";
 import { SITE, metroKeywords } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -76,6 +78,7 @@ export default async function CityPage({ params }: PageProps) {
   const { city } = await params;
   const c = getCityBySlug(city);
   if (!c) notFound();
+  const sa = getShortAnswer(`city:${city}`);
 
   const cityServices = c.topServices
     .map((slug) => SERVICES.find((s) => s.slug === slug))
@@ -177,6 +180,15 @@ export default async function CityPage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* CITY CONTEXT */}
       <section className="py-16 bg-bg-1 border-y border-line">

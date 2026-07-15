@@ -492,9 +492,15 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
+    // Speakable points at the FAQ accordion's real DOM nodes. The accordion
+    // (components/sections/FAQAccordion.tsx) renders every question with
+    // data-speakable="faq-question" (always in the DOM) and the open answer
+    // with data-speakable="faq-answer". The previous itemprop selectors
+    // matched nothing — the accordion emits no microdata — so the speakable
+    // promise was dead. Mirrors the blog's data-speakable="lead" convention.
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["[itemprop='name']", "[itemprop='text']"],
+      cssSelector: ["[data-speakable='faq-question']", "[data-speakable='faq-answer']"],
     },
   };
 }

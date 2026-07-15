@@ -30,6 +30,8 @@ import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { OwaspMap } from "@/components/visuals/web/OwaspMap";
 import { RequestInspector } from "@/components/visuals/web/RequestInspector";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "web-application-security";
 
@@ -49,6 +51,7 @@ export async function generateMetadata() {
 
 export default function WebSecPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:web-application-security");
 
   return (
     <>
@@ -113,6 +116,14 @@ export default function WebSecPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* REQUEST INSPECTOR — browser-side framing */}
       <section className="py-20 bg-bg-1">

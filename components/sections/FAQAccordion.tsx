@@ -27,7 +27,10 @@ export function FAQAccordion({
             aria-expanded={open === i}
             className="flex w-full items-center justify-between gap-4 py-5 text-left"
           >
-            <span className="font-semibold text-fg text-base sm:text-lg pr-4">
+            <span
+              data-speakable="faq-question"
+              className="font-semibold text-fg text-base sm:text-lg pr-4"
+            >
               {faq.q}
             </span>
             <ChevronDown
@@ -46,7 +49,12 @@ export function FAQAccordion({
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <div className="pb-5 text-fg-muted leading-relaxed">{faq.a}</div>
+                <div
+                  data-speakable="faq-answer"
+                  className="pb-5 text-fg-muted leading-relaxed"
+                >
+                  {faq.a}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

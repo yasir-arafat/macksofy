@@ -19,6 +19,8 @@ import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
 import { AptActorCards } from "@/components/visuals/intel/AptActorCards";
 import { IocFeedTicker } from "@/components/visuals/intel/IocFeedTicker";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "threat-intelligence";
 
@@ -38,6 +40,7 @@ export async function generateMetadata() {
 
 export default function ThreatIntelPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:threat-intelligence");
 
   return (
     <>
@@ -98,6 +101,14 @@ export default function ThreatIntelPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* APT ACTORS */}
       <section id="actors" className="py-20 bg-bg-1">

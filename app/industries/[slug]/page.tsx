@@ -27,6 +27,8 @@ import { INDUSTRIES, getIndustryBySlug } from "@/content/industries";
 import { SERVICES } from "@/content/services";
 import { AUDITS } from "@/content/audits";
 import { pickRelatedIndustries } from "@/lib/related";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -58,6 +60,7 @@ export default async function IndustryDetail({ params }: PageProps) {
   const industry = getIndustryBySlug(slug);
   if (!industry) notFound();
   const Icon = industry.icon;
+  const sa = getShortAnswer(`industry:${slug}`);
 
   const services = industry.topServices
     .map((s) => SERVICES.find((x) => x.slug === s))
@@ -150,6 +153,15 @@ export default async function IndustryDetail({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* CONTEXT */}
       <section className="py-20 bg-bg-1">

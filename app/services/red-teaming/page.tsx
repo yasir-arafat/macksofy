@@ -30,6 +30,8 @@ import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { KillChainGraph } from "@/components/visuals/redteam/KillChainGraph";
 import { AttackHeatmap } from "@/components/visuals/redteam/AttackHeatmap";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 const SLUG = "red-teaming";
 
@@ -49,6 +51,7 @@ export async function generateMetadata() {
 
 export default function RedTeamPage() {
   const service = getServiceBySlug(SLUG)!;
+  const sa = getShortAnswer("service:red-teaming");
 
   return (
     <>
@@ -136,6 +139,14 @@ export default function RedTeamPage() {
           </div>
         </Container>
       </section>
+
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* TYPES OF RED TEAMING */}
       <section id="engagement-modes" className="py-20 border-t border-line">
