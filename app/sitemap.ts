@@ -106,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/clients", 0.7, "monthly"),
     stat("/awards", 0.7, "monthly", CONTENT_REV, awardImages),
     stat("/press", 0.7, "monthly"),
+    stat("/glossary", 0.8, "monthly"),
     stat("/products/pentaudit", 0.9, "weekly"),
     stat("/products/learn-to-exploit", 0.85, "monthly"),
     stat("/privacy", 0.4, "monthly"),

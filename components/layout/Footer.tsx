@@ -187,6 +187,7 @@ export function Footer() {
             <FooterLinkAnimated href="/clients">Clients</FooterLinkAnimated>
             <FooterLinkAnimated href="/case-studies">Case Studies</FooterLinkAnimated>
             <FooterLinkAnimated href="/resources">Resources</FooterLinkAnimated>
+            <FooterLinkAnimated href="/glossary">Glossary</FooterLinkAnimated>
             <FooterLinkAnimated href="/awards">Awards</FooterLinkAnimated>
             <FooterLinkAnimated href="/press">Press</FooterLinkAnimated>
             <FooterLinkAnimated href="/blog">Blog</FooterLinkAnimated>

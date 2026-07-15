@@ -84,6 +84,12 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     icon: Library,
   },
   {
+    label: "Glossary",
+    href: "/glossary",
+    description: "Plain-language cybersecurity & compliance definitions",
+    icon: BookOpenText,
+  },
+  {
     label: "Awards & Recognition",
     href: "/awards",
     description: "CSI 2025 · Google VRP · EC-Council CEI",
@@ -924,6 +930,12 @@ function CommandPalette({
       keywords: "csi google ec-council",
     },
     { label: "Blog", href: "/blog", group: "Pages" },
+    {
+      label: "Glossary",
+      href: "/glossary",
+      group: "Pages",
+      keywords: "definitions terms vapt cert-in soc siem cvss dpdp rbi csf meaning what is",
+    },
     {
       label: "Pentaudit",
       href: "/products/pentaudit",

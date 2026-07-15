@@ -4,6 +4,7 @@ import type { Service } from "@/content/services";
 import type { Audit } from "@/content/audits";
 import type { CaseStudyHero } from "@/content/caseStudies";
 import { AWARDS } from "@/content/awards";
+import type { GlossaryTerm } from "@/content/glossary";
 
 const BASE = SITE.url;
 
@@ -502,6 +503,36 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
       "@type": "SpeakableSpecification",
       cssSelector: ["[data-speakable='faq-question']", "[data-speakable='faq-answer']"],
     },
+  };
+}
+
+/**
+ * DefinedTermSet for the /glossary hub. Every glossary entry becomes a
+ * `DefinedTerm` with an anchored `@id` (`/glossary#<slug>`) so search and AI
+ * engines can resolve, quote, and cite each definition individually while the
+ * set node ties them to one authoritative page. This is the entity-hub schema.
+ */
+export function definedTermSetSchema(terms: GlossaryTerm[]) {
+  const url = `${BASE}/glossary`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${url}#termset`,
+    name: "Macksofy Cybersecurity Glossary",
+    description:
+      "Plain-language definitions of cybersecurity, VAPT, SOC, cloud, DFIR, and India/GCC compliance terms — CERT-In, RBI CSF, SEBI CSCRF, DPDP, ISO 27001, NESA and more.",
+    url,
+    inLanguage: "en-IN",
+    publisher: { "@id": `${BASE}#organization` },
+    hasDefinedTerm: terms.map((t) => ({
+      "@type": "DefinedTerm",
+      "@id": `${url}#${t.slug}`,
+      name: t.term,
+      ...(t.abbr && { alternateName: t.abbr }),
+      description: t.definition,
+      inDefinedTermSet: { "@id": `${url}#termset` },
+      url: `${url}#${t.slug}`,
+    })),
   };
 }
 
