@@ -39,6 +39,7 @@ import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "mobile-application-security";
 
@@ -527,6 +528,7 @@ export default function MobileSecPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:mobile-application-security" />
       <GlossaryLinks href="/services/mobile-application-security" />
       <LeadCapture />
     </>

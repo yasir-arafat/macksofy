@@ -33,6 +33,7 @@ import { RequestInspector } from "@/components/visuals/web/RequestInspector";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "web-application-security";
 
@@ -327,6 +328,7 @@ export default function WebSecPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:web-application-security" />
       <GlossaryLinks href="/services/web-application-security" />
       <LeadCapture />
     </>

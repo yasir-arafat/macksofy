@@ -41,6 +41,7 @@ import { IamBlastRadius } from "@/components/visuals/cloud/IamBlastRadius";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "cloud-security";
 
@@ -674,6 +675,7 @@ export default function CloudSecurityPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:cloud-security" />
       <GlossaryLinks href="/services/cloud-security" />
       <LeadCapture />
     </>

@@ -27,6 +27,7 @@ import { VAvsPT } from "@/components/visuals/vapt/VAvsPT";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "vapt";
 
@@ -371,6 +372,7 @@ export default function VaptServicePage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:vapt" />
       <GlossaryLinks href="/services/vapt" />
       <LeadCapture />
     </>

@@ -37,6 +37,7 @@ import { DownloadButton } from "@/components/DownloadButton";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -491,6 +492,7 @@ export default async function ServiceDetail({ params }: PageProps) {
         serviceSlug={service.slug}
       />
 
+      <References pageKey={`service:${service.slug}`} />
       <GlossaryLinks href={`/services/${service.slug}`} />
       <LeadCapture />
     </>

@@ -24,6 +24,7 @@ import { PTESMethodology } from "@/components/visuals/pentest/PTESMethodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "penetration-testing";
 
@@ -296,6 +297,7 @@ export default function PentestPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:penetration-testing" />
       <GlossaryLinks href="/services/penetration-testing" />
       <LeadCapture />
     </>

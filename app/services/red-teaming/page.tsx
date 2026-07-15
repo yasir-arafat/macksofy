@@ -33,6 +33,7 @@ import { AttackHeatmap } from "@/components/visuals/redteam/AttackHeatmap";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "red-teaming";
 
@@ -466,6 +467,7 @@ export default function RedTeamPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:red-teaming" />
       <GlossaryLinks href="/services/red-teaming" />
       <LeadCapture />
     </>

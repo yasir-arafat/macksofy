@@ -21,6 +21,7 @@ import { ChainOfCustody } from "@/components/visuals/dfir/ChainOfCustody";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "digital-forensics-incident-response";
 
@@ -251,6 +252,7 @@ export default function DfirPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:digital-forensics-incident-response" />
       <GlossaryLinks href="/services/digital-forensics-incident-response" />
       <LeadCapture />
     </>

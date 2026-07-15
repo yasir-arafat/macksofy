@@ -43,6 +43,7 @@ import { OTHmiPanel } from "@/components/visuals/iot/OTHmiPanel";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "iot-ot-security";
 
@@ -685,6 +686,7 @@ export default function IotOtSecurityPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:iot-ot-security" />
       <GlossaryLinks href="/services/iot-ot-security" />
       <LeadCapture />
     </>

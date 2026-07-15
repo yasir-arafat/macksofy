@@ -34,6 +34,7 @@ import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "api-security";
 
@@ -387,6 +388,7 @@ export default function ApiSecPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:api-security" />
       <GlossaryLinks href="/services/api-security" />
       <LeadCapture />
     </>

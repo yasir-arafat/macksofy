@@ -35,6 +35,7 @@ import { DownloadButton } from "@/components/DownloadButton";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -411,6 +412,7 @@ export default async function AuditDetail({ params }: PageProps) {
         </section>
       )}
 
+      <References pageKey={`audit:${a.slug}`} />
       <GlossaryLinks href={`/audit/${a.slug}`} />
       <LeadCapture />
     </>

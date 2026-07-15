@@ -22,6 +22,7 @@ import { AlertFunnel } from "@/components/visuals/soc/AlertFunnel";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "managed-soc";
 
@@ -283,6 +284,7 @@ export default function ManagedSocPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:managed-soc" />
       <GlossaryLinks href="/services/managed-soc" />
       <LeadCapture />
     </>

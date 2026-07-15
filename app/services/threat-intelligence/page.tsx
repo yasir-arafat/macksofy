@@ -22,6 +22,7 @@ import { IocFeedTicker } from "@/components/visuals/intel/IocFeedTicker";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
+import { References } from "@/components/sections/References";
 
 const SLUG = "threat-intelligence";
 
@@ -242,6 +243,7 @@ export default function ThreatIntelPage() {
         serviceSlug={service.slug}
       />
 
+      <References pageKey="service:threat-intelligence" />
       <GlossaryLinks href="/services/threat-intelligence" />
       <LeadCapture />
     </>
