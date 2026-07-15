@@ -164,6 +164,11 @@ export default async function BlogPostPage({ params }: PageProps) {
             isAccessibleForFree: true,
             inLanguage: "en-IN",
             author: authorSchema(author),
+            // reviewedBy — E-E-A-T signal when a post is reviewed by a second
+            // credentialed author. Only emitted when a real reviewer is set.
+            ...(p.reviewer && p.reviewer !== p.author
+              ? { reviewedBy: authorSchema(getAuthor(p.reviewer)) }
+              : {}),
             publisher: {
               "@type": "Organization",
               "@id": `${SITE.url}#organization`,
@@ -218,7 +223,17 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-fg-faint">
                 <span className="inline-flex items-center gap-2">
-                  <User className="size-4 text-neon-cyan" /> {p.author}
+                  <User className="size-4 text-neon-cyan" />{" "}
+                  {author.type === "person" ? (
+                    <Link
+                      href={`/team/${author.slug}`}
+                      className="font-medium hover:text-neon-cyan transition-colors"
+                    >
+                      {p.author}
+                    </Link>
+                  ) : (
+                    p.author
+                  )}
                   {p.authorRole && (
                     <span className="text-fg-faint/70">· {p.authorRole}</span>
                   )}

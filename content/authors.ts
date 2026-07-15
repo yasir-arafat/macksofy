@@ -45,14 +45,22 @@ export interface AuthorBase {
 
 export interface PersonAuthor extends AuthorBase {
   type: "person";
-  /** Credentials (OSCP, CEH, CISSP…) — shown in byline + included in schema description. */
-  credentials?: string[];
-  /** Public profiles — LinkedIn, GitHub, X, Mastodon. Becomes schema `sameAs`. */
-  sameAs?: string[];
-  /** One-paragraph bio used in /team/[slug] and schema `description`. */
-  bio?: string;
-  /** Job title (specific). */
+  /** URL slug for the /team/<slug> profile page + schema @id. e.g. "priya-sharma". */
+  slug: string;
+  /** Job title (specific). Becomes schema `jobTitle` + shown in byline. */
   jobTitle?: string;
+  /** Credentials (OSCP, CEH, CISSP…). Emitted as schema `hasCredential` + honorificSuffix. */
+  credentials?: string[];
+  /** Public profiles — LinkedIn, GitHub, X. Becomes schema `sameAs` (Google/LLMs verify these). */
+  sameAs?: string[];
+  /** One-paragraph bio (~50–80 words). Schema `description` + shown on the profile page. */
+  bio?: string;
+  /** Headshot in /public (e.g. "/team/priya-sharma.jpg"). Becomes schema `image`. */
+  image?: string;
+  /** Where they studied / trained (optional). Becomes schema `alumniOf`. */
+  alumniOf?: string;
+  /** Years of hands-on experience (optional). Surfaced on the profile for E-E-A-T. */
+  yearsExperience?: number;
 }
 
 export interface TeamAuthor extends AuthorBase {
@@ -364,14 +372,34 @@ export function getAuthor(authorString: string): Author {
  */
 export function authorSchema(author: Author): Record<string, unknown> {
   if (author.type === "person") {
+    const url = `${SITE.url}/team/${author.slug}`;
     return {
       "@type": "Person",
+      "@id": `${url}#person`,
       name: author.name,
+      url,
       ...(author.jobTitle && { jobTitle: author.jobTitle }),
       ...(author.bio && { description: author.bio }),
-      ...(author.profileUrl && { url: `${SITE.url}${author.profileUrl}` }),
+      ...(author.image && {
+        image: author.image.startsWith("http")
+          ? author.image
+          : `${SITE.url}${author.image}`,
+      }),
+      // Credentials as first-class entities (Google Person entity + AI citation).
+      ...(author.credentials &&
+        author.credentials.length > 0 && {
+          honorificSuffix: author.credentials.join(", "),
+          hasCredential: author.credentials.map((c) => ({
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "certification",
+            name: c,
+          })),
+        }),
+      ...(author.alumniOf && { alumniOf: author.alumniOf }),
       worksFor: { "@id": `${SITE.url}#organization` },
       knowsAbout: author.knowsAbout,
+      // sameAs is the verification anchor — Google and LLMs cross-check these
+      // real public profiles before treating the Person as an authority.
       ...(author.sameAs && author.sameAs.length > 0 && { sameAs: author.sameAs }),
     };
   }
@@ -388,3 +416,50 @@ export function authorSchema(author: Author): Record<string, unknown> {
     sameAs: [SITE.social.linkedin],
   };
 }
+
+/**
+ * All named-human authors (type "person"). Empty until real experts are added.
+ * Drives the /team profile routes, the sitemap, and the nav "Team" entry —
+ * every one of which stays dormant while this returns [].
+ */
+export function getPersonAuthors(): PersonAuthor[] {
+  return Object.values(AUTHORS).filter(
+    (a): a is PersonAuthor => a.type === "person"
+  );
+}
+
+/** Resolve a Person by profile slug (for /team/[slug]). */
+export function getPersonBySlug(slug: string): PersonAuthor | undefined {
+  return getPersonAuthors().find((p) => p.slug === slug);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * HOW TO ADD A REAL NAMED EXPERT (E-E-A-T / GEO — the top off-page-adjacent
+ * lever from the master audit). Do NOT invent people: Google and LLMs verify
+ * the `sameAs` LinkedIn/GitHub URLs, so a fabricated identity backfires.
+ *
+ * When Yasir supplies a real expert, copy this block into AUTHORS above,
+ * keyed by the exact byline string used in content/blog.ts:
+ *
+ *   "Priya Sharma": {
+ *     type: "person",
+ *     key: "Priya Sharma",              // must equal the blog `author` string
+ *     slug: "priya-sharma",             // -> /team/priya-sharma
+ *     name: "Priya Sharma",
+ *     jobTitle: "Principal Security Consultant",
+ *     role: "Red team & Active Directory · OSCP, OSEP, CRTO",
+ *     credentials: ["OSCP", "OSEP", "CRTO"],
+ *     sameAs: ["https://www.linkedin.com/in/<real-handle>/"],  // REQUIRED, real
+ *     image: "/team/priya-sharma.jpg",  // optional headshot in /public/team/
+ *     bio: "50–80 words, first-person-credible, what they actually do + years.",
+ *     yearsExperience: 9,
+ *     alumniOf: "IIT Bombay",           // optional
+ *     knowsAbout: ["Red Teaming", "Active Directory Attacks", "OSEP"],
+ *   },
+ *
+ * Then set the matching post's `author:` in content/blog.ts to "Priya Sharma"
+ * (and optionally `reviewer:` on other posts). Everything else is automatic:
+ * the /team/priya-sharma profile page builds, enters the sitemap, appears in
+ * the nav, and the BlogPosting `author` JSON-LD upgrades from Organization to
+ * a verified Person. Intake form: /root/macksofy-new-seo/named-experts-intake.md
+ * ─────────────────────────────────────────────────────────────────────────── */

@@ -34,6 +34,7 @@ import { SERVICES } from "@/content/services";
 import {
   AUDITS,
 } from "@/content/audits";
+import { getPersonAuthors } from "@/content/authors";
 
 /* ──────────────────────────────────────────────────────────────
    Nav model
@@ -65,6 +66,18 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     description: "BFSI, healthcare, fintech, manufacturing/OT, government & more",
     icon: Factory,
   },
+  // "Our Experts" appears only once real named experts exist in
+  // content/authors.ts (getPersonAuthors() is empty until then).
+  ...(getPersonAuthors().length > 0
+    ? [
+        {
+          label: "Our Experts",
+          href: "/team",
+          description: "The certified consultants behind Macksofy",
+          icon: Users,
+        },
+      ]
+    : []),
   {
     label: "Our Clients",
     href: "/clients",

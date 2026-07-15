@@ -57,6 +57,13 @@ export interface BlogPost {
   updated?: string;
   author: string;
   authorRole?: string;
+  /**
+   * Optional reviewer — the byline of a second, credentialed author who
+   * reviewed the post. Must match an AUTHORS key (ideally a `type: "person"`
+   * entry). Emitted as schema `reviewedBy` (E-E-A-T). Leave unset until a real
+   * reviewer exists — never fabricate.
+   */
+  reviewer?: string;
   readingTime: string;
   category: string;
   tags: string[];

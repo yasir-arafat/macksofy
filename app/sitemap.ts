@@ -10,6 +10,7 @@ import { RESOURCES } from "@/content/resources";
 import { SITEMAP_COMBO_PAIRS } from "@/content/combos";
 import { AWARDS } from "@/content/awards";
 import { INDUSTRIES } from "@/content/industries";
+import { getPersonAuthors } from "@/content/authors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
@@ -107,6 +108,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/awards", 0.7, "monthly", CONTENT_REV, awardImages),
     stat("/press", 0.7, "monthly"),
     stat("/glossary", 0.8, "monthly"),
+    // /team + expert profiles enter the sitemap only once real named experts
+    // exist (getPersonAuthors() is empty until then) — no thin placeholder URLs.
+    ...(getPersonAuthors().length > 0
+      ? [
+          stat("/team", 0.7, "monthly"),
+          ...getPersonAuthors().map((p) =>
+            stat(`/team/${p.slug}`, 0.6, "monthly")
+          ),
+        ]
+      : []),
     stat("/products/pentaudit", 0.9, "weekly"),
     stat("/products/learn-to-exploit", 0.85, "monthly"),
     stat("/privacy", 0.4, "monthly"),
