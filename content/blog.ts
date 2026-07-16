@@ -84,6 +84,389 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // PILLAR 1 — Penetration Testing & VAPT: The Complete Guide (India 2026).
+  // Topic-cluster hub for the Pentest/VAPT pillar. Anchors to money pages
+  // /services/penetration-testing + /services/vapt; links down to the
+  // supporting posts (tools, AD pentest, VAPT vs red team, etc.).
+  // ===================================================================
+  {
+    slug: "penetration-testing-vapt-guide-india-2026",
+    title: "Penetration Testing & VAPT: The Complete Guide (India, 2026)",
+    description:
+      "A definitive guide to penetration testing and VAPT for Indian organisations in 2026 — the difference between vulnerability assessment and penetration testing, the types, the PTES/OWASP methodology, CVSS scoring, timelines, cost drivers, deliverables, regulatory triggers (CERT-In, RBI, SEBI, PCI-DSS, DPDP) and how to choose a CERT-In empanelled provider.",
+    date: "2026-07-17",
+    author: "Macksofy Pentest Team",
+    authorRole: "Offensive security & VAPT practice",
+    readingTime: "16 min read",
+    category: "Penetration Testing",
+    tags: ["VAPT", "Penetration Testing", "OWASP", "CVSS", "CERT-In", "India", "Methodology"],
+    heroKind: "web",
+    heroEyebrow: "India · 2026 · Pillar Guide",
+    keywords: [
+      "penetration testing",
+      "vapt",
+      "vapt services india",
+      "penetration testing company india",
+      "vulnerability assessment and penetration testing",
+      "what is vapt",
+      "penetration testing methodology",
+      "types of penetration testing",
+      "penetration testing cost india",
+      "how long does a penetration test take",
+      "cert-in empanelled vapt",
+      "web application penetration testing",
+      "network penetration testing india",
+    ],
+    blocks: [
+      { type: "lead", text: "Penetration testing is an authorised, simulated cyber-attack against your systems, run by security engineers to find and safely exploit vulnerabilities before real attackers do. VAPT — Vulnerability Assessment and Penetration Testing — pairs broad automated vulnerability discovery with deep manual exploitation, then reports each finding with a business-risk rating and a fix. This guide covers the types, the methodology, timelines, cost drivers, deliverables and how to choose a CERT-In empanelled provider in India." },
+      { type: "para", text: "This is written for the person who has to buy or pass a test: a CISO, IT head, compliance lead or founder who has been told to get a VAPT done for a regulator, a customer security review, or a product launch. We keep it practical — what each term means, what a real engagement looks like, what it should cost and how long it takes, and how to tell a genuine test from a rebadged scanner report." },
+
+      { type: "heading", level: 2, id: "va-vs-pt", text: "What is the difference between vulnerability assessment and penetration testing?" },
+      { type: "para", text: "The two words in VAPT describe two different activities that are often sold together. A vulnerability assessment is about breadth: automated and semi-automated scanning enumerates as many known weaknesses as possible across a large surface, producing a prioritised list. A penetration test is about depth: a human tester manually verifies findings, chains them together, and exploits them to prove real business impact — data access, privilege escalation, lateral movement. A scanner tells you a door looks unlocked; a penetration test walks through it and shows you what is inside." },
+      {
+        type: "comparison",
+        title: "Vulnerability assessment vs penetration testing",
+        left: { label: "Vulnerability Assessment", tone: "cyan", bullets: [
+          "Breadth over depth — wide coverage of many hosts/apps",
+          "Largely automated (authenticated + unauthenticated scans)",
+          "Lists known/CVE-based weaknesses; low false-negative for the known",
+          "No exploitation — findings are potential, not proven",
+          "Fast and repeatable; ideal for continuous/quarterly cadence",
+        ] },
+        right: { label: "Penetration Testing", tone: "purple", bullets: [
+          "Depth over breadth — proves exploitability and impact",
+          "Manual, tester-led; finds logic and chained flaws scanners miss",
+          "Business-risk rated with evidence / proof-of-concept",
+          "Exploitation, privilege escalation, lateral movement",
+          "Point-in-time; ideal before launch, after major change, annually",
+        ] },
+      },
+      { type: "para", text: "Most regulator-facing engagements need both, which is why the industry sells them as VAPT: the assessment gives coverage and the penetration test gives proof. If a provider offers you only an automated scan and calls it a penetration test, it is not one." },
+
+      { type: "heading", level: 2, id: "types", text: "What types of penetration testing are there?" },
+      { type: "para", text: "Penetration testing is scoped by the surface being attacked. Each type has its own methodology and reference standard, and a mature program rotates through the ones relevant to its risk profile." },
+      {
+        type: "table",
+        caption: "Common penetration-testing types and their reference standards",
+        headers: ["Type", "What it targets", "Primary standard"],
+        rows: [
+          ["Network (external / internal)", "Internet-facing and internal infrastructure, services, hosts", "PTES · NIST SP 800-115"],
+          ["Web application", "Web apps, portals, authentication, business logic", "OWASP WSTG · OWASP Top 10"],
+          ["API", "REST / GraphQL / SOAP endpoints, authorization", "OWASP API Security Top 10"],
+          ["Mobile application", "Android / iOS apps, local storage, transport", "OWASP MASVS · MASTG"],
+          ["Cloud", "AWS / Azure / GCP configuration, IAM, exposure", "CIS Benchmarks · CSA CCM"],
+          ["Active Directory / internal", "AD, privilege escalation, lateral movement", "MITRE ATT&CK"],
+          ["Wireless", "Wi-Fi, rogue APs, segmentation", "PTES wireless"],
+          ["Social engineering", "Phishing, pretexting, physical access", "MITRE ATT&CK (Initial Access)"],
+          ["Red team", "Full-scope adversary emulation across all of the above", "MITRE ATT&CK · TIBER-style"],
+        ],
+      },
+      { type: "para", text: "For a deeper look at specific surfaces, see our guides on [Active Directory penetration testing](/blog/active-directory-pentest-guide-india-2026) and the [top penetration-testing tools for 2026](/blog/top-10-penetration-testing-tools-2026). Where full adversary emulation is the goal rather than coverage, read [VAPT vs red team](/blog/vapt-vs-red-team-2026) and [red team vs penetration testing](/blog/red-team-vs-penetration-testing-2026)." },
+
+      { type: "heading", level: 2, id: "methodology", text: "How does a penetration test work? The seven phases" },
+      { type: "para", text: "A professional test follows a repeatable methodology — most commonly the Penetration Testing Execution Standard (PTES), aligned with OWASP for applications and NIST SP 800-115 for infrastructure. The phases are the same whether the target is a web app or an entire network:" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Scoping and rules of engagement — agree targets, test windows, black/grey/white-box level, escalation contacts and legal authorisation (the ROE). Nothing is touched before this is signed.",
+          "Reconnaissance and OSINT — map the attack surface: domains, subdomains, exposed services, technologies, leaked credentials, employee footprint.",
+          "Threat modelling and attack-surface mapping — turn recon into hypotheses: which assets are most valuable, which paths an attacker would take.",
+          "Vulnerability analysis — combine authenticated/unauthenticated scanning with manual verification to separate real issues from scanner noise.",
+          "Exploitation — safely exploit confirmed vulnerabilities to prove impact, respecting the ROE (no destructive actions on production without written sign-off).",
+          "Post-exploitation and lateral movement — escalate privileges, pivot, and demonstrate how far a foothold reaches: the difference between one bug and a full compromise.",
+          "Reporting, remediation support and retest — deliver an evidence-backed report with business-risk ratings and fixes, support the fix, then retest to confirm closure.",
+        ],
+      },
+      { type: "callout", tone: "tip", title: "Manual work is where the value is", text: "Scanners find the known and the obvious. The findings that actually breach organisations — broken access control, authorization flaws, business-logic abuse, chained privilege escalation — are found by a human in phases 5 and 6. Judge a provider on manual depth, not scanner output." },
+
+      { type: "heading", level: 2, id: "box-types", text: "What is black-box, grey-box and white-box testing?" },
+      { type: "para", text: "The box colour describes how much the tester knows before starting. Black-box means no prior knowledge — the tester attacks like an outside adversary, which is realistic but spends time on discovery. White-box means full access to source, credentials and architecture — the most thorough coverage per rupee, best for pre-launch assurance. Grey-box sits in between (typically a low-privilege account plus basic documentation) and is the usual sweet spot for application testing: it mirrors an authenticated attacker or malicious insider while keeping coverage efficient." },
+
+      { type: "heading", level: 2, id: "scoring", text: "How are vulnerabilities scored and prioritised?" },
+      { type: "para", text: "Findings are rated so you can fix the right things first. The industry standard is CVSS (Common Vulnerability Scoring System) v4.0, which combines a base score (how the flaw works) with threat and environmental metrics (how exploitable and how impactful it is in your context). Each finding is also classified by CWE (the weakness type) and, increasingly, weighted by EPSS — the probability the flaw is exploited in the wild. A good report translates all of this into a plain business-risk rating." },
+      { type: "callout", tone: "warning", title: "A high CVSS is not automatically a high risk", text: "CVSS measures the vulnerability, not your exposure. A CVSS 9.8 on a host with no network path to it may be lower real risk than a CVSS 6.5 on your internet-facing login. Insist on findings rated by business risk in your environment, not raw CVSS alone." },
+
+      { type: "heading", level: 2, id: "timeline", text: "How long does a penetration test take?" },
+      { type: "para", text: "Testing time scales with scope and complexity. These are typical field durations for a single engagement (add two to five working days for reporting and one for a retest):" },
+      {
+        type: "table",
+        caption: "Indicative testing durations (excludes reporting and retest)",
+        headers: ["Engagement", "Typical testing window"],
+        rows: [
+          ["Single web application (grey-box)", "5–10 working days"],
+          ["External network (up to ~50 hosts)", "5–8 working days"],
+          ["Internal network / Active Directory", "8–15 working days"],
+          ["Mobile application (one platform)", "6–10 working days"],
+          ["API (REST / GraphQL)", "4–8 working days"],
+          ["Cloud configuration review", "4–8 working days"],
+          ["Full red-team engagement", "4–8 weeks"],
+        ],
+      },
+
+      { type: "heading", level: 2, id: "cost", text: "How much does VAPT cost in India?" },
+      { type: "para", text: "There is no flat price because the effort is driven by scope, not by a licence. The main cost drivers are:" },
+      {
+        type: "list",
+        items: [
+          "Scope size — number of applications, hosts, APIs, roles and environments.",
+          "Complexity — a simple brochure site vs a multi-tenant fintech platform with dozens of workflows.",
+          "Box type — white-box needs more setup but gives more coverage; black-box spends time on discovery.",
+          "Report format — a CERT-In-format, regulator-ready report with attestation is more effort than a bare findings list.",
+          "Retest and remediation support — included closure retesting adds a few days but is essential for compliance.",
+          "Onsite vs remote — internal/AD tests may require onsite or VPN access and scheduling.",
+        ],
+      },
+      { type: "callout", tone: "info", title: "Indicative market ranges (India, 2026)", text: "As a rough guide only: a single web-app VAPT commonly runs ₹60,000–₹1,50,000; an external network test ₹75,000–₹2,00,000; a mobile app ₹80,000–₹2,00,000; and a full red-team engagement ₹5,00,000 and up. Always get a fixed-price proposal against a written scope — a credible provider will scope before quoting, not quote before scoping." },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "6 hrs", label: "CERT-In incident-report window" },
+          { value: "180 days", label: "Mandated log retention in India" },
+          { value: "CVSS 4.0", label: "Current scoring standard" },
+          { value: "48 hrs", label: "Macksofy fixed-price proposal turnaround" },
+        ],
+      },
+
+      { type: "heading", level: 2, id: "deliverables", text: "What deliverables should a VAPT report include?" },
+      { type: "para", text: "The report is the product. A regulator-ready VAPT deliverable should contain:" },
+      {
+        type: "list",
+        items: [
+          "Executive summary — risk posture in business language for leadership and the board.",
+          "Scope and methodology — exactly what was tested, when, and to which standard (PTES/OWASP/NIST).",
+          "Detailed findings — each with a CVSS score, CWE classification, evidence / proof-of-concept, and affected assets.",
+          "Business-risk rating — severity in your context, not just raw CVSS.",
+          "Remediation guidance — specific, actionable fixes with references (OWASP/CWE/vendor).",
+          "Retest / closure status — verification that fixes actually worked.",
+          "Compliance mapping — findings mapped to CERT-In, ISO 27001, PCI-DSS or RBI/SEBI expectations as relevant.",
+          "Auditor attestation — a signed letter, and a safe-to-host certificate where the engagement calls for it.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "frequency", text: "How often should you run a penetration test?" },
+      { type: "para", text: "The baseline is at least annually and after any major change — a new application, a significant architecture change, or a merger. Regulation usually sets a stricter cadence. RBI's Cyber Security Framework expects VAPT before go-live and periodically thereafter; SEBI's CSCRF mandates graded VAPT for regulated entities; PCI-DSS 4.0 requires annual testing and after significant change; ISO 27001 control A.8.8 expects technical vulnerability management; and the DPDP Act's reasonable-security-safeguards duty is hard to evidence without regular testing. Many of these must be signed off by a [CERT-In empanelled auditor](/audit/cert-in-empanelled-audit) — see our companion [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026)." },
+
+      { type: "heading", level: 2, id: "choose", text: "How to choose a VAPT provider in India" },
+      { type: "para", text: "The credential that separates a regulator-ready firm from the rest is CERT-In empanelment. Beyond that, look for substance over slideware:" },
+      {
+        type: "list",
+        items: [
+          "CERT-In empanelment — verify it on the official CERT-In empanelled-auditor list, not just a logo on a website.",
+          "Manual depth — ask what percentage of the test is manual and to see a redacted sample report.",
+          "Certified testers — OSCP / OSCE / OSWE / CREST-registered testers on the actual engagement.",
+          "Retest included — closure verification should be in scope, not a paid extra.",
+          "Clear scope and fixed price — a written scope before a number, not after.",
+          "Data handling — NDA, secure evidence storage, and defined data-retention/destruction.",
+        ],
+      },
+      { type: "cta", title: "Get a scoped VAPT proposal", text: "Macksofy is a CERT-In empanelled provider delivering manual-led VAPT across web, API, mobile, network, cloud and Active Directory — with CERT-In-format reports and closure retesting. Fixed-price proposal within 48 hours of scope.", href: "/services/vapt", cta: "Explore VAPT services" },
+
+      { type: "heading", level: 2, id: "mistakes", text: "Common penetration-testing mistakes to avoid" },
+      {
+        type: "list",
+        items: [
+          "Treating a vulnerability scan as a penetration test — coverage is not proof.",
+          "An out-of-date scope that misses the systems that actually matter.",
+          "No retest — an unremediated finding is an open door, and regulators check closure.",
+          "Testing production without a signed ROE and escalation path.",
+          "Ignoring business-logic and authorization flaws because scanners cannot find them.",
+          "No remediation follow-through — a report that gathers dust changes nothing.",
+        ],
+      },
+      { type: "cta", title: "Not sure whether you need VAPT or a full penetration test?", text: "If you need broad coverage for a compliance deadline, start with VAPT. If you need to prove how far a determined attacker could get, scope a targeted penetration test. Macksofy will help you pick the right depth for your risk and your regulator.", href: "/services/penetration-testing", cta: "Explore penetration testing" },
+    ],
+    faqs: [
+      { q: "Is VAPT the same as a vulnerability scan?", a: "No. A vulnerability scan (the VA in VAPT) is automated and lists potential weaknesses. Penetration testing (the PT) is manual and proves which of those weaknesses can actually be exploited, and what the business impact is. A scan alone is not a penetration test." },
+      { q: "Is penetration testing legal in India?", a: "Yes, when it is authorised. Testing is legal and expected when you own the systems or have written permission (the rules of engagement) from the owner. Testing systems you do not own or lack authorisation for is an offence under the IT Act — which is exactly why a signed scope and ROE come first." },
+      { q: "Should I choose black-box, grey-box or white-box testing?", a: "Grey-box is the usual sweet spot for applications — it mirrors an authenticated attacker and gives strong coverage efficiently. White-box gives the most thorough coverage and is ideal before a launch. Black-box is the most realistic simulation of an external adversary but spends time on discovery." },
+      { q: "How long does a penetration test take?", a: "A single web application typically takes 5–10 working days of testing, an external network 5–8 days, and an internal/Active Directory test 8–15 days, plus a few days for reporting and one for a retest. A full red-team engagement runs 4–8 weeks." },
+      { q: "Do I need a CERT-In empanelled provider for VAPT?", a: "For government and critical-sector audits, and for many RBI, SEBI and IRDAI requirements, testing must be done by a CERT-In empanelled auditor. Even where it is not strictly mandatory, empanelment is the clearest signal that the auditor's competence has been independently vetted." },
+      { q: "How often should we run a penetration test?", a: "At least annually and after any major change. Regulated entities usually need more: RBI, SEBI and PCI-DSS all require periodic and change-triggered testing, and the DPDP Act's reasonable-security duty is hard to evidence without a regular cadence." },
+      { q: "Does a penetration test guarantee we are secure?", a: "No test can promise perfect security. A penetration test is a point-in-time assessment that materially reduces risk by finding and fixing exploitable issues. Security is maintained through regular testing, remediation, monitoring and good engineering — not a single certificate." },
+    ],
+  },
+
+  // ===================================================================
+  // PILLAR 7 — CERT-In Empanelled Audit: The Complete Guide (2026).
+  // Topic-cluster hub for the CERT-In / compliance pillar. Anchors to the
+  // money page /audit/cert-in-empanelled-audit; links across to the Pentest
+  // pillar and down to the CERT-In supporting posts.
+  // ===================================================================
+  {
+    slug: "cert-in-empanelled-audit-guide-2026",
+    title: "CERT-In Empanelled Audit: The Complete Guide (2026)",
+    description:
+      "Everything Indian organisations need to know about CERT-In empanelled audits in 2026 — what CERT-In empanelment means, who needs an empanelled audit, what it covers, the CERT-In Directions of 2022 (6-hour reporting, 180-day logs), the report format, timelines, cost drivers, how CERT-In compares to ISO 27001 and SOC 2, and how to verify a provider's empanelment.",
+    date: "2026-07-17",
+    author: "Macksofy Audit Team",
+    authorRole: "Compliance & regulatory audit practice",
+    readingTime: "15 min read",
+    category: "Compliance",
+    tags: ["CERT-In", "Compliance", "Audit", "VAPT", "RBI", "SEBI", "India"],
+    heroKind: "blue-team",
+    heroEyebrow: "India · 2026 · Pillar Guide",
+    keywords: [
+      "cert-in empanelled audit",
+      "cert-in empanelled auditor",
+      "cert-in audit",
+      "what is a cert-in empanelled audit",
+      "cert-in empanelment",
+      "cert-in directions 2022",
+      "cert-in 6 hour reporting",
+      "cert-in audit cost",
+      "cert-in audit report format",
+      "cert-in vs iso 27001",
+      "cert-in empanelled company india",
+      "cert-in security audit",
+    ],
+    blocks: [
+      { type: "lead", text: "A CERT-In empanelled audit is an information-security audit performed by an organisation officially empanelled by CERT-In — the Indian Computer Emergency Response Team, the national nodal agency for cyber security under the Ministry of Electronics and IT. Empanelment is India's benchmark of auditor competence: the RBI, SEBI and IRDAI, government tenders, and the CERT-In Directions of 2022 increasingly require security testing by an empanelled auditor. This guide covers who needs one, what it covers, the 2022 Directions, the report format, timelines and how to verify empanelment." },
+      { type: "para", text: "It is written for the person accountable for passing the audit — a CISO, IT head, compliance officer or founder who has been asked by a bank, a regulator, a government tender or an enterprise customer to produce a CERT-In empanelled audit report. We keep it concrete: what the credential really means, exactly who is on the hook, what auditors test, and how to avoid the failures that send organisations back for a re-audit." },
+
+      { type: "heading", level: 2, id: "what-is-certin", text: "What is CERT-In and what does empanelment mean?" },
+      { type: "para", text: "CERT-In (the Indian Computer Emergency Response Team) is the national agency for responding to cyber-security incidents, operating under Section 70B of the Information Technology Act, 2000. Among its statutory functions, it empanels information-security auditing organisations: firms that pass CERT-In's technical assessment are added to an official list and authorised to conduct security audits for government bodies and critical sectors. Empanelment is therefore not a marketing badge — it is a government vetting of an auditor's technical competence, valid for a defined period, and published on the CERT-In website." },
+
+      { type: "heading", level: 2, id: "what-is-audit", text: "What is a CERT-In empanelled audit?" },
+      { type: "para", text: "A CERT-In empanelled audit is a structured security assessment — typically VAPT plus configuration and process review — carried out by an empanelled auditor and delivered in CERT-In's expected report format, with the auditor's attestation. In practice it is the report a regulator, tender authority or enterprise customer will accept as independent proof that your systems were tested competently and that findings were remediated. The empanelled entity's name and attestation on the report are what give it weight." },
+
+      { type: "heading", level: 2, id: "who-needs", text: "Who needs a CERT-In empanelled audit?" },
+      { type: "para", text: "The requirement usually arrives through a regulator, a contract, or a tender rather than from CERT-In directly. The common drivers:" },
+      {
+        type: "table",
+        caption: "What drives the requirement for a CERT-In empanelled audit",
+        headers: ["Driver", "Who it applies to", "What it expects"],
+        rows: [
+          ["CERT-In Directions, 2022", "All body corporates, intermediaries, data centres, VPS/cloud/VPN providers", "Incident reporting, log retention, time sync; audits against these controls"],
+          ["RBI Cyber Security Framework / IT Governance", "Banks, NBFCs, co-operative banks, PPI/payment operators", "VAPT and audit by a competent / empanelled auditor, before go-live and periodically"],
+          ["SEBI CSCRF", "Stock brokers, AMCs, depositories, market-infrastructure institutions", "Graded VAPT and audit submission by entity size"],
+          ["IRDAI cyber guidelines", "Insurers and insurance intermediaries", "Periodic cyber assurance and VAPT"],
+          ["IT Act s.70 / NCIIPC", "Operators of declared Critical Information Infrastructure (CII)", "Mandatory NCIIPC-aligned audits of protected systems"],
+          ["Government / PSU tenders", "Vendors to government departments and PSUs", "Audit report from a CERT-In empanelled auditor, often a bid pre-condition"],
+          ["DPDP Act, 2023", "Data fiduciaries processing personal data", "Reasonable security safeguards — evidenced by regular testing"],
+        ],
+      },
+
+      { type: "heading", level: 2, id: "directions-2022", text: "What are the CERT-In Directions of 2022?" },
+      { type: "para", text: "Issued under Section 70B(6) and in force since 28 June 2022, these directions set baseline obligations that empanelled audits routinely check for. The headline requirements:" },
+      {
+        type: "list",
+        items: [
+          "Report any of 20 specified classes of cyber incident to CERT-In within 6 hours of noticing them.",
+          "Enable and securely maintain ICT system logs for a rolling 180 days, stored within India.",
+          "Synchronise all system clocks to the NTP servers of NIC or NPL (or traceable equivalents).",
+          "Data centres, VPS, cloud and VPN providers must retain subscriber / KYC records for at least 5 years.",
+          "Virtual-asset and exchange providers must maintain KYC and transaction records.",
+        ],
+      },
+      { type: "callout", tone: "warning", title: "The 6-hour clock is the one that catches people", text: "Most organisations discover during an audit that they have no defined process to detect, triage and report a qualifying incident to CERT-In within 6 hours. A tested incident-response runbook with named owners and a reporting template is the cheapest way to close this gap before it becomes a finding." },
+
+      { type: "heading", level: 2, id: "coverage", text: "What does a CERT-In empanelled audit cover?" },
+      { type: "para", text: "Scope is agreed up front, but a typical empanelled audit spans:" },
+      {
+        type: "list",
+        items: [
+          "Network and infrastructure VAPT — external (internet-facing) and internal.",
+          "Web and API application security testing (OWASP Top 10 / API Top 10).",
+          "Mobile application testing where in scope (OWASP MASVS).",
+          "Configuration and hardening review against CIS Benchmarks.",
+          "Cloud security review (AWS / Azure / GCP posture and IAM).",
+          "Source code review where the engagement calls for it.",
+          "Incident-readiness and compliance with the 2022 Directions (logging, time sync, 6-hour reporting).",
+          "Policy and process review — the governance around the technology.",
+        ],
+      },
+      { type: "para", text: "The testing itself follows the same discipline as any professional engagement — see our [penetration testing and VAPT guide](/blog/penetration-testing-vapt-guide-india-2026) for the underlying methodology and how findings are scored." },
+
+      { type: "heading", level: 2, id: "methodology", text: "How does a CERT-In empanelled audit work?" },
+      { type: "para", text: "A well-run empanelled audit moves through clear stages so the final report holds up under regulator inspection:" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Scoping and empanelment confirmation — agree the asset list, test windows and report format; confirm the empanelled entity that will attest the report.",
+          "Information gathering and architecture review — understand the environment, data flows and trust boundaries.",
+          "Vulnerability assessment — authenticated and unauthenticated scanning across the agreed scope.",
+          "Manual penetration testing — human-led exploitation to prove real impact, the part that distinguishes an audit from a scan.",
+          "Configuration and compliance review — check hardening and the 2022 Directions controls against CERT-In / ISO / CIS baselines.",
+          "Reporting in CERT-In format — findings rated by CVSS with evidence, remediation and compliance mapping.",
+          "Remediation support and closure retest — verify that fixes work; regulators check closure, not just the first report.",
+          "Auditor attestation — the empanelled entity signs the report and, where applicable, issues a safe-to-host certificate.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "report", text: "What does the audit report look like?" },
+      { type: "para", text: "The deliverable a regulator or customer will accept should include:" },
+      {
+        type: "list",
+        items: [
+          "Executive summary and overall risk posture in business language.",
+          "Scope and methodology, naming the standards applied.",
+          "Detailed findings — each with CVSS score, CWE, evidence and specific remediation.",
+          "Compliance mapping to CERT-In expectations and any relevant framework (ISO 27001, PCI-DSS, RBI/SEBI).",
+          "Closure / retest status confirming remediation.",
+          "A signed attestation from the empanelled auditor.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "vs", text: "CERT-In vs ISO 27001 vs SOC 2 — when do you need which?" },
+      { type: "para", text: "These are often confused because organisations end up needing more than one. They answer different questions:" },
+      {
+        type: "table",
+        caption: "CERT-In empanelled audit vs ISO 27001 vs SOC 2",
+        headers: ["Framework", "What it is", "When you need it"],
+        rows: [
+          ["CERT-In empanelled audit", "Government-vetted security audit (VAPT + compliance) for the Indian regime", "Indian regulators (RBI/SEBI/IRDAI), government tenders, the 2022 Directions"],
+          ["ISO/IEC 27001", "Certifiable management-system standard for an ISMS", "Enterprise buyers and tenders wanting proof of a governed security program"],
+          ["SOC 2", "US attestation on controls (security, availability, confidentiality)", "Selling SaaS to US / global customers doing vendor risk reviews"],
+        ],
+      },
+      { type: "para", text: "For a detailed comparison of the two most-confused options, read [CERT-In empanelled vs ISO 27001](/blog/cert-in-empanelled-vs-iso-27001-2026). Many BFSI and SaaS organisations end up maintaining all three, because they serve regulators, enterprise buyers and global customers at once." },
+
+      { type: "heading", level: 2, id: "cost-time", text: "How long does a CERT-In audit take, and what drives cost?" },
+      { type: "para", text: "As with any security engagement, effort is driven by scope, not a fixed licence. The main drivers are the number of applications, hosts and cloud environments; the depth of source-code review; whether a closure retest is included; and the compliance mapping required. A typical mid-sized engagement runs about one week of scoping, one to three weeks of testing, one week of reporting, and a short retest window — but a large BFSI estate can run considerably longer." },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "6 hrs", label: "Incident-report window (2022 Directions)" },
+          { value: "180 days", label: "Log retention, stored in India" },
+          { value: "s.70B", label: "IT Act basis for CERT-In" },
+          { value: "48 hrs", label: "Macksofy fixed-price proposal turnaround" },
+        ],
+      },
+
+      { type: "heading", level: 2, id: "verify", text: "How do you verify a provider's CERT-In empanelment?" },
+      { type: "para", text: "Do not take a logo on a website at face value. Empanelment is public and time-bound:" },
+      { type: "callout", tone: "info", title: "Verify before you sign", text: "Check the official CERT-In empanelled information-security auditor list on cert-in.org.in, confirm the empanelment is currently valid (it has an expiry), ask for the empanelment reference number, and confirm the audit report will carry that empanelled entity's name and attestation — not a subcontractor's." },
+
+      { type: "heading", level: 2, id: "failures", text: "Common reasons organisations fail a CERT-In audit" },
+      {
+        type: "list",
+        items: [
+          "Unpatched internet-facing services and known CVEs left open.",
+          "No defined process to report a qualifying incident within 6 hours.",
+          "Logs not retained for 180 days, or stored outside India.",
+          "Weak authentication and missing MFA on admin and remote access.",
+          "Exposed admin panels, default credentials and management interfaces.",
+          "System clocks not synchronised to NIC / NPL time sources.",
+          "Known findings from a prior test never remediated — closure is checked.",
+        ],
+      },
+      { type: "cta", title: "Get a CERT-In empanelled audit", text: "Macksofy is a CERT-In empanelled auditor delivering regulator-ready VAPT and compliance audits — CERT-In-format reports, CVSS-rated findings, remediation support and closure retesting for RBI, SEBI, IRDAI and government-tender requirements.", href: "/audit/cert-in-empanelled-audit", cta: "Explore CERT-In empanelled audit" },
+      { type: "cta", title: "Need the testing that feeds the audit?", text: "A CERT-In audit is built on manual-led VAPT across web, API, mobile, network and cloud. Scope the testing with Macksofy and get a fixed-price proposal within 48 hours.", href: "/services/vapt", cta: "Explore VAPT services" },
+    ],
+    faqs: [
+      { q: "Is a CERT-In empanelled audit mandatory?", a: "It is mandatory for government and critical-sector audits, and it is required or expected by regulators such as the RBI, SEBI and IRDAI and in most government tenders. For a purely private assurance exercise it may not be legally mandatory — but empanelment is still the clearest independent proof of auditor competence." },
+      { q: "How do I check if an auditor is CERT-In empanelled?", a: "CERT-In publishes the official list of empanelled information-security auditing organisations on cert-in.org.in. Confirm the firm is on the current list, that the empanelment is still valid, and that your report will carry that entity's attestation." },
+      { q: "What is the CERT-In 6-hour reporting rule?", a: "Under the CERT-In Directions of 2022, organisations must report any of 20 specified classes of cyber incident to CERT-In within 6 hours of noticing them. Auditors check that you have a tested process to detect, triage and report within that window." },
+      { q: "What is the difference between a CERT-In audit and ISO 27001?", a: "A CERT-In empanelled audit is a government-vetted security test-and-compliance audit for the Indian regulatory regime. ISO 27001 is a certifiable management-system standard proving you run a governed security program. They serve different audiences and many organisations need both." },
+      { q: "How long is a CERT-In audit valid?", a: "There is no single fixed validity; the cadence is set by whichever regulator or contract requires it — commonly annually and after major change. The empanelment of the auditor is separate and time-bound, which is why you should verify it is current before engaging." },
+      { q: "Does Macksofy provide CERT-In empanelled audits?", a: "Yes. Macksofy is a CERT-In empanelled auditor and delivers regulator-ready VAPT and compliance audits in CERT-In format, with CVSS-rated findings, remediation support and closure retesting for RBI, SEBI, IRDAI and government-tender requirements." },
+      { q: "What happens after the audit?", a: "You remediate the findings with the auditor's guidance, then the auditor retests to confirm closure and issues the attested report (and a safe-to-host certificate where applicable). Regulators typically want to see that findings were actually closed, not just identified." },
+    ],
+  },
+
+  // ===================================================================
   // Cyber Security Companies in Mumbai & India 2026 — CERT-In empanelled
   // audit landscape + Macksofy positioning. Primary SEO target:
   // "cyber security companies in mumbai" / "cert-in empanelled audit company".
