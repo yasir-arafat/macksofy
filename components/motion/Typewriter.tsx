@@ -54,5 +54,23 @@ export function Typewriter({
     }
   }, [text, phase, phrases, index, typeSpeed, deleteSpeed, pauseMs]);
 
-  return <span className={cn("caret", className)}>{text}</span>;
+  // Reserve the box of the longest phrase with an invisible sizer and overlay
+  // the animated text on top. Without this, the typed text changes length every
+  // few frames, the surrounding line wraps to a different number of lines, and
+  // the whole hero below the subheading jumps up/down — a continuous layout
+  // shift that dominated the page's CLS (0.11 on mobile). The sizer fixes the
+  // reserved height to the tallest state, so the animation no longer reflows.
+  const longest = phrases.reduce(
+    (a, b) => (b.length >= a.length ? b : a),
+    ""
+  );
+
+  return (
+    <span className={cn("relative inline-block align-bottom", className)}>
+      <span aria-hidden className="invisible select-none">
+        {longest}
+      </span>
+      <span className="caret absolute inset-0">{text}</span>
+    </span>
+  );
 }

@@ -34,12 +34,19 @@ export function GoogleAnalytics() {
 
   return (
     <>
+      {/* lazyOnload: gtag.js (≈0.5–1 MB across the GA4 + Google Ads tags) is
+          deferred until the browser is idle after `load`, so its parse/exec no
+          longer competes with hydration on the main thread — a major TBT/INP
+          win on mobile. Consent Mode defaults are still applied first
+          (ConsentMode.tsx runs beforeInteractive and defines window.gtag +
+          dataLayer), so the landing page_view is queued with correct consent
+          and fires the moment gtag.js finishes loading. */}
       <Script
         id="ga4-src"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="ga4-init" strategy="afterInteractive">
+      <Script id="ga4-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

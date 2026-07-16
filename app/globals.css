@@ -384,3 +384,28 @@ html.print-mode body > [class*="BackToTop"] {
 html.print-mode body > *:not(main):not(script):not(style) {
   display: none !important;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Reduced motion
+   Users who set "prefers-reduced-motion: reduce" (OS accessibility) get a
+   near-static site: CSS transitions/animations collapse to ~instant, and
+   smooth-scroll is disabled. framer-motion animations are JS-driven inline
+   styles, so this rule can't reach them — that's handled separately by
+   <MotionConfig reducedMotion="user"> in components/layout/Shell.tsx, which
+   makes framer snap transform/opacity animations to their final state. The two
+   together also cut the animation work these users' devices do (a small INP
+   help), on top of the accessibility win.
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

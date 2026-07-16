@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { MotionConfig } from "framer-motion";
 import type { ReactNode } from "react";
 
 /**
@@ -31,16 +32,22 @@ export function Shell({
   const pathname = usePathname();
   const bare = pathname?.startsWith("/lp") ?? false;
 
+  // reducedMotion="user": make every framer-motion animation on the site honour
+  // the visitor's OS "reduce motion" setting (snap transform/opacity animations
+  // to their end state). Pairs with the CSS @media (prefers-reduced-motion)
+  // block in globals.css that handles plain CSS transitions/animations.
   if (bare) {
     return (
-      <main id="main" className="flex-1">
-        {children}
-      </main>
+      <MotionConfig reducedMotion="user">
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+      </MotionConfig>
     );
   }
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       {header}
       <main
         id="main"
@@ -51,6 +58,6 @@ export function Shell({
       </main>
       {footer}
       {widgets}
-    </>
+    </MotionConfig>
   );
 }
