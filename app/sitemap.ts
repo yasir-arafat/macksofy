@@ -29,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // markets, avoiding duplicate-content penalties without per-locale URLs.
   const altLanguages = (path: string): Record<string, string> => ({
     "x-default": `${base}${path}`,
-    en: `${base}${path}`,
     "en-IN": `${base}${path}`,
     "en-AE": `${base}${path}`,
   });
@@ -137,13 +136,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...CITIES.map((c) =>
       stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "weekly")
     ),
-    // Combos are released to the sitemap in WAVES (see SITEMAP_COMBO_PAIRS
-    // / RELEASED_THROUGH_WAVE in content/combos.ts). On the young domain,
-    // submitting all 66 at once produced 236 "Discovered – not indexed"
-    // URLs (GSC 2026-06-13). We now hand Google a focused wave at a time so
-    // crawl budget concentrates on canonical pages + the released combos;
-    // held combos stay live + crawlable via in-page links, just not in the
-    // sitemap. Bump the wave once the current batch indexes.
+    // All combos ship in the sitemap. (Wave-gating was retired — see
+    // SITEMAP_COMBO_PAIRS in content/combos.ts, which now maps every combo;
+    // RELEASED_THROUGH_WAVE / COMBO_WAVES were removed.)
     ...SITEMAP_COMBO_PAIRS.map((p) =>
       stat(`/locations/${p.city}/${p.service}`, 0.7, "monthly", rev(p.updated))
     ),

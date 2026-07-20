@@ -1,4 +1,5 @@
 import { SITE, METROS } from "./site";
+import { CITY_ISO_REGION } from "@/content/cities";
 import type { Course } from "@/content/courses";
 import type { Service } from "@/content/services";
 import type { Audit } from "@/content/audits";
@@ -183,6 +184,12 @@ export function cityLocalBusinessSchema(city: {
   geo: { lat: number; lng: number };
   mapQuery?: string;
 }) {
+  // Derive country/region/hours from the city rather than hardcoding India.
+  // UAE location pages (Dubai, Abu Dhabi, UAE) must emit addressCountry "AE"
+  // and the Gulf Mon–Fri work week — hardcoding "IN"/Mon–Sat mislabeled them
+  // to Google + AI engines as being in India.
+  const iso = CITY_ISO_REGION[city.slug] ?? "";
+  const uae = iso.startsWith("AE") || city.state.toLowerCase().includes("united arab");
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
@@ -192,13 +199,13 @@ export function cityLocalBusinessSchema(city: {
     url: `${BASE}/locations/${city.slug}`,
     telephone: SITE.phone,
     email: SITE.email,
-    priceRange: "₹₹₹",
+    priceRange: uae ? "$$$" : "₹₹₹",
     parentOrganization: { "@id": `${BASE}#organization` },
     address: {
       "@type": "PostalAddress",
       addressLocality: city.name,
       addressRegion: city.state,
-      addressCountry: "IN",
+      addressCountry: uae ? "AE" : "IN",
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -212,7 +219,9 @@ export function cityLocalBusinessSchema(city: {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        dayOfWeek: uae
+          ? ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+          : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         opens: "09:30",
         closes: "18:30",
       },
@@ -499,9 +508,16 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
     // with data-speakable="faq-answer". The previous itemprop selectors
     // matched nothing — the accordion emits no microdata — so the speakable
     // promise was dead. Mirrors the blog's data-speakable="lead" convention.
+    // Also claims the page's AnswerBox short-answer (data-speakable="answer",
+    // rendered by components/sections/AnswerBox.tsx on ~167 pages) — every
+    // page carrying an AnswerBox also emits this FAQPage node.
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["[data-speakable='faq-question']", "[data-speakable='faq-answer']"],
+      cssSelector: [
+        "[data-speakable='faq-question']",
+        "[data-speakable='faq-answer']",
+        "[data-speakable='answer']",
+      ],
     },
   };
 }
@@ -524,6 +540,13 @@ export function definedTermSetSchema(terms: GlossaryTerm[]) {
     url,
     inLanguage: "en-IN",
     publisher: { "@id": `${BASE}#organization` },
+    // Each glossary definition renders with data-speakable="definition"
+    // (app/glossary/page.tsx) — declare it so the definitions are TTS/voice
+    // eligible, matching the FAQ/blog speakable convention.
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["[data-speakable='definition']"],
+    },
     hasDefinedTerm: terms.map((t) => ({
       "@type": "DefinedTerm",
       "@id": `${url}#${t.slug}`,
