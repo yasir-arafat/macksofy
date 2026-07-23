@@ -13,6 +13,30 @@ export interface PressRelease {
 
 export const PRESS_RELEASES: PressRelease[] = [
   {
+    slug: "ians-2026-csam-sop-child-online-safety",
+    title:
+      "IANS News interview: Government's SOP on Child Sexual Abuse Material (CSAM)",
+    outlet: "IANS News",
+    date: "2026-07-24",
+    href: "https://x.com/ians_india/status/2077056259715719237",
+    summary:
+      "Speaking to IANS News, Macksofy's founder calls the Government's Standard Operating Procedure on CSAM a significant step toward a safer digital environment for children — urging social media platforms to move beyond self-declared age verification and treat online child protection as a shared responsibility across governments, technology companies, parents and educators.",
+    kind: "video",
+    featured: true,
+  },
+  {
+    slug: "ians-2026-india-cybersecurity-posture",
+    title:
+      "IANS News interview: India's cybersecurity posture and data as a national asset",
+    outlet: "IANS News",
+    date: "2026-07-24",
+    href: "https://x.com/ians_india/status/2077057633979379921",
+    summary:
+      "In an IANS News discussion around PM Narendra Modi's Australia visit, Macksofy's founder frames citizen data as a strategic national asset — arguing that strong policy implementation, effective enforcement and a privacy-first approach are what differentiate resilient digital nations as cyber threats evolve.",
+    kind: "video",
+    featured: true,
+  },
+  {
     slug: "midday-2024-ai-assisted-cybercriminals",
     title: "Beating AI-assisted cyber criminals at their own game",
     outlet: "Mid-day",
