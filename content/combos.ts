@@ -11112,6 +11112,403 @@ export const COMBOS: CityServiceCombo[] = [
       { q: "Do you work on an IR retainer?", a: "Yes, and for Dubai regulated and government-adjacent entities it’s the recommended posture. A retainer gives you guaranteed response SLAs, pre-agreed rules of engagement and data-handling, a UAE-resident lead, named responders who know your environment, tamper-evident retention for DESC scope, and a banked block of hours — so a breach becomes a phone call, not an emergency-procurement scramble in the middle of a crisis." },
     ],
   },
+
+// ── Bengaluru · AI / LLM Security Testing ──────────────────────────
+  {
+    updated: "2026-07-23",
+    citySlug: "bengaluru",
+    serviceSlug: "ai-pentesting",
+    headline: "AI / LLM Security Testing in Bengaluru · SaaS & GCC",
+    lead: "OWASP LLM Top 10 and MITRE ATLAS red-teaming for the LLM chatbots, RAG pipelines and agentic products Bengaluru's SaaS, fintech and GCC teams ship to production.",
+    body: [
+      "Bengaluru builds more of India's production AI than anywhere else — the LLM copilots inside B2B SaaS, the RAG assistants embedded in fintech apps, and the agentic tooling being stood up inside US and EU global capability centres. Macksofy's AI practice tests those systems the way an attacker meets them: not a generic web pentest with the word 'AI' bolted on, but a targeted assault on the model behind your chatbot, the retrieval pipeline that feeds it context, the tools your agent can invoke, and the fine-tune and embedding supply chain underneath. Every finding is mapped to the OWASP LLM Top 10 and MITRE ATLAS so your AI-safety lead and your CISO read the same report.",
+      "The Bengaluru buyer is technical and hands-on — AppSec leads and staff engineers who shortlist vendors that publish methodology and OSCP/OSWE-grade credentials, not procurement decks. So we lead with the attack chain, not the brochure. On a typical product engagement we chain prompt injection into tool-call abuse into data exfiltration: a poisoned support-ticket or a crafted RAG document reaches the model as instructions, the agent is coaxed into invoking a privileged function on the user's behalf (the confused-deputy pattern), and customer data or system-prompt secrets leak out through an output channel the guardrail never inspected.",
+      "RAG is where most Bengaluru SaaS products are quietly exposed. Multi-tenant retrieval is the recurring failure — one tenant's query surfacing another tenant's embedded documents because the vector store's access-control lives in application code the LLM path bypasses. We test cross-tenant retrieval leakage directly, run embedding-space attacks (adversarial same-meaning queries that dodge keyword filters), probe indirect injection via poisoned corpus documents, and review the vector DB's own authorization model rather than trusting the app layer to enforce it.",
+      "Agentic and function-calling products get the deepest scrutiny because they can act, not just talk. We fuzz function-call schemas, test tool-chain confused-deputy paths where the agent wields a privileged tool with the user's authority, enumerate and abuse exposed MCP servers, and attempt sandbox escape from any code-execution tool the agent can reach. For fintech agents that touch money movement or KYC, an unintended tool call is not a chatbot glitch — it is a transaction, and we scope it as one.",
+      "The supply chain underneath the model is in scope by default. We review the provenance of HuggingFace weights and embedding models, look for training-data poisoning vectors in fine-tune pipelines, and run membership-inference and model-inversion tests to see whether the training corpus leaks PII — a live DPDP Act exposure for any Bengaluru product handling Indian customer data, and a GDPR one for GCCs serving EU users. Cost-amplification is tested too: long-context and tool-loop abuse that turns your inference bill into a denial-of-wallet attack.",
+      "Bengaluru GCCs carry the extra weight of a parent's AI-governance program — NIST AI RMF, ISO/IEC 42001, and increasingly the EU AI Act's high-risk-system controls. We format the engagement so the India centre's evidence drops straight into the parent's governance framework: a threat model mapped to OWASP LLM Top 10 and ATLAS, per-finding reproducer prompts, and a control-mapping annex the group CISO's team can attest against without a translation layer. For Series-A to Series-D SaaS entering enterprise sales, the same report answers the AI-security section of the customer security questionnaires that now gate every deal.",
+      "We don't just hand back findings — we co-build the guardrails. Every exploitable finding ships with a suggested guardrail prompt, an output-validator rule (PII, secrets, prompt-leak, toxicity classifiers), and a sandboxing or rate-limit pattern your platform team can deploy the same week. Guardrail retesting inside 30 days is in the base statement of work: we re-run the attack against your fix at no extra cost, because a guardrail that was never adversarially retested is a guardrail you're only guessing about. Senior consultants run the engagement end to end and fly in for kickoff and readout — same-week onsite from Mumbai, no bait-and-switch staffing.",
+    ],
+    buyerConcerns: [
+      "Prompt injection (direct + RAG-borne indirect) reaching a customer-facing LLM feature",
+      "Cross-tenant retrieval leakage in multi-tenant RAG / vector stores",
+      "Agentic tool-call abuse and confused-deputy actions in function-calling products",
+      "PII leakage from training / fine-tune corpora — DPDP Act (India) and GDPR (GCC/EU) exposure",
+      "AI-security section of enterprise customer security questionnaires blocking deals",
+      "Model / embedding supply-chain provenance (HuggingFace weights, third-party embeddings)",
+      "Alignment to parent-company AI governance — NIST AI RMF, ISO/IEC 42001, EU AI Act",
+      "Cost-amplification / denial-of-wallet via long-context and tool-loop abuse",
+      "Guardrail coverage and whether it survives an adversarial retest",
+    ],
+    differentiators: [
+      "Attack-chain methodology built for a technical Bengaluru buyer — prompt injection → tool-call abuse → data exfiltration, mapped to OWASP LLM Top 10 and MITRE ATLAS, not a checklist scan with 'AI' in the title.",
+      "Multi-tenant RAG leakage tested at the vector-store authorization layer, not assumed safe because the app enforces tenancy — the single most common failure we find in Bengaluru SaaS.",
+      "Agentic products tested for real actions: function-call schema fuzzing, confused-deputy tool abuse, MCP server enumeration and code-tool sandbox escape.",
+      "Guardrail co-build and free retest inside 30 days in the base SoW — we ship the guardrail prompt and output-validator rule, then re-attack your fix.",
+      "GCC-ready deliverables that map into the parent's NIST AI RMF / ISO 42001 / EU AI Act governance program, and answer the AI-security questionnaire that gates enterprise SaaS deals.",
+    ],
+    seoDescription:
+      "AI / LLM security testing in Bengaluru for SaaS, fintech and GCC teams. OWASP LLM Top 10 + MITRE ATLAS red-teaming — prompt injection, RAG leakage, agentic abuse. Guardrail co-build + free retest.",
+    keywords: [
+      "AI security testing Bengaluru",
+      "LLM pentesting Bangalore",
+      "OWASP LLM Top 10 testing Bengaluru",
+      "prompt injection testing Bangalore SaaS",
+      "RAG security assessment Bengaluru",
+      "AI red teaming Bangalore GCC",
+      "agentic AI security testing India",
+      "MITRE ATLAS assessment Bengaluru",
+    ],
+    stats: [
+      { value: "LLM Top 10", label: "OWASP + MITRE ATLAS mapped" },
+      { value: "Multi-tenant", label: "RAG leakage focus" },
+      { value: "30-day", label: "Free guardrail retest" },
+      { value: "Same-week", label: "Onsite from Mumbai" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Threat model & scope",
+        duration: "Week 1",
+        activities: [
+          "Architecture review of model, RAG pipeline, agent tools, fine-tune pipeline and deployment surface",
+          "Data-flow map: training data, embeddings, vector store, output channels and tenant boundaries",
+          "Threat model aligned to OWASP LLM Top 10 + MITRE ATLAS, cross-referenced to the parent GCC's AI-governance framework",
+          "Rules of engagement + a safe test tenant so probing never touches real customer data",
+        ],
+      },
+      {
+        phase: "02 · Prompt injection & jailbreak",
+        duration: "Weeks 1–2",
+        activities: [
+          "Direct and indirect (RAG-borne) prompt injection against every LLM entry point",
+          "Jailbreak sweep — roleplay, encoding, multi-turn and system-prompt-extraction attempts",
+          "Output-format hijack (markdown, link, image, tool-schema injection)",
+        ],
+      },
+      {
+        phase: "03 · RAG & multi-tenancy",
+        duration: "Weeks 2–3",
+        activities: [
+          "Cross-tenant retrieval leakage testing against the vector store's own authorization",
+          "Embedding-space adversarial-query attacks and poisoned-document indirect injection",
+          "Vector-DB access-control and secrets-in-context review",
+        ],
+      },
+      {
+        phase: "04 · Agentic & supply chain",
+        duration: "Weeks 3–4",
+        activities: [
+          "Function-call schema fuzzing and tool-chain confused-deputy testing",
+          "MCP server enumeration/abuse and code-execution sandbox-escape attempts",
+          "Model/embedding provenance, training-data poisoning, membership-inference and PII-leak probing",
+        ],
+      },
+      {
+        phase: "05 · Guardrail co-build & retest",
+        duration: "Weeks 4–5",
+        activities: [
+          "Per-finding reproducer prompt, suggested guardrail prompt and output-validator rule",
+          "Output-classifier coverage and cost-amplification / denial-of-wallet testing",
+          "Free guardrail retest within 30 days against the deployed fix",
+        ],
+      },
+    ],
+    industries: [
+      { name: "B2B SaaS & product", blurb: "LLM copilots, in-app assistants and multi-tenant RAG features shipped to enterprise customers who now audit AI security in the buying cycle." },
+      { name: "Fintech (lending, payments, neo-banking)", blurb: "Agentic and RAG assistants that touch KYC, underwriting and money-movement flows — where an unintended tool call is a transaction, not a glitch." },
+      { name: "GCC (US + EU enterprise)", blurb: "AI features and platforms built in Bengaluru against a parent's NIST AI RMF / ISO 42001 / EU AI Act governance program." },
+      { name: "Healthtech & edtech", blurb: "Consumer-facing AI handling health and minor data — high-sensitivity training corpora and strict PII-leak requirements." },
+    ],
+    deliverables: [
+      "AI/LLM threat model mapped to OWASP LLM Top 10 + MITRE ATLAS",
+      "Per-finding writeup with a working reproducer prompt and CVSS-style severity",
+      "Multi-tenant RAG leakage assessment with vector-store authorization findings",
+      "Agentic tool-abuse and MCP/sandbox findings for function-calling products",
+      "Training-data / supply-chain review (poisoning, provenance, PII-leak, membership inference)",
+      "Suggested guardrail prompts + output-validator rules per exploitable finding",
+      "Control-mapping annex for NIST AI RMF / ISO 42001 / EU AI Act (GCC governance)",
+      "Free guardrail retest report within 30 days",
+    ],
+    caseStudy: {
+      industry: "Bengaluru-headquartered Series-C B2B SaaS — multi-tenant RAG copilot",
+      scope:
+        "Full AI/LLM assessment of a customer-facing RAG assistant and its function-calling actions across a multi-tenant vector store; OWASP LLM Top 10 + MITRE ATLAS coverage with guardrail co-build",
+      outcome:
+        "Cross-tenant retrieval leak and a confused-deputy tool path (agent invoking an admin export on the user's behalf) proven and closed inside the remediation window; output-validator and guardrail-prompt rules deployed and retested within 30 days; the resulting report cleared the AI-security section of two stalled enterprise deals.",
+    },
+    faqs: [
+      { q: "How is AI/LLM testing different from a normal web or API pentest?", a: "A web pentest checks the app around the model; an AI engagement tests the model and its context. We attack the live LLM behind your chatbot, the RAG pipeline that retrieves context, the tools your agent can invoke and the fine-tune/embedding supply chain — chaining prompt injection into tool-call abuse into data exfiltration. The failure modes (indirect injection, cross-tenant retrieval, confused-deputy tool use, training-data leakage) simply don't exist in a classic web scope, so they need a dedicated methodology mapped to the OWASP LLM Top 10 and MITRE ATLAS." },
+      { q: "We're a multi-tenant SaaS. Can you test our RAG for cross-tenant data leakage?", a: "Yes — it's the single most common serious finding we surface in Bengaluru SaaS. We test retrieval leakage against the vector store's own authorization model rather than assuming the application layer enforces tenancy, run embedding-space adversarial queries, and probe indirect prompt injection via poisoned documents. We work in a dedicated test tenant so the probing never touches real customer data." },
+      { q: "Do you test agentic / function-calling and MCP-based systems?", a: "Yes. We fuzz function-call schemas, test tool-chain confused-deputy paths (the agent using a privileged tool with the user's authority), enumerate and abuse exposed MCP servers, and attempt sandbox escape from any code-execution tool the agent can reach. For agents that touch money or KYC we scope an unintended tool call as a transaction, not a chatbot glitch." },
+      { q: "Will the report satisfy our parent company's AI governance and enterprise customers?", a: "That's how we format it. The engagement maps to OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF, ISO/IEC 42001 and EU AI Act high-risk controls, with a control-mapping annex the group CISO's team can attest against. The same report answers the AI-security section of the customer security questionnaires that now gate enterprise SaaS deals." },
+      { q: "Do you help fix the findings, not just report them?", a: "Yes. Every exploitable finding ships with a suggested guardrail prompt, an output-validator rule (PII, secrets, prompt-leak, toxicity) and a sandboxing/rate-limit pattern your platform team can deploy the same week. Guardrail retesting within 30 days is included in the base SoW — we re-attack your fix at no extra cost." },
+      { q: "Are you actually onsite in Bengaluru?", a: "We don't run a Bengaluru office yet, but the senior consultant who runs your engagement is the same person who flies in for kickoff and the readout to your engineering leadership — same-week onsite from Mumbai, no bait-and-switch staffing. Day-to-day testing and reporting run remotely from our senior bench." },
+    ],
+  },
+
+// ── Hyderabad · AI / LLM Security Testing ──────────────────────────
+  {
+    updated: "2026-07-23",
+    citySlug: "hyderabad",
+    serviceSlug: "ai-pentesting",
+    headline: "AI / LLM Security Testing in Hyderabad · HITEC City",
+    lead: "OWASP LLM Top 10 red-teaming from our HITEC City hub for the pharma, GCC and government AI systems being built across Hyderabad and South India.",
+    body: [
+      "Hyderabad has quietly become one of India's densest AI-engineering clusters — the GCC AI teams inside HITEC City and the Financial District, the ML pipelines behind pharma drug-discovery and clinical operations, and the state's own AI push through T-Hub and the Telangana AI mission. Macksofy runs its South India regional hub out of HITEC City, Madhapur, which means AI/LLM security testing here comes with local senior consultants who can be onsite within two hours across the city — not a fly-in-only model. We test the model, the RAG pipeline, the agent tools and the training-data supply chain, all mapped to the OWASP LLM Top 10 and MITRE ATLAS.",
+      "Pharma is Hyderabad's distinctive AI risk surface. Life-sciences companies here are wiring LLMs into clinical documentation, pharmacovigilance triage, regulatory-submission drafting and R&D knowledge retrieval — pipelines that ingest patient data, trial data and proprietary molecule research. Our engagement probes membership inference and model inversion to see whether a fine-tuned model leaks the trial or patient records it was trained on, tests RAG assistants for retrieval of documents the querying user was never cleared to see, and treats PII/PHI leakage as the compliance event it is under the DPDP Act and, for US-facing clinical work, HIPAA.",
+      "GCC AI teams in Hyderabad carry a parent company's governance program on their shoulders — Microsoft, Amazon, Google, Qualcomm and dozens of mid-size US/EU centres run real AI engineering here. For those teams we format the engagement so the India centre's evidence maps straight into the parent's NIST AI RMF, ISO/IEC 42001 or EU AI Act high-risk-system controls: a threat model against OWASP LLM Top 10 and ATLAS, per-finding reproducer prompts, and a control-mapping annex the group CISO's team can attest against without a translation layer.",
+      "The attack chain is the same rigour we bring everywhere: prompt injection into tool-call abuse into data exfiltration. A crafted document in the RAG corpus or a poisoned support ticket reaches the model as instructions; an agent is steered into invoking a privileged tool on the user's behalf; and sensitive context or system-prompt secrets leak through an output channel the guardrail never inspected. We run the full jailbreak sweep — roleplay, encoding, multi-turn, system-prompt extraction — and test output-format hijacks that smuggle links, markdown and tool-schema injections past naive filters.",
+      "RAG and multi-tenancy get direct scrutiny. Cross-tenant retrieval leakage — one user or tenant surfacing another's embedded documents because access control lives in app code the LLM path bypasses — is a failure we test at the vector store's own authorization layer, alongside embedding-space adversarial queries and indirect injection via poisoned corpus documents. For agentic and function-calling systems we fuzz function-call schemas, test confused-deputy tool abuse, enumerate exposed MCP servers, and attempt sandbox escape from code-execution tools.",
+      "The supply chain underneath the model is in scope by default: provenance of HuggingFace weights and third-party embedding models, training-data poisoning vectors in fine-tune pipelines, and cost-amplification (long-context and tool-loop) attacks that turn inference spend into a denial-of-wallet problem. For government and government-adjacent AI projects coming out of the Telangana ecosystem, we add the data-sovereignty and audit-trail expectations those engagements carry, and keep the evidence in a form a state audit can accept.",
+      "As with every Macksofy AI engagement, we co-build the guardrails rather than just naming the gaps. Each exploitable finding ships with a suggested guardrail prompt, an output-validator rule (PII/PHI, secrets, prompt-leak, toxicity) and a sandboxing or rate-limit pattern the platform team can deploy the same week — with a free guardrail retest inside 30 days built into the base statement of work. Reporting is Mumbai-supported so the HITEC City delivery team pairs local onsite presence with the senior review bench behind every South India engagement.",
+    ],
+    buyerConcerns: [
+      "PII/PHI leakage from pharma and clinical training corpora — DPDP Act and HIPAA exposure",
+      "Membership inference / model inversion on fine-tuned models trained on trial or patient data",
+      "Prompt injection (direct + RAG-borne) into clinical, R&D or customer-facing LLM features",
+      "Cross-tenant / cross-clearance retrieval leakage in multi-tenant RAG",
+      "GCC alignment to parent AI governance — NIST AI RMF, ISO/IEC 42001, EU AI Act",
+      "Agentic tool-call abuse and MCP/sandbox escape in function-calling systems",
+      "Model / embedding supply-chain provenance and training-data poisoning",
+      "Data-sovereignty and audit-trail expectations on Telangana government AI projects",
+    ],
+    differentiators: [
+      "Local HITEC City hub — senior AI consultants onsite within two hours across Hyderabad, not a fly-in-only engagement, with Mumbai-supported senior review behind the report.",
+      "Pharma/life-sciences depth: membership-inference and model-inversion testing on models trained on trial and patient data, with PII/PHI leakage treated as a DPDP/HIPAA compliance event.",
+      "Attack-chain methodology (prompt injection → tool-call abuse → data exfiltration) mapped to OWASP LLM Top 10 and MITRE ATLAS, not a scanner with 'AI' in the title.",
+      "GCC-ready deliverables that drop into the parent's NIST AI RMF / ISO 42001 / EU AI Act program with a control-mapping annex.",
+      "Guardrail co-build and free retest inside 30 days in the base SoW — we ship the guardrail prompt and output-validator, then re-attack the fix.",
+    ],
+    seoDescription:
+      "AI / LLM security testing in Hyderabad from our HITEC City hub. OWASP LLM Top 10 + MITRE ATLAS red-teaming for pharma, GCC and government AI. Onsite in 2 hours, guardrail co-build.",
+    keywords: [
+      "AI security testing Hyderabad",
+      "LLM pentesting Hyderabad",
+      "OWASP LLM Top 10 testing HITEC City",
+      "pharma AI security testing India",
+      "RAG security assessment Hyderabad",
+      "AI red teaming Hyderabad GCC",
+      "MITRE ATLAS assessment Hyderabad",
+      "clinical LLM PII leakage testing",
+    ],
+    stats: [
+      { value: "HITEC City", label: "Local delivery hub" },
+      { value: "<2 hrs", label: "Onsite across Hyderabad" },
+      { value: "LLM Top 10", label: "OWASP + MITRE ATLAS" },
+      { value: "30-day", label: "Free guardrail retest" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Threat model & scope",
+        duration: "Week 1",
+        activities: [
+          "Architecture and data-flow review across model, RAG, agent tools and fine-tune pipeline",
+          "Sensitivity mapping of training/retrieval corpora — patient, trial, R&D and PII data",
+          "Threat model aligned to OWASP LLM Top 10 + MITRE ATLAS and the client's governance framework",
+          "Rules of engagement and a safe test dataset so probing never touches real PHI/PII",
+        ],
+      },
+      {
+        phase: "02 · Prompt injection & jailbreak",
+        duration: "Weeks 1–2",
+        activities: [
+          "Direct and indirect (RAG-borne) prompt injection across every LLM entry point",
+          "Jailbreak sweep — roleplay, encoding, multi-turn, system-prompt extraction",
+          "Output-format hijack (markdown, link, image, tool-schema injection)",
+        ],
+      },
+      {
+        phase: "03 · RAG, PHI leakage & multi-tenancy",
+        duration: "Weeks 2–3",
+        activities: [
+          "Cross-tenant / cross-clearance retrieval leakage against the vector store's authorization",
+          "Membership-inference and model-inversion testing for training-data leakage (PII/PHI)",
+          "Embedding-space adversarial queries and poisoned-document indirect injection",
+        ],
+      },
+      {
+        phase: "04 · Agentic & supply chain",
+        duration: "Weeks 3–4",
+        activities: [
+          "Function-call schema fuzzing and confused-deputy tool-abuse testing",
+          "MCP server enumeration/abuse and code-execution sandbox-escape attempts",
+          "Model/embedding provenance and training-data poisoning review",
+        ],
+      },
+      {
+        phase: "05 · Guardrail co-build & retest",
+        duration: "Weeks 4–5",
+        activities: [
+          "Per-finding reproducer prompt, guardrail prompt and PII/PHI output-validator rule",
+          "Output-classifier coverage and cost-amplification / denial-of-wallet testing",
+          "Free guardrail retest within 30 days against the deployed fix",
+        ],
+      },
+    ],
+    industries: [
+      { name: "Pharma & life sciences", blurb: "LLMs in clinical documentation, pharmacovigilance, regulatory drafting and R&D retrieval — models trained on trial and patient data where PHI leakage is a compliance event." },
+      { name: "GCC (US + EU enterprise)", blurb: "AI engineering built in HITEC City against a parent's NIST AI RMF / ISO 42001 / EU AI Act governance program." },
+      { name: "Government & public sector", blurb: "Telangana-ecosystem AI projects with data-sovereignty, audit-trail and state-audit evidence expectations." },
+      { name: "SaaS & fintech", blurb: "Product AI features and multi-tenant RAG assistants shipped from Hyderabad's growing product base." },
+    ],
+    deliverables: [
+      "AI/LLM threat model mapped to OWASP LLM Top 10 + MITRE ATLAS",
+      "Per-finding writeup with a working reproducer prompt and severity rating",
+      "Training-data leakage assessment (membership inference, model inversion, PII/PHI probing)",
+      "Multi-tenant / cross-clearance RAG leakage findings at the vector-store layer",
+      "Agentic tool-abuse and MCP/sandbox findings for function-calling systems",
+      "Guardrail prompts + PII/PHI output-validator rules per exploitable finding",
+      "Control-mapping annex for NIST AI RMF / ISO 42001 / EU AI Act / DPDP",
+      "Free guardrail retest report within 30 days",
+    ],
+    caseStudy: {
+      industry: "Hyderabad pharma — clinical R&D knowledge assistant",
+      scope:
+        "AI/LLM assessment of a RAG assistant over clinical and R&D documentation, plus membership-inference testing on the fine-tuned retrieval model; OWASP LLM Top 10 + MITRE ATLAS with guardrail co-build",
+      outcome:
+        "A retrieval path exposing documents outside the querying researcher's clearance was proven and closed; membership-inference testing confirmed the fine-tune did not leak identifiable trial records after a corpus-scoping fix; PHI output-validator rules deployed and retested within 30 days, with a DPDP/HIPAA control-mapping annex for the compliance team.",
+    },
+    faqs: [
+      { q: "Do you have consultants based in Hyderabad?", a: "Yes — Macksofy's South India regional hub is at HITEC City, Madhapur. Local senior AI consultants can be onsite within two hours anywhere in the city, and every engagement is backed by Mumbai-supported senior review. So AI/LLM testing in Hyderabad is a local delivery, not a fly-in-only model." },
+      { q: "We're a pharma company putting LLMs into clinical work. What's the real risk?", a: "The distinctive risk is your training and retrieval data. We test whether a fine-tuned model leaks the trial or patient records it learned from (membership inference and model inversion), whether a RAG assistant retrieves documents the querying user was never cleared to see, and whether outputs leak PII/PHI. Under the DPDP Act — and HIPAA for US-facing clinical work — that leakage is a compliance event, so we report it as one with a control-mapping annex." },
+      { q: "Can you map the report to our GCC parent's AI governance program?", a: "Yes. We format the engagement so the Hyderabad centre's evidence maps into the parent's NIST AI RMF, ISO/IEC 42001 or EU AI Act high-risk controls — threat model against OWASP LLM Top 10 and MITRE ATLAS, per-finding reproducer prompts, and a control-mapping annex the group CISO's team can attest against directly." },
+      { q: "Do you test RAG pipelines and agentic systems, not just the chatbot?", a: "Yes — that's the core of the engagement. We test RAG for cross-tenant/cross-clearance retrieval leakage at the vector-store authorization layer, run embedding-space adversarial queries and poisoned-document injection, and for agentic systems we fuzz function-call schemas, test confused-deputy tool abuse, enumerate MCP servers and attempt code-tool sandbox escape." },
+      { q: "Will you help us fix the issues you find?", a: "Yes. Each exploitable finding ships with a suggested guardrail prompt, an output-validator rule (PII/PHI, secrets, prompt-leak, toxicity) and a sandboxing/rate-limit pattern your platform team can deploy the same week. A free guardrail retest within 30 days is included in the base SoW — we re-attack the fix to confirm it holds." },
+      { q: "Can you support Telangana government / public-sector AI projects?", a: "Yes. For government and government-adjacent AI work from the Telangana ecosystem we add the data-sovereignty and audit-trail expectations those engagements carry, keep evidence in a form a state audit can accept, and run delivery from the local HITEC City hub." },
+    ],
+  },
+
+// ── Mumbai · AI / LLM Security Testing ─────────────────────────────
+  {
+    updated: "2026-07-23",
+    citySlug: "mumbai",
+    serviceSlug: "ai-pentesting",
+    headline: "AI / LLM Security Testing in Mumbai · BFSI & Fintech",
+    lead: "OWASP LLM Top 10 red-teaming from our BKC HQ for the LLM assistants, RAG systems and AI-driven decisioning that RBI-, SEBI- and IRDAI-regulated firms are putting into production.",
+    body: [
+      "Mumbai's banks, brokers, insurers and fintechs are moving AI from pilot to production faster than any other Indian sector — LLM customer-service assistants, RAG copilots over policy and product documentation, AI-assisted underwriting and lending decisions, and ML fraud-detection in the transaction path. Macksofy's AI practice, run from our Bandra Kurla Complex headquarters, tests those systems the way an attacker meets them: the live model, the retrieval pipeline, the tools an agent can invoke, and the training-data supply chain — mapped to the OWASP LLM Top 10 and MITRE ATLAS, with deliverables the AI-safety team and the CISO both accept.",
+      "In BFSI the stakes are different from a SaaS chatbot: an AI system here can move money, approve credit, price a policy or expose customer financial data. So we scope an agentic tool call the way we scope a transaction. On a bank engagement we chain prompt injection into tool-call abuse into data exfiltration — a poisoned document in the RAG corpus or a crafted customer message reaches the model as instructions, an agent is steered into a privileged action on the customer's behalf (the confused-deputy pattern), and account data, PII or system-prompt secrets leak through a channel the guardrail never inspected.",
+      "Regulators are catching up fast, and boards want to be ahead of them. The RBI has moved deliberately toward responsible-AI expectations for the financial sector (including its FREE-AI committee work on ethical and responsible AI enablement), SEBI is scrutinising AI/ML use by market intermediaries, and IRDAI is watching AI in claims and underwriting. Our reporting is written for that audience: model-risk framing an audit committee recognises, PII and fairness exposure spelled out in DPDP Act terms, and a control narrative that a Chief Risk Officer can carry into the quarterly cyber and model-risk review without a rewrite.",
+      "RAG and multi-tenancy are tested directly. Cross-customer or cross-desk retrieval leakage — one user surfacing another's embedded statements, KYC documents or positions because access control lives in app code the LLM path bypasses — is a failure we probe at the vector store's own authorization layer, alongside embedding-space adversarial queries and indirect injection via poisoned documents. For AI in the fraud or AML path we also test model-evasion and poisoning: whether a determined adversary can shape inputs to slip past the detection model or degrade it over time.",
+      "Agentic and function-calling systems get the deepest scrutiny because they can act inside regulated flows. We fuzz function-call schemas, test tool-chain confused-deputy paths where an agent wields a privileged tool with the customer's authority, enumerate and abuse exposed MCP servers, and attempt sandbox escape from any code-execution tool. Where an agent touches payments, beneficiary management or KYC, an unintended tool call is a money-movement or onboarding event — and we test velocity, authorization and reconciliation around it, the same money-movement-graph discipline we bring to Mumbai BFSI VAPT.",
+      "The supply chain underneath is in scope by default: provenance of HuggingFace weights and third-party embedding models, training-data poisoning in fine-tune pipelines, membership inference and model inversion to check whether a model trained on customer or transaction data leaks it, and cost-amplification (long-context, tool-loop) attacks that turn inference spend into a denial-of-wallet problem. Every High or Critical finding carries a manually validated reproducer prompt, a severity score, and a business-impact framing tied to the actual value or customer data at risk — not a generic scanner label.",
+      "We co-build the guardrails, not just catalogue the gaps. Each exploitable finding ships with a suggested guardrail prompt, an output-validator rule (PII, secrets, prompt-leak, toxicity), and a sandboxing or rate-limit pattern the platform team can deploy the same week — and, for banks running a SOC, we can pair exploitable findings with detection logic the SIEM team can deploy alongside the fix. Guardrail retesting inside 30 days is in the base statement of work. Delivery runs from BKC — onsite kickoff at any Mumbai BFSI office within the same business day, four-hour onsite SLA across the MMR including Thane and Navi Mumbai.",
+    ],
+    buyerConcerns: [
+      "Agentic AI touching payments, beneficiary-add, KYC or underwriting — unintended tool calls as money-movement events",
+      "Prompt injection (direct + RAG-borne) into customer-facing bank / insurer LLM assistants",
+      "Cross-customer / cross-desk retrieval leakage of statements, KYC and positions in multi-tenant RAG",
+      "Model evasion and poisoning against AI/ML fraud-detection and AML models",
+      "PII leakage and fairness exposure from training data — DPDP Act and model-risk framing",
+      "Alignment to RBI responsible-AI expectations, SEBI intermediary AI scrutiny and IRDAI AI use",
+      "Model / embedding supply-chain provenance and training-data poisoning",
+      "Board-ready model-risk narrative for the audit committee's quarterly cyber review",
+    ],
+    differentiators: [
+      "BFSI-grade scoping — an agentic tool call touching money, credit or KYC is tested as a transaction, with velocity/authorization/reconciliation abuse, not treated as a chatbot glitch.",
+      "Reporting written for RBI responsible-AI, SEBI and IRDAI audiences and the audit committee's model-risk review — DPDP-framed PII and fairness exposure, not a raw scanner export.",
+      "Model-evasion and poisoning testing against fraud-detection and AML models in the transaction path, on top of the full OWASP LLM Top 10 + MITRE ATLAS coverage.",
+      "Detection co-build for banks running a SOC — exploitable AI findings paired with SIEM detection logic the team can deploy alongside the guardrail fix.",
+      "BKC HQ delivery — same-day onsite kickoff at any Mumbai BFSI office and a four-hour MMR onsite SLA, with re-testing of guardrails inside 30 days in the base SoW.",
+    ],
+    seoDescription:
+      "AI / LLM security testing in Mumbai for BFSI, fintech and insurers. OWASP LLM Top 10 + MITRE ATLAS red-teaming — prompt injection, RAG leakage, agentic abuse, fraud-model evasion. BKC HQ, guardrail co-build.",
+    keywords: [
+      "AI security testing Mumbai",
+      "LLM pentesting Mumbai BFSI",
+      "OWASP LLM Top 10 testing Mumbai",
+      "prompt injection testing bank chatbot India",
+      "RAG security assessment Mumbai",
+      "AI red teaming Mumbai fintech",
+      "fraud model evasion testing India",
+      "MITRE ATLAS assessment Mumbai",
+    ],
+    stats: [
+      { value: "BKC HQ", label: "Same-day onsite kickoff" },
+      { value: "<4 hrs", label: "MMR onsite SLA" },
+      { value: "LLM Top 10", label: "OWASP + MITRE ATLAS" },
+      { value: "30-day", label: "Free guardrail retest" },
+    ],
+    methodology: [
+      {
+        phase: "01 · Threat model & scope",
+        duration: "Week 1",
+        activities: [
+          "Architecture and data-flow review across model, RAG, agent tools and fine-tune pipeline",
+          "Money/decision-flow mapping where AI touches payments, credit, KYC or claims",
+          "Threat model aligned to OWASP LLM Top 10 + MITRE ATLAS and RBI/SEBI/IRDAI model-risk framing",
+          "Rules of engagement with the CTO/CRO and a safe test tenant so probing never touches live customer data",
+        ],
+      },
+      {
+        phase: "02 · Prompt injection & jailbreak",
+        duration: "Weeks 1–2",
+        activities: [
+          "Direct and indirect (RAG-borne) prompt injection against every LLM entry point",
+          "Jailbreak sweep — roleplay, encoding, multi-turn, system-prompt extraction",
+          "Output-format hijack (markdown, link, image, tool-schema injection)",
+        ],
+      },
+      {
+        phase: "03 · RAG, fraud-model & multi-tenancy",
+        duration: "Weeks 2–3",
+        activities: [
+          "Cross-customer/cross-desk retrieval leakage against the vector store's authorization",
+          "Model-evasion and poisoning testing against fraud-detection / AML models",
+          "Embedding-space adversarial queries and poisoned-document indirect injection",
+        ],
+      },
+      {
+        phase: "04 · Agentic & supply chain",
+        duration: "Weeks 3–4",
+        activities: [
+          "Function-call schema fuzzing and confused-deputy tool-abuse in payment/KYC flows",
+          "MCP server enumeration/abuse and code-execution sandbox-escape attempts",
+          "Model/embedding provenance, training-data poisoning, membership-inference and PII-leak probing",
+        ],
+      },
+      {
+        phase: "05 · Guardrail + detection co-build & retest",
+        duration: "Weeks 4–5",
+        activities: [
+          "Per-finding reproducer prompt, guardrail prompt and PII output-validator rule",
+          "Paired SIEM detection logic for exploitable findings (SOC-running banks)",
+          "Free guardrail retest within 30 days against the deployed fix",
+        ],
+      },
+    ],
+    industries: [
+      { name: "Banks (RBI-regulated)", blurb: "Customer-service LLM assistants, RAG copilots over product/policy docs and AI-assisted decisioning where an agentic action can move money or expose account data." },
+      { name: "Brokers & AMCs (SEBI)", blurb: "AI/ML in research, surveillance and client-facing assistants under SEBI's scrutiny of intermediary AI use." },
+      { name: "Insurers (IRDAI)", blurb: "AI in claims triage and underwriting where fairness, PII and model-risk exposure are under regulatory watch." },
+      { name: "Fintech (lending, payments)", blurb: "Agentic assistants and ML models in KYC, underwriting and the money-movement path, where unintended tool calls are transactions." },
+    ],
+    deliverables: [
+      "AI/LLM threat model mapped to OWASP LLM Top 10 + MITRE ATLAS with model-risk framing",
+      "Per-finding writeup with a working reproducer prompt and business-impact severity",
+      "Multi-tenant RAG leakage findings at the vector-store authorization layer",
+      "Model-evasion / poisoning assessment for fraud-detection and AML models",
+      "Agentic tool-abuse findings for payment/KYC function-calling systems",
+      "Guardrail prompts + output-validator rules, and paired SIEM detections where a SOC runs",
+      "Board-ready model-risk narrative for the audit committee + DPDP control mapping",
+      "Free guardrail retest report within 30 days",
+    ],
+    caseStudy: {
+      industry: "Mumbai private bank — customer-service LLM assistant with account-action tools",
+      scope:
+        "AI/LLM assessment of a customer-facing RAG assistant and its function-calling account actions; OWASP LLM Top 10 + MITRE ATLAS coverage with money-flow abuse testing and guardrail + detection co-build",
+      outcome:
+        "An indirect-injection path that coaxed the agent into a privileged account action on a customer's behalf was proven and closed; cross-customer retrieval of statement data was fixed at the vector-store layer; guardrail prompts and output-validators deployed with paired SIEM detections, retested within 30 days, and a model-risk narrative delivered for the audit committee's quarterly review.",
+    },
+    faqs: [
+      { q: "Our AI assistant can take actions on customer accounts. How do you test that safely?", a: "We scope an agentic tool call the way we scope a transaction. Testing runs in a safe test tenant so no live customer account is touched, and we probe confused-deputy paths (the agent invoking a privileged action with the customer's authority), function-call schema fuzzing, and the velocity, authorization and reconciliation controls around any money-movement or KYC action — the same money-movement-graph discipline we bring to Mumbai BFSI VAPT." },
+      { q: "Will the report align to RBI, SEBI and IRDAI expectations on AI?", a: "Yes. We write for that audience: model-risk framing an audit committee recognises, PII and fairness exposure spelled out in DPDP Act terms, and a control narrative aligned to RBI's responsible-AI direction (including its FREE-AI work), SEBI's scrutiny of intermediary AI use, and IRDAI's watch on AI in claims and underwriting. The output is a board-ready narrative, not a raw scanner export." },
+      { q: "Can you test our AI/ML fraud-detection or AML models, not just the LLM?", a: "Yes. Alongside the full OWASP LLM Top 10 and MITRE ATLAS LLM coverage, we test classical AI/ML models in the transaction path for evasion (shaping inputs to slip past detection) and poisoning (degrading the model over time), and review the data pipeline and retraining loop those models depend on." },
+      { q: "Do you test RAG for cross-customer data leakage?", a: "Yes — it's a priority in BFSI. We test cross-customer and cross-desk retrieval leakage at the vector store's own authorization layer (not assuming the app enforces it), run embedding-space adversarial queries, and probe indirect injection via poisoned documents. We work in a dedicated test tenant so probing never touches real customer data." },
+      { q: "Do you help fix findings and hand detections to our SOC?", a: "Yes. Each exploitable finding ships with a guardrail prompt, an output-validator rule and a sandboxing/rate-limit pattern the platform team can deploy the same week — and for banks running a SOC we pair exploitable findings with SIEM detection logic the team can deploy alongside the fix. A free guardrail retest within 30 days is in the base SoW." },
+      { q: "How fast can you be onsite in Mumbai?", a: "Delivery runs from our BKC headquarters — same-day onsite kickoff at any Mumbai BFSI office and a four-hour onsite SLA across the MMR including Thane and Navi Mumbai. Day-to-day testing and reporting run from the BKC team." },
+    ],
+  },
 ];
 
 export const getCombo = (
