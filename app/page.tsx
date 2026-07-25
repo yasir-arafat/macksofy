@@ -9,6 +9,7 @@ import { StatsBand } from "@/components/home/StatsBand";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { AnswerBox } from "@/components/sections/AnswerBox";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -72,6 +73,17 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema(HOME_FAQS)} />
       <Hero />
+      {/* Definition-first short answer directly under the hero — gives AI
+          Overviews / Perplexity / voice a clean, quotable "who is Macksofy"
+          the marketing hero copy can't provide. */}
+      <Container className="pb-6">
+        <div className="max-w-3xl">
+          <AnswerBox
+            q="What does Macksofy Technologies do?"
+            a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving clients across India and the UAE. It delivers penetration testing and VAPT, managed SOC, red teaming, and digital forensics, alongside regulator-aligned audits (RBI, SEBI, ISO 27001) and EC-Council / OffSec exam-prep training."
+          />
+        </div>
+      </Container>
       <ClientLogos />
       <ServicesOverview />
       <CertInSection />

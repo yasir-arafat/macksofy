@@ -44,6 +44,32 @@ export interface Course {
   keywords: string[];
 }
 
+/**
+ * ISO 8601 taught-hours durations for schema.org `Course.timeRequired` /
+ * `CourseInstance.courseWorkload`. Google ignores the human-readable `duration`
+ * string (e.g. "40 hours · 5 days"), so we emit a parseable Duration alongside
+ * it. Values are the *instructional* hours only — not exam windows or self-paced
+ * OffSec lab periods. Courses without a defensible taught-hours figure (the
+ * self-paced OffSec lab tracks and the customized corporate program) are
+ * intentionally omitted so no invented number ships; schema falls back to no
+ * `timeRequired` for those rather than a misleading one.
+ */
+export const COURSE_DURATION_ISO: Record<string, string> = {
+  ceh: "PT40H",
+  "ceh-practical": "PT24H",
+  chfi: "PT40H",
+  ctia: "PT24H",
+  csa: "PT24H",
+  cpent: "PT40H",
+  "sec-100-cybercore": "PT80H",
+  oscp: "PT60H",
+  "cysa-plus": "PT40H",
+  "linux-plus": "PT40H",
+  "server-plus": "PT40H",
+  "soc-analyst": "PT80H",
+  "web-application-security": "PT100H",
+};
+
 // Default placement block reused by leaner course entries.
 const STD_PLACEMENT = {
   summary:

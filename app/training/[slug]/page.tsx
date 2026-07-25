@@ -29,6 +29,7 @@ import { formatINR } from "@/lib/utils";
 import { Outcomes } from "@/components/visuals/outcomes/Outcomes";
 import { Curriculum } from "@/components/visuals/curriculum/Curriculum";
 import { AnswerBox } from "@/components/sections/AnswerBox";
+import { References } from "@/components/sections/References";
 import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
@@ -453,6 +454,8 @@ export default async function CourseDetail({ params }: PageProps) {
           </Container>
         </section>
       )}
+
+      <References pageKey={`course:${c.slug}`} />
 
       <LeadCapture />
     </>

@@ -32,8 +32,6 @@ import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 import {
-  organizationSchema,
-  localBusinessSchema,
   breadcrumbSchema,
   faqSchema,
   SERVED_METROS_LIST,
@@ -203,10 +201,11 @@ const FAQS = [
 export default function BestCybersecurityCompanyPage() {
   return (
     <>
+      {/* Organization + LocalBusiness are already emitted site-wide in the root
+          layout (same @id); re-declaring them here produced duplicate #organization
+          / #localbusiness graph nodes. Keep only the page-specific schema. */}
       <JsonLd
         data={[
-          organizationSchema(),
-          localBusinessSchema(),
           breadcrumbSchema([
             { name: "Best Cybersecurity Company in Mumbai & India", url: "/best-cybersecurity-company" },
           ]),

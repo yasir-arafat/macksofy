@@ -77,6 +77,10 @@ export const REFS: Record<string, Reference> = {
   "cbuae": { label: "Central Bank of the UAE", url: "https://www.centralbank.ae/", issuer: "CBUAE" },
   "sama": { label: "SAMA (Saudi Central Bank)", url: "https://www.sama.gov.sa/", issuer: "SAMA" },
   "nca-saudi": { label: "Saudi National Cybersecurity Authority", url: "https://nca.gov.sa/", issuer: "NCA (KSA)" },
+  // Training / certification bodies (cited on training + certification-guide pages)
+  "ec-council": { label: "EC-Council (CEH · CHFI · CPENT)", url: "https://www.eccouncil.org/", issuer: "EC-Council" },
+  "offsec": { label: "OffSec (OSCP · OSEP · OSWE)", url: "https://www.offsec.com/", issuer: "OffSec" },
+  "comptia": { label: "CompTIA Certifications", url: "https://www.comptia.org/certifications", issuer: "CompTIA" },
 };
 
 /** Which references apply to each money page. Keys: `"<kind>:<slug>"`. */
@@ -141,6 +145,38 @@ export const PAGE_REFS: Record<string, string[]> = {
   "audit:nca-ecc-2": ["nca-saudi"],
   "audit:wasa-audit": ["owasp-wstg", "owasp-top-10"],
   "audit:nciipc-cii-audit": ["nciipc", "cert-in", "iec-62443"],
+  // ── Training / courses (cite the exam body + the standards the course content works to) ──
+  "course:ceh": ["ec-council", "owasp-top-10", "mitre-attack"],
+  "course:ceh-practical": ["ec-council", "owasp-top-10"],
+  "course:chfi": ["ec-council", "nist-800-61"],
+  "course:ctia": ["ec-council", "mitre-attack"],
+  "course:csa": ["ec-council", "mitre-attack", "nist-csf"],
+  "course:cpent": ["ec-council", "nist-800-115", "mitre-attack"],
+  "course:sec-100-cybercore": ["offsec", "nist-csf"],
+  "course:oscp": ["offsec", "nist-800-115", "owasp-top-10"],
+  "course:osep": ["offsec", "mitre-attack"],
+  "course:oswe": ["offsec", "owasp-top-10", "owasp-asvs"],
+  "course:oswa": ["offsec", "owasp-wstg", "owasp-top-10"],
+  "course:oswp": ["offsec", "nist-800-115"],
+  "course:osda": ["offsec", "mitre-attack", "nist-csf"],
+  "course:osed": ["offsec", "mitre-cwe"],
+  "course:osmr": ["offsec"],
+  "course:cysa-plus": ["comptia", "mitre-attack", "nist-csf"],
+  "course:linux-plus": ["comptia"],
+  "course:server-plus": ["comptia"],
+  "course:soc-analyst": ["mitre-attack", "nist-csf", "cisa-kev"],
+  "course:web-application-security": ["owasp-top-10", "owasp-wstg", "owasp-asvs"],
+  "course:corporate-training": ["nist-csf", "owasp-top-10"],
+  // ── Blog (money-query posts co-cite the primary sources they discuss) ──
+  "blog:penetration-testing-vapt-guide-india-2026": ["nist-800-115", "owasp-top-10", "cvss", "cert-in"],
+  "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
+  "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],
+  "blog:ceh-v13-ai-training-india-2026": ["ec-council", "owasp-top-10"],
+  "blog:oscp-training-in-mumbai-2026": ["offsec", "nist-800-115"],
+  "blog:soc-analyst-training-india-2026": ["mitre-attack", "nist-csf", "ec-council"],
+  "blog:offsec-learn-one-india-pricing-roi-2026": ["offsec"],
+  "blog:red-team-certifications-india-2026": ["offsec", "mitre-attack"],
+  "blog:top-10-penetration-testing-tools-2026": ["owasp-wstg", "nist-800-115", "mitre-attack"],
 };
 
 /** Authoritative references for a money page. Returns [] when unmapped. */
