@@ -91,6 +91,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "penetration-testing-vapt-guide-india-2026",
+    updated: "2026-07-25",
     title: "Penetration Testing & VAPT: The Complete Guide (India, 2026)",
     description:
       "A definitive guide to penetration testing and VAPT for Indian organisations in 2026 — the difference between vulnerability assessment and penetration testing, the types, the PTES/OWASP methodology, CVSS scoring, timelines, cost drivers, deliverables, regulatory triggers (CERT-In, RBI, SEBI, PCI-DSS, DPDP) and how to choose a CERT-In empanelled provider.",
@@ -295,6 +296,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cert-in-empanelled-audit-guide-2026",
+    updated: "2026-07-25",
     title: "CERT-In Empanelled Audit: The Complete Guide (2026)",
     description:
       "Everything Indian organisations need to know about CERT-In empanelled audits in 2026 — what CERT-In empanelment means, who needs an empanelled audit, what it covers, the CERT-In Directions of 2022 (6-hour reporting, 180-day logs), the report format, timelines, cost drivers, how CERT-In compares to ISO 27001 and SOC 2, and how to verify a provider's empanelment.",
@@ -473,6 +475,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cyber-security-companies-in-mumbai-india-2026",
+    updated: "2026-07-25",
     title: "Cyber Security Companies in Mumbai & India (2026): The CERT-In Empanelled Audit Guide",
     description:
       "A buyer's guide to choosing a cyber security company in Mumbai and across India in 2026 — why CERT-In empanelment is the single most important credential, how to verify it on the official CERT-In list, and how Macksofy Technologies delivers empanelled-grade VAPT and regulatory audits from Bandra Kurla Complex, Mumbai.",
@@ -669,6 +672,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "soc-analyst-training-india-2026",
+    updated: "2026-07-25",
     title: "SOC Analyst Training in India 2026 — CSA vs SOC-200 vs CySA+ Career Guide",
     description:
       "Which SOC analyst certification is worth it in India? Honest 2026 comparison of EC-Council CSA, OffSec SOC-200 / OSDA and CompTIA CySA+ — costs in INR, exam difficulty, hiring impact.",
@@ -823,6 +827,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "red-team-certifications-india-2026",
+    updated: "2026-07-25",
     title: "Red Team Certifications India 2026 — OSEP vs CRTO vs CRTP Comparison",
     description:
       "Honest comparison of red team certifications for Indian operators in 2026. OSEP, CRTO, CRTP, CRTE, OSCE3 — pricing in INR, exam difficulty, what each one actually teaches.",
@@ -988,6 +993,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "offsec-learn-one-india-pricing-roi-2026",
+    updated: "2026-07-25",
     title: "OffSec Learn One India 2026 — Pricing, ROI Breakdown & Cert Selection Guide",
     description:
       "Is OffSec Learn One worth ₹2.5L+ in 2026? Honest ROI breakdown for Indian buyers — Learn One vs PEN-200 standalone, which two certs to pick, and the salary maths that justify the spend.",
@@ -1281,6 +1287,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "oscp-training-in-mumbai-2026",
+    updated: "2026-07-25",
     title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
     description:
       "Considering OSCP in Mumbai? Complete 2026 guide — pricing in INR with partner discount, course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
@@ -1444,6 +1451,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "ceh-v13-ai-training-india-2026",
+    updated: "2026-07-25",
     title: "CEH v13 AI Training in India 2026 — Syllabus, Cost, Institutes & Career Guide",
     description:
       "EC-Council's CEH v13 added AI throughout the curriculum. India 2026 guide — what's new, real cost in INR, exam mechanics, hiring impact and how to pick an EC-Council ATC.",
@@ -1604,6 +1612,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "top-10-penetration-testing-tools-2026",
+    updated: "2026-07-25",
     title: "Top 10 Penetration Testing Tools in 2026 — What Every Pentester Should Master",
     description:
       "The 10 penetration testing tools that matter in 2026 — Burp Suite, Nmap, Metasploit, BloodHound, Impacket and more. What each does, when to use it, and learning order.",
@@ -1793,6 +1802,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "best-laptops-cybersecurity-students-india-2026",
+    updated: "2026-07-25",
     title: "Best Laptops for Cybersecurity Students in India 2026 — Top 10 Ranked",
     description:
       "Specs, price-in-INR and use-case ranking of the 10 best laptops for cybersecurity students in India 2026 — including budget picks under ₹60k and pro-grade options for OSCP/red team labs.",

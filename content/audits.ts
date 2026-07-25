@@ -1632,6 +1632,7 @@ export const AUDITS: Audit[] = [
 
   {
     slug: "cicra",
+    updated: "2026-07-25",
     title: "CICRA Compliance Audit",
     shortTitle: "CICRA",
     icon: Database,
@@ -6029,6 +6030,7 @@ export const AUDITS: Audit[] = [
   // ====================================================================
   {
     slug: "wasa-audit",
+    updated: "2026-07-25",
     title: "WASA — Web Application Security Assessment",
     shortTitle: "WASA Audit",
     icon: Lock,
