@@ -161,17 +161,23 @@ function trimTrailingFluff(s: string): string {
 export function clampTitle(input: string): string {
   let t = input.trim();
   if (t.endsWith(BRAND_SUFFIX)) t = t.slice(0, -BRAND_SUFFIX.length).trim();
-  if (t.length <= TITLE_LIMIT_CORE) return t;
+  // If the title already contains the brand name, buildMetadata emits it as
+  // an absolute <title> and the template does NOT append " | Macksofy". Such
+  // titles therefore get the full 60-char budget instead of reserving ~11
+  // chars for a suffix that never lands (which was silently dropping tail
+  // keywords like "in Mumbai · Pan-India · UAE" from the homepage title).
+  const limit = t.includes(SITE.shortName) ? TITLE_LIMIT_TOTAL : TITLE_LIMIT_CORE;
+  if (t.length <= limit) return t;
   while (true) {
     const m = t.match(/^(.+?)\s[|·]\s[^|·]+$/);
     if (!m) break;
     const shorter = m[1].trim();
-    if (shorter.length <= TITLE_LIMIT_CORE) return trimTrailingFluff(shorter);
+    if (shorter.length <= limit) return trimTrailingFluff(shorter);
     if (shorter === t) break;
     t = shorter;
   }
-  const cut = t.lastIndexOf(" ", TITLE_LIMIT_CORE - 1);
-  const head = cut > 20 ? t.slice(0, cut) : t.slice(0, TITLE_LIMIT_CORE - 1);
+  const cut = t.lastIndexOf(" ", limit - 1);
+  const head = cut > 20 ? t.slice(0, cut) : t.slice(0, limit - 1);
   return trimTrailingFluff(head);
 }
 

@@ -1,5 +1,6 @@
 import { SITE, METROS } from "./site";
 import { CITY_ISO_REGION } from "@/content/cities";
+import { COURSE_DURATION_ISO } from "@/content/courses";
 import type { Course } from "@/content/courses";
 import type { Service } from "@/content/services";
 import type { Audit } from "@/content/audits";
@@ -287,11 +288,24 @@ export function courseSchema(course: Course) {
       audienceType: course.whoIsItFor.join("; "),
     },
     occupationalCredentialAwarded: course.code,
-    timeRequired: course.duration,
+    // ISO 8601 Duration for the taught hours (Google ignores free-text). Only
+    // emitted where a defensible instructional-hours figure exists; the human
+    // string stays in `course.duration` for on-page display.
+    ...(COURSE_DURATION_ISO[course.slug] && {
+      timeRequired: COURSE_DURATION_ISO[course.slug],
+    }),
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "Blended",
-      courseWorkload: course.duration,
+      // Rolling monthly cohorts — a schedule signal (without inventing a
+      // specific start date) so the instance qualifies beyond a bare Course.
+      courseSchedule: {
+        "@type": "Schedule",
+        repeatFrequency: "P1M",
+      },
+      ...(COURSE_DURATION_ISO[course.slug] && {
+        courseWorkload: COURSE_DURATION_ISO[course.slug],
+      }),
       instructor: {
         "@type": "Person",
         name: "Macksofy Mentor Team",

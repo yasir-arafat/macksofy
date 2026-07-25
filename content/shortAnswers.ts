@@ -4,9 +4,9 @@
  * featured snippets, voice).
  *
  * Keyed by `"<kind>:<slug>"` — kind ∈ service | audit | industry | city |
- * course | combo. Templates look up their key and render the box only when an
- * entry exists, so coverage rolls out progressively without ever shipping an
- * empty box.
+ * course | combo | blog. Templates look up their key and render the box only
+ * when an entry exists, so coverage rolls out progressively without ever
+ * shipping an empty box.
  *
  * Authoring rules (keep future entries consistent):
  *   • Lead with the definition ("X is …"), plain language, no marketing adjectives.
@@ -254,6 +254,14 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is an NCIIPC / CII audit?",
     a: "India's NCIIPC protects Critical Information Infrastructure — systems whose failure would impact national security or the economy. Under IT Act §70, CII operators must meet defined controls. Macksofy audits CII operators in power, telecom, and finance against NCIIPC guidance.",
   },
+  "audit:cicra": {
+    q: "What is a CICRA compliance audit?",
+    a: "A CICRA audit is a structured review of an organisation's critical information systems, cyber risks, and control maturity, benchmarked to recognised frameworks such as the NIST CSF and CERT-In guidance. Macksofy runs CICRA-style assessments to help Indian enterprises measure, prioritise, and close their most material security gaps.",
+  },
+  "audit:wasa-audit": {
+    q: "What is a WASA (Web Application Security Assessment)?",
+    a: "A WASA (Web Application Security Assessment) is a focused security test of a web application against the OWASP Top 10 and Web Security Testing Guide, combining automated scanning with manual, expert-led exploitation. Macksofy delivers WASA with working proof-of-concept findings and developer-ready remediation across India and the UAE.",
+  },
 
   // ─────────────────────────── INDUSTRIES (7) ───────────────────────────
   "industry:bfsi": {
@@ -419,6 +427,50 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   "course:corporate-training": {
     q: "What is corporate cybersecurity training?",
     a: "Corporate cybersecurity training upskills a company's employees or security team — from security awareness for all staff to hands-on technical training for engineers. Macksofy designs customized corporate programs (CEH, SOC, secure coding, awareness) delivered on-site or virtual across India and the UAE.",
+  },
+
+  // ─────────────────────────── BLOG (money-query posts) ───────────────────────────
+  // Definition-first answers to each post's core query, for AI Overviews /
+  // Perplexity / featured snippets. Keyed blog:<slug>.
+  "blog:penetration-testing-vapt-guide-india-2026": {
+    q: "What is the difference between VAPT and penetration testing?",
+    a: "VAPT bundles two activities: a vulnerability assessment scans broadly for known weaknesses, while penetration testing manually exploits them to prove real business impact. Penetration testing is the deeper, expert-led half. Indian regulators and CERT-In-format reports expect both. Macksofy delivers combined VAPT with proof-of-concept exploits and a free remediation retest across India.",
+  },
+  "blog:cert-in-empanelled-audit-guide-2026": {
+    q: "What is a CERT-In empanelled audit?",
+    a: "A CERT-In empanelled audit is a security assessment performed by an auditing organisation formally approved by India's national cyber agency, CERT-In. Regulators, tenders, and the 2022 directions frequently require one. Macksofy is a CERT-In empanelled auditor and delivers VAPT and compliance audits in the CERT-In report format across India.",
+  },
+  "blog:cyber-security-companies-in-mumbai-india-2026": {
+    q: "How do you choose a cybersecurity company in Mumbai or India?",
+    a: "Start by verifying CERT-In empanelment on the official cert-in.org.in list, then check sector experience (BFSI, fintech), the report format, and whether a remediation retest is included. Macksofy is a CERT-In empanelled firm delivering VAPT, managed SOC, and RBI/SEBI-aligned audits to Mumbai and pan-India enterprises.",
+  },
+  "blog:ceh-v13-ai-training-india-2026": {
+    q: "What is CEH v13 and where can you train for it in India?",
+    a: "CEH v13 is EC-Council's Certified Ethical Hacker certification, updated with an AI-driven track across the five phases of hacking. In India, cost varies by provider, delivery mode, and whether an exam voucher is bundled. Macksofy, an EC-Council Accredited Training Center, delivers CEH v13 with hands-on labs in India.",
+  },
+  "blog:oscp-training-in-mumbai-2026": {
+    q: "What does OSCP training in Mumbai involve?",
+    a: "OSCP is OffSec's benchmark hands-on penetration-testing certification, earned by compromising machines in a 24-hour proctored exam. Preparation combines the PEN-200 course with extensive lab practice. Macksofy runs an intensive OSCP exam-prep bootcamp in Mumbai and across India with 60+ hours of mentor-led labs.",
+  },
+  "blog:soc-analyst-training-india-2026": {
+    q: "Which SOC analyst certification is best in India — CSA, SOC-200, or CySA+?",
+    a: "There is no single best: EC-Council's CSA suits absolute beginners, OffSec's SOC-200 (OSDA) is the most hands-on detection credential, and CompTIA CySA+ is widely recognised by employers. The right pick depends on your experience and target role. Macksofy runs job-focused SOC analyst training on Wazuh, ELK, and Splunk in India.",
+  },
+  "blog:offsec-learn-one-india-pricing-roi-2026": {
+    q: "Is OffSec Learn One worth it in India?",
+    a: "OffSec Learn One is a one-year subscription bundling a course, exam attempts, and lab time — cost-effective if you certify within twelve months, since its ROI depends on finishing inside that window. Macksofy pairs OffSec pathways with mentor-led bootcamps in India to help learners complete the exam before the subscription lapses.",
+  },
+  "blog:red-team-certifications-india-2026": {
+    q: "OSEP vs CRTO vs CRTP — which red team certification is best?",
+    a: "CRTP teaches Active Directory attack fundamentals, CRTO focuses on modern command-and-control and evasion tradecraft, and OSEP is the most advanced, covering AV/EDR bypass and hardened AD. Beginners usually start with CRTP; experienced testers target OSEP. Macksofy runs red-team certification bootcamps aligned to MITRE ATT&CK in India.",
+  },
+  "blog:top-10-penetration-testing-tools-2026": {
+    q: "What penetration testing tools should every pentester master?",
+    a: "The core pentesting toolkit spans Nmap for discovery, Burp Suite for web testing, Metasploit for exploitation, BloodHound and Impacket for Active Directory, and Wireshark for traffic analysis — used within the OWASP and NIST SP 800-115 methodologies. Macksofy trains these tools hands-on in its ethical-hacking and OSCP bootcamps in India.",
+  },
+  "blog:best-laptops-cybersecurity-students-india-2026": {
+    q: "What laptop specs do cybersecurity students need in India?",
+    a: "For running virtual machines and security labs, target at least 16GB RAM (32GB preferred), a modern multi-core CPU with hardware virtualization, and a 512GB+ SSD; battery life and Linux compatibility matter for fieldwork. This guide ranks the best options across budgets in India for 2026.",
   },
 };
 

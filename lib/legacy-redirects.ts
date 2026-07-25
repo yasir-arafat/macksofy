@@ -1,14 +1,23 @@
 // Legacy PHP → Next.js URL map for the macksofy.com migration.
 // See /root/macksofy-new-seo/migration/php_to_nextjs_redirects.md for rationale.
 //
-// Two lists:
-//   PHP_REDIRECTS  — permanent 301s wired into next.config.ts
-//   PHP_GONE       — 410 Gone responses returned by proxy.ts
-// Adding/removing entries here updates both layers.
+// SINGLE SOURCE OF TRUTH for all redirects/gone-responses. Two lists:
+//   PHP_REDIRECTS  — permanent 301s wired into next.config.ts `redirects()`
+//   PHP_GONE       — 410 Gone responses returned by proxy.ts middleware
+// Adding/removing entries here updates both prod layers. Do NOT re-declare any
+// of these in vercel.json — a hand-maintained edge duplicate drifted out of
+// sync (stale destinations + missing entries) and was removed on 2026-07-25;
+// next.config redirects + the proxy 410 handler cover everything below.
 
 export type PhpRedirect = { source: string; destination: string };
 
 export const PHP_REDIRECTS: PhpRedirect[] = [
+  // Non-.php route rename + a renamed lead-magnet PDF. Previously these two
+  // lived only in vercel.json; folded in here on 2026-07-25 so this file is the
+  // complete source of truth.
+  { source: "/services/dfir", destination: "/services/digital-forensics-incident-response" },
+  { source: "/cert-in-12-hour-patch-mandate-macksofy-brief.pdf", destination: "/cert-in-12-hour-patch-mandate.pdf" },
+
   { source: "/about-us.php", destination: "/about" },
   { source: "/clients.php", destination: "/clients" },
   { source: "/contact-macksofy.php", destination: "/contact" },

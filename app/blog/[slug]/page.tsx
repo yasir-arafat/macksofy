@@ -8,9 +8,12 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { References } from "@/components/sections/References";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { getShortAnswer } from "@/content/shortAnswers";
 import { buildMetadata } from "@/lib/seo";
 import { POSTS, getPostBySlug } from "@/content/blog";
 import type { BlogBlock } from "@/content/blog";
@@ -121,6 +124,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedServices = pickRelatedServices(p.tags, p.keywords);
   const wordCount = postWordCount(p.blocks);
   const excerpt = postExcerpt(p.blocks);
+  const shortAnswer = getShortAnswer(`blog:${p.slug}`);
   const postOgImage = dynamicOgImage({
     title: p.title,
     eyebrow: p.category,
@@ -188,7 +192,12 @@ export default async function BlogPostPage({ params }: PageProps) {
             // takeaway. CSS-selector form — Google's recommended shape.
             speakable: {
               "@type": "SpeakableSpecification",
-              cssSelector: ["h1", "[data-speakable='lead']", "article h2"],
+              cssSelector: [
+                "h1",
+                "[data-speakable='lead']",
+                "[data-speakable='answer']",
+                "article h2",
+              ],
             },
           },
           ...(p.faqs ? [faqSchema(p.faqs)] : []),
@@ -265,6 +274,14 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {shortAnswer && (
+        <Container className="pt-2">
+          <div className="max-w-3xl lg:ml-[25%]">
+            <AnswerBox q={shortAnswer.q} a={shortAnswer.a} />
+          </div>
+        </Container>
+      )}
 
       <Container className="py-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -360,6 +377,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           </Container>
         </section>
       )}
+
+      <References pageKey={`blog:${p.slug}`} />
 
       <LeadCapture />
     </>
