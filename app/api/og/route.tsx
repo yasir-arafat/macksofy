@@ -81,25 +81,21 @@ export async function GET(req: Request) {
   // social / OG share cards.
   const isCard = (searchParams.get("variant") ?? "social") === "card";
 
-  // LCP: `no-transform` is deliberately ABSENT. It is an explicit HTTP
-  // instruction to intermediaries not to re-encode the payload, and Vercel's
-  // Image Optimization honours it — with it set, the on-page blog featured
-  // card (which renders this endpoint through next/image) was served as the
-  // raw 74 KB PNG instead of a resized ~5 KB AVIF. Local `next start` ignores
-  // the directive, so this only reproduces in production.
-  //
-  // Dropping it is safe: the only transformer in the path is our own image
-  // optimizer, and social scrapers fetch /api/og directly (absolute URL from
-  // the page metadata), so they still receive the untouched 1200x630 PNG.
+  // Do NOT try to route this endpoint's output through next/image to shrink
+  // it: Vercel's Image Optimization does not transform Function-sourced
+  // images. /_next/image requests for /api/og?... come back with
+  // `X-Matched-Path: /api/og`, Content-Type image/png and byte-identical
+  // payloads at every srcset width — the source is streamed through
+  // unchanged. Removing `no-transform` and forcing `Content-Disposition:
+  // inline` were both tried against production and changed nothing. (It works
+  // locally, because `next start`'s Node optimizer does transform it — so this
+  // is not reproducible outside a real deployment.) Static /public images
+  // optimize normally; only this dynamic route is affected.
   const opts = {
     width: 1200,
     height: 630,
     headers: {
-      "Cache-Control": "public, immutable, max-age=31536000",
-      // next/og defaults to `attachment`, which marks the response as a
-      // download rather than an image to render. Force `inline` so the image
-      // pipeline treats it as a normal image.
-      "Content-Disposition": 'inline; filename="og.png"',
+      "Cache-Control": "public, immutable, no-transform, max-age=31536000",
     },
   };
 

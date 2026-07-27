@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { Calendar, Clock, ArrowRight, User, Tag } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
@@ -265,22 +264,26 @@ export default async function BlogPostPage({ params }: PageProps) {
               {/* LCP: on mobile this two-column grid stacks, so the featured
                   card sits BELOW the fold — the measured LCP element is the
                   <h1> above. It was nevertheless marked fetchPriority="high",
-                  which told the browser to race a ~1200px PNG from the /api/og
-                  Satori endpoint against the CSS and font needed to paint that
-                  h1. On a mobile connection that is bandwidth stolen directly
-                  from LCP.
-                  Now: lazy + auto priority, so it loads after the above-the-
-                  fold work on mobile and still arrives early on desktop where
-                  it IS in the initial viewport. `sizes` lets next/image serve a
-                  ~400px AVIF to phones instead of the full-width PNG. Explicit
-                  width/height keeps the aspect box reserved, so nothing shifts
+                  which told the browser to race a 1200x630 PNG from the
+                  /api/og Satori endpoint against the CSS and font needed to
+                  paint that h1. On a mobile connection that is bandwidth
+                  stolen directly from LCP.
+                  Now lazy at default priority: it loads after the
+                  above-the-fold work on mobile, and is still fetched promptly
+                  on desktop where it IS in the initial viewport.
+                  Deliberately a plain <img> rather than next/image — Vercel's
+                  optimizer does not transform Function-sourced images, so the
+                  optimizer hop returns a byte-identical PNG with weaker
+                  caching than this endpoint's own 1-year immutable header.
+                  See the note in app/api/og/route.tsx before trying again.
+                  width/height reserve the aspect box, so nothing shifts
                   (CLS unchanged). */}
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={heroImage}
                 alt={`${p.title} — ${p.category} · Macksofy`}
                 width={1200}
                 height={630}
-                sizes="(max-width: 1023px) 92vw, 40vw"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto rounded-2xl border border-line shadow-2xl shadow-black/40"
