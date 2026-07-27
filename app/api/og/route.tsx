@@ -96,6 +96,10 @@ export async function GET(req: Request) {
     height: 630,
     headers: {
       "Cache-Control": "public, immutable, max-age=31536000",
+      // next/og defaults to `attachment`, which marks the response as a
+      // download rather than an image to render. Force `inline` so the image
+      // pipeline treats it as a normal image.
+      "Content-Disposition": 'inline; filename="og.png"',
     },
   };
 
