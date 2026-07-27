@@ -265,14 +265,14 @@ function CinematicTicker() {
   return (
     <div className="relative z-10 overflow-hidden border-b border-line/30 bg-bg/40 backdrop-blur-md">
       <div className="flex h-9 items-center">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex shrink-0 gap-10 pr-10 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint"
+        {/* INP: was a framer-motion `repeat: Infinity` x-translate, i.e. a
+            rAF callback held on the main thread for as long as the homepage
+            stayed open — on the site's highest-traffic page. The identical
+            -50% translate as a CSS keyframe animation runs on the compositor
+            for free. Fixed h-9 row of duplicated content, so no layout shift. */}
+        <div
+          className="flex shrink-0 gap-10 pr-10 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint anim-ticker"
+          style={{ "--ticker-duration": "40s" } as React.CSSProperties}
         >
           {items.map((it, i) => (
             <span key={i} className="inline-flex items-center gap-2">
@@ -280,7 +280,7 @@ function CinematicTicker() {
               {it}
             </span>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

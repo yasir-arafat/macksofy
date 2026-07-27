@@ -17,9 +17,7 @@ import {
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
-import { COURSES } from "@/content/courses";
-import { SERVICES } from "@/content/services";
-import { AUDITS } from "@/content/audits";
+import type { NavIndex } from "@/lib/nav-index";
 import { cn } from "@/lib/utils";
 import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
 
@@ -81,7 +79,13 @@ const STATUS_ITEMS = [
 /* ──────────────────────────────────────────────────────────────
    FOOTER
    ────────────────────────────────────────────────────────────── */
-export function Footer() {
+/**
+ * INP: the Footer is a Client Component, so importing content/services.ts,
+ * content/courses.ts and content/audits.ts here shipped 575 KB of page content
+ * into every route's JS bundle to render ~20 links. The link lists and counts
+ * now arrive pre-computed from the server (lib/nav-index.ts).
+ */
+export function Footer({ nav }: { nav: NavIndex }) {
   return (
     <footer className="relative mt-32 isolate overflow-hidden border-t border-line bg-bg-1">
       {/* gradient top accent */}
@@ -131,9 +135,9 @@ export function Footer() {
 
           {/* Link columns */}
           <FooterCol title="Security Assessment">
-            {SERVICES.filter((s) => s.popular).slice(0, 6).map((s) => (
-              <FooterLinkAnimated key={s.slug} href={`/services/${s.slug}`}>
-                {s.shortTitle}
+            {nav.footer.services.map((s) => (
+              <FooterLinkAnimated key={s.href} href={s.href}>
+                {s.label}
               </FooterLinkAnimated>
             ))}
             <FooterLinkAnimated href="/services" highlight>
@@ -142,39 +146,24 @@ export function Footer() {
           </FooterCol>
 
           <FooterCol title="Training">
-            {COURSES.filter((c) => c.popular).slice(0, 6).map((c) => (
-              <FooterLinkAnimated key={c.slug} href={`/training/${c.slug}`}>
-                {c.shortTitle}
+            {nav.footer.courses.map((c) => (
+              <FooterLinkAnimated key={c.href} href={c.href}>
+                {c.label}
               </FooterLinkAnimated>
             ))}
             <FooterLinkAnimated href="/training" highlight>
-              All {COURSES.length} trainings →
+              All {nav.counts.courses} trainings →
             </FooterLinkAnimated>
           </FooterCol>
 
           <FooterCol title="Security Compliance">
-            {(
-              [
-                "cert-in-empanelled-audit",
-                "iso-27001",
-                "soc-2",
-                "rbi-csf",
-                "sebi-cscrf",
-                "pci-dss",
-                "dpdp-act",
-                "hipaa",
-                "uae-pdpl",
-              ] as const
-            )
-              .map((slug) => AUDITS.find((a) => a.slug === slug))
-              .filter((a): a is (typeof AUDITS)[number] => Boolean(a))
-              .map((a) => (
-                <FooterLinkAnimated key={a.slug} href={`/audit/${a.slug}`}>
-                  {a.shortTitle}
-                </FooterLinkAnimated>
-              ))}
+            {nav.footer.audits.map((a) => (
+              <FooterLinkAnimated key={a.href} href={a.href}>
+                {a.label}
+              </FooterLinkAnimated>
+            ))}
             <FooterLinkAnimated href="/audit" highlight>
-              All {AUDITS.length} frameworks →
+              All {nav.counts.audits} frameworks →
             </FooterLinkAnimated>
           </FooterCol>
 
@@ -314,17 +303,17 @@ function PreFooterCTA() {
         className="relative isolate overflow-hidden rounded-3xl gradient-border glow-blend"
       >
         {/* animated mesh background */}
-        <motion.div
+        {/* INP: was a framer-motion repeat:Infinity background-position
+            animation — a permanent main-thread rAF loop on every page. Same
+            visual, run by the compositor via CSS keyframes. */}
+        <div
           aria-hidden
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 opacity-50"
+          className="absolute inset-0 opacity-50 anim-gradient-drift"
           style={{
             background:
               "radial-gradient(circle at 20% 20%, rgba(0,229,255,0.18), transparent 40%), radial-gradient(circle at 80% 70%, rgba(168,85,247,0.18), transparent 40%), radial-gradient(circle at 50% 50%, rgba(77,124,255,0.10), transparent 60%)",
             backgroundSize: "200% 200%",
+            animationDuration: "20s",
           }}
         />
         <div className="absolute inset-0 bg-grid opacity-30" />

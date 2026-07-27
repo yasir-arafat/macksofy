@@ -35,12 +35,26 @@ export function ParticleBackground({
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
-    }
+    if (typeof window === "undefined") return;
+
+    // INP: the render loop below is a permanent rAF with an O(n^2) link pass.
+    // It is pure decoration behind a hero, so it must never compete with a
+    // visitor's taps. Three gates, cheapest first:
+    //
+    //   1. prefers-reduced-motion — never animate.
+    //   2. Small / coarse-pointer viewports — the field data that flagged INP
+    //      is mobile, the canvas is barely visible at that size, and mid-range
+    //      Android is exactly where a permanent rAF loop hurts most.
+    //   3. Low-end devices — few cores or little memory, on any viewport.
+    //
+    // Everything else keeps the effect, mounted only once the browser is idle.
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia?.("(max-width: 767px), (pointer: coarse)").matches) return;
+
+    const nav = navigator as Navigator & { deviceMemory?: number };
+    if ((nav.hardwareConcurrency ?? 8) <= 4) return;
+    if ((nav.deviceMemory ?? 8) <= 4) return;
+
     type IdleHandle = number;
     type IdleCallback = (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void;
     interface IdleWindow {
@@ -72,7 +86,8 @@ export function ParticleBackground({
 
     let particles: Particle[] = [];
     let paused = false;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let pauseTimer: ReturnType<typeof setTimeout> | null = null;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 
     function resize() {
       if (!canvas) return;
@@ -98,7 +113,12 @@ export function ParticleBackground({
     function step() {
       if (!canvas || !ctx) return;
       if (paused) {
-        rafRef.current = requestAnimationFrame(step);
+        // Re-arm cheaply rather than every frame: while paused there is
+        // nothing to draw, and a 250 ms poll is imperceptible on resume.
+        rafRef.current = 0;
+        pauseTimer = setTimeout(() => {
+          rafRef.current = requestAnimationFrame(step);
+        }, 250);
         return;
       }
       const w = canvas.offsetWidth;
@@ -143,9 +163,22 @@ export function ParticleBackground({
       rafRef.current = requestAnimationFrame(step);
     }
 
-    const onVisibility = () => {
-      paused = document.hidden;
+    // Pause whenever the canvas can't be seen: hidden tab OR scrolled out of
+    // view. A hero canvas is off screen for most of a page visit, so this
+    // alone removes the majority of the loop's lifetime cost.
+    let offScreen = false;
+    const syncPaused = () => {
+      paused = document.hidden || offScreen;
     };
+    const onVisibility = syncPaused;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        offScreen = !entry.isIntersecting;
+        syncPaused();
+      },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
 
     resize();
     step();
@@ -153,6 +186,8 @@ export function ParticleBackground({
     document.addEventListener("visibilitychange", onVisibility);
     return () => {
       cancelAnimationFrame(rafRef.current);
+      if (pauseTimer) clearTimeout(pauseTimer);
+      io.disconnect();
       window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", onVisibility);
     };

@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   Phone,
@@ -29,12 +29,8 @@ import {
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
-import { COURSES } from "@/content/courses";
-import { SERVICES } from "@/content/services";
-import {
-  AUDITS,
-} from "@/content/audits";
-import { getPersonAuthors } from "@/content/authors";
+import { NavIcon } from "@/components/layout/NavIcon";
+import type { MegaItemData, NavIndex, SearchEntry } from "@/lib/nav-index";
 
 /* ──────────────────────────────────────────────────────────────
    Nav model
@@ -53,7 +49,7 @@ type NavItem = {
   dropdown?: DropdownItem[];
 };
 
-const ABOUT_DROPDOWN: DropdownItem[] = [
+const ABOUT_DROPDOWN_BASE: DropdownItem[] = [
   {
     label: "About Us",
     href: "/about",
@@ -66,18 +62,6 @@ const ABOUT_DROPDOWN: DropdownItem[] = [
     description: "BFSI, healthcare, fintech, manufacturing/OT, government & more",
     icon: Factory,
   },
-  // "Our Experts" appears only once real named experts exist in
-  // content/authors.ts (getPersonAuthors() is empty until then).
-  ...(getPersonAuthors().length > 0
-    ? [
-        {
-          label: "Our Experts",
-          href: "/team",
-          description: "The certified consultants behind Macksofy",
-          icon: Users,
-        },
-      ]
-    : []),
   {
     label: "Our Clients",
     href: "/clients",
@@ -138,28 +122,52 @@ const PRODUCT_DROPDOWN: DropdownItem[] = [
   },
 ];
 
+// "Our Experts" appears only once real named experts exist in
+// content/authors.ts — the flag is computed server-side (lib/nav-index.ts) so
+// the authors module stays out of the client bundle.
+const EXPERTS_ITEM: DropdownItem = {
+  label: "Our Experts",
+  href: "/team",
+  description: "The certified consultants behind Macksofy",
+  icon: Users,
+};
+
+function aboutDropdown(hasNamedExperts: boolean): DropdownItem[] {
+  if (!hasNamedExperts) return ABOUT_DROPDOWN_BASE;
+  const [about, industries, ...rest] = ABOUT_DROPDOWN_BASE;
+  return [about, industries, EXPERTS_ITEM, ...rest];
+}
+
 // Logo serves as Home — we drop the "Home" item to free up nav width.
-const NAV: NavItem[] = [
-  { label: "Security Assessment", href: "/services", mega: "services" },
-  { label: "Training", href: "/training", mega: "training" },
-  { label: "Security Compliance", href: "/audit", mega: "audit" },
-  { label: "Products", href: "/products/pentaudit", dropdown: PRODUCT_DROPDOWN },
-  { label: "About", href: "/about", dropdown: ABOUT_DROPDOWN },
-  { label: "Contact", href: "/contact" },
-];
+function buildNav(hasNamedExperts: boolean): NavItem[] {
+  return [
+    { label: "Security Assessment", href: "/services", mega: "services" },
+    { label: "Training", href: "/training", mega: "training" },
+    { label: "Security Compliance", href: "/audit", mega: "audit" },
+    { label: "Products", href: "/products/pentaudit", dropdown: PRODUCT_DROPDOWN },
+    { label: "About", href: "/about", dropdown: aboutDropdown(hasNamedExperts) },
+    { label: "Contact", href: "/contact" },
+  ];
+}
 
 /* ──────────────────────────────────────────────────────────────
    Header
    ────────────────────────────────────────────────────────────── */
-export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+export function Header({ nav }: { nav: NavIndex }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [annDismissed, setAnnDismissed] = useState(false);
+  // The command palette is mounted lazily: its entry list and markup are dead
+  // weight until the visitor actually opens search, and mounting it eagerly
+  // made every Header re-render walk a ~120-entry list. Once opened it stays
+  // mounted so AnimatePresence can still play the close animation.
+  const [paletteMounted, setPaletteMounted] = useState(false);
   const pathname = usePathname();
+
+  const NAV = useMemo(() => buildNav(nav.hasNamedExperts), [nav.hasNamedExperts]);
 
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -187,9 +195,10 @@ export function Header() {
     setOpenMenu(href);
   };
 
-  // Scroll progress bar
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 20 });
+  const openSearch = () => {
+    setPaletteMounted(true);
+    setSearchOpen(true);
+  };
 
   const closeAll = () => {
     setMobileOpen(false);
@@ -226,12 +235,48 @@ export function Header() {
     }
   }, []);
 
-  // Backdrop blur on scroll
+  // Backdrop blur on scroll.
+  //
+  // INP: this used to be a scroll listener calling setScrolled(), so crossing
+  // the 16px threshold re-rendered the ENTIRE header subtree (nav, dropdown
+  // model, palette) on the main thread. The visual result is two class swaps,
+  // so drive them straight on the DOM node from an IntersectionObserver
+  // watching a 16px sentinel — zero React renders, no scroll handler at all.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const el = headerRef.current;
+    if (!el) return;
+
+    const sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.style.cssText =
+      "position:absolute;top:0;left:0;width:1px;height:17px;pointer-events:none;";
+    document.body.appendChild(sentinel);
+
+    const SCROLLED = [
+      "bg-bg/85",
+      "backdrop-blur-xl",
+      "border-b",
+      "border-line",
+      "shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
+    ];
+    const TOP = ["bg-bg/40", "backdrop-blur-md"];
+
+    const apply = (scrolled: boolean) => {
+      el.classList.toggle("is-scrolled", scrolled);
+      el.classList.remove(...(scrolled ? TOP : SCROLLED));
+      el.classList.add(...(scrolled ? SCROLLED : TOP));
+    };
+
+    const io = new IntersectionObserver(
+      ([entry]) => apply(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    io.observe(sentinel);
+
+    return () => {
+      io.disconnect();
+      sentinel.remove();
+    };
   }, []);
 
   // Cmd+K to open search
@@ -239,6 +284,7 @@ export function Header() {
     const onKey = (e: KeyboardEvent) => {
       if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
+        setPaletteMounted(true);
         setSearchOpen((s) => !s);
       } else if (e.key === "Escape") {
         setSearchOpen(false);
@@ -298,14 +344,29 @@ export function Header() {
 
       setMenuLeft(clamped);
     };
-    update();
-    window.addEventListener("resize", update);
-    window.addEventListener("scroll", update, { passive: true });
-    return () => {
-      window.removeEventListener("resize", update);
-      window.removeEventListener("scroll", update);
+
+    // update() reads getBoundingClientRect() twice — a forced synchronous
+    // layout. Running it raw on every scroll event made the browser re-layout
+    // several times per frame while a menu was open. Coalescing into one rAF
+    // per frame keeps at most one layout read per paint.
+    let frame = 0;
+    const schedule = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        update();
+      });
     };
-  }, [openMenu]);
+
+    update();
+    window.addEventListener("resize", schedule);
+    window.addEventListener("scroll", schedule, { passive: true });
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("scroll", schedule);
+    };
+  }, [openMenu, NAV]);
 
   // Cleanup hover-close timer on unmount
   useEffect(() => {
@@ -358,11 +419,12 @@ export function Header() {
   return (
     <header
       ref={headerRef}
+      // The scrolled/top classes below are swapped directly on this node by the
+      // sentinel IntersectionObserver above (no React re-render). Server render
+      // ships the "top" variant, which is always correct on first paint.
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
-        scrolled
-          ? "bg-bg/85 backdrop-blur-xl border-b border-line shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-          : "bg-bg/40 backdrop-blur-md"
+        "bg-bg/40 backdrop-blur-md"
       )}
     >
       {/* ANNOUNCEMENT BAR */}
@@ -380,14 +442,18 @@ export function Header() {
             transition={{ duration: 0.3 }}
             className="relative isolate overflow-hidden border-b border-line"
           >
-            <motion.div
-              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-              transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 opacity-60"
+            {/* INP: was a framer-motion `repeat: Infinity` background-position
+                animation — a rAF callback on the main thread for the entire
+                life of the page, on every route. The identical effect as a CSS
+                keyframe animation costs the main thread nothing (see
+                .anim-gradient-pan in globals.css). */}
+            <div
+              className="absolute inset-0 opacity-60 anim-gradient-pan"
               style={{
                 backgroundImage:
                   "linear-gradient(90deg, rgba(0,229,255,0.10), rgba(168,85,247,0.10), rgba(252,211,77,0.10), rgba(0,229,255,0.10))",
                 backgroundSize: "300% 100%",
+                animationDuration: "14s",
               }}
               aria-hidden
             />
@@ -531,14 +597,14 @@ export function Header() {
         <div className="flex items-center gap-1.5 xl:gap-2 shrink-0 ml-auto">
           {/* Search trigger — icon-only (lg) → pill (xl+) */}
           <button
-            onClick={() => setSearchOpen(true)}
+            onClick={openSearch}
             aria-label="Search (Cmd+K)"
             className="hidden lg:inline-flex xl:hidden grid size-9 place-items-center rounded-full border border-line bg-bg/40 backdrop-blur text-fg-muted hover:text-fg hover:border-neon-cyan/40 transition-colors"
           >
             <Search className="size-4" />
           </button>
           <button
-            onClick={() => setSearchOpen(true)}
+            onClick={openSearch}
             aria-label="Search (Cmd+K)"
             className="hidden xl:inline-flex items-center gap-2 rounded-full border border-line bg-bg/40 backdrop-blur px-3 h-9 text-xs text-fg-muted hover:text-fg hover:border-neon-cyan/40 transition-colors"
           >
@@ -584,11 +650,16 @@ export function Header() {
         </div>
       </div>
 
-      {/* SCROLL PROGRESS — gradient bar at bottom of header */}
-      <motion.div
+      {/* SCROLL PROGRESS — gradient bar at bottom of header.
+          INP: this was framer-motion useScroll() + useSpring(), i.e. a scroll
+          listener plus a spring integrator running rAF callbacks continuously
+          while scrolling (and for a while after it stopped). It is now a CSS
+          scroll-driven animation, which the compositor runs off the main
+          thread entirely. Browsers without scroll-timeline support (Safari as
+          of 2026) simply don't paint it — it is decorative and aria-hidden. */}
+      <div
         aria-hidden
-        style={{ scaleX: progress }}
-        className="origin-left h-px bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple"
+        className="scroll-progress origin-left h-px bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple"
       />
 
       {/* CENTRALIZED DROPDOWN PANEL — sits below the entire header (announcement + main bar) */}
@@ -635,7 +706,7 @@ export function Header() {
                           : "max-h-[calc(100vh-6rem)]"
                       )}
                     >
-                      <MegaMenu type={item.mega!} onClose={closeAll} />
+                      <MegaMenu type={item.mega!} onClose={closeAll} nav={nav} />
                     </div>
                   ) : (
                     <div className="menu-surface w-80 p-2.5">
@@ -799,7 +870,7 @@ export function Header() {
                                   </Link>
                                   {item.mega ? (
                                     <MobileMegaList
-                                      type={item.mega}
+                                      items={nav.mega[item.mega]}
                                       onClose={closeAll}
                                       pathname={pathname}
                                     />
@@ -865,7 +936,7 @@ export function Header() {
                 <button
                   onClick={() => {
                     setMobileOpen(false);
-                    setSearchOpen(true);
+                    openSearch();
                   }}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-line h-11 px-5 text-[13px] font-semibold text-fg-muted hover:text-fg hover:border-neon-cyan/40 transition-colors"
                 >
@@ -891,7 +962,13 @@ export function Header() {
       </AnimatePresence>
 
       {/* Cmd+K SEARCH PALETTE */}
-      <CommandPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {paletteMounted && (
+        <CommandPalette
+          open={searchOpen}
+          onClose={() => setSearchOpen(false)}
+          entries={nav.search}
+        />
+      )}
     </header>
   );
 }
@@ -902,102 +979,32 @@ export function Header() {
 function CommandPalette({
   open,
   onClose,
+  entries,
 }: {
   open: boolean;
   onClose: () => void;
+  entries: SearchEntry[];
 }) {
   const [query, setQuery] = useState("");
 
-  type Entry = {
-    label: string;
-    href: string;
-    group: string;
-    keywords?: string;
-  };
-  const ENTRIES: Entry[] = [
-    { label: "Home", href: "/", group: "Pages" },
-    { label: "About Us", href: "/about", group: "Pages" },
-    {
-      label: "Industries",
-      href: "/industries",
-      group: "Pages",
-      keywords: "bfsi banking healthcare fintech saas manufacturing ot government psu energy insurance verticals",
-    },
-    { label: "Our Clients", href: "/clients", group: "Pages" },
-    {
-      label: "Case Studies",
-      href: "/case-studies",
-      group: "Pages",
-      keywords: "engagements references pentest red team dfir",
-    },
-    {
-      label: "Resources",
-      href: "/resources",
-      group: "Pages",
-      keywords: "whitepaper checklist cheat sheet brochure cscrf rbi cert-in",
-    },
-    {
-      label: "Awards & Recognition",
-      href: "/awards",
-      group: "Pages",
-      keywords: "csi google ec-council",
-    },
-    { label: "Blog", href: "/blog", group: "Pages" },
-    {
-      label: "Glossary",
-      href: "/glossary",
-      group: "Pages",
-      keywords: "definitions terms vapt cert-in soc siem cvss dpdp rbi csf meaning what is",
-    },
-    {
-      label: "Pentaudit",
-      href: "/products/pentaudit",
-      group: "Products",
-      keywords:
-        "continuous pentest AI compliance ISO SOC2 PCI HIPAA GDPR DPDP CERT-In readiness platform vapt cloud web mobile",
-    },
-    {
-      label: "LearnToExploit",
-      href: "/products/learn-to-exploit",
-      group: "Products",
-      keywords: "cyber range vulnerable labs ctf pwn hands-on",
-    },
-    { label: "Contact", href: "/contact", group: "Pages" },
-    { label: "All Services", href: "/services", group: "Services" },
-    { label: "All Training", href: "/training", group: "Training" },
-    { label: "All Audit & Compliance", href: "/audit", group: "Audit" },
-    ...SERVICES.map((s) => ({
-      label: s.shortTitle,
-      href: `/services/${s.slug}`,
-      group: "Services",
-      keywords: s.title,
-    })),
-    ...COURSES.map((c) => ({
-      label: c.shortTitle,
-      href: `/training/${c.slug}`,
-      group: "Training",
-      keywords: `${c.title} ${c.code} ${c.vendor}`,
-    })),
-    ...AUDITS.map((a) => ({
-      label: a.shortTitle,
-      href: `/audit/${a.slug}`,
-      group: "Audit",
-      keywords: a.title,
-    })),
-  ];
-
-  const filtered = query
-    ? ENTRIES.filter((e) =>
-        `${e.label} ${e.keywords ?? ""} ${e.group}`
-          .toLowerCase()
-          .includes(query.toLowerCase())
-      )
-    : ENTRIES;
-
-  const grouped: Record<string, Entry[]> = {};
-  filtered.forEach((e) => {
-    grouped[e.group] = grouped[e.group] ? [...grouped[e.group], e] : [e];
-  });
+  // INP: the entry list used to be a ~120-item array literal built inside the
+  // component body — spreading SERVICES/COURSES/AUDITS — so it was rebuilt,
+  // filtered and grouped on every single Header render (including every
+  // scroll-threshold cross). It now arrives pre-built from the server
+  // (lib/nav-index.ts) and the filter/group work is memoised on the query.
+  const grouped = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const filtered = q
+      ? entries.filter((e) =>
+          `${e.label} ${e.keywords ?? ""} ${e.group}`.toLowerCase().includes(q)
+        )
+      : entries;
+    const out: Record<string, SearchEntry[]> = {};
+    for (const e of filtered) {
+      (out[e.group] ??= []).push(e);
+    }
+    return out;
+  }, [entries, query]);
 
   // Reset palette query when the dialog closes (next mount starts blank).
   useEffect(() => {
@@ -1046,13 +1053,13 @@ function CommandPalette({
                   No results for &ldquo;{query}&rdquo;
                 </div>
               )}
-              {Object.entries(grouped).map(([group, entries]) => (
+              {Object.entries(grouped).map(([group, groupEntries]) => (
                 <div key={group} className="py-2">
                   <div className="px-3 mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
                     {group}
                   </div>
                   <ul className="grid gap-0.5">
-                    {entries.slice(0, 8).map((e) => (
+                    {groupEntries.slice(0, 8).map((e) => (
                       <li key={e.href}>
                         <Link
                           href={e.href}
@@ -1088,154 +1095,86 @@ function CommandPalette({
    MEGA MENU — interactive 3-pane (items · live preview · footer)
    ────────────────────────────────────────────────────────────── */
 
-interface MegaItem {
-  slug: string;
-  href: string;
+/**
+ * Mega-menu item shape. Built on the server by lib/nav-index.ts so the full
+ * content modules (575 KB) never enter the client bundle — see that file.
+ * `MegaItem` stays as a local alias so the rest of this file reads unchanged.
+ */
+type MegaItem = MegaItemData;
+
+interface MegaHeader {
+  eyebrow: string;
   title: string;
-  tagline: string;
-  badge?: string;
-  badgeTone?: "cyan" | "purple" | "amber" | "green";
-  icon: React.ComponentType<{ className?: string }>;
-  bullets?: string[];
-  group?: string;
+  description: string;
+  cta: { label: string; href: string };
+  stat: { value: string; label: string };
 }
 
-function buildMegaItems(type: "services" | "training" | "audit"): MegaItem[] {
+function megaHeader(
+  type: "services" | "training" | "audit",
+  counts: NavIndex["counts"]
+): MegaHeader {
   if (type === "services") {
-    // Pin category order so the mega menu reads Offensive →
-    // Managed Services → Defensive → Compliance Adjacent regardless
-    // of declaration order in content/services.ts.
-    const catRank: Record<string, number> = {
-      Offensive: 0,
-      "Managed Services": 1,
-      Defensive: 2,
-      "Compliance Adjacent": 3,
+    return {
+      eyebrow: "Security Assessment",
+      title: "From assumed-breach pentests to red teams",
+      description:
+        "Manual exploitation, OSCP/OSWE/OSEP-led teams, CERT-In format reports.",
+      cta: { label: "View all assessments", href: "/services" },
+      stat: { value: "200+", label: "Engagements / yr" },
     };
-    return [...SERVICES]
-      .sort((a, b) => (catRank[a.category] ?? 9) - (catRank[b.category] ?? 9))
-      .map((s) => ({
-        slug: s.slug,
-        href: `/services/${s.slug}`,
-        title: s.shortTitle,
-        tagline: s.hero.tagline,
-        badge: s.popular ? "Popular" : undefined,
-        badgeTone: s.popular ? "cyan" : undefined,
-        icon: s.icon,
-        bullets: s.businessImpact?.slice(0, 3),
-        group: s.category,
-      }));
   }
   if (type === "training") {
-    const vendorRank: Record<string, number> = {
-      OffSec: 0,
-      "EC-Council": 1,
-      CompTIA: 2,
-      Macksofy: 3,
+    return {
+      eyebrow: "Training & Certifications",
+      title: "Career-grade tracks with mentor support",
+      description:
+        "EC-Council Accredited Training Center. 20,000+ professionals trained.",
+      cta: { label: `View all ${counts.courses} courses`, href: "/training" },
+      stat: { value: `${counts.courses}`, label: "Active courses" },
     };
-    return [...COURSES]
-      .sort((a, b) => {
-        const ra = vendorRank[a.vendor] ?? 99;
-        const rb = vendorRank[b.vendor] ?? 99;
-        if (ra !== rb) return ra - rb;
-        if (a.popular !== b.popular) return a.popular ? -1 : 1;
-        return 0;
-      })
-      .map((c) => ({
-        slug: c.slug,
-        href: `/training/${c.slug}`,
-        title: c.shortTitle,
-        tagline: c.hero.tagline,
-        badge: c.vendor,
-        badgeTone:
-          c.vendor === "OffSec"
-            ? "purple"
-            : c.vendor === "EC-Council"
-            ? "cyan"
-            : c.vendor === "CompTIA"
-            ? "amber"
-            : "green",
-        icon: GraduationCapIcon,
-        bullets: c.outcomes?.slice(0, 3),
-        group: c.vendor,
-      }));
   }
-  const catRank: Record<string, number> = {
-    Foundational: 0,
-    "Indian Regulatory": 1,
-    "International Standard": 2,
-    "Industry & Privacy": 3,
-    "GCC Regulatory": 4,
-  };
-  return [...AUDITS]
-    .sort((a, b) => {
-      const ra = catRank[a.category] ?? 99;
-      const rb = catRank[b.category] ?? 99;
-      return ra - rb;
-    })
-    .map((a) => ({
-      slug: a.slug,
-      href: `/audit/${a.slug}`,
-      title: a.shortTitle,
-      tagline: a.hero.tagline,
-      badge: a.authority ? "Authority" : undefined,
-      badgeTone: a.authority ? "amber" : undefined,
-      icon: a.icon,
-      bullets: a.applicability?.slice(0, 3),
-      group: a.category,
-    }));
-}
-
-const MEGA_HEADER = {
-  services: {
-    eyebrow: "Security Assessment",
-    title: "From assumed-breach pentests to red teams",
-    description:
-      "Manual exploitation, OSCP/OSWE/OSEP-led teams, CERT-In format reports.",
-    cta: { label: "View all assessments", href: "/services" },
-    stat: { value: "200+", label: "Engagements / yr" },
-  },
-  training: {
-    eyebrow: "Training & Certifications",
-    title: "Career-grade tracks with mentor support",
-    description:
-      "EC-Council Accredited Training Center. 20,000+ professionals trained.",
-    cta: { label: `View all ${COURSES.length} courses`, href: "/training" },
-    stat: { value: `${COURSES.length}`, label: "Active courses" },
-  },
-  audit: {
+  return {
     eyebrow: "Security Compliance",
     title: "CERT-In empanelled, regulator-ready",
     description:
       "RBI · SEBI · UIDAI · ISO 27001 · SOC 2 · PCI-DSS · UAE NESA / DESC.",
     cta: { label: "View all frameworks", href: "/audit" },
     stat: { value: "11+", label: "Years auditing" },
-  },
-} as const;
+  };
+}
 
 function MegaMenu({
   type,
   onClose,
+  nav,
 }: {
   type: "services" | "training" | "audit";
   onClose: () => void;
+  nav: NavIndex;
 }) {
-  const header = MEGA_HEADER[type];
-  return <ListPreviewMegaMenu type={type} onClose={onClose} header={header} />;
+  return (
+    <ListPreviewMegaMenu
+      type={type}
+      onClose={onClose}
+      header={megaHeader(type, nav.counts)}
+      items={nav.mega[type]}
+    />
+  );
 }
 
 /* ──────────────────────────────────────────────────────────────
    MOBILE MEGA LIST — grouped sub-items inside the mobile drawer
    ────────────────────────────────────────────────────────────── */
 function MobileMegaList({
-  type,
+  items,
   onClose,
   pathname,
 }: {
-  type: "services" | "training" | "audit";
+  items: MegaItem[];
   onClose: () => void;
   pathname: string;
 }) {
-  const items = buildMegaItems(type);
   const groupOrder: string[] = [];
   const groupMap = new Map<string, MegaItem[]>();
   for (const it of items) {
@@ -1294,7 +1233,7 @@ function MobileMegaList({
                           : "text-fg-muted hover:text-neon-cyan hover:bg-white/5"
                       )}
                     >
-                      <it.icon className="size-3.5 shrink-0" />
+                      <NavIcon name={it.iconName} className="size-3.5 shrink-0" />
                       <span className="min-w-0 flex-1 truncate font-medium">
                         {it.title}
                       </span>
@@ -1324,12 +1263,13 @@ function ListPreviewMegaMenu({
   type,
   onClose,
   header,
+  items,
 }: {
   type: "services" | "training" | "audit";
   onClose: () => void;
-  header: (typeof MEGA_HEADER)[keyof typeof MEGA_HEADER];
+  header: MegaHeader;
+  items: MegaItem[];
 }) {
-  const items = buildMegaItems(type);
   const [activeSlug, setActiveSlug] = useState(items[0]?.slug ?? "");
   const active = items.find((i) => i.slug === activeSlug) ?? items[0];
 
@@ -1395,7 +1335,7 @@ function ListPreviewMegaMenu({
           <>
             <div className="flex items-start gap-3">
               <div className="grid size-12 place-items-center rounded-xl bg-bg ring-1 ring-neon-cyan/40 text-neon-cyan shadow-[0_0_24px_rgba(0,229,255,0.25)]">
-                <active.icon className="size-5" />
+                <NavIcon name={active.iconName} className="size-5" />
               </div>
               <div className="min-w-0 flex-1">
                 {active.badge && (
@@ -1776,7 +1716,8 @@ function MegaItemRow({
             active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
           )}
         >
-          <item.icon
+          <NavIcon
+            name={item.iconName}
             className={cn(
               "size-3.5 mt-0.5 shrink-0 transition-colors",
               active ? "text-neon-cyan" : "text-fg-faint group-hover:text-neon-cyan"
@@ -1844,7 +1785,7 @@ function MegaItemRow({
               : "bg-bg-2 ring-line text-fg-muted group-hover:text-neon-cyan group-hover:ring-neon-cyan/30"
           )}
         >
-          <item.icon className="size-4" />
+          <NavIcon name={item.iconName} className="size-4" />
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
@@ -1898,21 +1839,3 @@ function badgeClass(tone?: "cyan" | "purple" | "amber" | "green") {
   }
 }
 
-// Lucide v1 doesn't always ship GraduationCap; use a tiny inline fallback
-function GraduationCapIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M22 10 12 5 2 10l10 5 10-5Z" />
-      <path d="M6 12v5c3 1.5 9 1.5 12 0v-5" />
-      <path d="M22 10v6" />
-    </svg>
-  );
-}

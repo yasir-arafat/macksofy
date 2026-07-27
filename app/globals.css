@@ -409,3 +409,124 @@ html.print-mode body > *:not(main):not(script):not(style) {
     scroll-behavior: auto !important;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Compositor-driven ambient animations (INP)
+
+   These replace framer-motion `repeat: Infinity` animations that used to run
+   on the main thread for the entire life of every page. framer drives values
+   from a rAF callback, so an "idle" page never actually went idle: the main
+   thread woke up ~60x/second on every route, which shows up as input delay
+   the moment a visitor taps (INP is dominated by input delay when the main
+   thread is never free).
+
+   CSS keyframes on transform/opacity/background-position are handled by the
+   compositor and cost the main thread nothing. Every rule here is decorative
+   and inherits the prefers-reduced-motion collapse defined above.
+   ────────────────────────────────────────────────────────────── */
+
+/* Header announcement bar + footer CTA mesh: slow gradient pan. */
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.anim-gradient-pan {
+  animation: gradient-pan 14s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes gradient-drift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+.anim-gradient-drift {
+  animation: gradient-drift 20s linear infinite;
+  will-change: background-position;
+}
+
+/* Hero ticker strip — duplicated content scrolled by exactly -50%. */
+@keyframes ticker-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.anim-ticker {
+  animation: ticker-scroll var(--ticker-duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+/* Cinematic sweep line — travels across its container, then rests. */
+@keyframes sweep-line {
+  0% { transform: translate3d(-30%, 0, 0); opacity: 0; }
+  15% { opacity: 0.7; }
+  40% { transform: translate3d(130%, 0, 0); opacity: 0; }
+  100% { transform: translate3d(130%, 0, 0); opacity: 0; }
+}
+.anim-sweep {
+  animation: sweep-line var(--sweep-duration, 7s) ease-in-out infinite;
+  animation-delay: var(--sweep-delay, 0s);
+  will-change: transform, opacity;
+}
+
+/* Scroll-prompt chevron bob. */
+@keyframes bob {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, 6px, 0); }
+}
+.anim-bob {
+  animation: bob 1.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Aurora blobs — slow drift. Each blob gets its own path via CSS vars so the
+   four of them stay visually distinct without four JS animation loops. */
+@keyframes aurora-drift {
+  0% { transform: translate3d(var(--ax0), var(--ay0), 0); }
+  33% { transform: translate3d(var(--ax1), var(--ay1), 0); }
+  66% { transform: translate3d(var(--ax2), var(--ay2), 0); }
+  100% { transform: translate3d(var(--ax0), var(--ay0), 0); }
+}
+.anim-aurora {
+  animation: aurora-drift var(--aurora-duration, 30s) ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Scroll-linked progress bar (INP)
+
+   Replaces framer-motion useScroll() + useSpring(), which ran a scroll
+   listener plus a spring integrator on the main thread. A scroll-driven CSS
+   animation runs off the main thread. Where `animation-timeline` is
+   unsupported the bar simply stays at scaleX(0) — it is decorative and
+   aria-hidden, so nothing is lost.
+   ────────────────────────────────────────────────────────────── */
+.scroll-progress {
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  @keyframes scroll-progress-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  .scroll-progress {
+    animation: scroll-progress-grow linear;
+    animation-timeline: scroll(root block);
+    will-change: transform;
+  }
+}
+
+/* Scroll-prompt fade — replaces framer's useScroll/useTransform opacity. */
+@supports (animation-timeline: scroll()) {
+  @keyframes scroll-prompt-fade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  .scroll-prompt {
+    animation: scroll-prompt-fade linear forwards;
+    animation-timeline: scroll(root block);
+    /* Fade out over the first 200px of scroll, matching the old JS range. */
+    animation-range: 0 200px;
+    will-change: opacity;
+  }
+}

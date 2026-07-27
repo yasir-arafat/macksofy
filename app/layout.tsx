@@ -15,6 +15,7 @@ import {
   localBusinessSchema,
   websiteSchema,
 } from "@/lib/schema";
+import { buildNavIndex } from "@/lib/nav-index";
 import { SITE } from "@/lib/site";
 
 // Meta (Facebook) Pixel — installed site-wide in <head> via beforeInteractive,
@@ -126,6 +127,11 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Computed here, on the server, so the Header/Footer Client Components never
+  // import content/{services,courses,audits}.ts — 575 KB of page content that
+  // previously shipped as JavaScript to every route. See lib/nav-index.ts.
+  const nav = buildNavIndex();
+
   return (
     <html
       lang="en-IN"
@@ -191,8 +197,8 @@ export default function RootLayout({
             page EXCEPT paid-ad landing pages under /lp, which are intentionally
             chrome-free. See components/layout/Shell.tsx. */}
         <Shell
-          header={<Header />}
-          footer={<Footer />}
+          header={<Header nav={nav} />}
+          footer={<Footer nav={nav} />}
           widgets={<LazyClientWidgets />}
         >
           {children}

@@ -16,13 +16,32 @@ const nextConfig: NextConfig = {
     // weight on mobile. Next negotiates per-request via the Accept header, so
     // older browsers still get WebP/original — no compatibility risk.
     formats: ["image/avif", "image/webp"],
-    // All <Image> sources on this site are local /public assets (logos, award
-    // badges, client logos, accreditation marks). The only "remote-looking"
-    // image — the blog featured image — is the same-origin /api/og Satori
-    // endpoint, and it is intentionally rendered with a plain <img> (the
-    // optimizer can't improve a dynamically-rendered OG card), so it never hits
-    // the optimizer. Hence no remotePatterns are required. Add one here only if
-    // a genuine third-party <Image> host is introduced later.
+    // Next 16 requires same-origin sources that carry a query string to be
+    // allowlisted explicitly. The blog featured card is the only one:
+    // /api/og?title=…&kind=blog… (see app/blog/[slug]/page.tsx).
+    // NOTE: `search` is an EXACT string comparison, not a glob (see
+    // next/dist/shared/lib/match-local-pattern.js). Omitting it is what permits
+    // an arbitrary query string — `search: "**"` builds fine but 400s every
+    // request at runtime, which silently breaks the image.
+    localPatterns: [
+      // Blog featured card: /api/og?title=…&kind=blog… — any query string.
+      { pathname: "/api/og" },
+      // Everything else is a static /public asset with no query string.
+      { pathname: "/**", search: "" },
+    ],
+    // All <Image> sources on this site are same-origin: local /public assets
+    // (logos, award badges, client logos, accreditation marks) plus the blog
+    // featured card from the /api/og Satori endpoint. Same-origin paths — query
+    // string included — go through the optimizer without a remotePatterns
+    // entry, so none is required. Add one here only if a genuine third-party
+    // <Image> host is introduced later.
+    //
+    // The blog hero used to be a plain <img> on the theory that the optimizer
+    // "can't improve a dynamically-rendered OG card". It can, and it matters on
+    // mobile: the endpoint always renders a 1200x630 PNG, while the optimizer
+    // resizes to the `sizes` breakpoint and re-encodes as AVIF — roughly an
+    // order of magnitude fewer bytes on a phone, on the page whose LCP was
+    // failing in field data.
   },
 
   experimental: {

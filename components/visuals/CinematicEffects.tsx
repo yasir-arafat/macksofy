@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 /**
@@ -68,22 +65,23 @@ export function SweepLine({
   duration?: number;
   delay?: number;
 }) {
+  // INP: this was a framer-motion `repeat: Infinity` animation, and SweepLine
+  // is used several times per page (hero, ops panel, feature cards) — each
+  // instance parked a rAF callback on the main thread for the life of the
+  // page. As CSS keyframes on transform/opacity it runs on the compositor at
+  // zero main-thread cost. `duration` was the travel time and `repeatDelay: 3`
+  // the rest between passes; .anim-sweep folds both into one cycle.
   return (
-    <motion.span
+    <span
       aria-hidden
-      initial={{ x: "-30%", opacity: 0 }}
-      animate={{ x: "130%", opacity: [0, 0.7, 0] }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-        repeatDelay: 3,
-      }}
-      className="pointer-events-none absolute inset-y-0 w-[40%]"
-      style={{
-        background: `linear-gradient(90deg, transparent, ${color}33, transparent)`,
-      }}
+      className="pointer-events-none absolute inset-y-0 w-[40%] anim-sweep"
+      style={
+        {
+          background: `linear-gradient(90deg, transparent, ${color}33, transparent)`,
+          "--sweep-duration": `${duration + 3}s`,
+          "--sweep-delay": `${delay}s`,
+        } as React.CSSProperties
+      }
     />
   );
 }
@@ -92,24 +90,23 @@ export function SweepLine({
  * Bouncing scroll-to-explore prompt that fades out as the page is scrolled.
  */
 export function ScrollPrompt({ label = "Scroll to explore" }: { label?: string }) {
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
-
+  // INP: previously useScroll() + useTransform() (a scroll subscription that
+  // ran on every page, including mobile where this element is display:none)
+  // plus a `repeat: Infinity` bob. Both are now CSS: the fade is a scroll-
+  // driven animation and the bob is a keyframe, so the main thread does no
+  // work for either. Decorative + aria-hidden, so browsers without
+  // scroll-timeline support just keep it fully opaque.
   return (
-    <motion.div
-      style={{ opacity }}
-      className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 z-10"
+    <div
+      aria-hidden
+      className="scroll-prompt pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 z-10"
     >
       <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-fg-faint">
         {label}
       </span>
-      <motion.span
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-        className="grid size-7 place-items-center rounded-full bg-bg-2/60 ring-1 ring-line backdrop-blur-sm text-neon-cyan"
-      >
+      <span className="grid size-7 place-items-center rounded-full bg-bg-2/60 ring-1 ring-line backdrop-blur-sm text-neon-cyan anim-bob">
         <ChevronDown className="size-3.5" />
-      </motion.span>
-    </motion.div>
+      </span>
+    </div>
   );
 }
