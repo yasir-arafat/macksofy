@@ -466,7 +466,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                   <Link
                     key={r.slug}
                     href={`/services/${r.slug}`}
-                    className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                    className="group rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                   >
                     <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                       <RIcon className="size-5" />

@@ -13,7 +13,7 @@ export function AwardsPreview() {
           <Link
             key={a.slug}
             href="/awards"
-            className="group flex flex-col rounded-2xl glass overflow-hidden hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+            className="group flex flex-col rounded-2xl glass overflow-hidden ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
           >
             <div className="relative aspect-[6/5] bg-white overflow-hidden">
               <Image

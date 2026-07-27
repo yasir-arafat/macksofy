@@ -224,7 +224,7 @@ export default async function IndustryDetail({ params }: PageProps) {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group rounded-2xl glass p-5 hover:border-neon-cyan/40 transition-all flex flex-col"
+                  className="group rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all flex flex-col"
                 >
                   <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                     <SIcon className="size-5" />
@@ -258,7 +258,7 @@ export default async function IndustryDetail({ params }: PageProps) {
                 <Link
                   key={a.slug}
                   href={`/audit/${a.slug}`}
-                  className="group rounded-2xl glass p-5 hover:border-neon-purple/40 transition-all flex flex-col"
+                  className="group rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-purple/40 transition-all flex flex-col"
                 >
                   <Badge variant="purple" className="self-start">
                     <FileBadge className="size-3" /> {a.category}
@@ -368,7 +368,7 @@ export default async function IndustryDetail({ params }: PageProps) {
                   <Link
                     key={r.slug}
                     href={`/industries/${r.slug}`}
-                    className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                    className="group rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                   >
                     <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                       <RIcon className="size-5" />

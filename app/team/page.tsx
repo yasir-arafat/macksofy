@@ -79,7 +79,7 @@ export default function TeamPage() {
               <Link
                 key={p.slug}
                 href={`/team/${p.slug}`}
-                className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                className="group rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
               >
                 {p.image && (
                   <Image

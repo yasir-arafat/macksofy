@@ -129,7 +129,7 @@ export default async function BlogPagedIndex({ params }: PageProps) {
             <Link
               key={p.slug}
               href={`/blog/${p.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl glass hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+              className="group flex flex-col overflow-hidden rounded-2xl glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

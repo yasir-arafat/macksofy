@@ -394,7 +394,7 @@ function PreFooterCTA() {
                   <Link
                     href={`/locations/${l.slug}`}
                     className={cn(
-                      "rounded-xl glass p-3 flex items-center gap-3 hover:border-neon-cyan/40 transition-colors h-full",
+                      "rounded-xl glass p-3 flex items-center gap-3 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow] h-full",
                       l.primary && "ring-1 ring-neon-cyan/30"
                     )}
                   >

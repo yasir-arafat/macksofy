@@ -442,21 +442,21 @@ export function EngagementPhases() {
         <button
           onClick={prev}
           aria-label="Previous phase"
-          className="grid size-11 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan transition-colors"
+          className="grid size-11 place-items-center rounded-full glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:text-neon-cyan transition-[color,background-color,border-color,box-shadow]"
         >
           <ChevronLeft className="size-5" />
         </button>
         <button
           onClick={() => setPaused((p) => !p)}
           aria-label={paused ? "Play" : "Pause"}
-          className="grid size-11 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan transition-colors"
+          className="grid size-11 place-items-center rounded-full glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:text-neon-cyan transition-[color,background-color,border-color,box-shadow]"
         >
           {paused ? <Play className="size-5" /> : <Pause className="size-5" />}
         </button>
         <button
           onClick={next}
           aria-label="Next phase"
-          className="grid size-11 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan transition-colors"
+          className="grid size-11 place-items-center rounded-full glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:text-neon-cyan transition-[color,background-color,border-color,box-shadow]"
         >
           <ChevronRight className="size-5" />
         </button>

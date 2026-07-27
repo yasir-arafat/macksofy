@@ -83,7 +83,7 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
                   </div>
                 </div>
                 {/* phase card */}
-                <div className="flex h-full flex-col rounded-2xl glass px-5 pb-5 pt-10 text-center transition-colors hover:border-line lift">
+                <div className="flex h-full flex-col rounded-2xl glass px-5 pb-5 pt-10 text-center transition-[color,background-color,border-color,box-shadow] ring-1 ring-transparent hover:ring-line lift">
                   <span
                     className={`font-mono text-[10px] font-semibold uppercase tracking-[0.2em] ${dot}`}
                   >

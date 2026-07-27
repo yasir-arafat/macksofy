@@ -39,7 +39,7 @@ export function AttackFlow({ className }: { className?: string }) {
             transition={{ delay: i * 0.08, duration: 0.45 }}
             className="relative h-full"
           >
-            <div className="glass rounded-xl p-4 h-full flex flex-col hover:border-neon-cyan/40 transition-colors lift">
+            <div className="glass rounded-xl p-4 h-full flex flex-col ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow] lift">
               <div className="relative grid size-11 place-items-center rounded-lg bg-bg ring-1 ring-neon-cyan/30 mb-3 shrink-0">
                 <div className="absolute inset-0 bg-neon-cyan/15 rounded-lg blur-md" />
                 <stage.icon className="relative size-5 text-neon-cyan" />

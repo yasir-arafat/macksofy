@@ -270,7 +270,7 @@ function PressCard({ press }: { press: PressRelease }) {
       rel="noopener noreferrer"
       className="group relative block h-full"
     >
-      <article className="relative h-full flex flex-col rounded-2xl glass overflow-hidden hover:border-neon-cyan/40 transition-all hover:-translate-y-1 p-6">
+      <article className="relative h-full flex flex-col rounded-2xl glass overflow-hidden ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all hover:-translate-y-1 p-6">
         <div className="flex items-center justify-between gap-2">
           <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan">
             {press.outlet}

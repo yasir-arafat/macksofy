@@ -340,7 +340,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link
                   key={r.slug}
                   href={`/blog/${r.slug}`}
-                  className="group rounded-2xl glass p-5 hover:border-neon-cyan/40 transition-all flex flex-col"
+                  className="group rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all flex flex-col"
                 >
                   <Badge variant="purple" className="self-start">{r.category}</Badge>
                   <h3 className="mt-4 font-display font-bold text-fg group-hover:text-neon-cyan line-clamp-2">
@@ -375,7 +375,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group rounded-2xl glass p-5 hover:border-neon-cyan/40 transition-all flex flex-col"
+                  className="group rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all flex flex-col"
                 >
                   <Badge variant="cyan" className="self-start">
                     {s.category}

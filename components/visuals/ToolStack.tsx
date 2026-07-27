@@ -27,7 +27,7 @@ export function ToolStack({
         {tools.map((t) => (
           <span
             key={t.name}
-            className="inline-flex items-center gap-2 rounded-md glass px-3 py-1.5 text-xs font-mono text-fg-muted hover:text-neon-cyan hover:border-neon-cyan/40 transition-colors"
+            className="inline-flex items-center gap-2 rounded-md glass px-3 py-1.5 text-xs font-mono text-fg-muted hover:text-neon-cyan ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow]"
           >
             <span className="size-1.5 rounded-full bg-neon-cyan" />
             {t.name}

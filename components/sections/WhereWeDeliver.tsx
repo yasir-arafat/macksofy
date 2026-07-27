@@ -72,7 +72,7 @@ export function WhereWeDeliver({
               <Link
                 key={c.slug}
                 href={href}
-                className="group flex items-center justify-between gap-2 rounded-xl glass px-4 py-3 hover:border-neon-cyan/40 transition-colors"
+                className="group flex items-center justify-between gap-2 rounded-xl glass px-4 py-3 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow]"
               >
                 <span className="flex items-center gap-3 text-sm">
                   <MapPin className="size-4 text-neon-cyan/70" />

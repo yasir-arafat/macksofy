@@ -223,7 +223,7 @@ export function AuditDeepDive({
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ delay: i * 0.05, duration: 0.45 }}
                     whileHover={{ y: -4 }}
-                    className="group relative rounded-2xl glass p-6 h-full flex flex-col overflow-hidden transition-all hover:border-neon-cyan/40"
+                    className="group relative rounded-2xl glass p-6 h-full flex flex-col overflow-hidden transition-all ring-1 ring-transparent hover:ring-neon-cyan/40"
                   >
                     <div
                       aria-hidden

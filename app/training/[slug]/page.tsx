@@ -427,7 +427,7 @@ export default async function CourseDetail({ params }: PageProps) {
                 <Link
                   key={r.slug}
                   href={`/training/${r.slug}`}
-                  className="group flex flex-col rounded-2xl glass overflow-hidden hover:border-neon-cyan/40 transition-all"
+                  className="group flex flex-col rounded-2xl glass overflow-hidden ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image

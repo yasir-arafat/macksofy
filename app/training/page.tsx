@@ -102,7 +102,7 @@ export default function TrainingPage() {
               <StaggerItem key={c.slug}>
                 <Link
                   href={`/training/${c.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl glass hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden bg-bg-2">
                     <Image

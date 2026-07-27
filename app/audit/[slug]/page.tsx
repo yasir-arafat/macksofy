@@ -315,7 +315,7 @@ export default async function AuditDetail({ params }: PageProps) {
                   <Link
                     key={r.slug}
                     href={`/audit/${r.slug}`}
-                    className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                    className="group rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                   >
                     <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                       <RIcon className="size-5" />
@@ -357,7 +357,7 @@ export default async function AuditDetail({ params }: PageProps) {
                   <Link
                     key={s.slug}
                     href={`/services/${s.slug}`}
-                    className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                    className="group rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                   >
                     <div className="grid size-10 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                       <SIcon className="size-5" />
@@ -391,7 +391,7 @@ export default async function AuditDetail({ params }: PageProps) {
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="group rounded-2xl glass p-6 hover:border-neon-cyan/40 transition-all"
+                  className="group rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                 >
                   <span className="text-xs font-mono uppercase tracking-wider text-neon-cyan">
                     {p.category}

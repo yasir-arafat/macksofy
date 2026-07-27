@@ -167,7 +167,7 @@ export default async function TeamMemberPage({ params }: PageProps) {
                 <li key={post.slug}>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group flex items-start gap-3 rounded-2xl glass p-4 hover:border-neon-cyan/40 transition-all"
+                    className="group flex items-start gap-3 rounded-2xl glass p-4 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                   >
                     <span className="text-sm font-semibold text-fg group-hover:text-neon-cyan">
                       {post.title}

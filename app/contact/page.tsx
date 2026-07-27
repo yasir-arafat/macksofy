@@ -435,7 +435,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 {FAQS.map((f, i) => (
                   <li
                     key={i}
-                    className="rounded-2xl glass p-5 hover:border-neon-cyan/30 transition-colors"
+                    className="rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/30 transition-[color,background-color,border-color,box-shadow]"
                   >
                     <div className="font-display text-sm font-bold text-fg">
                       {f.q}

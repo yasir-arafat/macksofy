@@ -123,7 +123,7 @@ export default function BlogIndexPage() {
       <Container className="pb-12">
         <Link
           href={`/blog/${featured.slug}`}
-          className="group block rounded-2xl glass overflow-hidden hover:border-neon-cyan/40 transition-all"
+          className="group block rounded-2xl glass overflow-hidden ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
         >
           <div className="grid lg:grid-cols-12">
             <div className="lg:col-span-6">
@@ -176,7 +176,7 @@ export default function BlogIndexPage() {
             <Link
               key={p.slug}
               href={`/blog/${p.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl glass hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+              className="group flex flex-col overflow-hidden rounded-2xl glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

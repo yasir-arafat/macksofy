@@ -70,14 +70,14 @@ export function Testimonials() {
               <button
                 onClick={prev}
                 aria-label="Previous testimonial"
-                className="grid size-10 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan"
+                className="grid size-10 place-items-center rounded-full glass ring-1 ring-transparent transition-[color,box-shadow] hover:ring-neon-cyan/40 hover:text-neon-cyan"
               >
                 <ChevronLeft className="size-4" />
               </button>
               <button
                 onClick={next}
                 aria-label="Next testimonial"
-                className="grid size-10 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan"
+                className="grid size-10 place-items-center rounded-full glass ring-1 ring-transparent transition-[color,box-shadow] hover:ring-neon-cyan/40 hover:text-neon-cyan"
               >
                 <ChevronRight className="size-4" />
               </button>
@@ -95,7 +95,7 @@ export function Testimonials() {
                 className={`block w-full text-left rounded-xl p-4 transition-all ${
                   i === idx
                     ? "glass-strong border-neon-cyan/40 glow-cyan"
-                    : "glass hover:border-line-strong"
+                    : "glass ring-1 ring-transparent transition-shadow hover:ring-line-strong"
                 }`}
               >
                 <div className="text-sm font-semibold text-fg">{tt.name}</div>

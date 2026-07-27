@@ -86,7 +86,7 @@ export default function IndustriesPage() {
                 <Link
                   key={i.slug}
                   href={`/industries/${i.slug}`}
-                  className="group rounded-2xl glass p-6 flex flex-col hover:border-neon-cyan/40 transition-all"
+                  className="group rounded-2xl glass p-6 flex flex-col ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                 >
                   <div className="grid size-12 place-items-center rounded-xl bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                     <Icon className="size-6" />

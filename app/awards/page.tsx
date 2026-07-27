@@ -196,7 +196,7 @@ function FeaturedAwardCard({ award }: { award: Award }) {
 function AwardCard({ award }: { award: Award }) {
   return (
     <article className="group relative h-full">
-      <div className="relative h-full flex flex-col rounded-2xl glass overflow-hidden hover:border-neon-cyan/40 transition-all hover:-translate-y-1">
+      <div className="relative h-full flex flex-col rounded-2xl glass overflow-hidden ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all hover:-translate-y-1">
         <div className="relative aspect-[6/5] overflow-hidden bg-white">
           <Image
             src={award.image}

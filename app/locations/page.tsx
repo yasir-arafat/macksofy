@@ -93,7 +93,7 @@ export default function LocationsPage() {
             <Link
               key={c.slug}
               href={`/locations/${c.slug}`}
-              className="group relative flex flex-col overflow-hidden rounded-2xl glass p-6 hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+              className="group relative flex flex-col overflow-hidden rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
             >
               {c.primary && (
                 <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.22em] text-neon-cyan">

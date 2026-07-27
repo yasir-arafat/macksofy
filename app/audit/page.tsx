@@ -203,7 +203,7 @@ export default function AuditPage() {
               <Link
                 key={cat}
                 href={`#cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}
-                className="group rounded-2xl glass p-5 hover:border-neon-cyan/40 transition-all"
+                className="group rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
               >
                 <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] font-semibold">
                   <span
@@ -274,7 +274,7 @@ export default function AuditPage() {
                   <StaggerItem key={p.title}>
                     <Link
                       href="/audit/cybersecurity-audit"
-                      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-5 hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+                      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
                     >
                       <div className="flex items-center gap-3">
                         <div
@@ -380,7 +380,7 @@ export default function AuditPage() {
                       <StaggerItem key={a.slug}>
                         <Link
                           href={`/audit/${a.slug}`}
-                          className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-6 hover:border-neon-cyan/40 hover:-translate-y-1 transition-all"
+                          className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-cyan/40 hover:-translate-y-1 transition-all"
                         >
                           {a.authority && (
                             <div className="absolute top-3 right-3">

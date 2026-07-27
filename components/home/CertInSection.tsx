@@ -106,7 +106,7 @@ export function CertInSection() {
                 <Link
                   key={a.slug}
                   href={`/audit/${a.slug}`}
-                  className="group inline-flex items-center gap-1.5 rounded-full glass px-4 h-9 text-sm font-medium text-fg-muted hover:text-neon-cyan hover:border-neon-cyan/40 transition-colors"
+                  className="group inline-flex items-center gap-1.5 rounded-full glass px-4 h-9 text-sm font-medium text-fg-muted hover:text-neon-cyan ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow]"
                 >
                   {a.shortTitle}
                   <ArrowRight className="size-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-neon-cyan" />

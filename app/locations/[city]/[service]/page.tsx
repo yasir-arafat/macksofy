@@ -327,7 +327,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
                 const tone = INDUSTRY_TONES[i % INDUSTRY_TONES.length];
                 return (
                   <StaggerItem key={ind.name}>
-                    <div className="group h-full rounded-2xl glass p-5 hover:border-neon-cyan/40 transition-all lift">
+                    <div className="group h-full rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all lift">
                       <div className={`grid size-11 place-items-center rounded-xl ring-1 ${tone} mb-4`}>
                         <Icon className="size-5" />
                       </div>
@@ -457,7 +457,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
                         <li key={`${p.city}-${p.service}`}>
                           <Link
                             href={`/locations/${p.city}/${p.service}`}
-                            className="group flex items-center gap-3 rounded-xl glass p-3 hover:border-neon-cyan/40 transition-all"
+                            className="group flex items-center gap-3 rounded-xl glass p-3 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                           >
                             <div className="grid size-8 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                               <SibIcon className="size-4" />
@@ -487,7 +487,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
                         <li key={`${p.city}-${p.service}`}>
                           <Link
                             href={`/locations/${p.city}/${p.service}`}
-                            className="group flex items-center gap-3 rounded-xl glass p-3 hover:border-neon-cyan/40 transition-all"
+                            className="group flex items-center gap-3 rounded-xl glass p-3 ring-1 ring-transparent hover:ring-neon-cyan/40 transition-all"
                           >
                             <div className="grid size-8 place-items-center rounded-lg bg-bg-2 ring-1 ring-neon-cyan/30 text-neon-cyan">
                               <Building2 className="size-4" />

@@ -314,7 +314,7 @@ export function InteractiveTimeline() {
         <button
           onClick={() => goto(active - 1)}
           aria-label="Previous milestone"
-          className="grid size-10 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan transition-colors"
+          className="grid size-10 place-items-center rounded-full glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:text-neon-cyan transition-[color,background-color,border-color,box-shadow]"
         >
           <ChevronLeft className="size-5" />
         </button>
@@ -326,7 +326,7 @@ export function InteractiveTimeline() {
         <button
           onClick={() => goto(active + 1)}
           aria-label="Next milestone"
-          className="grid size-10 place-items-center rounded-full glass hover:border-neon-cyan/40 hover:text-neon-cyan transition-colors"
+          className="grid size-10 place-items-center rounded-full glass ring-1 ring-transparent hover:ring-neon-cyan/40 hover:text-neon-cyan transition-[color,background-color,border-color,box-shadow]"
         >
           <ChevronRight className="size-5" />
         </button>
