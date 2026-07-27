@@ -1,3 +1,7 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { Eyebrow } from "@/components/ui/SectionTitle";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,15 +21,21 @@ import { cn } from "@/lib/utils";
  * paragraph. Keep `a` to 40–60 words, lead with the definition, and avoid
  * marketing adjectives.
  *
- * Layout: this is a flush callout, not a card. The text sits directly on the
- * page's left rail so it lines up with the H1, hero copy and CTAs above it —
- * a padded card pushed the copy ~25px off that rail on every page. The cyan
- * accent rule is absolutely positioned into the container gutter so it reads
- * as an accent without taking the text off the rail. (It also replaces a
- * `border-l-2 border-neon-cyan/60` that never actually rendered: `.glass` in
- * globals.css is unlayered CSS, so its `border` shorthand beat Tailwind's
- * layered utilities and the accent silently resolved to a 1px white hairline.)
+ * Layout: a flush section block, not a card and not a rule-and-inset callout.
+ * Every line — eyebrow, question, answer — starts on the page's left rail, so
+ * it lines up with the H1, hero copy and CTAs above it. Nothing is rendered to
+ * the left of the text: an accent rail in the gutter became the leftmost thing
+ * on the block, which made the copy read as indented even though it wasn't.
+ * The cyan accent now comes from the shared <Eyebrow>, same as every other
+ * section on the site.
+ *
+ * Client Component purely for the entrance animation. Only strings cross the
+ * boundary — `content/*` stays server-side, which is the rule that keeps this
+ * off the INP budget on ~167 pages.
  */
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export function AnswerBox({
   q,
   a,
@@ -35,27 +45,44 @@ export function AnswerBox({
   a: string;
   className?: string;
 }) {
+  const reduce = useReducedMotion();
+
+  /**
+   * `initial={false}` is deliberate and matches the Hero's convention: this
+   * block sits above the fold on most templates, so the copy must be present
+   * and visible in the SSR HTML — for crawlers, for no-JS, and so it can serve
+   * as the LCP element without waiting on hydration. The reveal is played from
+   * the keyframe arrays once React takes over, rather than by hiding the
+   * element up front.
+   */
+  const reveal = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: false as const,
+          whileInView: { opacity: [0, 1], y: [12, 0] },
+          viewport: { once: true, margin: "-80px" },
+          transition: { duration: 0.5, delay, ease: EASE },
+        };
+
   return (
-    <div className={cn("relative max-w-3xl", className)}>
-      {/* Gutter accent rule. Only from `lg` up, where the container gutter is
-          32px — narrower breakpoints don't have room to hold it clear of the
-          viewport edge, and the callout reads fine flush without it. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-y-1 hidden w-0.5 rounded-full bg-neon-cyan/60 lg:-left-5 lg:block"
-      />
-      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan font-bold">
-        In short
-      </div>
-      <h2 className="mt-3 font-display text-lg sm:text-xl font-bold text-fg leading-snug text-balance">
+    <div className={cn("max-w-3xl", className)}>
+      <motion.div {...reveal(0)}>
+        <Eyebrow>In short</Eyebrow>
+      </motion.div>
+      <motion.h2
+        {...reveal(0.07)}
+        className="mt-3 font-display text-lg sm:text-xl font-bold text-fg leading-snug text-balance"
+      >
         {q}
-      </h2>
-      <p
+      </motion.h2>
+      <motion.p
+        {...reveal(0.14)}
         data-speakable="answer"
         className="mt-3 text-fg-muted leading-relaxed text-pretty"
       >
         {a}
-      </p>
+      </motion.p>
     </div>
   );
 }
