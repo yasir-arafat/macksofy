@@ -39,7 +39,10 @@ export function ServicesOverview() {
             <StaggerItem key={s.slug}>
               <Link href={`/services/${s.slug}`} className="group block h-full">
                 <ServiceCardShell>
-                  <div className="absolute -right-12 -top-12 size-40 rounded-full bg-neon-cyan/0 blur-2xl transition-all duration-500 group-hover:bg-neon-cyan/20" />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-12 -top-12 size-40 rounded-full bg-neon-cyan/0 blur-2xl transition-all duration-500 group-hover:bg-neon-cyan/20"
+                  />
                   <div className="relative flex items-start justify-between">
                     <div className="grid size-12 place-items-center rounded-xl bg-bg-2 text-neon-cyan ring-1 ring-neon-cyan/30 group-hover:scale-110 transition-transform">
                       <NavIcon name={s.iconName} className="size-6" />
