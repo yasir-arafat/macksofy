@@ -73,17 +73,6 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema(HOME_FAQS)} />
       <Hero />
-      {/* Definition-first short answer directly under the hero — gives AI
-          Overviews / Perplexity / voice a clean, quotable "who is Macksofy"
-          the marketing hero copy can't provide. */}
-      <Container className="pb-6">
-        <div className="max-w-3xl">
-          <AnswerBox
-            q="What does Macksofy Technologies do?"
-            a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving clients across India and the UAE. It delivers penetration testing and VAPT, managed SOC, red teaming, and digital forensics, alongside regulator-aligned audits (RBI, SEBI, ISO 27001) and EC-Council / OffSec exam-prep training."
-          />
-        </div>
-      </Container>
       <ClientLogos />
       <ServicesOverview />
       <CertInSection />
@@ -99,13 +88,27 @@ export default function HomePage() {
           (Google policy) and gives AI Overviews / voice a real answer surface. */}
       <section className="py-20">
         <Container>
-          <div className="max-w-3xl">
-            <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              Questions buyers ask about <span className="gradient-text">Macksofy</span>.
-            </h2>
-            <div className="mt-10">
-              <FAQAccordion faqs={HOME_FAQS} />
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* Definition-first short answer — the clean, quotable "who is
+                Macksofy" that AI Overviews / Perplexity / voice can lift, which
+                the marketing hero copy can't provide. It fills the column the
+                FAQ block leaves empty on desktop (`lg:order-last`), but stays
+                ahead of the FAQ in DOM order so answer extraction still reaches
+                it before the five Q&As. */}
+            <div className="lg:order-last lg:col-span-5">
+              <AnswerBox
+                q="What does Macksofy Technologies do?"
+                a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving clients across India and the UAE. It delivers penetration testing and VAPT, managed SOC, red teaming, and digital forensics, alongside regulator-aligned audits (RBI, SEBI, ISO 27001) and EC-Council / OffSec exam-prep training."
+              />
+            </div>
+            <div className="lg:col-span-7">
+              <Eyebrow>FAQ</Eyebrow>
+              <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+                Questions buyers ask about <span className="gradient-text">Macksofy</span>.
+              </h2>
+              <div className="mt-10">
+                <FAQAccordion faqs={HOME_FAQS} />
+              </div>
             </div>
           </div>
         </Container>
