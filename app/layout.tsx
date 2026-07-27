@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -24,28 +24,63 @@ import { SITE } from "@/lib/site";
 // thank-you page (see components/lp/ConversionPing.tsx). ID is env-overridable.
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "657263208736543";
 
-// Space Grotesk — single techy/grotesk family for body + headings (the
-// site's "hacker-adjacent" type voice). Variable font (axis 300–700), so no
-// weight array is needed; Tailwind's font-black (900) clamps to its 700 max,
-// which is Space Grotesk's intended bold and renders cleanly (no faux-bold).
-const spaceGrotesk = Space_Grotesk({
+/**
+ * Self-hosted, subsetted webfonts (LCP).
+ *
+ * These were next/font/google. That emits Google's per-script @font-face split
+ * and the browser fetches whichever unicode-ranges the page touches — which
+ * meant FOUR files, ~99 KB, on every page load:
+ *
+ *     JetBrains Mono  latin      40.7 KB   (preloaded)
+ *     Space Grotesk   latin      23.6 KB   (preloaded)
+ *     JetBrains Mono  latin-ext  19.1 KB
+ *     Space Grotesk   latin-ext  15.4 KB
+ *
+ * A scan of all 296 prerendered pages found exactly one character outside the
+ * `latin` range: ₹ (U+20B9), in course prices. That single glyph pulled 34.5 KB
+ * of latin-ext — and JetBrains Mono has no rupee glyph at all, so its 19 KB was
+ * fetched, searched, and fell back to a system font regardless.
+ *
+ * scripts/build-font-subsets.py now bakes one file per family covering the same
+ * `latin` range plus ₹, with the variable weight axis clipped to the range the
+ * site actually renders (nothing below 400 is used anywhere). Result: two files,
+ * ~49 KB, no second round-trip.
+ *
+ * Rendering is unchanged — same glyph coverage, and every character that fell
+ * back to a system font before still does.
+ *
+ * adjustFontFallback is OFF deliberately. The previous next/font/google setup
+ * emitted no metric-adjusted fallback face either (verified against the live
+ * CSS: nine @font-face rules, none with size-adjust), so leaving it off keeps
+ * fallback behaviour — and therefore CLS — byte-identical to what is in the
+ * field today. Turning it on generates a `local("Arial")` face with computed
+ * size-adjust/ascent/descent overrides, which would likely REDUCE swap reflow,
+ * but it changes what the eye sees during the swap (mono labels would flash in
+ * proportional Arial) and it cannot be validated on a box without Arial
+ * installed. Worth trying as its own change, measured on its own.
+ */
+
+// Space Grotesk — body copy. Variable axis clipped to 400–700; Tailwind's
+// font-black (900) clamps to the 700 max, which is the family's intended bold.
+const spaceGrotesk = localFont({
+  src: "./fonts/SpaceGrotesk-subset.woff2",
   variable: "--font-space-grotesk",
-  subsets: ["latin"],
+  weight: "400 700",
+  style: "normal",
   display: "swap",
-  // next/font already emits a metric-adjusted fallback (adjustFontFallback is
-  // on by default), so the swap from fallback → Space Grotesk causes no reflow.
-  // Declaring the fallback stack explicitly makes that guarantee robust even if
-  // the adjusted @font-face fails to load.
+  adjustFontFallback: false,
   fallback: ["system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
-// JetBrains Mono drives both the code/labels AND (now) the headings for a
-// terminal look — so load the full variable axis (100–800) instead of three
-// static weights. Tailwind font-black (900) clamps to its 800 max cleanly.
-const mono = JetBrains_Mono({
+// JetBrains Mono — headings + code/labels. Variable axis clipped to 400–800;
+// Tailwind font-black (900) clamps to the 800 max cleanly.
+const mono = localFont({
+  src: "./fonts/JetBrainsMono-subset.woff2",
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
+  weight: "400 800",
+  style: "normal",
   display: "swap",
+  adjustFontFallback: false,
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
 });
 

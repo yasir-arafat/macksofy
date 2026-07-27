@@ -186,14 +186,22 @@ async function measure(cdp, sessionId, url) {
   });
 
   // Byte accounting per resource type.
+  //
+  // The listeners are registered per measure() call and never removed, so they
+  // MUST ignore anything that isn't this page's request — otherwise the first
+  // URL's counters keep accumulating while later URLs load, and its totals come
+  // back inflated by every subsequent page (this silently doubled the reported
+  // font weight). `seen` is per-call, so an unknown requestId means the event
+  // belongs to a different measurement.
   const bytes = { script: 0, stylesheet: 0, image: 0, font: 0, document: 0, other: 0 };
   const seen = new Map();
+  let accounting = true;
   cdp.on("Network.responseReceived", (p) => {
-    if (p.sessionId && p.sessionId !== sessionId) return;
+    if (!accounting) return;
     seen.set(p.requestId, p.type);
   });
   cdp.on("Network.loadingFinished", (p) => {
-    if (p.sessionId && p.sessionId !== sessionId) return;
+    if (!accounting || !seen.has(p.requestId)) return;
     const t = (seen.get(p.requestId) || "Other").toLowerCase();
     const key = t in bytes ? t : "other";
     bytes[key] += p.encodedDataLength || 0;
@@ -242,6 +250,8 @@ async function measure(cdp, sessionId, url) {
   const s = await evaluate(
     "({lcp: window.__cwv.lcp, lcpEl: window.__cwv.lcpEl, fcp: window.__cwv.fcp, longTasks: window.__cwv.longTasks, events: window.__cwv.events, cls: window.__cwv.cls, clsSources: window.__cwv.clsSources})"
   );
+
+  accounting = false; // stop this page's counters before the next URL loads
 
   const fcp = s.fcp || 0;
   const tbt = s.longTasks
