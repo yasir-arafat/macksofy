@@ -81,11 +81,21 @@ export async function GET(req: Request) {
   // social / OG share cards.
   const isCard = (searchParams.get("variant") ?? "social") === "card";
 
+  // LCP: `no-transform` is deliberately ABSENT. It is an explicit HTTP
+  // instruction to intermediaries not to re-encode the payload, and Vercel's
+  // Image Optimization honours it — with it set, the on-page blog featured
+  // card (which renders this endpoint through next/image) was served as the
+  // raw 74 KB PNG instead of a resized ~5 KB AVIF. Local `next start` ignores
+  // the directive, so this only reproduces in production.
+  //
+  // Dropping it is safe: the only transformer in the path is our own image
+  // optimizer, and social scrapers fetch /api/og directly (absolute URL from
+  // the page metadata), so they still receive the untouched 1200x630 PNG.
   const opts = {
     width: 1200,
     height: 630,
     headers: {
-      "Cache-Control": "public, immutable, no-transform, max-age=31536000",
+      "Cache-Control": "public, immutable, max-age=31536000",
     },
   };
 
@@ -458,12 +468,8 @@ export async function GET(req: Request) {
         />
       </div>
     ),
-    {
-      width: 1200,
-      height: 630,
-      headers: {
-        "Cache-Control": "public, immutable, no-transform, max-age=31536000",
-      },
-    }
+    // Same header as `opts` above — see the note there on why `no-transform`
+    // is omitted (it blocked Vercel's image optimizer on the blog hero).
+    opts
   );
 }
