@@ -31,8 +31,11 @@ latin-ext either, so it already falls back to a system font and is unaffected.
 
 Two reductions, both of which need control Google's endpoint doesn't offer:
 
-  1. ONE file per family covering latin + ₹ — no second request, no
-     latin-ext, and the rupee sign now renders in the brand font everywhere.
+  1. ONE file per family covering latin + ₹ — no second request and no
+     latin-ext. Space Grotesk keeps its rupee glyph; JetBrains Mono has none
+     upstream, so ₹ in mono contexts (course prices) still falls back to a
+     system mono font exactly as it did before — the difference is that the
+     browser no longer downloads 19 KB to discover that.
   2. The variable weight axis is clipped to the range the site actually uses.
      Grepping the Tailwind utilities finds font-normal(400), font-medium(500),
      font-semibold(600), font-bold(700) and font-black(900, which clamps to
