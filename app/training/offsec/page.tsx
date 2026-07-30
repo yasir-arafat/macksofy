@@ -255,7 +255,8 @@ export default function OffSecHubPage() {
             description:
               "Hands-on bootcamps preparing learners for the full Offensive Security certification stack — OSCP+, OSEP, OSWA, OSWE, OSWP, OSDA, OSED, OSMR and OSCC — across India and the UAE.",
           },
-          faqSchema(OFFSEC_FAQS),
+          // No AnswerBox on this hub — don't claim its speakable selector.
+          faqSchema(OFFSEC_FAQS, { answerBox: false }),
         ]}
       />
 

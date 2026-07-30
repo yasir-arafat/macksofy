@@ -66,21 +66,21 @@ export const REFS: Record<string, Reference> = {
   "iso-42001": { label: "ISO/IEC 42001 (AI)", url: "https://www.iso.org/standard/81230.html", issuer: "ISO/IEC" },
   "soc2-aicpa": { label: "SOC 2 (AICPA)", url: "https://www.aicpa-cima.com/", issuer: "AICPA" },
   "pci-dss": { label: "PCI DSS", url: "https://www.pcisecuritystandards.org/", issuer: "PCI SSC" },
-  "hipaa": { label: "HIPAA (HHS)", url: "https://www.hhs.gov/hipaa/", issuer: "US HHS" },
+  "hipaa": { label: "HIPAA (HHS)", url: "https://www.hhs.gov/hipaa/index.html", issuer: "US HHS" },
   "gdpr": { label: "GDPR (EUR-Lex)", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", issuer: "European Union" },
   "iec-62443": { label: "ISA/IEC 62443 (OT)", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", issuer: "ISA / IEC" },
   // GCC regulators
   "sia-uae": { label: "UAE Information Assurance Standards (SIA)", url: "https://sia.gov.ae/", issuer: "UAE SIA (ex-NESA)" },
-  "doh-adhics": { label: "ADHICS (Abu Dhabi DoH)", url: "https://www.doh.gov.ae/", issuer: "Department of Health, Abu Dhabi" },
+  "doh-adhics": { label: "ADHICS (Abu Dhabi DoH)", url: "https://www.doh.gov.ae/en/", issuer: "Department of Health, Abu Dhabi" },
   "desc": { label: "DESC (Dubai)", url: "https://www.desc.gov.ae/", issuer: "Dubai Electronic Security Center" },
   "uae-pdpl": { label: "UAE Personal Data Protection Law", url: "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws", issuer: "UAE Government" },
   "cbuae": { label: "Central Bank of the UAE", url: "https://www.centralbank.ae/", issuer: "CBUAE" },
-  "sama": { label: "SAMA (Saudi Central Bank)", url: "https://www.sama.gov.sa/", issuer: "SAMA" },
+  "sama": { label: "SAMA (Saudi Central Bank)", url: "https://www.sama.gov.sa/en-us/Pages/default.aspx", issuer: "SAMA" },
   "nca-saudi": { label: "Saudi National Cybersecurity Authority", url: "https://nca.gov.sa/", issuer: "NCA (KSA)" },
   // Training / certification bodies (cited on training + certification-guide pages)
   "ec-council": { label: "EC-Council (CEH · CHFI · CPENT)", url: "https://www.eccouncil.org/", issuer: "EC-Council" },
   "offsec": { label: "OffSec (OSCP · OSEP · OSWE)", url: "https://www.offsec.com/", issuer: "OffSec" },
-  "comptia": { label: "CompTIA Certifications", url: "https://www.comptia.org/certifications", issuer: "CompTIA" },
+  "comptia": { label: "CompTIA Certifications", url: "https://www.comptia.org/en-us/certifications/", issuer: "CompTIA" },
 };
 
 /** Which references apply to each money page. Keys: `"<kind>:<slug>"`. */

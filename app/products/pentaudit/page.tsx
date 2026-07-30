@@ -272,7 +272,8 @@ export default function PentauditPage() {
               url: `${SITE.url}/contact?interest=Pentaudit`,
             },
           },
-          faqSchema(FAQS),
+          // No AnswerBox on this product page — don't claim its selector.
+          faqSchema(FAQS, { answerBox: false }),
         ]}
       />
 

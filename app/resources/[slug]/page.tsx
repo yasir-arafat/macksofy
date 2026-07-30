@@ -54,6 +54,10 @@ function articleSchema(r: ReturnType<typeof getResourceBySlug>) {
     publisher: { "@id": `${SITE.url}#organization` },
     author: { "@id": `${SITE.url}#organization` },
     datePublished: `${r.publishedYear}-01-01`,
+    // Mirrors the blog convention (dateModified: updated ?? published) — falls
+    // back to the publication date when a resource has never been revised, so
+    // the value stays truthful rather than absent.
+    dateModified: r.updated ?? `${r.publishedYear}-01-01`,
     keywords: r.keywords.join(", "),
     about: r.topics.map((t) => ({ "@type": "Thing", name: t })),
     articleSection: r.type,

@@ -91,7 +91,9 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <JsonLd
         data={[
           breadcrumbSchema([{ name: "Contact", url: "/contact" }]),
-          faqSchema(FAQS),
+          // FAQ renders as a static grid (not FAQAccordion) but carries the
+          // same data-speakable hooks; there is no AnswerBox on this page.
+          faqSchema(FAQS, { answerBox: false }),
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
@@ -437,10 +439,20 @@ export default async function ContactPage({ searchParams }: PageProps) {
                     key={i}
                     className="rounded-2xl glass p-5 ring-1 ring-transparent hover:ring-neon-cyan/30 transition-[color,background-color,border-color,box-shadow]"
                   >
-                    <div className="font-display text-sm font-bold text-fg">
+                    {/* data-speakable mirrors FAQAccordion's convention so the
+                        FAQPage speakable selectors resolve here too — this page
+                        renders its FAQ as a static grid rather than the shared
+                        accordion. */}
+                    <div
+                      data-speakable="faq-question"
+                      className="font-display text-sm font-bold text-fg"
+                    >
                       {f.q}
                     </div>
-                    <p className="mt-2 text-xs text-fg-muted leading-relaxed">
+                    <p
+                      data-speakable="faq-answer"
+                      className="mt-2 text-xs text-fg-muted leading-relaxed"
+                    >
                       {f.a}
                     </p>
                   </li>

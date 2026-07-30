@@ -190,17 +190,22 @@ export default async function BlogPostPage({ params }: PageProps) {
             // (Google Assistant, Bing voice) are licensed to read aloud
             // and AI summarisers prefer when extracting a one-line
             // takeaway. CSS-selector form — Google's recommended shape.
+            // AnswerBox only renders when this post has a shortAnswers entry
+            // (10 of 49 posts), so claim its selector only when it is really
+            // in the DOM — a selector that matches nothing is a dead promise.
             speakable: {
               "@type": "SpeakableSpecification",
               cssSelector: [
                 "h1",
                 "[data-speakable='lead']",
-                "[data-speakable='answer']",
+                ...(shortAnswer ? ["[data-speakable='answer']"] : []),
                 "article h2",
               ],
             },
           },
-          ...(p.faqs ? [faqSchema(p.faqs)] : []),
+          ...(p.faqs
+            ? [faqSchema(p.faqs, { answerBox: Boolean(shortAnswer) })]
+            : []),
         ]}
       />
 

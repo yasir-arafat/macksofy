@@ -452,12 +452,31 @@ export function methodologyHowToSchema(args: {
   };
 }
 
+/**
+ * Google ignores an Article `headline` longer than 110 characters. Clamp on a
+ * word boundary for the schema value only — the visible H1 keeps the full
+ * headline, and the untruncated text is preserved in `alternativeHeadline`.
+ */
+const HEADLINE_LIMIT = 110;
+
+function clampHeadline(input: string): string {
+  const t = input.trim();
+  if (t.length <= HEADLINE_LIMIT) return t;
+  const cut = t.lastIndexOf(" ", HEADLINE_LIMIT - 1);
+  return (cut > 0 ? t.slice(0, cut) : t.slice(0, HEADLINE_LIMIT)).replace(
+    /[\s—–\-·|,;:]+$/,
+    "",
+  );
+}
+
 export function caseStudySchema(cs: CaseStudyHero) {
+  const headline = clampHeadline(cs.headline);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${BASE}/case-studies/${cs.slug}#article`,
-    headline: cs.headline,
+    headline,
+    ...(headline !== cs.headline && { alternativeHeadline: cs.headline }),
     description: cs.summary,
     url: `${BASE}/case-studies/${cs.slug}`,
     image: `${BASE}${SITE.ogImage}`,
@@ -507,7 +526,40 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function faqSchema(faqs: { q: string; a: string }[]) {
+/**
+ * Options describing which speakable-bearing blocks the calling page actually
+ * renders. A `cssSelector` that matches nothing is a dead promise — the same
+ * defect class as the old `[itemprop=...]` selectors — so every selector below
+ * is opt-out rather than assumed.
+ *
+ * Defaults are `true` because the overwhelming majority of FAQPage-emitting
+ * templates (services, audits, industries, cities, combos, courses) render both
+ * blocks. Pages that render only one — or neither — must say so.
+ */
+type FaqSpeakableOptions = {
+  /** Page renders <FAQAccordion> (or equivalent data-speakable="faq-*" markup). */
+  accordion?: boolean;
+  /** Page renders <AnswerBox> (data-speakable="answer"). */
+  answerBox?: boolean;
+};
+
+export function faqSchema(
+  faqs: { q: string; a: string }[],
+  { accordion = true, answerBox = true }: FaqSpeakableOptions = {},
+) {
+  // Speakable points at real DOM nodes only. The accordion
+  // (components/sections/FAQAccordion.tsx) renders every question with
+  // data-speakable="faq-question" (always in the DOM) and the open answer with
+  // data-speakable="faq-answer"; AnswerBox (components/sections/AnswerBox.tsx)
+  // renders data-speakable="answer". Mirrors the blog's data-speakable="lead"
+  // convention.
+  const cssSelector = [
+    ...(accordion
+      ? ["[data-speakable='faq-question']", "[data-speakable='faq-answer']"]
+      : []),
+    ...(answerBox ? ["[data-speakable='answer']"] : []),
+  ];
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -516,23 +568,10 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
-    // Speakable points at the FAQ accordion's real DOM nodes. The accordion
-    // (components/sections/FAQAccordion.tsx) renders every question with
-    // data-speakable="faq-question" (always in the DOM) and the open answer
-    // with data-speakable="faq-answer". The previous itemprop selectors
-    // matched nothing — the accordion emits no microdata — so the speakable
-    // promise was dead. Mirrors the blog's data-speakable="lead" convention.
-    // Also claims the page's AnswerBox short-answer (data-speakable="answer",
-    // rendered by components/sections/AnswerBox.tsx on ~167 pages) — every
-    // page carrying an AnswerBox also emits this FAQPage node.
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: [
-        "[data-speakable='faq-question']",
-        "[data-speakable='faq-answer']",
-        "[data-speakable='answer']",
-      ],
-    },
+    // Omit the property entirely rather than emit an empty selector list.
+    ...(cssSelector.length > 0 && {
+      speakable: { "@type": "SpeakableSpecification", cssSelector },
+    }),
   };
 }
 
