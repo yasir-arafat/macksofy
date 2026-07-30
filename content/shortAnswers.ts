@@ -472,6 +472,169 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What laptop specs do cybersecurity students need in India?",
     a: "For running virtual machines and security labs, target at least 16GB RAM (32GB preferred), a modern multi-core CPU with hardware virtualization, and a 512GB+ SSD; battery life and Linux compatibility matter for fieldwork. This guide ranks the best options across budgets in India for 2026.",
   },
+
+  // ── Certification comparisons ──
+  // Comparison posts lead with the differentiator rather than a definition:
+  // the query being answered is "which one", so the extractable answer is a
+  // verdict. Same pattern as blog:red-team-certifications-india-2026 above.
+  // OffSec credentials are always described as exam-prep bootcamps — Macksofy
+  // is not an OffSec partner or authorised training centre.
+  "blog:oswe-vs-oscp": {
+    q: "OSWE vs OSCP — which OffSec certification should you take?",
+    a: "OSCP is the broad, benchmark hands-on penetration-testing certification covering networks and Active Directory; OSWE is a specialist white-box web-application exploitation certification that requires reading source code. Most candidates take OSCP first, then OSWE to specialise in appsec. Macksofy runs mentor-led OSCP and OSWE exam-prep bootcamps across India.",
+  },
+  "blog:osep-vs-oscp": {
+    q: "OSEP vs OSCP — which should you take for a red team career?",
+    a: "OSCP proves foundational hands-on exploitation and is the usual starting point; OSEP is the advanced follow-on covering antivirus and EDR evasion, phishing, and hardened Active Directory. OSEP assumes you already hold OSCP-level skills. Macksofy runs mentor-led OSCP and OSEP exam-prep bootcamps for red-team careers across India.",
+  },
+  "blog:crto-vs-oscp-honest-comparison-2026": {
+    q: "CRTO vs OSCP — which should you take first?",
+    a: "OSCP teaches broad hands-on exploitation and is the credential Indian job listings recognise most; CRTO focuses on modern command-and-control, evasion, and Active Directory tradecraft in an open-book lab exam. Most candidates take OSCP first. Macksofy runs mentor-led OSCP and red-team exam-prep bootcamps across India.",
+  },
+  "blog:cpts-vs-oscp-certification-comparison-india-2026": {
+    q: "CPTS vs OSCP — which pentest certification should you take?",
+    a: "OSCP is the certification Indian employers name most often in job listings; Hack The Box's CPTS is cheaper, longer, and widely considered more technically thorough, but carries less weight with HR filters. Choose OSCP for hiring signal, CPTS for depth. Macksofy runs mentor-led OSCP exam-prep bootcamps across India.",
+  },
+  "blog:crtp-vs-crte-certification-guide-india-2026": {
+    q: "CRTP vs CRTE — which Active Directory certification comes first?",
+    a: "CRTP teaches Active Directory attack fundamentals — enumeration, Kerberos abuse, and domain privilege escalation — and is the usual starting point; CRTE is the harder follow-on covering forest-level attacks and defence evasion across a larger lab. Take CRTP first. Macksofy runs Active Directory red-team bootcamps aligned to MITRE ATT&CK in India.",
+  },
+  "blog:oscp-plus-vs-oscp-2026": {
+    q: "What is the difference between OSCP and OSCP+?",
+    a: "OSCP+ is the same exam with a currency requirement: OffSec rebranded the credential in late 2024 so OSCP+ lapses after three years unless renewed through continuing education, while plain OSCP stays lifetime but undated. The exam itself expanded Active Directory and dropped buffer overflow. Macksofy runs OSCP exam-prep bootcamps in India.",
+  },
+  "blog:oscp-vs-ceh-india-2026": {
+    q: "OSCP vs CEH — which certification should you take in India?",
+    a: "CEH is a broad multiple-choice credential that clears HR filters and government eligibility criteria; OSCP is a 24-hour hands-on exam that proves practical exploitation skill and carries more weight with technical interviewers. Many Indian candidates take CEH first. Macksofy delivers CEH training and OSCP exam-prep bootcamps in India.",
+  },
+  "blog:ecih-vs-gcih-incident-handler-certification-2026": {
+    q: "ECIH vs GCIH — which incident handler certification is better?",
+    a: "GCIH, from SANS/GIAC, is the more respected and far more expensive incident-handling credential, while EC-Council's ECIH costs a fraction of it and is more accessible to early-career Indian candidates. Budget usually decides. Macksofy, an EC-Council Accredited Training Center, delivers ECIH with hands-on labs in India.",
+  },
+  "blog:osda-exam-tips-2026": {
+    q: "How hard is the OSDA exam and how do you pass it?",
+    a: "OSDA is OffSec's SOC-200 defensive certification, earned in a proctored exam where you detect and reconstruct attacker activity from logs rather than exploit systems. Passing turns on a disciplined query workflow in Splunk and ELK, and on documenting the full attack chain. Macksofy runs mentor-led SOC-200 exam-prep bootcamps in India.",
+  },
+
+  // ── Service and engagement comparisons ──
+  "blog:red-team-vs-penetration-testing-2026": {
+    q: "What is the difference between red teaming and penetration testing?",
+    a: "A penetration test finds and exploits as many vulnerabilities as it can inside a defined scope over a fixed window; a red team is goal-based and stealthy, testing whether your detection and response actually work while reaching a single objective. Macksofy delivers both, scoped to CERT-In and RBI expectations across India.",
+  },
+  "blog:vapt-vs-red-team-2026": {
+    q: "Should you buy VAPT or a red team engagement?",
+    a: "Buy VAPT when you need coverage and an auditable finding list for CERT-In, RBI, or SEBI; buy a red team when you already patch reliably and need to test whether your SOC detects and responds. Maturity decides, not budget. Macksofy delivers both with CERT-In-format reporting for Indian BFSI procurement.",
+  },
+  "blog:mdr-vs-mssp-2026": {
+    q: "What is the difference between MDR and MSSP?",
+    a: "An MSSP manages and monitors your security tools and forwards alerts to you; MDR adds the outcome — a provider-run team that investigates, triages, and actively contains threats, usually on its own detection stack. MDR costs more and carries response SLAs. Macksofy builds and runs managed SOC services for Indian enterprises.",
+  },
+  "blog:cert-in-empanelled-vs-iso-27001-2026": {
+    q: "CERT-In empanelled VAPT vs ISO 27001 — what does each prove?",
+    a: "They prove different things. A CERT-In empanelled VAPT is a point-in-time technical test showing whether your systems can actually be exploited; ISO 27001 certifies that your information security management system is designed and operating. Most regulated Indian firms need both. Macksofy is CERT-In empanelled and delivers ISO 27001 readiness audits.",
+  },
+  "blog:cspm-vs-cnapp-india-2026": {
+    q: "What is the difference between CSPM, CWPP, and CNAPP?",
+    a: "CSPM finds misconfigurations in your cloud control plane, CWPP protects running workloads, and CIEM controls entitlements. CNAPP is the consolidated platform that combines all three and correlates their findings into one prioritised risk view. Start with CSPM. Macksofy delivers cloud security assessments across AWS, Azure, and GCP for Indian enterprises.",
+  },
+  "blog:vciso-buyers-guide-india-2026": {
+    q: "What is a vCISO and when do you need one?",
+    a: "A virtual CISO is an experienced security leader engaged part-time to own strategy, risk, and regulatory readiness without a full-time hire. It suits organisations facing RBI, SEBI, DPDP, or CERT-In expectations but lacking the volume of work to justify a permanent CISO. Macksofy provides vCISO engagements across India and the UAE.",
+  },
+
+  // ── Indian regulation and compliance ──
+  "blog:cert-in-cyber-security-audit-policy-guidelines-2025": {
+    q: "What are CERT-In's Cyber Security Audit Policy Guidelines?",
+    a: "CERT-In's Comprehensive Cyber Security Audit Policy Guidelines, Version 1.0 of 25 July 2025, standardise how empanelled audits in India are scoped, scored, and reported, setting common expectations for auditors and auditees alike. Macksofy is a CERT-In empanelled auditor and delivers audits in the prescribed CERT-In report format across India.",
+  },
+  "blog:cert-in-12-hour-patch-mandate-ai-exploitation-2026": {
+    q: "What is CERT-In's 12-hour patch mandate?",
+    a: "CERT-In's May 2026 AI Threat Landscape guidance sets an indicative twelve-hour window to remediate actively exploited vulnerabilities on internet-facing systems, with longer tiers for lower-severity issues. It is guidance calibrated to AI-accelerated exploitation, not a binding rule. Macksofy is a CERT-In empanelled auditor supporting vulnerability management programmes in India.",
+  },
+  "blog:rbi-csf-vs-sebi-cscrf-2026": {
+    q: "RBI CSF vs SEBI CSCRF — which framework applies to you?",
+    a: "Your regulator decides. Banks, NBFCs, and other RBI-supervised entities follow the RBI Cyber Security Framework, while SEBI-regulated entities — brokers, AMCs, and market infrastructure institutions — follow CSCRF. Dual-regulated groups must satisfy both. Macksofy delivers RBI- and SEBI-aligned audits and VAPT for Indian BFSI.",
+  },
+  "blog:rbi-it-governance-readiness-checklist-2026": {
+    q: "What does the RBI IT Governance Master Direction require?",
+    a: "In force since April 2024, it requires RBI-regulated entities to run a board-level IT Strategy Committee, keep the CISO reporting line independent of IT operations, document patch and change management, test business continuity and disaster recovery, and commission periodic information systems audit. Macksofy delivers RBI-aligned IT governance readiness audits in India.",
+  },
+  "blog:sebi-cscrf-compliance-readiness-2026": {
+    q: "What is the SEBI CSCRF and who must comply?",
+    a: "The Cybersecurity and Cyber Resilience Framework is SEBI's consolidated security mandate for all Regulated Entities — brokers, AMCs, market infrastructure institutions, and more — applying graded obligations by entity size, with a Cyber Capability Index, SOC coverage, periodic VAPT, and SBOM requirements. Macksofy delivers SEBI CSCRF readiness audits and VAPT in India.",
+  },
+  "blog:zero-trust-indian-banks-rbi-itgf-2026": {
+    q: "How does Zero Trust map to the RBI IT Governance Framework?",
+    a: "Zero Trust is not named in the RBI IT Governance Framework, but its pillars map onto obligations the Framework already imposes — identity and access management, device hygiene, network segmentation, application control, and data protection. Banks can adopt it as one route to those controls. Macksofy delivers RBI-aligned security architecture reviews in India.",
+  },
+  "blog:ransomware-readiness-bfsi-india-2026": {
+    q: "How should Indian banks prepare for ransomware?",
+    a: "Ransomware readiness for Indian BFSI rests on four things: prevention through patching and privileged-access control, detection through monitored SOC coverage, a rehearsed response that meets CERT-In's six-hour reporting window, and offline, tested backups that survive domain compromise. Macksofy delivers ransomware readiness assessments and managed SOC for Indian BFSI.",
+  },
+
+  // ── Data protection ──
+  "blog:dpdp-vs-gdpr-2026": {
+    q: "What is the difference between India's DPDP Act and GDPR?",
+    a: "Both regulate personal data, but DPDP is narrower: it covers only digital personal data, has no separate special-category regime, caps penalties in fixed rupee amounts rather than a share of global turnover, and restricts cross-border transfers by blocklist. Macksofy runs DPDP readiness assessments and data-protection audits for Indian fiduciaries.",
+  },
+  "blog:dpdp-cross-border-transfer-2026": {
+    q: "What does DPDP §16 say about cross-border data transfers?",
+    a: "Section 16 of India's DPDP Act permits transferring personal data outside India by default, but lets the Central Government restrict transfers to notified countries — a blocklist, not GDPR's adequacy allowlist. Sectoral rules still apply where stricter. Macksofy runs DPDP readiness assessments and data-residency reviews for Indian SaaS and BFSI.",
+  },
+  "blog:dpdp-significant-data-fiduciary-obligations-2026": {
+    q: "What must a Significant Data Fiduciary do under the DPDP Act?",
+    a: "A Significant Data Fiduciary is one the Central Government notifies by volume and sensitivity of data handled. On top of every Data Fiduciary duty, it must appoint a Data Protection Officer based in India and answerable to the board, commission an independent data auditor, and run periodic Data Protection Impact Assessments. Macksofy delivers DPDP readiness and data audits.",
+  },
+  "blog:uae-cybersecurity-compliance-pdpl-nesa-2026": {
+    q: "What is the difference between PDPL and NESA in the UAE?",
+    a: "They govern different things. The Federal PDPL 2021 is a personal-data privacy law covering consent, data-subject rights, and breach notification; NESA, the UAE Information Assurance Standards, is a security control framework for entities in critical sectors. Most UAE enterprises must satisfy both, plus emirate and free-zone regimes. Macksofy delivers UAE compliance assessments.",
+  },
+
+  // ── Cloud and OT ──
+  "blog:cloud-misconfigurations-rbi-sebi-audit-2026": {
+    q: "Which cloud misconfigurations fail RBI and SEBI audits?",
+    a: "The recurring findings are publicly exposed storage, over-permissive IAM roles and unused privileged keys, logging that is disabled or retained too briefly to reconstruct an incident, unencrypted data at rest, and workloads placed outside India against data-residency expectations. Macksofy delivers RBI- and SEBI-aligned cloud audits in India.",
+  },
+  "blog:multi-cloud-security-bfsi-india-2026": {
+    q: "How should Indian BFSI secure a multi-cloud estate?",
+    a: "Standardise before you scale: enforce landing-zone guardrails so every new account starts compliant, keep regulated data in Indian regions to satisfy RBI and DPDP, contain identity blast radius so one compromised role cannot cross clouds, and monitor centrally. Macksofy delivers multi-cloud security assessments for Indian banks, NBFCs, and insurers.",
+  },
+  "blog:ot-ics-security-playbook-india-2026": {
+    q: "What is the difference between IT security and OT security?",
+    a: "IT security prioritises confidentiality of data; OT security prioritises safety and availability of a physical process, where an unplanned reboot can stop a turbine. That inverts the control set toward passive monitoring, strict segmentation by Purdue level, and change windows measured in months. Macksofy delivers OT and ICS assessments aligned to IEC 62443 in India.",
+  },
+
+  // ── Technical guides and references ──
+  // No Macksofy line where a service claim would be a stretch — same call as
+  // blog:best-laptops-cybersecurity-students-india-2026 above.
+  "blog:active-directory-pentest-guide-india-2026": {
+    q: "What does an Active Directory penetration test involve?",
+    a: "An Active Directory penetration test assesses your domain the way an attacker would — enumerating users and permissions, harvesting credentials, abusing delegation and ACLs, and attempting domain-wide compromise from an assumed-breach position. Macksofy delivers CERT-In-format AD penetration tests for BFSI, government, and enterprise clients across India.",
+  },
+  "blog:ad-compromise-ir-playbook-indian-bfsi-2026": {
+    q: "How should a bank respond to an Active Directory compromise?",
+    a: "Treat every domain credential as burned. Contain by isolating domain controllers and cutting attacker access, eradicate by resetting the krbtgt account twice, then rebuild trust before recovery — all while meeting CERT-In's six-hour incident reporting clock. Macksofy provides digital forensics and incident response for Indian BFSI.",
+  },
+  "blog:mcp-server-security-how-hacked-2026": {
+    q: "How do MCP servers get hacked?",
+    a: "MCP (Model Context Protocol) servers expose tools to AI agents, and are attacked through tool poisoning, indirect prompt injection, over-broad credentials that let an agent exfiltrate secrets, and unsanitised tool parameters that reach a shell as command injection. This guide sets out the threat model and the controls that mitigate each.",
+  },
+  "blog:windows-ad-attack-cheatsheet-2026": {
+    q: "What are the core Active Directory attack techniques?",
+    a: "The standard Active Directory attack path runs from unauthenticated recon through Kerberoasting and AS-REP roasting for credentials, then ACL and delegation abuse for lateral movement, and DCSync for domain-wide credential extraction. This cheatsheet collects the working commands for each stage, with detection-evasion notes for authorized testing.",
+  },
+  "blog:burp-suite-for-beginners-2026": {
+    q: "How do you start using Burp Suite as a beginner?",
+    a: "Burp Suite is an intercepting proxy for web application testing: install its CA certificate, route browser traffic through the proxy, then use Repeater to modify single requests, Intruder to automate payloads, and Collaborator to catch out-of-band interactions. Macksofy teaches Burp hands-on in its ethical-hacking and OSCP bootcamps in India.",
+  },
+  "blog:nmap-cheatsheet-2026": {
+    q: "Which Nmap flags do penetration testers actually use?",
+    a: "The working set is small: -sS for a fast SYN scan, -sV and -O to fingerprint services and operating systems, -p- for full port coverage, --script for NSE checks, -T to tune timing, and -oA to save every output format at once. This reference collects the flags used on real engagements.",
+  },
+  "blog:cybersecurity-jobs-in-mumbai-2026": {
+    q: "What do cybersecurity jobs in Mumbai pay in 2026?",
+    a: "Mumbai salaries vary widely by role and credential: SOC analyst roles sit at the entry band, while penetration testers, cloud security engineers, and GRC leads command progressively more, with BFSI employers dominating demand. This guide breaks down the roles, salary bands, hiring companies, and the certification stack that closes interviews fastest.",
+  },
 };
 
 /** Look up a short answer by `"<kind>:<slug>"`. Returns undefined when absent. */
