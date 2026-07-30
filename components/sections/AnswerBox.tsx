@@ -32,20 +32,46 @@ import { cn } from "@/lib/utils";
  * Client Component purely for the entrance animation. Only strings cross the
  * boundary — `content/*` stays server-side, which is the rule that keeps this
  * off the INP budget on ~167 pages.
+ *
+ * `tone` exists because /resources/* renders inside <PrintLayout>, which is a
+ * hard-coded light document (`bg-white text-slate-900`) rather than the site's
+ * dark theme. The default `screen` tone paints with --color-fg (#f6f7fb,
+ * near-white), so dropping this component onto that white page unchanged would
+ * put white text on white — an answer the extractors can read and humans
+ * cannot, which is the inverse of the 9a8881f defect and just as dishonest.
+ * The `print` tone swaps to PrintLayout's own slate scale and red accent.
  */
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+
+const TONES = {
+  screen: {
+    eyebrow: undefined,
+    q: "text-fg",
+    a: "text-fg-muted",
+  },
+  print: {
+    // Matches PrintLayout's cover-page accent (text-red-600) and body scale.
+    // tailwind-merge drops Eyebrow's default text-neon-cyan in favour of this.
+    eyebrow: "text-red-600",
+    q: "text-slate-900",
+    a: "text-slate-700",
+  },
+} as const;
 
 export function AnswerBox({
   q,
   a,
   className,
+  tone = "screen",
 }: {
   q: string;
   a: string;
   className?: string;
+  tone?: keyof typeof TONES;
 }) {
   const reduce = useReducedMotion();
+  const t = TONES[tone];
 
   /**
    * `initial={false}` is deliberate and matches the Hero's convention: this
@@ -68,18 +94,21 @@ export function AnswerBox({
   return (
     <div className={cn("max-w-3xl", className)}>
       <motion.div {...reveal(0)}>
-        <Eyebrow>In short</Eyebrow>
+        <Eyebrow className={t.eyebrow}>In short</Eyebrow>
       </motion.div>
       <motion.h2
         {...reveal(0.07)}
-        className="mt-3 font-display text-lg sm:text-xl font-bold text-fg leading-snug text-balance"
+        className={cn(
+          "mt-3 font-display text-lg sm:text-xl font-bold leading-snug text-balance",
+          t.q
+        )}
       >
         {q}
       </motion.h2>
       <motion.p
         {...reveal(0.14)}
         data-speakable="answer"
-        className="mt-3 text-fg-muted leading-relaxed text-pretty"
+        className={cn("mt-3 leading-relaxed text-pretty", t.a)}
       >
         {a}
       </motion.p>

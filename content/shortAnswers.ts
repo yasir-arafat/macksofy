@@ -635,6 +635,84 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What do cybersecurity jobs in Mumbai pay in 2026?",
     a: "Mumbai salaries vary widely by role and credential: SOC analyst roles sit at the entry band, while penetration testers, cloud security engineers, and GRC leads command progressively more, with BFSI employers dominating demand. This guide breaks down the roles, salary bands, hiring companies, and the certification stack that closes interviews fastest.",
   },
+
+  // ─────────────────────────── RESOURCES (18) ───────────────────────────
+  // Whitepapers, checklists and cheat sheets under /resources/<slug>. These
+  // render inside <PrintLayout>, so the template passes tone="print" — see
+  // components/sections/AnswerBox.tsx. Each answers the document's core query
+  // rather than describing the document.
+  "resource:sebi-cscrf-playbook-2026": {
+    q: "How do you prepare for SEBI CSCRF compliance?",
+    a: "Preparing for SEBI's Cybersecurity and Cyber Resilience Framework means mapping each control family to the evidence a supervisor will actually ask for — governance records, SOC coverage, VAPT reports, and an SBOM — then closing gaps in priority order. Macksofy delivers SEBI CSCRF readiness audits and VAPT for Regulated Entities in India.",
+  },
+  "resource:ot-it-segmentation-india-manufacturers": {
+    q: "How should manufacturers segment OT from IT networks?",
+    a: "Segmentation separates plant control systems from corporate IT so an office compromise cannot reach a PLC — using Purdue-model zones, a screened conduit for traffic that genuinely must cross, and monitoring at the boundary. Macksofy delivers OT and ICS security assessments aligned to IEC 62443 for Indian manufacturers.",
+  },
+  "resource:mobile-app-security-bfsi-india": {
+    q: "What does RBI expect from mobile banking app security?",
+    a: "RBI expects mobile banking apps to be tested before release and periodically after, covering insecure local storage, certificate pinning, tamper and root detection, and the APIs behind the app — the OWASP Mobile Top 10 restated as control language. Macksofy delivers CERT-In-format mobile application penetration tests for Indian BFSI.",
+  },
+  "resource:india-ransomware-landscape-2026": {
+    q: "How does ransomware reach Indian organisations?",
+    a: "Ransomware reaches Indian organisations mainly through exposed remote access, unpatched internet-facing edge devices, and phishing that harvests a working credential — with manufacturing, healthcare, and BFSI absorbing the highest hit rates. This report sets out the active actors and a six-step preparedness checklist drawn from Macksofy DFIR cases.",
+  },
+  "resource:cert-in-incident-reporting-checklist": {
+    q: "What must you report to CERT-In, and how quickly?",
+    a: "CERT-In's 2022 directions require notification of specified cyber incidents within six hours of noticing them — including ransomware, data breaches, unauthorised access, and outages of critical systems — through the prescribed channel. This checklist gives incident commanders that path. Macksofy is a CERT-In empanelled auditor supporting incident reporting in India.",
+  },
+  "resource:rbi-csf-gap-check-2026": {
+    q: "How do you self-assess against the RBI Cyber Security Framework?",
+    a: "A gap check converts the RBI Cyber Security Framework circular into plain \"have we?\" questions an internal audit team can work through in a single sitting, covering governance, baseline controls, SOC coverage, incident response, and board reporting. Macksofy delivers RBI-aligned audits and readiness assessments for banks and NBFCs in India.",
+  },
+  "resource:bola-prevention-checklist": {
+    q: "How do you prevent broken object level authorization (BOLA)?",
+    a: "BOLA is prevented by anchoring every object lookup to the authenticated caller's ownership rather than trusting an identifier supplied in the request — enforcing the check in the data layer, using unguessable references, and testing every endpoint with a second account. Macksofy validates these controls in API penetration tests.",
+  },
+  "resource:jwt-pitfalls-cheat-sheet": {
+    q: "What are the most common JWT security mistakes?",
+    a: "The recurring JWT failures are trusting the token's own alg header, skipping signature verification entirely, not checking issuer, audience, and expiry, using weak or shared signing secrets, and treating unverified claims as authorization. Macksofy tests each of these in API and web application penetration tests.",
+  },
+  "resource:psexec-detection-cheat-sheet": {
+    q: "How do you detect PsExec lateral movement?",
+    a: "PsExec leaves a consistent trail — service creation on the target host, named-pipe activity, writes to admin shares, and the matching authentication events. Detection pairs those telemetry sources with rules tuned against the legitimate administrative use that produces most false positives. Macksofy builds detection content like this into the SOCs it runs.",
+  },
+  "resource:m365-hardening-checklist-india": {
+    q: "How do you harden a Microsoft 365 tenant?",
+    a: "Hardening Microsoft 365 follows an order of operations: enforce phishing-resistant multi-factor authentication through Conditional Access, disable legacy authentication, enable unified audit logging, tighten anti-phishing and external sharing, then review privileged roles. Macksofy delivers cloud and identity security assessments for Indian BFSI tenants.",
+  },
+  "resource:yara-rule-writing-cheat-sheet": {
+    q: "How do you write an effective YARA rule?",
+    a: "A good YARA rule pairs distinctive strings — text, hex, or regex — with a condition specific enough to avoid false positives and cheap enough to scan at volume, anchored on file structure rather than trivially mutable bytes. This cheat sheet covers rule anatomy, condition logic, and performance tuning.",
+  },
+  "resource:ioc-extraction-methodology": {
+    q: "How do you extract indicators of compromise?",
+    a: "IOC extraction works in layers: atomic indicators such as hashes and addresses, computed indicators derived from analysis, and behavioural patterns describing attacker technique. Prioritising by the Pyramid of Pain concentrates effort on the indicators costliest for an attacker to change. Macksofy applies this methodology in threat intelligence and DFIR work.",
+  },
+  "resource:malware-sandbox-detonation-guide-india": {
+    q: "How do you analyse malware in a sandbox?",
+    a: "Sandbox detonation runs a sample inside an instrumented, isolated environment and records its process, file, registry, and network behaviour using tools such as Cuckoo, CAPE, or ANY.RUN. The main obstacle is anti-analysis evasion, which demands a realistic host. Macksofy delivers malware analysis for Indian SOC and DFIR teams.",
+  },
+  "resource:ransomware-ir-runbook-india": {
+    q: "What should you do in the first hours of a ransomware incident?",
+    a: "The first hours decide the outcome: isolate affected systems without destroying volatile evidence, confirm scope and entry vector, preserve logs and disk images, then start CERT-In's six-hour reporting clock alongside any parallel RBI or SEBI obligation. Macksofy provides ransomware incident response across India.",
+  },
+  "resource:bec-incident-response-runbook": {
+    q: "How do you respond to a business email compromise?",
+    a: "BEC response starts by revoking sessions and OAuth tokens for the affected mailbox, then hunting malicious inbox rules and forwarding, triaging sign-in logs for the true entry point, and running the financial recall workflow in parallel. Macksofy provides incident response for Microsoft 365 and Google Workspace environments across India.",
+  },
+  "resource:active-directory-compromise-runbook": {
+    q: "How do you recover from an Active Directory compromise?",
+    a: "Recovery assumes every domain credential is compromised: contain attacker access, reset the KRBTGT account twice, hunt tier-0 persistence across ACLs, delegation, and certificate templates, then rebuild trust before restoring service. Macksofy provides Active Directory incident response and recovery for Indian organisations.",
+  },
+  "resource:cert-in-12-hour-patch-mandate": {
+    q: "How do you meet CERT-In's 12-hour patching window?",
+    a: "Meeting CERT-In's indicative twelve-hour remediation window for actively exploited internet-facing vulnerabilities takes three things in place beforehand: an accurate external attack-surface inventory, a standing emergency-change path, and a monitored feed of exploited-vulnerability advisories. Macksofy is a CERT-In empanelled auditor supporting vulnerability management programmes in India.",
+  },
+  "resource:cloud-security-india-2026": {
+    q: "Who is responsible for security in the cloud?",
+    a: "Cloud security is shared. The provider secures the underlying infrastructure, while you remain responsible for identity, configuration, data, and workloads — which is where nearly every breach actually originates, and multi-cloud estates multiply that surface. Macksofy delivers cloud security assessments across AWS, Azure, and GCP for Indian enterprises.",
+  },
 };
 
 /** Look up a short answer by `"<kind>:<slug>"`. Returns undefined when absent. */

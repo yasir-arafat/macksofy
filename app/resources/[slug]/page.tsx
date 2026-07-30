@@ -4,9 +4,11 @@ import { Download } from "lucide-react";
 import type { Metadata } from "next";
 import { PrintLayout } from "@/components/print/PrintLayout";
 import { ResourceContent } from "@/components/resources/ResourceContent";
+import { AnswerBox } from "@/components/sections/AnswerBox";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
+import { getShortAnswer } from "@/content/shortAnswers";
 import { RESOURCES, getResourceBySlug } from "@/content/resources";
 import { SERVICES } from "@/content/services";
 import { AUDITS } from "@/content/audits";
@@ -39,7 +41,10 @@ export async function generateMetadata({
   });
 }
 
-function articleSchema(r: ReturnType<typeof getResourceBySlug>) {
+function articleSchema(
+  r: ReturnType<typeof getResourceBySlug>,
+  hasAnswerBox: boolean,
+) {
   if (!r) return null;
   return {
     "@context": "https://schema.org",
@@ -61,6 +66,18 @@ function articleSchema(r: ReturnType<typeof getResourceBySlug>) {
     keywords: r.keywords.join(", "),
     about: r.topics.map((t) => ({ "@type": "Thing", name: t })),
     articleSection: r.type,
+    // speakable: same rule as the blog's BlogPosting node — claim a selector
+    // only where the markup really exists. "h1" is always rendered by
+    // PrintLayout's cover page; the AnswerBox hook is claimed only when this
+    // resource has a `resource:` entry in shortAnswers.ts. A selector that
+    // matches nothing is a dead promise (see 9a8881f).
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [
+        "h1",
+        ...(hasAnswerBox ? ["[data-speakable='answer']"] : []),
+      ],
+    },
   };
 }
 
@@ -70,7 +87,8 @@ export default async function ResourceDetailPage({ params }: PageProps) {
   if (!r) notFound();
   if (!r.blocks) notFound();
 
-  const schema = articleSchema(r);
+  const shortAnswer = getShortAnswer(`resource:${r.slug}`);
+  const schema = articleSchema(r, Boolean(shortAnswer));
   const related = r.relatedServiceSlugs
     ?.map((s) => SERVICES.find((sv) => sv.slug === s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s)) ?? [];
@@ -95,6 +113,17 @@ export default async function ResourceDetailPage({ params }: PageProps) {
         backHref="/resources"
         classification="Public · Free to share"
       >
+        {/* Short answer — the extractable 40–60-word answer to the document's
+            core query, above the prose intro so AI/voice extractors hit it
+            first. tone="print" because PrintLayout is a light document; the
+            default screen tone would be white-on-white here. Hidden from the
+            printed PDF, which opens on its own cover page and intro. */}
+        {shortAnswer && (
+          <section className="print-section mb-10 not-prose print:hidden">
+            <AnswerBox q={shortAnswer.q} a={shortAnswer.a} tone="print" />
+          </section>
+        )}
+
         {/* Intro */}
         {r.intro && (
           <section className="print-section mb-10 not-prose">
