@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -157,7 +165,6 @@ export function Header({ nav }: { nav: NavIndex }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [hovered, setHovered] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [annDismissed, setAnnDismissed] = useState(false);
   // The command palette is mounted lazily: its entry list and markup are dead
@@ -180,32 +187,41 @@ export function Header({ nav }: { nav: NavIndex }) {
   });
   const [menuLeft, setMenuLeft] = useState(0);
 
-  const cancelClose = () => {
+  // INP: every handler that crosses a component boundary is wrapped in
+  // useCallback. These are the props the memo() boundaries below (MegaMenu,
+  // MobileMegaList, CommandPalette) compare against — an inline arrow here
+  // would give every one of them a fresh identity on each Header render and
+  // silently defeat the memoisation.
+  const cancelClose = useCallback(() => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
       closeTimeout.current = null;
     }
-  };
-  const scheduleClose = () => {
+  }, []);
+  const scheduleClose = useCallback(() => {
     cancelClose();
     closeTimeout.current = setTimeout(() => setOpenMenu(null), 140);
-  };
-  const openItemMenu = (href: string) => {
-    cancelClose();
-    setOpenMenu(href);
-  };
+  }, [cancelClose]);
+  const openItemMenu = useCallback(
+    (href: string) => {
+      cancelClose();
+      setOpenMenu(href);
+    },
+    [cancelClose]
+  );
 
-  const openSearch = () => {
+  const openSearch = useCallback(() => {
     setPaletteMounted(true);
     setSearchOpen(true);
-  };
+  }, []);
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
 
-  const closeAll = () => {
+  const closeAll = useCallback(() => {
     setMobileOpen(false);
     setMobileExpanded(null);
     setOpenMenu(null);
     setSearchOpen(false);
-  };
+  }, []);
 
   // Track header height as a CSS variable so <main> can offset correctly
   useLayoutEffect(() => {
@@ -295,17 +311,17 @@ export function Header({ nav }: { nav: NavIndex }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Sliding indicator pill — only when an item is actively hovered/focused
-  useEffect(() => {
-    if (!hovered || !navRef.current) {
-      setPill((p) => ({ ...p, show: false }));
-      return;
-    }
-    const el = itemRefs.current.get(hovered);
-    if (!el) {
-      setPill((p) => ({ ...p, show: false }));
-      return;
-    }
+  // Sliding indicator pill — only when an item is actively hovered/focused.
+  //
+  // INP: this used to be a `hovered` state value plus an effect on [hovered]
+  // that measured the rects and called setPill(). Moving the mouse onto a nav
+  // item therefore cost TWO full Header renders — one to record the hover, a
+  // second for the measurement it triggered — and the mouse crosses several
+  // items on the way to the one the visitor actually clicks. The hover target
+  // is already in hand at the event, so measure there and write only the state
+  // the render consumes: one render instead of two, same spring animation.
+  const showPill = useCallback((el: HTMLElement) => {
+    if (!navRef.current) return;
     const itemRect = el.getBoundingClientRect();
     const navRect = navRef.current.getBoundingClientRect();
     setPill({
@@ -313,7 +329,14 @@ export function Header({ nav }: { nav: NavIndex }) {
       width: itemRect.width,
       show: true,
     });
-  }, [hovered]);
+  }, []);
+
+  // Returning the identical object when already hidden lets React bail out of
+  // the render entirely — blur and the nav's mouseleave routinely both fire.
+  const hidePill = useCallback(
+    () => setPill((p) => (p.show ? { ...p, show: false } : p)),
+    []
+  );
 
   // Position the centralized dropdown panel under the active item, clamped
   // so a wide panel (e.g. Audit's 1180 px grid) can't slip off the viewport.
@@ -516,7 +539,7 @@ export function Header({ nav }: { nav: NavIndex }) {
         {/* DESKTOP NAV — centered, takes remaining space, FULL bar height */}
         <nav
           ref={navRef}
-          onMouseLeave={() => setHovered(null)}
+          onMouseLeave={hidePill}
           className="relative hidden lg:flex items-stretch justify-center flex-1 min-w-0 mx-auto h-full"
         >
           {/* Sliding indicator pill — sits behind text via z-0 */}
@@ -556,7 +579,8 @@ export function Header({ nav }: { nav: NavIndex }) {
                   onMouseEnter={() => {
                     if (hasMenu) openItemMenu(item.href);
                     else cancelClose();
-                    setHovered(item.href);
+                    const el = itemRefs.current.get(item.href);
+                    if (el) showPill(el);
                   }}
                   onMouseLeave={() => {
                     if (hasMenu) scheduleClose();
@@ -569,8 +593,8 @@ export function Header({ nav }: { nav: NavIndex }) {
                     }}
                     href={item.href}
                     onClick={closeAll}
-                    onFocus={() => setHovered(item.href)}
-                    onBlur={() => setHovered(null)}
+                    onFocus={(e) => showPill(e.currentTarget)}
+                    onBlur={hidePill}
                     className={cn(
                       "relative flex items-center gap-1 px-2 xl:px-3 h-9 text-[13px] font-semibold rounded-full transition-colors whitespace-nowrap",
                       active ? "text-neon-cyan" : "text-fg-muted hover:text-fg"
@@ -965,7 +989,7 @@ export function Header({ nav }: { nav: NavIndex }) {
       {paletteMounted && (
         <CommandPalette
           open={searchOpen}
-          onClose={() => setSearchOpen(false)}
+          onClose={closeSearch}
           entries={nav.search}
         />
       )}
@@ -976,7 +1000,10 @@ export function Header({ nav }: { nav: NavIndex }) {
 /* ──────────────────────────────────────────────────────────────
    COMMAND PALETTE — Cmd/Ctrl+K
    ────────────────────────────────────────────────────────────── */
-function CommandPalette({
+// INP: mounted lazily (see paletteMounted) but, once mounted, it stayed
+// subscribed to every Header render for the rest of the page's life. Memoised
+// so a closed palette costs nothing when the nav is merely being hovered.
+const CommandPalette = memo(function CommandPalette({
   open,
   onClose,
   entries,
@@ -1089,7 +1116,7 @@ function CommandPalette({
       )}
     </AnimatePresence>
   );
-}
+});
 
 /* ──────────────────────────────────────────────────────────────
    MEGA MENU — interactive 3-pane (items · live preview · footer)
@@ -1144,7 +1171,20 @@ function megaHeader(
   };
 }
 
-function MegaMenu({
+/**
+ * INP: the single most valuable memo boundary in this file.
+ *
+ * While a mega panel is open, every unrelated Header state change — the pill
+ * moving as the mouse crosses the nav, menuLeft being clamped, the announcement
+ * bar closing — used to re-render this whole subtree: ListPreviewMegaMenu plus
+ * one framer-motion MegaItemRow per entry (40+ on Security Assessment). That
+ * work lands in exactly the window where the visitor is about to click a nav
+ * link, so it was paid straight into the INP of the click being measured.
+ *
+ * `type` and `nav` are stable and `onClose` is a useCallback in Header, so the
+ * panel now renders when it opens and holds still until it closes.
+ */
+const MegaMenu = memo(function MegaMenu({
   type,
   onClose,
   nav,
@@ -1153,20 +1193,26 @@ function MegaMenu({
   onClose: () => void;
   nav: NavIndex;
 }) {
+  // megaHeader() returns a fresh object literal, which would hand
+  // ListPreviewMegaMenu a new `header` prop on every render and defeat any
+  // memoisation further down. Pin it to what it actually derives from.
+  const header = useMemo(() => megaHeader(type, nav.counts), [type, nav.counts]);
   return (
     <ListPreviewMegaMenu
       type={type}
       onClose={onClose}
-      header={megaHeader(type, nav.counts)}
+      header={header}
       items={nav.mega[type]}
     />
   );
-}
+});
 
 /* ──────────────────────────────────────────────────────────────
    MOBILE MEGA LIST — grouped sub-items inside the mobile drawer
    ────────────────────────────────────────────────────────────── */
-function MobileMegaList({
+// INP: memoised for the mobile drawer's hot path — expanding one accordion
+// section re-rendered every already-expanded section's full sub-item list.
+const MobileMegaList = memo(function MobileMegaList({
   items,
   onClose,
   pathname,
@@ -1257,7 +1303,7 @@ function MobileMegaList({
       })}
     </div>
   );
-}
+});
 
 function ListPreviewMegaMenu({
   type,
@@ -1271,6 +1317,9 @@ function ListPreviewMegaMenu({
   items: MegaItem[];
 }) {
   const [activeSlug, setActiveSlug] = useState(items[0]?.slug ?? "");
+  // Stable identity so the memoised MegaItemRow below actually bails out:
+  // hovering one row must not re-render the other 40.
+  const handleHover = useCallback((slug: string) => setActiveSlug(slug), []);
   const active = items.find((i) => i.slug === activeSlug) ?? items[0];
 
   const hasGroups = items.some((it) => !!it.group);
@@ -1434,7 +1483,7 @@ function ListPreviewMegaMenu({
                       item={it}
                       index={i}
                       active={it.slug === activeSlug}
-                      onHover={() => setActiveSlug(it.slug)}
+                      onHover={handleHover}
                       onClose={onClose}
                     />
                   ))}
@@ -1502,7 +1551,7 @@ function ListPreviewMegaMenu({
                       item={it}
                       index={idx}
                       active={it.slug === activeSlug}
-                      onHover={() => setActiveSlug(it.slug)}
+                      onHover={handleHover}
                       onClose={onClose}
                       compact={compact}
                     />
@@ -1676,7 +1725,11 @@ function ListPreviewMegaMenu({
   );
 }
 
-function MegaItemRow({
+// INP: one framer-motion row per mega entry, and the wide menus carry 40+ of
+// them. Hovering a single row moves the preview pane via setActiveSlug, which
+// re-rendered every sibling row for a change that visibly affects two. Memoised
+// against a slug-taking onHover so only the rows whose `active` flips do work.
+const MegaItemRow = memo(function MegaItemRow({
   item,
   index,
   active,
@@ -1687,7 +1740,7 @@ function MegaItemRow({
   item: MegaItem;
   index: number;
   active: boolean;
-  onHover: () => void;
+  onHover: (slug: string) => void;
   onClose: () => void;
   compact?: boolean;
 }) {
@@ -1695,6 +1748,7 @@ function MegaItemRow({
   // staggering in under ~0.5s (otherwise late items animate on top of
   // their settled neighbours).
   const delay = Math.min(0.04 + index * 0.02, 0.5);
+  const hover = useCallback(() => onHover(item.slug), [onHover, item.slug]);
 
   if (compact) {
     // Audit-style row: title + optional badge on row 1, small tagline
@@ -1709,8 +1763,8 @@ function MegaItemRow({
         <Link
           href={item.href}
           onClick={onClose}
-          onMouseEnter={onHover}
-          onFocus={onHover}
+          onMouseEnter={hover}
+          onFocus={hover}
           className={cn(
             "group relative flex items-start gap-2 rounded-lg px-2.5 py-1.5 transition-colors",
             active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
@@ -1764,8 +1818,8 @@ function MegaItemRow({
       <Link
         href={item.href}
         onClick={onClose}
-        onMouseEnter={onHover}
-        onFocus={onHover}
+        onMouseEnter={hover}
+        onFocus={hover}
         className={cn(
           "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all overflow-hidden",
           active ? "bg-white/[0.06]" : "hover:bg-white/[0.04]"
@@ -1823,7 +1877,7 @@ function MegaItemRow({
       </Link>
     </motion.li>
   );
-}
+});
 
 function badgeClass(tone?: "cyan" | "purple" | "amber" | "green") {
   switch (tone) {
