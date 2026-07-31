@@ -206,6 +206,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://api.resend.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        {/* googletagmanager is the one third-party that loads on EVERY route,
+            yet it was the only one with no resolution hint while narrower
+            origins had them. dns-prefetch, deliberately not preconnect: gtag is
+            lazyOnload and doesn't request until ~3.9 s, so holding a warm
+            socket open from first paint would just contend with the LCP fetch
+            for nothing. gtag then pulls a second container script for the Ads
+            tag off the same origin — see components/analytics/GoogleAnalytics.tsx. */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* Skip-link — visually-hidden but keyboard-focusable. First
             stop on the tab order; lets keyboard / screen-reader users
