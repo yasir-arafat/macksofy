@@ -1,5 +1,5 @@
 import { Container } from "@/components/ui/Container";
-import { ContactForm } from "@/components/forms/ContactForm";
+import { ContactFormLazy } from "@/components/forms/ContactFormLazy";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { CertInBadge } from "@/components/visuals/CertInBadge";
 import { ShieldCheck, Users, Award, Globe } from "lucide-react";
@@ -41,7 +41,7 @@ export function LeadCapture() {
           </div>
           <div className="lg:col-span-7">
             <div className="rounded-3xl glass-strong p-6 sm:p-8 glow-blend">
-              <ContactForm />
+              <ContactFormLazy />
             </div>
           </div>
         </div>
