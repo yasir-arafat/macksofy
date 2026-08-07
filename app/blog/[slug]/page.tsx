@@ -96,7 +96,12 @@ export async function generateMetadata({ params }: PageProps) {
   const p = getPostBySlug(slug);
   if (!p) return {};
   return buildMetadata({
-    title: p.title,
+    // Prefer the hand-written SERP title. Without it a long display title is
+    // truncated from the right, which deletes the very token the post ranks
+    // for (see BlogPost.seoTitle). ogTitle deliberately keeps the full display
+    // title — a social card has room the SERP does not.
+    title: p.seoTitle ?? p.title,
+    absoluteTitle: Boolean(p.seoTitle),
     description: p.description,
     path: `/blog/${p.slug}`,
     keywords: p.keywords,

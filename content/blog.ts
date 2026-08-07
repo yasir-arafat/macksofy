@@ -52,6 +52,16 @@ export type BlogBlock =
 export interface BlogPost {
   slug: string;
   title: string;
+  /**
+   * SERP title, for when the display `title` is too long to survive Google's
+   * ~60-char clamp intact. `title` is written for the reader at the top of the
+   * article and runs long; clampTitle then truncates from the right and eats
+   * the differentiator — the year, "Top 10", "vs CRTO" — which is usually the
+   * token the ranking query actually contains. Supply a pre-shortened title
+   * here and it is emitted absolute (no " | Macksofy" suffix), so the whole
+   * 60-char budget is yours. Keep it <= 60 chars; lint will not catch a long one.
+   */
+  seoTitle?: string;
   description: string;
   date: string;
   updated?: string;
@@ -91,6 +101,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "penetration-testing-vapt-guide-india-2026",
+    seoTitle: "Penetration Testing & VAPT: Complete Guide (India 2026)",
     updated: "2026-07-25",
     title: "Penetration Testing & VAPT: The Complete Guide (India, 2026)",
     description:
@@ -296,6 +307,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cert-in-empanelled-audit-guide-2026",
+    seoTitle: "CERT-In Empanelled Audit: The Complete Guide (2026)",
     updated: "2026-07-25",
     title: "CERT-In Empanelled Audit: The Complete Guide (2026)",
     description:
@@ -475,6 +487,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cyber-security-companies-in-mumbai-india-2026",
+    seoTitle: "Top Cyber Security Companies in Mumbai & India (2026)",
     updated: "2026-07-25",
     title: "Cyber Security Companies in Mumbai & India (2026): The CERT-In Empanelled Audit Guide",
     description:
@@ -567,6 +580,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cert-in-cyber-security-audit-policy-guidelines-2025",
+    seoTitle: "CERT-In Cyber Security Audit Policy Guidelines (2025)",
     title: "CERT-In's Comprehensive Cyber Security Audit Policy Guidelines (2025): What Every CISO and Auditee Must Know",
     description:
       "CERT-In's Comprehensive Cyber Security Audit Policy Guidelines (Version 1.0, 25 July 2025) rewrite how empanelled audits are scoped, scored and reported in India. Download the official PDF and read our section-by-section analysis of what changes for auditees and auditors.",
@@ -672,6 +686,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "soc-analyst-training-india-2026",
+    seoTitle: "SOC Analyst Training India 2026 — CSA vs SOC-200 vs CySA+",
     updated: "2026-07-25",
     title: "SOC Analyst Training in India 2026 — CSA vs SOC-200 vs CySA+ Career Guide",
     description:
@@ -827,6 +842,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "red-team-certifications-india-2026",
+    seoTitle: "Red Team Certifications 2026 — OSEP vs CRTO vs CRTP",
     updated: "2026-07-25",
     title: "Red Team Certifications India 2026 — OSEP vs CRTO vs CRTP Comparison",
     description:
@@ -993,6 +1009,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "offsec-learn-one-india-pricing-roi-2026",
+    seoTitle: "OffSec Learn One 2026 — India Pricing & ROI Breakdown",
     updated: "2026-07-25",
     title: "OffSec Learn One India 2026 — Pricing, ROI Breakdown & Cert Selection Guide",
     description:
@@ -1143,6 +1160,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cybersecurity-jobs-in-mumbai-2026",
+    seoTitle: "Cybersecurity Jobs in Mumbai 2026 — Roles & Salaries",
     title: "Cybersecurity Jobs in Mumbai 2026 — Roles, Salaries, and Hiring Companies",
     description:
       "Mumbai's cybersecurity hiring market in 2026 — the roles, the salary bands, the companies actively hiring, and the certification stack that closes interviews fastest.",
@@ -1287,6 +1305,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "oscp-training-in-mumbai-2026",
+    seoTitle: "OSCP Training in Mumbai 2026 — Cost, Syllabus & Exam",
     updated: "2026-07-25",
     title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
     description:
@@ -1451,6 +1470,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "ceh-v13-ai-training-india-2026",
+    seoTitle: "CEH v13 Training in India 2026 — Syllabus, Cost & Fees",
     updated: "2026-07-25",
     title: "CEH v13 AI Training in India 2026 — Syllabus, Cost, Institutes & Career Guide",
     description:
@@ -1612,6 +1632,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "top-10-penetration-testing-tools-2026",
+    seoTitle: "Top 10 Penetration Testing Tools in 2026",
     updated: "2026-07-25",
     title: "Top 10 Penetration Testing Tools in 2026 — What Every Pentester Should Master",
     description:
@@ -1802,6 +1823,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "best-laptops-cybersecurity-students-india-2026",
+    seoTitle: "Best Laptops for Cybersecurity Students in India 2026",
     updated: "2026-07-25",
     title: "Best Laptops for Cybersecurity Students in India 2026 — Top 10 Ranked",
     description:
@@ -1931,6 +1953,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "oswe-vs-oscp",
+    seoTitle: "OSWE vs OSCP 2026 — Which OffSec Certification to Take",
     title: "OSWE vs OSCP in 2026 — Which OffSec Certification to Take (Detailed Comparison)",
     description:
       "OSCP vs OSWE — which OffSec cert should you take in 2026? Honest comparison of cost, exam style, hiring impact and the typical career paths each one unlocks.",
@@ -2078,6 +2101,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "osep-vs-oscp",
+    seoTitle: "OSEP vs OSCP 2026 — The Honest Red Team Comparison",
     title: "OSEP vs OSCP in 2026 — The Honest Comparison for Red Team Careers",
     description:
       "OSEP vs OSCP — practical 2026 comparison for India red team careers. Cost in INR, exam mechanics, what each one actually teaches, and which to pick for your career stage.",
@@ -2233,6 +2257,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "osda-exam-tips-2026",
+    seoTitle: "SOC-200 & OSDA Exam Tips That Work in 2026",
     title: "SOC-200 & OSDA Exam Tips That Actually Work in 2026",
     description:
       "How to pass OffSec's SOC-200 / OSDA in one attempt — lab strategy, exam-day workflow, Splunk and ELK queries to memorize, and the mistakes that fail most candidates.",
@@ -2438,6 +2463,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "windows-ad-attack-cheatsheet-2026",
+    seoTitle: "Windows Active Directory Attack Cheatsheet — 2026",
     title: "Windows Active Directory Attack Cheatsheet — 2026 Edition",
     description:
       "A pen-tester's command-line cheatsheet for attacking Active Directory in 2026. Recon, Kerberoasting, AS-REP, ACL abuse, DCSync, and detection-evasion notes.",
@@ -2674,6 +2700,7 @@ evil-winrm -i <host> -u <user> -p <pass>`,
   // ===================================================================
   {
     slug: "burp-suite-for-beginners-2026",
+    seoTitle: "Burp Suite for Beginners — 2026 Hands-On Walkthrough",
     title: "Burp Suite for Beginners — A 2026 Hands-On Walkthrough",
     description:
       "From CA install to your first BOLA bug — a practical, India-friendly Burp Suite tutorial. Proxy, Repeater, Intruder, Decoder, Collaborator and the gotchas that trip new testers.",
@@ -3112,6 +3139,7 @@ nmap --randomize-hosts -iL targets.txt`,
   // ===================================================================
   {
     slug: "active-directory-pentest-guide-india-2026",
+    seoTitle: "Active Directory Penetration Testing in India (2026)",
     title: "Active Directory Penetration Testing in India — A 2026 Buyer's Guide",
     description:
       "What an Active Directory pentest looks like for Indian BFSI, government and enterprise — scope, methodology, tooling, deliverables, pricing, and how to evaluate vendors.",
@@ -3474,6 +3502,7 @@ nmap --randomize-hosts -iL targets.txt`,
   // ===================================================================
   {
     slug: "mcp-server-security-how-hacked-2026",
+    seoTitle: "MCP Server Security — How MCP Servers Get Hacked 2026",
     title: "MCP Server Security — How Model Context Protocol Servers Get Hacked in 2026",
     description:
       "MCP servers are the new attack surface for AI agents. Tool poisoning, prompt injection, secret exfiltration, command injection — the threat model and how to defend.",
@@ -3671,6 +3700,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "ecih-vs-gcih-incident-handler-certification-2026",
+    seoTitle: "ECIH vs GCIH 2026 — Which Incident Handler Cert Wins?",
     title: "ECIH vs GCIH — Which Incident Handler Certification Wins in 2026?",
     description:
       "ECIH (EC-Council) vs GCIH (SANS / GIAC) — pricing in INR, exam style, India hiring perception, and which one to pick if you want a CSIRT or DFIR role.",
@@ -3824,6 +3854,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "cpts-vs-oscp-certification-comparison-india-2026",
+    seoTitle: "CPTS vs OSCP 2026 — Which Pentest Cert to Take in India",
     title: "CPTS vs OSCP — Which Pentest Certification Should You Take in India?",
     description:
       "Hack The Box's CPTS vs OffSec's OSCP — cost in INR, exam difficulty, India hiring perception, salary impact. An honest comparison from a CERT-In empanelled training provider.",
@@ -3983,6 +4014,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "crtp-vs-crte-certification-guide-india-2026",
+    seoTitle: "CRTP vs CRTE 2026 — AD Certification Guide for India",
     title: "CRTP vs CRTE — Altered Security's AD Certification Guide for India (2026)",
     description:
       "Altered Security's CRTP and CRTE — what each covers, exam style, costs in INR, and how Indian red teamers should sequence them. Includes CRTM context.",
@@ -4136,6 +4168,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "oscp-plus-vs-oscp-2026",
+    seoTitle: "OSCP+ vs OSCP 2026 — What Changed for Indian Candidates",
     title: "OSCP+ vs OSCP in 2026 — What Changed, What It Means for Indian Candidates",
     description:
       "OffSec rebranded OSCP to OSCP+ in late 2024. Here's everything that actually changed in the 2026 exam — Active Directory expansion, buffer-overflow removal, CPE recertification — and how Indian candidates should adjust their prep.",
@@ -4322,6 +4355,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "oscp-vs-ceh-india-2026",
+    seoTitle: "OSCP vs CEH in India 2026 — Which Cert Should You Pick?",
     title: "OSCP vs CEH in India 2026 — Which Cybersecurity Certification Should You Pick?",
     description:
       "OSCP vs CEH for Indian candidates in 2026 — honest comparison of cost (INR), exam style, hiring impact, salary outcomes and which one to take first based on your goal role.",
@@ -4517,6 +4551,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "red-team-vs-penetration-testing-2026",
+    seoTitle: "Red Team vs Penetration Testing 2026 — Real Difference",
     title: "Red Team vs Penetration Testing in 2026 — What's the Real Difference?",
     description:
       "Red team vs penetration testing — clear 2026 breakdown of scope, cost, timeline and outcomes. Which engagement actually fits your maturity and Indian regulatory ask?",
@@ -4738,6 +4773,7 @@ def fetch_logs(service: str) -> str:
   // === Comparison / vs posts (rbi-csf-vs-sebi-cscrf · dpdp-vs-gdpr · cert-in-vs-iso-27001 · mdr-vs-mssp · vapt-vs-red-team) ===
   {
     slug: "rbi-csf-vs-sebi-cscrf-2026",
+    seoTitle: "RBI CSF vs SEBI CSCRF 2026 — Which Framework Applies?",
     title: "RBI CSF vs SEBI CSCRF in 2026 — Which Framework Applies to You?",
     description:
       "RBI Cyber Security Framework vs SEBI CSCRF — clause-by-clause 2026 guide for Indian BFSI, including dual-regulated broker-dealers, NBFCs and bank-owned AMCs.",
@@ -4948,6 +4984,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "dpdp-vs-gdpr-2026",
+    seoTitle: "DPDP Act 2023 vs GDPR 2026 — Clause-by-Clause Guide",
     title: "DPDP Act 2023 vs GDPR in 2026 — Clause-by-Clause for Indian Fiduciaries",
     description:
       "DPDP Act vs GDPR — practical 2026 comparison for Indian data fiduciaries handling EU residents. Penalties, consent, DPO, breach windows, cross-border transfers.",
@@ -5161,6 +5198,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "cert-in-empanelled-vs-iso-27001-2026",
+    seoTitle: "CERT-In Empanelled VAPT vs ISO 27001 (2026)",
     title: "CERT-In Empanelled VAPT vs ISO 27001 in 2026 — What Each Actually Proves",
     description:
       "CERT-In empanelled VAPT vs ISO 27001 — clear 2026 explainer on audit vs certification, what each one proves, where they complement, and which to buy first.",
@@ -5389,6 +5427,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "mdr-vs-mssp-2026",
+    seoTitle: "MDR vs MSSP 2026 — What to Buy (India Buyer Guide)",
     title: "MDR vs MSSP in 2026 — What to Actually Buy (India Buyer Guide)",
     description:
       "MDR vs MSSP — practical 2026 guide for Indian buyers. Real pricing bands in INR, the Tata / Sequretek / NII / Lucideus / Macksofy market view, and what to ask vendors.",
@@ -5614,6 +5653,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "vapt-vs-red-team-2026",
+    seoTitle: "VAPT vs Red Team 2026 — India BFSI Procurement Guide",
     title: "VAPT vs Red Team in 2026 — The India BFSI Procurement Guide",
     description:
       "VAPT vs red team — 2026 procurement guide for Indian BFSI. RFP language, SLA, deliverable spec, vendor questionnaire and how to scope CERT-In friendly engagements.",
@@ -5882,6 +5922,7 @@ def fetch_logs(service: str) -> str:
   // ─── DPDP §16 cross-border transfer (India-regulatory whitespace) ───
   {
     slug: "dpdp-cross-border-transfer-2026",
+    seoTitle: "DPDP §16 Cross-Border Transfer — Guide for Indian SaaS",
     title: "DPDP §16 Cross-Border Transfer — Compliance Guide for Indian SaaS",
     description:
       "What §16 of India's Digital Personal Data Protection Act means in practice — when transfers are restricted, what evidence to keep, and how Indian SaaS should architect for the 2027 enforcement window.",
@@ -5967,6 +6008,7 @@ def fetch_logs(service: str) -> str:
   },
   {
     slug: "ad-compromise-ir-playbook-indian-bfsi-2026",
+    seoTitle: "Active Directory Compromise IR Playbook — Indian BFSI",
     title: "Active Directory Compromise IR Playbook — Indian BFSI",
     description:
       "Five-phase incident response runbook for Active Directory ransomware and golden-ticket scenarios in Indian banks — containment, eradication, recovery, and the CERT-In reporting clock.",
@@ -6052,6 +6094,7 @@ def fetch_logs(service: str) -> str:
   },
   {
     slug: "zero-trust-indian-banks-rbi-itgf-2026",
+    seoTitle: "Zero Trust for Indian Banks — RBI ITGF Alignment 2026",
     title: "Zero Trust for Indian Banks — RBI ITGF Alignment 2026",
     description:
       "How to map Zero Trust pillars — identity, device, network, application, data — to RBI IT Governance Framework controls, with a pragmatic 18-month rollout plan for Indian banks.",
@@ -6158,6 +6201,7 @@ def fetch_logs(service: str) -> str:
   },
   {
     slug: "ransomware-readiness-bfsi-india-2026",
+    seoTitle: "Ransomware Readiness Checklist for Indian BFSI 2026",
     title: "Ransomware Readiness Checklist for Indian BFSI 2026",
     description:
       "RBI Cyber Security Framework + CERT-In 6-hour reporting aligned ransomware readiness checklist for Indian banks, NBFCs and insurers — prevention, detection, response, recovery.",
@@ -6249,6 +6293,7 @@ def fetch_logs(service: str) -> str:
   },
   {
     slug: "cert-in-12-hour-patch-mandate-ai-exploitation-2026",
+    seoTitle: "CERT-In's 12-Hour Patch Mandate Explained (2026)",
     title: "CERT-In's 12-Hour Patch Mandate — India's AI-Paced Patching Standard Explained",
     description:
       "CERT-In's May 2026 AI Threat Landscape guidance sets an indicative 12-hour window to remediate exploited vulnerabilities on internet-facing systems. Here's the tiered schedule, why it's calibrated to AI exploitation speed, and what Indian organisations should actually do.",
@@ -6337,6 +6382,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "rbi-it-governance-readiness-checklist-2026",
+    seoTitle: "RBI IT-Governance Direction — 2026 Readiness Checklist",
     title: "RBI IT-Governance Master Direction — A 2026 Readiness Checklist for Banks & NBFCs",
     description:
       "The RBI Master Direction on IT Governance, Risk, Controls and Assurance Practices is in force from April 2024. Here is a practical, chapter-by-chapter readiness checklist — ITSC, CISO line, patch and change controls, BCP/DR and IS Audit — for the next supervisory cycle.",
@@ -6430,6 +6476,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "dpdp-significant-data-fiduciary-obligations-2026",
+    seoTitle: "DPDP Act — Significant Data Fiduciary Duties (2026)",
     title: "DPDP Act — What a Significant Data Fiduciary Actually Has to Do (2026)",
     description:
       "If your organisation is notified as a Significant Data Fiduciary under India's DPDP Act, you inherit extra duties on top of every Data Fiduciary obligation — a Board-responsible DPO in India, an independent data audit, and periodic DPIAs. Here is the obligation map and a readiness path.",
@@ -6509,6 +6556,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "uae-cybersecurity-compliance-pdpl-nesa-2026",
+    seoTitle: "UAE Cybersecurity Compliance 2026 — PDPL + NESA",
     title: "UAE Cybersecurity Compliance 2026 — Federal PDPL + NESA Explained",
     description:
       "Enterprises operating in the UAE face a layered compliance stack: the Federal PDPL 2021 for personal data, NESA / UAE IA Standards for information assurance, plus emirate and free-zone regimes (DESC ISR, DIFC, ADGM, ADHICS). Here is how the layers fit and a practical readiness path.",
@@ -6614,6 +6662,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "ot-ics-security-playbook-india-2026",
+    seoTitle: "OT / ICS Security Playbook for India 2026 — SCADA",
     title: "OT / ICS Security Playbook for India 2026 — Protecting SCADA & Critical Infrastructure",
     description:
       "A practical OT/ICS security playbook for Indian critical-infrastructure operators — power, manufacturing, oil & gas and utilities. The Purdue model, IEC 62443, the India regulatory stack (NCIIPC, CEA, CERT-In) and a 30/60/90-day readiness path built around safety and uptime, not just data.",
@@ -6726,6 +6775,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "sebi-cscrf-compliance-readiness-2026",
+    seoTitle: "SEBI CSCRF — 2026 Compliance Readiness Guide",
     title: "SEBI CSCRF — A 2026 Compliance Readiness Guide for Regulated Entities",
     description:
       "SEBI's Cybersecurity and Cyber Resilience Framework (CSCRF) is now in force across all Regulated Entities after a phased 2025 rollout. A practical readiness guide to the graded model, the Cyber Capability Index, the SOC mandate, VAPT/SBOM and audit evidence — for MIIs, brokers, AMCs and other REs.",
@@ -6816,6 +6866,7 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "vciso-buyers-guide-india-2026",
+    seoTitle: "Do You Need a vCISO? 2026 India Buyer's Guide",
     title: "Do You Need a vCISO? A 2026 Buyer's Guide for Indian Enterprises",
     description:
       "When a Virtual CISO (vCISO) beats a full-time hire, what a good engagement delivers, how to evaluate providers, and what it costs — a practical 2026 buyer's guide for Indian and UAE enterprises facing RBI, SEBI, DPDP and CERT-In expectations.",
@@ -6923,6 +6974,7 @@ def fetch_logs(service: str) -> str:
 
   {
     slug: "cspm-vs-cnapp-india-2026",
+    seoTitle: "CSPM vs CNAPP vs CWPP — Cloud Security Tooling 2026",
     title: "CSPM vs CNAPP vs CWPP: Choosing Cloud Security Tooling for Indian Enterprises (2026)",
     description:
       "CSPM, CWPP, CIEM and CNAPP explained without the marketing — what each actually does, where they overlap, and a practical buying sequence for Indian BFSI, fintech and SaaS estates under RBI, SEBI and DPDP.",
@@ -6993,6 +7045,7 @@ def fetch_logs(service: str) -> str:
 
   {
     slug: "cloud-misconfigurations-rbi-sebi-audit-2026",
+    seoTitle: "Cloud Misconfigurations That Fail RBI & SEBI Audits 2026",
     title: "The Cloud Misconfigurations That Fail RBI and SEBI Audits in 2026",
     description:
       "The specific AWS, Azure and GCP misconfigurations that turn up as findings in RBI Cyber Security Framework and SEBI CSCRF audits — public storage, IAM sprawl, weak logging, data-residency gaps — and how to close them before the auditor arrives.",
@@ -7067,6 +7120,7 @@ def fetch_logs(service: str) -> str:
 
   {
     slug: "multi-cloud-security-bfsi-india-2026",
+    seoTitle: "Multi-Cloud Security for Indian BFSI — Landing Zones",
     title: "Multi-Cloud Security for Indian BFSI: Landing Zones, Data Residency and Blast-Radius Control",
     description:
       "How Indian banks, NBFCs and insurers secure AWS, Azure and GCP at once — landing-zone guardrails, data residency under RBI and DPDP, identity blast-radius control, and continuous monitoring across a multi-cloud estate.",

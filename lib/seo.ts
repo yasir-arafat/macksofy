@@ -59,6 +59,20 @@ interface BuildMetadataInput {
   ogEyebrow?: string;
   /** OG image: kind chip + accent colour. */
   ogKind?: OgKind;
+  /**
+   * Emit `title` as an absolute <title> — the layout template does NOT append
+   * " | Macksofy", so the whole 60-char SERP budget goes to the title itself.
+   *
+   * Reserving 11 of 60 chars for the brand is the right trade on pages people
+   * reach *because* of the brand. It is the wrong trade on informational pages
+   * that rank for keyword queries: the 49-char core budget forces clampTitle's
+   * word-boundary fallback to truncate from the right, and English puts the
+   * differentiator last — so the year, "Top 10", "vs CRTO" are exactly what
+   * gets deleted. Measured 2026-08-07: 44 blog posts (8,192 GSC impressions /
+   * 28d) were shipping SERP titles missing the token their own ranking queries
+   * contained. Opt in per page by supplying a hand-written, already-short title.
+   */
+  absoluteTitle?: boolean;
 }
 
 /**
@@ -158,15 +172,19 @@ function trimTrailingFluff(s: string): string {
  * Output is the *core* title (no brand). Caller / template still appends
  * the brand suffix.
  */
-export function clampTitle(input: string): string {
+export function clampTitle(input: string, opts?: { absolute?: boolean }): string {
   let t = input.trim();
   if (t.endsWith(BRAND_SUFFIX)) t = t.slice(0, -BRAND_SUFFIX.length).trim();
-  // If the title already contains the brand name, buildMetadata emits it as
-  // an absolute <title> and the template does NOT append " | Macksofy". Such
-  // titles therefore get the full 60-char budget instead of reserving ~11
-  // chars for a suffix that never lands (which was silently dropping tail
-  // keywords like "in Mumbai · Pan-India · UAE" from the homepage title).
-  const limit = t.includes(SITE.shortName) ? TITLE_LIMIT_TOTAL : TITLE_LIMIT_CORE;
+  // If the title already contains the brand name — or the caller declared it
+  // absolute — buildMetadata emits it as an absolute <title> and the template
+  // does NOT append " | Macksofy". Such titles therefore get the full 60-char
+  // budget instead of reserving ~11 chars for a suffix that never lands (which
+  // was silently dropping tail keywords like "in Mumbai · Pan-India · UAE"
+  // from the homepage title).
+  const limit =
+    opts?.absolute || t.includes(SITE.shortName)
+      ? TITLE_LIMIT_TOTAL
+      : TITLE_LIMIT_CORE;
   if (t.length <= limit) return t;
   while (true) {
     const m = t.match(/^(.+?)\s[|·]\s[^|·]+$/);
@@ -217,14 +235,15 @@ export function buildMetadata({
   ogTitle,
   ogEyebrow,
   ogKind,
+  absoluteTitle,
 }: BuildMetadataInput): Metadata {
   // SERP-budget clamps: any seoTitle / seoDescription that drifted long
   // gets trimmed here so the layout template's " | Macksofy" suffix
   // doesn't push the rendered title past Google's truncation threshold.
   // Per-page strings stay long for human authors; SERPs see the clamp.
-  title = clampTitle(title);
+  title = clampTitle(title, { absolute: absoluteTitle });
   description = clampDesc(description);
-  const includesBrand = title.includes(SITE.shortName);
+  const includesBrand = absoluteTitle || title.includes(SITE.shortName);
   const url = abs(path);
   // Dynamic OG image is the default: every page gets a brand-consistent
   // 1200x630 generated via /api/og. Pages can opt out by passing an
