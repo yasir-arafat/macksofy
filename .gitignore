@@ -42,3 +42,16 @@ next-env.d.ts
 
 # index-tracker run artifacts (keep the script + watch list, not the snapshots)
 /scripts/index-snapshots/
+
+# python bytecode from the scripts/ helpers
+__pycache__/
+
+# service-account / OAuth credentials. scripts/gsc_client.py deliberately reads
+# its key from OUTSIDE this repo, but this repo pushes to GitHub and auto-deploys
+# to Vercel, so a stray key dropped in here must never be committable. None of
+# the rules above match these filenames (*.pem and .env* both miss them).
+service-account*.json
+*-service-account.json
+client_secret_*.json
+*credentials.json
+token.json
