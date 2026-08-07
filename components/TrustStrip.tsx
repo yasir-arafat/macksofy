@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SITE } from "@/lib/site";
 import {
   Star,
   Quote,
@@ -70,7 +71,7 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
               label="LinkedIn"
               value="20K+"
               count="followers"
-              href="https://www.linkedin.com/company/macksofy-technologies"
+              href={SITE.social.linkedin}
             />
           </div>
         </div>

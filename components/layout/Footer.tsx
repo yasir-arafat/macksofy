@@ -27,7 +27,7 @@ import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
 const SOCIALS = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/company/macksofy-technologies-pvt-ltd/",
+    href: SITE.social.linkedin,
     color: "hover:text-[#0A66C2]",
     Icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>

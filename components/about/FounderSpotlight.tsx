@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SITE } from "@/lib/site";
 import {
   Award,
   ShieldCheck,
@@ -148,7 +149,7 @@ export function FounderSpotlight() {
 
         <div className="mt-7 flex items-center gap-3">
           <a
-            href="https://www.linkedin.com/company/macksofy-technologies"
+            href={SITE.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm text-fg-muted hover:text-neon-cyan ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow]"
