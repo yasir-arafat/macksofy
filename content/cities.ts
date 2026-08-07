@@ -148,7 +148,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity company in Mumbai. Headquartered at BKC. Penetration testing, VAPT, RBI / SEBI / IRDAI audits and OSCP / CEH training for Mumbai BFSI, fintech and government clients.",
+      "CERT-In empanelled cybersecurity company in Mumbai, headquartered at BKC — penetration testing, VAPT, RBI / SEBI / IRDAI audits and OSCP / CEH training.",
     extraKeywords: [
       "cybersecurity Mumbai BKC",
       "VAPT services Mumbai",
@@ -241,7 +241,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Delhi, Gurugram and Noida. VAPT, audits, RBI / SEBI / DPDP compliance, PCI-DSS, ISO 27001 — for government, PSU, fintech and IT services clients across Delhi NCR.",
+      "CERT-In empanelled cybersecurity in Delhi, Gurugram and Noida — VAPT, RBI / SEBI / DPDP compliance, PCI-DSS and ISO 27001 for government, PSU and fintech.",
     extraKeywords: [
       "cybersecurity Delhi NCR",
       "VAPT Gurugram",
@@ -335,7 +335,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services for Bengaluru SaaS, fintech and GCC clients. Manual VAPT, ISO 27001, SOC 2, AppSec, cloud security. OSCP / OSWE-led consultants. Same-week onsite, remote-friendly delivery.",
+      "CERT-In empanelled cybersecurity for Bengaluru SaaS, fintech and GCC clients — manual VAPT, ISO 27001, SOC 2, AppSec and cloud security, onsite same week.",
     extraKeywords: [
       "cybersecurity Bengaluru",
       "AppSec Bengaluru",
@@ -428,7 +428,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Hyderabad. South India regional hub at HITEC City. VAPT, ISO 27001, DPDP, HIPAA, SOC 2 for pharma, SaaS, fintech, GCC and government clients across Telangana, AP and beyond.",
+      "CERT-In empanelled cybersecurity in Hyderabad, from our HITEC City hub — VAPT, ISO 27001, DPDP, HIPAA and SOC 2 for pharma, SaaS, fintech and GCC clients.",
     extraKeywords: [
       "cybersecurity Hyderabad",
       "VAPT Hyderabad HITEC City",
@@ -522,7 +522,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Chennai. VAPT, RBI / SEBI audits, ISO 27001, SOC 2, OT/ICS reviews for Chennai BFSI, manufacturing, IT services and government clients across Tamil Nadu.",
+      "CERT-In empanelled cybersecurity in Chennai — VAPT, RBI / SEBI audits, ISO 27001, SOC 2 and OT/ICS reviews for BFSI, manufacturing and IT services.",
     extraKeywords: [
       "cybersecurity Chennai",
       "VAPT Chennai OMR",
@@ -614,7 +614,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Pune. VAPT, ISO 27001, SOC 2, OT/ICS audits and corporate training for Pune IT, auto, edtech and BPO clients. Mumbai BKC-anchored team, same-day onsite.",
+      "CERT-In empanelled cybersecurity in Pune — VAPT, ISO 27001, SOC 2, OT/ICS audits and corporate training for Pune IT, auto, edtech and BPO clients.",
     extraKeywords: [
       "cybersecurity Pune",
       "VAPT Hinjewadi",
@@ -708,7 +708,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Noida + Greater Noida. VAPT, ISO 27001, SOC 2, RBI PA-PG, DPDP and PCI-DSS audits for Noida fintechs, IT services and data-centre tenants.",
+      "CERT-In empanelled cybersecurity in Noida and Greater Noida — VAPT, ISO 27001, SOC 2, RBI PA-PG, DPDP and PCI-DSS audits for fintechs and IT services.",
     extraKeywords: [
       "cybersecurity Noida",
       "VAPT Noida Sector 62",
@@ -802,7 +802,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Gurugram. RBI / IRDAI / PCI / SOC 2 audits and red-team engagements for Gurugram BFSI HQs, GCCs and Cyber City fintech.",
+      "CERT-In empanelled cybersecurity in Gurugram — RBI / IRDAI / PCI / SOC 2 audits and red-team engagements for BFSI HQs, GCCs and Cyber City fintech.",
     extraKeywords: [
       "cybersecurity Gurugram",
       "VAPT Cyber City Gurgaon",
@@ -896,7 +896,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Ahmedabad + GIFT City. IFSCA cyber audits, VAPT, ISO 27001, SOC 2 and DPDP for IFSC banking units, pharma and BFSI.",
+      "CERT-In empanelled cybersecurity in Ahmedabad and GIFT City — IFSCA cyber audits, VAPT, ISO 27001, SOC 2 and DPDP for IFSC banking units and pharma.",
     extraKeywords: [
       "cybersecurity Ahmedabad",
       "VAPT GIFT City",
@@ -1001,7 +1001,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "Cybersecurity services in the UAE \u2014 NESA, DESC ISR, ADHICS and Federal PDPL audits, VAPT and red-team engagements for Dubai, Abu Dhabi and Sharjah BFSI, healthcare and government.",
+      "Cybersecurity in the UAE — NESA, DESC ISR, ADHICS and Federal PDPL audits, VAPT and red-team engagements for BFSI, healthcare and government.",
     extraKeywords: [
       "cybersecurity UAE",
       "NESA audit UAE",
@@ -1104,7 +1104,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity services in Dubai. DESC ISR audits, DIFC Data Protection Law, NESA-format VAPT and red-team engagements for Dubai BFSI, fintech and government.",
+      "CERT-In empanelled cybersecurity in Dubai — DESC ISR audits, DIFC Data Protection Law, NESA-format VAPT and red-team engagements for BFSI and fintech.",
     extraKeywords: [
       "cybersecurity Dubai",
       "DESC ISR audit Dubai",
@@ -1209,7 +1209,7 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "Cybersecurity services in Abu Dhabi — ADHICS healthcare audits, ADGM/FSRA cyber, NESA / UAE IA Standards VAPT and red-team for energy, government, sovereign-investment and healthcare entities.",
+      "Cybersecurity in Abu Dhabi — ADHICS healthcare audits, ADGM/FSRA cyber, and NESA / UAE IA Standards VAPT for energy, government and healthcare entities.",
     extraKeywords: [
       "cybersecurity Abu Dhabi",
       "ADHICS audit Abu Dhabi",

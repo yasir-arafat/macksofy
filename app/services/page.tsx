@@ -16,7 +16,7 @@ export const metadata = buildMetadata({
   title:
     "Cybersecurity Services in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
   description:
-    "Offensive and defensive cybersecurity services from CERT-In empanelled Macksofy. Penetration testing, VAPT, SOC engineering, red teaming, DFIR, malware analysis and threat intel — delivered across Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad and the UAE.",
+    "Offensive and defensive cybersecurity from CERT-In empanelled Macksofy — penetration testing, VAPT, SOC engineering, red teaming, DFIR and threat intel.",
   path: "/services",
   keywords: [
     "cybersecurity services India",

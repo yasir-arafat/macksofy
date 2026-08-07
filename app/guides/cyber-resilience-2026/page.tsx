@@ -4,7 +4,7 @@ import { PrintLayout } from "@/components/print/PrintLayout";
 export const metadata: Metadata = {
   title: "The 2026 Cyber Resilience Guide for Indian Boards — Macksofy",
   description:
-    "A board-level playbook for cyber-risk oversight under India's 2026 regulatory regime — CERT-In, RBI, SEBI and the DPDP Act. Compliance checklist, sample audit-report structure and a 12-month resilience roadmap.",
+    "A board-level playbook for cyber-risk oversight under India's 2026 regime — CERT-In, RBI, SEBI and DPDP, with a 12-month resilience roadmap.",
   // Lead-magnet deliverable, not an SEO surface — keep it out of the index.
   robots: { index: false, follow: false },
   // Self-canonical so it never inherits the root layout's homepage

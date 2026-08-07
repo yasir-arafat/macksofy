@@ -252,7 +252,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Same senior consultant from Mumbai BKC for the entire engagement — no bait-and-switch staffing, no junior bench rotation after kickoff.",
     ],
     seoDescription:
-      "VAPT services in Bengaluru for SaaS and product companies. OWASP ASVS, SOC 2 + ISO 27001 mapped, developer-readable reports, continuous-testing retainer option.",
+      "VAPT services in Bengaluru for SaaS and product companies. OWASP ASVS, SOC 2 + ISO 27001 mapped, developer-readable reports.",
     keywords: [
       "VAPT services Bengaluru",
       "VAPT Bangalore SaaS",
@@ -421,7 +421,7 @@ export const COMBOS: CityServiceCombo[] = [
       "PCI-DSS scope-reduction testing that compounds in CFO-visible savings on subsequent annual assessments.",
     ],
     seoDescription:
-      "CERT-In empanelled VAPT services in Gurugram for private banks, insurer GCCs and Fortune-500 capability centres. RBI / NIST dual-framework reports. Cyber City onsite.",
+      "CERT-In empanelled VAPT services in Gurugram for private banks, insurer GCCs and Fortune-500 capability centres. RBI / NIST dual-framework reports.",
     keywords: [
       "VAPT services Gurugram",
       "VAPT Gurgaon BFSI",
@@ -590,7 +590,7 @@ export const COMBOS: CityServiceCombo[] = [
       "DPDP §16 cross-border-transfer overlay built into the pharma VAPT for sponsor-data flows back to US/EU CRO parents.",
     ],
     seoDescription:
-      "CERT-In empanelled VAPT services in Hyderabad for pharma, CROs and HITEC City SaaS. 21 CFR Part 11, GxP and SOC 2 aligned reports. Genome Valley + Gachibowli onsite.",
+      "CERT-In empanelled VAPT services in Hyderabad for pharma, CROs and HITEC City SaaS. 21 CFR Part 11, GxP and SOC 2 aligned reports.",
     keywords: [
       "VAPT services Hyderabad",
       "VAPT HITEC City",
@@ -1794,7 +1794,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Adversary modelling against the actual TTPs that have hit Indian government estates in 2024-25 — LockBit / ALPHV affiliates, supply-chain compromise via application vendors, Aadhaar AUA wrapper abuse — not a generic OWASP checklist.",
     ],
     seoDescription:
-      "CERT-In empanelled penetration testing in Delhi for ministries, PSUs, regulators and central agencies. STQC / NIC reports, GeM-listed, Aadhaar AUA / KUA audit-capable.",
+      "CERT-In empanelled penetration testing in Delhi for ministries, PSUs, regulators and central agencies. STQC / NIC reports, GeM-listed.",
     keywords: [
       "penetration testing Delhi",
       "CERT-In penetration testing Delhi",
@@ -1976,7 +1976,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Re-testing of critical and high findings included in the SoW so RBI and customer remediation windows are never missed.",
     ],
     seoDescription:
-      "CERT-In empanelled penetration testing in Chennai for South-India banks, gold-loan NBFCs, OMR / Tidel Park SaaS and Sriperumbudur manufacturing — RBI Cyber Resilience + SOC 2.",
+      "CERT-In empanelled penetration testing in Chennai for South-India banks, gold-loan NBFCs, OMR / Tidel Park SaaS and Sriperumbudur manufacturing.",
     keywords: [
       "penetration testing Chennai",
       "CERT-In pentest Chennai",
@@ -2159,7 +2159,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Quarterly tabletop exercises tuned to Gurugram BFSI scenarios + annual board-level red-vs-blue, with the IR runbook jointly maintained with the client.",
     ],
     seoDescription:
-      "24x7 co-managed SOC in Gurugram for BFSI HQs, insurers and Fortune-500 GCCs — Splunk / Sentinel / CrowdStrike. RBI Cyber Resilience + IRDAI + parent-group reporting.",
+      "24x7 co-managed SOC in Gurugram for BFSI HQs, insurers and Fortune-500 GCCs — Splunk / Sentinel / CrowdStrike.",
     keywords: [
       "managed SOC Gurugram",
       "co-managed SOC Gurgaon BFSI",
@@ -2346,7 +2346,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Annual red-vs-blue with the Macksofy red-team practice under Chinese-wall purple-team rules — the after-action review feeds detection-engineering directly.",
     ],
     seoDescription:
-      "24x7 BKC-anchored Managed SOC in Mumbai for BFSI — banks, NBFCs, brokers, insurers. RBI Cyber Resilience, SEBI CSCRF and IRDAI aligned. Co-managed Splunk / Sentinel.",
+      "24x7 BKC-anchored Managed SOC in Mumbai for BFSI — banks, NBFCs, brokers, insurers. RBI Cyber Resilience, SEBI CSCRF and IRDAI aligned.",
     keywords: [
       "managed SOC Mumbai",
       "24x7 SOC Mumbai BFSI",
@@ -2533,7 +2533,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Single artefact answers SOC 2 Type II auditor + ISO 27001 surveillance assessor + enterprise CISO vendor pack — no separate evidence assembly later.",
     ],
     seoDescription:
-      "Manual-first web app security testing in Bengaluru for SaaS, product and GCC teams — OWASP ASVS L2 / L3, API Security Top 10, GraphQL, SOC 2 + ISO 27001 mapped.",
+      "Manual-first web app security testing in Bengaluru for SaaS, product and GCC teams — OWASP ASVS L2 / L3, API Security Top 10, GraphQL.",
     keywords: [
       "web application security testing Bengaluru",
       "web app pentest Bangalore",
@@ -2716,7 +2716,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Regional adversary modelling against MuddyWater / APT34 / FIN8 / LAPSUS$ / ALPHV TTPs that have hit Gulf-region financial-sector entities in 2023-26.",
     ],
     seoDescription:
-      "VAPT in Dubai for DIFC banks, fintechs, broker-dealers and family offices — NESA / UAE IAS, DFSA, DESC ISR, UAE PDPL, DIFC DP-Law and CERT-In. UAE-resident leads.",
+      "VAPT in Dubai for DIFC banks, fintechs, broker-dealers and family offices — NESA / UAE IAS, DFSA, DESC ISR, UAE PDPL and DIFC DP-Law.",
     keywords: [
       "VAPT services Dubai",
       "VAPT DIFC fintech",
@@ -2903,7 +2903,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Annex 17 ICAO operational-safety constraint awareness for airline / airport scope — out-of-band on customer-impacting flows + safety-and-security committee oversight.",
     ],
     seoDescription:
-      "Intelligence-led red team operations in Dubai for DIFC BFSI, Smart Dubai, DXB / DWC airline-airport and MEA regional HQs — UAE IAS, DESC ISR v2, DFSA + TIBER-style.",
+      "Intelligence-led red team operations in Dubai for DIFC BFSI, Smart Dubai and MEA regional HQs — UAE IAS, DESC ISR v2, DFSA and TIBER-style.",
     keywords: [
       "red team Dubai",
       "red teaming DIFC bank",
@@ -3090,7 +3090,7 @@ export const COMBOS: CityServiceCombo[] = [
       "CIIP applicability-determination workflow run directly with the UAE Cybersecurity Council where the workload's CIIP status is unclear — most vendors skip this and the audit fails on first read.",
     ],
     seoDescription:
-      "UAE cloud security audit for federal, Dubai, Abu Dhabi and free-zone workloads on AWS / Azure / OCI / GCP / G42 sovereign cloud — UAE IAS, DESC ISR v2, ADHICS, DFSA / FSRA.",
+      "UAE cloud security audit for federal, Dubai, Abu Dhabi and free-zone workloads on AWS / Azure / OCI / GCP — UAE IAS, DESC ISR v2, ADHICS and DFSA.",
     keywords: [
       "cloud security audit UAE",
       "NESA UAE IAS cloud audit",
@@ -3274,7 +3274,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai geography baked into the SoW — BKC walk-in, MMR four-hour SLA, monsoon-window scheduling and Mahape/Airoli BCP-site coordination handled directly.",
     ],
     seoDescription:
-      "OSCP / OSEP-led penetration testing in Mumbai for BFSI, fintech and listed enterprises. Objective-based scoping, SWIFT and treasury targeting, SOC tabletop integration, BKC HQ.",
+      "OSCP / OSEP-led penetration testing in Mumbai for BFSI, fintech and listed enterprises. Objective-based scoping, SWIFT and treasury targeting.",
     keywords: [
       "penetration testing Mumbai",
       "Mumbai pentest company",
@@ -3445,7 +3445,7 @@ export const COMBOS: CityServiceCombo[] = [
       "LLM application security in-scope for AI surfaces — prompt-injection, tool-use abuse, training-data exfil and indirect-injection-via-RAG.",
     ],
     seoDescription:
-      "Manual-first penetration testing in Bengaluru for SaaS, product and GCC clients. Multi-tenant authz, cloud-native, identity federation and LLM application security. SOC 2 + ISO 27001 aligned.",
+      "Manual-first penetration testing in Bengaluru for SaaS, product and GCC clients. Multi-tenant authz, cloud-native.",
     keywords: [
       "penetration testing Bengaluru",
       "Bengaluru pentest SaaS",
@@ -3617,7 +3617,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Cyber City to Sohna onsite SLA inside two hours from IGI landing; embedded Gurugram lead consultant for multi-quarter programmes.",
     ],
     seoDescription:
-      "Adversary-simulation penetration testing in Gurugram for BFSI HQs, insurers and GCCs. EDR-aware tradecraft, Cyber City to Sohna onsite, NIST / CREST / TIBER-EU aligned.",
+      "Adversary-simulation penetration testing in Gurugram for BFSI HQs, insurers and GCCs. EDR-aware tradecraft, Cyber City to Sohna onsite.",
     keywords: [
       "penetration testing Gurugram",
       "Gurugram pentest BFSI",
@@ -3788,7 +3788,7 @@ export const COMBOS: CityServiceCombo[] = [
       "PSU-grade milestone payments aligned to CAG audit cycles and a separate inspection-defence retainer for DFS / RBI thematic-review cycles.",
     ],
     seoDescription:
-      "CERT-In empanelled VAPT services in Delhi for central government, PSUs, ministries and Delhi-NCR fintech. GeM-listed, Aadhaar / DigiLocker / APIGW scope, Indian-soil delivery option.",
+      "CERT-In empanelled VAPT services in Delhi for central government, PSUs, ministries and Delhi-NCR fintech. GeM-listed, Aadhaar / DigiLocker / APIGW scope.",
     keywords: [
       "VAPT Delhi",
       "government VAPT Delhi",
@@ -3959,7 +3959,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Parent-company standard alignment — TIBER-EU for European parents, CBEST / CREST STAR for UK, NIST 800-115 v2 for US — same operations team, deliverable format selected at kickoff.",
     ],
     seoDescription:
-      "MITRE ATT&CK-aligned red-team engagements in Bengaluru for SaaS, product and GCC clients. EDR evasion, cloud post-exploitation, purple-team integration. TIBER-EU / CBEST / CREST aligned.",
+      "MITRE ATT&CK-aligned red-team engagements in Bengaluru for SaaS, product and GCC clients. EDR evasion, cloud post-exploitation, purple-team integration.",
     keywords: [
       "red team Bengaluru",
       "red teaming services Bengaluru",
@@ -4130,7 +4130,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Half-yearly purple-team exercise with the Macksofy red-team bench — detection content stays sharp, not stale.",
     ],
     seoDescription:
-      "24×7 managed SOC in Hyderabad for pharma, US-healthcare GCC and HITEC City SaaS. Bring-your-own-SIEM, 140+ pharma use-cases, SOC 2 / HIPAA / DPDP-aware detection content.",
+      "24×7 managed SOC in Hyderabad for pharma, US-healthcare GCC and HITEC City SaaS. Bring-your-own-SIEM, 140+ pharma use-cases.",
     keywords: [
       "managed SOC Hyderabad",
       "SOC services HITEC City",
@@ -4301,7 +4301,7 @@ export const COMBOS: CityServiceCombo[] = [
       "IaC scanning + policy-as-code (OPA / Conftest / Sentinel) integrated into the customer's CI pipeline as guardrails, not as a one-off audit.",
     ],
     seoDescription:
-      "Cloud security in Hyderabad for pharma GxP-on-cloud, HITEC City SaaS and US-healthcare GCCs. AWS / Azure / GCP, CSPM, identity, IaC, HIPAA + DPDP §16 evidence.",
+      "Cloud security in Hyderabad for pharma GxP-on-cloud, HITEC City SaaS and US-healthcare GCCs. AWS / Azure / GCP, CSPM, identity, IaC.",
     keywords: [
       "cloud security Hyderabad",
       "AWS security Hyderabad",
@@ -4472,7 +4472,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC anchor team with Pune-resident senior for multi-quarter programmes — 3-hour DFIR mobilisation via the Expressway.",
     ],
     seoDescription:
-      "24×7 managed SOC in Pune for IT services GCCs, Hinjewadi SaaS, Chakan auto OEMs and Magarpatta BPOs. IT-and-OT-aware, IEC-62443 + TISAX-aligned, bring-your-own SIEM / EDR.",
+      "24×7 managed SOC in Pune for IT services GCCs, Hinjewadi SaaS, Chakan auto OEMs and Magarpatta BPOs. IT-and-OT-aware, IEC-62443 + TISAX-aligned.",
     keywords: [
       "managed SOC Pune",
       "SOC services Hinjewadi",
@@ -4643,7 +4643,7 @@ export const COMBOS: CityServiceCombo[] = [
       "RBI inspection-defence support included for CSITE Cell and Department of Payment and Settlement Systems thematic-review cycles.",
     ],
     seoDescription:
-      "Manual-first web application security in Noida for fintechs, payment aggregators and IT services. OWASP ASVS L3, RBI PA-PG + Digital Lending + DPDP §16 aligned reports.",
+      "Manual-first web application security in Noida for fintechs, payment aggregators and IT services. OWASP ASVS L3.",
     keywords: [
       "web application security Noida",
       "Noida AppSec fintech",
@@ -4814,7 +4814,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BOM → AMD one-hour flight enables same-day GIFT City or Pirana / Moraiya onsite arrival.",
     ],
     seoDescription:
-      "CERT-In empanelled VAPT services in Ahmedabad and GIFT City. IFSCA-aligned for IFSC banking units, 21 CFR Part 11 for pharma, RBI for co-operative banks and DPDP §16 for cross-border flows.",
+      "CERT-In empanelled VAPT services in Ahmedabad and GIFT City. IFSCA-aligned for IFSC banking units, 21 CFR Part 11 for pharma.",
     keywords: [
       "VAPT Ahmedabad",
       "VAPT GIFT City",
@@ -4985,7 +4985,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC senior bench at three-hour BOM → DXB flight distance — same-day onsite arrival; embedded Dubai-resident tech lead for multi-quarter programmes.",
     ],
     seoDescription:
-      "DESC ISR + DIFC + DFSA-aligned penetration testing in Dubai for BFSI, hospitality, smart-city and free-zone fintech. Regional threat-actor emulation, EDR-aware tradecraft, Mumbai BKC senior bench.",
+      "DESC ISR + DIFC + DFSA-aligned penetration testing in Dubai for BFSI, hospitality, smart-city and free-zone fintech. Regional threat-actor emulation.",
     keywords: [
       "penetration testing Dubai",
       "Dubai pentest BFSI",
@@ -5156,7 +5156,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Korean / German / Japanese-OEM-platform-specific OT content calibration — not a Pune library translated to Chennai's auto OEM stack.",
     ],
     seoDescription:
-      "24×7 managed SOC in Chennai for PSU banks, Sriperumbudur auto OEMs and OMR SaaS. RBI CSF Annex-2, IEC-62443, SOC 2 + DPDP detection content. Bring-your-own SIEM / EDR.",
+      "24×7 managed SOC in Chennai for PSU banks, Sriperumbudur auto OEMs and OMR SaaS. RBI CSF Annex-2, IEC-62443, SOC 2 + DPDP detection content.",
     keywords: [
       "managed SOC Chennai",
       "SOC services OMR Chennai",
@@ -5328,7 +5328,7 @@ export const COMBOS: CityServiceCombo[] = [
       "BKC walk-in onsite SLA same day; MMR onsite inside four hours including Thane and Navi Mumbai.",
     ],
     seoDescription:
-      "OWASP ASVS L3 web application security in Mumbai for BFSI, brokers, payment aggregators and insurers. RBI / SEBI / IRDAI clause closure. BKC HQ, manual-first, reproducible exploits.",
+      "OWASP ASVS L3 web application security in Mumbai for BFSI, brokers, payment aggregators and insurers. RBI / SEBI / IRDAI clause closure. BKC HQ, manual-first.",
     keywords: [
       "web application security Mumbai",
       "Mumbai AppSec BFSI",
@@ -5499,7 +5499,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Customer-security-questionnaire annex updated quarterly so the SaaS customer's procurement team has current SOC operational evidence on every enterprise RFP.",
     ],
     seoDescription:
-      "24×7 cloud-native managed SOC in Bengaluru for SaaS, product and GCC clients. SOC 2 CC7 evidence, OWASP CN + LLM Top 10 detection, bring-your-own SIEM, US-customer cadence.",
+      "24×7 cloud-native managed SOC in Bengaluru for SaaS, product and GCC clients. SOC 2 CC7 evidence, OWASP CN + LLM Top 10 detection, bring-your-own SIEM.",
     keywords: [
       "managed SOC Bengaluru",
       "Bengaluru SOC SaaS",
@@ -5670,7 +5670,7 @@ export const COMBOS: CityServiceCombo[] = [
       "HITEC City regional hub means two-hour onsite SLA across Madhapur, Gachibowli, Banjara Hills, Kondapur and Genome Valley.",
     ],
     seoDescription:
-      "Scenario-led penetration testing in Hyderabad for pharma R&D, HITEC City SaaS and US-healthcare GCCs. Regulated-data-flow + cloud-native objectives, HITEC City regional hub.",
+      "Scenario-led penetration testing in Hyderabad for pharma R&D, HITEC City SaaS and US-healthcare GCCs. Regulated-data-flow + cloud-native objectives.",
     keywords: [
       "penetration testing Hyderabad",
       "pharma pentest Hyderabad",
@@ -5841,7 +5841,7 @@ export const COMBOS: CityServiceCombo[] = [
       "HITEC City regional hub — two-hour onsite SLA across Madhapur, Gachibowli, Banjara Hills, Kondapur and Genome Valley.",
     ],
     seoDescription:
-      "OWASP ASVS L3 web application security in Hyderabad for clinical-trial SaaS, HITEC City product, US-healthcare GCC and pharma customer portals. 21 CFR Part 11 + HIPAA + DPDP aligned.",
+      "OWASP ASVS L3 web application security in Hyderabad for clinical-trial SaaS, HITEC City product, US-healthcare GCC and pharma customer portals.",
     keywords: [
       "web application security Hyderabad",
       "Hyderabad AppSec",
@@ -6012,7 +6012,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Inspection-calendar-aligned finding closure — pharma findings dated against next FDA / EMA / DCGI inspection on QA calendar, not the IT change calendar.",
     ],
     seoDescription:
-      "MITRE ATT&CK-aligned red-teaming in Hyderabad for pharma R&D, clinical-trial SaaS and US-healthcare GCCs. APT41 / Lazarus emulation, three-estate traversal, FDA-aligned timelines.",
+      "MITRE ATT&CK-aligned red-teaming in Hyderabad for pharma R&D, clinical-trial SaaS and US-healthcare GCCs. APT41 / Lazarus emulation, three-estate traversal.",
     keywords: [
       "red team Hyderabad",
       "pharma red team",
@@ -6183,7 +6183,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC senior bench at 3-hour drive distance — same-day onsite arrival; Pune-resident lead consultant for multi-quarter programmes.",
     ],
     seoDescription:
-      "Scenario-led penetration testing in Pune for IT-services GCCs, Hinjewadi SaaS, Chakan auto OEMs and Magarpatta BPO. NIST / CREST / TIBER + IEC-62443 + TISAX aligned.",
+      "Scenario-led penetration testing in Pune for IT-services GCCs, Hinjewadi SaaS, Chakan auto OEMs and Magarpatta BPO.",
     keywords: [
       "penetration testing Pune",
       "Pune pentest Hinjewadi",
@@ -6354,7 +6354,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Dual-format reporting — CERT-In-aligned for Indian-enterprise customers + SOC 2 CC + parent-specific for international customers — from one engagement.",
     ],
     seoDescription:
-      "OWASP ASVS L3 web application security in Pune for IT-services delivery, Magarpatta edtech, Kharadi SaaS and connected-vehicle customer apps. DPDP + parent-standard aligned.",
+      "OWASP ASVS L3 web application security in Pune for IT-services delivery, Magarpatta edtech, Kharadi SaaS and connected-vehicle customer apps.",
     keywords: [
       "web application security Pune",
       "Pune AppSec edtech",
@@ -6525,7 +6525,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Pune-resident lead consultant for sustained connected-vehicle multi-quarter programmes; Mumbai BKC senior bench at 3-hour drive distance.",
     ],
     seoDescription:
-      "Cloud security in Pune for connected-car back-ends, IT-services GCC parent-cloud, Magarpatta SaaS and Hinjewadi delivery centres. ISO 21434 + UN R155 / R156 + WP.29 CSMS aligned.",
+      "Cloud security in Pune for connected-car back-ends, IT-services GCC parent-cloud, Magarpatta SaaS and Hinjewadi delivery centres.",
     keywords: [
       "cloud security Pune",
       "AWS security Pune",
@@ -6696,7 +6696,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC senior bench at 2-hour flight + 45-90 minute drive — same-day onsite arrival; embedded Noida lead consultant for sustained programmes.",
     ],
     seoDescription:
-      "OSCP / OSEP-led penetration testing in Noida for fintechs, payment aggregators, Yotta NM1 tenants and foreign-bank GCCs. RBI / DPDP / parent-standard aligned. Mumbai BKC senior bench.",
+      "OSCP / OSEP-led penetration testing in Noida for fintechs, payment aggregators, Yotta NM1 tenants and foreign-bank GCCs. RBI / DPDP / parent-standard aligned.",
     keywords: [
       "penetration testing Noida",
       "Noida pentest fintech",
@@ -6867,7 +6867,7 @@ export const COMBOS: CityServiceCombo[] = [
       "DPDP §16 cross-border-transfer monitoring as base deliverable with DPO memo cadence.",
     ],
     seoDescription:
-      "24×7 managed SOC in Noida for fintechs, RBI PA-PG licensees, Sector 132 foreign-bank GCCs and Yotta NM1 tenants. RBI / DPDP / parent-standard aligned. Bring-your-own SIEM.",
+      "24×7 managed SOC in Noida for fintechs, RBI PA-PG licensees, Sector 132 foreign-bank GCCs and Yotta NM1 tenants. RBI / DPDP / parent-standard aligned.",
     keywords: [
       "managed SOC Noida",
       "Noida fintech SOC",
@@ -7038,7 +7038,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Noida-resident lead consultant for sustained multi-quarter programmes; Mumbai BKC senior bench at 2-hour flight + 45-90 minute drive.",
     ],
     seoDescription:
-      "Cloud security in Noida for fintechs, RBI PA-PG licensees, Sector 132 foreign-bank GCC parent-cloud and Yotta NM1 tenants. RBI + DPDP §16 evidence, parent-cloud catalogues.",
+      "Cloud security in Noida for fintechs, RBI PA-PG licensees, Sector 132 foreign-bank GCC parent-cloud and Yotta NM1 tenants. RBI + DPDP §16 evidence.",
     keywords: [
       "cloud security Noida",
       "AWS security Noida",
@@ -7209,7 +7209,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC and Hyderabad HITEC City dual-anchor team — 60-90 minute flight to MAA from either; embedded Chennai senior for sustained programmes.",
     ],
     seoDescription:
-      "CERT-In empanelled VAPT in Chennai for PSU banks, Sriperumbudur auto OEMs, OMR SaaS and TNeGA. RBI CSF + IEC-62443 + TISAX + SOC 2 + TNeGA submission-format reporting.",
+      "CERT-In empanelled VAPT in Chennai for PSU banks, Sriperumbudur auto OEMs, OMR SaaS and TNeGA.",
     keywords: [
       "VAPT Chennai",
       "PSU bank VAPT Chennai",
@@ -7380,7 +7380,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Chennai-resident senior analyst for multi-quarter PSU bank programmes; Mumbai-and-Hyderabad dual-anchor bench at 60-90 minute flight distance.",
     ],
     seoDescription:
-      "OWASP ASVS L3 web application security in Chennai for OMR SaaS, PSU bank customer apps, Sriperumbudur auto OEM customer portals and TNeGA citizen apps. CERT-In + RBI + DPDP aligned.",
+      "OWASP ASVS L3 web application security in Chennai for OMR SaaS, PSU bank customer apps, Sriperumbudur auto OEM customer portals and TNeGA citizen apps.",
     keywords: [
       "web application security Chennai",
       "OMR AppSec",
@@ -7551,7 +7551,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai-and-Hyderabad dual-anchor bench — 60-90 minute flight to MAA from either; Chennai-resident senior for sustained programmes.",
     ],
     seoDescription:
-      "Cloud security in Chennai for OMR SaaS, Sriperumbudur auto OEM connected-car back-ends, PSU bank cloud workloads and TNeGA cloud. ISO 21434 + RBI + CERT-In + DPDP evidence.",
+      "Cloud security in Chennai for OMR SaaS, Sriperumbudur auto OEM connected-car back-ends, PSU bank cloud workloads and TNeGA cloud.",
     keywords: [
       "cloud security Chennai",
       "AWS security Chennai",
@@ -7722,7 +7722,7 @@ export const COMBOS: CityServiceCombo[] = [
       "BOM → AMD one-hour flight + 30-90 minute drive to GIFT City / Pirana / Moraiya / Sarkhej / Changodar — same-day onsite arrival.",
     ],
     seoDescription:
-      "Scenario-led penetration testing in Ahmedabad and GIFT City. IFSCA + USFDA + Walmart procurement-audit + RBI Master Direction aligned. Mumbai BKC senior bench at 1-hour flight.",
+      "Scenario-led penetration testing in Ahmedabad and GIFT City. IFSCA + USFDA + Walmart procurement-audit + RBI Master Direction aligned.",
     keywords: [
       "penetration testing Ahmedabad",
       "GIFT City pentest",
@@ -7893,7 +7893,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC senior bench at 3-hour mobilisation; embedded Gurugram lead consultant for sustained BFSI HQ programmes.",
     ],
     seoDescription:
-      "OWASP ASVS L3 web application security in Gurugram for BFSI HQ customer apps, insurer portals, fintech web platforms and 600+ GCC customer-facing applications.",
+      "OWASP ASVS L3 web application security in Gurugram for BFSI HQ customer apps, insurer portals.",
     keywords: [
       "web application security Gurugram",
       "Gurugram AppSec BFSI",
@@ -8064,7 +8064,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC senior bench at 3-hour mobilisation; embedded Gurugram lead consultant for sustained BFSI HQ programmes.",
     ],
     seoDescription:
-      "AWS / Azure / GCP cloud security in Gurugram for BFSI HQs, insurer multi-cloud, fintech and 600+ GCC parent-cloud estates. RBI + IRDAI + parent-control aligned.",
+      "AWS / Azure / GCP cloud security in Gurugram for BFSI HQs, insurer multi-cloud, fintech and 600+ GCC parent-cloud estates.",
     keywords: [
       "cloud security Gurugram",
       "AWS security Gurugram",
@@ -8235,7 +8235,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Delhi-resident bid-desk for active GeM / CPPP / Defence e-Procurement tender response inside the portal's 7-21 day window.",
     ],
     seoDescription:
-      "24×7 managed SOC in Delhi for central government, PSU banks, ministries and Delhi-NCR fintech. GeM-listed, CERT-In empanelled, Indian-soil-only delivery option.",
+      "24×7 managed SOC in Delhi for central government, PSU banks, ministries and Delhi-NCR fintech. GeM-listed, CERT-In empanelled.",
     keywords: [
       "managed SOC Delhi",
       "government SOC Delhi",
@@ -8407,7 +8407,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Delhi-resident bid-desk for GeM / CPPP / Defence e-Procurement AppSec tender response.",
     ],
     seoDescription:
-      "OWASP ASVS L3 web application security in Delhi for central-government citizen portals, PSU banks and Delhi-NCR fintech. GeM-listed, Aadhaar / DigiLocker / APIGW scope.",
+      "OWASP ASVS L3 web application security in Delhi for central-government citizen portals, PSU banks and Delhi-NCR fintech. GeM-listed.",
     keywords: [
       "web application security Delhi",
       "Delhi AppSec",
@@ -8579,7 +8579,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BKC senior bench at 3-hour flight + 20-minute drive — Dubai-resident embedded senior for sustained programmes; AED + 5% VAT billing.",
     ],
     seoDescription:
-      "24×7 managed SOC in Dubai for BFSI, DIFC fintech, hospitality and Smart Dubai operators. DESC ISR v2 + DFSA + DIFC DP Law + NESA detection content. Mumbai BKC senior bench.",
+      "24×7 managed SOC in Dubai for BFSI, DIFC fintech, hospitality and Smart Dubai operators. DESC ISR v2 + DFSA + DIFC DP Law + NESA detection content.",
     keywords: [
       "managed SOC Dubai",
       "DESC ISR SOC",
@@ -8747,7 +8747,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Three-shift-treasury-aware MFA rollout playbook — Macksofy has shipped this in two Mumbai-listed private banks without an after-hours break-glass incident.",
     ],
     seoDescription:
-      "IAM audit, PAM tightening and Zero Trust roadmap for Mumbai BFSI from BKC. RBI MD-ITGRC + SEBI CSCRF identity-evidence pack. BloodHound + ROADrecon methodology.",
+      "IAM audit, PAM tightening and Zero Trust roadmap for Mumbai BFSI from BKC. RBI MD-ITGRC + SEBI CSCRF identity-evidence pack.",
     keywords: [
       "IAM audit Mumbai",
       "Zero Trust Mumbai BFSI",
@@ -8877,7 +8877,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Quarterly programme with rotating pretexts — workforce never adapts to a single pattern; click-rate trend is meaningful.",
     ],
     seoDescription:
-      "Mumbai BFSI phishing simulation with India-context lures (GST, UPI, EPFO, NSE / BSE). GoPhish, India-hosted, three-language coaching, RBI / SEBI evidence pack.",
+      "Mumbai BFSI phishing simulation with India-context lures (GST, UPI, EPFO, NSE / BSE). GoPhish, India-hosted, three-language coaching.",
     keywords: [
       "phishing simulation Mumbai",
       "phishing awareness Mumbai BFSI",
@@ -8968,7 +8968,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Rule-base cleanup with documented rollback per rule — Macksofy has shipped 12,000+ rule cleanups across Mumbai banks without a Critical-1 rollback.",
     ],
     seoDescription:
-      "Mumbai BFSI segmentation, firewall rule-base review, SASE / ZTNA roadmap and IEC 62443 OT zoning. Vendor-neutral, RBI / SEBI evidence pack. BKC HQ, MMR onsite.",
+      "Mumbai BFSI segmentation, firewall rule-base review, SASE / ZTNA roadmap and IEC 62443 OT zoning. Vendor-neutral, RBI / SEBI evidence pack. BKC HQ.",
     keywords: [
       "network segmentation Mumbai",
       "firewall rule review Mumbai",
@@ -9063,7 +9063,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Re-testing of every Critical and High included in the base SoW, each exploitable finding paired with a Sigma/Splunk detection rule for the SOC.",
     ],
     seoDescription:
-      "API security testing in Mumbai for fintech & BFSI — OWASP API Top 10, UPI/IMPS, Account Aggregator and partner-API abuse. BKC HQ, RBI/SEBI-aligned, re-test included.",
+      "API security testing in Mumbai for fintech & BFSI — OWASP API Top 10, UPI/IMPS, Account Aggregator and partner-API abuse. BKC HQ, RBI/SEBI-aligned.",
     keywords: [
       "API security testing Mumbai",
       "API penetration testing Mumbai",
@@ -9177,7 +9177,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Vendor-neutral across Kong / Apigee / AWS / Azure APIM / Istio — we don't resell the gateway we're hardening, so the configuration advice is unconflicted.",
     ],
     seoDescription:
-      "API security testing in Bengaluru for B2B SaaS & product teams — OWASP API Top 10, GraphQL, multi-tenant BOLA. SOC 2 / ISO 27001 / DPDP-aligned, CI/CD-friendly, re-test included.",
+      "API security testing in Bengaluru for B2B SaaS & product teams — OWASP API Top 10, GraphQL, multi-tenant BOLA. SOC 2 / ISO 27001 / DPDP-aligned.",
     keywords: [
       "API security testing Bengaluru",
       "API penetration testing Bangalore",
@@ -9291,7 +9291,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Re-testing of every Critical and High in the base SoW, with the documentation pack a departmental or CAG-aligned review expects.",
     ],
     seoDescription:
-      "API security testing in Delhi NCR for government, India-Stack and enterprise APIs — OWASP API Top 10, BOLA, Aadhaar/DigiLocker integration. CERT-In & DPDP-aligned, re-test included.",
+      "API security testing in Delhi NCR for government, India-Stack and enterprise APIs — OWASP API Top 10, BOLA, Aadhaar/DigiLocker integration.",
     keywords: [
       "API security testing Delhi NCR",
       "API penetration testing Gurugram",
@@ -9409,7 +9409,7 @@ export const COMBOS: CityServiceCombo[] = [
       "CERT-In empanelled responder and a retainer model with guaranteed SLAs, named responders and banked hours — no emergency-procurement scramble mid-incident.",
     ],
     seoDescription:
-      "DFIR services in Mumbai for BFSI — CERT-In six-hour incident response, ransomware & AD-forest forensics, breach reporting. BKC HQ, same-day onsite, retainer available.",
+      "DFIR services in Mumbai for BFSI — CERT-In six-hour incident response, ransomware & AD-forest forensics, breach reporting. BKC HQ, same-day onsite.",
     keywords: [
       "DFIR services Mumbai",
       "incident response Mumbai BFSI",
@@ -9523,7 +9523,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Remote-first retainer with named responders who learn your cloud architecture before the incident; CERT-In empanelled and cloud/tooling-vendor-neutral.",
     ],
     seoDescription:
-      "DFIR services in Bengaluru for cloud, SaaS & product teams — AWS/Azure/GCP forensics, CI/CD & supply-chain incidents, ransomware, BEC. DPDP & CERT-In aligned, retainer available.",
+      "DFIR services in Bengaluru for cloud, SaaS & product teams — AWS/Azure/GCP forensics, CI/CD & supply-chain incidents, ransomware, BEC. DPDP & CERT-In aligned.",
     keywords: [
       "DFIR services Bengaluru",
       "cloud incident response Bangalore",
@@ -9637,7 +9637,7 @@ export const COMBOS: CityServiceCombo[] = [
       "CERT-In empanelled responder with a retainer model structured for GeM, departmental and enterprise procurement — no emergency-tender scramble mid-incident.",
     ],
     seoDescription:
-      "DFIR services in Delhi NCR for government, PSU & enterprise — CERT-In six-hour IR, NCIIPC-aligned forensics, ransomware & portal breach response. Same-day onsite, retainer available.",
+      "DFIR services in Delhi NCR for government, PSU & enterprise — CERT-In six-hour IR, NCIIPC-aligned forensics, ransomware & portal breach response.",
     keywords: [
       "DFIR services Delhi NCR",
       "incident response Gurugram",
@@ -9755,7 +9755,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Vendor-neutral roadmaps — recommendations fit your risk and budget, because we don't resell the tooling we advise on.",
     ],
     seoDescription:
-      "Virtual CISO (vCISO) in Mumbai for BFSI, NBFCs & fintech — RBI/SEBI/IRDAI program leadership, board reporting, SOC 2/DPDP readiness. BKC HQ, VAPT & DFIR benches behind the seat.",
+      "Virtual CISO (vCISO) in Mumbai for BFSI, NBFCs & fintech — RBI/SEBI/IRDAI program leadership, board reporting, SOC 2/DPDP readiness. BKC HQ.",
     keywords: [
       "virtual CISO Mumbai",
       "vCISO services Mumbai",
@@ -9869,7 +9869,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Remote-first at startup pace, vendor-neutral tooling, CERT-In empanelled for India obligations; onsite across ORR/Whitefield/Electronic City when needed.",
     ],
     seoDescription:
-      "Virtual CISO (vCISO) in Bengaluru for SaaS, product & startups — SOC 2 / ISO 27001 / DPDP programs, customer-security & fundraise diligence leadership, pentest & DFIR benches behind the seat.",
+      "Virtual CISO (vCISO) in Bengaluru for SaaS, product & startups — SOC 2 / ISO 27001 / DPDP programs, customer-security & fundraise diligence leadership.",
     keywords: [
       "virtual CISO Bengaluru",
       "vCISO services Bangalore",
@@ -9983,7 +9983,7 @@ export const COMBOS: CityServiceCombo[] = [
       "In-person board and steering-committee presence across Gurugram, Noida and Delhi; vendor-neutral; structured for enterprise and GeM/departmental procurement.",
     ],
     seoDescription:
-      "Virtual CISO (vCISO) in Delhi NCR for enterprise, fintech & manufacturing — CERT-In/DPDP program leadership, IT/OT security strategy, board reporting. VAPT/DFIR/audit benches behind the seat.",
+      "Virtual CISO (vCISO) in Delhi NCR for enterprise, fintech & manufacturing — CERT-In/DPDP program leadership, IT/OT security strategy, board reporting.",
     keywords: [
       "virtual CISO Delhi NCR",
       "vCISO services Gurugram",
@@ -10101,7 +10101,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Senior consultants on-site in DIFC/Internet City within the same Dubai business day for the kickoff and landing-zone workshop, with the assessment running remotely against scoped read-only audit roles in between.",
     ],
     seoDescription:
-      "Cloud security in Dubai — DESC ISR & DIFC-aligned reviews across AWS, Azure & OCI UAE regions. IAM blast-radius, landing-zone, PDPL data-residency. BKC-to-DXB delivery.",
+      "Cloud security in Dubai — DESC ISR & DIFC-aligned reviews across AWS, Azure & OCI UAE regions. IAM blast-radius, landing-zone, PDPL data-residency.",
     keywords: [
       "cloud security Dubai",
       "cloud security audit Dubai",
@@ -10241,7 +10241,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Detection-engineering analyst embedded in the closing week — every exploitable finding ships with a paired Sigma rule the energy/government SOC can deploy immediately.",
     ],
     seoDescription:
-      "NESA-aligned VAPT in Abu Dhabi for energy, government, ADGM fintech & DoH healthcare. ADHICS & FSRA-format reports, OT-aware, re-testing included. Mumbai-to-AUH delivery.",
+      "NESA-aligned VAPT in Abu Dhabi for energy, government, ADGM fintech & DoH healthcare. ADHICS & FSRA-format reports, OT-aware, re-testing included.",
     keywords: [
       "VAPT services Abu Dhabi",
       "penetration testing Abu Dhabi",
@@ -10381,7 +10381,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Co-managed option and Abu Dhabi onsite presence for onboarding, quarterly reviews and post-incident readouts via Mumbai BKC → AUH.",
     ],
     seoDescription:
-      "Managed SOC in Abu Dhabi — 24×7 MDR for energy, government, ADGM fintech & DoH healthcare. NESA-aligned use-cases, UAE log-residency, IT/OT monitoring, DFIR on call.",
+      "Managed SOC in Abu Dhabi — 24×7 MDR for energy, government, ADGM fintech & DoH healthcare. NESA-aligned use-cases, UAE log-residency, IT/OT monitoring.",
     keywords: [
       "managed SOC Abu Dhabi",
       "SOC as a service Abu Dhabi",
@@ -10511,7 +10511,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Remediation as deployable IaC, with quarterly posture re-reviews tied to migration velocity and Abu Dhabi onsite presence for the landing-zone workshop.",
     ],
     seoDescription:
-      "Cloud security in Abu Dhabi — ADDA, NESA & ADHICS-aligned reviews on Azure UAE Central, sovereign cloud & AWS. IAM blast-radius, in-country residency, IaC remediation.",
+      "Cloud security in Abu Dhabi — ADDA, NESA & ADHICS-aligned reviews on Azure UAE Central, sovereign cloud & AWS. IAM blast-radius, in-country residency.",
     keywords: [
       "cloud security Abu Dhabi",
       "cloud security audit Abu Dhabi",
@@ -10649,7 +10649,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Detection-engineering backlog handed to the SOC at close — 20–40 SIEM rules plus EDR tuning the energy / government SOC deploys in-tenant, so the operation is a detection uplift, not just a defect list.",
     ],
     seoDescription:
-      "Intelligence-led red team operations in Abu Dhabi for the ADNOC energy ecosystem, sovereign investment, ADGM fintech and government — NESA / UAE IAS, ADDA, FSRA + TIBER-style.",
+      "Intelligence-led red team operations in Abu Dhabi for the ADNOC energy ecosystem, sovereign investment, ADGM fintech and government — NESA / UAE IAS, ADDA.",
     keywords: [
       "red team Abu Dhabi",
       "adversary simulation Abu Dhabi",
@@ -10788,7 +10788,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Retainer model with guaranteed SLAs, named responders, banked hours and pre-agreed onsite-only-handling / log-residency constraints for sensitive government and energy scope — no mid-incident procurement scramble.",
     ],
     seoDescription:
-      "DFIR & incident response in Abu Dhabi for energy, government, ADGM & healthcare — aeCERT / NESA-aligned reporting, OT-aware ransomware & AD forensics, PDPL breach notification, retainer.",
+      "DFIR & incident response in Abu Dhabi for energy, government, ADGM & healthcare — aeCERT / NESA-aligned reporting, OT-aware ransomware & AD forensics.",
     keywords: [
       "incident response Abu Dhabi",
       "DFIR services Abu Dhabi",
@@ -10908,7 +10908,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Plant-availability literate — the rollout is staged around turnaround windows and the safety case, planned as a multi-quarter programme, not a flag-day cutover a process plant can’t absorb.",
     ],
     seoDescription:
-      "Abu Dhabi IT/OT segmentation, firewall rule-base review, SASE / ZTNA roadmap and IEC 62443 OT zoning for energy, ADGM, government & healthcare. Vendor-neutral, NESA-mapped evidence.",
+      "Abu Dhabi IT/OT segmentation, firewall rule-base review, SASE / ZTNA roadmap and IEC 62443 OT zoning for energy, ADGM, government & healthcare.",
     keywords: [
       "network segmentation Abu Dhabi",
       "IT OT segmentation ADNOC",
@@ -11028,7 +11028,7 @@ export const COMBOS: CityServiceCombo[] = [
       "UAE-resident lead responder onsite with senior forensic support flying Mumbai BKC → AUH; remote acquisition starts within the hour while they travel, and a retainer removes the mid-incident procurement scramble.",
     ],
     seoDescription:
-      "DFIR & incident response in Dubai for DIFC BFSI, Smart Dubai / government, fintech & aviation — DESC ISR, aeCERT / NESA-aligned reporting, ransomware & AD forensics, PDPL / DIFC DP, retainer.",
+      "DFIR & incident response in Dubai for DIFC BFSI, Smart Dubai / government, fintech & aviation — DESC ISR, aeCERT / NESA-aligned reporting.",
     keywords: [
       "incident response Dubai",
       "DFIR services Dubai",
@@ -11148,7 +11148,7 @@ export const COMBOS: CityServiceCombo[] = [
       "GCC-ready deliverables that map into the parent's NIST AI RMF / ISO 42001 / EU AI Act governance program, and answer the AI-security questionnaire that gates enterprise SaaS deals.",
     ],
     seoDescription:
-      "AI / LLM security testing in Bengaluru for SaaS, fintech and GCC teams. OWASP LLM Top 10 + MITRE ATLAS red-teaming — prompt injection, RAG leakage, agentic abuse. Guardrail co-build + free retest.",
+      "AI / LLM security testing in Bengaluru for SaaS, fintech and GCC teams. OWASP LLM Top 10 + MITRE ATLAS red-teaming — prompt injection, RAG leakage.",
     keywords: [
       "AI security testing Bengaluru",
       "LLM pentesting Bangalore",
@@ -11280,7 +11280,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Guardrail co-build and free retest inside 30 days in the base SoW — we ship the guardrail prompt and output-validator, then re-attack the fix.",
     ],
     seoDescription:
-      "AI / LLM security testing in Hyderabad from our HITEC City hub. OWASP LLM Top 10 + MITRE ATLAS red-teaming for pharma, GCC and government AI. Onsite in 2 hours, guardrail co-build.",
+      "AI / LLM security testing in Hyderabad from our HITEC City hub. OWASP LLM Top 10 + MITRE ATLAS red-teaming for pharma, GCC and government AI.",
     keywords: [
       "AI security testing Hyderabad",
       "LLM pentesting Hyderabad",
@@ -11412,7 +11412,7 @@ export const COMBOS: CityServiceCombo[] = [
       "BKC HQ delivery — same-day onsite kickoff at any Mumbai BFSI office and a four-hour MMR onsite SLA, with re-testing of guardrails inside 30 days in the base SoW.",
     ],
     seoDescription:
-      "AI / LLM security testing in Mumbai for BFSI, fintech and insurers. OWASP LLM Top 10 + MITRE ATLAS red-teaming — prompt injection, RAG leakage, agentic abuse, fraud-model evasion. BKC HQ, guardrail co-build.",
+      "AI / LLM security testing in Mumbai for BFSI, fintech and insurers. OWASP LLM Top 10 + MITRE ATLAS red-teaming — prompt injection, RAG leakage, agentic abuse.",
     keywords: [
       "AI security testing Mumbai",
       "LLM pentesting Mumbai BFSI",

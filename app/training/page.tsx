@@ -23,7 +23,7 @@ export const metadata = buildMetadata({
   title:
     "Cybersecurity Training in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
   description:
-    "EC-Council, OffSec and CompTIA authorised cybersecurity training across India and the UAE. CEH v13, OSCP, OSEP, OSWE, SOC Analyst, Web App Security and Corporate programs — weekend cohorts in Mumbai, online cohorts pan-India. Mentor support until you pass.",
+    "EC-Council, OffSec and CompTIA authorised cybersecurity training across India and the UAE — CEH v13, OSCP, SOC Analyst and corporate programmes.",
   path: "/training",
   keywords: [
     "cybersecurity training India",

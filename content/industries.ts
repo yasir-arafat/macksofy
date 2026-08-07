@@ -141,7 +141,7 @@ export const INDUSTRIES: Industry[] = [
     seoTitle:
       "BFSI Cybersecurity — RBI CSF · SEBI CSCRF · IRDAI · CBUAE | Macksofy",
     seoDescription:
-      "CERT-In empanelled cybersecurity for Indian + UAE BFSI. VAPT, red teaming, Managed SOC, RBI/SEBI/IRDAI/CBUAE compliance audits. Reports accepted by inspectors on first read.",
+      "CERT-In empanelled cybersecurity for Indian and UAE BFSI — VAPT, red teaming, managed SOC and RBI / SEBI / IRDAI / CBUAE compliance audits.",
     keywords: [
       "BFSI cybersecurity India",
       "RBI cyber security framework audit",
@@ -416,7 +416,7 @@ export const INDUSTRIES: Industry[] = [
     seoTitle:
       "OT + Manufacturing Cybersecurity — IEC 62443 · ICS · SCADA | Macksofy",
     seoDescription:
-      "Cybersecurity for India's manufacturing, automotive, pharma and process industries. IT-OT segmentation, IEC 62443 programmes, passive OT discovery, OT-aware Managed SOC.",
+      "Cybersecurity for India's manufacturing, automotive and pharma sectors — IT-OT segmentation, IEC 62443 programmes and OT-aware managed SOC.",
     keywords: [
       "OT cybersecurity India",
       "ICS SCADA security audit",
@@ -599,7 +599,7 @@ export const INDUSTRIES: Industry[] = [
     seoTitle:
       "Energy & Utilities Cybersecurity — NCIIPC · CEA · IEC 62443 | Macksofy",
     seoDescription:
-      "OT-aware cybersecurity for Indian power, oil & gas, renewables and water utilities. SCADA/ICS security, IEC 62443 segmentation, NCIIPC + CEA Power-Sector compliance, safety-first IR.",
+      "OT-aware cybersecurity for Indian power, oil & gas, renewables and water utilities — SCADA/ICS security, IEC 62443 segmentation and NCIIPC + CEA compliance.",
     keywords: [
       "energy cybersecurity India",
       "power sector cybersecurity India",
@@ -693,7 +693,7 @@ export const INDUSTRIES: Industry[] = [
     seoTitle:
       "Insurance Cybersecurity — IRDAI · ISNP · DPDPA | Macksofy",
     seoDescription:
-      "CERT-In empanelled cybersecurity for Indian life, general, health & reinsurance carriers and insurtech. IRDAI-aligned audits, web/API VAPT, Managed SOC, DPDPA + ISO 27001.",
+      "CERT-In empanelled cybersecurity for Indian insurers, reinsurers and insurtech — IRDAI-aligned audits, web/API VAPT, managed SOC, DPDPA and ISO 27001.",
     keywords: [
       "insurance cybersecurity India",
       "IRDAI cyber security guidelines audit",

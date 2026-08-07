@@ -20,7 +20,7 @@ export const metadata = buildMetadata({
   title:
     "Cybersecurity Resources — Whitepapers, Checklists, Cheat Sheets, Brochures | Macksofy",
   description:
-    "Free downloadable cybersecurity resources from Macksofy: whitepapers (CSCRF, ransomware, OT/IT, mobile BFSI), single-page checklists (CERT-In, RBI CSF, BOLA, JWT, M365) and 22 course brochures. CERT-In empanelled.",
+    "Free cybersecurity downloads from CERT-In empanelled Macksofy — whitepapers on CSCRF, ransomware and OT/IT, compliance checklists, and 22 course brochures.",
   path: "/resources",
   keywords: [
     "cybersecurity whitepaper India",

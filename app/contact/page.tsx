@@ -37,7 +37,7 @@ import { LiveHours } from "@/components/contact/LiveHours";
 export const metadata = buildMetadata({
   title: "Contact Macksofy — 5 cities · Mumbai HQ · Dubai · Hyderabad · Muscat · Toronto",
   description:
-    "Reach Macksofy across our five delivery cities. Live local times, interactive city map, 60-second scope wizard, and a CERT-In empanelled consultant available within 4 business hours.",
+    "Reach Macksofy across our five delivery cities. Live local times, a 60-second scope wizard, and a CERT-In empanelled consultant within 4 business hours.",
   path: "/contact",
   geo: HQ_GEO,
   keywords: [

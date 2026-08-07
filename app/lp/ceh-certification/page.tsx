@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   // so this is used verbatim (no "| Macksofy" suffix is appended).
   title: "CEH v13 Training in Mumbai — Certified Ethical Hacker Course | Macksofy",
   description:
-    "EC-Council Accredited CEH v13 training in Mumbai & live-online. 40 hours hands-on labs, official courseware, exam voucher, mentor-led prep & placement support. All-inclusive ₹50,000. Book a free counselling call.",
+    "EC-Council Accredited CEH v13 training in Mumbai and live-online — 40 hours of labs, official courseware, exam voucher and mentor-led prep. ₹50,000.",
   alternates: { canonical: LP_URL },
   robots: { index: false, follow: true },
   openGraph: {

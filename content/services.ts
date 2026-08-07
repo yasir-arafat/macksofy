@@ -798,7 +798,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "API Security Testing India | REST + GraphQL + gRPC | Macksofy",
     seoDescription:
-      "Manual API security testing across REST, GraphQL and gRPC. OWASP API Top 10. OSWE-led consultants, Postman regression suite, dev-ready reports, free retest. India + UAE.",
+      "Manual API security testing across REST, GraphQL and gRPC, aligned to the OWASP API Top 10 — dev-ready reports, a Postman regression suite and a free retest.",
     keywords: [
       "API security testing India",
       "API penetration testing Mumbai",
@@ -986,7 +986,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Mobile App Security Testing India & UAE | Android + iOS | Macksofy",
     seoDescription:
-      "OWASP MASVS / MSTG-aligned mobile penetration testing for Android (APK) and iOS (IPA). Frida + Burp + manual exploitation. RBI mobile banking, PCI DSS, App Store policy. Mumbai, India + UAE.",
+      "OWASP MASVS-aligned mobile penetration testing for Android and iOS — Frida, Burp and manual exploitation for RBI mobile banking and PCI DSS. India + UAE.",
     keywords: [
       "mobile application penetration testing India",
       "Android pentest Mumbai",
@@ -1795,7 +1795,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "IoT & OT / ICS Security Assessment India & UAE | IEC 62443 | Macksofy",
     seoDescription:
-      "OT-aware penetration testing for SCADA, ICS, smart meters, BMS and connected products. IEC 62443 + NIST SP 800-82 aligned, MITRE ATT&CK for ICS mapping. India + UAE.",
+      "OT-aware penetration testing for SCADA, ICS, smart meters and connected products — IEC 62443 and NIST SP 800-82 aligned, mapped to ATT&CK for ICS.",
     keywords: [
       "OT security assessment India",
       "ICS penetration testing",
@@ -1985,7 +1985,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Secure Source Code Review Services India & UAE | SAST + Manual | Macksofy",
     seoDescription:
-      "Manual + SAST source code review by OSCP/OSWE-trained reviewers. Java, .NET, Node.js, Python, Go. OWASP / SANS 25 / CWE-aligned. CERT-In + ISO 27001 + SOC 2 ready. India + UAE.",
+      "Manual and SAST source code review by OSCP/OSWE-trained reviewers across Java, .NET, Node.js, Python and Go — OWASP and CWE aligned. India + UAE.",
     keywords: [
       "secure code review India",
       "source code review services",
@@ -2137,7 +2137,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Managed Security Services (MSSP) India & UAE | 24×7 SOC | Macksofy",
     seoDescription:
-      "CERT-In empanelled managed security services — 24×7 SOC, managed EDR/XDR, managed vuln-ops, IR retainer included. India data-residency. Predictable monthly cost vs. in-house SOC.",
+      "CERT-In empanelled managed security services — 24×7 SOC, managed EDR/XDR, vulnerability ops and an IR retainer, with India data residency.",
     keywords: [
       "managed security services India",
       "MSSP India",
@@ -2291,7 +2291,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Annual Security Program India | Continuous VAPT + Audit + Code Review | Macksofy",
     seoDescription:
-      "12-month security assurance program — pentest, VAPT, code review, audit, red team bundled at 25–35% discount. Quarterly cadence. CERT-In + RBI + SEBI evidence. India + UAE.",
+      "A 12-month security assurance programme bundling pentest, VAPT, code review, audit and red team at 25–35% off, on a quarterly cadence. India + UAE.",
     keywords: [
       "annual security program India",
       "continuous assurance India",
@@ -2441,7 +2441,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Virtual CISO (vCISO) Services India & UAE | Fractional CISO | Macksofy",
     seoDescription:
-      "Fractional CISO leadership for fintech, BFSI, SaaS — board reporting, regulator engagement, policy, IR command. 15+ year practitioners. India + UAE. From ₹4 L/month.",
+      "Fractional CISO leadership for fintech, BFSI and SaaS — board reporting, regulator engagement, policy and IR command. India + UAE, from ₹4 L/month.",
     keywords: [
       "virtual CISO India",
       "vCISO India",
@@ -2585,7 +2585,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Purple Team Exercises India & UAE | MITRE ATT&CK Validation | Macksofy",
     seoDescription:
-      "Collaborative red + blue purple team exercises — validate detection coverage against MITRE ATT&CK, ship tuned SIEM rules during the engagement. India + UAE. CERT-In empanelled.",
+      "Collaborative purple team exercises that validate detection coverage against MITRE ATT&CK and ship tuned SIEM rules during the engagement. India + UAE.",
     keywords: [
       "purple team India",
       "purple teaming services",
@@ -2891,7 +2891,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Wireless Penetration Testing India & UAE | WPA2 / WPA3 / 802.1X | Macksofy",
     seoDescription:
-      "On-site wireless pentest — WPA2/WPA3, 802.1X, rogue AP, evil-twin, Bluetooth. PCI-DSS 11.1 evidence, CERT-In empanelled, segmentation validation included. Mumbai, India + UAE.",
+      "On-site wireless pentest — WPA2/WPA3, 802.1X, rogue AP, evil-twin and Bluetooth, with PCI-DSS 11.1 evidence and segmentation validation included.",
     keywords: [
       "wireless penetration testing India",
       "WiFi pentest India",
@@ -3052,7 +3052,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "AI / LLM Penetration Testing India & UAE | OWASP LLM Top 10 + MITRE ATLAS | Macksofy",
     seoDescription:
-      "Security testing for LLM apps, RAG pipelines, AI agents and MCP servers. OWASP LLM Top 10 + MITRE ATLAS aligned. Prompt injection, jailbreak, tool-use abuse, supply-chain. India + UAE.",
+      "Security testing for LLM apps, RAG pipelines, AI agents and MCP servers — OWASP LLM Top 10 and MITRE ATLAS aligned. Prompt injection, tool-use abuse.",
     keywords: [
       "AI penetration testing India",
       "LLM security testing India",
@@ -3196,7 +3196,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Cybersecurity Staffing & Resource Augmentation India & UAE | OSCP + SOC Bench | Macksofy",
     seoDescription:
-      "Vetted cybersecurity contractor pool: SOC L1–L4, OSCP+ pentesters, ISO 27001 LA, DFIR, vCISO. 5–10 day deployment, contract / contract-to-hire / managed pool. India + UAE.",
+      "A vetted cybersecurity contractor pool — SOC L1–L4, OSCP+ pentesters, ISO 27001 LA, DFIR and vCISO, deployed in 5–10 days. India + UAE.",
     keywords: [
       "cybersecurity staffing India",
       "SOC analyst staffing India",

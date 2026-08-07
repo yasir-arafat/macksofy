@@ -76,7 +76,7 @@ export const metadata = buildMetadata({
   title:
     "Offensive Security Certifications Training in India 2026 | OSCP+ · OSEP · OSWE · OSWA · OSDA · OSED · OSMR | Macksofy",
   description:
-    "Hands-on Offensive Security certification training in India 2026 by Macksofy. Mentor-led bootcamps for PEN-200 (OSCP+), PEN-300 (OSEP), WEB-200 (OSWA), WEB-300 (OSWE), PEN-210 (OSWP), SOC-200 (OSDA), EXP-301 (OSED), EXP-312 (OSMR) and SEC-100 (OSCC) across Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Chennai and Dubai. Mentor until you pass.",
+    "Mentor-led Offensive Security exam-prep in India — OSCP+, OSEP, OSWA, OSWE, OSWP, OSDA, OSED and OSMR bootcamps. Mentor support until you pass.",
   path: "/training/offsec",
   keywords: [
     "Offensive Security training India",

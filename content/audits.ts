@@ -6239,7 +6239,7 @@ export const AUDITS: Audit[] = [
     ],
     seoTitle: "WASA Audit India | Web App Security Assessment | Macksofy",
     seoDescription:
-      "WASA — Web Application Security Assessment in India + UAE. OWASP ASVS V4.0 + SANS CWE Top 25 + ISO 27001 Annex A + CERT-In format + RBI Master Direction crosswalk. RFP-ready.",
+      "WASA — Web Application Security Assessment in India and the UAE. OWASP ASVS 4.0, SANS CWE Top 25, ISO 27001 Annex A and CERT-In format. RFP-ready.",
     keywords: [
       "WASA audit",
       "WASA audit India",

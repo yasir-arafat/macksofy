@@ -28,7 +28,7 @@ export const metadata = buildMetadata({
   title:
     "Locations — Cybersecurity Services in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune",
   description:
-    "Macksofy delivers CERT-In empanelled cybersecurity services across India's metros. City landing pages for Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai and Pune — with regulator focus, top services and local case studies per city.",
+    "CERT-In empanelled cybersecurity delivered across India's metros — city pages for Mumbai, Delhi NCR, Bengaluru, Hyderabad, Chennai and Pune.",
   path: "/locations",
   keywords: [
     "cybersecurity company India locations",

@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: PageProps) {
     // title — a social card has room the SERP does not.
     title: p.seoTitle ?? p.title,
     absoluteTitle: Boolean(p.seoTitle),
-    description: p.description,
+    description: p.seoDescription ?? p.description,
     path: `/blog/${p.slug}`,
     keywords: p.keywords,
     type: "article",

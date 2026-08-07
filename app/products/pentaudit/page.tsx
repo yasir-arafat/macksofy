@@ -34,7 +34,7 @@ export const metadata = buildMetadata({
   title:
     "Pentaudit — AI-Driven Continuous Pentesting + Compliance Platform | Macksofy",
   description:
-    "Pentaudit is Macksofy's AI-enabled continuous pentesting and compliance-readiness platform. On-spot VAPT for cloud, web and mobile, plus automated readiness scoring for ISO 27001, SOC 2, PCI-DSS, HIPAA, GDPR, DPDP, RBI and CERT-In.",
+    "Pentaudit is Macksofy's AI-enabled continuous pentesting and compliance platform — on-spot VAPT for cloud, web and mobile, plus ISO 27001 and SOC 2 scoring.",
   path: "/products/pentaudit",
   keywords: [
     "Pentaudit",

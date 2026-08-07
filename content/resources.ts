@@ -241,7 +241,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "SEBI CSCRF Playbook 2026 — Scope, Controls, 90-day Plan | Macksofy",
     seoDescription:
-      "A practitioner's playbook for SEBI CSCRF: tiering, control-to-evidence mapping, the five gaps that fail audits and a 90-day rollout plan. Free whitepaper from CERT-In empanelled Macksofy.",
+      "A practitioner's playbook for SEBI CSCRF — tiering, control-to-evidence mapping, the five gaps that fail audits and a 90-day rollout plan. Free whitepaper.",
     keywords: [
       "SEBI CSCRF playbook",
       "SEBI CSCRF compliance",
@@ -376,7 +376,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "OT/IT Segmentation Whitepaper — Indian Manufacturers · Macksofy",
     seoDescription:
-      "Why flat networks keep losing in Indian manufacturing — Purdue-adapted segmentation patterns, 5 audit mistakes, 6-step rollout. CERT-In empanelled, ransomware-tested guidance.",
+      "Why flat networks keep losing in Indian manufacturing — Purdue-adapted segmentation patterns, five audit mistakes and a six-step rollout. Free whitepaper.",
     keywords: [
       "OT IT segmentation India",
       "manufacturing cybersecurity whitepaper",
@@ -491,7 +491,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "Mobile App Security Whitepaper — Indian BFSI · RBI MCSF + OWASP Mobile | Macksofy",
     seoDescription:
-      "RBI Mobile Cyber Security Framework expectations, OWASP Mobile Top 10 translated for BFSI, and a secure-SDLC integration model. CERT-In empanelled mobile pentest guidance from Macksofy.",
+      "RBI Mobile Cyber Security Framework expectations, the OWASP Mobile Top 10 translated for BFSI, and a secure-SDLC integration model. Free whitepaper.",
     keywords: [
       "mobile app security BFSI India",
       "RBI mobile cyber security framework",
@@ -629,7 +629,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "India Ransomware Landscape 2026 — Actors, Vectors, Preparedness | Macksofy",
     seoDescription:
-      "Active threat actors against Indian organisations, sector hit-rates, top entry vectors and a 6-step preparedness checklist. CERT-In empanelled DFIR + threat intelligence whitepaper from Macksofy.",
+      "Active threat actors against Indian organisations, sector hit-rates, top entry vectors and a six-step preparedness checklist. Free DFIR whitepaper.",
     keywords: [
       "India ransomware 2026",
       "ransomware whitepaper India",
@@ -748,7 +748,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "CERT-In Incident Reporting Checklist — 6-hour Window | Macksofy",
     seoDescription:
-      "What to report to CERT-In, when, and how — distilled to one page. Reportable categories, the 6-hour information set, filing channels, and common pitfalls. Free checklist from CERT-In empanelled Macksofy.",
+      "What to report to CERT-In, when and how, on one page — reportable categories, the 6-hour information set, filing channels and common pitfalls.",
     keywords: [
       "CERT-In incident reporting",
       "CERT-In 6 hour rule",
@@ -884,7 +884,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "RBI Cyber Security Framework Gap-Check 2026 — Self-Assessment | Macksofy",
     seoDescription:
-      "Self-assessment checklist mapping the RBI Cyber Security Framework circular into ~50 binary questions. Run in an afternoon, surface gaps before the next inspection. Free from CERT-In empanelled Macksofy.",
+      "A self-assessment checklist turning the RBI Cyber Security Framework into ~50 binary questions. Run it in an afternoon and surface gaps before inspection.",
     keywords: [
       "RBI cyber security framework checklist",
       "RBI CSF gap analysis",
@@ -985,7 +985,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "BOLA Prevention Checklist — API Engineers · OWASP API Top 10 | Macksofy",
     seoDescription:
-      "Concrete patterns and anti-patterns for preventing Broken Object-Level Authorization. GraphQL tripwires, testing tips, real-world chaining notes. Free checklist from Macksofy.",
+      "Patterns and anti-patterns for preventing Broken Object-Level Authorization — GraphQL tripwires, testing tips and real-world chaining notes. Free checklist.",
     keywords: [
       "BOLA prevention checklist",
       "OWASP API Top 10",
@@ -1096,7 +1096,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "JWT Pitfalls Cheat Sheet — alg=none, kid abuse, validation must-haves | Macksofy",
     seoDescription:
-      "Six JWT pitfalls we keep finding in pentests + validation must-haves your auth gateway should enforce. Free one-page cheat sheet from CERT-In empanelled Macksofy.",
+      "Six JWT pitfalls we keep finding in pentests, plus the validation must-haves your auth gateway should enforce. Free one-page cheat sheet from Macksofy.",
     keywords: [
       "JWT cheat sheet",
       "JWT alg none vulnerability",
@@ -1209,7 +1209,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "PsExec Detection Cheat Sheet — Telemetry, Sigma, FP Patterns | Macksofy",
     seoDescription:
-      "PsExec lateral-movement detection: telemetry sources, sigma-style logic, false-positive patterns and variant handling. SOC-ready cheat sheet from CERT-In empanelled Macksofy.",
+      "PsExec lateral-movement detection — telemetry sources, sigma-style logic, false-positive patterns and variant handling. A SOC-ready cheat sheet.",
     keywords: [
       "PsExec detection",
       "PsExec sigma rule",
@@ -1333,7 +1333,7 @@ export const RESOURCES: Resource[] = [
     seoTitle:
       "M365 Hardening Checklist — Indian BFSI Tenant | Macksofy",
     seoDescription:
-      "Pragmatic order-of-operations for hardening Microsoft 365 in an Indian BFSI tenant: Conditional Access, audit, anti-phishing, sharing/DLP, app governance. Free checklist from Macksofy.",
+      "A pragmatic order of operations for hardening Microsoft 365 in an Indian BFSI tenant — Conditional Access, audit, anti-phishing, DLP and app governance.",
     keywords: [
       "M365 hardening checklist India",
       "Microsoft 365 BFSI security",
@@ -1543,7 +1543,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "IOC Extraction Methodology for Indian SOCs — Whitepaper | Macksofy",
     seoDescription:
-      "How to extract atomic, computed and behavioural IOCs from malware. Pyramid of Pain, MITRE ATT&CK mapping and the IOC lifecycle that prevents stale-feed fatigue.",
+      "How to extract atomic, computed and behavioural IOCs from malware — the Pyramid of Pain, ATT&CK mapping and an IOC lifecycle that avoids stale feeds.",
     keywords: [
       "IOC extraction methodology",
       "Indicators of Compromise India",
@@ -1654,7 +1654,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "Malware Sandbox Detonation — Practitioner's Guide | Macksofy",
     seoDescription:
-      "Practitioner's guide to malware sandbox analysis: public vs self-hosted, anti-analysis evasion, source-of-find protection, and converting output to deployable detections.",
+      "A practitioner's guide to malware sandbox analysis — public vs self-hosted, anti-analysis evasion, and turning output into deployable detections.",
     keywords: [
       "malware sandbox guide",
       "Cuckoo sandbox India",
@@ -1775,7 +1775,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "Ransomware IR Runbook · India 2026 — First 72 Hours | Macksofy",
     seoDescription:
-      "Hour-by-hour ransomware incident response runbook for Indian enterprises: containment, CERT-In 6-hour reporting, evidence preservation, recovery sequencing, negotiator framework.",
+      "An hour-by-hour ransomware incident response runbook for Indian enterprises — containment, CERT-In 6-hour reporting, evidence preservation and recovery.",
     keywords: [
       "ransomware incident response India",
       "ransomware runbook India",
@@ -1904,7 +1904,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "BEC Incident Response Runbook — M365 + Workspace | Macksofy",
     seoDescription:
-      "Business Email Compromise IR playbook for M365 / Workspace: inbox-rule hunt, OAuth revocation, financial-recall workflow with Indian banks, CERT-In + DPDP reporting.",
+      "A Business Email Compromise IR playbook for M365 and Workspace — inbox-rule hunt, OAuth revocation, financial recall with Indian banks, CERT-In reporting.",
     keywords: [
       "BEC incident response India",
       "Business Email Compromise India",
@@ -2159,7 +2159,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "CERT-In 12-Hour Patch Mandate — Research Note (PDF) | Macksofy",
     seoDescription:
-      "Free Macksofy research note on CERT-In's May 2026 12-hour patch mandate: the tiered remediation schedule, the collapsing exploit-window data, compensating controls, India vs CISA, and a 30/60/90-day action list. PDF download.",
+      "A research note on CERT-In's 12-hour patch mandate — the tiered remediation schedule, exploit-window data, compensating controls and a 30/60/90-day plan.",
     keywords: [
       "CERT-In 12 hour patch mandate",
       "CERT-In AI threat landscape guidance 2026",
@@ -2316,7 +2316,7 @@ export const RESOURCES: Resource[] = [
     ],
     seoTitle: "Cloud Security for Indian Enterprises 2026 — CSPM, CNAPP, RBI/SEBI/DPDP | Macksofy",
     seoDescription:
-      "A practitioner's cloud security whitepaper for India: the shared-responsibility line, the misconfigurations that breach, CSPM vs CNAPP, the RBI/SEBI/DPDP/CERT-In cloud stack and a 90-day rollout. Free from CERT-In empanelled Macksofy.",
+      "A practitioner's cloud security whitepaper for India — the shared-responsibility line, the misconfigurations that breach, CSPM vs CNAPP and a 90-day rollout.",
     keywords: [
       "cloud security India 2026",
       "CSPM CNAPP India",

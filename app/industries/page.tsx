@@ -16,7 +16,7 @@ export const metadata = buildMetadata({
   title:
     "Industries Macksofy Serves — BFSI · Healthcare · SaaS · Manufacturing · Government",
   description:
-    "Sector-specific cybersecurity programmes from Macksofy — CERT-In empanelled audits, VAPT and managed SOC tuned to RBI / SEBI / IRDAI for BFSI, ADHICS / HIPAA for healthcare, SOC 2 + ISO 27001 for SaaS, IEC 62443 for manufacturing and CERT-In / NCIIPC for government.",
+    "Sector-specific cybersecurity from Macksofy — CERT-In empanelled audits, VAPT and managed SOC tuned to RBI, IRDAI, ADHICS, SOC 2, ISO 27001 and IEC 62443.",
   path: "/industries",
   keywords: [
     "industry cybersecurity India",

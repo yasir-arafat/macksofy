@@ -45,7 +45,7 @@ export async function generateMetadata({
   if (!c) return {};
   return {
     title: `${c.title} — Brochure | Macksofy Technologies`,
-    description: `Macksofy ${c.shortTitle} course brochure — curriculum, outcomes, prerequisites, fees and placement support. ${c.duration}.`,
+    description: `Macksofy ${c.shortTitle} course brochure — curriculum, outcomes, prerequisites, fees and placement support.`,
     robots: { index: false, follow: false },
     // Self-referencing canonical. Without this the page inherits the root
     // layout's default (the homepage) — harmless while noindex, but wrong if

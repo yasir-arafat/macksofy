@@ -22,7 +22,7 @@ import {
 export const metadata = buildMetadata({
   title: "Our Clients — Macksofy Technologies",
   description:
-    "BFSI giants, RBI-regulated cooperative banks, top universities, government, multinationals and fast-growing fintechs trust Macksofy Technologies for CERT-In empanelled cybersecurity work.",
+    "BFSI groups, RBI-regulated cooperative banks, universities, government bodies and fintechs trust Macksofy for CERT-In empanelled cybersecurity work.",
   path: "/clients",
   keywords: [
     "Macksofy clients",

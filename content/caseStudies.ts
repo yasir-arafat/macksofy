@@ -213,7 +213,7 @@ export const CASE_STUDIES: CaseStudyHero[] = [
     seoTitle:
       "Case Study: Listed Fintech (Mumbai) — BOLA + JWT alg=none Pentest | Macksofy",
     seoDescription:
-      "How Macksofy chained a BOLA with a forged JWT inside a SEBI-regulated listed fintech, surfaced 5 critical findings and helped the client pass CSCRF audit with zero observations.",
+      "How Macksofy chained a BOLA with a forged JWT in a SEBI-regulated listed fintech — 5 critical findings, and a CSCRF audit passed with zero observations.",
     keywords: [
       "fintech pentest case study",
       "BOLA exploit case study India",
@@ -364,7 +364,7 @@ export const CASE_STUDIES: CaseStudyHero[] = [
     seoTitle:
       "Case Study: GCC Telecom Mobile App Takeover Found Pre-Launch | Macksofy",
     seoDescription:
-      "Macksofy's mobile pentest surfaced a chained API-key + deeplink flaw in a Gulf telecom's pre-launch consumer app — fixed before public release with zero critical findings open at go-live.",
+      "A mobile pentest surfaced a chained API-key and deeplink flaw in a Gulf telecom's pre-launch app — fixed before release, zero criticals open at go-live.",
     keywords: [
       "mobile app pentest case study",
       "telecom security audit UAE",
@@ -510,7 +510,7 @@ export const CASE_STUDIES: CaseStudyHero[] = [
     seoTitle:
       "Case Study: Listed Indian Bank — Red Team to Domain Admin in 4h | Macksofy",
     seoDescription:
-      "A goal-based red team against a tier-1 listed Indian bank: Domain Admin in 4h 12m undetected, then 23 detection improvements engineered. EDR bypass, AD compromise, purple-team debrief.",
+      "A goal-based red team against a tier-1 listed Indian bank — Domain Admin in 4h 12m undetected, then 23 detection improvements built with the blue team.",
     keywords: [
       "red team case study India",
       "EDR bypass case study",
@@ -656,7 +656,7 @@ export const CASE_STUDIES: CaseStudyHero[] = [
     seoTitle:
       "Case Study: LockBit Ransomware Contained in 11h at Indian Manufacturer | Macksofy",
     seoDescription:
-      "Macksofy DFIR contained a LockBit variant inside 11 hours at a 1,400-employee manufacturer near Pune. 80% production restored from backups in 72h. No ransom paid, no exfiltration confirmed.",
+      "Macksofy DFIR contained a LockBit variant in 11 hours at a 1,400-employee manufacturer near Pune — 80% of production restored in 72h, no ransom paid.",
     keywords: [
       "ransomware case study India",
       "LockBit incident response",
@@ -802,7 +802,7 @@ export const CASE_STUDIES: CaseStudyHero[] = [
     seoTitle:
       "Case Study: AWS IAM Wildcard → Admin in B2B SaaS (Bangalore) | Macksofy",
     seoDescription:
-      "Macksofy's AWS audit for a Series-B SaaS in Bangalore found a Lambda role with wildcard IAM that escalated to admin. Fixed in a week with IaC guardrails. Series-C diligence cleared first pass.",
+      "An AWS audit for a Series-B SaaS in Bangalore found a Lambda role with wildcard IAM that escalated to admin — fixed in a week with IaC guardrails.",
     keywords: [
       "AWS pentest case study India",
       "cloud security audit Bangalore",
@@ -949,7 +949,7 @@ export const CASE_STUDIES: CaseStudyHero[] = [
     seoTitle:
       "Case Study: BFSI MNC — NoPac + Kerberoasting → DA in 4h | Macksofy",
     seoDescription:
-      "Macksofy's assumed-breach internal pentest reached Domain Admin in 4 hours inside a BFSI multinational's Mumbai BKC estate via NoPac and a Kerberoastable tier-0 account. Closed in 14 days.",
+      "An assumed-breach internal pentest reached Domain Admin in 4 hours inside a BFSI multinational's Mumbai BKC estate via NoPac — closed in 14 days.",
     keywords: [
       "internal pentest case study India",
       "NoPac CVE-2021-42278 case study",

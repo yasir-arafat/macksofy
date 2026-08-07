@@ -42,7 +42,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Best Cybersecurity Company in Mumbai & India — CERT-In Empanelled",
   description:
-    "Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving enterprises across India and the UAE since 2014. VAPT, red teaming, SOC and compliance audits trusted by 250+ clients.",
+    "Macksofy is a CERT-In empanelled cybersecurity company in Mumbai serving India and the UAE since 2014 — VAPT, red teaming, SOC and compliance audits.",
   path: "/best-cybersecurity-company",
   geo: HQ_GEO,
   ogEyebrow: "CERT-IN EMPANELLED",

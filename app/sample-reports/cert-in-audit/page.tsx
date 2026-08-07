@@ -4,7 +4,7 @@ import { PrintLayout } from "@/components/print/PrintLayout";
 export const metadata: Metadata = {
   title: "Sample CERT-In Audit Report — Macksofy Technologies",
   description:
-    "Macksofy sample CERT-In format audit report — RBI / SEBI / UIDAI submission structure, control attestation, findings register, regulator-format compliance statement.",
+    "A sample CERT-In format audit report — RBI / SEBI / UIDAI submission structure, control attestation, findings register and compliance statement.",
   robots: { index: false, follow: false },
   // Self-referencing canonical (otherwise inherits the homepage default).
   alternates: { canonical: "/sample-reports/cert-in-audit" },

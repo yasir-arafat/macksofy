@@ -23,7 +23,7 @@ import {
 export const metadata = buildMetadata({
   title: "Awards & Recognition — Macksofy Technologies",
   description:
-    "Awards and recognitions for Macksofy Technologies — CSI Cyber Security Awards 2025, Google VRP recognition, EC-Council Circle of Excellence, Start-up of the Year and more.",
+    "Awards and recognition for Macksofy Technologies — CSI Cyber Security Awards 2025, Google VRP, EC-Council Circle of Excellence and Start-up of the Year.",
   path: "/awards",
   keywords: [
     "Macksofy awards",

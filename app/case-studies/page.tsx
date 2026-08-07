@@ -19,7 +19,7 @@ export const metadata = buildMetadata({
   title:
     "Cybersecurity Case Studies — Pentest, Red Team, DFIR, Cloud · India + UAE | Macksofy",
   description:
-    "Anonymised long-form case studies from Macksofy's penetration testing, red team, DFIR and cloud-security engagements across BFSI, fintech, telecom, SaaS, healthcare and manufacturing in India and the UAE.",
+    "Anonymised case studies from Macksofy's penetration testing, red team, DFIR and cloud-security engagements across BFSI, fintech, SaaS and manufacturing.",
   path: "/case-studies",
   keywords: [
     "cybersecurity case studies India",

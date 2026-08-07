@@ -21,7 +21,7 @@ import {
 export const metadata = buildMetadata({
   title: "Cybersecurity Glossary — VAPT, CERT-In, SOC & Compliance Terms",
   description:
-    "Plain-language definitions of cybersecurity terms — VAPT, penetration testing, red team, SOC, SIEM, cloud security, DFIR, and India/GCC compliance (CERT-In, RBI CSF, SEBI CSCRF, DPDP, ISO 27001, NESA).",
+    "Plain-language definitions of cybersecurity terms — VAPT, red team, SOC, SIEM, DFIR — plus India and GCC compliance: CERT-In, RBI CSF, SEBI CSCRF, DPDP.",
   path: "/glossary",
   keywords: [
     "cybersecurity glossary",

@@ -30,7 +30,7 @@ import {
 export const metadata = buildMetadata({
   title: "Press & Media — Macksofy Technologies",
   description:
-    "Press coverage and media features of Macksofy Technologies — Mid-day, ABP News, CNN News 18, Entrepreneur Ethics and more, on cybersecurity, AI threats and digital forensics.",
+    "Press coverage of Macksofy Technologies — Mid-day, ABP News, CNN News 18 and Entrepreneur — on cybersecurity, AI threats and digital forensics.",
   path: "/press",
   keywords: [
     "Macksofy press release",

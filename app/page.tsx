@@ -20,7 +20,7 @@ import { SITE, metroKeywords } from "@/lib/site";
 export const metadata = buildMetadata({
   title: `${SITE.name} — Cybersecurity Company in Mumbai · Pan-India · UAE`,
   description:
-    "CERT-In empanelled cybersecurity company headquartered in Mumbai with delivery across Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida and the UAE. Penetration testing, VAPT, SOC setup, red teaming, DFIR + EC-Council ATC training and hands-on OSCP / OSEP / OSWE exam-prep bootcamps.",
+    "CERT-In empanelled cybersecurity company in Mumbai serving India and the UAE — VAPT, penetration testing, SOC, red teaming, DFIR, plus CEH and OSCP training.",
   path: "/",
   geo: HQ_GEO,
   keywords: [

@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Privacy & Cookie Policy — Macksofy Technologies",
   description:
-    "How Macksofy Technologies collects, uses and protects your data — plus a plain-English description of every cookie category we use and how to change your preferences.",
+    "How Macksofy Technologies collects, uses and protects your data, plus every cookie category we use and how to change your preferences.",
   path: "/privacy",
   keywords: [
     "Macksofy privacy policy",

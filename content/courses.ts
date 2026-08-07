@@ -558,7 +558,7 @@ export const COURSES: Course[] = [
       { q: "OSCC vs CEH — which to pick first?", a: "OSCC is hands-on and oriented toward the OffSec career stack. CEH is more breadth-knowledge plus an entry exam, often required by Indian government / defence employers. Career switchers without an HR-driven CEH requirement: pick OSCC. Roles requiring CEH on the JD: do CEH first, then move into OSCP+." },
     ],
     seoTitle: "OSCC / SEC-100 Training in India 2026 | OffSec CyberCore Security Foundation | Macksofy",
-    seoDescription: "OffSec SEC-100 (OSCC) CyberCore Security Essentials training in India 2026. Foundational cert before OSCP+, OSWA, OSDA. Networking, Linux, Windows, scripting, web, AD, SecOps, crypto. ₹60,000. Macksofy mentor support.",
+    seoDescription: "OffSec SEC-100 (OSCC) CyberCore training in India 2026 — the foundation before OSCP+, OSWA and OSDA. Networking, Linux, Windows, web, AD and SecOps. ₹60,000.",
     keywords: [
       "SEC-100 training India",
       "OSCC training India 2026",
@@ -681,7 +681,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy offer OSCP training in Delhi, Bengaluru, Hyderabad, Pune and Chennai?", a: "Yes — Macksofy runs live online OSCP cohorts pan-India and corporate-batch delivery on-site in Delhi, Bengaluru, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad, Gurugram, Noida and Dubai. The Mumbai BKC HQ runs weekend in-person bootcamps for learners willing to travel." },
     ],
     seoTitle: "OSCP Training in India 2026 | OffSec PEN-200 / OSCP+ Certification | Macksofy",
-    seoDescription: "OSCP / OSCP+ (PEN-200) exam-prep training in India 2026 by Macksofy. ₹1,45,000 (15% OFF, EMI) bundles the official OffSec course, 90-day PWK labs, exam voucher and 60h Macksofy bootcamp. Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Chennai, Dubai cohorts. Mentor until you pass.",
+    seoDescription: "OSCP / OSCP+ (PEN-200) exam-prep training in India 2026 — ₹1,45,000 bundles the official OffSec course, 90-day PWK labs, exam voucher and a 60h bootcamp.",
     keywords: [
       "OSCP training India",
       "OSCP+ training India 2026",
@@ -790,7 +790,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy run OSEP cohorts outside Mumbai?", a: "Yes — live online OSEP cohorts pan-India plus corporate red-team bootcamps in Delhi, Bengaluru, Hyderabad, Pune, Gurugram and Dubai." },
     ],
     seoTitle: "OSEP Training in India 2026 | OffSec PEN-300 Red Team Certification | Macksofy",
-    seoDescription: "OffSec OSEP / PEN-300 red-team training in India 2026 by Macksofy. EDR bypass labs (CrowdStrike, SentinelOne, Defender), advanced AD chains, 48-hour exam. ₹1,45,000 (15% OFF). Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Dubai cohorts.",
+    seoDescription: "OffSec OSEP / PEN-300 red-team training in India 2026 — EDR bypass labs, advanced Active Directory chains and the 48-hour exam. ₹1,45,000 (15% OFF).",
     keywords: [
       "OSEP training India",
       "OSEP certification India 2026",
@@ -883,7 +883,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy run OSWE cohorts in Delhi, Bengaluru and Pune?", a: "Yes — live online OSWE cohorts pan-India and corporate AppSec bootcamps on-site in Delhi, Bengaluru, Hyderabad, Pune, Chennai, Gurugram and Dubai." },
     ],
     seoTitle: "OSWE Training in India 2026 | OffSec WEB-300 White-Box Web Exploitation | Macksofy",
-    seoDescription: "OffSec OSWE / WEB-300 training in India 2026 by Macksofy. White-box source review (PHP/Java/Node/.NET), modern-web extras (GraphQL, OAuth, smuggling), 48-hour exam. ₹1,45,000 (15% OFF). Mumbai, Delhi, Bengaluru, Hyderabad, Pune cohorts.",
+    seoDescription: "OffSec OSWE / WEB-300 training in India 2026 — white-box source review in PHP, Java, Node and .NET, plus GraphQL and OAuth. 48-hour exam. ₹1,45,000.",
     keywords: [
       "OSWE training India",
       "OSWE certification India 2026",
@@ -973,7 +973,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy run OSWA cohorts in Delhi, Bengaluru and Pune?", a: "Yes — live online OSWA cohorts pan-India plus corporate AppSec batches on-site in Delhi, Bengaluru, Hyderabad, Pune, Chennai and Dubai." },
     ],
     seoTitle: "OSWA Training in India 2026 | OffSec WEB-200 Web Pentest Certification | Macksofy",
-    seoDescription: "OffSec OSWA / WEB-200 web pentest training in India 2026 by Macksofy. Black-box web assessment, OWASP Top 10+, modern API + JWT + OAuth, 24-hour exam. ₹1,45,000 (15% OFF). Mumbai, Delhi, Bengaluru, Hyderabad, Pune cohorts.",
+    seoDescription: "OffSec OSWA / WEB-200 web pentest training in India 2026 — black-box assessment, OWASP Top 10+, modern API, JWT and OAuth. 24-hour exam. ₹1,45,000.",
     keywords: [
       "OSWA training India",
       "OSWA certification India 2026",
@@ -1058,7 +1058,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy run OSWP cohorts outside Mumbai?", a: "Yes — short live online OSWP cohorts pan-India and corporate wireless audits delivered on-site at client offices across Delhi, Bengaluru, Hyderabad, Pune, Chennai and Dubai." },
     ],
     seoTitle: "OSWP Training in India 2026 | OffSec PEN-210 Wireless Pentest Certification | Macksofy",
-    seoDescription: "OffSec OSWP / PEN-210 wireless pentest training in India 2026 by Macksofy. WPA2/3 cracking, PMKID, evil twin, WPA-Enterprise attacks. Alfa adapter included. 4-hour exam. ₹1,45,000 (15% OFF). Mumbai, Delhi, Bengaluru, Hyderabad cohorts.",
+    seoDescription: "OffSec OSWP / PEN-210 wireless pentest training in India 2026 — WPA2/3 cracking, PMKID, evil twin and WPA-Enterprise. Alfa adapter included. ₹1,45,000.",
     keywords: [
       "OSWP training India",
       "OSWP certification India 2026",
@@ -1150,7 +1150,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy run SOC-200 cohorts outside Mumbai?", a: "Yes — live online SOC-200 cohorts pan-India and corporate blue-team batches delivered on-site at SOCs in Delhi, Bengaluru, Hyderabad, Pune, Chennai, Gurugram and Dubai." },
     ],
     seoTitle: "SOC-200 / OSDA Training in India 2026 | OffSec Blue Team Certification | Macksofy",
-    seoDescription: "OffSec SOC-200 / OSDA defensive analysis training in India 2026 by Macksofy. Splunk + Elastic, Sysmon, EDR triage, MITRE ATT&CK, 24-hour exam. ₹1,45,000 (15% OFF). Mumbai, Delhi, Bengaluru, Hyderabad, Pune cohorts.",
+    seoDescription: "OffSec SOC-200 / OSDA defensive analysis training in India 2026 — Splunk and Elastic, Sysmon, EDR triage and MITRE ATT&CK. 24-hour exam. ₹1,45,000.",
     keywords: [
       "SOC-200 training India",
       "OSDA training India 2026",
@@ -1240,7 +1240,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy run OSED cohorts outside Mumbai?", a: "Yes — live online OSED cohorts pan-India for working professionals. Most OSED candidates are 3+ years into security careers and prefer the online + 1:1 mentor model." },
     ],
     seoTitle: "OSED Training in India 2026 | OffSec EXP-301 Windows Exploit Development | Macksofy",
-    seoDescription: "OffSec OSED / EXP-301 Windows user-mode exploit development training in India 2026. Reverse engineering with IDA / x64dbg, ROP chain construction, custom shellcode, 48-hour exam. ₹1,45,000 (15% OFF). Macksofy mentor support.",
+    seoDescription: "OffSec OSED / EXP-301 Windows exploit development training in India 2026 — reverse engineering with IDA and x64dbg, ROP chains and custom shellcode.",
     keywords: [
       "OSED training India",
       "OSED certification India 2026",
@@ -1329,7 +1329,7 @@ export const COURSES: Course[] = [
       { q: "What's after OSMR?", a: "Common paths: Deep specialisation in iOS / Apple-platform security research, or rolling OSMR into a senior red-team / vulnerability-research role at a product-security org." },
     ],
     seoTitle: "OSMR Training in India 2026 | OffSec EXP-312 macOS Security Certification | Macksofy",
-    seoDescription: "OffSec OSMR / EXP-312 advanced macOS control-bypass training in India 2026 by Macksofy. TCC, Gatekeeper, SIP, notarization bypass + Mach injection. 48-hour exam. ₹1,45,000 (15% OFF).",
+    seoDescription: "OffSec OSMR / EXP-312 advanced macOS control-bypass training in India 2026 — TCC, Gatekeeper, SIP and notarization bypass plus Mach injection. ₹1,45,000.",
     keywords: [
       "OSMR training India",
       "OSMR certification India 2026",

@@ -22,7 +22,7 @@ const postImage = (p: BlogPost) =>
 export const metadata = buildMetadata({
   title: "Cybersecurity Blog & Career Guides — Macksofy",
   description:
-    "In-depth guides on penetration testing certifications, Active Directory attacks, blue-team analysis, AI security and India BFSI cybersecurity. Written by CERT-In empanelled consultants.",
+    "In-depth guides on pentest certifications, Active Directory attacks, AI security and India BFSI compliance — written by CERT-In empanelled consultants.",
   path: "/blog",
   keywords: [
     "cybersecurity blog India",

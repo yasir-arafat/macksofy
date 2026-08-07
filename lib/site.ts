@@ -5,7 +5,7 @@ export const SITE = {
   positioning: "Cybersecurity Consulting · CERT-In Empanelled Audits · Advanced Training",
   tagline: "Securing Businesses. Training Cyber Warriors.",
   description:
-    "CERT-In empanelled cybersecurity consulting firm with an advanced training division. Penetration testing, VAPT, SOC engineering, red teaming and DFIR for enterprises across India and the UAE — plus career-grade ethical hacking, OSCP and SOC analyst training.",
+    "CERT-In empanelled cybersecurity firm serving India and the UAE — penetration testing, VAPT, SOC engineering, red teaming and DFIR, plus hands-on training.",
   url: "https://www.macksofy.com",
   ogImage: "/og-default.png",
   founded: "2014",
