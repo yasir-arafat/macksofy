@@ -1034,7 +1034,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     definition:
       "The CEH (EC-Council) is a foundational certification teaching the five phases of ethical hacking across a broad range of attack techniques, now with an AI track. It is widely requested in Indian job postings as an entry credential.",
     related: ["oscp", "chfi"],
-    link: { label: "CEH v13 training", href: "/training/ceh" },
+    link: { label: "CEH v13 ethical hacking course in Mumbai", href: "/training/ceh" },
   },
   {
     slug: "chfi",

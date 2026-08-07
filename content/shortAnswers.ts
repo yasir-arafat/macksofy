@@ -346,7 +346,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   // ─────────────────────────── COURSES (21) ───────────────────────────
   "course:ceh": {
     q: "What is the CEH certification?",
-    a: "The Certified Ethical Hacker (CEH v13, EC-Council) is a foundational credential that teaches you to think and act like an attacker across the five phases of hacking, now with an AI-driven track. As an EC-Council Accredited Training Center, Macksofy delivers CEH v13 with hands-on labs in India.",
+    a: "The Certified Ethical Hacker (CEH v13, EC-Council) is a foundational credential that teaches you to think and act like an attacker across the five phases of hacking, now with an AI-driven track. As an EC-Council Accredited Training Center, Macksofy runs it as a classroom and live-online ethical hacking course in Mumbai, with hands-on labs.",
   },
   "course:ceh-practical": {
     q: "What is the CEH Practical exam?",

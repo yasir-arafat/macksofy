@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (!c) return {};
   return buildMetadata({
     title: c.seoTitle,
+    absoluteTitle: c.seoTitleAbsolute,
     description: c.seoDescription,
     path: `/training/${c.slug}`,
     keywords: c.keywords,

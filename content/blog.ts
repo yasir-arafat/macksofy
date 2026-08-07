@@ -1609,7 +1609,17 @@ export const POSTS: BlogPost[] = [
           "Avoid centres advertising 'CEH v13 dump' — these guarantee failure on AI-aware questions",
         ],
       },
-      MACKSOFY_CTA("ceh", "Macksofy's CEH v13 ATC track"),
+      // Deliberately not MACKSOFY_CTA: that helper points at /training#<id>,
+      // and this post is the strongest internal signal the CEH course page has
+      // for "ethical hacking course" intent. Link straight at the page, with
+      // the phrase people search as the anchor text.
+      {
+        type: "cta",
+        title: "Train with an EC-Council ATC in Mumbai",
+        text: "Macksofy runs CEH v13 as a classroom and live-online ethical hacking course in Mumbai — official EC-Council courseware, iLabs access, one exam voucher, and mentorship that runs until you clear the exam.",
+        href: "/training/ceh",
+        cta: "See the ethical hacking course in Mumbai",
+      },
     ],
     faqs: [
       {

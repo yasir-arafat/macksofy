@@ -40,6 +40,14 @@ export interface Course {
   testimonials: { name: string; role: string; quote: string }[];
   faqs: { q: string; a: string }[];
   seoTitle: string;
+  /**
+   * Set when `seoTitle` is already the complete SERP title, so it is emitted
+   * absolute and the layout does not append " | Macksofy". Without this a
+   * seoTitle over 49 chars has its trailing " | …" segment dropped to make room
+   * for the brand suffix — which is how CEH's "| EC-Council ATC" (the page's
+   * strongest trust signal) stopped rendering. Keep such a title <= 60 chars.
+   */
+  seoTitleAbsolute?: boolean;
   seoDescription: string;
   keywords: string[];
 }
@@ -102,7 +110,7 @@ export const COURSES: Course[] = [
       eyebrow: "EC-Council Authorized Training Center",
       tagline: "Learn to think like the attacker.",
       description:
-        "CEH v13 is the world's most recognized ethical-hacking certification — and the first version to integrate AI across every attack domain. Macksofy delivers it the way it was meant to be taught: instructor-led, fully hands-on, in a Mumbai-classroom + live-online format, with mentorship that runs until you clear the exam.",
+        "CEH v13 is the world's most recognized ethical-hacking certification — and the first version to integrate AI across every attack domain. If you are looking for an ethical hacking course in Mumbai, this is it, delivered the way it was meant to be taught: instructor-led, fully hands-on, in a Mumbai-classroom + live-online format, with mentorship that runs until you clear the exam.",
     },
     whoIsItFor: [
       "Aspiring penetration testers and red-team operators",
@@ -172,14 +180,21 @@ export const COURSES: Course[] = [
       { name: "Priya S.", role: "Cybersecurity Engineer, Hyderabad", quote: "Came in with zero security background. 5 weeks later I was running Burp Suite and Metasploit confidently." },
     ],
     faqs: [
+      { q: "Is CEH the same as an ethical hacking course?", a: "Yes. CEH v13 is the certification form of an ethical hacking course — it teaches the same offensive skill set (reconnaissance, scanning, exploitation, post-exploitation, reporting) and ends in a credential employers recognise. If you are comparing ethical hacking courses in Mumbai, the practical questions are whether the provider is an EC-Council Accredited Training Center, whether an exam voucher is included, and how much of the time is spent in labs rather than slides." },
       { q: "Is Macksofy an authorized CEH v13 partner?", a: "Yes. Macksofy Technologies is an EC-Council Accredited Training Center (ATC). You receive official EC-Council courseware, hands-on lab access throughout the programme, and one CEH v13 (312-50) exam voucher." },
       { q: "What is the CEH v13 fee in Mumbai / India?", a: "₹50,000 all-inclusive: training, official EC-Council courseware, lab access, exam voucher, and our placement support. EMI options are available." },
       { q: "How is v13 different from v12?", a: "v13 integrates AI throughout — including AI-assisted attack modules and defensive AI controls. The exam structure (125 MCQs, 4 hours) is unchanged." },
       { q: "Does Macksofy guarantee a job?", a: "We don't guarantee placement (no honest training company can), but we connect 70%+ of our graduates with security roles via our hiring network within 6 months." },
       { q: "Can I take the course online?", a: "Yes — every batch is delivered live online (with on-camera trainer interaction) and at our Mumbai BKC center. Recordings are available for revision." },
     ],
-    seoTitle: "CEH v13 Training in Mumbai & India | EC-Council ATC | Macksofy",
-    seoDescription: "Authorized CEH v13 training in Mumbai with AI-powered curriculum, 100% practical labs, exam voucher and placement support. Live online + classroom batches. ₹50,000.",
+    // "CEH v13" stays first: /training/ceh already converts "ceh training in
+    // mumbai" at 59% CTR (59 impr -> 35 clicks, 28d to 2026-08-04) and that
+    // must not regress. What follows it is the phrase buyers actually type —
+    // "ethical hacking course in Mumbai" drew 573 impressions in the same
+    // window, all of them answered by the homepage, for a total of 1 click.
+    seoTitle: "CEH v13 Ethical Hacking Course in Mumbai — EC-Council ATC",
+    seoTitleAbsolute: true,
+    seoDescription: "Ethical hacking course in Mumbai from an EC-Council ATC: authorized CEH v13 training with AI-powered labs, exam voucher and placement support. ₹50,000.",
     keywords: ["CEH training Mumbai", "CEH v13 India", "ethical hacking course Mumbai", "EC-Council ATC India", "CEH certification India", "best ethical hacking institute India"],
   },
 
