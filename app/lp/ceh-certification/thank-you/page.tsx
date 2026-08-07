@@ -1,22 +1,29 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, Phone, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import { ConversionPing } from "@/components/lp/ConversionPing";
 import { SITE } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
 const WHATSAPP = SITE.whatsappLink(
   "Hi Macksofy, I just enquired about CEH v13 training — looking forward to the callback."
 );
 
-export const metadata: Metadata = {
-  title: "Thank you — CEH v13 enquiry received | Macksofy",
-  description: "Your CEH v13 training enquiry has been received. A counsellor will call you shortly.",
-  robots: { index: false, follow: false },
+// The brand is joined with "·" rather than "|" so clampTitle keeps it: a title
+// ending in " | Macksofy" is treated as the template's suffix and stripped, and
+// the /lp layout's pass-through template would then never add it back.
+export const metadata = buildMetadata({
+  title: "Thank you — CEH v13 enquiry received · Macksofy",
+  description:
+    "Your CEH v13 training enquiry has been received. A counsellor will call you shortly.",
   // Self-canonical so it never inherits the root layout's homepage canonical.
-  alternates: { canonical: "/lp/ceh-certification/thank-you" },
-};
+  path: "/lp/ceh-certification/thank-you",
+  // nofollow here, unlike the landing page itself — a conversion confirmation
+  // has nothing worth crawling onward.
+  noIndex: true,
+  geo: null,
+});
 
 export default function ThankYouPage() {
   return (

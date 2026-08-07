@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import { PrintLayout } from "@/components/print/PrintLayout";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "The 2026 Cyber Resilience Guide for Indian Boards — Macksofy",
+export const metadata = buildMetadata({
+  title: "The 2026 Cyber Resilience Guide for Indian Boards",
   description:
     "A board-level playbook for cyber-risk oversight under India's 2026 regime — CERT-In, RBI, SEBI and DPDP, with a 12-month resilience roadmap.",
+  // Self-canonical so it never inherits the root layout's homepage canonical
+  // (defensive: correct even if noindex is ever lifted).
+  path: "/guides/cyber-resilience-2026",
   // Lead-magnet deliverable, not an SEO surface — keep it out of the index.
-  robots: { index: false, follow: false },
-  // Self-canonical so it never inherits the root layout's homepage
-  // canonical (defensive: correct even if noindex is ever lifted).
-  alternates: { canonical: "/guides/cyber-resilience-2026" },
-};
+  noIndex: true,
+  geo: null,
+});
 
 /* ------------------------------------------------------------------ */
 /*  Content data (kept as JS strings so prose needs no JSX entity      */

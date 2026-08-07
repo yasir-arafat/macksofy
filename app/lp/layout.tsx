@@ -15,6 +15,10 @@ import type { Metadata } from "next";
  * the thank-you page is caught by the site-wide GTM container.
  */
 
+// Not built with buildMetadata, deliberately: that helper emits a per-page
+// canonical + hreflang, which must never be defaulted down over a whole route
+// segment. A layout's job here is the title template and the segment's robots
+// default; the pages underneath each call buildMetadata themselves.
 export const metadata: Metadata = {
   // Neutralise the root layout's "%s | Macksofy" title template for all
   // landing pages — each page sets its own full, self-contained title.

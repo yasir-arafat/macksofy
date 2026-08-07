@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import { PrintLayout } from "@/components/print/PrintLayout";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Sample CERT-In Audit Report — Macksofy Technologies",
+export const metadata = buildMetadata({
+  title: "Sample CERT-In Audit Report",
   description:
     "A sample CERT-In format audit report — RBI / SEBI / UIDAI submission structure, control attestation, findings register and compliance statement.",
-  robots: { index: false, follow: false },
   // Self-referencing canonical (otherwise inherits the homepage default).
-  alternates: { canonical: "/sample-reports/cert-in-audit" },
-};
+  path: "/sample-reports/cert-in-audit",
+  noIndex: true,
+  geo: null,
+});
 
 export default function SampleCertInAuditReport() {
   return (

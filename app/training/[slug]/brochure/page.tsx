@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { buildMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PrintLayout } from "@/components/print/PrintLayout";
@@ -43,15 +44,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCourseBySlug(slug);
   if (!c) return {};
-  return {
-    title: `${c.title} — Brochure | Macksofy Technologies`,
+  // shortTitle, not title: several course titles are long enough that
+  // "<title> — Brochure" would be truncated to nothing useful, and "CEH
+  // Course Brochure" is clearer in a tab than a clamped sentence.
+  return buildMetadata({
+    title: `${c.shortTitle} Course Brochure`,
     description: `Macksofy ${c.shortTitle} course brochure — curriculum, outcomes, prerequisites, fees and placement support.`,
-    robots: { index: false, follow: false },
     // Self-referencing canonical. Without this the page inherits the root
     // layout's default (the homepage) — harmless while noindex, but wrong if
     // the page is ever made indexable.
-    alternates: { canonical: `/training/${slug}/brochure` },
-  };
+    path: `/training/${slug}/brochure`,
+    noIndex: true,
+    geo: null,
+  });
 }
 
 export default async function CourseBrochure({ params }: PageProps) {

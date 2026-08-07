@@ -41,7 +41,12 @@ interface BuildMetadataInput {
    */
   image?: string;
   keywords?: string[];
-  noIndex?: boolean;
+  /**
+   * `true` emits `noindex, nofollow`. `"follow"` emits `noindex, follow` — for
+   * pages that must stay out of the index while still passing link equity on,
+   * which is the correct setting for paid-ad landing pages.
+   */
+  noIndex?: boolean | "follow";
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
@@ -200,6 +205,26 @@ export function clampTitle(input: string, opts?: { absolute?: boolean }): string
 }
 
 /**
+ * True when the author's title carries the brand itself, rather than spelling
+ * out the template's " | Macksofy" suffix.
+ *
+ * This has to be decided from the ORIGINAL title, not the clamped one. A title
+ * like "OT/IT Segmentation Whitepaper — Indian Manufacturers · Macksofy" (63) is
+ * self-branded, but clampTitle drops the "· Macksofy" segment to reach the
+ * budget — so testing the clamped output concludes "no brand", the template
+ * appends one, and the result lands back at 63. Deciding first keeps it at 52.
+ *
+ * The trailing-suffix case is the opposite and must stay that way: a title
+ * ending in " | Macksofy" is the author writing out the template's own suffix,
+ * so it is stripped here and re-added by the template.
+ */
+export function isSelfBrandedTitle(input: string): boolean {
+  let t = input.trim();
+  if (t.endsWith(BRAND_SUFFIX)) t = t.slice(0, -BRAND_SUFFIX.length).trim();
+  return t.includes(SITE.shortName);
+}
+
+/**
  * Clamp a page's seoDescription to ~158 chars, preferring a clean
  * sentence boundary. Falls back to word boundary + ellipsis.
  */
@@ -241,9 +266,10 @@ export function buildMetadata({
   // gets trimmed here so the layout template's " | Macksofy" suffix
   // doesn't push the rendered title past Google's truncation threshold.
   // Per-page strings stay long for human authors; SERPs see the clamp.
+  // Decided BEFORE the clamp — see isSelfBrandedTitle for why the order matters.
+  const includesBrand = Boolean(absoluteTitle) || isSelfBrandedTitle(title);
   title = clampTitle(title, { absolute: absoluteTitle });
   description = clampDesc(description);
-  const includesBrand = absoluteTitle || title.includes(SITE.shortName);
   const url = abs(path);
   // Dynamic OG image is the default: every page gets a brand-consistent
   // 1200x630 generated via /api/og. Pages can opt out by passing an
@@ -309,7 +335,7 @@ export function buildMetadata({
     },
     ...(Object.keys(geoMeta).length > 0 && { other: geoMeta }),
     robots: noIndex
-      ? { index: false, follow: false }
+      ? { index: false, follow: noIndex === "follow" }
       : {
           index: true,
           follow: true,

@@ -16,6 +16,7 @@ import {
   websiteSchema,
 } from "@/lib/schema";
 import { buildNavIndex } from "@/lib/nav-index";
+import { clampTitle, clampDesc } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 // Meta (Facebook) Pixel — installed site-wide in <head> via beforeInteractive,
@@ -86,14 +87,20 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  // A layout deliberately does NOT go through buildMetadata — that helper emits
+  // a per-page canonical and hreflang, which must never become a site-wide
+  // default. But the two strings below are still real SERP output (any page
+  // without its own metadata renders them, e.g. the 404), so they get the same
+  // budgets every other page is held to. `default` is used verbatim, so it is
+  // clamped as an absolute title rather than to the brand-suffix core budget.
   title: {
-    default: `${SITE.name} — ${SITE.positioning}`,
+    default: clampTitle(`${SITE.name} — ${SITE.positioning}`, { absolute: true }),
     template: `%s | ${SITE.shortName}`,
   },
   icons: {
   icon: "/favicon.ico",
 },
-  description: SITE.description,
+  description: clampDesc(SITE.description),
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: SITE.url }],
   generator: "Next.js",

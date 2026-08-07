@@ -24,9 +24,9 @@ import { ClientsMarquee } from "@/components/clients/ClientsMarquee";
 import { LeadForm } from "@/components/lp/LeadForm";
 import { LiteYouTube } from "@/components/lp/LiteYouTube";
 import { SITE } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 import { formatINR } from "@/lib/utils";
 
-const LP_URL = `${SITE.url}/lp/ceh-certification`;
 const PRICE = formatINR(50000);
 // EC-Council's official CEH overview video ("Becoming an Ethical Hacker | CEH").
 const CEH_VIDEO_ID = "a0pL7v6QVAk";
@@ -52,20 +52,30 @@ const WHATSAPP = SITE.whatsappLink(
   "Hi Macksofy, I'd like details on the CEH v13 training — fees, batch dates and syllabus."
 );
 
-export const metadata: Metadata = {
-  // Full self-contained title — the /lp layout sets a pass-through template
-  // so this is used verbatim (no "| Macksofy" suffix is appended).
-  title: "CEH v13 Training in Mumbai — Certified Ethical Hacker Course | Macksofy",
+// Built through buildMetadata like every other route, so this page cannot drift
+// out of the title/description budgets or lose its canonical + hreflang. The
+// title is self-contained (`absoluteTitle`) because the /lp layout sets a
+// pass-through template; at 60 chars it keeps every substantive word of the
+// original, dropping only the redundant "| Macksofy" suffix. `noIndex: "follow"`
+// preserves the paid-LP setting — out of the index, still passing link equity.
+const lpMetadata = buildMetadata({
+  title: "CEH v13 Training in Mumbai — Certified Ethical Hacker Course",
+  absoluteTitle: true,
   description:
     "EC-Council Accredited CEH v13 training in Mumbai and live-online — 40 hours of labs, official courseware, exam voucher and mentor-led prep. ₹50,000.",
-  alternates: { canonical: LP_URL },
-  robots: { index: false, follow: true },
+  path: "/lp/ceh-certification",
+  noIndex: "follow",
+  geo: null,
+});
+
+export const metadata: Metadata = {
+  ...lpMetadata,
+  // Bespoke share copy — shorter and more direct than the SERP description.
   openGraph: {
+    ...lpMetadata.openGraph,
     title: "CEH v13 Training — Certified Ethical Hacker | Macksofy",
     description:
       "Hands-on, EC-Council Accredited CEH v13 training. Official courseware + exam voucher + placement support. ₹50,000 all-inclusive.",
-    url: LP_URL,
-    type: "website",
   },
 };
 
