@@ -17,6 +17,8 @@ import {
   glossaryByCategory,
   getGlossaryTerm,
 } from "@/content/glossary";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title: "Cybersecurity Glossary — VAPT, CERT-In, SOC & Compliance Terms",
@@ -43,6 +45,8 @@ const catId = (c: string) =>
   c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 export default function GlossaryPage() {
+  const sa = getShortAnswer("hub:glossary");
+
   return (
     <>
       <JsonLd
@@ -91,6 +95,15 @@ export default function GlossaryPage() {
           </nav>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* ─── TERMS BY CATEGORY ─── */}
       {GLOSSARY_CATEGORIES.map((cat, ci) => {

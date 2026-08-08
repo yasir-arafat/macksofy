@@ -29,6 +29,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -232,6 +234,8 @@ const COLOR_BADGE: Record<string, string> = {
 };
 
 export default function PentauditPage() {
+  const sa = getShortAnswer("product:pentaudit");
+
   return (
     <>
       <JsonLd
@@ -272,8 +276,9 @@ export default function PentauditPage() {
               url: `${SITE.url}/contact?interest=Pentaudit`,
             },
           },
-          // No AnswerBox on this product page — don't claim its selector.
-          faqSchema(FAQS, { answerBox: false }),
+          // This page now renders an AnswerBox, so the FAQPage node may
+          // legitimately claim its speakable selector.
+          faqSchema(FAQS, { answerBox: Boolean(sa) }),
         ]}
       />
 
@@ -355,6 +360,15 @@ export default function PentauditPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* TWO PILLARS */}
       <section className="py-20 bg-bg-1">

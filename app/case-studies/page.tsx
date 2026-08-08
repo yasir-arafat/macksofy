@@ -14,6 +14,8 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { CaseStudyGrid } from "@/components/case-studies/CaseStudyGrid";
 import { CASE_STUDIES } from "@/content/caseStudies";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -43,6 +45,8 @@ const STATS = [
 export default function CaseStudiesIndexPage() {
   const sectors = Array.from(new Set(CASE_STUDIES.map((c) => c.sector)));
   const engagements = Array.from(new Set(CASE_STUDIES.map((c) => c.engagement)));
+
+  const sa = getShortAnswer("hub:case-studies");
 
   return (
     <>
@@ -137,6 +141,15 @@ export default function CaseStudiesIndexPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* GRID */}
       <section className="py-20 lg:py-24">

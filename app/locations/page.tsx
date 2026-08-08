@@ -14,6 +14,8 @@ import { CITIES } from "@/content/cities";
 import { COMBOS } from "@/content/combos";
 import { getServiceBySlug } from "@/content/services";
 import { SITE } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 // Combos grouped by city, ordered to follow the CITIES list. Drives the
 // "service deep-dives by city" section below — giving every /locations/[city]/
@@ -39,6 +41,8 @@ export const metadata = buildMetadata({
 });
 
 export default function LocationsPage() {
+  const sa = getShortAnswer("hub:locations");
+
   return (
     <>
       <JsonLd
@@ -86,6 +90,15 @@ export default function LocationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       <Container className="pb-20">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

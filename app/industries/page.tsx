@@ -11,6 +11,8 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { INDUSTRIES } from "@/content/industries";
 import { SITE } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -33,6 +35,8 @@ export const metadata = buildMetadata({
 });
 
 export default function IndustriesPage() {
+  const sa = getShortAnswer("hub:industries");
+
   return (
     <>
       <JsonLd
@@ -76,6 +80,15 @@ export default function IndustriesPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       <section className="py-16 bg-bg-1">
         <Container>

@@ -34,6 +34,8 @@ import {
   type AuditCategory,
 } from "@/content/audits";
 import { metroKeywords } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -133,6 +135,8 @@ export default function AuditPage() {
   const cyberAudit = getAuditBySlug("cybersecurity-audit");
   const cyberPillars = cyberAudit?.pillars ?? [];
 
+  const sa = getShortAnswer("hub:audit");
+
   return (
     <>
       <JsonLd
@@ -192,6 +196,15 @@ export default function AuditPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* CATEGORY OVERVIEW STRIP */}
       <Container className="pb-12">

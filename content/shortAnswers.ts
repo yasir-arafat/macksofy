@@ -713,6 +713,61 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "Who is responsible for security in the cloud?",
     a: "Cloud security is shared. The provider secures the underlying infrastructure, while you remain responsible for identity, configuration, data, and workloads — which is where nearly every breach actually originates, and multi-cloud estates multiply that surface. Macksofy delivers cloud security assessments across AWS, Azure, and GCP for Indian enterprises.",
   },
+
+  // ─────────────────────────── PRODUCTS (2) ───────────────────────────
+  // Macksofy's own two products under /products/<slug>. Both pages carry a
+  // FAQPage node, so their faqSchema() call passes answerBox: true — keep the
+  // flag in sync with this section or the speakable selector goes dead.
+  "product:pentaudit": {
+    q: "What is Pentaudit?",
+    a: "Pentaudit is Macksofy's continuous penetration-testing and compliance platform. It runs on-demand VAPT across cloud, web, mobile and API surfaces — on commit, daily or ad hoc — while an always-on engine scores readiness against 12+ frameworks including ISO 27001, SOC 2, PCI-DSS, DPDP, RBI and CERT-In. Data stays resident in Mumbai, Hyderabad, the UAE or on-premises.",
+  },
+  "product:learn-to-exploit": {
+    q: "What is LearnToExploit?",
+    a: "LearnToExploit is Macksofy's browser-based cyber range: 360+ deliberately vulnerable labs spanning web, network, Active Directory, cloud, mobile, IoT and AI/LLM exploitation. Each lab is rebuilt from a real misconfiguration found on a paid engagement, with client detail scrubbed, and unlocks a walkthrough covering both the attacker path and the defender view.",
+  },
+
+  // ─────────────────────────── HUBS (8) ───────────────────────────
+  // Index/hub routes. Deliberately NOT every hub — /privacy, /clients,
+  // /awards, /press and /blog are navigational, and an AnswerBox there would
+  // be filler. /contact is excluded on purpose too: it already earns
+  // faq-question / faq-answer speakable hooks from its own visible FAQ grid
+  // (see the 2026-07-30 speakable fix) and has no definitional question to
+  // answer. /training/offsec stays out because it is an ItemList hub, not a
+  // Course. Counts below are asserted against content/*.ts — re-check them if
+  // a service, audit, industry, city or glossary term is added.
+  "hub:services": {
+    q: "What cybersecurity services does Macksofy provide?",
+    a: "Macksofy provides 24 cybersecurity services spanning offensive, defensive and managed work — penetration testing, VAPT, red teaming and application security on the attack side; managed SOC, DFIR and threat intelligence on the defence side. Engagements are CERT-In empanelled and run by OSCP, OSWE and OSEP-certified consultants across India and the UAE.",
+  },
+  "hub:audit": {
+    q: "What compliance audits does Macksofy perform?",
+    a: "Macksofy performs 35 audit and compliance engagements as a CERT-In empanelled information security auditor under MeitY. Coverage spans Indian regulators (RBI CSF, SEBI CSCRF, IRDAI, UIDAI), GCC frameworks (UAE PDPL, NESA, ADHICS, DESC ISR) and international standards (ISO 27001, SOC 2, PCI-DSS, HIPAA, GDPR).",
+  },
+  "hub:training": {
+    q: "What cybersecurity training does Macksofy offer?",
+    a: "Macksofy offers five career tracks across India and the UAE: EC-Council certifications as an Accredited Training Centre (CEH v13, CHFI, CTIA), Offensive Security exam-prep bootcamps (OSCP, OSEP, OSWE), CompTIA courses, SOC analyst programmes and corporate training. Every track is lab-first, taught by working pen-testers and SOC engineers, with mentoring until you pass.",
+  },
+  "hub:glossary": {
+    q: "What is the Macksofy cybersecurity glossary?",
+    a: "The Macksofy glossary defines 111 cybersecurity terms in plain language across ten categories — offensive testing, application and API security, SOC and detection, DFIR, cloud, vulnerability management, OT/ICS, certifications, and India and GCC compliance. Each entry links to the service or audit it relates to, so a definition leads to the work behind it.",
+  },
+  "hub:industries": {
+    q: "Which industries does Macksofy serve?",
+    a: "Macksofy runs seven sector practices: BFSI, healthcare and life sciences, SaaS and fintech, manufacturing and OT, government and PSU, energy and utilities, and insurance. Each is staffed by consultants who have worked that vertical's regulators, so methodology and reporting match the audience — whether that is RBI, IRDAI, ADHICS, SOC 2, ISO 27001 or IEC 62443.",
+  },
+  "hub:locations": {
+    q: "Where does Macksofy deliver cybersecurity services?",
+    a: "Macksofy is headquartered at SRA Commercial Tower, Bandra Kurla Complex, Mumbai, with a regional hub in Hyderabad's HITEC City and delivery across every Indian metro plus the UAE. Twelve city pages cover the local regulators, industries and services for each location, from Delhi NCR and Bengaluru to Dubai and Abu Dhabi.",
+  },
+  "hub:case-studies": {
+    q: "What are Macksofy's cybersecurity case studies?",
+    a: "Macksofy's case studies are long-form, fully anonymised accounts of real engagements — penetration testing, red team, DFIR and cloud security — across BFSI, fintech, telecom, SaaS and manufacturing in India and the UAE. Every finding, timeline and metric comes from the engagement record; only client-identifying detail is removed.",
+  },
+  "hub:resources": {
+    q: "What free cybersecurity resources does Macksofy publish?",
+    a: "Macksofy publishes 18 free practitioner resources — 11 whitepapers, 4 checklists and 3 cheat sheets — pulled from real engagement playbooks, covering SEBI CSCRF and CERT-In readiness, ransomware response, OT/IT segmentation, CSPM and Active Directory. Every course brochure sits alongside them. No email gate; whitepapers open as print-ready pages.",
+  },
 };
 
 /** Look up a short answer by `"<kind>:<slug>"`. Returns undefined when absent. */

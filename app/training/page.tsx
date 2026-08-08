@@ -18,6 +18,8 @@ import { COURSES } from "@/content/courses";
 import { VENDOR_LOGOS } from "@/content/vendorLogos";
 import { formatINR } from "@/lib/utils";
 import { metroKeywords } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -43,6 +45,8 @@ export const metadata = buildMetadata({
 });
 
 export default function TrainingPage() {
+  const sa = getShortAnswer("hub:training");
+
   return (
     <>
       <JsonLd
@@ -91,6 +95,15 @@ export default function TrainingPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       <section className="py-20">
         <Container>

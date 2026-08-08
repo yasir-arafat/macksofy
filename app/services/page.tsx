@@ -11,6 +11,8 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { SERVICES } from "@/content/services";
 import { metroKeywords } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -37,6 +39,8 @@ export default function ServicesPage() {
   const offensive = SERVICES.filter((s) => s.category === "Offensive");
   const defensive = SERVICES.filter((s) => s.category === "Defensive");
   const managed = SERVICES.filter((s) => s.category === "Managed Services");
+
+  const sa = getShortAnswer("hub:services");
 
   return (
     <>
@@ -76,6 +80,15 @@ export default function ServicesPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       <section className="relative py-24 overflow-hidden">
         <Container>

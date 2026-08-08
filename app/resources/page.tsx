@@ -15,6 +15,8 @@ import {
 import { RESOURCES } from "@/content/resources";
 import { COURSES } from "@/content/courses";
 import { SITE } from "@/lib/site";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
   title:
@@ -74,6 +76,8 @@ export default function ResourcesIndexPage() {
     ],
   };
 
+  const sa = getShortAnswer("hub:resources");
+
   return (
     <>
       <JsonLd
@@ -131,6 +135,15 @@ export default function ResourcesIndexPage() {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container>
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* GRID */}
       <section className="py-20 lg:py-24">
