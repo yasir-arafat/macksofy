@@ -16,6 +16,14 @@ export interface CityServiceCombo {
   serviceSlug: string;
   /** SEO H1 + page title (≤72 chars). */
   headline: string;
+  /**
+   * SERP <title>, for headlines too long even for the 60-char absolute budget.
+   * The headline stays the visible H1; this is only the line Google shows.
+   * Keep BOTH the "<Service> in <City>" exact match and the trailing
+   * "· <local differentiator>" clause — that clause is the only thing telling
+   * 73 near-identical combo results apart. Omit when the headline itself fits.
+   */
+  seoTitle?: string;
   /** Hero sub-line, 1 short paragraph (~140-160 chars). */
   lead: string;
   /** Unique combo body — 7-10 paragraphs, 700-900 words. */
@@ -5811,6 +5819,7 @@ export const COMBOS: CityServiceCombo[] = [
     citySlug: "hyderabad",
     serviceSlug: "web-application-security",
     headline: "Web Application Security in Hyderabad · Pharma SaaS & HITEC City",
+    seoTitle: "Web Application Security in Hyderabad · Pharma & SaaS",
     lead: "OWASP ASVS L3 AppSec for Hyderabad clinical-trial SaaS, HITEC City product, US-healthcare GCC and pharma customer portals — 21 CFR Part 11 + HIPAA + DPDP overlay.",
     body: [
       "Hyderabad web-application-security has a uniquely diverse buyer base. Clinical-trial SaaS and eTMF / EDC platform operators in Genome Valley face 21 CFR Part 11 application-layer controls and FDA-aligned audit-trail integrity expectations. HITEC City B2B SaaS and product startups face OWASP ASVS Level 3 + SOC 2 Type II + ISO 27001:2022 enterprise procurement standards. US-healthcare GCCs in Gachibowli and Q City handle US PHI under HIPAA Security Rule §164.308-312 and Business Associate Agreement (BAA) obligations passed down from US parents. Pharma customer-facing portals (patient-engagement apps, eDetailing tablets, medical-information portals) face DPDP and (where US-bound) HIPAA overlays. Macksofy's Hyderabad AppSec practice runs one bench, four sub-playbooks, selected at kickoff per the customer's actual profile.",
@@ -6495,6 +6504,7 @@ export const COMBOS: CityServiceCombo[] = [
     citySlug: "pune",
     serviceSlug: "cloud-security",
     headline: "Cloud Security in Pune · Connected-Vehicle, IT Services & SaaS",
+    seoTitle: "Cloud Security in Pune · Connected-Vehicle & IT Services",
     lead: "AWS / Azure / GCP cloud security for Pune connected-car back-ends, IT-services GCC parent-cloud, Magarpatta SaaS and Hinjewadi delivery centres.",
     body: [
       "Pune cloud-security demand has three sharply different buyer profiles. Auto OEMs running connected-car back-ends on AWS / Azure / GCP (the highest-growth segment in our Pune practice — Pune-based Tier-1 suppliers and auto OEMs are migrating telematics, OTA-update infrastructure, V2X PKI and fleet-data platforms to hyperscale cloud at pace). IT-services GCCs in Hinjewadi running cloud workloads inherited from US / UK / EU parent estates with parent-controlled IAM, parent-controlled encryption and parent-mandated CSPM tooling. Magarpatta / Kharadi SaaS startups running cloud-native multi-tenant architectures with SOC 2 Type II CC requirements. Macksofy's Pune cloud-security practice runs all three from the Mumbai BKC bench with a Pune-resident lead consultant for sustained programmes.",
@@ -7350,6 +7360,7 @@ export const COMBOS: CityServiceCombo[] = [
     citySlug: "chennai",
     serviceSlug: "web-application-security",
     headline: "Web Application Security in Chennai · OMR SaaS, PSU Banks & TNeGA",
+    seoTitle: "Web Application Security in Chennai · OMR SaaS & PSU Banks",
     lead: "OWASP ASVS L3 AppSec for Chennai OMR SaaS, PSU bank customer apps, Sriperumbudur auto OEM customer portals and TNeGA citizen apps.",
     body: [
       "Chennai web-application-security work breaks across four buyer profiles with distinct application surfaces. OMR (Old Mahabalipuram Road) SaaS unicorns and product companies face OWASP ASVS Level 3 + SOC 2 Type II + ISO 27001:2022 enterprise procurement standards. PSU bank customer-facing applications (net-banking, mobile-banking, customer-portal, branch-portal) face RBI Master Direction on IT Governance plus DFS circular cyber clauses. Auto OEM customer portals (Hyundai, Renault-Nissan, BMW dealer-portals and customer-engagement-portals) face IT-services-customer-procurement-driven control catalogues plus DPDP §16 cross-border overlay. TNeGA / Tamil Nadu state-government citizen-portal applications face CERT-In + DPDP + TNeGA + Tamil-language documentation requirements. Macksofy's Chennai AppSec practice runs all four playbooks from the Mumbai-and-Hyderabad dual-anchor bench with a Chennai-resident senior consultant for multi-quarter PSU bank programmes.",
@@ -9264,6 +9275,7 @@ export const COMBOS: CityServiceCombo[] = [
     citySlug: "delhi",
     serviceSlug: "api-security",
     headline: "API Security Testing in Delhi NCR · Gov, India Stack & Enterprise",
+    seoTitle: "API Security Testing in Delhi NCR · Gov & India Stack",
     lead: "OWASP API Top 10 testing for citizen-facing portals, India-Stack integrations and enterprise B2B APIs — CERT-In and DPDP-aligned across Delhi, Gurugram and Noida.",
     body: [
       "Delhi NCR runs on integration APIs — citizen-facing government and PSU portals, India-Stack consumers (Aadhaar e-KYC, DigiLocker, UPI, e-Sign), and the large-enterprise B2B estates clustered in Gurugram's Cyber City and Noida's Sector-62/Sector-135 belt. These APIs carry identity and entitlement, not just data, which is exactly why their authorization flaws matter more. Macksofy tests them against the OWASP API Security Top 10 (2023), with senior consultants who deliver across the NCR and report in the language CERT-In and departmental auditors expect.",

@@ -150,7 +150,13 @@ function abs(path: string): string {
 // 274+ violators across 50+ files, clamp at the metadata boundary.
 const BRAND_SUFFIX = ` | ${SITE.shortName}`;
 const TITLE_LIMIT_TOTAL = 60;
-const TITLE_LIMIT_CORE = TITLE_LIMIT_TOTAL - BRAND_SUFFIX.length;
+/**
+ * Budget for a title the template will append " | Macksofy" to. Exported so
+ * callers whose title carries a meaningful trailing clause can tell whether
+ * the clamp would eat it and opt into `absoluteTitle` instead — see the
+ * city x service combo template.
+ */
+export const TITLE_LIMIT_CORE = TITLE_LIMIT_TOTAL - BRAND_SUFFIX.length;
 const DESC_LIMIT = 158;
 
 const TRAILING_STOPWORDS =

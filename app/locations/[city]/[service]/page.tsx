@@ -30,7 +30,7 @@ import {
   faqSchema,
   methodologyHowToSchema,
 } from "@/lib/schema";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, TITLE_LIMIT_CORE } from "@/lib/seo";
 import { getCityBySlug, cityGeoMeta } from "@/content/cities";
 import { getServiceBySlug } from "@/content/services";
 import { COMBO_PAIRS, getCombo } from "@/content/combos";
@@ -57,8 +57,18 @@ export async function generateMetadata({ params }: PageProps) {
   const s = getServiceBySlug(service);
   if (!combo || !c || !s) return {};
   const { geo, locale } = cityGeoMeta(c);
+  // Every combo headline ends in a "· <local differentiator>" clause, and that
+  // clause is the only thing telling 73 otherwise-identical "<Service> in
+  // <City>" results apart in SERP. clampTitle drops such a clause WHOLESALE to
+  // reserve 11 chars for the " | Macksofy" suffix, so a 57-char headline was
+  // shipping as a 23-char title with the differentiator gone. Headlines that
+  // would not survive the core budget therefore claim the full 60-char
+  // absolute budget and skip the brand suffix. `seoTitle` is the escape hatch
+  // for the handful too long even for that.
+  const serpTitle = combo.seoTitle ?? combo.headline;
   return buildMetadata({
-    title: combo.headline,
+    title: serpTitle,
+    absoluteTitle: serpTitle.length > TITLE_LIMIT_CORE,
     description: combo.seoDescription,
     path: `/locations/${city}/${service}`,
     keywords: combo.keywords,
