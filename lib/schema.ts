@@ -469,7 +469,17 @@ function clampHeadline(input: string): string {
   );
 }
 
-export function caseStudySchema(cs: CaseStudyHero) {
+/**
+ * `answerBox` mirrors the flag on faqSchema(): only claim the speakable
+ * selector when the page actually renders an AnswerBox. A case study with no
+ * shortAnswers entry has no `[data-speakable='answer']` node, and declaring one
+ * anyway is exactly the dead-selector defect this codebase has already hit
+ * twice. Default false so a new case study never over-promises by accident.
+ */
+export function caseStudySchema(
+  cs: CaseStudyHero,
+  opts?: { answerBox?: boolean }
+) {
   const headline = clampHeadline(cs.headline);
   return {
     "@context": "https://schema.org",
@@ -493,6 +503,12 @@ export function caseStudySchema(cs: CaseStudyHero) {
       { "@type": "Organization", name: cs.clientType },
     ],
     articleSection: "Case Study",
+    ...(opts?.answerBox && {
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", "[data-speakable='answer']"],
+      },
+    }),
   };
 }
 

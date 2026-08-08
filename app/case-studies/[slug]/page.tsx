@@ -17,6 +17,8 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/content/caseStudies";
 import { cn } from "@/lib/utils";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -85,11 +87,13 @@ export default async function CaseStudyDetail({ params }: PageProps) {
       (c.sector === cs.sector || c.engagement === cs.engagement)
   ).slice(0, 3);
 
+  const sa = getShortAnswer(`case-study:${cs.slug}`);
+
   return (
     <>
       <JsonLd
         data={[
-          caseStudySchema(cs),
+          caseStudySchema(cs, { answerBox: Boolean(sa) }),
           breadcrumbSchema([
             { name: "Case Studies", url: "/case-studies" },
             { name: cs.headline, url: `/case-studies/${cs.slug}` },
@@ -214,6 +218,15 @@ export default async function CaseStudyDetail({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* SHORT ANSWER (AEO/GEO) */}
+      {sa && (
+        <section className="py-8">
+          <Container size="narrow">
+            <AnswerBox q={sa.q} a={sa.a} />
+          </Container>
+        </section>
+      )}
 
       {/* CHALLENGE */}
       <section className="py-20 lg:py-24">

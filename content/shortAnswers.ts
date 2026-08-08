@@ -768,6 +768,52 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What free cybersecurity resources does Macksofy publish?",
     a: "Macksofy publishes 18 free practitioner resources — 11 whitepapers, 4 checklists and 3 cheat sheets — pulled from real engagement playbooks, covering SEBI CSCRF and CERT-In readiness, ransomware response, OT/IT segmentation, CSPM and Active Directory. Every course brochure sits alongside them. No email gate; whitepapers open as print-ready pages.",
   },
+
+  // ─────────────────────────── CASE STUDIES (8) ───────────────────────────
+  // These break the definitional pattern used everywhere else, and that is
+  // deliberate. A case study has no "what is X" to answer — the extractable
+  // value is the TECHNIQUE, which is a real query ("how quickly can LockBit be
+  // contained", "why is a wildcard IAM policy dangerous"). So each `q` asks the
+  // generalisable question and each `a` answers it generally FIRST, then cites
+  // this engagement as the worked example.
+  //
+  // ⚠️ ANONYMITY IS LOAD-BEARING. Every case study is published anonymised.
+  // Never introduce a detail here that is not already in the entry's own
+  // clientType / summary / metrics — no client names, no city-plus-sector
+  // combinations narrow enough to identify one company. Figures below are
+  // taken from each entry's `metrics` and `findings` arrays verbatim.
+  "case-study:listed-fintech-bola-jwt-pentest": {
+    q: "How can BOLA and a forged JWT be chained into full data access?",
+    a: "Broken object-level authorization lets an attacker read another customer's record by changing an ID in the request; a gateway accepting JWT alg=none lets them forge the token that authorizes it. Chained, the two bypass identity entirely. Macksofy surfaced this in a listed Indian fintech in 4 days, remediated in 9, before its SEBI CSCRF filing.",
+  },
+  "case-study:gcc-telecom-mobile-app-takeover": {
+    q: "How does an insecure deeplink lead to mobile account takeover?",
+    a: "An API key left in cleartext shared preferences hands an attacker the credential, and an unvalidated deeplink gives them a way to invoke privileged actions from a link the victim taps. Chained, one SMS click silently takes over an account. Macksofy found this in a GCC telecom's app 2 weeks pre-launch; nothing shipped open.",
+  },
+  "case-study:listed-bank-red-team-edr-bypass": {
+    q: "Can an attacker reach Domain Admin without the SOC raising a ticket?",
+    a: "Often yes, which is precisely what a goal-based red team exists to measure. Against a tier-1 listed Indian bank, Macksofy phished in, bypassed EDR, moved laterally and reached Domain Admin in 4 hours 12 minutes with zero SOC tickets raised. 23 detections were then engineered, cutting time-to-detect to 11 minutes.",
+  },
+  "case-study:maharashtra-manufacturer-lockbit-dfir": {
+    q: "How quickly can a LockBit ransomware attack be contained?",
+    a: "Containment speed depends on preparation rather than luck. At a 1,400-employee Maharashtra manufacturer, Macksofy was on-site within hours of a 02:14 call and contained a LockBit variant at hour 11; 80% of production was restored from clean backups inside 72 hours. No ransom was paid and no exfiltration was confirmed.",
+  },
+  "case-study:bangalore-saas-aws-iam-cloud-audit": {
+    q: "Why is a wildcard IAM policy on a Lambda role dangerous?",
+    a: "A Lambda execution role carrying iam:* on Resource:* can grant itself any permission in the account, making it admin-equivalent however the function is invoked. Macksofy found exactly that during a Bangalore SaaS company's pre-Series-C AWS audit, closed it within the 8-day engagement, and added infrastructure-as-code guardrails so it could not recur.",
+  },
+  "case-study:bfsi-mnc-bkc-internal-ad-pentest": {
+    q: "What is an assumed-breach internal Active Directory pentest?",
+    a: "An assumed-breach test starts from one low-privilege user instead of the perimeter, measuring how far an attacker travels once already inside. In a BFSI multinational's Mumbai estate, Macksofy chained NoPac (CVE-2021-42278) with a kerberoastable tier-0 service account to reach Domain Admin in 4 hours during a 15-day engagement.",
+  },
+  "case-study:listed-bank-iam-zero-trust-mumbai": {
+    q: "How do you reduce standing privilege before an RBI inspection?",
+    a: "By finding the paths that actually confer privilege, then removing them. Ninety days before an RBI CSITE inspection, Macksofy mapped a Mumbai listed bank's directory with BloodHound and ROADrecon, closed six kerberoastable tier-0 service accounts and an ADCS ESC4 path, and cut standing privilege 78% within 60 days.",
+  },
+  "case-study:pharma-ransomware-dfir-india-2026": {
+    q: "How do you meet CERT-In's 6-hour incident reporting deadline?",
+    a: "CERT-In requires reporting within six hours of noticing an incident, so the evidence pipeline and escalation path have to exist beforehand. After an Ahmedabad pharma manufacturer detected ransomware at 03:42, Macksofy filed the CERT-In report in 5 hours 48 minutes, contained by hour 72, and produced a USFDA-inspection-ready evidence pack.",
+  },
 };
 
 /** Look up a short answer by `"<kind>:<slug>"`. Returns undefined when absent. */
