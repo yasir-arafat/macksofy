@@ -18,6 +18,15 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   { source: "/services/dfir", destination: "/services/digital-forensics-incident-response" },
   { source: "/cert-in-12-hour-patch-mandate-macksofy-brief.pdf", destination: "/cert-in-12-hour-patch-mandate.pdf" },
 
+  // The legacy PHP site's homepage. Unmapped .php paths are answered by the
+  // Vercel WAF with 403 + x-vercel-mitigated: deny, which is the wrong answer
+  // for this one specifically: /index.php is the single most-linked and
+  // most-crawled URL any PHP site has, so a 403 both discards whatever link
+  // equity points at it and invites crawlers to keep retrying. A mapped entry
+  // here is answered by next.config redirects() BEFORE the WAF sees it —
+  // that ordering is already proven by the other entries in this list.
+  { source: "/index.php", destination: "/" },
+
   { source: "/about-us.php", destination: "/about" },
   { source: "/clients.php", destination: "/clients" },
   { source: "/contact-macksofy.php", destination: "/contact" },
