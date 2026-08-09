@@ -6030,24 +6030,26 @@ export const AUDITS: Audit[] = [
   // ====================================================================
   {
     slug: "wasa-audit",
-    updated: "2026-07-25",
+    updated: "2026-08-09",
     title: "WASA — Web Application Security Assessment",
     shortTitle: "WASA Audit",
     icon: Lock,
     iconName: "Lock",
     category: "Indian Regulatory",
     hero: {
-      eyebrow: "OWASP ASVS · SANS CWE Top 25 · Compliance-mapped",
+      eyebrow: "ABDM M1 · OWASP ASVS · SANS CWE Top 25 · CERT-In empanelled",
       tagline:
         "Procurement-grade Web Application Security Assessment — design integrity, not just exploit-finding.",
       description:
-        "WASA is a structured, framework-mapped evaluation of how a web application withstands real-world attack behavior across architecture, business logic, APIs, session handling and authentication. Macksofy delivers WASA reports that drop directly into enterprise procurement, RBI / SEBI / DPDP submissions, and SOC 2 / ISO 27001 evidence packs — without the rework most pentest PDFs trigger.",
+        "WASA is a structured, framework-mapped evaluation of how a web application withstands real-world attack behavior across architecture, business logic, APIs, session handling and authentication. In India's digital-health ecosystem, a WASA report from a CERT-In empanelled auditor is the security evidence ABDM (Ayushman Bharat Digital Mission) integrators submit to the National Health Authority on the way to milestone certification and production access — the artefact often called a web application security audit or 'safe to host' certificate. Macksofy is CERT-In empanelled, and delivers WASA reports that drop directly into ABDM submissions, enterprise procurement, RBI / SEBI / DPDP filings, and SOC 2 / ISO 27001 evidence packs — without the rework most pentest PDFs trigger.",
     },
     whyItMatters:
-      "A modern enterprise buyer (and an increasing share of Indian BFSI auditors) doesn't want a raw pentest PDF. They want a Web Application Security Assessment that proves design integrity, maps every finding to a recognised control framework (OWASP Top 10, ASVS V4.0, SANS CWE Top 25, ISO 27001 Annex A, PCI DSS), and surfaces compound risk — the chained low-severity flaws that combine into account takeover, lateral movement or tenant-bleed. The 2025 State of Continuous Pentesting report attributes 96% of vulnerabilities in the last 12 months to web applications, and most of them are not zero-days; they are weak session controls, exposed API metadata and misconfigured headers that look minor in isolation but combine into compound exposure. Macksofy's WASA programme is purpose-built for that reality, with dual-layered AI-augmented + manual testing, threat-modelled scoping, and RFP-ready reporting that satisfies enterprise InfoSec, CERT-In format submission and the RBI Master Direction on IT Governance (November 2023) Annex-1 evidence the inspector reads.",
+      "A modern enterprise buyer (and an increasing share of Indian BFSI auditors) doesn't want a raw pentest PDF. They want a Web Application Security Assessment that proves design integrity, maps every finding to a recognised control framework (OWASP Top 10, ASVS V4.0, SANS CWE Top 25, ISO 27001 Annex A, PCI DSS), and surfaces compound risk — the chained low-severity flaws that combine into account takeover, lateral movement or tenant-bleed. The 2025 State of Continuous Pentesting report attributes 96% of vulnerabilities in the last 12 months to web applications, and most of them are not zero-days; they are weak session controls, exposed API metadata and misconfigured headers that look minor in isolation but combine into compound exposure. Macksofy's WASA programme is purpose-built for that reality, with dual-layered AI-augmented + manual testing, threat-modelled scoping, and RFP-ready reporting that satisfies enterprise InfoSec, CERT-In format submission and the RBI Master Direction on IT Governance (November 2023) Annex-1 evidence the inspector reads. The same WASA discipline is what India's digital-health builders need for a different reason: an application that integrates with ABDM — creating or linking ABHA numbers, acting as a Health Information Provider or User, or running consent-manager flows — is expected to produce a web application security audit certificate from a CERT-In empanelled auditor before the National Health Authority grants milestone certification and production access. NHA publishes those certificates for approved integrators, and the scope they cover is WASA scope: authentication, authorisation, session handling, encryption in transit and at rest, and the security of the M1 / M2 / M3 API surface itself. Macksofy holds the CERT-In empanelment that requirement turns on, so a HealthTech team does not have to run one assessment for the regulator and a second for its enterprise customers.",
     applicability: [
       "B2B SaaS shipping enterprise security questionnaires (CAIQ, SIG, Shared Assessments)",
       "Fintech / lending / payment-aggregator licensees needing RBI-format AppSec evidence",
+      "ABDM / ABHA integrators — HMIS, EMR, PHR apps, HIP / HIU and consent-manager builds needing a CERT-In empanelled security audit certificate for M1 / M2 / M3 milestone sign-off and NHA production access",
+      "Hospitals, diagnostics chains and telehealth platforms going live on the ABDM sandbox-to-production path",
       "Healthtech / US-PHI GCC operators needing HIPAA Security Rule §164.308–312 evidence",
       "BPO / KPO + IT-services majors with customer-third-party-AppSec-standard obligations",
       "Public-sector and ministry-adjacent operators on the Digital India ecosystem",
@@ -6062,6 +6064,7 @@ export const AUDITS: Audit[] = [
       "PCI DSS v4.0 (clauses 6.x + 8.2.6 session controls)",
       "OWASP Top 10 for LLM Applications (2025) — for AI surfaces in scope",
       "CERT-In empanelled submission format (for Indian regulator inputs)",
+      "ABDM / NHA ecosystem security expectations — ABHA, HIP / HIU and consent-manager flows across the M1 / M2 / M3 API surface",
       "RBI Master Direction on IT Governance (Nov 2023) Annex-1 (for BFSI scopes)",
     ],
     methodology: [
@@ -6127,6 +6130,7 @@ export const AUDITS: Audit[] = [
       "Chained-exploit narrative with MITRE ATT&CK technique mapping",
       "Threat-model output document — architecture, trust boundaries, authorisation matrix",
       "CERT-In empanelled submission-format report for Indian regulator scope",
+      "CERT-In empanelled web application security audit certificate for ABDM submission — the 'safe to host' artefact NHA integrators file for M1 / M2 / M3 milestone sign-off, stating the environment tested",
       "Vendor-pack annex for enterprise procurement (CAIQ, SIG, Shared Assessments) attachment",
       "60-day re-test of every Critical and High at no extra cost",
       "Post-engagement risk-register sync to GRC tool (Archer / ServiceNow IRM / Vanta / Drata)",
@@ -6186,6 +6190,17 @@ export const AUDITS: Audit[] = [
           "Training-data exfiltration via inference-API probing",
         ],
       },
+      {
+        title: "ABDM / ABHA integration surface",
+        blurb:
+          "For digital-health builds: the M1 / M2 / M3 API surface, tested as the security evidence NHA integrators file for milestone sign-off.",
+        points: [
+          "ABHA creation, login and linking flows — auth, session and token handling on the identity path",
+          "HIP / HIU data-exchange and consent-manager workflows, including consent-artefact integrity and replay",
+          "Health-data encryption in transit and at rest, plus access control across the care-team role boundary",
+          "Certificate states the environment actually tested — staging versus production is called out explicitly, not blurred",
+        ],
+      },
     ],
     caseStudies: [
       {
@@ -6221,8 +6236,16 @@ export const AUDITS: Audit[] = [
         a: "For BFSI / fintech / payment-aggregator scope, yes. The WASA deliverable is shipped in CERT-In empanelled submission format with explicit crosswalk to RBI Master Direction on IT Governance (Nov 2023) Annex-1 clauses. The same evidence inputs the next CSITE Cell or DPSS thematic review without rework.",
       },
       {
+        q: "Is WASA the security audit we need for ABDM M1 certification?",
+        a: "Yes — for an application integrating with the Ayushman Bharat Digital Mission, the security evidence submitted to the National Health Authority is a web application security audit report and certificate from a CERT-In empanelled auditor, and that is exactly what a WASA engagement produces. Macksofy is CERT-In empanelled. Scope covers the ABDM API surface itself — ABHA creation, login and linking, HIP / HIU data exchange, consent-manager flows — alongside the authentication, authorisation, session-handling and encryption controls the assessment always covers. Because it is one assessment, the same report also serves your enterprise customers and your ISO 27001 / SOC 2 evidence cycle. Requirements are set by NHA and are periodically revised, so we confirm the current submission format against NHA's published guidance at scoping rather than working from a template.",
+      },
+      {
+        q: "What is a 'safe to host' certificate, and is it the same thing?",
+        a: "In practice they refer to the same artefact: the signed certificate a CERT-In empanelled auditor issues on completion of the web application security audit, which the integrator files as part of its ABDM milestone submission. Different teams call it a WASA certificate, a web application security audit certificate or a safe-to-host certificate. One detail matters more than the name — the certificate must state which environment was actually assessed. If testing was done on staging rather than production, it says so explicitly. We do not issue a certificate implying production coverage for an assessment that did not test production.",
+      },
+      {
         q: "How long does a WASA engagement take?",
-        a: "5–6 weeks for a mid-sized SaaS or fintech scope. Larger / multi-tenant / multi-region scopes stretch to 7–8 weeks. The closing week is dedicated to remediation validation and the 60-day re-test window covers every Critical and High finding.",
+        a: "5–6 weeks for a mid-sized SaaS or fintech scope. Larger / multi-tenant / multi-region scopes stretch to 7–8 weeks. An ABDM milestone scope typically runs three to six weeks depending on application size and how fast findings are remediated — re-testing is what usually drives the timeline, not the initial assessment. The closing week is dedicated to remediation validation and the 60-day re-test window covers every Critical and High finding.",
       },
       {
         q: "Do you cover AI / LLM application security in WASA scope?",
@@ -6237,13 +6260,22 @@ export const AUDITS: Audit[] = [
         a: "Fixed-fee SoW sized by application count, tenant model and framework-overlay scope. Pricing transparency is standard — methodology document, lead consultant credentials, comparable-engagement references and a sample anonymised report are shared at the proposal stage.",
       },
     ],
-    seoTitle: "WASA Audit India | Web App Security Assessment | Macksofy",
+    seoTitle: "WASA Audit India | ABDM M1 Safe-to-Host | Macksofy",
     seoDescription:
-      "WASA — Web Application Security Assessment in India and the UAE. OWASP ASVS 4.0, SANS CWE Top 25, ISO 27001 Annex A and CERT-In format. RFP-ready.",
+      "WASA — Web Application Security Assessment by a CERT-In empanelled auditor. ABDM M1/M2/M3 safe-to-host certificate, OWASP ASVS 4.0, ISO 27001 Annex A.",
     keywords: [
       "WASA audit",
       "WASA audit India",
       "Web Application Security Assessment",
+      "WASA full form in cyber security",
+      "WASA certificate",
+      "WASA certification",
+      "ABDM WASA audit",
+      "ABDM M1 WASA testing",
+      "safe to host certificate ABDM",
+      "ABHA web application security certificate",
+      "CERT-In empanelled auditor ABDM",
+      "web application security audit certificate NHA",
       "OWASP ASVS audit",
       "WASA report",
       "WASA vs pentest",

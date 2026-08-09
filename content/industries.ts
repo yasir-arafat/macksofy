@@ -193,12 +193,14 @@ export const INDUSTRIES: Industry[] = [
       "managed-soc",
     ],
     topAudits: [
+      "wasa-audit",
       "iso-27001",
       "hipaa",
       "adhics",
       "soc-2",
     ],
     outcomes: [
+      "ABDM milestone WASA — CERT-In empanelled web application security audit certificate for M1 / M2 / M3 sign-off and NHA production access",
       "Clinical-safety-aware VAPT — methodology that won't crash an EMR scheduler or block a clinical alert",
       "Single-pass HIPAA + ADHICS + ISO 27001 audit pack for cross-border HealthTech",
       "Connected-medical-device security assessments (IEC 62304-aware)",
@@ -221,6 +223,10 @@ export const INDUSTRIES: Industry[] = [
         a: "No. We use clinical-safety-aware testing: read-only scanning during clinical hours, write/exploitation only in agreed maintenance windows, exclusions for life-critical alerting paths (sepsis, code-blue, lab-result delivery). Every test has a designated clinical-ops POC and an immediate stop-the-test channel.",
       },
       {
+        q: "We're integrating with ABDM — can you do the security audit for M1 certification?",
+        a: "Yes. An application joining the Ayushman Bharat Digital Mission submits a web application security audit report and certificate from a CERT-In empanelled auditor to the National Health Authority as part of its milestone certification, and Macksofy is CERT-In empanelled. The engagement is our WASA, scoped to the ABDM API surface — ABHA creation, login and linking, HIP / HIU data exchange, consent-manager flows — plus the usual authentication, authorisation, session and encryption testing. The certificate states exactly which environment was assessed, staging or production. NHA revises its requirements periodically, so we confirm the current submission format against NHA guidance at scoping.",
+      },
+      {
         q: "Can you handle a HealthTech serving both India and UAE patients?",
         a: "Yes. Our HealthTech audits map a single controls baseline onto HIPAA + ADHICS + ISO 27001 + SOC 2 + DPDPA simultaneously, with country-specific annexes for the bits that diverge (cross-border transfer mechanisms, ADHICS Tier escalation, breach-notification windows).",
       },
@@ -241,6 +247,8 @@ export const INDUSTRIES: Industry[] = [
       "ADHICS audit Abu Dhabi",
       "EMR HIS security",
       "ABDM NDHM controls",
+      "ABDM M1 WASA audit",
+      "ABHA safe to host certificate",
       "medical device cybersecurity",
       "telehealth security India",
       "hospital ransomware response",

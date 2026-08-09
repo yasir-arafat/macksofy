@@ -260,7 +260,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "audit:wasa-audit": {
     q: "What is a WASA (Web Application Security Assessment)?",
-    a: "A WASA (Web Application Security Assessment) is a focused security test of a web application against the OWASP Top 10 and Web Security Testing Guide, combining automated scanning with manual, expert-led exploitation. Macksofy delivers WASA with working proof-of-concept findings and developer-ready remediation across India and the UAE.",
+    a: "A WASA (Web Application Security Assessment) is a structured security test of a web application against the OWASP Top 10 and ASVS, combining automated scanning with manual, expert-led exploitation. In India's ABDM digital-health ecosystem, a WASA report from a CERT-In empanelled auditor such as Macksofy is the evidence integrators file with the National Health Authority for M1/M2/M3 milestone sign-off.",
   },
 
   // ─────────────────────────── INDUSTRIES (7) ───────────────────────────
