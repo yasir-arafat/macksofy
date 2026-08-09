@@ -6048,8 +6048,8 @@ export const AUDITS: Audit[] = [
     applicability: [
       "B2B SaaS shipping enterprise security questionnaires (CAIQ, SIG, Shared Assessments)",
       "Fintech / lending / payment-aggregator licensees needing RBI-format AppSec evidence",
-      "ABDM / ABHA integrators — HMIS, EMR, PHR apps, HIP / HIU and consent-manager builds needing a CERT-In empanelled security audit certificate for M1 / M2 / M3 milestone sign-off and NHA production access",
-      "Hospitals, diagnostics chains and telehealth platforms going live on the ABDM sandbox-to-production path",
+      "ABDM / ABHA integrators needing a CERT-In empanelled audit certificate for M1 / M2 / M3 sign-off",
+      "HMIS, EMR, PHR, HIP / HIU and consent-manager builds on the ABDM sandbox-to-production path — hospitals, diagnostics chains and telehealth platforms seeking NHA production access",
       "Healthtech / US-PHI GCC operators needing HIPAA Security Rule §164.308–312 evidence",
       "BPO / KPO + IT-services majors with customer-third-party-AppSec-standard obligations",
       "Public-sector and ministry-adjacent operators on the Digital India ecosystem",
