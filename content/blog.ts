@@ -1934,8 +1934,8 @@ export const POSTS: BlogPost[] = [
         type: "list",
         items: [
           "125 multiple-choice questions in 4 hours",
-          "Cut score: 60–85% (calibrated per question difficulty)",
-          "Pass rate (industry-wide): ~70% for prepared candidates",
+          "Cut score: 60–85%, calibrated per exam form — there is no single fixed pass mark",
+          "CEH Practical: 20 real-world challenges in 6 hours, same cut-score range",
           "Format: online proctored or at Pearson VUE centres in Mumbai/Delhi/Bangalore",
         ],
       },
