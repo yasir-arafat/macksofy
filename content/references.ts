@@ -58,6 +58,10 @@ export const REFS: Record<string, Reference> = {
   "irdai": { label: "IRDAI", url: "https://irdai.gov.in/", issuer: "IRDAI" },
   "meity-dpdp": { label: "DPDP Act 2023 (MeitY)", url: "https://www.meity.gov.in/", issuer: "MeitY, Govt. of India" },
   "nciipc": { label: "NCIIPC", url: "https://nciipc.gov.in/", issuer: "NCIIPC" },
+  "abdm": { label: "Ayushman Bharat Digital Mission (ABDM)", url: "https://abdm.gov.in/", issuer: "National Health Authority, Govt. of India" },
+  "nha": { label: "National Health Authority", url: "https://nha.gov.in/", issuer: "NHA, Ministry of Health & Family Welfare" },
+  "abdm-sandbox": { label: "ABDM Sandbox — integrator onboarding", url: "https://sandbox.abdm.gov.in/", issuer: "National Health Authority" },
+  "cert-in-empanel": { label: "CERT-In empanelled auditing organisations", url: "https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL", issuer: "CERT-In · MeitY" },
   // International standards
   "iso-27001": { label: "ISO/IEC 27001", url: "https://www.iso.org/standard/27001", issuer: "ISO/IEC" },
   "iso-27017": { label: "ISO/IEC 27017 (Cloud)", url: "https://www.iso.org/standard/43757.html", issuer: "ISO/IEC" },
@@ -168,6 +172,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "course:web-application-security": ["owasp-top-10", "owasp-wstg", "owasp-asvs"],
   "course:corporate-training": ["nist-csf", "owasp-top-10"],
   // ── Blog (money-query posts co-cite the primary sources they discuss) ──
+  "blog:abdm-m1-wasa-audit-guide-2026": ["abdm", "nha", "abdm-sandbox", "cert-in-empanel", "owasp-top-10", "owasp-asvs"],
   "blog:penetration-testing-vapt-guide-india-2026": ["nist-800-115", "owasp-top-10", "cvss", "cert-in"],
   "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
   "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],

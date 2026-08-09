@@ -103,6 +103,333 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // ABDM M1 WASA — the digital-health compliance driver behind the WASA
+  // cluster. Supports the /audit/wasa-audit money page (which ranks for
+  // "wasa audit" but had zero ABDM vocabulary until 2026-08-09) and
+  // /industries/healthcare. Targets the untapped ABDM/ABHA/safe-to-host
+  // demand: the site earned 0 impressions on any of it as of 2026-08-06.
+  // NOTE ON CLAIMS: NHA sets these requirements and revises them. Primary
+  // NHA policy text was NOT readable when this was written, so the post
+  // describes established empanelled-auditor practice and tells readers to
+  // confirm current specifics against NHA. Do not harden the hedges into
+  // flat assertions without reading the NHA source first.
+  // ===================================================================
+  {
+    slug: "abdm-m1-wasa-audit-guide-2026",
+    seoTitle: "ABDM M1 WASA Audit & Safe-to-Host Certificate (2026)",
+    seoDescription:
+      "What a WASA audit is, why ABDM M1 needs one from a CERT-In empanelled auditor, what the safe-to-host certificate must say, scope and realistic timelines.",
+    updated: "2026-08-09",
+    title: "ABDM M1 WASA Audit: The Complete Guide to the Safe-to-Host Certificate (2026)",
+    description:
+      "Everything an Indian digital-health team needs to know about the WASA audit behind ABDM Milestone 1 — what WASA stands for, why the report has to come from a CERT-In empanelled auditor, what functional and security testing it covers for HIPs, HIUs and health lockers, what the safe-to-host certificate must state about the environment tested, realistic timelines, and the failures that send teams back for a re-test.",
+    date: "2026-08-09",
+    author: "Macksofy Audit Team",
+    authorRole: "Compliance & regulatory audit practice",
+    readingTime: "14 min read",
+    category: "Compliance",
+    tags: ["ABDM", "ABHA", "WASA", "CERT-In", "Healthcare", "Compliance", "India"],
+    heroKind: "web",
+    heroEyebrow: "India · 2026 · Digital Health",
+    keywords: [
+      "abdm m1 wasa audit",
+      "wasa audit",
+      "wasa certificate",
+      "wasa certification",
+      "wasa full form in cyber security",
+      "safe to host certificate",
+      "abha web application security certificate",
+      "abdm m1 certification",
+      "cert-in empanelled auditor abdm",
+      "web application security assessment",
+      "abdm production access",
+      "wasa vs pentest",
+      "abdm milestone m1 m2 m3",
+      "nha wasa report format",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "If your product creates or links ABHA numbers, moves health records as a HIP or HIU, or runs consent-manager flows, there is a security audit standing between your sandbox integration and production access. It is usually called a WASA — a Web Application Security Assessment — and the report has to come from a CERT-In empanelled auditor. This guide explains what the assessment actually covers, what the certificate has to say, how long it really takes, and where teams lose weeks.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Confirm the current requirement against NHA before you scope",
+        text: "ABDM requirements are set by the National Health Authority and are revised as the ecosystem matures. This guide reflects established practice among CERT-In empanelled auditors as of August 2026. Treat it as an orientation to the process, not as a substitute for NHA's current published guidance — check the specifics for your integration type and milestone before committing to a scope or a date.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "what-is-wasa",
+        text: "What is WASA? (WASA full form in cyber security)",
+      },
+      {
+        type: "para",
+        text: "WASA stands for Web Application Security Assessment. It is a structured evaluation of how a web application holds up against real attack behaviour — across architecture, authentication, session handling, authorisation, business logic and the APIs underneath. In general enterprise use it is a procurement and compliance artefact: a framework-mapped report that maps each finding to a recognised control set such as the OWASP Top 10, OWASP ASVS or ISO/IEC 27001 Annex A.",
+      },
+      {
+        type: "para",
+        text: "In Indian digital health, WASA carries a second and more specific meaning. It is the name most auditors and integrators use for the security assessment behind ABDM milestone certification, and the signed output is the artefact teams file with NHA. You will see the same document called a WASA certificate, a web application security audit certificate, or a safe-to-host certificate. They refer to the same thing.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Not to be confused with",
+        text: "WASA is also the abbreviation for Water and Sanitation Authority across parts of South Asia. If you are searching for compliance material and getting municipal water results, add cyber security, ABDM or ABHA to the query.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "why-abdm-needs-wasa",
+        text: "Why ABDM integrators need a WASA",
+      },
+      {
+        type: "para",
+        text: "The Ayushman Bharat Digital Mission is a national health-data exchange. An application joining it can create and link ABHA numbers, push clinical records as a Health Information Provider, pull them as a Health Information User, or broker consent between the two. Every one of those flows carries identifiable health data, which is sensitive personal data under the DPDP Act as well as clinically consequential.",
+      },
+      {
+        type: "para",
+        text: "So access is staged rather than open. An integrator builds against the ABDM sandbox, demonstrates that its flows work, and has its application security-assessed before it is allowed to touch production. The security evidence submitted at that gate is the WASA report and certificate, and the auditor signing it is expected to be CERT-In empanelled — the same empanelment regime that underpins regulator-facing audit work elsewhere in India. NHA publishes the resulting certificates for approved integrators, which is the clearest public signal of what the process expects.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Why the empanelment matters commercially",
+        text: "A report from a non-empanelled provider is generally not accepted for milestone submission, which means the assessment has to be run again. Confirming that your auditor's empanelment is current — CERT-In publishes the list — is a five-minute check that prevents the most expensive kind of rework.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "milestones",
+        text: "ABDM milestones M1, M2 and M3",
+      },
+      {
+        type: "table",
+        headers: ["Milestone", "What it demonstrates", "Where WASA fits"],
+        rows: [
+          [
+            "M1",
+            "Correct implementation of the core ABDM APIs — ABHA creation, login and linking — plus a secured application.",
+            "This is the security gate. The WASA report and certificate are submitted here, ahead of production access.",
+          ],
+          [
+            "M2",
+            "Real consent-manager workflow: consent requests, grants, revocations and the consent artefacts they generate.",
+            "Assessed scope usually widens to the consent flows if they were not live at M1.",
+          ],
+          [
+            "M3",
+            "Health data actually moving at scale — record transfer as a HIP or retrieval as an HIU, and interoperability depth.",
+            "Material changes to the application or its APIs typically warrant a re-assessment.",
+          ],
+        ],
+        caption: "Milestone framing as commonly described by empanelled auditors — confirm the current definition and evidence list for your integration type with NHA.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "who-needs-it",
+        text: "Who needs an ABDM WASA",
+      },
+      {
+        type: "list",
+        items: [
+          "HMIS and hospital information systems adding ABHA linkage or record sharing",
+          "EMR and clinic-management products used by ABDM-registered facilities",
+          "PHR applications and health lockers holding records on the patient's behalf",
+          "Health Information Providers — diagnostics chains, hospitals, radiology and pathology platforms pushing records",
+          "Health Information Users — insurers, teleconsultation platforms and care-coordination products retrieving records",
+          "Consent managers and any intermediary generating or validating consent artefacts",
+        ],
+      },
+      {
+        type: "para",
+        text: "Emphasis shifts with the role. A HIP is examined hardest on linking and push. An HIU is examined hardest on consent handling and fetch. A health locker gets both, plus the patient-facing consent interface, because that is where a confused or misleading UI turns into a consent that was never meaningfully given.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "what-it-covers",
+        text: "What the assessment covers",
+      },
+      {
+        type: "para",
+        text: "An ABDM WASA runs on two tracks at once. The functional track proves the integration behaves the way the specification says it should. The security track tries to break it. Both matter — a perfectly secure application that mishandles consent artefacts is not compliant, and a functionally flawless one with an IDOR on a record endpoint is worse.",
+      },
+      {
+        type: "comparison",
+        title: "The two tracks",
+        left: {
+          label: "Functional",
+          tone: "cyan",
+          bullets: [
+            "ABHA creation, verification, linking and demographic matching",
+            "Care-context discovery and linking accuracy",
+            "Consent request, grant and revocation flows end to end",
+            "Health-record fetch and push, including FHIR payload handling",
+            "Subscription and notification reliability",
+            "Error handling and edge cases the happy path never exercises",
+          ],
+        },
+        right: {
+          label: "Security",
+          tone: "purple",
+          bullets: [
+            "OWASP Top 10 — injection, broken access control, cryptographic failures",
+            "Authentication and authorisation bypass on the ABDM API surface",
+            "IDOR and BOLA on patient-record endpoints, tested role by role",
+            "Consent-artefact forgery, tampering and replay",
+            "TLS configuration and encryption in transit and at rest",
+            "Session and token handling, including refresh and revocation",
+            "FHIR injection, XML external entity handling, rate-limit abuse",
+          ],
+        },
+      },
+      {
+        type: "callout",
+        tone: "danger",
+        title: "The finding that shows up most often",
+        text: "Broken object-level authorisation on record endpoints. An application authenticates the caller correctly, then trusts an identifier in the request to decide which patient's data to return. It passes every functional test, because functional tests use the right identifiers. It fails the moment an assessor changes one.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "the-certificate",
+        text: "The safe-to-host certificate: what it must say",
+      },
+      {
+        type: "para",
+        text: "The certificate is short, and the detail that matters most is which environment was actually assessed. If testing was performed against staging rather than production, the certificate is expected to state that explicitly. This is not a formality — a staging environment frequently differs from production in exactly the ways that matter, including TLS termination, WAF placement, debug verbosity and whether test data or live records are in play.",
+      },
+      {
+        type: "para",
+        text: "A complete submission bundle typically includes more than the certificate itself:",
+      },
+      {
+        type: "list",
+        items: [
+          "The WASA report, signed by the CERT-In empanelled auditor",
+          "Functional test evidence — request and response logs mapped to the checklist",
+          "A security findings report with severity ratings, commonly CVSS",
+          "A closure or re-test letter confirming that findings were remediated and verified",
+          "The application and environment details the certificate refers to",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Do not accept a certificate that overstates coverage",
+        text: "If an auditor offers a certificate implying production coverage for an assessment that only touched staging, that is a problem you inherit, not one you have solved. The same applies to a certificate issued before Critical and High findings have actually been closed and re-tested.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "timeline",
+        text: "How long it takes",
+      },
+      {
+        type: "para",
+        text: "The assessment itself is not usually the long pole. Scoping, functional testing, security testing and a draft report commonly run two to four weeks for a mid-sized application. What determines the real end-to-end date is remediation: findings have to be fixed and then re-tested before a clean certificate can be issued. Teams that budget only for the assessment are the ones that miss their date.",
+      },
+      {
+        type: "para",
+        text: "Published estimates vary — you will see three to six weeks and five to eight weeks quoted by different auditors — and the spread is almost entirely remediation speed, not methodology. Plan against your own engineering capacity to turn around fixes, not against the shortest number you read.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "wasa-vs-pentest",
+        text: "WASA vs a penetration test vs VAPT",
+      },
+      {
+        type: "para",
+        text: "These overlap enough to cause confusion at procurement, and the difference is mostly one of purpose. A penetration test asks whether something can be exploited. A VAPT combines vulnerability assessment breadth with penetration-test depth. A WASA asks a wider question — whether the application's design and controls hold up, mapped to a framework, in a form somebody else will accept as evidence.",
+      },
+      {
+        type: "para",
+        text: "For ABDM the distinction is practical rather than philosophical: the submission expects a WASA-shaped deliverable with functional evidence alongside the security findings. A pure penetration-test report, however good, is not the same document. If you already run an annual pentest, that work is not wasted — it substantially reduces what a WASA finds — but it does not replace the submission.",
+      },
+      {
+        type: "para",
+        text: "For a fuller treatment of the general distinction, see [VAPT vs Red Team](/blog/vapt-vs-red-team-2026) and the [Penetration Testing and VAPT guide](/blog/penetration-testing-vapt-guide-india-2026). For the empanelment regime itself, see the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026).",
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "common-failures",
+        text: "What sends teams back for a re-test",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Authorisation trusting a client-supplied identifier — the single most common cause of a failed record-access test",
+          "Consent artefacts that can be replayed, or whose scope and expiry are not enforced server-side",
+          "Tokens that outlive the consent they were issued under, or revocation that does not actually revoke",
+          "Verbose errors returning stack traces or internal identifiers from health-record endpoints",
+          "TLS configuration that passes a browser but fails a configuration review — weak ciphers, missing HSTS, mixed content",
+          "Rate limiting absent on ABHA lookup or record-fetch endpoints, making enumeration cheap",
+          "Assessing staging, then discovering production differs in a way that invalidates the evidence",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        id: "choosing-an-auditor",
+        text: "Choosing an auditor",
+      },
+      {
+        type: "list",
+        items: [
+          "Confirm CERT-In empanelment is current — CERT-In publishes the empanelled list; check it rather than taking a logo on a website at face value",
+          "Ask whether the team has actually tested ABDM flows before, not just web applications generally — consent artefacts and FHIR payloads are specific",
+          "Agree up front which environment will be assessed, and what the certificate will say about it",
+          "Confirm that re-testing of Critical and High findings is included rather than billed separately",
+          "Ask what the deliverable bundle contains, and check it against what you actually have to submit",
+        ],
+      },
+      {
+        type: "cta",
+        title: "Need an ABDM WASA from a CERT-In empanelled auditor?",
+        text: "Macksofy is CERT-In empanelled and runs WASA engagements scoped to the ABDM API surface — ABHA flows, HIP and HIU exchange, consent-manager workflows — with the functional evidence pack and re-testing included. We confirm the current submission format against NHA guidance at scoping.",
+        href: "/audit/wasa-audit",
+        cta: "See the WASA audit service",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the full form of WASA in cyber security?",
+        a: "WASA stands for Web Application Security Assessment — a structured, framework-mapped security evaluation of a web application covering architecture, authentication, session handling, authorisation, business logic and APIs. In Indian digital health it is also the common name for the security audit behind ABDM milestone certification, whose signed output is often called a safe-to-host certificate.",
+      },
+      {
+        q: "Is a WASA certificate mandatory for ABDM integration?",
+        a: "In practice, yes — a security assessment by a CERT-In empanelled auditor is the evidence integrators submit before being granted ABDM production access, and NHA publishes those certificates for approved integrators. Because NHA sets and periodically revises these requirements, confirm the current evidence list for your integration type and milestone against NHA's published guidance before scoping.",
+      },
+      {
+        q: "Does the auditor have to be CERT-In empanelled?",
+        a: "That is the consistent expectation across the ecosystem, and reports from non-empanelled providers are generally not accepted for milestone submission. CERT-In publishes its list of empanelled organisations — verify your auditor's empanelment is current before the engagement starts, because discovering otherwise afterwards means running the assessment again.",
+      },
+      {
+        q: "What is the difference between a WASA certificate and a safe-to-host certificate?",
+        a: "None in practice — they are different names for the same artefact: the signed certificate a CERT-In empanelled auditor issues on completing the web application security audit, which the integrator files as part of its ABDM submission. You may also see it called a web application security audit certificate. What matters is not the name but that it states which environment was assessed.",
+      },
+      {
+        q: "How long does an ABDM WASA take?",
+        a: "The assessment itself commonly runs two to four weeks for a mid-sized application — scoping, functional testing, security testing and a draft report. End to end, most teams should plan five to eight weeks, because remediation and re-testing usually drive the timeline rather than the assessment. Published estimates vary mainly because remediation speed varies.",
+      },
+      {
+        q: "Can we use our existing penetration test report instead?",
+        a: "Generally not. An ABDM submission expects a WASA-shaped deliverable that pairs security findings with functional evidence that the ABDM flows behave correctly, which a standard penetration-test report does not contain. An existing pentest is still valuable — it usually reduces what the WASA finds — but it does not replace the submission.",
+      },
+      {
+        q: "Does the certificate have to say whether we tested staging or production?",
+        a: "Yes, and this is the detail most worth getting right. A certificate is expected to state the environment actually assessed. Staging often differs from production in TLS termination, WAF placement, debug verbosity and whether live records are present, so a certificate that blurs the two overstates its coverage — a problem the integrator inherits.",
+      },
+    ],
+  },
+
+  // ===================================================================
   // PILLAR 1 — Penetration Testing & VAPT: The Complete Guide (India 2026).
   // Topic-cluster hub for the Pentest/VAPT pillar. Anchors to money pages
   // /services/penetration-testing + /services/vapt; links down to the
