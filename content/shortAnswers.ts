@@ -449,8 +449,8 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     a: "Start by verifying CERT-In empanelment on the official cert-in.org.in list, then check sector experience (BFSI, fintech), the report format, and whether a remediation retest is included. Macksofy is a CERT-In empanelled firm delivering VAPT, managed SOC, and RBI/SEBI-aligned audits to Mumbai and pan-India enterprises.",
   },
   "blog:ceh-v13-ai-training-india-2026": {
-    q: "What is CEH v13 and where can you train for it in India?",
-    a: "CEH v13 is EC-Council's Certified Ethical Hacker certification, updated with an AI-driven track across the five phases of hacking. In India, cost varies by provider, delivery mode, and whether an exam voucher is bundled. Macksofy, an EC-Council Accredited Training Center, delivers CEH v13 with hands-on labs in India.",
+    q: "What is the CEH v13 syllabus?",
+    a: "The CEH v13 syllabus is EC-Council's 20-module curriculum following the five phases of ethical hacking — reconnaissance, scanning, gaining access, maintaining access and covering tracks. It runs from footprinting and system hacking through web, wireless, mobile, IoT/OT, cloud and cryptography, with AI threaded across modules rather than added as one. Macksofy is an EC-Council Accredited Training Center.",
   },
   "blog:oscp-training-in-mumbai-2026": {
     q: "What does OSCP training in Mumbai involve?",
