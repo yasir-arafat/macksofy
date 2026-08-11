@@ -70,7 +70,7 @@ const CHAPTERS: Chapter[] = [
     year: "2021",
     icon: Globe2,
     title: "India + UAE delivery, training at scale.",
-    body: "Pandemic-era cohorts pushed Macksofy training online — and global. We opened the Dubai engagement office to serve UAE BFSI and government, ran our first GCC engagements, and crossed 10,000 alumni. The training division earned EC-Council Circle of Excellence (twice) and partnered with OffSec, CompTIA and Mile2 as authorised training centres.",
+    body: "Pandemic-era cohorts pushed Macksofy training online — and global. We opened the Dubai engagement office to serve UAE BFSI and government, ran our first GCC engagements, and crossed 10,000 alumni. The training division earned EC-Council Circle of Excellence (twice) and became an authorised training centre for CompTIA and Mile2.",
     metric: { value: "5", label: "Countries served" },
     accent: "amber",
   },

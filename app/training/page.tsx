@@ -25,7 +25,7 @@ export const metadata = buildMetadata({
   title:
     "Cybersecurity Training in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
   description:
-    "EC-Council, OffSec and CompTIA authorised cybersecurity training across India and the UAE — CEH v13, OSCP, SOC Analyst and corporate programmes.",
+    "EC-Council and CompTIA authorised cybersecurity training across India and the UAE — CEH v13, OSCP exam prep, SOC Analyst and corporate programmes.",
   path: "/training",
   keywords: [
     "cybersecurity training India",
@@ -70,7 +70,7 @@ export default function TrainingPage() {
         <Container className="relative pt-12 pb-20 sm:pt-16 sm:pb-28">
           <Breadcrumbs items={[{ name: "Training", href: "/training" }]} />
           <div className="mt-8 max-w-4xl">
-            <Eyebrow color="purple">Authorized · EC-Council · OffSec · CompTIA</Eyebrow>
+            <Eyebrow color="purple">Authorized · EC-Council · CompTIA · Mile2</Eyebrow>
             <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
               Career-grade certifications.{" "}
               <span className="gradient-text">Mentor until you pass.</span>

@@ -96,7 +96,7 @@ export interface BlogPost {
 const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
   type: "cta",
   title: "Train with Macksofy",
-  text: `${label} is one of several hands-on tracks Macksofy delivers across India and the UAE. CERT-In empanelled, OffSec/EC-Council authorized, with weekend cohorts and corporate batches.`,
+  text: `${label} is one of several hands-on tracks Macksofy delivers across India and the UAE. CERT-In empanelled, EC-Council accredited, with weekend cohorts and corporate batches.`,
   href: `/training#${slug}`,
   cta: "View training catalog",
 });

@@ -87,7 +87,7 @@ export function AboutHero() {
             >
               Macksofy Technologies is a CERT-In empanelled cybersecurity firm
               headquartered in Bandra Kurla Complex, Mumbai — with an advanced
-              training division authorised by EC-Council, OffSec and CompTIA. We
+              training division accredited by EC-Council and CompTIA. We
               have launched 20,000+ careers and run engagements across India and
               the UAE since 2014.
             </motion.p>

@@ -38,7 +38,7 @@ export function TrainingPreview() {
                   <span className="gradient-text">Mentor until you pass.</span>
                 </>
               }
-              description="EC-Council, OffSec, CompTIA authorized programs plus our own SOC Analyst and Web App Security career tracks. 100% practical labs."
+              description="EC-Council and CompTIA authorized programs, plus Offensive Security exam-prep bootcamps and our own SOC Analyst and Web App Security career tracks. 100% practical labs."
             />
           </FadeIn>
           <FadeIn delay={0.1}>
