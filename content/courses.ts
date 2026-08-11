@@ -598,7 +598,7 @@ export const COURSES: Course[] = [
       eyebrow: "Hands-on certification bootcamp",
       tagline: "Try harder. Pass with proof.",
       description:
-        "OSCP is the gold standard for hands-on penetration testing — a 24-hour live exam against a real network plus a professional report. Macksofy adds 60+ hours of instructor-led bootcamp on top of OffSec's official PEN-200 curriculum, with mentor support that continues until you pass.",
+        "OSCP is the gold standard for hands-on penetration testing — a 24-hour live exam against a real network plus a professional report. Macksofy runs a 60+ hour instructor-led bootcamp alongside OffSec's official PEN-200 curriculum, with mentor support that continues until you pass.",
     },
     whoIsItFor: [
       "Working pen-testers ready to level up to elite credentials",
@@ -667,7 +667,7 @@ export const COURSES: Course[] = [
       { name: "Faisal R.", role: "Application Security Engineer, Dubai", quote: "Mentor support continued for weeks after the official course ended. They actually care if you pass." },
     ],
     faqs: [
-      { q: "What is the cost of OSCP certification in India in 2026?", a: "The official OffSec PEN-200 + 90-day lab + exam bundle is around ₹1,70,000 (USD 1,749). Macksofy's package — which adds 60+ hours of instructor-led bootcamp on top of the official course — is ₹1,45,000 (15% off the standard listing). EMI options across 3 / 6 / 12 months. There is no free or pirated path that grants a real OSCP credential." },
+      { q: "What is the cost of OSCP certification in India in 2026?", a: "The official OffSec PEN-200 + 90-day lab + exam bundle is around ₹1,70,000 (USD 1,749). Through Macksofy the same official bundle — course, 90-day PWK lab and exam voucher — is ₹1,45,000 (15% off the standard listing), with EMI across 3 / 6 / 12 months. Macksofy's 60+ hour instructor-led bootcamp and mentor-until-pass support are a separate add-on priced on top of that, so ask for a combined quote. There is no free or pirated path that grants a real OSCP credential." },
       { q: "Is OSCP and OSCP+ the same? What changed in the 2024 / 2026 exam?", a: "OSCP+ is OffSec's rebrand of OSCP that took effect in late 2024 and is the current exam in 2026. The new format dropped the buffer-overflow box, expanded the Active Directory set (full AD chain worth ~40 points) and replaced bonus lab points with a CPE-based 3-year recertification. Macksofy's bootcamp is fully aligned to the OSCP+ exam — see our blog post on what changed." },
       { q: "Is OSCP+ better than CEH or CEH Practical?", a: "They are different products. CEH (EC-Council) is breadth-first knowledge and a multiple-choice exam — good for HR filters. OSCP+ is a 24-hour hands-on practical against a real network and a professional report — what hiring managers actually trust for pen-test roles. Most senior pen-testers in India list both on their CV but credit OSCP for the offer." },
       { q: "Is OSCP harder than CPTS (HackTheBox)?", a: "CPTS is a strong free-tier alternative that has gained credibility, but it is still less recognised by Indian / UAE BFSI hiring managers than OSCP. OSCP also has the advantage of 11+ years of brand equity and OffSec's vendor mapping to DoD 8570/8140 roles. Pick OSCP if you want the credential that opens doors fastest." },
@@ -681,7 +681,7 @@ export const COURSES: Course[] = [
       { q: "Does Macksofy offer OSCP training in Delhi, Bengaluru, Hyderabad, Pune and Chennai?", a: "Yes — Macksofy runs live online OSCP cohorts pan-India and corporate-batch delivery on-site in Delhi, Bengaluru, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad, Gurugram, Noida and Dubai. The Mumbai BKC HQ runs weekend in-person bootcamps for learners willing to travel." },
     ],
     seoTitle: "OSCP Training in India 2026 | OffSec PEN-200 / OSCP+ Certification | Macksofy",
-    seoDescription: "OSCP / OSCP+ (PEN-200) exam-prep training in India 2026 — ₹1,45,000 bundles the official OffSec course, 90-day PWK labs, exam voucher and a 60h bootcamp.",
+    seoDescription: "OSCP / OSCP+ (PEN-200) exam prep in India 2026 — ₹1,45,000 covers the official OffSec course, 90-day PWK lab and exam voucher. Bootcamp priced separately.",
     keywords: [
       "OSCP training India",
       "OSCP+ training India 2026",
@@ -779,7 +779,7 @@ export const COURSES: Course[] = [
     testimonials: [],
     faqs: [
       { q: "Is OSEP harder than OSCP+?", a: "Yes — OSEP demands deep Active Directory knowledge, custom C# / PowerShell tooling and an EDR-bypass mindset. Most successful candidates have 1+ year of pen-test experience post-OSCP and run their own tooling on real engagements." },
-      { q: "What is the cost of OSEP / PEN-300 in India in 2026?", a: "Standard OffSec PEN-300 + 90-day lab + exam bundle is ~₹1,70,000. Macksofy's package — official course + Macksofy red-team bootcamp with EDR-bypass labs — is ₹1,45,000 (15% off, EMI available)." },
+      { q: "What is the cost of OSEP / PEN-300 in India in 2026?", a: "Standard OffSec PEN-300 + 90-day lab + exam bundle is ~₹1,70,000. Through Macksofy the same official bundle — course, 90-day lab and exam voucher — is ₹1,45,000 (15% off, EMI available). The Macksofy red-team bootcamp with EDR-bypass labs and mentor support is a separate add-on, quoted on top." },
       { q: "Does Macksofy provide live EDR environments for the bootcamp?", a: "Yes — our lab includes CrowdStrike Falcon, SentinelOne and Microsoft Defender for Endpoint test instances. Students work through documented bypasses and write detection-engineering hand-offs at the end." },
       { q: "Do you cover Cobalt Strike, Sliver or Mythic?", a: "Yes — the OSEP curriculum plus Macksofy bootcamp cover Cobalt Strike (where the licence permits), Sliver and Mythic. We focus on tradecraft (BOFs, sleep masks, malleable C2) rather than tool button-mashing." },
       { q: "What jobs and salaries does OSEP unlock in India and UAE?", a: "Red Team Operator (₹25–40 LPA), Adversary Emulation Engineer (₹20–35 LPA) and Senior Pen-Test Lead (₹30–45 LPA) at 4–6+ years. UAE bands add 30–40% premium. Common employers: BFSI red teams (HDFC, ICICI), Big-4 (Mandiant, PwC, EY, KPMG), product security at Microsoft / Atlassian / Razorpay, and ADCB / Mashreq red teams in the UAE." },
@@ -872,7 +872,7 @@ export const COURSES: Course[] = [
     placement: STD_PLACEMENT,
     testimonials: [],
     faqs: [
-      { q: "What is the cost of OSWE / WEB-300 in India in 2026?", a: "Standard OffSec WEB-300 + 90-day lab + exam bundle is ~₹1,70,000. Macksofy's package — official course + Macksofy modern-web bootcamp (GraphQL, OAuth, request smuggling) — is ₹1,45,000 (15% off, EMI available)." },
+      { q: "What is the cost of OSWE / WEB-300 in India in 2026?", a: "Standard OffSec WEB-300 + 90-day lab + exam bundle is ~₹1,70,000. Through Macksofy the same official bundle — course, 90-day lab and exam voucher — is ₹1,45,000 (15% off, EMI available). The Macksofy modern-web bootcamp (GraphQL, OAuth, request smuggling) and mentor support is a separate add-on, quoted on top." },
       { q: "Is OSWE good for bug bounty?", a: "Yes — OSWE-trained hunters consistently report higher-impact findings (RCE, auth bypass, deserialization) vs generic XSS/SQLi. Most six-figure HackerOne / Bugcrowd payouts in 2024–25 came from chains that an OSWE holder can identify in source review." },
       { q: "Should I take OSWA before OSWE?", a: "Highly recommended. OSWA (WEB-200) builds the black-box methodology and OWASP-Top-10+ foundations. OSWE jumps straight into white-box source review across PHP, Java, Node.js, .NET and Python — without OSWA-level fluency the case studies become opaque." },
       { q: "OSWE vs Burp Suite Certified Practitioner (BSCP) — which is better?", a: "Different products. BSCP (PortSwigger) is exam-only, methodology-focused, ~$99 — excellent ROI but does not teach white-box review. OSWE is a full course + 48-hour practical exam with source-code work and is the cert AppSec hiring managers cite. Many senior AppSec engineers hold both." },
@@ -962,7 +962,7 @@ export const COURSES: Course[] = [
     placement: STD_PLACEMENT,
     testimonials: [],
     faqs: [
-      { q: "What is the cost of OSWA / WEB-200 in India in 2026?", a: "Standard OffSec WEB-200 + 60-day lab + exam bundle is ~₹1,70,000. Macksofy's package — official course + Macksofy API & modern-web bootcamp — is ₹1,45,000 (15% off, EMI available)." },
+      { q: "What is the cost of OSWA / WEB-200 in India in 2026?", a: "Standard OffSec WEB-200 + 60-day lab + exam bundle is ~₹1,70,000. Through Macksofy the same official bundle — course, 60-day lab and exam voucher — is ₹1,45,000 (15% off, EMI available). The Macksofy API & modern-web bootcamp and mentor support is a separate add-on, quoted on top." },
       { q: "Is OSWA worth taking before OSWE?", a: "Highly recommended. OSWA builds the black-box methodology and OWASP Top 10+ confidence you'll need for OSWE's source-code work. Skipping straight to OSWE leaves most candidates struggling with case-study triage." },
       { q: "OSWA vs eWPT vs Burp Suite Certified Practitioner — which web pentest cert?", a: "OSWA is the OffSec-stamped, hands-on web pentest credential — strongest brand for hiring. eWPT (eLearnSecurity) is solid foundational alternative. BSCP (PortSwigger) is exam-only methodology check. OSWA wins on hiring recognition; many AppSec analysts pair OSWA with BSCP." },
       { q: "Is OSWA enough to start a web pentesting career?", a: "Yes — OSWA is a real practical credential that opens junior / mid web pentest doors at consultancies and product security teams. Pair with bug-bounty practice for fastest career acceleration." },
@@ -1047,7 +1047,7 @@ export const COURSES: Course[] = [
     placement: STD_PLACEMENT,
     testimonials: [],
     faqs: [
-      { q: "What is the cost of OSWP / PEN-210 in India in 2026?", a: "OffSec PEN-210 + 30-day lab + exam bundle is ~₹35,000 standalone. Macksofy's package adds the Alfa AWUS036ACH adapter, Macksofy mentor support and exam prep — ₹1,45,000 (15% off the wider OffSec annual subscription bundle, EMI available). Standalone PEN-210-only pricing on request." },
+      { q: "What is the cost of OSWP / PEN-210 in India in 2026?", a: "OffSec PEN-210 + 30-day lab + exam bundle is ~₹35,000 standalone. Through Macksofy the wider OffSec annual subscription bundle is ₹1,45,000 (15% off, EMI available), and standalone PEN-210-only pricing is available on request. The Alfa AWUS036ACH adapter, Macksofy mentor support and exam prep are separate add-ons, quoted on top." },
       { q: "Do I need a Wi-Fi adapter for the OSWP exam?", a: "Yes — an Alfa AWUS036ACH or any chipset that supports monitor mode + packet injection. Macksofy supplies the Alfa adapter as part of in-class enrolment; remote learners can purchase it via Amazon India / UAE before the bootcamp." },
       { q: "Is OSWP worth it in 2026?", a: "Yes for wireless / network pentesters and consultants who deliver Wi-Fi audits as part of their service catalogue. The cert is short, focused (4-hour exam) and the only OffSec wireless credential — a clean signal on a CV. Skip if your career is purely web or AD." },
       { q: "OSWP vs CWNA / CWAP — which wireless cert?", a: "OSWP is offensive — cracking and exploiting wireless networks. CWNA / CWAP (CWNP) are vendor-neutral wireless engineering certs — design, deployment, troubleshooting. They're complementary, not competitors. Pen-testers pick OSWP; wireless engineers pick CWNA." },
@@ -1139,7 +1139,7 @@ export const COURSES: Course[] = [
     placement: STD_PLACEMENT,
     testimonials: [],
     faqs: [
-      { q: "What is the cost of SOC-200 / OSDA in India in 2026?", a: "OffSec SOC-200 + 60-day lab + exam bundle is ~₹1,70,000. Macksofy's package — official course + Macksofy real-world IR playbooks (phishing, ransomware, cloud) — is ₹1,45,000 (15% off, EMI available)." },
+      { q: "What is the cost of SOC-200 / OSDA in India in 2026?", a: "OffSec SOC-200 + 60-day lab + exam bundle is ~₹1,70,000. Through Macksofy the same official bundle — course, 60-day lab and exam voucher — is ₹1,45,000 (15% off, EMI available). The Macksofy bootcamp with real-world IR playbooks (phishing, ransomware, cloud) and mentor support is a separate add-on, quoted on top." },
       { q: "Is SOC-200 the OffSec equivalent of CSA?", a: "SOC-200 is significantly more advanced than CSA (EC-Council). Think of CSA as a starter exam and SOC-200 as the elite blue-team cert with a 24-hour hands-on practical — analogous to what OSCP+ is for offence." },
       { q: "OSDA / SOC-200 vs CySA+ vs CSA — which blue-team cert?", a: "CySA+ (CompTIA) is broad and DoD-compliant — strong for government / DoD-adjacent roles. CSA (EC-Council) is entry-level SOC. SOC-200 (OSDA) is the only blue-team cert with a 24-hour practical exam — strongest signal for senior detection-engineering roles. Many SOC L3 candidates hold all three." },
       { q: "Does Macksofy use Splunk and Elastic in the bootcamp?", a: "Yes — labs run on a real Splunk Enterprise + Elastic Stack environment with Sysmon-instrumented Windows endpoints, Velociraptor for live response and Sigma rules for detection engineering." },
@@ -1229,7 +1229,7 @@ export const COURSES: Course[] = [
     placement: STD_PLACEMENT,
     testimonials: [],
     faqs: [
-      { q: "What is the cost of OSED / EXP-301 in India in 2026?", a: "OffSec EXP-301 + 90-day lab + exam bundle is ~₹1,70,000. Macksofy's package — official course + CTF practice and exploit walkthroughs — is ₹1,45,000 (15% off, EMI available)." },
+      { q: "What is the cost of OSED / EXP-301 in India in 2026?", a: "OffSec EXP-301 + 90-day lab + exam bundle is ~₹1,70,000. Through Macksofy the same official bundle — course, 90-day lab and exam voucher — is ₹1,45,000 (15% off, EMI available). The Macksofy bootcamp with CTF practice and exploit walkthroughs, plus mentor support, is a separate add-on, quoted on top." },
       { q: "How hard is OSED compared to OSCP+?", a: "Significantly harder for most students. OSED requires fluent x86 / x64 assembly, IDA Pro / WinDbg comfort and patience for multi-day reverse-engineering sessions. Plan for 4–6 months of preparation post-OSCP." },
       { q: "Do I need OSCP+ before OSED?", a: "Strongly recommended. OSCP+ teaches you to use exploits; OSED teaches you to write them. Without OSCP-level pen-test maturity the EXP-301 lab is overwhelming. Macksofy gates entry to the OSED bootcamp on OSCP completion or equivalent experience." },
       { q: "OSED vs SANS GREM vs SANS GXPN — which exploit-dev cert?", a: "OSED is OffSec's stamp on Windows user-mode exploit dev — strong, hands-on, mid-cost. SANS GREM is reverse-engineering-focused (malware). SANS GXPN is offensive-security-research-focused with broader scope. OSED has the best price-to-recognition ratio for vulnerability researchers in India." },
@@ -1319,7 +1319,7 @@ export const COURSES: Course[] = [
     placement: STD_PLACEMENT,
     testimonials: [],
     faqs: [
-      { q: "What is the cost of OSMR / EXP-312 in India in 2026?", a: "OffSec EXP-312 + 90-day lab + exam bundle is ~₹1,70,000. Macksofy's package — official course + macOS enterprise fleet attack walkthroughs — is ₹1,45,000 (15% off, EMI available)." },
+      { q: "What is the cost of OSMR / EXP-312 in India in 2026?", a: "OffSec EXP-312 + 90-day lab + exam bundle is ~₹1,70,000. Through Macksofy the same official bundle — course, 90-day lab and exam voucher — is ₹1,45,000 (15% off, EMI available). The Macksofy bootcamp with macOS enterprise fleet attack walkthroughs and mentor support is a separate add-on, quoted on top." },
       { q: "Why take OSMR in 2026?", a: "macOS adoption in Indian and UAE enterprises is rising sharply (developer fleets, finance front-office, Apple-first startups). Specialists who can pen-test macOS are rare and well-paid. OSMR is the only OffSec macOS-specific credential and the only macOS practical exam in the market." },
       { q: "Is OSMR worth it for red teamers?", a: "Yes — modern red-team engagements increasingly include MacBook fleets. OSMR-trained operators can reliably bypass TCC, Gatekeeper, SIP and notarization on real targets. A meaningful differentiator on a senior red-team CV." },
       { q: "Do I need OSED before OSMR?", a: "Recommended but not required. OSMR is more about macOS-specific control bypass than memory-corruption exploitation, so OSED's ROP / shellcode work isn't strictly prerequisite. However OSED-level reverse-engineering fluency makes OSMR significantly easier." },

@@ -333,6 +333,11 @@ export function courseSchema(course: Course) {
         url: `${BASE}/training/${course.slug}`,
         category: "Paid",
         validFrom: SITE.founded,
+        // Where the listed price is the vendor course/lab/voucher bundle only, the
+        // Offer must say so — otherwise the paired hero description (which talks about
+        // Macksofy's bootcamp) reads as though the bootcamp is what the price buys.
+        // Derived from priceNote so the disclosure can never drift from the page copy.
+        ...(course.priceNote && { description: course.priceNote }),
         ...(course.originalPriceINR && {
           priceSpecification: {
             "@type": "UnitPriceSpecification",
@@ -383,6 +388,7 @@ export function courseProductSchema(course: Course) {
         url,
         seller: { "@id": `${BASE}#organization` },
         validFrom: SITE.founded,
+        ...(course.priceNote && { description: course.priceNote }),
       },
     }),
   };

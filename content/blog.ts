@@ -1404,9 +1404,9 @@ export const POSTS: BlogPost[] = [
         headers: ["Item", "Price (USD)", "Price (INR)"],
         rows: [
           ["Learn One — single course", "$2,599", "~₹2,16,000"],
-          ["With Macksofy partner discount (15%)", "$2,209", "~₹1,84,000"],
+          ["Through Macksofy (15% off list)", "$2,209", "~₹1,84,000"],
           ["Standalone PEN-200 (90-day)", "$1,649", "~₹1,37,000"],
-          ["With partner discount (15%)", "$1,402", "~₹1,17,000"],
+          ["Through Macksofy (15% off list)", "$1,402", "~₹1,17,000"],
           ["Learn Unlimited (all OffSec courses, 12 mo)", "$5,799", "~₹4,82,000"],
         ],
       },
@@ -1485,7 +1485,7 @@ export const POSTS: BlogPost[] = [
     faqs: [
       {
         q: "Will the discount apply if I buy through OffSec directly?",
-        a: "No — the partner discount only applies via authorized training partners like Macksofy. Buy through us, get the same lab access, save ~15%.",
+        a: "No — OffSec sells direct at list price. The reduced price applies to bundles bought through Macksofy; lab access and the exam voucher are identical either way.",
       },
       {
         q: "Can I switch courses within Learn One?",
@@ -1654,7 +1654,7 @@ export const POSTS: BlogPost[] = [
     updated: "2026-07-25",
     title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
     description:
-      "Considering OSCP in Mumbai? Complete 2026 guide — pricing in INR with partner discount, course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
+      "Considering OSCP in Mumbai? Complete 2026 guide — pricing in INR, course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
     date: "2026-04-30",
     author: "Macksofy Editorial",
     readingTime: "14 min read",
@@ -1668,7 +1668,7 @@ export const POSTS: BlogPost[] = [
       "OSCP cost Mumbai",
       "OSCP syllabus India",
       "best OSCP institute Mumbai",
-      "OSCP partner discount India",
+      "OSCP price in India",
     ],
     blocks: [
       {
@@ -1698,7 +1698,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "table",
-        headers: ["Option", "List price", "With Macksofy partner discount"],
+        headers: ["Option", "List price", "Through Macksofy"],
         rows: [
           ["PEN-200 90-day", "₹1,37,000", "₹1,17,000"],
           ["Learn One (12 mo)", "₹2,16,000", "₹1,84,000"],
@@ -2370,7 +2370,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           label: "OSCP (PEN-200)",
           tone: "cyan",
           bullets: [
-            "Cost: ~₹1,84,000 (Learn One with Macksofy partner discount)",
+            "Cost: ~₹1,84,000 (Learn One, Macksofy price)",
             "Exam: 24h hands-on + 24h reporting",
             "Style: Network compromise — Linux + Windows + AD",
             "Best for: Generalist pen-tester roles",
@@ -2381,7 +2381,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           label: "OSWE (WEB-300)",
           tone: "purple",
           bullets: [
-            "Cost: ~₹1,84,000 (Learn One with Macksofy partner discount)",
+            "Cost: ~₹1,84,000 (Learn One, Macksofy price)",
             "Exam: 48h hands-on + 24h reporting",
             "Style: Source-code review + custom exploits",
             "Best for: AppSec / web pentest specialists",
@@ -3753,7 +3753,7 @@ nmap --randomize-hosts -iL targets.txt`,
           label: "OSCP (PEN-200)",
           tone: "cyan",
           bullets: [
-            "Cost: ~₹1,45,000 (with 15% Macksofy partner discount)",
+            "Cost: ~₹1,45,000 (Macksofy price, 15% off list)",
             "Exam: 24h hands-on + 24h reporting",
             "Style: Linux + Windows + AD network compromise",
             "Tooling: Manual + Metasploit (limited), no Cobalt Strike",
@@ -4278,7 +4278,7 @@ def fetch_logs(service: str) -> str:
           label: "OSCP (PEN-200)",
           tone: "cyan",
           bullets: [
-            "Cost (India): ~₹1,45,000 with Macksofy partner discount",
+            "Cost (India): ~₹1,45,000 through Macksofy",
             "Exam: 24h hands-on + 24h reporting",
             "Lab time: 3 months default (extendable)",
             "Recognition: Universal — listed in 90% of Indian pentest JDs",
@@ -4694,7 +4694,7 @@ def fetch_logs(service: str) -> str:
           "24-hour exam window + 24-hour reporting window",
           "70 / 100 passing score",
           "Hands-on practical format with required professional report",
-          "Mentor-until-pass culture at Macksofy and other Authorized Partners",
+          "Mentor-until-pass support on the Macksofy bootcamp track",
           "Recognition with hiring managers — OSCP+ is treated as 'OSCP' on every JD we've reviewed in 2026",
         ],
       },
@@ -4718,8 +4718,9 @@ def fetch_logs(service: str) -> str:
         type: "list",
         items: [
           "OffSec direct: PEN-200 + 90-day lab + exam ≈ ₹1,70,000 (USD 1,749)",
-          "Macksofy Authorized Partner package: official course + 60h instructor-led bootcamp + mentor-until-pass = ₹1,45,000 (15% off, 3/6/12-month EMI)",
-          "Self-study without mentor: cheaper but average pass rate drops below 50% on first attempt",
+          "Through Macksofy: the same official course + 90-day lab + exam voucher = ₹1,45,000 (15% off, 3/6/12-month EMI)",
+          "Macksofy 60h instructor-led bootcamp with mentor-until-pass support: quoted separately, on top of the bundle above",
+          "Self-study without a mentor: cheapest route, but you absorb every retake (~$249 per attempt) and get no structured AD lab time",
         ],
       },
       MACKSOFY_CTA("oscp", "Macksofy's OSCP+ bootcamp"),
@@ -4798,7 +4799,7 @@ def fetch_logs(service: str) -> str:
           label: "OSCP+ (OffSec PEN-200)",
           tone: "cyan",
           bullets: [
-            "Cost: ~₹1,45,000–₹1,70,000 with Authorized Partner",
+            "Cost: ~₹1,45,000–₹1,70,000 for the official bundle",
             "Exam: 24h hands-on + 24h reporting against real network",
             "Style: Practical exploitation — Linux, Windows, AD, AWS",
             "Best for: Pen-test / red-team / AppSec hiring loops",
