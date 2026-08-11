@@ -456,9 +456,13 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is the CEH v13 syllabus?",
     a: "The CEH v13 syllabus is EC-Council's 20-module curriculum following the five phases of ethical hacking — reconnaissance, scanning, gaining access, maintaining access and covering tracks. It runs from footprinting and system hacking through web, wireless, mobile, IoT/OT, cloud and cryptography, with AI threaded across modules rather than added as one. Macksofy is an EC-Council Accredited Training Center.",
   },
+  // Repointed 2026-08-12 from Mumbai-training intent to the cost question.
+  // GSC: 62% of this URL's impressions are national OSCP-cost queries at
+  // position 7-11 earning zero clicks; Mumbai is 6.6%. Same repoint as the
+  // CEH syllabus fix in cc77cb9 — serve the intent the page actually ranks for.
   "blog:oscp-training-in-mumbai-2026": {
-    q: "What does OSCP training in Mumbai involve?",
-    a: "OSCP is OffSec's benchmark hands-on penetration-testing certification, earned by compromising machines in a 24-hour proctored exam. Preparation combines the PEN-200 course with extensive lab practice. Macksofy runs an intensive OSCP exam-prep bootcamp in Mumbai and across India with 60+ hours of mentor-led labs.",
+    q: "How much does OSCP cost in India?",
+    a: "OffSec sells OSCP two ways: a Course + Cert Bundle at $1,749 for 90 days of PEN-200, labs and one exam attempt, or Learn One at $2,749 a year with two attempts — roughly ₹1,70,000 and ₹2,67,000. Retakes are $249. OffSec bills in US dollars, so the rupee figure moves with the exchange rate.",
   },
   "blog:soc-analyst-training-india-2026": {
     q: "Which SOC analyst certification is best in India — CSA, SOC-200, or CySA+?",
