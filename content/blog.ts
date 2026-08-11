@@ -103,6 +103,331 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // CERT-In EMPANELMENT PROCESS — batch item #3 (blog-batch-2026-08-09).
+  // Targets `cert in empanelment process` / `cert-in empanelment process`
+  // (46 impr, pos ~22 = page 3, 0 clicks). Deliberately a NEW URL rather
+  // than a deepening of /blog/cert-in-empanelled-audit-guide-2026: that
+  // post is entirely buyer-side (what empanelment means, who needs an
+  // audit, how the audit runs, how to verify a provider) and contains
+  // zero coverage of the applicant-side process — "apply" x0, "eligibility"
+  // x0, "technical evaluation" x0, "renewal" x0, "MeitY" x0. Verified
+  // before writing, per the CEH lesson (cc77cb9) about scope docs that
+  // assume a gap the existing page already fills.
+  // SOURCING: every figure, date and rule below was read from CERT-In's own
+  // documents on 2026-08-12 — the empanelment page (last updated that day),
+  // PDF/timeline_july_2020_Onwards.pdf, PDF/InfoSecAuditorsEmpGuidelines.pdf
+  // (v7, Jan 2020), PDF/Step2_fresh.pdf, Step3, Step4 and PDF/Empanel_org.pdf.
+  // GOTCHA FOR WHOEVER UPDATES THIS: cert-in.org.in serves an HTML error body
+  // with HTTP 200 for /PDF/* unless you send a Referer header pointing at the
+  // empanelment page. A bare curl silently returns a 938-byte "home page"
+  // stub that `file` reports as HTML, not PDF.
+  // The 2026 application window (closes 30 Sep 2026) is time-bound — when it
+  // lapses, update the callout and the `updated` field rather than deleting
+  // it; the annual cycle itself (1 Jul-30 Sep) is stable since July 2020.
+  // ===================================================================
+  {
+    slug: "cert-in-empanelment-process-2026",
+    seoTitle: "CERT-In Empanelment Process 2026: 4 Steps & Timeline",
+    seoDescription:
+      "How CERT-In empanelment actually works: the once-a-year window, eligibility bar, the four steps, the 90% skill-test threshold, costs and the 3-year term.",
+    title: "The CERT-In Empanelment Process (2026): How an Auditing Organisation Actually Gets on the Panel",
+    description:
+      "A step-by-step walkthrough of how CERT-In empanels information security auditing organisations in India — the single three-month application window each year, the eligibility bar, the documentation round, the offline and online practical skill tests and their 90% pass threshold, the Personal Interaction Session, government background verification, what it costs, how long the whole cycle takes, and what an organisation has to keep doing to stay on the panel.",
+    date: "2026-08-12",
+    author: "Macksofy Audit Team",
+    authorRole: "Compliance & regulatory audit practice",
+    readingTime: "13 min read",
+    category: "Compliance",
+    tags: ["CERT-In", "Empanelment", "Compliance", "Audit", "VAPT", "MeitY", "India"],
+    heroKind: "blue-team",
+    heroEyebrow: "India · 2026 · Process Guide",
+    keywords: [
+      "cert-in empanelment process",
+      "cert in empanelment process",
+      "cert-in empanelment",
+      "how to become cert-in empanelled",
+      "cert-in empanelled auditor list",
+      "cert-in empanelment application",
+      "cert-in empanelment eligibility",
+      "cert-in practical skill test",
+      "cert-in empanelment timeline",
+      "cert-in empanelment fee",
+      "cert-in empanelment renewal",
+      "cert-in empanelled auditing organisations",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "CERT-In empanelment is not a certification you study for and collect. It is a competitive annual selection run by a government agency, with one three-month application window a year, two practical hacking exams that both demand a 90% score, a face-to-face technical interrogation, and a background check by a government agency that can still reject you after you have passed everything else. This is what the process actually looks like from the inside.",
+      },
+      {
+        type: "para",
+        text: "Most articles about CERT-In empanelment are written for buyers — what an empanelled audit is, who needs one, what the report looks like. If that is what you came for, read our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026) instead. This piece answers the other question: how does an organisation get empanelled in the first place, and what does that bar tell you about the firm you are about to hire?",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "237", label: "Empanelled organisations (Aug 2026)" },
+          { value: "1", label: "Application window per year" },
+          { value: "90%", label: "Pass mark on both skill tests" },
+          { value: "3 yrs", label: "Validity once empanelled" },
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What CERT-In empanelment is",
+        id: "what-it-is",
+      },
+      {
+        type: "para",
+        text: "CERT-In — the Indian Computer Emergency Response Team, operating under the Ministry of Electronics and Information Technology (MeitY) — maintains a panel of information security auditing organisations approved to audit computer systems, networks and applications for government bodies and other sectors of the Indian economy. As of August 2026 the published list carries 237 organisations.",
+      },
+      {
+        type: "para",
+        text: "Two things about the panel are widely misunderstood. First, CERT-In does not hand out work: it explicitly states that it will not award any audit assignment to any auditor, and that the auditee organisation is free to choose any firm on the panel, with CERT-In having no role in that choice. Empanelment is a licence to be considered, not a pipeline. Second, empanelment is not permanent — it runs for three years from the year of empanelment, and CERT-In can suspend it in between.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The cycle: one window a year, and it is closing",
+        id: "cycle",
+      },
+      {
+        type: "para",
+        text: "Since July 2020, CERT-In has opened empanelment exactly once a year on a published calendar. Applications are invited for a three-month period from 1 July to 30 September. Everything after that — clarifications, the two practical skill tests, the interview, background verification — runs on fixed dates through to the following July.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "The 2026 window is open now and closes 30 September 2026",
+        text: "CERT-In is accepting new applications from 1 July 2026 until 5:30 PM on 30 September 2026, and states that applications received after that deadline will not be accepted under any circumstances. An organisation that misses it waits a full year for the next window. Confirm the current dates on the CERT-In empanelment page before you rely on them — this is the one detail that moves.",
+      },
+      {
+        type: "para",
+        text: "The consequence people underestimate is the length of the cycle. Apply in September 2026 and, if you clear every stage at the first attempt, you are empanelled on 1 July 2027 — roughly ten months later. Miss a 90% threshold once and you use your second attempt; miss it twice and you are out of the cycle entirely.",
+      },
+      {
+        type: "table",
+        caption: "The annual empanelment calendar, as published by CERT-In",
+        headers: ["Window", "Stage", "What has to happen"],
+        rows: [
+          ["1 Jul – 30 Sep", "Applications", "Application form plus all annexures, submitted by email. No late submissions."],
+          ["1 Oct – 31 Oct", "Clarifications", "CERT-In raises queries; you have 15 days to answer or the application is dropped. Offline test setups are issued in this window only, and only to organisations that cleared the documentation round."],
+          ["1 Nov – 31 Dec", "Step 2 — Offline PST", "Submit the offline practical skill test report within 15 days of receiving the setup. 90% or above to progress."],
+          ["10–12 Jan", "Step 3 — Online VA/PT PST", "First attempt. Runs three days on a 24x7 basis; report due within 7 working days."],
+          ["20–22 Feb", "Step 3 — second attempt", "Only for organisations that missed 90% in January. Same format, same report deadline."],
+          ["2nd–3rd week Mar", "Step 4 — Personal Interaction", "Face-to-face session with the Technical Evaluation Committee in Delhi and Bangalore."],
+          ["Mar – 30 Jun", "Background verification", "Details forwarded to a government agency for verification and clearance."],
+          ["1 Jul", "Empanelment effective", "Valid for three years from the year of empanelment."],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Who is eligible to apply",
+        id: "eligibility",
+      },
+      {
+        type: "para",
+        text: "CERT-In's published guidelines set a minimum bar that is more about demonstrated audit history than company size. An applicant may be any organisation, company or firm providing IT security auditing services, and must meet the following:",
+      },
+      {
+        type: "list",
+        items: [
+          "A minimum of five technical staff able to perform security testing — specifically vulnerability assessment and penetration testing — and to analyse and evaluate the results.",
+          "Personnel holding information-security qualifications such as CISSP, CISM or CISA (ISACA), DISA / ISA (ICAI), DISSA (ICMAI), or another formal IT security qualification.",
+          "Preferably three years of experience in IT security auditing work.",
+          "At least five IT security audits already carried out, preferably two of them within the last 12 months.",
+          "Adequate knowledge of trusted computer information systems, telecommunications and networking environments.",
+        ],
+      },
+      {
+        type: "para",
+        text: "Note the shape of that list: you cannot apply as a newly formed firm with strong CVs. CERT-In wants completed audits on the record — and Annexure A requires detailed information on the last five audits carried out over the past three years, plus full copies of any two of those audit reports. The panel is designed to admit organisations that already audit, not organisations that intend to.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The four steps",
+        id: "four-steps",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Step 1 — Documentation review",
+        id: "step-1",
+      },
+      {
+        type: "para",
+        text: "Scanned copies of the application form and annexures, signed and stamped by an authorised person, go to CERT-In's empanelment address by email. CERT-In is explicit that hard-copy applications will not be entertained under any circumstances. Four annexures accompany the form: a background verification certificate from the organisation (I), a consent form (II), an undertaking on code of conduct (III), and the audit history described above (A).",
+      },
+      {
+        type: "para",
+        text: "A duly constituted Technical Evaluation Committee (TEC) evaluates applicants against the essential criteria at this stage, and may call an applicant in to present. Only organisations declared successful at Step 1 go forward.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Step 2 — Offline Practical Skill Test (OFFPST)",
+        id: "step-2",
+      },
+      {
+        type: "para",
+        text: "Successful applicants are issued two or more virtual machine images on DVD, carrying applications and services with known vulnerabilities and built-in penetration paths. You test them at your own premises and submit a VA/PT report. Guidelines for setting up the testbed and a mandatory report template ship with the DVD, and reports can only be submitted in that template.",
+      },
+      {
+        type: "para",
+        text: "The threshold is 90% of the known vulnerabilities and successful penetrations. Two attempts are allowed. Fail both and the organisation may only reapply as a fresh applicant after a one-year cooling period from the date of the last test.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Step 3 — VA/PT Practical Skill Test",
+        id: "step-3",
+      },
+      {
+        type: "para",
+        text: "This is the live round. CERT-In hosts different setups with different vulnerability sets on its own testbed, and participating organisations have to find the vulnerabilities and complete the challenges in their assigned environment. Challenges are declared in real time over an IRC channel. A Rules of Engagement document and a post-exercise report template are emailed in advance.",
+      },
+      {
+        type: "para",
+        text: "The first attempt runs 10–12 January on a 24x7 basis, with the report due within seven working days. Organisations that miss 90% get a second attempt on 20–22 February. As with the offline test, two failures mean a one-year cooling period and a fresh application. CERT-In notes that it reserves the right to require testbed access from a static public IP at your premises, or from a location of its choosing such as CERT-In or IISc, under direct supervision.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "How the 90% is actually scored",
+        text: "Reported vulnerabilities and penetrations are assessed against a master list prepared by CERT-In. Auditors may report any number of findings, but qualification depends only on how many match that master list — and every reported vulnerability counts equally, whether low, medium or high, as does every successful penetration. There is no severity weighting to game. Depth of coverage is what passes.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Step 4 — Personal Interaction Session",
+        id: "step-4",
+      },
+      {
+        type: "para",
+        text: "The TEC meets in Delhi and in Bangalore to interview organisations that cleared Step 3. The session involves a face-to-face meeting with an auditor team, which must include the technical personnel actually named in the application form — not a sales team. Candidates are asked to interpret vulnerabilities and explain means of exploitation, and technical competence may be verified at CERT-In or at IISc Bangalore on a testbed similar to the one used in Step 3.",
+      },
+      {
+        type: "para",
+        text: "The Personal Interaction Session committee and the TEC then make the final recommendation on which organisations are forwarded for background verification.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The step after you pass: background verification",
+        id: "background-verification",
+      },
+      {
+        type: "callout",
+        tone: "danger",
+        title: "Clearing all four steps does not mean you are empanelled",
+        text: "The details of organisations successful in every round are forwarded to a suitable government agency for background verification and clearance of both the organisation and its named technical personnel. CERT-In states plainly that an organisation not granted clearance will not be empanelled even if it has cleared all four steps. Verification is expected to complete by 30 June, with empanelment effective 1 July.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What it costs",
+        id: "cost",
+      },
+      {
+        type: "para",
+        text: "The direct cost is trivial and the indirect cost is not. CERT-In charges a non-refundable application processing fee of Rs. 5,000, which covers the practical skill tests, paid by demand draft in favour of PAO, MeitY, New Delhi. That is the entire published fee.",
+      },
+      {
+        type: "para",
+        text: "The real expense is everything the fee does not cover: maintaining at least five certified testers on payroll through a ten-month cycle, the senior time consumed by two full VA/PT exercises against unfamiliar environments under a hard reporting deadline, travel to Delhi or Bangalore for the interaction session, and the opportunity cost of a one-year lockout if the tests go badly twice.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Staying on the panel",
+        id: "staying-empanelled",
+      },
+      {
+        type: "para",
+        text: "Empanelment carries continuing obligations, and CERT-In is explicit that continued status depends on the quality of auditing service rendered and on the satisfaction of auditee organisations as reflected in feedback to CERT-In. Empanelled organisations must send a bi-monthly report listing audit work in hand and completed, with durations.",
+      },
+      {
+        type: "list",
+        items: [
+          "CERT-In may carry out sample analysis of an empanelled organisation's audit work.",
+          "It may depute its own expert representatives to witness an audit while it is underway at the auditee's site.",
+          "It may seek the opinion of the auditee organisations directly, and publishes a customer feedback form for exactly that purpose.",
+          "Where a complaint or adverse feedback casts doubt on technical competence, a Special Round of practical skill testing can be imposed on an already-empanelled auditor.",
+          "Depending on the outcome, CERT-In may either allow corrective action with evidence, or temporarily withdraw or put the empanelment status on hold.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What the process tells you if you are hiring an auditor",
+        id: "for-buyers",
+      },
+      {
+        type: "para",
+        text: "Read the steps again from a buyer's seat and the panel starts to mean something specific. An empanelled firm has demonstrated, on CERT-In's own testbed and against CERT-In's own master list, that it can find 90% of the vulnerabilities in an environment it had never seen — twice, once offline and once live under time pressure. It has put its named technical staff in front of a government technical committee to explain how they exploit what they find. Its organisation and its people have passed a government background check.",
+      },
+      {
+        type: "para",
+        text: "That is a materially different assurance from a marketing claim about experience, and it is why regulators lean on the panel. What it does not tell you is anything about the specific team CERT-In will not be sending — because CERT-In awards no work and plays no part in your selection. Empanelment is the floor, not the differentiator. The questions that separate two empanelled firms are about scope, methodology, who is actually assigned to your engagement, and whether the retest is included.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Verify the claim, do not take it on trust",
+        text: "The authoritative list of empanelled organisations is published by CERT-In itself as a PDF on cert-in.org.in, and it is updated whenever the panel changes. Search that document for the exact legal entity name on your contract — not the brand name, not the parent company. A firm that is genuinely on the panel will tell you the registered name to look for without hesitating. Macksofy Technologies Pvt Ltd appears on the current list.",
+      },
+      {
+        type: "para",
+        text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and our note on [how to choose a cybersecurity company in India](/best-cybersecurity-company).",
+      },
+      {
+        type: "cta",
+        title: "Need a CERT-In empanelled audit?",
+        text: "Macksofy Technologies is a CERT-In empanelled information security auditing organisation, delivering audits in the CERT-In report format for BFSI, fintech, SaaS and government auditees across India.",
+        href: "/audit/cert-in-empanelled-audit",
+        cta: "See the CERT-In audit service",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I apply for CERT-In empanelment?",
+        a: "Applications are accepted only once a year, from 1 July to 30 September. You email scanned copies of the application form and Annexures I, II, III and A — signed and stamped by an authorised person — to CERT-In's empanelment address, and send a non-refundable demand draft of Rs. 5,000 in favour of PAO, MeitY, New Delhi. CERT-In states that hard-copy applications will not be entertained under any circumstances.",
+      },
+      {
+        q: "What is the eligibility for CERT-In empanelment?",
+        a: "An applicant organisation needs at least five technical staff capable of vulnerability assessment and penetration testing, personnel holding qualifications such as CISSP, CISM, CISA, DISA (ICAI) or DISSA (ICMAI), preferably three years of IT security auditing experience, and at least five IT security audits already completed — preferably two within the last 12 months. Annexure A requires details of the last five audits over three years plus copies of two full reports.",
+      },
+      {
+        q: "How long does CERT-In empanelment take?",
+        a: "About ten months from application to empanelment if every stage is cleared at the first attempt. Applications close 30 September, clarifications run through October, the offline practical skill test runs November to December, the online VA/PT test is in January (with a second attempt in February), the Personal Interaction Session is in March, background verification is expected to finish by 30 June, and empanelment takes effect on 1 July.",
+      },
+      {
+        q: "What is the CERT-In practical skill test?",
+        a: "There are two. The offline test (OFFPST) issues virtual machine images on DVD that you test at your own premises and report on in a mandatory template. The online VA/PT test targets a testbed hosted by CERT-In, with challenges declared in real time over an IRC channel and a report due within seven working days. Both require a score of 90% or above, measured against CERT-In's master list of vulnerabilities, and both allow a maximum of two attempts.",
+      },
+      {
+        q: "What happens if an organisation fails the CERT-In skill test?",
+        a: "Each practical skill test allows two attempts. An organisation that fails to qualify after two attempts at either the offline or the online test may only apply again as a fresh applicant after a cooling period of one year from the date of the last test — which in practice means missing at least one full annual cycle.",
+      },
+      {
+        q: "How long is CERT-In empanelment valid?",
+        a: "Three years from the year of empanelment, subject to continued compliance with the terms and conditions. CERT-In's own example: organisations empanelled on 1 July 2021 and 1 August 2021 both held validity until 30 June 2024. Empanelment can also be temporarily withdrawn or put on hold in between if audit quality or auditee feedback gives cause.",
+      },
+      {
+        q: "Does CERT-In give audit work to empanelled organisations?",
+        a: "No. CERT-In states explicitly that it will not award any IT security auditing assignment to any auditor. The auditee organisation is free to choose any firm from the panel and CERT-In has no role in that choice. It does, however, monitor audit quality — including by sampling completed work and sending its experts to witness audits in progress.",
+      },
+      {
+        q: "How many CERT-In empanelled auditors are there in India?",
+        a: "CERT-In's published list carried 237 empanelled information security auditing organisations as of August 2026. The list is maintained as a PDF on cert-in.org.in and updated whenever the panel changes, so it is the only reliable place to verify a specific firm — search it for the exact registered entity name rather than a brand name.",
+      },
+    ],
+  },
+  // ===================================================================
   // ABDM M1 WASA — the digital-health compliance driver behind the WASA
   // cluster. Supports the /audit/wasa-audit money page (which ranks for
   // "wasa audit" but had zero ABDM vocabulary until 2026-08-09) and

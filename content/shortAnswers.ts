@@ -436,6 +436,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is an ABDM M1 WASA audit?",
     a: "An ABDM M1 WASA audit is a Web Application Security Assessment of a digital-health application, performed by a CERT-In empanelled auditor, that an integrator submits to India's National Health Authority before receiving ABDM production access. It covers the ABHA, consent-manager and record-exchange flows alongside standard OWASP web and API security testing. Macksofy is CERT-In empanelled.",
   },
+  "blog:cert-in-empanelment-process-2026": {
+    q: "What is the CERT-In empanelment process?",
+    a: "CERT-In empanelment is an annual selection run by India's national CERT under MeitY. Organisations apply between 1 July and 30 September, then clear a documentation review, an offline practical skill test, a live VA/PT test on CERT-In's own testbed — both requiring 90% — a personal interaction session, and government background verification. Empanelment then runs three years.",
+  },
   "blog:penetration-testing-vapt-guide-india-2026": {
     q: "What is the difference between VAPT and penetration testing?",
     a: "VAPT bundles two activities: a vulnerability assessment scans broadly for known weaknesses, while penetration testing manually exploits them to prove real business impact. Penetration testing is the deeper, expert-led half. Indian regulators and CERT-In-format reports expect both. Macksofy delivers combined VAPT with proof-of-concept exploits and a free remediation retest across India.",

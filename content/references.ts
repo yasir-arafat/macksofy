@@ -173,6 +173,12 @@ export const PAGE_REFS: Record<string, string[]> = {
   "course:corporate-training": ["nist-csf", "owasp-top-10"],
   // ── Blog (money-query posts co-cite the primary sources they discuss) ──
   "blog:abdm-m1-wasa-audit-guide-2026": ["abdm", "nha", "abdm-sandbox", "cert-in-empanel", "owasp-top-10", "owasp-asvs"],
+  // Deliberately only the two CERT-In refs: the sources are the empanelment
+  // page and the PDFs it links. Those PDFs are NOT linked here — cert-in.org.in
+  // serves an HTML stub with HTTP 200 for /PDF/* unless the request carries a
+  // Referer from the empanelment page, so a deep link from macksofy.com would
+  // land readers on a broken document.
+  "blog:cert-in-empanelment-process-2026": ["cert-in-empanel", "cert-in"],
   "blog:penetration-testing-vapt-guide-india-2026": ["nist-800-115", "owasp-top-10", "cvss", "cert-in"],
   "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
   "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],
