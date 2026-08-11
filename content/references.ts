@@ -183,6 +183,8 @@ export const PAGE_REFS: Record<string, string[]> = {
   "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
   "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],
   "blog:ceh-v13-ai-training-india-2026": ["ec-council", "owasp-top-10"],
+  // Standalone landing pages.
+  "page:ceh-v13-training": ["ec-council", "mitre-attack", "owasp-top-10"],
   "blog:oscp-training-in-mumbai-2026": ["offsec", "nist-800-115"],
   "blog:soc-analyst-training-india-2026": ["mitre-attack", "nist-csf", "ec-council"],
   "blog:offsec-learn-one-india-pricing-roi-2026": ["offsec"],

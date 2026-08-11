@@ -436,6 +436,11 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is an ABDM M1 WASA audit?",
     a: "An ABDM M1 WASA audit is a Web Application Security Assessment of a digital-health application, performed by a CERT-In empanelled auditor, that an integrator submits to India's National Health Authority before receiving ABDM production access. It covers the ABHA, consent-manager and record-exchange flows alongside standard OWASP web and API security testing. Macksofy is CERT-In empanelled.",
   },
+  // Standalone landing pages. `page:` joins the existing hub:/product: kinds.
+  "page:ceh-v13-training": {
+    q: "What is CEH v13 training?",
+    a: "CEH v13 training prepares you for EC-Council's Certified Ethical Hacker certification — 20 modules covering reconnaissance through cloud, IoT and cryptography, with 221 hands-on labs and AI-assisted testing workflows. Macksofy delivers it live across India as an EC-Council Accredited Training Center, including the 312-50 exam voucher.",
+  },
   "blog:cert-in-empanelment-process-2026": {
     q: "What is the CERT-In empanelment process?",
     a: "CERT-In empanelment is an annual selection run by India's national CERT under MeitY. Organisations apply between 1 July and 30 September, then clear a documentation review, an offline practical skill test, a live VA/PT test on CERT-In's own testbed — both requiring 90% — a personal interaction session, and government background verification. Empanelment then runs three years.",
