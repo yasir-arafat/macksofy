@@ -349,83 +349,86 @@ function SplitView({
           aria-hidden
           className={`absolute -top-20 -right-20 size-72 rounded-full ${TONE.bgSoft} blur-3xl pointer-events-none`}
         />
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeItem.idx}
-            initial={{ opacity: 0, x: 12 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -8 }}
-            transition={{ duration: 0.22 }}
-            className="relative h-full flex flex-col"
-          >
-            <div className="flex items-start justify-between gap-3 flex-wrap">
-              <div className="min-w-0">
-                <div
-                  className={`font-mono text-[10px] uppercase tracking-[0.22em] font-bold ${TONE.text}`}
-                >
-                  Module {String(activeItem.idx + 1).padStart(2, "0")} / {total}
-                  {courseShortTitle ? ` · ${courseShortTitle}` : ""}
-                </div>
-                <h3 className="mt-2 font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
-                  {activeItem.module}
-                </h3>
-              </div>
-              <div className="flex items-center gap-2">
-                {activeItem.durationHours && (
-                  <span
-                    className={`inline-flex items-center gap-1.5 rounded-full ${TONE.bgSoft} ring-1 ${TONE.ring} px-2.5 py-1 font-mono text-[10px] font-bold ${TONE.text}`}
-                  >
-                    <Clock className="size-3" /> {activeItem.durationHours}h
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {/* Topics list */}
-            <ul className="mt-6 grid gap-2 sm:grid-cols-2 flex-1">
-              {activeItem.topics.map((t, i) => (
-                <motion.li
-                  key={t}
-                  initial={{ opacity: 0, x: -6 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + i * 0.04 }}
-                  className="flex gap-3 rounded-lg bg-bg-1/60 ring-1 ring-line/60 p-3"
-                >
+        {/* Every module's topics are rendered here, not just the active one.
+            Previously this mounted only `activeItem`, so 788 of the site's 872
+            curriculum topic strings never reached the server-rendered HTML
+            (CEH shipped 4 of 74, OSCP 3 of 82). Inactive panels are hidden with
+            CSS, which keeps the full syllabus crawlable and the content
+            single-sourced — no duplicate "SEO copy" block. */}
+        {modules.map((mod) => {
+          const isShown = mod.idx === activeItem.idx;
+          return (
+            <div
+              key={mod.idx}
+              hidden={!isShown}
+              className={`relative h-full ${isShown ? "flex flex-col" : ""}`}
+            >
+              <div className="flex items-start justify-between gap-3 flex-wrap">
+                <div className="min-w-0">
                   <div
-                    className={`grid size-6 shrink-0 place-items-center rounded-md ${TONE.bgSoft} ring-1 ${TONE.ring}`}
+                    className={`font-mono text-[10px] uppercase tracking-[0.22em] font-bold ${TONE.text}`}
                   >
-                    <span className={`font-mono text-[10px] font-bold ${TONE.text}`}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    Module {String(mod.idx + 1).padStart(2, "0")} / {total}
+                    {courseShortTitle ? ` · ${courseShortTitle}` : ""}
                   </div>
-                  <span className="text-sm text-fg-muted leading-snug pt-0.5">
-                    {t}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
+                  <h3 className="mt-2 font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
+                    {mod.module}
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2">
+                  {mod.durationHours && (
+                    <span
+                      className={`inline-flex items-center gap-1.5 rounded-full ${TONE.bgSoft} ring-1 ${TONE.ring} px-2.5 py-1 font-mono text-[10px] font-bold ${TONE.text}`}
+                    >
+                      <Clock className="size-3" /> {mod.durationHours}h
+                    </span>
+                  )}
+                </div>
+              </div>
 
-            {/* Nav */}
-            <div className="mt-6 pt-4 border-t border-line/60 flex items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={() => go(-1)}
-                disabled={activeItem.idx === 0}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-muted hover:text-fg disabled:opacity-30 transition-colors"
-              >
-                <ArrowLeft className="size-3.5" /> Previous
-              </button>
-              <button
-                type="button"
-                onClick={() => go(1)}
-                disabled={activeItem.idx === total - 1}
-                className={`inline-flex items-center gap-1.5 rounded-full ${TONE.bgSoft} ring-1 ${TONE.ring} px-3 py-1.5 text-xs font-bold ${TONE.text} hover:opacity-90 disabled:opacity-30 transition-opacity`}
-              >
-                Next module <ArrowRight className="size-3.5" />
-              </button>
+              {/* Topics list */}
+              <ul className="mt-6 grid gap-2 sm:grid-cols-2 flex-1">
+                {mod.topics.map((t, i) => (
+                  <li
+                    key={t}
+                    className="flex gap-3 rounded-lg bg-bg-1/60 ring-1 ring-line/60 p-3"
+                  >
+                    <div
+                      className={`grid size-6 shrink-0 place-items-center rounded-md ${TONE.bgSoft} ring-1 ${TONE.ring}`}
+                    >
+                      <span className={`font-mono text-[10px] font-bold ${TONE.text}`}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <span className="text-sm text-fg-muted leading-snug pt-0.5">
+                      {t}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Nav */}
+              <div className="mt-6 pt-4 border-t border-line/60 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => go(-1)}
+                  disabled={mod.idx === 0}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-muted hover:text-fg disabled:opacity-30 transition-colors"
+                >
+                  <ArrowLeft className="size-3.5" /> Previous
+                </button>
+                <button
+                  type="button"
+                  onClick={() => go(1)}
+                  disabled={mod.idx === total - 1}
+                  className={`inline-flex items-center gap-1.5 rounded-full ${TONE.bgSoft} ring-1 ${TONE.ring} px-3 py-1.5 text-xs font-bold ${TONE.text} hover:opacity-90 disabled:opacity-30 transition-opacity`}
+                >
+                  Next module <ArrowRight className="size-3.5" />
+                </button>
+              </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          );
+        })}
       </div>
     </div>
   );
@@ -544,36 +547,37 @@ function TrackView({
                     }`}
                   />
                 </button>
-                <AnimatePresence initial={false}>
-                  {isExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden border-t border-line/60"
-                    >
-                      <div className="p-5 pt-4">
-                        <ul className="grid gap-1.5 sm:grid-cols-2">
-                          {mod.topics.map((t, i) => (
-                            <motion.li
-                              key={t}
-                              initial={{ opacity: 0, x: -4 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.04 + i * 0.025 }}
-                              className="flex gap-2 text-sm text-fg-muted leading-snug"
-                            >
-                              <span
-                                className={`mt-1.5 size-1 shrink-0 rounded-full ${TONE.bg}`}
-                              />
-                              {t}
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Always rendered, collapsed with CSS grid-rows rather than
+                    unmounted. The old AnimatePresence mounted topics only when
+                    a module was expanded (default: the first one), so the rest
+                    of every syllabus was absent from the server HTML. The
+                    0fr/1fr grid trick keeps the height animation while leaving
+                    all topics in the DOM for crawlers and for in-page search. */}
+                <div
+                  className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                    isExpanded
+                      ? "grid-rows-[1fr] border-t border-line/60"
+                      : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div className="p-5 pt-4">
+                      <ul className="grid gap-1.5 sm:grid-cols-2">
+                        {mod.topics.map((t) => (
+                          <li
+                            key={t}
+                            className="flex gap-2 text-sm text-fg-muted leading-snug"
+                          >
+                            <span
+                              className={`mt-1.5 size-1 shrink-0 rounded-full ${TONE.bg}`}
+                            />
+                            {t}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.li>
           );
