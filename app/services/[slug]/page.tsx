@@ -125,6 +125,18 @@ const BESPOKE_SLUGS = new Set([
   "malware-analysis",
   "threat-intelligence",
   "iot-ot-security",
+  "network-pentesting",
+  "ai-pentesting",
+  "source-code-review",
+  "phishing-simulation",
+  "vciso",
+  "purple-teaming",
+  "managed-security-services",
+  "wireless-pentesting",
+  "identity-security-zero-trust",
+  "network-security-architecture",
+  "annual-security-program",
+  "staffing-service",
 ]);
 
 export function generateStaticParams() {
