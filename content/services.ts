@@ -3039,7 +3039,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Which models do you cover?",
-        a: "OpenAI (GPT-4o / o1 / o3 family), Anthropic (Claude 4.x), Google (Gemini 2.x), Meta (Llama 3.x / 4), Mistral, open-source via vLLM / Ollama, and custom fine-tunes. Provider-agnostic — we test what you ship.",
+        a: "OpenAI (GPT), Anthropic (Claude), Google (Gemini), Meta (Llama), Mistral, open-source via vLLM / Ollama, and custom fine-tunes. Provider-agnostic and version-agnostic — we test whichever models and versions you actually ship.",
       },
       {
         q: "Is this just prompt-injection testing?",
