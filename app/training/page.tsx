@@ -130,6 +130,16 @@ const COURSE_ROUTES: { goal: string; why: string; slugs: string[] }[] = [
     slugs: ["osed", "osmr"],
   },
   {
+    goal: "I need to get my platform team up to speed on cloud security",
+    why: "AWS, Azure and GCP — identity, hardening, logging and cloud attack paths. Runs as a corporate engagement, not a public batch.",
+    slugs: ["corporate-training"],
+  },
+  {
+    goal: "I need to train my plant or engineering team on OT / ICS security",
+    why: "IEC 62443, the Purdue model, IT-to-OT pivot paths and working safely around live PLCs. Corporate engagement, scoped to your plant.",
+    slugs: ["corporate-training"],
+  },
+  {
     goal: "I need to train an entire team",
     why: "Scoped to your stack and threat model, delivered on-site or virtually.",
     slugs: ["corporate-training"],
@@ -172,6 +182,10 @@ const TRAINING_FAQS = [
   {
     q: "Do I need programming experience or a degree to start?",
     a: "No degree is required. For CEH v13 you need comfort with networking fundamentals and a command line, not programming. Scripting helps considerably from OSCP onward, and is genuinely required for the exploit development tracks (OSED, OSMR). Each course page lists its own prerequisites.",
+  },
+  {
+    q: "Do you offer OT / ICS or cloud security training?",
+    a: "Both, but as customised corporate training rather than scheduled public batches — the syllabus depends on the plant or cloud environment being secured, so it is scoped on a discovery call. If you are an individual rather than a team, there is no public OT or cloud batch to join; the nearest scheduled certifications are CEH v13 for offensive fundamentals and CSA for defensive ones.",
   },
   {
     q: "Do you offer placement support after the course?",

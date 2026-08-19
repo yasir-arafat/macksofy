@@ -1664,6 +1664,8 @@ export const COURSES: Course[] = [
       "IT / SOC teams onboarding new analysts",
       "Boards & C-suite needing cyber-resilience briefings",
       "Specialist squads (red team, AppSec, cloud security)",
+      "Platform / DevOps teams securing AWS, Azure or GCP",
+      "Plant, engineering and IT teams responsible for OT / ICS environments",
     ],
     prerequisites: ["Customized — we do a needs assessment first"],
     outcomes: [
@@ -1677,7 +1679,9 @@ export const COURSES: Course[] = [
       { module: "Track B · DevSecOps & CI/CD Security", topics: ["SAST / DAST / SCA pipeline integration", "Secrets scanning, IaC security", "Container & K8s security (Trivy, kube-bench, kube-hunter)"] },
       { module: "Track C · SOC Onboarding", topics: ["SIEM-specific training (Splunk / Sentinel / Wazuh / Elastic)", "Real ticket triage practice", "MITRE ATT&CK detection engineering"] },
       { module: "Track D · Executive Cyber Resilience", topics: ["Boardroom-level threat briefings", "Indian + UAE regulatory landscape (CERT-In, RBI, SEBI, NESA, DESC)", "Crisis simulation exercises"] },
-      { module: "Track E · Specialist Squads", topics: ["Red team operator training (Cobalt Strike, Sliver, Mythic)", "Cloud security deep-dive (AWS / Azure / GCP)", "Mobile app security (iOS + Android)"] },
+      { module: "Track E · Specialist Squads", topics: ["Red team operator training (Cobalt Strike, Sliver, Mythic)", "Mobile app security (iOS + Android)"] },
+      { module: "Track F · Cloud Security (AWS / Azure / GCP)", topics: ["Identity and access misconfiguration across AWS, Azure and GCP", "Storage, networking and key-management hardening", "Cloud-native logging, guardrails and CSPM finding triage", "Attack paths from cloud identity through to data, walked in a lab tenant"] },
+      { module: "Track G · OT / ICS Security for Plant & Engineering Teams", topics: ["IEC 62443 zones and conduits, and the Purdue model applied to your plant", "Where IT-to-OT pivot paths actually open up", "Protocol awareness — Modbus and DNP3, and what makes them fragile", "Working safely around PLCs, HMIs and historians without tripping safeties"] },
     ],
     toolsCovered: ["Customized to client stack", "Common: Burp Suite, Semgrep, Trivy, Wazuh, Splunk, Sentinel, Cobalt Strike, BloodHound"],
     careerRoles: [
@@ -1699,10 +1703,12 @@ export const COURSES: Course[] = [
       { q: "What's a typical engagement size?", a: "From a 2-day developer secure-coding workshop (10–20 people) to a multi-month engineering program. We scope on a discovery call." },
       { q: "Do you deliver in UAE?", a: "Yes. We have regional partners in Dubai and have delivered on-site engagements with banks, telcos and government across the UAE." },
       { q: "Can you align training to ISO 27001 / SOC 2 awareness requirements?", a: "Yes. We can structure training to satisfy specific compliance evidence needs." },
+      { q: "Do you run OT / ICS security training?", a: "Yes, as a customized corporate engagement rather than a scheduled public batch. Track G covers IEC 62443 zones and conduits, the Purdue model, IT-to-OT pivot paths, Modbus and DNP3 protocol awareness, and how to work safely around PLCs, HMIs and historians. The syllabus depends on your plant, so it is scoped on a discovery call." },
+      { q: "Do you run cloud security training?", a: "Yes — Track F covers AWS, Azure and GCP: identity and access misconfiguration, storage and key-management hardening, cloud-native logging and CSPM triage, and cloud attack paths walked in a lab tenant. Like the other tracks it is delivered as a corporate engagement scoped to the platforms you actually run." },
     ],
     seoTitle: "Corporate Cybersecurity Training in India & UAE | Macksofy",
-    seoDescription: "Customized cybersecurity training for engineering teams, SOCs, boards and specialist squads. On-site India + UAE. Built by working pen-testers.",
-    keywords: ["corporate cybersecurity training India", "corporate cybersecurity training UAE", "secure coding workshop Mumbai", "DevSecOps training India", "cyber resilience training"],
+    seoDescription: "Customized cybersecurity training for engineering teams, SOCs, boards and specialist squads — including OT / ICS and cloud security tracks. On-site India + UAE.",
+    keywords: ["corporate cybersecurity training India", "corporate cybersecurity training UAE", "secure coding workshop Mumbai", "DevSecOps training India", "cyber resilience training", "OT security training", "OT cyber security training", "ICS security training India", "cloud security training", "cloud security training India"],
   },
 ];
 
