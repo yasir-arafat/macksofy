@@ -38,12 +38,12 @@ export function TrainingPreview() {
                   <span className="gradient-text">Mentor until you pass.</span>
                 </>
               }
-              description="EC-Council and CompTIA authorized programs, plus Offensive Security exam-prep bootcamps and our own SOC Analyst and Web App Security career tracks. 100% practical labs."
+              description="Ethical hacking, penetration testing, SOC and forensics courses — EC-Council and CompTIA authorized programs, Offensive Security exam-prep bootcamps, and our own SOC Analyst and Web App Security career tracks. 100% practical labs, live online or classroom in Mumbai."
             />
           </FadeIn>
           <FadeIn delay={0.1}>
             <LinkButton href="/training" variant="ghost" withArrow className="text-fg hover:text-neon-cyan">
-              View all {COURSES.length}
+              All {COURSES.length} cyber security courses
             </LinkButton>
           </FadeIn>
         </div>

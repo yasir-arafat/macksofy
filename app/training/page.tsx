@@ -12,22 +12,46 @@ import { MetroCoverage } from "@/components/home/MetroCoverage";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
-import { COURSES } from "@/content/courses";
+import { COURSES, getCourseBySlug } from "@/content/courses";
 import { VENDOR_LOGOS } from "@/content/vendorLogos";
 import { formatINR } from "@/lib/utils";
 import { metroKeywords } from "@/lib/site";
 import { AnswerBox } from "@/components/sections/AnswerBox";
+import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { getShortAnswer } from "@/content/shortAnswers";
 
+// The old title was a city list ("Mumbai · Delhi · Bengaluru · ...") which
+// clampTitle truncated to "Cybersecurity Training in Mumbai · Delhi" — a SERP
+// line that matched none of the demand this page actually receives. GSC 90d to
+// 2026-08-16: the HOMEPAGE absorbs 5,183 training impressions at 0.27% CTR while
+// this hub gets 207, because the demand is plain language ("cyber security
+// course", "ethical hacking institute near me") and this page spoke only in
+// vendor certification codes. Title is `absoluteTitle` so the clamp cannot eat
+// the tail again — see the 4 prior occurrences of that defect.
+// Deliberately carries NO "CEH" and NO "Mumbai": /training/ceh owns
+// `ceh training in mumbai` at 56% CTR and must not be competed with from here.
+// NB: do NOT write the brand into this title and set `absoluteTitle`.
+// clampTitle() strips a trailing " | Macksofy" on its FIRST line, and
+// absoluteTitle then tells buildMetadata the brand is already present so it is
+// never re-appended — the brand silently disappears from the SERP line. The
+// core below is 49 chars, exactly TITLE_LIMIT_CORE, so the template appends the
+// brand itself and the built <title> lands at the full 60.
 export const metadata = buildMetadata({
-  title:
-    "Cybersecurity Training in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
+  title: "Cyber Security & Ethical Hacking Courses in India",
   description:
-    "EC-Council and CompTIA authorised cybersecurity training across India and the UAE — CEH v13, OSCP exam prep, SOC Analyst and corporate programmes.",
+    "21 cyber security and ethical hacking courses — CEH v13, OSCP, CHFI, SOC Analyst and CompTIA. Live online across India and the UAE, or classroom at our Mumbai BKC institute. Mentor until you pass.",
   path: "/training",
   keywords: [
+    "cyber security course",
+    "ethical hacking course",
+    "hacking course",
+    "cyber security courses in India",
+    "ethical hacking institute",
+    "cyber security classes in Mumbai",
+    "ethical hacking bootcamp",
+    "cyber security course for beginners",
     "cybersecurity training India",
     "cybersecurity training Mumbai",
     "ethical hacking training India",
@@ -43,6 +67,117 @@ export const metadata = buildMetadata({
     ...metroKeywords("CEH training"),
   ],
 });
+
+/**
+ * The vocabulary bridge.
+ *
+ * Every heading on this page used to be a vendor certification code (CEH v13,
+ * CHFI v11, OSCP / PEN-200 ...), while the search demand is plain language:
+ * "cyber security course", "hacking course", "ethical hacking institute near
+ * me". This table is the translation layer — a plain-language goal on the left,
+ * the certification that actually serves it on the right.
+ *
+ * CLAIM DISCIPLINE: every slug below must exist in content/courses.ts. Queries
+ * the homepage currently absorbs that map to NO Macksofy product — "python
+ * ethical hacking course", "linux hacking course", "ot security training",
+ * "cloud security training", "endpoint security course" — are deliberately NOT
+ * answered here. Inventing a row for them would be inventing a product.
+ */
+const COURSE_ROUTES: { goal: string; why: string; slugs: string[] }[] = [
+  {
+    goal: "I am new to cyber security and want to learn ethical hacking",
+    why: "Start with the vendor-neutral fundamentals, then the certification most Indian employers screen for.",
+    slugs: ["ceh", "sec-100-cybercore"],
+  },
+  {
+    goal: "I want to prove hands-on hacking skill in a real lab exam",
+    why: "Practical, fully hands-on exams — no multiple choice.",
+    slugs: ["ceh-practical", "cpent"],
+  },
+  {
+    goal: "I want a penetration testing career",
+    why: "The reference certification for offensive roles, plus the EC-Council professional track.",
+    slugs: ["oscp", "cpent"],
+  },
+  {
+    goal: "I want to specialise in web application testing",
+    why: "Foundational web assessment first, then advanced white-box exploitation.",
+    slugs: ["oswa", "oswe", "web-application-security"],
+  },
+  {
+    goal: "I want to work in a SOC or blue team",
+    why: "Detection and response tracks, from analyst fundamentals to defensive operations.",
+    slugs: ["csa", "soc-analyst", "cysa-plus", "osda"],
+  },
+  {
+    goal: "I want to do digital forensics and incident response",
+    why: "Evidence handling, disk and memory forensics, and investigation reporting.",
+    slugs: ["chfi"],
+  },
+  {
+    goal: "I want to work in threat intelligence",
+    why: "Collection, analysis and dissemination of actionable intelligence.",
+    slugs: ["ctia"],
+  },
+  {
+    goal: "I already test networks and want advanced red teaming",
+    why: "Evasion, breaching defences and wireless attack specialisation.",
+    slugs: ["osep", "oswp"],
+  },
+  {
+    goal: "I want exploit development and reverse engineering",
+    why: "Windows user-mode exploit development and macOS control bypasses.",
+    slugs: ["osed", "osmr"],
+  },
+  {
+    goal: "I need to train an entire team",
+    why: "Scoped to your stack and threat model, delivered on-site or virtually.",
+    slugs: ["corporate-training"],
+  },
+];
+
+/** Delivery formats, taken from the `format` field on content/courses.ts. */
+const DELIVERY = [
+  {
+    title: "Classroom — Mumbai BKC",
+    body: "Offline batches run at our Mumbai BKC institute. This is the option people mean when they search for a cyber security institute or classes near them.",
+  },
+  {
+    title: "Live online — India & UAE",
+    body: "Every course runs live and instructor-led over video, not pre-recorded. Learners join from across India and the UAE on the same batch.",
+  },
+  {
+    title: "Corporate & on-site",
+    body: "Customised engagements, typically two to ten days, delivered on-site or virtually for teams in India and the UAE.",
+  },
+];
+
+const TRAINING_FAQS = [
+  {
+    q: "Which cyber security course should a beginner start with?",
+    a: "CEH v13 is the usual starting point — it assumes no prior offensive-security experience and is the certification most Indian employers screen for. If you want a gentler on-ramp first, SEC-100 (OSCC) covers security essentials over ten weeks. From either one the common next step is OSCP for a penetration testing career, or CSA / the Macksofy SOC Analyst track for a defensive one.",
+  },
+  {
+    q: "Do you run classroom cyber security classes in Mumbai?",
+    a: "Yes. Offline batches run at our Mumbai BKC institute, and the same courses also run live online for learners elsewhere in India and the UAE. Course pages list which formats a given certification is offered in.",
+  },
+  {
+    q: "Are these courses online or in person?",
+    a: "Both. EC-Council and CompTIA courses are live instructor-led, online or offline at Mumbai BKC. Offensive Security tracks are hybrid — Macksofy mentorship alongside your own OffSec lab access — because the exam and labs are run by the vendor. Nothing is pre-recorded.",
+  },
+  {
+    q: "How long does an ethical hacking course take?",
+    a: "CEH v13 is 40 hours, delivered either as five intensive days or across eight weekends. CEH Practical is a 24-hour lab marathon over three days. Offensive Security tracks run longer because they include vendor lab time — OSCP is a 12-week bootcamp alongside 90 days of OffSec lab access and a 24-hour exam.",
+  },
+  {
+    q: "Do I need programming experience or a degree to start?",
+    a: "No degree is required. For CEH v13 you need comfort with networking fundamentals and a command line, not programming. Scripting helps considerably from OSCP onward, and is genuinely required for the exploit development tracks (OSED, OSMR). Each course page lists its own prerequisites.",
+  },
+  {
+    q: "Do you offer placement support after the course?",
+    a: "Yes — placement support runs across India and UAE hiring partners, and every track is taught by working pen-testers and SOC engineers rather than career trainers. Mentoring continues until you pass the certification exam.",
+  },
+];
 
 export default function TrainingPage() {
   const sa = getShortAnswer("hub:training");
@@ -62,6 +197,7 @@ export default function TrainingPage() {
               name: c.title,
             })),
           },
+          faqSchema(TRAINING_FAQS),
         ]}
       />
       <section className="relative isolate overflow-hidden">
@@ -72,13 +208,14 @@ export default function TrainingPage() {
           <div className="mt-8 max-w-4xl">
             <Eyebrow color="purple">Authorized · EC-Council · CompTIA · Mile2</Eyebrow>
             <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
-              Career-grade certifications.{" "}
+              Cyber security &amp; ethical hacking courses.{" "}
               <span className="gradient-text">Mentor until you pass.</span>
             </h1>
             <p className="mt-6 text-lg text-fg-muted text-pretty max-w-2xl">
-              5 career tracks designed by working pen-testers and SOC engineers.
-              100% practical labs, real-world tooling, and placement support across
-              India + UAE hiring partners.
+              {COURSES.length} courses across 5 career tracks, designed by working
+              pen-testers and SOC engineers. 100% practical labs, real-world tooling,
+              and placement support across India + UAE hiring partners — live online,
+              or in classroom at our Mumbai BKC institute.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
@@ -104,6 +241,73 @@ export default function TrainingPage() {
           </Container>
         </section>
       )}
+
+      {/* THE VOCABULARY BRIDGE — plain-language goal -> the certification that
+          serves it. This is the section that lets this hub receive the generic
+          "cyber security course" / "hacking course" demand the homepage has been
+          absorbing at 0.27% CTR. Server-rendered, no client component, so every
+          word is in the HTML Google parses. */}
+      <section className="py-20 bg-bg-1">
+        <Container>
+          <FadeIn>
+            <SectionTitle
+              eyebrow="Where to start"
+              eyebrowColor="purple"
+              title={<>Which cyber security course is <span className="gradient-text">right for you?</span></>}
+              description="Tell us the outcome you want and we will point you at the certification that gets you there. Every course below is one we actually teach."
+            />
+          </FadeIn>
+          <div className="mt-12 grid gap-4 lg:grid-cols-2">
+            {COURSE_ROUTES.map((r) => (
+              <div
+                key={r.goal}
+                className="flex h-full flex-col rounded-2xl glass p-6 ring-1 ring-transparent hover:ring-neon-purple/40 transition-all"
+              >
+                <h3 className="font-display text-lg font-bold text-fg">&ldquo;{r.goal}&rdquo;</h3>
+                <p className="mt-2 text-sm text-fg-muted">{r.why}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {r.slugs.map((slug) => {
+                    const c = getCourseBySlug(slug);
+                    if (!c) return null;
+                    return (
+                      <Link
+                        key={slug}
+                        href={`/training/${slug}`}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-neon-cyan/30 bg-neon-cyan/5 px-3 py-1.5 text-xs font-semibold text-neon-cyan hover:bg-neon-cyan/15 transition-colors"
+                      >
+                        {c.shortTitle}
+                        <span className="text-fg-faint font-mono">{c.level}</span>
+                        <ArrowRight className="size-3" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* HOW TRAINING IS DELIVERED — serves the "near me" / "classes" /
+          "institute" intent that had zero coverage anywhere on this page. */}
+      <section className="py-20">
+        <Container>
+          <FadeIn>
+            <SectionTitle
+              eyebrow="How it runs"
+              title={<>Classroom in Mumbai, or <span className="gradient-text">live online anywhere.</span></>}
+            />
+          </FadeIn>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {DELIVERY.map((d) => (
+              <div key={d.title} className="rounded-2xl glass p-6">
+                <h3 className="font-display text-lg font-bold text-fg">{d.title}</h3>
+                <p className="mt-3 text-sm text-fg-muted leading-relaxed">{d.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <section className="py-20">
         <Container>
@@ -227,6 +431,22 @@ export default function TrainingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 bg-bg-1">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <FadeIn>
+              <Eyebrow color="cyan">Common questions</Eyebrow>
+              <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
+                Choosing a cyber security course in India.
+              </h2>
+            </FadeIn>
+            <div className="mt-10">
+              <FAQAccordion faqs={TRAINING_FAQS} />
+            </div>
           </div>
         </Container>
       </section>

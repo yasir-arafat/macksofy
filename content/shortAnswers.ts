@@ -762,8 +762,8 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     a: "Macksofy performs 35 audit and compliance engagements as a CERT-In empanelled information security auditor under MeitY. Coverage spans Indian regulators (RBI CSF, SEBI CSCRF, IRDAI, UIDAI), GCC frameworks (UAE PDPL, NESA, ADHICS, DESC ISR) and international standards (ISO 27001, SOC 2, PCI-DSS, HIPAA, GDPR).",
   },
   "hub:training": {
-    q: "What cybersecurity training does Macksofy offer?",
-    a: "Macksofy offers five career tracks across India and the UAE: EC-Council certifications as an Accredited Training Centre (CEH v13, CHFI, CTIA), Offensive Security exam-prep bootcamps (OSCP, OSEP, OSWE), CompTIA courses, SOC analyst programmes and corporate training. Every track is lab-first, taught by working pen-testers and SOC engineers, with mentoring until you pass.",
+    q: "Which cyber security course should you start with in India?",
+    a: "Most beginners start with CEH v13 for ethical hacking fundamentals, then move to OSCP if they want a penetration testing career. For defensive roles start with CSA or the SOC Analyst track; for forensics, CHFI. Macksofy teaches all of them live online across India and the UAE, and in classroom at its Mumbai BKC institute.",
   },
   "hub:glossary": {
     q: "What is the Macksofy cybersecurity glossary?",
