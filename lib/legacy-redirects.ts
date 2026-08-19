@@ -41,7 +41,10 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   { source: "/best-web-application-penetration-company-in-mumbai.php", destination: "/services/web-application-security" },
   { source: "/cloud-penetration-testing-in-mumbai.php", destination: "/services/cloud-security" },
   { source: "/mobile-penetration-testing-in-mumbai.php", destination: "/services/penetration-testing" },
-  { source: "/code-review-company-in-mumbai.php", destination: "/services" },
+  // Pointed at the /services catalogue back when no code-review page existed.
+  // /services/source-code-review is live and indexed, so the residual link
+  // equity should land on the page that answers the query. 2026-08-15.
+  { source: "/code-review-company-in-mumbai.php", destination: "/services/source-code-review" },
 
   // Was 410 Gone, but it surfaced in GSC as "Not found (404)". Redirect the
   // residual link equity to the closest live page (we no longer offer web
