@@ -1156,7 +1156,7 @@ function megaHeader(
       eyebrow: "Training & Certifications",
       title: "Career-grade tracks with mentor support",
       description:
-        "EC-Council Accredited Training Center. 20,000+ professionals trained.",
+        "EC-Council Accredited Training Center. Thousands of professionals trained.",
       cta: { label: `View all ${counts.courses} courses`, href: "/training" },
       stat: { value: `${counts.courses}`, label: "Active courses" },
     };

@@ -25,7 +25,6 @@ const HEADLINE_LINE_2 = ["teaches", "the", "work."];
 
 const STATS = [
   { value: 11, suffix: "+", label: "Years" },
-  { value: 20000, suffix: "+", label: "Trained" },
   { value: 250, suffix: "+", label: "Enterprises" },
   { value: 5, suffix: "", label: "Countries" },
 ];
@@ -88,7 +87,7 @@ export function AboutHero() {
               Macksofy Technologies is a CERT-In empanelled cybersecurity firm
               headquartered in Bandra Kurla Complex, Mumbai — with an advanced
               training division accredited by EC-Council and CompTIA. We
-              have launched 20,000+ careers and run engagements across India and
+              have launched thousands of careers and run engagements across India and
               the UAE since 2014.
             </motion.p>
 
@@ -146,7 +145,7 @@ export function AboutHero() {
                 <span className="size-1.5 rounded-full bg-neon-cyan animate-pulse" />
                 Macksofy by the numbers
               </div>
-              <div className="mt-5 grid grid-cols-2 gap-3">
+              <div className="mt-5 grid grid-cols-3 gap-3">
                 {STATS.map((s) => (
                   <div key={s.label} className="rounded-xl bg-bg-1/60 ring-1 ring-line/60 p-3">
                     <div className="font-display text-2xl font-black gradient-text leading-none tabular-nums">

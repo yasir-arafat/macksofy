@@ -48,7 +48,6 @@ export const SITE = {
   stats: {
     yearsInBusiness: 11,
     enterpriseClients: 250,
-    learnersTrained: 20000,
     certificationsDelivered: 16,
     countriesServed: 5,
   },

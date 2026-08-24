@@ -128,7 +128,7 @@ export function Manifesto() {
           Eleven years in, every consultant on our team is an OSCP, OSWE or OSEP
           practitioner first, and a trainer second. We don&rsquo;t hire teachers
           — we work backwards from the cases we just shipped. That&rsquo;s the
-          loop our 20,000+ alumni now run inside HSBC, PwC, Verizon, Tata,
+          loop our alumni now run inside HSBC, PwC, Verizon, Tata,
           Reliance and 30+ RBI-regulated cooperative banks.
         </motion.div>
       </Container>

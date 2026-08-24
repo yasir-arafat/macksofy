@@ -72,7 +72,7 @@ const STATUS_ITEMS = [
   "✓  EC-Council ATC · CompTIA Authorized",
   "🟢  Mumbai SOC · 24×7 monitored",
   "📍  Mumbai BKC HQ · Dubai delivery · India + UAE engagements",
-  "🎓  20,000+ professionals trained · 250+ enterprises secured",
+  "🎓  Thousands of professionals trained · 250+ enterprises secured",
   "🏆  CSI Cyber Security Awards 2025 winner",
 ];
 

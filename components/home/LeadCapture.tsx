@@ -7,7 +7,7 @@ import { ShieldCheck, Users, Award, Globe } from "lucide-react";
 const TRUST = [
   { icon: ShieldCheck, label: "CERT-In Empanelled" },
   { icon: Award, label: "EC-Council ATC · CompTIA Authorized" },
-  { icon: Users, label: "20,000+ professionals trained" },
+  { icon: Users, label: "Thousands of professionals trained" },
   { icon: Globe, label: "India + UAE engagements" },
 ];
 

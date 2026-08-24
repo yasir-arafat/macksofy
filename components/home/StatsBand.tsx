@@ -4,27 +4,11 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/motion/Counter";
 import {
-  Users,
-  Target,
   ShieldCheck,
   Trophy,
 } from "lucide-react";
 
 const STATS = [
-  {
-    value: 20000,
-    suffix: "+",
-    label: "Professionals trained",
-    icon: Users,
-    sub: "India · UAE · GCC",
-  },
-  {
-    value: 500,
-    suffix: "+",
-    label: "Pentests delivered",
-    icon: Target,
-    sub: "Web · API · network · cloud",
-  },
   {
     value: 50,
     suffix: "+",
@@ -62,7 +46,7 @@ export function StatsBand() {
       />
 
       <Container className="relative py-14 sm:py-16">
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4 sm:gap-x-6">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6">
           {STATS.map((s, i) => {
             const Icon = s.icon;
             return (

@@ -79,7 +79,7 @@ const CHAPTERS: Chapter[] = [
     year: "Today",
     icon: TrendingUp,
     title: "Four pillars, one cohesive practice.",
-    body: "Today Macksofy delivers across four pillars — offensive security, defensive engineering, audit & compliance, and training — with 20,000+ alumni running SOCs, red teams and AppSec functions at HSBC, PwC, Verizon, Tata, Reliance, Maharashtra Police and beyond. Every report we ship is accepted by every Indian regulator on the first read.",
+    body: "Today Macksofy delivers across four pillars — offensive security, defensive engineering, audit & compliance, and training — with alumni running SOCs, red teams and AppSec functions at HSBC, PwC, Verizon, Tata, Reliance, Maharashtra Police and beyond. Every report we ship is accepted by every Indian regulator on the first read.",
     metric: { value: "200+", label: "Engagements per year" },
     accent: "green",
   },

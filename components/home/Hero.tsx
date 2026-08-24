@@ -174,10 +174,9 @@ export function Hero() {
               whileInView={{ opacity: [0, 1] }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.7, delay: 1 }}
-              className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 max-w-xl"
+              className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-xl"
             >
               {[
-                { value: 20000, suffix: "+", label: "Learners trained" },
                 { value: 250, suffix: "+", label: "Enterprise clients" },
                 { value: 11, suffix: "+ yrs", label: "In business" },
                 { value: 5, suffix: "", label: "Countries served" },
@@ -254,7 +253,7 @@ const TICKER_ITEMS = [
   "CERT-In Empanelled",
   "EC-Council ATC",
   "ISO 27001 Certified",
-  "20,000+ professionals trained",
+  "Thousands of professionals trained",
   "200+ engagements / yr",
   "Mumbai · Dubai · Hyderabad · Muscat · Toronto",
 ];

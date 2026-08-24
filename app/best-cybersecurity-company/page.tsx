@@ -152,7 +152,6 @@ const CAPABILITIES = [
 const STATS = [
   { value: `${SITE.stats.yearsInBusiness}+`, label: "Years securing businesses" },
   { value: `${SITE.stats.enterpriseClients}+`, label: "Enterprise clients" },
-  { value: `${(SITE.stats.learnersTrained / 1000).toFixed(0)}k+`, label: "Professionals trained" },
   { value: `${SITE.stats.countriesServed}`, label: "Countries served" },
 ] as const;
 

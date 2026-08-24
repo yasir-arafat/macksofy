@@ -98,15 +98,15 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: "2024",
-    headline: "20,000+ alumni · 500+ pen-tests delivered",
+    headline: "Pen-testing at scale · ISO 27001:2022 certified",
     description:
-      "Crossed 20,000 cybersecurity professionals trained and 500 penetration tests delivered. Internally certified to ISO 27001:2022. Service delivery active across 5 countries.",
+      "Grew the alumni base substantially and delivered hundreds of penetration tests. Internally certified to ISO 27001:2022. Service delivery active across 5 countries.",
     highlights: [
-      "20,000+ alumni network",
+      "Alumni network across India, UAE and GCC",
       "Internal ISO 27001:2022 certification",
       "5-country service delivery footprint",
     ],
-    metric: { value: "20,000+", label: "Total alumni" },
+    metric: { value: "5", label: "Countries served" },
     icon: Users,
     accent: "pink",
   },

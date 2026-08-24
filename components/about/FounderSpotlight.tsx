@@ -30,7 +30,7 @@ const CREDENTIALS = [
 
 const ACHIEVEMENTS = [
   "10+ years leading offensive + defensive engagements across BFSI, government and SaaS",
-  "Trained 20,000+ cybersecurity professionals across India and the UAE",
+  "Trained thousands of cybersecurity professionals across India and the UAE",
   "Recognized at CSI Cyber Security Awards 2025 — Women in Cybersecurity",
   "Speaker at NISS, Intel summits and government cybersecurity conferences",
   "Active responsible-disclosure researcher — Google VRP Hall of Fame",

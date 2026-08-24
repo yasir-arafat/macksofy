@@ -156,7 +156,6 @@ const FAQS = [
 
 const STATS = [
   { value: `${SITE.stats.yearsInBusiness}+ yrs`, label: "Training cyber talent" },
-  { value: `${(SITE.stats.learnersTrained / 1000).toFixed(0)}k+`, label: "Learners trained" },
   { value: "80+", label: "Hiring partners" },
   { value: "EC-Council", label: "Accredited Training Center" },
 ];
