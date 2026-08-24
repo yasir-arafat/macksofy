@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { HardDrive, Cpu, FileSearch, Lock, Gavel, ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const STAGES = [
   { icon: HardDrive, label: "Acquisition", note: "FTK Imager · write-blocker · SHA-256 captured" },
@@ -18,12 +18,8 @@ export function ChainOfCustody() {
         {STAGES.map((s, i) => {
           const Icon = s.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={12} delay={i * 0.1} duration={0.4}
               key={s.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
               className="relative"
             >
               <div className="rounded-xl ring-1 ring-line bg-bg/60 p-4 h-full">
@@ -44,7 +40,7 @@ export function ChainOfCustody() {
                   className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 size-4 text-neon-cyan/40"
                 />
               )}
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

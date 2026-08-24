@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { KeyRound } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Node {
   label: string;
@@ -21,18 +22,14 @@ export function IamBlastRadius() {
     <div className="relative aspect-square w-full max-w-md mx-auto">
       {/* center node */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-        <motion.div
-          initial={{ scale: 0.6, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <Reveal as="div" y={0} duration={0.5}
           className="relative grid size-24 place-items-center rounded-2xl bg-red-500/15 ring-1 ring-red-400/50 shadow-[0_0_60px_rgba(248,113,113,0.35)]"
         >
           <KeyRound className="size-9 text-red-300" />
           <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.18em] text-red-300">
             wildcard role
           </span>
-        </motion.div>
+        </Reveal>
 
         {/* pulse rings */}
         {[0, 1, 2].map((i) => (
@@ -59,12 +56,8 @@ export function IamBlastRadius() {
         const x = 50 + Math.cos(angle) * radius;
         const y = 50 + Math.sin(angle) * radius;
         return (
-          <motion.div
+          <Reveal as="div" y={0} delay={0.6 + i * 0.12} duration={0.45}
             key={n.label}
-            initial={{ opacity: 0, scale: 0.6 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 + i * 0.12, duration: 0.45 }}
             className="absolute -translate-x-1/2 -translate-y-1/2 w-32"
             style={{ top: `${y}%`, left: `${x}%` }}
           >
@@ -77,7 +70,7 @@ export function IamBlastRadius() {
               </div>
             </div>
             {/* connector line drawn via positioned ::after - faked using flex */}
-          </motion.div>
+          </Reveal>
         );
       })}
 

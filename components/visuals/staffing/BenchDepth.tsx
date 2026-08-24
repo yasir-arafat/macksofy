@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Monitor, Crosshair, Award, ClipboardCheck, UserCog, ShieldCheck } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Bench composition.
@@ -89,12 +90,8 @@ export function BenchDepth() {
         {POOLS.map((p, i) => {
           const Icon = p.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.08} duration={0.34} margin="-40px"
               key={p.role}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.08, duration: 0.34 }}
               className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
             >
               <div className="flex items-center gap-3">
@@ -118,7 +115,7 @@ export function BenchDepth() {
               </div>
 
               <p className="mt-2.5 text-[11.5px] leading-relaxed text-fg-muted">{p.skills}</p>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

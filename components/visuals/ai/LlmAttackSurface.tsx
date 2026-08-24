@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   MonitorSmartphone,
   ShieldCheck,
@@ -119,12 +119,8 @@ export function LlmAttackSurface() {
         {LAYERS.map((l, i) => {
           const Icon = l.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.07} duration={0.35} margin="-40px"
               key={l.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.07, duration: 0.35 }}
               className="relative overflow-hidden rounded-xl bg-white/[0.02] ring-1 ring-line/60"
             >
               <div
@@ -169,7 +165,7 @@ export function LlmAttackSurface() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

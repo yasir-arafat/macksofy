@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 
 const ACTORS = [
   {
@@ -63,12 +63,8 @@ export function AptActorCards() {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {ACTORS.map((a, i) => (
-        <motion.div
+        <Reveal as="div" y={16} delay={i * 0.08} duration={0.45}
           key={a.code}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.08, duration: 0.45 }}
           className={`relative rounded-2xl bg-gradient-to-br ${a.accent} ring-1 p-5 lift overflow-hidden`}
         >
           {/* watermark */}
@@ -122,7 +118,7 @@ export function AptActorCards() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

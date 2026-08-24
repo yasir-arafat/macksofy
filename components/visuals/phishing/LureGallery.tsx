@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   Mail,
   Eye,
@@ -132,15 +133,11 @@ export function LureGallery() {
           const Icon = l.icon;
           const isOpen = open === l.id;
           return (
-            <motion.button
+            <Reveal as="button" y={10} delay={i * 0.06} duration={0.32} margin="-40px"
               key={l.id}
               type="button"
               onClick={() => setOpen(isOpen ? null : l.id)}
               aria-expanded={isOpen}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.06, duration: 0.32 }}
               className="rounded-xl bg-white/[0.02] p-4 text-left ring-1 ring-line/60 transition-colors hover:ring-amber-400/40"
             >
               <div className="flex items-start justify-between gap-3">
@@ -185,7 +182,7 @@ export function LureGallery() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.button>
+            </Reveal>
           );
         })}
       </div>

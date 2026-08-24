@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { AlertTriangle, ShieldOff, Target, Wrench, FileText } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const META = [
   { k: "CVSS 3.1", v: "9.1", accent: "text-red-400" },
@@ -19,11 +19,7 @@ const TIMELINE = [
 
 export function SampleFindingCard() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+    <Reveal as="div" y={24} duration={0.6}
       className="relative rounded-3xl glass-strong overflow-hidden"
     >
       {/* severity strip */}
@@ -84,12 +80,8 @@ export function SampleFindingCard() {
           {TIMELINE.map((t, i) => {
             const Icon = t.icon;
             return (
-              <motion.li
+              <Reveal as="li" y={0} delay={0.2 + i * 0.1} duration={0.4}
                 key={t.t}
-                initial={{ opacity: 0, x: -8 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
                 className="flex items-center gap-3"
               >
                 <span className={`grid size-7 place-items-center rounded-full bg-bg ring-1 ring-line ${t.accent}`}>
@@ -99,7 +91,7 @@ export function SampleFindingCard() {
                   {t.t}
                 </span>
                 <span className="text-sm text-fg-muted">{t.v}</span>
-              </motion.li>
+              </Reveal>
             );
           })}
         </ul>
@@ -115,6 +107,6 @@ export function SampleFindingCard() {
           </span>
         </div>
       </div>
-    </motion.div>
+    </Reveal>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Cpu, ArrowRight } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Props {
   phases: MethodologyPhase[];
@@ -122,15 +123,11 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
             }}
           >
             {phases.map((p, i) => (
-              <motion.button
+              <Reveal as="button" y={8} delay={0.1 + i * 0.08}
                 key={i}
                 type="button"
                 onClick={() => setActive(i)}
                 onMouseEnter={() => setActive(i)}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 + i * 0.08 }}
                 className={`group relative rounded-xl bg-bg-2 ring-1 transition-all p-3 text-left ${
                   active === i
                     ? `${tone.ring} ${tone.glow}`
@@ -163,7 +160,7 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
                 <div className="mt-2 font-mono text-[9px] text-fg-faint">
                   {p.activities.length} ACTS · ENABLED
                 </div>
-              </motion.button>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -173,7 +170,7 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
       <div className="lg:col-span-5">
         <motion.div
           key={current.phase}
-          initial={{ opacity: 0, x: 12 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.25 }}
           className="rounded-3xl bg-gradient-to-br from-bg-2/80 to-bg-1/40 ring-1 ring-line p-6 sm:p-7 h-full relative overflow-hidden"
@@ -201,7 +198,7 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
             {current.activities.map((a, i) => (
               <motion.li
                 key={a}
-                initial={{ opacity: 0, x: 6 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.08 + i * 0.05 }}
                 className="relative flex items-center gap-3 rounded-lg bg-bg/40 ring-1 ring-line/60 px-3 py-2 ml-1"

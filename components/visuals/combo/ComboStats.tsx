@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  motion,
   useInView,
   useMotionValue,
   useTransform,
   animate,
 } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Stat {
   value: string;
@@ -51,12 +51,8 @@ export function ComboStats({ stats }: { stats: Stat[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((s, i) => (
-        <motion.div
+        <Reveal as="div" y={14} delay={i * 0.07} duration={0.45}
           key={s.label + i}
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.07, duration: 0.45 }}
           className="relative overflow-hidden rounded-2xl glass p-5 sm:p-6"
         >
           <div
@@ -75,7 +71,7 @@ export function ComboStats({ stats }: { stats: Stat[] }) {
           <div className="relative mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-muted">
             {s.label}
           </div>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   FileWarning,
   Search,
@@ -122,12 +122,8 @@ export function PromptInjectionChain() {
             ? { ring: "ring-emerald-400/40 bg-emerald-400/10", text: "text-emerald-300" }
             : { ring: "ring-violet-400/40 bg-violet-400/10", text: "text-violet-300" };
           return (
-            <motion.li
+            <Reveal as="li" y={0} delay={i * 0.09} duration={0.4} margin="-60px"
               key={s.title}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.09, duration: 0.4 }}
               className="relative flex gap-4 pb-7 last:pb-0"
             >
               <div
@@ -164,7 +160,7 @@ export function PromptInjectionChain() {
                   <span>{s.guardrail}</span>
                 </div>
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CalendarDays, CalendarRange, CalendarCheck, CalendarClock } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * What a fractional CISO's calendar actually contains.
@@ -84,12 +84,8 @@ export function OperatingRhythm() {
         {CADENCE.map((c, i) => {
           const Icon = c.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.08} duration={0.34} margin="-40px"
               key={c.period}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.08, duration: 0.34 }}
               className="relative overflow-hidden rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
             >
               <div aria-hidden className={`absolute inset-x-0 top-0 h-0.5 ${c.bar}`} />
@@ -109,7 +105,7 @@ export function OperatingRhythm() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

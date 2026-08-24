@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Item {
   code: string;
@@ -35,14 +36,10 @@ export function OwaspMap() {
           {ITEMS.map((it, i) => {
             const isActive = i === active;
             return (
-              <motion.button
+              <Reveal as="button" y={0} delay={i * 0.04}
                 key={it.code}
                 onClick={() => setActive(i)}
                 onMouseEnter={() => setActive(i)}
-                initial={{ opacity: 0, scale: 0.92 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04 }}
                 className={`relative rounded-xl p-3 text-left ring-1 transition-all ${
                   isActive
                     ? "bg-neon-cyan/15 ring-neon-cyan/50 shadow-[0_0_30px_rgba(0,229,255,0.18)]"
@@ -58,7 +55,7 @@ export function OwaspMap() {
                 <div className="mt-1 text-[10px] leading-tight font-semibold text-fg">
                   {it.name}
                 </div>
-              </motion.button>
+              </Reveal>
             );
           })}
         </div>
@@ -67,7 +64,7 @@ export function OwaspMap() {
       <div className="lg:col-span-5">
         <motion.div
           key={item.code}
-          initial={{ opacity: 0, y: 8 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="rounded-2xl glass-strong p-6 h-full"

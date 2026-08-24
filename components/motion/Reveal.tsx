@@ -20,6 +20,13 @@ const TAGS = {
   section: motion.section,
   blockquote: motion.blockquote,
   figure: motion.figure,
+  h2: motion.h2,
+  h3: motion.h3,
+  pre: motion.pre,
+  button: motion.button,
+  tr: motion.tr,
+  ul: motion.ul,
+  ol: motion.ol,
 } as const;
 
 export type RevealTag = keyof typeof TAGS;

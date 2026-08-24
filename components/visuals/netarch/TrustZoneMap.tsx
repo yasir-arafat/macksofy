@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowRight, Unplug, GitFork } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Current state versus target state, in the terms a segmentation memo uses.
@@ -77,12 +77,8 @@ export function TrustZoneMap() {
 
       <div className="mt-5 space-y-2.5">
         {ZONES.map((z, i) => (
-          <motion.div
+          <Reveal as="div" y={10} delay={i * 0.07} duration={0.32} margin="-40px"
             key={z.name}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ delay: i * 0.07, duration: 0.32 }}
             className="grid gap-3 rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60 sm:grid-cols-12 sm:items-center"
           >
             <div className="sm:col-span-3">
@@ -106,7 +102,7 @@ export function TrustZoneMap() {
               <span className="mt-0.5 shrink-0 text-emerald-300/70">▸</span>
               <p className="text-[12px] leading-relaxed text-fg-muted">{z.after}</p>
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Wrench, AlertTriangle, PlugZap } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * ATT&CK coverage before and after, plus what the coverage map records for
@@ -99,12 +100,8 @@ export function CoverageDelta() {
           {OUTCOMES.map((o, i) => {
             const Icon = o.icon;
             return (
-              <motion.div
+              <Reveal as="div" y={8} delay={i * 0.08} duration={0.3}
                 key={o.label}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.3 }}
                 className="rounded-xl bg-white/[0.02] p-3.5 ring-1 ring-line/60"
               >
                 <div className="flex items-center gap-2">
@@ -114,7 +111,7 @@ export function CoverageDelta() {
                   <span className="font-display text-[12.5px] font-bold text-fg">{o.label}</span>
                 </div>
                 <p className="mt-2 text-[11.5px] leading-relaxed text-fg-muted">{o.desc}</p>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>

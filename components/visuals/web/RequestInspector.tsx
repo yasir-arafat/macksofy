@@ -2,16 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, AlertCircle, Check } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 export function RequestInspector() {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       {/* REQUEST */}
-      <motion.div
-        initial={{ opacity: 0, x: -16 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+      <Reveal as="div" y={0} duration={0.5}
         className="rounded-2xl ring-1 ring-line bg-bg/80 overflow-hidden font-mono text-[12px] leading-relaxed"
       >
         <div className="flex items-center justify-between px-4 py-2 border-b border-line bg-bg-1/80">
@@ -49,14 +46,10 @@ export function RequestInspector() {
           <AlertCircle className="size-3.5" />
           attacker requesting another user&rsquo;s order
         </div>
-      </motion.div>
+      </Reveal>
 
       {/* RESPONSE */}
-      <motion.div
-        initial={{ opacity: 0, x: 16 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.15 }}
+      <Reveal as="div" y={0} delay={0.15} duration={0.5}
         className="rounded-2xl ring-1 ring-red-400/40 bg-bg/80 overflow-hidden font-mono text-[12px] leading-relaxed shadow-[0_0_40px_rgba(248,113,113,0.15)]"
       >
         <div className="flex items-center justify-between px-4 py-2 border-b border-red-400/30 bg-red-500/10">
@@ -88,7 +81,7 @@ export function RequestInspector() {
           <Check className="size-3.5" />
           BOLA confirmed · CVSS 9.1 · CWE-639
         </div>
-      </motion.div>
+      </Reveal>
 
       <div className="lg:col-span-2 flex items-center justify-center gap-3 py-2 text-[10px] font-mono uppercase tracking-[0.22em] text-fg-faint">
         <span>request</span>

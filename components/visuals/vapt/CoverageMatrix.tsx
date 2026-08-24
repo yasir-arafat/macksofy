@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   Globe,
   Server,
@@ -81,11 +81,7 @@ export function CoverageMatrix() {
                   const Icon = s.icon;
                   return (
                     <td key={ci} className="p-0">
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.92 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: ri * 0.05 + ci * 0.04, duration: 0.35 }}
+                      <Reveal as="div" y={0} delay={ri * 0.05 + ci * 0.04} duration={0.35}
                         className={`mx-auto flex h-10 items-center justify-center rounded-lg ring-1 ${s.bg} ${s.ring}`}
                       >
                         {Icon ? (
@@ -96,7 +92,7 @@ export function CoverageMatrix() {
                         ) : (
                           <span className="font-mono text-[11px] text-fg-faint">{s.label}</span>
                         )}
-                      </motion.div>
+                      </Reveal>
                     </td>
                   );
                 })}

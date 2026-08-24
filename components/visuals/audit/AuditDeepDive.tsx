@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { PillarRadial } from "./PillarRadial";
+import { Reveal } from "@/components/motion/Reveal";
 
 export interface AuditPillar {
   title: string;
@@ -156,12 +157,8 @@ export function AuditDeepDive({
             {stats.map((s, i) => {
               const Icon = s.icon;
               return (
-                <motion.div
+                <Reveal as="div" y={14} delay={i * 0.06} duration={0.4}
                   key={s.label}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06, duration: 0.4 }}
                   className="relative rounded-2xl glass p-5 sm:p-6 overflow-hidden"
                 >
                   <div
@@ -180,7 +177,7 @@ export function AuditDeepDive({
                   <div className="relative mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
                     {s.label}
                   </div>
-                </motion.div>
+                </Reveal>
               );
             })}
           </div>
@@ -216,12 +213,8 @@ export function AuditDeepDive({
                 const Icon = PILLAR_ICONS[i % PILLAR_ICONS.length];
                 const accent = PILLAR_ACCENTS[i % PILLAR_ACCENTS.length];
                 return (
-                  <motion.div
+                  <Reveal as="div" y={16} delay={i * 0.05} duration={0.45} margin="-40px"
                     key={p.title}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ delay: i * 0.05, duration: 0.45 }}
                     whileHover={{ y: -4 }}
                     className="group relative rounded-2xl glass p-6 h-full flex flex-col overflow-hidden transition-all ring-1 ring-transparent hover:ring-neon-cyan/40"
                   >
@@ -255,7 +248,7 @@ export function AuditDeepDive({
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </Reveal>
                 );
               })}
             </div>
@@ -305,12 +298,8 @@ export function AuditDeepDive({
                 {phases.map((p, i) => {
                   const accent = PILLAR_ACCENTS[i % PILLAR_ACCENTS.length];
                   return (
-                    <motion.div
+                    <Reveal as="div" y={10} delay={0.2 + i * 0.08} duration={0.45} margin="-40px"
                       key={p.phase}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ delay: 0.2 + i * 0.08, duration: 0.45 }}
                       className="relative flex flex-col items-center text-center"
                     >
                       <div
@@ -326,7 +315,7 @@ export function AuditDeepDive({
                       <div className="mt-1 text-[12px] font-semibold text-fg leading-tight max-w-[18ch] line-clamp-2">
                         {p.phase.replace(/^\d+\s*[·.\-]\s*/, "")}
                       </div>
-                    </motion.div>
+                    </Reveal>
                   );
                 })}
               </div>

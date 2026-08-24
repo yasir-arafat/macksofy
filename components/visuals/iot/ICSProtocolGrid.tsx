@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   Radio,
   Plug,
@@ -152,12 +153,8 @@ export function ICSProtocolGrid() {
         const Icon = p.icon;
         const s = SEV_STYLES[p.sev];
         return (
-          <motion.div
+          <Reveal as="div" y={14} delay={(i % 6) * 0.06 + Math.floor(i / 6) * 0.18} duration={0.4}
             key={p.name}
-            initial={{ opacity: 0, y: 14, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: (i % 6) * 0.06 + Math.floor(i / 6) * 0.18, duration: 0.4 }}
             className={`group relative rounded-xl ring-1 ${s.ring} bg-bg-1/40 backdrop-blur-sm p-4 transition-all hover:-translate-y-0.5`}
           >
             <div className="flex items-start justify-between gap-2">
@@ -197,7 +194,7 @@ export function ICSProtocolGrid() {
                 <span className="font-mono text-[10px] text-fg-faint">:{p.port}</span>
               )}
             </div>
-          </motion.div>
+          </Reveal>
         );
       })}
     </div>

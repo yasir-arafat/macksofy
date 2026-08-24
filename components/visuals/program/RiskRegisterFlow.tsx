@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FileX2, Crosshair, FileScan, ShieldCheck, Users, Layers, ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Why one contract beats five: the findings converge instead of scattering.
@@ -40,19 +40,15 @@ export function RiskRegisterFlow() {
           {SOURCES.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div
+              <Reveal as="div" y={0} delay={i * 0.07} duration={0.3} margin="-40px"
                 key={s.label}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.07, duration: 0.3 }}
                 className="flex items-center gap-2.5 rounded-lg bg-white/[0.02] px-3 py-2.5 ring-1 ring-line/60"
               >
                 <div className={`grid size-8 shrink-0 place-items-center rounded-md ring-1 ${s.tone}`}>
                   <Icon className="size-[15px]" />
                 </div>
                 <span className="text-[12.5px] text-fg-muted">{s.label}</span>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>
@@ -63,11 +59,7 @@ export function RiskRegisterFlow() {
         </div>
 
         {/* register */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.35, duration: 0.4 }}
+        <Reveal as="div" y={0} delay={0.35} duration={0.4}
           className="rounded-xl bg-amber-400/[0.07] p-4 ring-1 ring-amber-400/30 lg:col-span-6"
         >
           <div className="font-display text-sm font-bold text-fg">One risk register</div>
@@ -79,7 +71,7 @@ export function RiskRegisterFlow() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </Reveal>
       </div>
 
       <div className="mt-5 flex gap-2.5 rounded-lg bg-red-500/[0.07] px-3 py-2.5 ring-1 ring-red-400/25">

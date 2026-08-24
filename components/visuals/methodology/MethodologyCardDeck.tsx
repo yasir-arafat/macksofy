@@ -149,7 +149,7 @@ export function MethodologyCardDeck({ phases, accent }: Props) {
             />
           );
         })}
-        <AnimatePresence mode="wait" custom={direction}>
+        <AnimatePresence mode="wait" custom={direction} initial={false}>
           <motion.div
             key={current.phase}
             custom={direction}
@@ -174,7 +174,7 @@ export function MethodologyCardDeck({ phases, accent }: Props) {
               {current.activities.map((a, i) => (
                 <motion.li
                   key={a}
-                  initial={{ opacity: 0, y: 6 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.06 + i * 0.05 }}
                   className="flex gap-2.5 rounded-lg bg-bg-1/60 p-3"

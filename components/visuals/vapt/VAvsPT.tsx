@@ -1,8 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ScanSearch, Bug } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 
 function Counter({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) {
   const reduce = useReducedMotion();
@@ -65,11 +66,7 @@ const PT = {
 function Card({ side }: { side: typeof VA }) {
   const Icon = side.icon;
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6 }}
+    <Reveal as="div" y={20} duration={0.6} margin="-80px"
       className="relative rounded-3xl glass-strong p-7 overflow-hidden"
     >
       <div className="flex items-start justify-between gap-4">
@@ -88,24 +85,20 @@ function Card({ side }: { side: typeof VA }) {
 
       <div className="mt-7 space-y-4">
         {side.rows.map((r, i) => (
-          <motion.div
+          <Reveal as="div" y={0} delay={0.15 + i * 0.08} duration={0.4}
             key={r.label}
-            initial={{ opacity: 0, x: -8 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 + i * 0.08, duration: 0.4 }}
             className="flex items-baseline justify-between gap-3 border-b border-line/50 pb-3"
           >
             <span className="text-sm text-fg-muted">{r.label}</span>
             <span className={`font-display font-bold text-2xl ${side.accent} font-mono tabular-nums`}>
               <Counter to={r.value} suffix={r.suffix} />
             </span>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 
       <p className="mt-6 text-sm text-fg italic">{side.footer}</p>
-    </motion.div>
+    </Reveal>
   );
 }
 

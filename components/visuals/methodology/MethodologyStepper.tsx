@@ -107,7 +107,7 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
             aria-hidden
             className={`absolute -top-20 -right-20 size-72 rounded-full ${tone.bgSoft} blur-3xl pointer-events-none`}
           />
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={current.phase}
               initial={{ opacity: 0, y: 12 }}
@@ -151,7 +151,7 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
                 {current.activities.map((a, i) => (
                   <motion.li
                     key={a}
-                    initial={{ opacity: 0, x: -6 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.06 }}
                     className="flex gap-3 rounded-lg bg-bg-1/60 ring-1 ring-line/60 p-3"

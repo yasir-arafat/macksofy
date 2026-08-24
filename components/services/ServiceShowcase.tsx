@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Eyebrow } from "@/components/ui/SectionTitle";
 import { SERVICES, type Service } from "@/content/services";
+import { Reveal } from "@/components/motion/Reveal";
 
 type Tone = "offensive" | "defensive" | "managed";
 
@@ -82,25 +83,17 @@ export function ServiceShowcase({
       <div className="relative grid gap-8 lg:grid-cols-12 items-end">
         <div className="lg:col-span-8">
           <Eyebrow color={cfg.eyebrowColor}>{eyebrow}</Eyebrow>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          <Reveal as="h2" y={16} duration={0.6} margin="-80px"
             className="mt-4 font-display text-3xl font-black sm:text-4xl lg:text-5xl text-balance leading-[1.05]"
           >
             {title}
-          </motion.h2>
+          </Reveal>
           {kicker && (
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <Reveal as="p" y={12} delay={0.1} duration={0.6} margin="-80px"
               className="mt-5 max-w-xl text-fg-muted text-pretty"
             >
               {kicker}
-            </motion.p>
+            </Reveal>
           )}
         </div>
         <div className="lg:col-span-4 flex lg:justify-end">
@@ -142,15 +135,7 @@ function ServiceCard({
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        delay: 0.05 + index * 0.07,
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+    <Reveal as="div" y={24} delay={0.05 + index * 0.07} duration={0.55} margin="-40px"
       whileHover={{ y: -6 }}
       className="h-full"
     >
@@ -221,7 +206,7 @@ function ServiceCard({
           className={`pointer-events-none absolute -right-12 -top-12 size-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-60 bg-gradient-to-br ${cfg.fromGrad} to-transparent`}
         />
       </Link>
-    </motion.div>
+    </Reveal>
   );
 }
 

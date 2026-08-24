@@ -234,7 +234,7 @@ export function MethodologyRadial({ phases, accent }: Props) {
 
       {/* PANEL */}
       <div className="lg:col-span-5">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={current.phase}
             initial={{ opacity: 0, x: 12 }}
@@ -254,7 +254,7 @@ export function MethodologyRadial({ phases, accent }: Props) {
               {current.activities.map((a, i) => (
                 <motion.li
                   key={a}
-                  initial={{ opacity: 0, x: -6 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.06 + i * 0.05 }}
                   className="flex gap-2.5 text-sm text-fg-muted leading-relaxed"

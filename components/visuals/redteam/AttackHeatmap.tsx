@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 
 type Intensity = 0 | 1 | 2 | 3;
 
@@ -105,27 +105,19 @@ export function AttackHeatmap() {
       <div className="grid grid-flow-col auto-cols-[140px] sm:auto-cols-[150px] gap-2 min-w-full">
         {TACTICS.map((t, ci) => (
           <div key={t.name}>
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: ci * 0.05 }}
+            <Reveal as="div" y={8} delay={ci * 0.05}
               className="text-center font-mono text-[10px] uppercase tracking-[0.16em] text-fg-faint pb-2 border-b border-line/40"
             >
               {t.name}
-            </motion.div>
+            </Reveal>
             <div className="mt-2 space-y-1.5">
               {t.techniques.map((tech, ri) => (
-                <motion.div
+                <Reveal as="div" y={0} delay={ci * 0.05 + ri * 0.04} duration={0.3}
                   key={tech.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: ci * 0.05 + ri * 0.04, duration: 0.3 }}
                   className={`rounded-lg ring-1 px-2 py-2 text-[10px] font-mono leading-tight text-center ${COLOR[tech.intensity]}`}
                 >
                   {tech.name}
-                </motion.div>
+                </Reveal>
               ))}
             </div>
           </div>

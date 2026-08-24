@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Cloud, Server, Lock, Database, AlertTriangle, Network } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const PROVIDERS = [
   {
@@ -40,12 +40,8 @@ export function CloudArchitecture() {
   return (
     <div className="grid gap-5 lg:grid-cols-3">
       {PROVIDERS.map((p, i) => (
-        <motion.div
+        <Reveal as="div" y={20} delay={i * 0.12} duration={0.5}
           key={p.name}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.12, duration: 0.5 }}
           className={`relative rounded-2xl glass-strong p-5 ring-1 ${p.color.replace("text-", "ring-").replace(/-\d{3}/g, "-400/30")}`}
         >
           <div className="flex items-center gap-3 mb-5">
@@ -60,12 +56,8 @@ export function CloudArchitecture() {
               const CIcon = c.icon;
               const sev = c.severity;
               return (
-                <motion.div
+                <Reveal as="div" y={0} delay={i * 0.12 + ci * 0.06 + 0.2} duration={0.35}
                   key={c.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12 + ci * 0.06 + 0.2, duration: 0.35 }}
                   className={`relative rounded-lg ring-1 px-3 py-2.5 ${
                     c.findings === 0
                       ? "ring-emerald-400/20 bg-emerald-500/5"
@@ -94,7 +86,7 @@ export function CloudArchitecture() {
                   ) : (
                     <div className="mt-1 font-mono text-[10px] text-emerald-400">clean</div>
                   )}
-                </motion.div>
+                </Reveal>
               );
             })}
           </div>
@@ -105,7 +97,7 @@ export function CloudArchitecture() {
               {p.components.reduce((s, c) => s + c.findings, 0)} gaps
             </span>
           </div>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

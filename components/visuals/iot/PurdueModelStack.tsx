@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   Building2,
   Shield,
@@ -75,12 +76,8 @@ export function PurdueModelStack() {
         {LAYERS.map((layer, i) => {
           const Icon = layer.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={0} delay={i * 0.1} duration={0.45}
               key={layer.num}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: i * 0.1, duration: 0.45 }}
               className={`relative rounded-2xl ring-1 ${layer.accent} backdrop-blur-sm overflow-hidden`}
             >
               <div className="grid grid-cols-12 gap-3 px-4 py-3.5 sm:px-5">
@@ -112,7 +109,7 @@ export function PurdueModelStack() {
                 transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
                 className="absolute inset-x-4 bottom-0 h-px bg-current opacity-30"
               />
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>
@@ -123,15 +120,11 @@ export function PurdueModelStack() {
         className="pointer-events-none absolute top-0 bottom-0 hidden sm:flex flex-col items-center gap-2"
         style={{ right: "-2.25rem" }}
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.0, duration: 0.4 }}
+        <Reveal as="div" y={0} delay={1.0} duration={0.4}
           className="font-mono text-[9px] uppercase tracking-[0.18em] text-red-300 -rotate-90 origin-center whitespace-nowrap translate-y-12"
         >
           IT → OT pivot
-        </motion.div>
+        </Reveal>
         <motion.div
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
@@ -140,15 +133,11 @@ export function PurdueModelStack() {
           style={{ transformOrigin: "top" }}
           className="w-px flex-1 bg-gradient-to-b from-sky-400/60 via-amber-400/60 to-red-400/70"
         />
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 2.4, duration: 0.4 }}
+        <Reveal as="div" y={-8} delay={2.4} duration={0.4}
           className="grid size-6 place-items-center rounded-full ring-1 ring-red-400/60 bg-red-500/15 text-red-300"
         >
           <ArrowDown className="size-3.5" />
-        </motion.div>
+        </Reveal>
       </div>
     </div>
   );

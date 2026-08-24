@@ -167,7 +167,7 @@ export function MobileTopTen() {
       <div className="lg:col-span-5">
         <motion.div
           key={active}
-          initial={{ opacity: 0, y: 8 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25 }}
           className="rounded-2xl glass p-6 h-full"

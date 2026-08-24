@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CalendarClock } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * The twelve-month cadence, with the regulatory calendar it is built around.
@@ -83,12 +83,8 @@ export function QuarterlyCadence() {
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {QUARTERS.map((q, i) => (
-          <motion.div
+          <Reveal as="div" y={10} delay={i * 0.08} duration={0.34} margin="-40px"
             key={q.q}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ delay: i * 0.08, duration: 0.34 }}
             className="relative overflow-hidden rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
           >
             <div aria-hidden className={`absolute inset-x-0 top-0 h-0.5 ${q.bar}`} />
@@ -110,7 +106,7 @@ export function QuarterlyCadence() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 

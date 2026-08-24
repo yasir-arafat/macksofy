@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, TrendingUp, Sparkles } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   ACCENT_TOKEN,
   CATEGORY_META,
@@ -56,12 +57,8 @@ export function OutcomesCareerLadder({
                 const Icon = meta.icon;
                 const ms = ((i + 1) / outcomes.length) * 100;
                 return (
-                  <motion.li
+                  <Reveal as="li" y={0} delay={i * 0.06} duration={0.4} margin="-10%"
                     key={i}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-10%" }}
-                    transition={{ duration: 0.4, delay: i * 0.06 }}
                     className="relative flex items-start gap-3 rounded-xl bg-bg-1/60 ring-1 ring-line/60 p-3 pl-12"
                   >
                     <div
@@ -89,7 +86,7 @@ export function OutcomesCareerLadder({
                         />
                       </div>
                     </div>
-                  </motion.li>
+                  </Reveal>
                 );
               })}
             </ol>
@@ -121,12 +118,8 @@ export function OutcomesCareerLadder({
                   style={{ color: tone.hex }}
                 />
                 {careerRoles.map((r, i) => (
-                  <motion.li
+                  <Reveal as="li" y={8} delay={0.1 + i * 0.08} duration={0.4}
                     key={r.role}
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
                     className="relative pl-10"
                   >
                     {/* Step marker */}
@@ -151,7 +144,7 @@ export function OutcomesCareerLadder({
                         </span>
                       </div>
                     </div>
-                  </motion.li>
+                  </Reveal>
                 ))}
               </ol>
             ) : (

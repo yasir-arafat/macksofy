@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Globe2 } from "lucide-react";
 import { LOCATIONS } from "./Locations";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface ClockState {
   time: string;
@@ -101,12 +101,8 @@ export function WorldClocks() {
             ? evalLocation(now, loc.tz, loc.hours)
             : { time: "--:--", weekday: "", open: false, utcOffset: "" };
           return (
-            <motion.div
+            <Reveal as="div" y={8} delay={i * 0.05}
               key={loc.key}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
               className={`relative rounded-2xl p-4 ring-1 transition-all ${
                 loc.primary
                   ? "bg-gradient-to-br from-neon-cyan/[0.08] to-neon-purple/[0.05] ring-neon-cyan/30 shadow-[0_0_24px_-12px_rgba(0,229,255,0.45)]"
@@ -144,7 +140,7 @@ export function WorldClocks() {
                 </div>
               </div>
               <div className="mt-2 text-[10px] text-fg-dim">{loc.role}</div>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

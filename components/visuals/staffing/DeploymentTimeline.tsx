@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Zap, Hourglass } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * The gap this service exists to close.
@@ -35,11 +36,7 @@ export function DeploymentTimeline() {
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         {/* bench */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
+        <Reveal as="div" y={10} duration={0.35}
           className="rounded-xl bg-emerald-400/[0.07] p-4 ring-1 ring-emerald-400/30"
         >
           <div className="flex items-center gap-2.5">
@@ -72,14 +69,10 @@ export function DeploymentTimeline() {
               </li>
             ))}
           </ol>
-        </motion.div>
+        </Reveal>
 
         {/* hiring */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35, delay: 0.1 }}
+        <Reveal as="div" y={10} delay={0.1} duration={0.35}
           className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
         >
           <div className="flex items-center gap-2.5">
@@ -112,7 +105,7 @@ export function DeploymentTimeline() {
               </li>
             ))}
           </ol>
-        </motion.div>
+        </Reveal>
       </div>
 
       <p className="mt-5 border-t border-line/60 pt-4 text-[11px] leading-relaxed text-fg-faint">

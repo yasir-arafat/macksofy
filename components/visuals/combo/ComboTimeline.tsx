@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   Compass,
   Search,
@@ -62,16 +63,8 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
             const dot = accent.split(" ")[0];
             const dur = durationOf(p, i);
             return (
-              <motion.li
+              <Reveal as="li" y={16} delay={0.1 + i * 0.09} duration={0.5} margin="-60px"
                 key={p.phase}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  delay: 0.1 + i * 0.09,
-                  duration: 0.5,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
                 className="relative z-10 pt-7"
               >
                 {/* station marker straddling the card's top edge */}
@@ -115,7 +108,7 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
                     ))}
                   </ul>
                 </div>
-              </motion.li>
+              </Reveal>
             );
           })}
         </ol>
@@ -131,12 +124,8 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
             const dur = durationOf(p, i);
             const last = i === n - 1;
             return (
-              <motion.li
+              <Reveal as="li" y={0} delay={i * 0.06} duration={0.4} margin="-40px"
                 key={p.phase}
-                initial={{ opacity: 0, x: 12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.06, duration: 0.4 }}
                 className="flex gap-4"
               >
                 {/* gutter: marker + connector that grows to the next marker */}
@@ -187,7 +176,7 @@ export function ComboTimeline({ phases }: { phases: Phase[] }) {
                     </ul>
                   </div>
                 </div>
-              </motion.li>
+              </Reveal>
             );
           })}
         </ol>

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { AlertTriangle, Gauge as GaugeIcon, Activity, Cpu } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Gauge {
   label: string;
@@ -228,12 +229,8 @@ export function OTHmiPanel() {
           </span>
         </div>
         {ALARMS.map((a, i) => (
-          <motion.div
+          <Reveal as="div" y={0} delay={0.15 + i * 0.1} duration={0.35}
             key={a.code}
-            initial={{ opacity: 0, x: -8 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 + i * 0.1, duration: 0.35 }}
             className="flex items-start gap-2 text-[12px] leading-tight"
           >
             <span className={`mt-1 inline-block size-1.5 rounded-full ${SEV_BAR[a.sev]}`} />
@@ -249,7 +246,7 @@ export function OTHmiPanel() {
               </div>
               <div className="text-fg-muted">{a.msg}</div>
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 

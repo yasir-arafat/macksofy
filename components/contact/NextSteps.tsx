@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { PhoneCall, FileText, Receipt, Rocket } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const STEPS = [
   {
@@ -48,12 +48,8 @@ export function NextSteps() {
         {STEPS.map((s, i) => {
           const Icon = s.icon;
           return (
-            <motion.li
+            <Reveal as="li" y={0} delay={0.06 + i * 0.08} duration={0.35}
               key={s.title}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.06 + i * 0.08, duration: 0.35 }}
               className="relative flex gap-4"
             >
               <div className="relative grid size-9 shrink-0 place-items-center rounded-full bg-bg ring-1 ring-neon-cyan/40 text-neon-cyan z-10 shadow-[0_0_20px_rgba(0,229,255,0.25)]">
@@ -70,7 +66,7 @@ export function NextSteps() {
                 </div>
                 <p className="mt-1 text-xs text-fg-muted leading-relaxed">{s.desc}</p>
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>

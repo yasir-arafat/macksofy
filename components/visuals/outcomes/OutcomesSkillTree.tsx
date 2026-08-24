@@ -68,7 +68,7 @@ export function OutcomesSkillTree({
 
       {/* INSPECTOR */}
       <div className="lg:col-span-5">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active}
             initial={{ opacity: 0, y: 8 }}
@@ -254,7 +254,11 @@ function SkillGraph({
           const Icon = meta.icon;
           const isActive = i === activeIndex;
           return (
+            // NOT a <Reveal>: this tile passes its own ref (tileRefs drives the
+            // connector-line geometry) and Reveal owns the ref slot. initial={false}
+            // still fixes the SSR side — the tile ships visible instead of opacity:0.
             <motion.button
+              initial={false}
               key={i}
               ref={(el) => {
                 tileRefs.current[i] = el;
@@ -262,14 +266,6 @@ function SkillGraph({
               type="button"
               onClick={() => onSelect(i)}
               onMouseEnter={() => onSelect(i)}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{
-                duration: 0.4,
-                delay: 0.05 + i * 0.06,
-                ease: [0.22, 1, 0.36, 1],
-              }}
               whileHover={{ y: -3 }}
               className={`group relative flex flex-col items-start gap-2 rounded-2xl ring-1 p-3.5 text-left transition-all overflow-hidden ${
                 isActive

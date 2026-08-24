@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MapPin, Navigation, Phone, Mail, Globe2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 export interface OfficeLocation {
   city: string;
@@ -40,11 +40,7 @@ export function OfficeMap({
   )}&z=${loc.zoom}&output=embed`;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+    <Reveal as="div" y={20} delay={index * 0.08} duration={0.5} margin="-80px"
       className={cn(
         "relative isolate overflow-hidden rounded-3xl ring-1 transition-all",
         loc.primary
@@ -185,6 +181,6 @@ export function OfficeMap({
           )}
         </div>
       </div>
-    </motion.div>
+    </Reveal>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Check, X, AlertTriangle } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Segmentation validation matrix — the deliverable that answers "does the
@@ -121,16 +121,12 @@ export function SegmentationMatrix() {
                 </th>
                 {row.cells.map((cell, ci) => (
                   <td key={cell.to}>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.88 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: ri * 0.08 + ci * 0.03, duration: 0.28 }}
+                    <Reveal as="div" y={0} delay={ri * 0.08 + ci * 0.03} duration={0.28}
                       title={cell.note ?? STYLE[cell.verdict].label}
                       className={`grid h-10 place-items-center rounded-lg ring-1 ${STYLE[cell.verdict].cls}`}
                     >
                       <Glyph verdict={cell.verdict} />
-                    </motion.div>
+                    </Reveal>
                   </td>
                 ))}
               </tr>

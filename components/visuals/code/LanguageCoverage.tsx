@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Language coverage grid — which SAST engines set the baseline per language,
@@ -108,12 +109,8 @@ export function LanguageCoverage() {
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {LANGS.map((l, i) => (
-          <motion.div
+          <Reveal as="div" y={10} delay={i * 0.05} duration={0.32} margin="-40px"
             key={l.name}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ delay: i * 0.05, duration: 0.32 }}
             className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
           >
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
@@ -138,7 +135,7 @@ export function LanguageCoverage() {
               <span className="mt-0.5 shrink-0 text-emerald-300/70">▸</span>
               <span>{l.manual}</span>
             </p>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 

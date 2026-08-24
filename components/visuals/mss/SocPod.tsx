@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Headphones, SearchCode, Brain, Siren, Clock } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * The analyst pod and its SLA ladder.
@@ -87,12 +88,8 @@ export function SocPod() {
         {TIERS.map((t, i) => {
           const Icon = t.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.08} duration={0.34} margin="-40px"
               key={t.tier}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.08, duration: 0.34 }}
               className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
             >
               <div className="flex flex-wrap items-center gap-3">
@@ -130,7 +127,7 @@ export function SocPod() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

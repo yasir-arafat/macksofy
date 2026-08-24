@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Trash2, EyeOff, ShieldAlert, CheckCircle2, FileClock } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * What a large firewall rule base is actually made of.
@@ -91,12 +92,8 @@ export function RuleBaseCleanup() {
         {CATEGORIES.map((c, i) => {
           const Icon = c.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={0} delay={i * 0.07} duration={0.3} margin="-40px"
               key={c.label}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.07, duration: 0.3 }}
               className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
             >
               <div className="flex items-center gap-2.5">
@@ -107,7 +104,7 @@ export function RuleBaseCleanup() {
                 <span className="ml-auto font-display text-sm font-black text-fg">{c.pct}%</span>
               </div>
               <p className="mt-2 text-[12px] leading-relaxed text-fg-muted">{c.desc}</p>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

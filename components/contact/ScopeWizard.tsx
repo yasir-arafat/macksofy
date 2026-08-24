@@ -182,7 +182,7 @@ export function ScopeWizard() {
         </div>
 
         {/* CHOICES */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={step}
             initial={{ opacity: 0, x: 12 }}

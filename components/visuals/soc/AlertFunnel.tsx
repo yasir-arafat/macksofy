@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 
 const STAGES = [
   { label: "Raw events ingested", value: 12_400_000, suffix: "/day", widthPct: 100, color: "from-neon-cyan/30 to-neon-cyan/0", text: "text-neon-cyan" },
@@ -18,12 +19,8 @@ export function AlertFunnel() {
     <div className="rounded-2xl glass p-6 sm:p-8">
       <div className="space-y-3">
         {STAGES.map((s, i) => (
-          <motion.div
+          <Reveal as="div" y={10} delay={i * 0.12} duration={0.45}
             key={s.label}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.12, duration: 0.45 }}
             className="relative"
           >
             <div className="flex items-baseline justify-between mb-1.5 gap-3 flex-wrap">
@@ -47,7 +44,7 @@ export function AlertFunnel() {
                 className={`h-full bg-gradient-to-r ${s.color}`}
               />
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 

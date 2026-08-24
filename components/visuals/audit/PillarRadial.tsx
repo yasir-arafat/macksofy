@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useId } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Pillar {
   title: string;
@@ -164,12 +165,8 @@ export function PillarRadial({ pillars }: Props) {
               ? Math.round((p.points.length / totalPoints) * 100)
               : 0;
             return (
-              <motion.li
+              <Reveal as="li" y={0} delay={0.3 + i * 0.06} duration={0.4} margin="-40px"
                 key={p.title}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: 0.3 + i * 0.06, duration: 0.4 }}
                 className="rounded-xl bg-bg-2/40 ring-1 ring-line px-3 py-2.5"
               >
                 <div className="flex items-center gap-3">
@@ -201,7 +198,7 @@ export function PillarRadial({ pillars }: Props) {
                     }}
                   />
                 </div>
-              </motion.li>
+              </Reveal>
             );
           })}
         </ul>

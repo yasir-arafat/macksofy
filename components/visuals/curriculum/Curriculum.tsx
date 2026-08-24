@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   ArrowRight,
   ArrowLeft,
@@ -183,7 +184,7 @@ export function Curriculum({
       </div>
 
       {/* BODY — view-dependent */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         {view === "split" ? (
           <motion.div
             key="split"
@@ -483,12 +484,8 @@ function TrackView({
           const isExpanded = expanded.has(mod.idx);
           const isActive = active === mod.idx;
           return (
-            <motion.li
+            <Reveal as="li" y={12} delay={0.04} duration={0.4} margin="-10%"
               key={mod.idx}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.4, delay: 0.04 }}
               className="relative pl-14 lg:pl-20"
               onMouseEnter={() => setActive(mod.idx)}
             >
@@ -579,7 +576,7 @@ function TrackView({
                   </div>
                 </div>
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>

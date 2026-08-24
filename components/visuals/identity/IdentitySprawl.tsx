@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Server, Cloud, KeyRound, Boxes, AlertTriangle, ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * The hybrid-identity estate as it actually is, and where privilege leaks
@@ -82,12 +82,8 @@ export function IdentitySprawl() {
         {STORES.map((s, i) => {
           const Icon = s.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.08} duration={0.34} margin="-40px"
               key={s.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.08, duration: 0.34 }}
               className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
             >
               <div className="flex items-center gap-2.5">
@@ -104,7 +100,7 @@ export function IdentitySprawl() {
                 </div>
               </div>
               <p className="mt-2.5 text-[12px] leading-relaxed text-fg-muted">{s.note}</p>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>
@@ -116,12 +112,8 @@ export function IdentitySprawl() {
         </div>
         <div className="mt-3 space-y-2">
           {LEAKS.map((l, i) => (
-            <motion.div
+            <Reveal as="div" y={0} delay={i * 0.07} duration={0.3}
               key={l.path}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.07, duration: 0.3 }}
               className="rounded-lg bg-red-500/[0.07] px-3.5 py-2.5 ring-1 ring-red-400/25"
             >
               <div className="flex flex-wrap items-center gap-2 font-mono text-[11.5px] text-red-200">
@@ -130,7 +122,7 @@ export function IdentitySprawl() {
                 <span>{l.path.split(" → ")[1]}</span>
               </div>
               <p className="mt-1 text-[11.5px] leading-relaxed text-fg-muted">{l.via}</p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

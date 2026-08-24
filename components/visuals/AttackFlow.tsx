@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Search,
   Crosshair,
@@ -10,6 +9,7 @@ import {
   FileText,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const STAGES = [
   { icon: Search, label: "Recon", desc: "OSINT, ASN/IP mapping, subdomain enumeration" },
@@ -31,12 +31,8 @@ export function AttackFlow({ className }: { className?: string }) {
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4 items-stretch">
         {STAGES.map((stage, i) => (
-          <motion.div
+          <Reveal as="div" y={16} delay={i * 0.08} duration={0.45}
             key={stage.label}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.45 }}
             className="relative h-full"
           >
             <div className="glass rounded-xl p-4 h-full flex flex-col ring-1 ring-transparent hover:ring-neon-cyan/40 transition-[color,background-color,border-color,box-shadow] lift">
@@ -54,7 +50,7 @@ export function AttackFlow({ className }: { className?: string }) {
                 {stage.desc}
               </div>
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
     </div>

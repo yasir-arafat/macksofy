@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Fingerprint, Laptop, Network, AppWindow, Database } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * The Zero Trust roadmap, staged against the CISA maturity model pillars.
@@ -99,12 +99,8 @@ export function ZeroTrustLadder() {
         {PILLARS.map((p, i) => {
           const Icon = p.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.07} duration={0.34} margin="-40px"
               key={p.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.07, duration: 0.34 }}
               className="relative overflow-hidden rounded-xl bg-white/[0.02] ring-1 ring-line/60"
             >
               <div aria-hidden className={`absolute inset-y-0 left-0 w-1 ${p.bar}`} />
@@ -132,7 +128,7 @@ export function ZeroTrustLadder() {
                   <p className="mt-1 text-[12px] leading-relaxed text-fg-muted">{p.months12}</p>
                 </div>
               </div>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

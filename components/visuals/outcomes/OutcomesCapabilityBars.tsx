@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Gauge, BarChart3 } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   ACCENT_TOKEN,
   CATEGORY_META,
@@ -56,12 +57,8 @@ export function OutcomesCapabilityBars({
             const meta = CATEGORY_META[o.category];
             const Icon = meta.icon;
             return (
-              <motion.li
+              <Reveal as="li" y={0} delay={i * 0.06} duration={0.4} margin="-10%"
                 key={i}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="flex items-start gap-3 min-w-0 flex-1">
@@ -102,7 +99,7 @@ export function OutcomesCapabilityBars({
                     }}
                   />
                 </div>
-              </motion.li>
+              </Reveal>
             );
           })}
         </ul>
@@ -163,12 +160,8 @@ export function OutcomesCapabilityBars({
             </div>
             <ul className="mt-3 space-y-2.5">
               {careerRoles.slice(0, 5).map((r, i) => (
-                <motion.li
+                <Reveal as="li" y={0} delay={0.2 + i * 0.06}
                   key={r.role}
-                  initial={{ opacity: 0, x: 6 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.06 }}
                   className="rounded-lg bg-bg-1/70 ring-1 ring-line/60 p-3"
                 >
                   <div className="flex items-baseline justify-between gap-2">
@@ -182,7 +175,7 @@ export function OutcomesCapabilityBars({
                   <div className="mt-1 font-mono text-[10px] text-fg-faint">
                     {r.experience}
                   </div>
-                </motion.li>
+                </Reveal>
               ))}
             </ul>
           </div>

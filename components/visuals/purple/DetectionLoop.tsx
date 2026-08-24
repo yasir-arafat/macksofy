@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Swords, Eye, Wrench, RotateCcw, BellRing } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * The purple-team loop, per technique.
@@ -84,12 +84,8 @@ export function DetectionLoop() {
           const Icon = s.icon;
           const st = SIDE_STYLE[s.side];
           return (
-            <motion.li
+            <Reveal as="li" y={0} delay={i * 0.09} duration={0.4} margin="-60px"
               key={s.label}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.09, duration: 0.4 }}
               className="relative flex gap-4 pb-6 last:pb-0"
             >
               <div
@@ -106,22 +102,18 @@ export function DetectionLoop() {
                 </div>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-fg-muted">{s.detail}</p>
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.5 }}
+      <Reveal as="div" y={0} delay={0.5}
         className="mt-2 flex items-center gap-2 rounded-lg bg-violet-500/10 px-3 py-2.5 text-[12px] leading-relaxed text-violet-100/90 ring-1 ring-violet-400/25"
       >
         <RotateCcw className="size-4 shrink-0" />
         The exercise does not advance to the next technique until the alert fires
         reliably. That is the whole difference from a red team report.
-      </motion.div>
+      </Reveal>
     </div>
   );
 }

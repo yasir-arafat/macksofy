@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   Globe,
   Server,
@@ -159,12 +159,8 @@ export function AttackPathGraph() {
           const Icon = hop.icon;
           const z = ZONE_STYLE[hop.zone];
           return (
-            <motion.li
+            <Reveal as="li" y={0} delay={i * 0.09} duration={0.4} margin="-60px"
               key={`${hop.title}-${i}`}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.09, duration: 0.4 }}
               className="relative flex gap-4 pb-7 last:pb-0"
             >
               <div
@@ -194,7 +190,7 @@ export function AttackPathGraph() {
                   {hop.detail}
                 </p>
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>

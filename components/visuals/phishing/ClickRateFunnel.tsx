@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { TrendingDown, Flag, Mail, MousePointerClick, KeyRound, ShieldAlert } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * What the telemetry report contains, and the three anonymised programmes we
@@ -91,12 +92,8 @@ export function ClickRateFunnel() {
         {STAGES.map((s, i) => {
           const Icon = s.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={10} delay={i * 0.07} duration={0.32} margin="-40px"
               key={s.label}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.07, duration: 0.32 }}
               className="rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60"
             >
               <div className="flex items-center gap-2.5">
@@ -108,7 +105,7 @@ export function ClickRateFunnel() {
                 </span>
               </div>
               <p className="mt-2.5 text-[12px] leading-relaxed text-fg-muted">{s.note}</p>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

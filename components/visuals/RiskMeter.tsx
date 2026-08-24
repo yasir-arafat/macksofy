@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const LEVELS = [
   { label: "Low", color: "#22c55e", bgColor: "bg-emerald-500" },
@@ -30,12 +30,8 @@ export function RiskMeter({ level, label, className }: Props) {
       </div>
       <div className="relative flex h-3 gap-1 w-56">
         {Array.from({ length: segments }).map((_, i) => (
-          <motion.div
+          <Reveal as="div" y={0.3} delay={i * 0.12} duration={0.4}
             key={i}
-            initial={{ scaleX: 0, opacity: 0.3 }}
-            whileInView={{ scaleX: 1, opacity: i <= level ? 1 : 0.15 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.12, duration: 0.4 }}
             style={{
               transformOrigin: "left",
               backgroundColor: i <= level ? LEVELS[i].color : "rgba(255,255,255,0.06)",

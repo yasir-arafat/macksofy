@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Landmark, Building2, ShieldCheck, Scale, Globe2 } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Who the vCISO sits across the table from, and what each one asks for.
@@ -97,12 +97,8 @@ export function RegulatorInterlocutor() {
         {REGULATORS.map((r, i) => {
           const Icon = r.icon;
           return (
-            <motion.div
+            <Reveal as="div" y={0} delay={i * 0.06} duration={0.32} margin="-40px"
               key={r.short}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.06, duration: 0.32 }}
               className="grid gap-2 rounded-xl bg-white/[0.02] p-4 ring-1 ring-line/60 sm:grid-cols-12 sm:items-center"
             >
               <div className="flex items-center gap-3 sm:col-span-4">
@@ -117,7 +113,7 @@ export function RegulatorInterlocutor() {
                 </div>
               </div>
               <p className="text-[12.5px] leading-relaxed text-fg-muted sm:col-span-8">{r.asks}</p>
-            </motion.div>
+            </Reveal>
           );
         })}
       </div>

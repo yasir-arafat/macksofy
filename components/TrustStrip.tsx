@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   Star,
   Quote,
@@ -10,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import { TESTIMONIALS } from "@/content/testimonials";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Props {
   /** Optional cap on testimonials displayed (default 3). */
@@ -90,12 +90,8 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
         {/* Testimonials */}
         <div className="grid gap-4 lg:grid-cols-3">
           {picks.map((t, i) => (
-            <motion.figure
+            <Reveal as="figure" y={16} delay={0.05 + i * 0.08} duration={0.45} margin="-10%"
               key={`${t.role}-${t.company}-${i}`}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.45, delay: 0.05 + i * 0.08 }}
               className="rounded-2xl glass p-6 relative overflow-hidden flex flex-col"
             >
               <div
@@ -136,7 +132,7 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
                   </div>
                 </figcaption>
               </div>
-            </motion.figure>
+            </Reveal>
           ))}
         </div>
 

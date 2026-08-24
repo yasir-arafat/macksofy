@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   Bug,
   ShieldCheck,
@@ -11,6 +10,7 @@ import {
   Cloud,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const CHIPS = [
   { label: "Penetration Testing", icon: Bug, tone: "cyan" },
@@ -35,12 +35,8 @@ export function EngagementChips({ active }: { active?: string }) {
         const Icon = c.icon;
         const isActive = active === c.label;
         return (
-          <motion.div
+          <Reveal as="div" y={6} delay={i * 0.04} duration={0.3}
             key={c.label}
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.04, duration: 0.3 }}
           >
             <Link
               href={`/contact?interest=${encodeURIComponent(c.label)}#enquiry`}
@@ -55,7 +51,7 @@ export function EngagementChips({ active }: { active?: string }) {
               <Icon className="size-3.5" />
               {c.label}
             </Link>
-          </motion.div>
+          </Reveal>
         );
       })}
     </div>

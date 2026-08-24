@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Building2, Handshake, ServerCog } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Who owns what, across the two engagement shapes.
@@ -68,12 +68,8 @@ export function CoSourceSplit() {
           </thead>
           <tbody>
             {ROWS.map((r, i) => (
-              <motion.tr
+              <Reveal as="tr" y={0} delay={i * 0.04} duration={0.28} margin="-30px"
                 key={r.fn}
-                initial={{ opacity: 0, x: -8 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ delay: i * 0.04, duration: 0.28 }}
               >
                 <td className="rounded-l-lg bg-white/[0.02] px-3 py-2.5 text-[12.5px] leading-snug text-fg-muted">
                   {r.fn}
@@ -90,7 +86,7 @@ export function CoSourceSplit() {
                     </span>
                   </td>
                 ))}
-              </motion.tr>
+              </Reveal>
             ))}
           </tbody>
         </table>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Props {
   phases: MethodologyPhase[];
@@ -77,16 +78,7 @@ export function MethodologyTimeline({ phases, accent }: Props) {
                 className="group flex flex-col items-center text-center focus:outline-none"
               >
                 <div className="relative">
-                  <motion.div
-                    initial={{ scale: 0.6, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: i * 0.08,
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 18,
-                    }}
+                  <Reveal as="div" y={0} delay={i * 0.08}
                     className={`relative grid size-24 place-items-center rounded-full bg-bg-2 ring-2 transition-all ${
                       active === i
                         ? `${tone.ring} ${tone.glow}`
@@ -106,7 +98,7 @@ export function MethodologyTimeline({ phases, accent }: Props) {
                         className={`absolute inset-0 rounded-full ${tone.bg} opacity-20 blur-xl`}
                       />
                     )}
-                  </motion.div>
+                  </Reveal>
                 </div>
                 <div
                   className={`mt-4 font-display text-sm font-bold leading-tight transition-colors max-w-[12ch] ${
@@ -123,7 +115,7 @@ export function MethodologyTimeline({ phases, accent }: Props) {
         {/* Active panel */}
         <motion.div
           key={current.phase}
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="mt-12 rounded-2xl bg-bg-2/40 ring-1 ring-line p-6 sm:p-7"
@@ -145,7 +137,7 @@ export function MethodologyTimeline({ phases, accent }: Props) {
             {current.activities.map((a, i) => (
               <motion.li
                 key={a}
-                initial={{ opacity: 0, x: -6 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.04 }}
                 className="flex gap-2.5 text-sm text-fg-muted leading-relaxed"
@@ -166,12 +158,8 @@ export function MethodologyTimeline({ phases, accent }: Props) {
           style={{ background: `linear-gradient(to bottom, ${tone.hex}55, ${tone.hex}10, transparent)` }}
         />
         {phases.map((p, i) => (
-          <motion.li
+          <Reveal as="li" y={0} delay={i * 0.05}
             key={i}
-            initial={{ opacity: 0, x: -8 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
             className="relative flex gap-4"
           >
             <div className={`relative grid size-12 place-items-center rounded-full bg-bg ring-2 ${tone.ring} z-10`}>
@@ -190,7 +178,7 @@ export function MethodologyTimeline({ phases, accent }: Props) {
                 ))}
               </ul>
             </div>
-          </motion.li>
+          </Reveal>
         ))}
       </ol>
     </div>

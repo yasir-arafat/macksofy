@@ -163,7 +163,7 @@ export function VulnDiffViewer() {
         ))}
       </div>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={f.id}
           initial={{ opacity: 0, y: 8 }}

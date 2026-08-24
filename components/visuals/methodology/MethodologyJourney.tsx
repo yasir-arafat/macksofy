@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Map, Flag } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Props {
   phases: MethodologyPhase[];
@@ -47,12 +48,8 @@ export function MethodologyJourney({ phases, accent, subjectLabel }: Props) {
         {phases.map((p, i) => {
           const right = i % 2 === 1;
           return (
-            <motion.li
+            <Reveal as="li" y={24} delay={i * 0.05} duration={0.5} margin="-15%"
               key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-15%" }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
               className="relative"
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
@@ -89,7 +86,7 @@ export function MethodologyJourney({ phases, accent, subjectLabel }: Props) {
               <div className="lg:hidden pl-20 -mt-2">
                 <PhaseCard phase={p} index={i} tone={tone} align="left" mobile />
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>

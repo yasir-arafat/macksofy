@@ -49,7 +49,7 @@ export function LocationsAtlas() {
 
         {/* Hover panel */}
         <div className="lg:col-span-4">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={active.key}
               initial={{ opacity: 0, y: 8 }}

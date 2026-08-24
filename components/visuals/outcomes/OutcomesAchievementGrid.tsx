@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Award, Star } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   ACCENT_TOKEN,
   CATEGORY_META,
@@ -42,7 +43,7 @@ export function OutcomesAchievementGrid({
       </div>
 
       {/* Featured badge — large active panel */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={active}
           initial={{ opacity: 0, y: 12 }}
@@ -116,19 +117,10 @@ export function OutcomesAchievementGrid({
           const Icon = meta.icon;
           const isActive = i === active;
           return (
-            <motion.button
+            <Reveal as="button" y={12} delay={0.05 + i * 0.04}
               key={i}
               type="button"
               onClick={() => setActive(i)}
-              initial={{ opacity: 0, scale: 0.85, y: 12 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.05 + i * 0.04,
-                type: "spring",
-                stiffness: 260,
-                damping: 22,
-              }}
               whileHover={{ y: -4 }}
               className={`group relative aspect-square w-[calc((100%-1.5rem)/3)] sm:w-[calc((100%-2.25rem)/4)] lg:w-[calc((100%-3.75rem)/6)] flex-none rounded-2xl bg-bg-2 ring-1 transition-all p-3 flex flex-col items-center justify-center text-center ${
                 isActive
@@ -155,7 +147,7 @@ export function OutcomesAchievementGrid({
               {isActive && (
                 <Award className={`absolute top-1 right-1 size-3 ${tone.text}`} />
               )}
-            </motion.button>
+            </Reveal>
           );
         })}
       </div>

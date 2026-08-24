@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Check, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import type { PricingPackage } from "@/content/pricing";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Props {
   pkg: PricingPackage;
@@ -63,12 +63,8 @@ export function PricingTiers({
 
         <div className="grid gap-4 lg:grid-cols-3">
           {tiers.map((t, i) => (
-            <motion.div
+            <Reveal as="div" y={16} delay={0.05 + i * 0.08} duration={0.45} margin="-10%"
               key={t.key}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.45, delay: 0.05 + i * 0.08 }}
               className={`relative rounded-3xl p-6 sm:p-7 ring-1 transition-all overflow-hidden ${
                 t.popular
                   ? "bg-gradient-to-br from-neon-cyan/[0.08] to-neon-purple/[0.08] ring-neon-cyan/40 shadow-[0_0_40px_-12px_rgba(0,229,255,0.4)]"
@@ -128,7 +124,7 @@ export function PricingTiers({
                 Request a fixed-price quote
                 <ArrowRight className="size-4" />
               </Link>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 

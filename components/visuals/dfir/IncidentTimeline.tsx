@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Phone, FolderSearch, Activity, ShieldCheck, FileText, Wrench } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 const STAGES = [
   { t: "T+0", title: "Triage call", desc: "30-min bridge · scope · isolate · engagement letter", icon: Phone, color: "text-red-400 ring-red-400/40" },
@@ -23,12 +23,8 @@ export function IncidentTimeline() {
         {STAGES.map((s, i) => {
           const Icon = s.icon;
           return (
-            <motion.li
+            <Reveal as="li" y={0} delay={i * 0.08} duration={0.45} margin="-60px"
               key={s.t}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.08, duration: 0.45 }}
               className="relative flex gap-4 sm:gap-5"
             >
               <div className={`relative shrink-0 grid size-10 sm:size-14 place-items-center rounded-xl bg-bg-1/60 ring-1 ${s.color}`}>
@@ -43,7 +39,7 @@ export function IncidentTimeline() {
                 </div>
                 <p className="mt-1 text-sm text-fg-muted leading-relaxed">{s.desc}</p>
               </div>
-            </motion.li>
+            </Reveal>
           );
         })}
       </ol>

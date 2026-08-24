@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Check, Minus } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Which attacks apply to which kind of SSID.
@@ -124,11 +124,7 @@ export function SsidAttackMatrix() {
                   const v = t.cells[c];
                   return (
                     <td key={c}>
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.88 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: ri * 0.04 + ci * 0.02, duration: 0.26 }}
+                      <Reveal as="div" y={0} delay={ri * 0.04 + ci * 0.02} duration={0.26}
                         className={`grid h-9 place-items-center rounded-lg ring-1 ${CELL[v]}`}
                       >
                         {v === "yes" ? (
@@ -138,7 +134,7 @@ export function SsidAttackMatrix() {
                         ) : (
                           <Minus className="size-3 opacity-40" />
                         )}
-                      </motion.div>
+                      </Reveal>
                     </td>
                   );
                 })}

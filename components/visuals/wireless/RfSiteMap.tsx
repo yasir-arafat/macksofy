@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Wifi, WifiOff, Car, AlertTriangle } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Why wireless is tested on site: the coverage does not stop at the wall.
@@ -68,12 +69,8 @@ export function RfSiteMap() {
         {/* the building */}
         <div className="lg:col-span-8 space-y-2">
           {FLOORS.map((f, i) => (
-            <motion.div
+            <Reveal as="div" y={0} delay={i * 0.08} duration={0.34} margin="-40px"
               key={f.name}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.08, duration: 0.34 }}
               className={`rounded-xl p-3.5 ring-1 ${
                 f.flag ? "bg-red-500/[0.07] ring-red-400/30" : "bg-white/[0.02] ring-line/60"
               }`}
@@ -100,15 +97,11 @@ export function RfSiteMap() {
                   {f.flag}
                 </p>
               )}
-            </motion.div>
+            </Reveal>
           ))}
 
           {/* the perimeter */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.45 }}
+          <Reveal as="div" y={0} delay={0.45}
             className="relative mt-4 overflow-hidden rounded-xl bg-black/30 p-4 ring-1 ring-violet-400/30"
           >
             {[0, 1, 2].map((r) => (
@@ -134,7 +127,7 @@ export function RfSiteMap() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
 
         {/* what the survey produces */}
