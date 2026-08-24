@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
 
@@ -21,10 +21,9 @@ const SLIDE_MS = 6000;
 export function MethodologyCardDeck({ phases, accent }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [direction, setDirection] = useState(0);
+  const [, setDirection] = useState(0);
 
   const tone = ACCENT_TOKEN[accent];
-  const current = phases[active];
 
   // Auto-advance
   useEffect(() => {
@@ -149,29 +148,30 @@ export function MethodologyCardDeck({ phases, accent }: Props) {
             />
           );
         })}
-        <AnimatePresence mode="wait" custom={direction} initial={false}>
-          <motion.div
-            key={current.phase}
-            custom={direction}
-            initial={{ opacity: 0, x: direction * 60, scale: 0.96 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: direction * -60, scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 280, damping: 30 }}
-            className="absolute inset-0 rounded-2xl bg-bg-2 ring-1 ring-line p-6 sm:p-7 z-10 overflow-y-auto"
-          >
+        {/*
+          Every phase's activities stay in the DOM. This panel rendered only
+          phases[active], so 52 of 64 carddeck activities existed solely in the HowTo JSON-LD.
+          Inactive panels use the `hidden` attribute and carry NO display
+          utility class — a Tailwind `flex`/`grid`/`block` would override
+          `[hidden] { display: none }` and stack every phase at once.
+        */}
+        {phases.map((ph, pi) => {
+          const isActive = pi === active;
+          return (
+            <div key={ph.phase} hidden={!isActive} className={isActive ? "absolute inset-0 rounded-2xl bg-bg-2 ring-1 ring-line p-6 sm:p-7 z-10 overflow-y-auto" : undefined}>
             <div className="flex items-baseline justify-between gap-3 flex-wrap">
               <div className={`font-mono text-[10px] uppercase tracking-[0.22em] font-bold ${tone.text}`}>
-                Phase {String(active + 1).padStart(2, "0")} / {phases.length}
+                Phase {String(pi + 1).padStart(2, "0")} / {phases.length}
               </div>
               <div className="font-mono text-[10px] text-fg-faint">
-                {current.activities.length} activities
+                {ph.activities.length} activities
               </div>
             </div>
             <h4 className="mt-2 font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
-              {current.phase}
+              {ph.phase}
             </h4>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              {current.activities.map((a, i) => (
+              {ph.activities.map((a, i) => (
                 <motion.li
                   key={a}
                   initial={false}
@@ -184,8 +184,9 @@ export function MethodologyCardDeck({ phases, accent }: Props) {
                 </motion.li>
               ))}
             </ul>
-          </motion.div>
-        </AnimatePresence>
+                      </div>
+          );
+        })}
       </div>
 
       {/* DOT NAV */}

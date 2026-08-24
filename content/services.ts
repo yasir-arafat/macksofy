@@ -626,7 +626,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: "Do you test SPAs differently from server-rendered apps?",
-        a: "Yes. React/Vue/Angular SPAs hide a lot of attack surface in JS bundles — we extract route maps from the bundle, instrument the runtime in DevTools, and test the API as it&rsquo;s called from the SPA so server-side issues don&rsquo;t hide behind client validation.",
+        a: "Yes. React/Vue/Angular SPAs hide a lot of attack surface in JS bundles — we extract route maps from the bundle, instrument the runtime in DevTools, and test the API as it's called from the SPA so server-side issues don't hide behind client validation.",
       },
       {
         q: "What about SSO / SAML / OAuth?",
@@ -663,10 +663,10 @@ export const SERVICES: Service[] = [
       eyebrow: "OWASP API Top 10 · REST · GraphQL · gRPC",
       tagline: "Test the API the same way every client will.",
       description:
-        "Dedicated API security testing for REST, GraphQL and gRPC surfaces. BOLA, BFLA, mass-assignment, JWT and OAuth server-side flows, rate-limit and resource-consumption abuse, GraphQL introspection and depth attacks — by OSWE-certified consultants who treat the API as the product, not the website&rsquo;s backend.",
+        "Dedicated API security testing for REST, GraphQL and gRPC surfaces. BOLA, BFLA, mass-assignment, JWT and OAuth server-side flows, rate-limit and resource-consumption abuse, GraphQL introspection and depth attacks — by OSWE-certified consultants who treat the API as the product, not the website's backend.",
     },
     realWorld:
-      "Modern breaches don&rsquo;t happen at the website. They happen at the API the mobile app, the SPA and the partner integration all call. BOLA across tenants, mass-assignment that elevates a regular user to admin, JWT alg=none accepted in production, OAuth flows where one parameter swap rewrites the redirect to an attacker domain — these are the findings that move regulators, and they live below the login form, not above it.",
+      "Modern breaches don't happen at the website. They happen at the API the mobile app, the SPA and the partner integration all call. BOLA across tenants, mass-assignment that elevates a regular user to admin, JWT alg=none accepted in production, OAuth flows where one parameter swap rewrites the redirect to an attacker domain — these are the findings that move regulators, and they live below the login form, not above it.",
     businessImpact: [
       "Catch BOLA, BFLA, mass-assignment and access-control flaws scanners miss",
       "Validate REST + GraphQL + gRPC posture before public release",
@@ -785,7 +785,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Do you need OpenAPI / Postman collections to test?",
-        a: "Helpful but not required. With a spec we&rsquo;re faster; without one we run discovery + fuzzing + traffic capture to build the inventory. Black-box is supported and matches the public attacker view.",
+        a: "Helpful but not required. With a spec we're faster; without one we run discovery + fuzzing + traffic capture to build the inventory. Black-box is supported and matches the public attacker view.",
       },
       {
         q: "Can you test internal / partner-only APIs?",

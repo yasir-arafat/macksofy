@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Compass, Dot } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
 
@@ -19,7 +19,6 @@ interface Props {
 export function MethodologyRadial({ phases, accent }: Props) {
   const [active, setActive] = useState(0);
   const tone = ACCENT_TOKEN[accent];
-  const current = phases[active];
   const n = phases.length;
 
   const radius = 180;
@@ -234,24 +233,26 @@ export function MethodologyRadial({ phases, accent }: Props) {
 
       {/* PANEL */}
       <div className="lg:col-span-5">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={current.phase}
-            initial={{ opacity: 0, x: 12 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -8 }}
-            transition={{ duration: 0.25 }}
-            className="rounded-3xl bg-bg-2/40 ring-1 ring-line p-6 sm:p-7"
-          >
+        {/*
+          Every phase's activities stay in the DOM. This panel rendered only
+          phases[active], so 75 of 87 radial activities existed solely in the HowTo JSON-LD.
+          Inactive panels use the `hidden` attribute and carry NO display
+          utility class — a Tailwind `flex`/`grid`/`block` would override
+          `[hidden] { display: none }` and stack every phase at once.
+        */}
+        {phases.map((ph, pi) => {
+          const isActive = pi === active;
+          return (
+            <div key={ph.phase} hidden={!isActive} className={isActive ? "rounded-3xl bg-bg-2/40 ring-1 ring-line p-6 sm:p-7" : undefined}>
             <div className={`inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] font-bold ${tone.text}`}>
               <Compass className="size-3.5" />
-              Phase {String(active + 1).padStart(2, "0")} of {phases.length}
+              Phase {String(pi + 1).padStart(2, "0")} of {phases.length}
             </div>
             <h4 className="mt-3 font-display text-xl sm:text-2xl font-bold text-fg leading-tight">
-              {current.phase}
+              {ph.phase}
             </h4>
             <ul className="mt-5 space-y-2.5">
-              {current.activities.map((a, i) => (
+              {ph.activities.map((a, i) => (
                 <motion.li
                   key={a}
                   initial={false}
@@ -264,8 +265,9 @@ export function MethodologyRadial({ phases, accent }: Props) {
                 </motion.li>
               ))}
             </ul>
-          </motion.div>
-        </AnimatePresence>
+                      </div>
+          );
+        })}
       </div>
     </div>
   );

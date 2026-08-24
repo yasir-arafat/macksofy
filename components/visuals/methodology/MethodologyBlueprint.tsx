@@ -21,7 +21,6 @@ interface Props {
 export function MethodologyBlueprint({ phases, accent }: Props) {
   const [active, setActive] = useState(0);
   const tone = ACCENT_TOKEN[accent];
-  const current = phases[active];
 
   return (
     <div className="grid gap-6 lg:grid-cols-12">
@@ -168,13 +167,25 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
 
       {/* INSPECTOR */}
       <div className="lg:col-span-5">
-        <motion.div
-          key={current.phase}
-          initial={false}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.25 }}
-          className="rounded-3xl bg-gradient-to-br from-bg-2/80 to-bg-1/40 ring-1 ring-line p-6 sm:p-7 h-full relative overflow-hidden"
-        >
+        {/*
+          Every phase's activities stay in the DOM. This inspector rendered only
+          phases[active], so 66 of 79 blueprint activities existed solely in the
+          HowTo JSON-LD. Inactive panels use `hidden` with NO display utility
+          class — a Tailwind `flex`/`grid`/`block` would beat
+          `[hidden] { display: none }` and stack every phase at once.
+        */}
+        {phases.map((ph, pi) => {
+          const isActive = pi === active;
+          return (
+            <div
+              key={ph.phase}
+              hidden={!isActive}
+              className={
+                isActive
+                  ? "rounded-3xl bg-gradient-to-br from-bg-2/80 to-bg-1/40 ring-1 ring-line p-6 sm:p-7 h-full relative overflow-hidden"
+                  : undefined
+              }
+            >
           <div
             aria-hidden
             className={`absolute -bottom-16 -right-16 size-56 rounded-full ${tone.bgSoft} blur-3xl pointer-events-none`}
@@ -182,11 +193,11 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
           <div className={`flex items-center gap-2 ${tone.text}`}>
             <Cpu className="size-3.5" />
             <span className="font-mono text-[10px] uppercase tracking-[0.22em] font-bold">
-              INSPECTOR · NODE-{String(active + 1).padStart(2, "0")}
+              INSPECTOR · NODE-{String(pi + 1).padStart(2, "0")}
             </span>
           </div>
           <h4 className="mt-3 font-display text-xl sm:text-2xl font-bold text-fg leading-tight">
-            {current.phase}
+            {ph.phase}
           </h4>
 
           {/* Wire-style activity list */}
@@ -195,7 +206,7 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
               aria-hidden
               className={`absolute left-3 top-3 bottom-3 w-px ${tone.bg} opacity-30`}
             />
-            {current.activities.map((a, i) => (
+            {ph.activities.map((a, i) => (
               <motion.li
                 key={a}
                 initial={false}
@@ -209,7 +220,9 @@ export function MethodologyBlueprint({ phases, accent }: Props) {
               </motion.li>
             ))}
           </ul>
-        </motion.div>
+                    </div>
+          );
+        })}
       </div>
     </div>
   );

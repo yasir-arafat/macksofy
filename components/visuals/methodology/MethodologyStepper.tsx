@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { ACCENT_TOKEN, type MethodologyAccent, type MethodologyPhase } from "./Methodology";
 
@@ -21,7 +21,6 @@ interface Props {
 export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
   const [active, setActive] = useState(0);
   const tone = ACCENT_TOKEN[accent];
-  const current = phases[active];
   const progressPct = ((active + 1) / phases.length) * 100;
 
   return (
@@ -107,30 +106,39 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
             aria-hidden
             className={`absolute -top-20 -right-20 size-72 rounded-full ${tone.bgSoft} blur-3xl pointer-events-none`}
           />
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={current.phase}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="relative h-full flex flex-col"
-            >
+          {/*
+            Every phase's activities stay in the DOM. This panel used to render
+            only phases[active], so 85 of 107 stepper activities existed solely
+            in the HowTo JSON-LD. Inactive panels are hidden with the `hidden`
+            attribute — and carry NO display utility class, because a Tailwind
+            `flex`/`grid`/`block` would override `[hidden] { display: none }`
+            and stack every phase visible at once.
+          */}
+          {phases.map((ph, pi) => {
+            const isActive = pi === active;
+            return (
+              <div
+                key={ph.phase}
+                hidden={!isActive}
+                className={
+                  isActive ? "relative h-full flex flex-col" : "relative h-full"
+                }
+              >
               <div className="flex items-baseline justify-between gap-3 flex-wrap">
                 <div className={`font-mono text-[10px] uppercase tracking-[0.22em] font-bold ${tone.text}`}>
-                  Phase {String(active + 1).padStart(2, "0")} / {phases.length}
+                  Phase {String(pi + 1).padStart(2, "0")} / {phases.length}
                 </div>
                 <div className="font-mono text-[10px] text-fg-faint">
                   {Math.round(progressPct)}% complete
                 </div>
               </div>
               <div className="mt-2 flex items-start gap-4">
-                {phaseImages?.[active] ? (
+                {phaseImages?.[pi] ? (
                   <div
                     className={`shrink-0 grid size-16 sm:size-20 place-items-center rounded-2xl ${tone.bgSoft} ring-1 ${tone.ring} ${tone.glow} overflow-hidden`}
                   >
                     <Image
-                      src={phaseImages[active] as string}
+                      src={phaseImages[pi] as string}
                       // Decorative — phase title is rendered as an
                       // adjacent H4 (visible to AT users). Empty alt
                       // prevents screen-readers double-announcing.
@@ -143,12 +151,12 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
                   </div>
                 ) : null}
                 <h4 className="font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
-                  {current.phase}
+                  {ph.phase}
                 </h4>
               </div>
 
               <ul className="mt-6 grid gap-3 flex-1">
-                {current.activities.map((a, i) => (
+                {ph.activities.map((a, i) => (
                   <motion.li
                     key={a}
                     initial={false}
@@ -170,12 +178,12 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
                 ))}
               </ul>
 
-              {active < phases.length - 1 && (
+              {pi < phases.length - 1 && (
                 <div className="mt-6 pt-4 border-t border-line/60 flex justify-between items-center gap-3">
                   <button
                     type="button"
                     onClick={() => setActive((v) => Math.max(0, v - 1))}
-                    disabled={active === 0}
+                    disabled={pi === 0}
                     className="text-xs font-semibold text-fg-muted hover:text-fg disabled:opacity-30 transition-colors"
                   >
                     ← Previous
@@ -185,12 +193,13 @@ export function MethodologyStepper({ phases, accent, phaseImages }: Props) {
                     onClick={() => setActive((v) => Math.min(phases.length - 1, v + 1))}
                     className={`inline-flex items-center gap-2 rounded-full ${tone.bgSoft} ring-1 ${tone.ring} px-3 py-1.5 text-xs font-bold ${tone.text} hover:opacity-90 transition-opacity`}
                   >
-                    Next: {phases[active + 1].phase} <ArrowRight className="size-3" />
+                    Next: {phases[pi + 1].phase} <ArrowRight className="size-3" />
                   </button>
                 </div>
               )}
-            </motion.div>
-          </AnimatePresence>
+                          </div>
+            );
+          })}
         </div>
       </div>
     </div>
