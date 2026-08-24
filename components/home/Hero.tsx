@@ -194,7 +194,7 @@ export function Hero() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5"
@@ -333,7 +333,7 @@ function LiveOpsPanel() {
           {items.map((it, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: -16, filter: "blur(4px)" }}
+              initial={false}
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
               className="flex items-center gap-3 rounded-lg border border-line bg-white/[0.02] px-3 py-2.5 hover:bg-white/[0.05] transition-colors"
@@ -351,7 +351,7 @@ function LiveOpsPanel() {
           ))}
         </div>
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.5 }}
           className="mt-5 flex items-center justify-between border-t border-line pt-4"

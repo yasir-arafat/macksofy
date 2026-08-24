@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const FRAMEWORKS = [
   { name: "CERT-In", desc: "Information security audit empanelled by Indian CERT" },
@@ -19,12 +19,8 @@ export function ComplianceMatrix({ className }: { className?: string }) {
   return (
     <div className={cn("grid gap-3 sm:grid-cols-2 lg:grid-cols-4", className)}>
       {FRAMEWORKS.map((f, i) => (
-        <motion.div
+        <Reveal as="div" y={12} delay={i * 0.04}
           key={f.name}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.04 }}
           className="glass rounded-xl p-4 lift"
         >
           <div className="flex items-start justify-between mb-2">
@@ -34,7 +30,7 @@ export function ComplianceMatrix({ className }: { className?: string }) {
             </div>
           </div>
           <p className="text-xs text-fg-muted leading-snug">{f.desc}</p>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

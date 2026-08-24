@@ -8,7 +8,7 @@ import { motion, useAnimationControls, useInView } from "framer-motion";
  * useLayoutEffect runs during SSR. Constant per environment, so hook order is
  * stable within a single renderer.
  */
-const useIsomorphicLayoutEffect =
+export const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const TAGS = {

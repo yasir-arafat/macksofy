@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/motion/Counter";
+import { Reveal } from "@/components/motion/Reveal";
 import {
   ShieldCheck,
   Trophy,
@@ -50,16 +50,8 @@ export function StatsBand() {
           {STATS.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div
+              <Reveal as="div" y={16} delay={0.05 + i * 0.08} duration={0.5} margin="-10%"
                 key={s.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.05 + i * 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
                 className="group relative"
               >
                 <span
@@ -80,7 +72,7 @@ export function StatsBand() {
                 <div className="mt-2 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em] text-fg-muted">
                   {s.label}
                 </div>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>

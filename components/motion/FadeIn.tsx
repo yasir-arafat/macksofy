@@ -1,8 +1,13 @@
 "use client";
 
-import { motion, type HTMLMotionProps } from "framer-motion";
-import { ReactNode } from "react";
-import { Reveal } from "./Reveal";
+import {
+  motion,
+  useAnimationControls,
+  useInView,
+  type HTMLMotionProps,
+} from "framer-motion";
+import { ReactNode, useEffect, useRef } from "react";
+import { Reveal, useIsomorphicLayoutEffect } from "./Reveal";
 
 interface FadeInProps extends Omit<HTMLMotionProps<"div">, "children"> {
   children: ReactNode;
@@ -34,6 +39,19 @@ export function FadeIn({
   );
 }
 
+/**
+ * Same SSR problem as FadeIn, one level up: this used `initial="hidden"`, so
+ * every StaggerItem below it server-rendered as
+ * `<div style="opacity:0;transform:translateY(20px)">`. That accounted for all
+ * 49 hidden elements on /clients and the service + training cards on the
+ * homepage, and it reaches 9 files in total.
+ *
+ * The parent now owns the arming, exactly as {@link Reveal} does for a single
+ * element: `initial={false}` so the server emits nothing, then the variant is
+ * snapped to "hidden" before the first client paint — and only when the group
+ * is off-screen. Children keep their variants untouched, so the stagger still
+ * runs.
+ */
 export function StaggerChildren({
   children,
   delayBetween = 0.07,
@@ -43,11 +61,31 @@ export function StaggerChildren({
   delayBetween?: number;
   className?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const controls = useAnimationControls();
+  const armed = useRef(false);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  useIsomorphicLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const rect = ref.current?.getBoundingClientRect();
+    const onScreen =
+      !!rect && rect.bottom > 0 && rect.top < window.innerHeight;
+    if (onScreen) return;
+    armed.current = true;
+    controls.set("hidden");
+  }, []);
+
+  useEffect(() => {
+    if (!armed.current || !inView) return;
+    controls.start("visible");
+  }, [inView, controls]);
+
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      ref={ref}
+      initial={false}
+      animate={controls}
       variants={{
         visible: { transition: { staggerChildren: delayBetween } },
       }}

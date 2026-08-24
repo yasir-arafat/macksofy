@@ -333,7 +333,9 @@ export function EngagementPhases() {
         />
         <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
 
-        <AnimatePresence mode="wait">
+        {/* initial={false} keeps the FIRST phase visible in server HTML;
+              switching phases still animates. */}
+          <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active}
             initial={reduce ? false : { opacity: 0, x: 30 }}
