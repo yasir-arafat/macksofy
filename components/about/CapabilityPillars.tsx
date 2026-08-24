@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
   Crosshair,
   Shield,
@@ -11,13 +10,13 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const PILLARS = [
   {
     key: "offensive",
     label: "Offensive Security",
-    desc:
-      "Penetration testing, red teaming, web/API/cloud assessments by OSCP/OSWE/OSEP-certified consultants.",
+    desc: "Penetration testing, red teaming, web/API/cloud assessments by OSCP/OSWE/OSEP-certified consultants.",
     href: "/services",
     bullets: ["Pentest · VAPT", "Red team operations", "Web · API · Cloud"],
     icon: Crosshair,
@@ -27,10 +26,13 @@ const PILLARS = [
   {
     key: "defensive",
     label: "Defensive Engineering",
-    desc:
-      "SOC engineering on Wazuh + ELK + Splunk, MDR services, DFIR and threat intelligence programs.",
+    desc: "SOC engineering on Wazuh + ELK + Splunk, MDR services, DFIR and threat intelligence programs.",
     href: "/services/managed-soc",
-    bullets: ["SOC + SIEM build", "DFIR · Malware analysis", "Threat intelligence"],
+    bullets: [
+      "SOC + SIEM build",
+      "DFIR · Malware analysis",
+      "Threat intelligence",
+    ],
     icon: Shield,
     accent: "from-neon-blue to-neon-purple",
     text: "text-neon-blue",
@@ -38,8 +40,7 @@ const PILLARS = [
   {
     key: "audit",
     label: "Audit & Compliance",
-    desc:
-      "CERT-In empanelled audits accepted by SEBI, RBI, UIDAI. ISO 27001 implementation, PCI-DSS, NESA UAE.",
+    desc: "CERT-In empanelled audits accepted by SEBI, RBI, UIDAI. ISO 27001 implementation, PCI-DSS, NESA UAE.",
     href: "/audit",
     bullets: ["CERT-In · RBI · SEBI", "ISO 27001 · PCI-DSS", "UAE NESA · DESC"],
     icon: Microscope,
@@ -49,10 +50,13 @@ const PILLARS = [
   {
     key: "training",
     label: "Cybersecurity Training",
-    desc:
-      "EC-Council and CompTIA authorized programs, plus Offensive Security exam-prep bootcamps and Macksofy career tracks. Mentor until you pass.",
+    desc: "EC-Council and CompTIA authorized programs, plus Offensive Security exam-prep bootcamps and Macksofy career tracks. Mentor until you pass.",
     href: "/training",
-    bullets: ["CEH · OSCP · CSA · CHFI", "OffSec OSWE · OSEP · OSED", "Corporate training"],
+    bullets: [
+      "CEH · OSCP · CSA · CHFI",
+      "OffSec OSWE · OSEP · OSED",
+      "Corporate training",
+    ],
     icon: GraduationCap,
     accent: "from-amber-300 to-neon-pink",
     text: "text-amber-300",
@@ -67,12 +71,12 @@ export function CapabilityPillars() {
       {PILLARS.map((p, i) => {
         const Icon = p.icon;
         return (
-          <motion.div
+          <Reveal
+            as="div"
+            y={16}
+            delay={i * 0.08}
+            duration={0.5}
             key={p.key}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
             onMouseEnter={() => setHovered(p.key)}
             onMouseLeave={() => setHovered(null)}
           >
@@ -82,14 +86,19 @@ export function CapabilityPillars() {
                   className={cn(
                     "absolute -top-20 -right-20 size-48 rounded-full blur-3xl opacity-0 transition-opacity duration-500 bg-gradient-to-br",
                     p.accent,
-                    hovered === p.key && "opacity-30"
+                    hovered === p.key && "opacity-30",
                   )}
                 />
                 <div className="relative">
                   <div
                     className={cn(
                       "inline-grid size-12 place-items-center rounded-xl bg-bg-2 ring-1 ring-line transition-all duration-300",
-                      hovered === p.key ? cn("scale-110 ring-2", p.text.replace("text-", "ring-")) : ""
+                      hovered === p.key
+                        ? cn(
+                            "scale-110 ring-2",
+                            p.text.replace("text-", "ring-"),
+                          )
+                        : "",
                     )}
                   >
                     <Icon className={cn("size-6", p.text)} />
@@ -108,19 +117,30 @@ export function CapabilityPillars() {
                         key={b}
                         className="flex gap-2 text-xs font-mono text-fg-muted"
                       >
-                        <span className={cn("mt-1 size-1 shrink-0 rounded-full", p.text.replace("text-", "bg-"))} />
+                        <span
+                          className={cn(
+                            "mt-1 size-1 shrink-0 rounded-full",
+                            p.text.replace("text-", "bg-"),
+                          )}
+                        />
                         {b}
                       </li>
                     ))}
                   </ul>
 
-                  <div className={cn("mt-5 inline-flex items-center gap-1 text-xs font-semibold", p.text)}>
-                    Explore <ArrowUpRight className="size-3.5 transition-transform group-hover:rotate-12" />
+                  <div
+                    className={cn(
+                      "mt-5 inline-flex items-center gap-1 text-xs font-semibold",
+                      p.text,
+                    )}
+                  >
+                    Explore{" "}
+                    <ArrowUpRight className="size-3.5 transition-transform group-hover:rotate-12" />
                   </div>
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </Reveal>
         );
       })}
     </div>

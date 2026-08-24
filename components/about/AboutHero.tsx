@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Phone, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -19,6 +18,7 @@ import { CertInBadge } from "@/components/visuals/CertInBadge";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const HEADLINE_LINE_1 = ["The", "team", "that", "does", "the", "work,"];
 const HEADLINE_LINE_2 = ["teaches", "the", "work."];
@@ -35,7 +35,12 @@ export function AboutHero() {
       <div className="absolute inset-0 bg-grid opacity-50" />
       <AuroraBackground />
       <ParticleBackground density={90} />
-      <GlowOrb className="-top-40 left-1/2 -translate-x-1/2" color="cyan" size={700} intensity="strong" />
+      <GlowOrb
+        className="-top-40 left-1/2 -translate-x-1/2"
+        color="cyan"
+        size={700}
+        intensity="strong"
+      />
       <GlowOrb className="bottom-0 right-1/4" color="purple" size={500} />
       <SpotlightCursor color="rgba(168,85,247,0.15)" size={520} />
       <SweepLine color="#a855f7" duration={6} delay={1.5} />
@@ -50,16 +55,16 @@ export function AboutHero() {
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+            <Reveal
+              as="div"
+              y={8}
+              duration={0.6}
             >
               <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-purple/10 ring-1 ring-neon-purple/40 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-purple">
                 <Sparkles className="size-3" />
                 Founded {SITE.founded} · Mumbai BKC · India + UAE
               </span>
-            </motion.div>
+            </Reveal>
 
             <h1 className="mt-7 font-display text-5xl font-black tracking-tighter sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-balance leading-[0.92]">
               <span className="block">
@@ -78,23 +83,25 @@ export function AboutHero() {
               </span>
             </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.7, delay: 0.85 }}
+            <Reveal
+              as="p"
+              y={24}
+              delay={0.85}
+              duration={0.7}
               className="mt-7 max-w-2xl text-lg leading-relaxed text-fg-muted text-pretty"
             >
               Macksofy Technologies is a CERT-In empanelled cybersecurity firm
               headquartered in Bandra Kurla Complex, Mumbai — with an advanced
-              training division accredited by EC-Council and CompTIA. We
-              have launched thousands of careers and run engagements across India and
+              training division accredited by EC-Council and CompTIA. We have
+              launched thousands of careers and run engagements across India and
               the UAE since 2014.
-            </motion.p>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1 }}
+            <Reveal
+              as="div"
+              y={12}
+              delay={1}
+              duration={0.6}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
               <Link
@@ -117,26 +124,28 @@ export function AboutHero() {
                 <Phone className="size-4" />
                 {SITE.phoneDisplay}
               </a>
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 1.15 }}
+            <Reveal
+              as="div"
+              y={0}
+              delay={1.15}
+              duration={0.7}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               <CertInBadge size="sm" />
               <span className="font-mono text-xs text-fg-faint">
                 ISO 27001 · EC-Council ATC · CompTIA Partner
               </span>
-            </motion.div>
+            </Reveal>
           </div>
 
           {/* Right column: meta-stats + manifesto teaser card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          <Reveal
+            as="div"
+            y={24}
+            delay={0.45}
+            duration={0.9}
             className="lg:col-span-4 space-y-4"
           >
             <div className="rounded-3xl glass-strong p-5 sm:p-6 glow-blend relative overflow-hidden">
@@ -147,7 +156,10 @@ export function AboutHero() {
               </div>
               <div className="mt-5 grid grid-cols-3 gap-3">
                 {STATS.map((s) => (
-                  <div key={s.label} className="rounded-xl bg-bg-1/60 ring-1 ring-line/60 p-3">
+                  <div
+                    key={s.label}
+                    className="rounded-xl bg-bg-1/60 ring-1 ring-line/60 p-3"
+                  >
                     <div className="font-display text-2xl font-black gradient-text leading-none tabular-nums">
                       <Counter value={s.value} suffix={s.suffix} />
                     </div>
@@ -164,16 +176,21 @@ export function AboutHero() {
                   ["Founders", "Yasir Mansuri · Mansoori family"],
                   ["Discipline", "Offence · Defence · Audit · Train"],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex items-center justify-between gap-2">
+                  <div
+                    key={k}
+                    className="flex items-center justify-between gap-2"
+                  >
                     <span className="text-fg-faint font-mono text-[10px] uppercase tracking-wider">
                       {k}
                     </span>
-                    <span className="text-fg font-semibold text-right truncate">{v}</span>
+                    <span className="text-fg font-semibold text-right truncate">
+                      {v}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </Container>
     </section>
@@ -191,21 +208,18 @@ function RevealWord({
 }) {
   return (
     <span className="inline-block overflow-hidden align-bottom">
-      <motion.span
-        initial={{ y: "100%", opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          duration: 0.85,
-          delay,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <Reveal
+        as="span"
+        y={0}
+        delay={delay}
+        duration={0.85}
         className={cn(
           "inline-block mr-2.5 sm:mr-3 lg:mr-4",
-          gradient && "gradient-text"
+          gradient && "gradient-text",
         )}
       >
         {children}
-      </motion.span>
+      </Reveal>
     </span>
   );
 }

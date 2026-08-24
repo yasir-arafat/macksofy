@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Bold typographic manifesto block — the brand thesis in one sweeping
@@ -60,16 +61,16 @@ export function Manifesto() {
       />
 
       <Container className="relative">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.5 }}
+        <Reveal
+          as="div"
+          y={16}
+          duration={0.5}
+          margin="-15%"
           className="inline-flex items-center gap-2 rounded-full bg-bg-2/60 ring-1 ring-line px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-fg-muted"
         >
           <Quote className="size-3 text-neon-cyan" />
           The Macksofy thesis
-        </motion.div>
+        </Reveal>
 
         <h2 className="mt-8 font-display font-black tracking-tighter text-balance leading-[0.95] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
           {TOKENS.map((tok, i) => {
@@ -86,15 +87,12 @@ export function Manifesto() {
                 key={i}
                 className="inline-block overflow-hidden align-bottom mr-3 lg:mr-4"
               >
-                <motion.span
-                  initial={{ y: "100%", opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: "-15%" }}
-                  transition={{
-                    delay: idx * 0.06,
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
+                <Reveal
+                  as="span"
+                  y={0}
+                  delay={idx * 0.06}
+                  duration={0.7}
+                  margin="-15%"
                   className={cls}
                 >
                   {tok.value}
@@ -112,25 +110,25 @@ export function Manifesto() {
                       className="absolute inset-x-0 bottom-1 h-1 rounded-full origin-left bg-current opacity-30"
                     />
                   )}
-                </motion.span>
+                </Reveal>
               </span>
             );
           })}
         </h2>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.4, duration: 0.6 }}
+        <Reveal
+          as="div"
+          y={0}
+          delay={1.4}
+          duration={0.6}
           className="mt-10 max-w-2xl text-base sm:text-lg text-fg-muted text-pretty leading-relaxed border-l-2 border-neon-cyan/40 pl-5"
         >
           Eleven years in, every consultant on our team is an OSCP, OSWE or OSEP
           practitioner first, and a trainer second. We don&rsquo;t hire teachers
           — we work backwards from the cases we just shipped. That&rsquo;s the
-          loop our alumni now run inside HSBC, PwC, Verizon, Tata,
-          Reliance and 30+ RBI-regulated cooperative banks.
-        </motion.div>
+          loop our alumni now run inside HSBC, PwC, Verizon, Tata, Reliance and
+          30+ RBI-regulated cooperative banks.
+        </Reveal>
       </Container>
     </section>
   );

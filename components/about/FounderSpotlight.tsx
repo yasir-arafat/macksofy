@@ -18,6 +18,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 import { Eyebrow } from "@/components/ui/SectionTitle";
+import { Reveal } from "@/components/motion/Reveal";
 
 const CREDENTIALS = [
   { label: "OSCP", body: "OffSec Certified Professional" },
@@ -40,13 +41,7 @@ export function FounderSpotlight() {
   return (
     <div className="grid gap-10 lg:grid-cols-12 items-start">
       {/* AVATAR + identity */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="lg:col-span-5"
-      >
+      <Reveal as="div" y={16} duration={0.5} className="lg:col-span-5">
         <div className="relative">
           {/* glow halo */}
           <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-neon-cyan/20 via-neon-purple/20 to-neon-pink/20 blur-2xl opacity-70" />
@@ -60,7 +55,11 @@ export function FounderSpotlight() {
                   scale: [1, 1.05, 1],
                   rotate: [0, 1, -1, 0],
                 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="relative font-display text-[12rem] font-black gradient-text leading-none"
               >
                 M
@@ -77,7 +76,9 @@ export function FounderSpotlight() {
                 <div className="mt-1 font-display text-2xl font-black text-fg">
                   Macksofy Leadership
                 </div>
-                <div className="text-sm text-fg-muted">10+ years · Mumbai BKC</div>
+                <div className="text-sm text-fg-muted">
+                  10+ years · Mumbai BKC
+                </div>
               </div>
             </div>
           </div>
@@ -96,14 +97,14 @@ export function FounderSpotlight() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </Reveal>
 
       {/* BIO + achievements */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
+      <Reveal
+        as="div"
+        y={16}
+        delay={0.1}
+        duration={0.5}
         className="lg:col-span-7"
       >
         <Eyebrow color="purple">Founder Spotlight</Eyebrow>
@@ -116,9 +117,10 @@ export function FounderSpotlight() {
         <blockquote className="mt-7 relative rounded-2xl glass p-6 sm:p-7">
           <Quote className="absolute -top-3 left-6 size-7 text-neon-cyan/40 bg-bg p-1 rounded" />
           <p className="font-display text-lg sm:text-xl text-fg leading-relaxed text-balance">
-            &ldquo;Indian regulators expect rigour. Our customers expect honesty. The
-            best way to honour both is to make sure every consultant on this team
-            is also good enough to sit the certification exam they teach.&rdquo;
+            &ldquo;Indian regulators expect rigour. Our customers expect
+            honesty. The best way to honour both is to make sure every
+            consultant on this team is also good enough to sit the certification
+            exam they teach.&rdquo;
           </p>
           <footer className="mt-4 text-sm text-fg-muted">
             — Macksofy Leadership
@@ -132,17 +134,16 @@ export function FounderSpotlight() {
           </div>
           <ul className="space-y-3">
             {ACHIEVEMENTS.map((a, i) => (
-              <motion.li
+              <Reveal
+                as="li"
+                y={0}
+                delay={0.2 + i * 0.06}
                 key={a}
-                initial={{ opacity: 0, x: -8 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.06 }}
                 className="flex gap-3 text-sm"
               >
                 <GraduationCap className="size-4 text-neon-cyan shrink-0 mt-0.5" />
                 <span className="text-fg-muted leading-relaxed">{a}</span>
-              </motion.li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -157,7 +158,7 @@ export function FounderSpotlight() {
             <LinkedinIcon className="size-4" /> Connect on LinkedIn
           </a>
         </div>
-      </motion.div>
+      </Reveal>
     </div>
   );
 }

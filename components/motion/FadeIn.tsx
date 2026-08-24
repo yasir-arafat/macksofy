@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { ReactNode } from "react";
+import { Reveal } from "./Reveal";
 
 interface FadeInProps extends Omit<HTMLMotionProps<"div">, "children"> {
   children: ReactNode;
@@ -10,6 +11,15 @@ interface FadeInProps extends Omit<HTMLMotionProps<"div">, "children"> {
   once?: boolean;
 }
 
+/**
+ * Thin wrapper over {@link Reveal}.
+ *
+ * This used to be `initial={reduce ? false : { opacity: 0, y }}` — and
+ * `useReducedMotion()` resolves to `false` during SSR, so the "reduce" escape
+ * hatch never applied on the server and EVERY FadeIn shipped as
+ * `<div style="opacity:0">`. Reveal renders visible on the server and arms the
+ * animation client-side only when the element is off-screen.
+ */
 export function FadeIn({
   children,
   delay = 0,
@@ -17,17 +27,10 @@ export function FadeIn({
   once = true,
   ...rest
 }: FadeInProps) {
-  const reduce = useReducedMotion();
   return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-80px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
-      {...rest}
-    >
+    <Reveal as="div" y={y} delay={delay} once={once} {...rest}>
       {children}
-    </motion.div>
+    </Reveal>
   );
 }
 

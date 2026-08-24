@@ -1,14 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  Users,
-  ShieldCheck,
-  Trophy,
-  Globe2,
-} from "lucide-react";
+import { Users, ShieldCheck, Trophy, Globe2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/motion/Counter";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * "Professionals trained" (20,000+) and "Pentests delivered" (500+) were removed:
@@ -92,14 +87,10 @@ const TONE: Record<
   },
 };
 
-
 export function StatsInfographic() {
   return (
     <section className="relative py-24 sm:py-28 overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-30 bg-grid"
-      />
+      <div aria-hidden className="absolute inset-0 opacity-30 bg-grid" />
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon-cyan/40 to-transparent"
@@ -127,12 +118,13 @@ export function StatsInfographic() {
             const tone = TONE[s.accent];
             const Icon = s.icon;
             return (
-              <motion.div
+              <Reveal
+                as="div"
+                y={16}
+                delay={0.05 + i * 0.06}
+                duration={0.5}
+                margin="-10%"
                 key={s.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.5, delay: 0.05 + i * 0.06 }}
                 className="group relative rounded-2xl bg-bg-2/40 ring-1 ring-line p-5 sm:p-6 hover:ring-white/15 transition-all overflow-hidden"
               >
                 <div
@@ -157,11 +149,10 @@ export function StatsInfographic() {
                 <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-fg-muted">
                   {s.label}
                 </div>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>
-
       </Container>
     </section>
   );

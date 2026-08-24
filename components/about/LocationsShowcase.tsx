@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MapPin, Globe2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 
 const LOCATIONS = [
   {
@@ -52,15 +52,17 @@ export function LocationsShowcase() {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {LOCATIONS.map((loc, i) => (
-        <motion.div
+        <Reveal
+          as="div"
+          y={16}
+          delay={i * 0.07}
+          duration={0.45}
           key={loc.city}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.07, duration: 0.45 }}
           className={cn(
             "group relative rounded-2xl overflow-hidden lift",
-            loc.primary ? "gradient-border glow-cyan sm:col-span-2 lg:col-span-1" : "glass"
+            loc.primary
+              ? "gradient-border glow-cyan sm:col-span-2 lg:col-span-1"
+              : "glass",
           )}
         >
           {loc.primary && (
@@ -95,9 +97,11 @@ export function LocationsShowcase() {
               <MapPin className="inline size-3.5 text-fg-faint mr-1 -mt-0.5" />
               {loc.address}
             </p>
-            <p className="mt-2 text-xs text-fg-faint leading-relaxed">{loc.note}</p>
+            <p className="mt-2 text-xs text-fg-faint leading-relaxed">
+              {loc.note}
+            </p>
           </div>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

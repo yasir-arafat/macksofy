@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { VENDOR_LOGOS } from "@/content/vendorLogos";
 import { ACCREDITATION_LOGOS } from "@/content/accreditationLogos";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface BadgeItem {
   key: string;
@@ -35,12 +35,12 @@ export function AccreditationsBadgeWall() {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
       {ITEMS.map((it, i) => (
-        <motion.div
+        <Reveal
+          as="div"
+          y={0}
+          delay={i * 0.06}
+          duration={0.4}
           key={it.key}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.06, duration: 0.4 }}
           className="group rounded-2xl glass p-5 lift"
         >
           <div className="relative aspect-[1024/699] overflow-hidden rounded-xl bg-white">
@@ -60,7 +60,7 @@ export function AccreditationsBadgeWall() {
               {it.sub}
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

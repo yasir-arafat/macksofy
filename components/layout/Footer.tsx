@@ -20,6 +20,7 @@ import { Container } from "@/components/ui/Container";
 import type { NavIndex } from "@/lib/nav-index";
 import { cn } from "@/lib/utils";
 import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
+import { Reveal } from "@/components/motion/Reveal";
 
 /* ──────────────────────────────────────────────────────────────
    SOCIAL ICONS (inline SVG — Lucide v1 doesn't ship brand logos)
@@ -120,15 +121,12 @@ export function Footer({ nav }: { nav: NavIndex }) {
               {SITE.description}
             </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <Reveal as="div" y={10}
               className="mt-6 inline-flex items-center gap-2.5 rounded-full gradient-border px-3 py-1.5 text-xs font-semibold text-fg glow-cyan"
             >
               <ShieldCheck className="size-4 text-neon-cyan" />
               CERT-In Empanelled · Govt of India · MeitY
-            </motion.div>
+            </Reveal>
 
             <SocialRow />
           </div>
@@ -295,11 +293,7 @@ export function Footer({ nav }: { nav: NavIndex }) {
 function PreFooterCTA() {
   return (
     <Container className="pt-16">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      <Reveal as="div" y={24} duration={0.6} margin="-80px"
         className="relative isolate overflow-hidden rounded-3xl gradient-border glow-blend"
       >
         {/* animated mesh background */}
@@ -320,16 +314,12 @@ function PreFooterCTA() {
 
         <div className="relative grid gap-8 p-8 sm:p-12 lg:p-14 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+            <Reveal as="div" y={8} delay={0.1}
               className="inline-flex items-center gap-2 rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/30 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan"
             >
               <Sparkles className="size-3" />
               48-hour fixed-price proposal
-            </motion.div>
+            </Reveal>
             <h3 className="mt-4 font-display text-3xl font-black sm:text-4xl lg:text-5xl text-balance leading-[1.05]">
               Ready to secure your business{" "}
               <span className="gradient-text">— or train your team?</span>
@@ -384,12 +374,8 @@ function PreFooterCTA() {
                 { city: "Dubai", role: "UAE delivery", flag: "🇦🇪", slug: "dubai", primary: true },
                 { city: "Abu Dhabi", role: "UAE federal", flag: "🇦🇪", slug: "abu-dhabi" },
               ].map((l, i) => (
-                <motion.div
+                <Reveal as="div" y={10} delay={0.2 + i * 0.05}
                   key={l.city}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.05 }}
                 >
                   <Link
                     href={`/locations/${l.slug}`}
@@ -408,7 +394,7 @@ function PreFooterCTA() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
             <Link
@@ -420,7 +406,7 @@ function PreFooterCTA() {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </Reveal>
     </Container>
   );
 }
@@ -449,11 +435,7 @@ function NewsletterRow() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
+    <Reveal as="div" y={16} duration={0.5} margin="-80px"
       className="rounded-2xl glass-strong p-6 sm:p-8"
     >
       <div className="grid gap-6 lg:grid-cols-12 items-center">
@@ -494,7 +476,7 @@ function NewsletterRow() {
           </button>
         </form>
       </div>
-    </motion.div>
+    </Reveal>
   );
 }
 

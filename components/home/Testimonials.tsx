@@ -33,7 +33,9 @@ export function Testimonials() {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-12 items-start">
           <div className="lg:col-span-8">
-            <AnimatePresence mode="wait">
+            {/* initial={false} keeps the FIRST testimonial visible in server HTML;
+                subsequent slides still animate. */}
+            <AnimatePresence mode="wait" initial={false}>
               <motion.blockquote
                 key={idx}
                 initial={{ opacity: 0, y: 16 }}

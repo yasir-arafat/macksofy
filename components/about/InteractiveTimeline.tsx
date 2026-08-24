@@ -127,12 +127,48 @@ const MILESTONES: Milestone[] = [
 ];
 
 const accentMap = {
-  cyan: { text: "text-neon-cyan", bg: "bg-neon-cyan", border: "border-neon-cyan", ring: "ring-neon-cyan", glow: "shadow-[0_0_50px_rgba(0,229,255,0.4)]" },
-  blue: { text: "text-neon-blue", bg: "bg-neon-blue", border: "border-neon-blue", ring: "ring-neon-blue", glow: "shadow-[0_0_50px_rgba(77,124,255,0.4)]" },
-  purple: { text: "text-neon-purple", bg: "bg-neon-purple", border: "border-neon-purple", ring: "ring-neon-purple", glow: "shadow-[0_0_50px_rgba(168,85,247,0.4)]" },
-  pink: { text: "text-neon-pink", bg: "bg-neon-pink", border: "border-neon-pink", ring: "ring-neon-pink", glow: "shadow-[0_0_50px_rgba(236,72,153,0.4)]" },
-  amber: { text: "text-amber-300", bg: "bg-amber-300", border: "border-amber-300", ring: "ring-amber-300", glow: "shadow-[0_0_50px_rgba(252,211,77,0.4)]" },
-  green: { text: "text-neon-green", bg: "bg-neon-green", border: "border-neon-green", ring: "ring-neon-green", glow: "shadow-[0_0_50px_rgba(0,255,157,0.4)]" },
+  cyan: {
+    text: "text-neon-cyan",
+    bg: "bg-neon-cyan",
+    border: "border-neon-cyan",
+    ring: "ring-neon-cyan",
+    glow: "shadow-[0_0_50px_rgba(0,229,255,0.4)]",
+  },
+  blue: {
+    text: "text-neon-blue",
+    bg: "bg-neon-blue",
+    border: "border-neon-blue",
+    ring: "ring-neon-blue",
+    glow: "shadow-[0_0_50px_rgba(77,124,255,0.4)]",
+  },
+  purple: {
+    text: "text-neon-purple",
+    bg: "bg-neon-purple",
+    border: "border-neon-purple",
+    ring: "ring-neon-purple",
+    glow: "shadow-[0_0_50px_rgba(168,85,247,0.4)]",
+  },
+  pink: {
+    text: "text-neon-pink",
+    bg: "bg-neon-pink",
+    border: "border-neon-pink",
+    ring: "ring-neon-pink",
+    glow: "shadow-[0_0_50px_rgba(236,72,153,0.4)]",
+  },
+  amber: {
+    text: "text-amber-300",
+    bg: "bg-amber-300",
+    border: "border-amber-300",
+    ring: "ring-amber-300",
+    glow: "shadow-[0_0_50px_rgba(252,211,77,0.4)]",
+  },
+  green: {
+    text: "text-neon-green",
+    bg: "bg-neon-green",
+    border: "border-neon-green",
+    ring: "ring-neon-green",
+    glow: "shadow-[0_0_50px_rgba(0,255,157,0.4)]",
+  },
 } as const;
 
 export function InteractiveTimeline() {
@@ -145,17 +181,24 @@ export function InteractiveTimeline() {
   const Icon = current.icon;
 
   const goto = (i: number) => {
-    setActive(((i % MILESTONES.length) + MILESTONES.length) % MILESTONES.length);
+    setActive(
+      ((i % MILESTONES.length) + MILESTONES.length) % MILESTONES.length,
+    );
     requestAnimationFrame(() => scrollYearIntoView(i));
   };
 
   const scrollYearIntoView = (i: number) => {
-    const el = railRef.current?.querySelector<HTMLElement>(`[data-year-idx="${i}"]`);
+    const el = railRef.current?.querySelector<HTMLElement>(
+      `[data-year-idx="${i}"]`,
+    );
     if (el && railRef.current) {
       const r = el.getBoundingClientRect();
       const c = railRef.current.getBoundingClientRect();
       const offset = el.offsetLeft - c.width / 2 + r.width / 2;
-      railRef.current.scrollTo({ left: Math.max(0, offset), behavior: "smooth" });
+      railRef.current.scrollTo({
+        left: Math.max(0, offset),
+        behavior: "smooth",
+      });
     }
   };
 
@@ -174,10 +217,18 @@ export function InteractiveTimeline() {
         >
           <div className="relative flex items-end gap-0 min-w-max px-2 mx-auto">
             {/* connector */}
-            <div className="absolute left-0 right-0 bottom-3 h-px bg-line" aria-hidden />
             <div
-              className={cn("absolute left-0 bottom-3 h-px transition-all duration-500", accent.bg)}
-              style={{ width: `${((active + 0.5) / MILESTONES.length) * 100}%` }}
+              className="absolute left-0 right-0 bottom-3 h-px bg-line"
+              aria-hidden
+            />
+            <div
+              className={cn(
+                "absolute left-0 bottom-3 h-px transition-all duration-500",
+                accent.bg,
+              )}
+              style={{
+                width: `${((active + 0.5) / MILESTONES.length) * 100}%`,
+              }}
               aria-hidden
             />
 
@@ -191,7 +242,7 @@ export function InteractiveTimeline() {
                   onClick={() => goto(i)}
                   className={cn(
                     "relative flex flex-col items-center px-6 sm:px-10 group focus-visible:outline-none",
-                    "transition-all"
+                    "transition-all",
                   )}
                   aria-current={isActive ? "step" : undefined}
                   aria-label={`${m.year} — ${m.headline}`}
@@ -201,7 +252,7 @@ export function InteractiveTimeline() {
                       "font-display font-black transition-all leading-none",
                       isActive
                         ? cn("text-3xl sm:text-4xl", a.text)
-                        : "text-xl text-fg-faint group-hover:text-fg-muted"
+                        : "text-xl text-fg-faint group-hover:text-fg-muted",
                     )}
                   >
                     {m.year}
@@ -211,7 +262,7 @@ export function InteractiveTimeline() {
                       "mt-3 size-3 rounded-full ring-4 transition-all",
                       isActive
                         ? cn("ring-bg", a.bg, a.glow, "scale-125")
-                        : "bg-bg ring-line group-hover:ring-line-strong"
+                        : "bg-bg ring-line group-hover:ring-line-strong",
                     )}
                   />
                 </button>
@@ -231,13 +282,15 @@ export function InteractiveTimeline() {
             current.accent === "purple" && "from-neon-purple/20 to-transparent",
             current.accent === "pink" && "from-neon-pink/20 to-transparent",
             current.accent === "amber" && "from-amber-300/20 to-transparent",
-            current.accent === "green" && "from-neon-green/20 to-transparent"
+            current.accent === "green" && "from-neon-green/20 to-transparent",
           )}
           aria-hidden
         />
         <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
 
-        <AnimatePresence mode="wait">
+        {/* initial={false} keeps the FIRST chapter visible in server HTML;
+            switching chapters still animates. */}
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active}
             initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -252,7 +305,7 @@ export function InteractiveTimeline() {
                   className={cn(
                     "grid size-14 place-items-center rounded-2xl bg-bg-2 ring-2",
                     accent.ring,
-                    accent.glow
+                    accent.glow,
                   )}
                 >
                   <Icon className={cn("size-7", accent.text)} />
@@ -261,7 +314,12 @@ export function InteractiveTimeline() {
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
                     Year
                   </div>
-                  <div className={cn("font-display text-3xl font-black leading-none", accent.text)}>
+                  <div
+                    className={cn(
+                      "font-display text-3xl font-black leading-none",
+                      accent.text,
+                    )}
+                  >
                     {current.year}
                   </div>
                 </div>
@@ -275,14 +333,26 @@ export function InteractiveTimeline() {
             </div>
 
             <div className="lg:col-span-5 space-y-6">
-              <div className={cn("rounded-2xl border p-5 bg-bg/40", "border-line/60")}>
+              <div
+                className={cn(
+                  "rounded-2xl border p-5 bg-bg/40",
+                  "border-line/60",
+                )}
+              >
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
                   Headline metric
                 </div>
-                <div className={cn("mt-2 font-display text-4xl font-black leading-none", accent.text)}>
+                <div
+                  className={cn(
+                    "mt-2 font-display text-4xl font-black leading-none",
+                    accent.text,
+                  )}
+                >
                   {current.metric.value}
                 </div>
-                <div className="mt-1 text-sm text-fg-muted">{current.metric.label}</div>
+                <div className="mt-1 text-sm text-fg-muted">
+                  {current.metric.label}
+                </div>
               </div>
 
               <div>
@@ -298,7 +368,12 @@ export function InteractiveTimeline() {
                       transition={{ delay: 0.15 + i * 0.08 }}
                       className="flex items-start gap-2.5 text-sm"
                     >
-                      <span className={cn("mt-1.5 size-1.5 shrink-0 rounded-full", accent.bg)} />
+                      <span
+                        className={cn(
+                          "mt-1.5 size-1.5 shrink-0 rounded-full",
+                          accent.bg,
+                        )}
+                      />
                       <span className="text-fg-muted leading-relaxed">{h}</span>
                     </motion.li>
                   ))}

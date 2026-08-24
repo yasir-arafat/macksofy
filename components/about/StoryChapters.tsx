@@ -1,13 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Rocket,
-  Building2,
-  Globe2,
-  TrendingUp,
-} from "lucide-react";
+import { Rocket, Building2, Globe2, TrendingUp } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Chapter {
   era: string;
@@ -19,7 +15,10 @@ interface Chapter {
   accent: "cyan" | "purple" | "amber" | "green";
 }
 
-const ACCENTS: Record<Chapter["accent"], { text: string; bg: string; ring: string; glow: string }> = {
+const ACCENTS: Record<
+  Chapter["accent"],
+  { text: string; bg: string; ring: string; glow: string }
+> = {
   cyan: {
     text: "text-neon-cyan",
     bg: "bg-neon-cyan",
@@ -108,9 +107,10 @@ export function StoryChapters() {
             <span className="gradient-text">One uninterrupted streak.</span>
           </h2>
           <p className="mt-4 text-fg-muted text-pretty">
-            Founder-led, vendor-true and Mumbai-rooted since day one. Here&rsquo;s
-            how Macksofy went from eight students in 2014 to a multi-discipline
-            firm trusted by India&rsquo;s most regulated industries.
+            Founder-led, vendor-true and Mumbai-rooted since day one.
+            Here&rsquo;s how Macksofy went from eight students in 2014 to a
+            multi-discipline firm trusted by India&rsquo;s most regulated
+            industries.
           </p>
         </div>
 
@@ -135,24 +135,33 @@ export function StoryChapters() {
               const tone = ACCENTS[c.accent];
               const Icon = c.icon;
               return (
-                <motion.li
+                <Reveal
+                  as="li"
+                  y={24}
+                  delay={0.05 + i * 0.06}
+                  duration={0.5}
+                  margin="-15%"
                   key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-15%" }}
-                  transition={{ duration: 0.5, delay: 0.05 + i * 0.06 }}
                   className="relative"
                 >
                   <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
                     {/* Left or right card */}
-                    <div className={right ? "lg:order-2 lg:pl-12" : "lg:order-1 lg:pr-12 lg:text-right"}>
+                    <div
+                      className={
+                        right
+                          ? "lg:order-2 lg:pl-12"
+                          : "lg:order-1 lg:pr-12 lg:text-right"
+                      }
+                    >
                       <ChapterCard chapter={c} alignRight={!right} />
                     </div>
 
                     {/* Spine marker */}
                     <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-2">
                       <div className="relative">
-                        <div className={`absolute inset-0 rounded-full ${tone.bg} opacity-30 blur-md`} />
+                        <div
+                          className={`absolute inset-0 rounded-full ${tone.bg} opacity-30 blur-md`}
+                        />
                         <div
                           className={`relative grid size-14 place-items-center rounded-full bg-bg ring-2 ${tone.ring} ${tone.glow}`}
                         >
@@ -162,7 +171,9 @@ export function StoryChapters() {
                     </div>
 
                     {/* Empty side (for visual balance) */}
-                    <div className={`hidden lg:block ${right ? "lg:order-1" : "lg:order-2"}`} />
+                    <div
+                      className={`hidden lg:block ${right ? "lg:order-1" : "lg:order-2"}`}
+                    />
                   </div>
 
                   {/* Mobile spine marker */}
@@ -176,7 +187,7 @@ export function StoryChapters() {
                   <div className="lg:hidden mt-3 pl-16 -mt-2">
                     <ChapterCard chapter={c} alignRight={false} mobile />
                   </div>
-                </motion.li>
+                </Reveal>
               );
             })}
           </ol>
@@ -208,9 +219,13 @@ function ChapterCard({
         <h3 className="mt-2 font-display text-xl font-black text-fg leading-tight">
           {chapter.title}
         </h3>
-        <p className="mt-3 text-sm text-fg-muted leading-relaxed">{chapter.body}</p>
+        <p className="mt-3 text-sm text-fg-muted leading-relaxed">
+          {chapter.body}
+        </p>
         <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-bg-1/60 ring-1 ring-line/60 px-3 py-1 text-[11px]">
-          <span className={`font-display text-base font-black ${tone.text} leading-none`}>
+          <span
+            className={`font-display text-base font-black ${tone.text} leading-none`}
+          >
             {chapter.metric.value}
           </span>
           <span className="text-fg-muted font-mono text-[10px] uppercase tracking-wider">
@@ -247,7 +262,9 @@ function ChapterCard({
       </p>
       <div className={`mt-5 ${alignRight ? "lg:flex lg:justify-end" : ""}`}>
         <div className="inline-flex items-center gap-2.5 rounded-full bg-bg-1/60 ring-1 ring-line/60 px-3.5 py-1.5">
-          <span className={`font-display text-lg font-black ${tone.text} leading-none tabular-nums`}>
+          <span
+            className={`font-display text-lg font-black ${tone.text} leading-none tabular-nums`}
+          >
             {chapter.metric.value}
           </span>
           <span className="text-fg-muted font-mono text-[10px] uppercase tracking-wider">
