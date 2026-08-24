@@ -141,7 +141,10 @@ export function MapSwitcher() {
             aria-hidden
             className="absolute -top-20 -right-20 size-64 rounded-full bg-neon-cyan/5 blur-3xl pointer-events-none"
           />
-          <AnimatePresence mode="wait">
+          {/* initial={false} keeps the FIRST office's address in server HTML;
+              switching offices still animates. The map iframe above is left as
+              it was — an iframe carries no indexable text. */}
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={active.key}
               initial={{ opacity: 0, x: 12 }}
