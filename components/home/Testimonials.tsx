@@ -48,12 +48,17 @@ export function Testimonials() {
                 </p>
                 <div className="mt-8 flex items-center gap-4">
                   <div className="grid size-12 place-items-center rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple text-bg font-display font-bold">
-                    {t.name.split(" ").map((n) => n[0]).join("")}
+                    {t.company
+                      .split(/\s+/)
+                      .slice(0, 2)
+                      .map((w) => w[0])
+                      .join("")
+                      .toUpperCase()}
                   </div>
                   <div>
-                    <div className="font-bold text-fg">{t.name}</div>
+                    <div className="font-bold text-fg">{t.role}</div>
                     <div className="text-sm text-fg-muted">
-                      {t.role} · {t.company}
+                      {t.company}
                       {t.city && ` · ${t.city}`}
                     </div>
                   </div>
@@ -98,9 +103,9 @@ export function Testimonials() {
                     : "glass ring-1 ring-transparent transition-shadow hover:ring-line-strong"
                 }`}
               >
-                <div className="text-sm font-semibold text-fg">{tt.name}</div>
+                <div className="text-sm font-semibold text-fg">{tt.role}</div>
                 <div className="text-xs text-fg-muted line-clamp-1">
-                  {tt.role} · {tt.company}
+                  {tt.company}
                 </div>
               </button>
             ))}

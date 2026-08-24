@@ -1,5 +1,10 @@
 export interface Testimonial {
-  name: string;
+  /**
+   * Personal names were removed deliberately: these are illustrative client
+   * voices, not consented, attributable quotes from named individuals.
+   * Attribution is by role + sector only. Re-adding a real person's name
+   * requires documented permission from that person.
+   */
   role: string;
   company: string;
   city?: string;
@@ -9,7 +14,6 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Aisha Khan",
     role: "Information Security Manager",
     company: "Listed Fintech",
     city: "BKC, Mumbai",
@@ -18,7 +22,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "R. Karandikar",
     role: "Cyber Cell",
     company: "Maharashtra Police",
     city: "Mumbai",
@@ -27,7 +30,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "Vivek Iyer",
     role: "DevSecOps Lead",
     company: "Healthcare SaaS",
     city: "Hyderabad",
@@ -36,7 +38,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "Priya Sharma",
     role: "CTO",
     company: "Series-B SaaS",
     city: "Bangalore",
@@ -45,7 +46,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "Arjun Desai",
     role: "Head of Security",
     company: "Stock Brokerage",
     city: "Mumbai",
@@ -54,7 +54,6 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "Faisal Rahman",
     role: "Senior Pentester",
     company: "Big-4 Consulting",
     city: "Dubai, UAE",

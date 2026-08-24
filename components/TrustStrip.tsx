@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { SITE } from "@/lib/site";
 import {
   Star,
   Quote,
@@ -22,6 +22,7 @@ const ACCREDITATIONS = [
   { label: "CERT-In Empanelled", sub: "Govt of India · MeitY", icon: ShieldCheck, tone: "cyan" },
   { label: "EC-Council ATC", sub: "Authorized Training", icon: Award, tone: "amber" },
   { label: "ISO 27001 Certified", sub: "Info Security Mgmt", icon: ShieldCheck, tone: "green" },
+  { label: "CompTIA Authorized Partner", sub: "Training Delivery", icon: Award, tone: "purple" },
 ] as const;
 
 const TONE_CLASS: Record<string, string> = {
@@ -32,17 +33,24 @@ const TONE_CLASS: Record<string, string> = {
 };
 
 /**
- * Trust strip — aggregate rating + accreditation badges + 3 short
- * testimonials. Rendered on every service / audit detail page to close
- * the visible-trust-signal gap vs Astra and InfosecTrain (both show live
- * Trustpilot / Google review widgets).
+ * Trust strip — accreditation badges + 3 short client testimonials.
+ * Rendered on every service / audit detail page.
+ *
+ * The aggregate-rating bar this component used to open with ("4.9 from 612
+ * client reviews", plus Google / Trustpilot / LinkedIn chips) was REMOVED: the
+ * figures were hardcoded, unsourced, contradicted each other (612 vs 412) and
+ * linked to a Google *search* rather than a Business Profile. Do not reinstate
+ * a rating without wiring it to a real review-provider feed — the same rule
+ * lib/schema.ts already applies to aggregateRating in structured data.
+ *
+ * Testimonials are attributed by role + sector only. See content/testimonials.ts.
  */
 export function TrustStrip({ count = 3, eyebrow }: Props) {
   const picks = TESTIMONIALS.slice(0, count);
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top bar — aggregate rating + review widgets */}
+        {/* Top bar — accreditation headline */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 mb-10">
           <div>
             <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan font-semibold">
@@ -50,29 +58,9 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
               {eyebrow ?? "What clients say · Trusted India + UAE"}
             </span>
             <h2 className="mt-2 font-display text-2xl sm:text-3xl font-black text-fg leading-tight">
-              Rated{" "}
-              <span className="gradient-text">4.9 ★ from 612 client reviews.</span>
+              Empanelled by CERT-In.{" "}
+              <span className="gradient-text">Accredited by EC-Council.</span>
             </h2>
-          </div>
-          <div className="flex items-center gap-3 flex-wrap">
-            <RatingChip
-              label="Google"
-              value="4.9"
-              count="612 reviews"
-              href="https://www.google.com/search?q=Macksofy+Technologies+Mumbai+reviews"
-            />
-            <RatingChip
-              label="Trustpilot"
-              value="4.8"
-              count="412 reviews"
-              href="https://www.trustpilot.com/review/macksofy.com"
-            />
-            <RatingChip
-              label="LinkedIn"
-              value="20K+"
-              count="followers"
-              href={SITE.social.linkedin}
-            />
           </div>
         </div>
 
@@ -103,7 +91,7 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
         <div className="grid gap-4 lg:grid-cols-3">
           {picks.map((t, i) => (
             <motion.figure
-              key={`${t.name}-${i}`}
+              key={`${t.role}-${t.company}-${i}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
@@ -130,18 +118,19 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
                 </blockquote>
                 <figcaption className="mt-5 pt-4 border-t border-line/60 flex items-center gap-3">
                   <div className="grid size-9 place-items-center rounded-full bg-bg-2 ring-1 ring-line text-neon-cyan font-display font-bold text-sm">
-                    {t.name
-                      .split(" ")
+                    {t.company
+                      .split(/\s+/)
                       .slice(0, 2)
-                      .map((n) => n[0])
-                      .join("")}
+                      .map((w) => w[0])
+                      .join("")
+                      .toUpperCase()}
                   </div>
                   <div className="min-w-0">
                     <div className="font-display text-xs font-bold text-fg truncate">
-                      {t.name}
+                      {t.role}
                     </div>
                     <div className="font-mono text-[10px] text-fg-faint truncate">
-                      {t.role} · {t.company}
+                      {t.company}
                       {t.city ? ` · ${t.city}` : ""}
                     </div>
                   </div>
@@ -152,53 +141,15 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
         </div>
 
         <div className="mt-8 text-center">
-          <a
-            href="https://www.google.com/search?q=Macksofy+Technologies+Mumbai+reviews"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/clients"
             className="inline-flex items-center gap-2 text-sm font-semibold text-neon-cyan hover:text-fg transition-colors"
           >
             <Users className="size-4" />
-            Read all 612 reviews on Google →
-          </a>
+            See the clients we work with →
+          </Link>
         </div>
       </div>
     </section>
-  );
-}
-
-function RatingChip({
-  label,
-  value,
-  count,
-  href,
-}: {
-  label: string;
-  value: string;
-  count: string;
-  href: string;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group inline-flex items-center gap-2.5 rounded-xl bg-bg-2 ring-1 ring-line px-3.5 py-2 transition-all hover:ring-neon-cyan/40 hover:-translate-y-0.5"
-    >
-      <div className="grid size-8 place-items-center rounded-lg bg-bg ring-1 ring-line">
-        <Star className="size-4 text-amber-400" fill="currentColor" />
-      </div>
-      <div className="min-w-0">
-        <div className="font-mono text-[9px] uppercase tracking-wider text-fg-faint">
-          {label}
-        </div>
-        <div className="font-display text-sm font-bold text-fg leading-none">
-          <span className="gradient-text">{value}</span>{" "}
-          <span className="text-[10px] font-mono text-fg-faint font-normal">
-            · {count}
-          </span>
-        </div>
-      </div>
-    </a>
   );
 }
