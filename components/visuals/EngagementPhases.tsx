@@ -397,7 +397,7 @@ export function EngagementPhases() {
                   {ph.activities.map((a, i) => (
                     <motion.li
                       key={a}
-                      initial={reduce ? false : { opacity: 0, x: -8 }}
+                      initial={false}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 + i * 0.06 }}
                       className="flex items-start gap-2.5 text-sm"
