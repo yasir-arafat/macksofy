@@ -34,6 +34,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { MobileTopTen } from "@/components/visuals/mobile/MobileTopTen";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -505,6 +506,13 @@ export default function MobileSecPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What lands in your inbox"
+        tone="raised"
+      />
 
       <TrustStrip />
 

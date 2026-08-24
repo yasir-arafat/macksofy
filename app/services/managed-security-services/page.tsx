@@ -33,6 +33,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { SocPod } from "@/components/visuals/mss/SocPod";
 import { CoSourceSplit } from "@/components/visuals/mss/CoSourceSplit";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -438,6 +439,13 @@ export default function MssPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="What's included"
+        heading="What the retainer covers"
+        tone="plain"
+      />
 
       <TrustStrip />
 

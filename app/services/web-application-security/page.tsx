@@ -28,6 +28,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { OwaspMap } from "@/components/visuals/web/OwaspMap";
 import { RequestInspector } from "@/components/visuals/web/RequestInspector";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -305,6 +306,13 @@ export default function WebSecPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What lands in your inbox"
+        tone="raised"
+      />
 
       <TrustStrip />
 

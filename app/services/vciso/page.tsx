@@ -31,6 +31,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { OperatingRhythm } from "@/components/visuals/vciso/OperatingRhythm";
 import { RegulatorInterlocutor } from "@/components/visuals/vciso/RegulatorInterlocutor";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -470,6 +471,13 @@ export default function VcisoPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="What's included"
+        heading="What the engagement covers"
+        tone="plain"
+      />
 
       <TrustStrip />
 

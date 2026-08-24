@@ -32,6 +32,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { QuarterlyCadence } from "@/components/visuals/program/QuarterlyCadence";
 import { RiskRegisterFlow } from "@/components/visuals/program/RiskRegisterFlow";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -428,6 +429,13 @@ export default function AnnualProgramPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="What's included"
+        heading="What the program covers"
+        tone="plain"
+      />
 
       <TrustStrip />
 

@@ -37,6 +37,7 @@ import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { PurdueModelStack } from "@/components/visuals/iot/PurdueModelStack";
 import { ICSProtocolGrid } from "@/components/visuals/iot/ICSProtocolGrid";
 import { OTHmiPanel } from "@/components/visuals/iot/OTHmiPanel";
@@ -662,6 +663,13 @@ export default function IotOtSecurityPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What you get when the assessment ends"
+        tone="plain"
+      />
 
       <TrustStrip />
 

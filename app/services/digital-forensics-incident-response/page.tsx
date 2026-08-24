@@ -16,6 +16,7 @@ import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { IncidentTimeline } from "@/components/visuals/dfir/IncidentTimeline";
 import { ChainOfCustody } from "@/components/visuals/dfir/ChainOfCustody";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -229,6 +230,13 @@ export default function DfirPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What you get when the incident closes"
+        tone="raised"
+      />
 
       <TrustStrip />
 

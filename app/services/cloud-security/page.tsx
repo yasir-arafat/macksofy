@@ -36,6 +36,7 @@ import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { CloudArchitecture } from "@/components/visuals/cloud/CloudArchitecture";
 import { IamBlastRadius } from "@/components/visuals/cloud/IamBlastRadius";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -599,6 +600,13 @@ export default function CloudSecurityPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What lands in your inbox"
+        tone="raised"
+      />
 
       <TrustStrip />
 

@@ -19,6 +19,7 @@ import { SITE } from "@/lib/site";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { PentestTerminal } from "@/components/visuals/pentest/PentestTerminal";
 import { PTESMethodology } from "@/components/visuals/pentest/PTESMethodology";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -274,6 +275,13 @@ export default function PentestPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What you get when the test ends"
+        tone="plain"
+      />
 
       <TrustStrip />
 

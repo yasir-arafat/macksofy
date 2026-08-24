@@ -31,6 +31,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { BenchDepth } from "@/components/visuals/staffing/BenchDepth";
 import { DeploymentTimeline } from "@/components/visuals/staffing/DeploymentTimeline";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -441,6 +442,13 @@ export default function StaffingPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="What's included"
+        heading="What you get with every placement"
+        tone="plain"
+      />
 
       <TrustStrip />
 

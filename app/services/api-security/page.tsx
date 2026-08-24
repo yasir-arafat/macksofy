@@ -28,6 +28,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { RequestInspector } from "@/components/visuals/web/RequestInspector";
 import { OwaspApiMap } from "@/components/visuals/api/OwaspApiMap";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
@@ -365,6 +366,13 @@ export default function ApiSecPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What lands in your inbox"
+        tone="raised"
+      />
 
       <TrustStrip />
 

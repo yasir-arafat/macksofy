@@ -17,6 +17,7 @@ import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { AptActorCards } from "@/components/visuals/intel/AptActorCards";
 import { IocFeedTicker } from "@/components/visuals/intel/IocFeedTicker";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -220,6 +221,13 @@ export default function ThreatIntelPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What lands in your inbox"
+        tone="raised"
+      />
 
       <TrustStrip />
 

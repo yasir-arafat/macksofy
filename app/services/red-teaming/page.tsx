@@ -28,6 +28,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { KillChainGraph } from "@/components/visuals/redteam/KillChainGraph";
 import { AttackHeatmap } from "@/components/visuals/redteam/AttackHeatmap";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -444,6 +445,13 @@ export default function RedTeamPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What you get when the campaign ends"
+        tone="plain"
+      />
 
       <TrustStrip />
 

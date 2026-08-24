@@ -1,7 +1,6 @@
 import { ScanSearch, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
-import { Badge } from "@/components/ui/Badge";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
@@ -20,6 +19,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { RadarPulse } from "@/components/visuals/vapt/RadarPulse";
 import { CoverageMatrix } from "@/components/visuals/vapt/CoverageMatrix";
 import { SampleFindingCard } from "@/components/visuals/vapt/SampleFindingCard";
@@ -316,38 +316,7 @@ export default function VaptServicePage() {
         </Container>
       </section>
 
-      {/* DELIVERABLES + INDUSTRIES */}
-      <section className="py-20 bg-bg-1">
-        <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <Eyebrow>Deliverables</Eyebrow>
-              <h3 className="mt-3 font-display text-2xl font-black sm:text-3xl">
-                What lands in your inbox
-              </h3>
-              <ul className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                {service.deliverables.map((d) => (
-                  <li key={d} className="flex gap-3 text-sm">
-                    <CheckCircle2 className="size-5 text-neon-cyan shrink-0 mt-0.5" />
-                    <span className="text-fg-muted leading-relaxed">{d}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:col-span-5">
-              <Eyebrow color="purple">Industries</Eyebrow>
-              <h3 className="mt-3 font-display text-2xl font-black sm:text-3xl">
-                Sectors we operate in
-              </h3>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {service.industriesServed.map((i) => (
-                  <Badge key={i} variant="outline">{i}</Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <DeliverablesIndustries service={service} tone="raised" />
 
       <TrustStrip />
 

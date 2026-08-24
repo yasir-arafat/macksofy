@@ -34,6 +34,7 @@ import { getServicePricing } from "@/content/pricing";
 import { PricingTiers } from "@/components/PricingTiers";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { DetectionLoop } from "@/components/visuals/purple/DetectionLoop";
 import { CoverageDelta } from "@/components/visuals/purple/CoverageDelta";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -449,6 +450,13 @@ export default function PurpleTeamPage() {
       <PricingTiers
         pkg={getServicePricing(service.slug, service.category)}
         contactInterest={service.title}
+      />
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What you get when the exercise ends"
+        tone="raised"
       />
 
       <TrustStrip />

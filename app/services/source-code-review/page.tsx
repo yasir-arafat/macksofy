@@ -32,6 +32,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { VulnDiffViewer } from "@/components/visuals/code/VulnDiffViewer";
 import { LanguageCoverage } from "@/components/visuals/code/LanguageCoverage";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -443,6 +444,13 @@ export default function SourceCodeReviewPage() {
           </div>
         </Container>
       </section>
+
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="Deliverables"
+        heading="What lands in your inbox"
+        tone="plain"
+      />
 
       <TrustStrip />
 

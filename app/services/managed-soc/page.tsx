@@ -1,7 +1,6 @@
 import { Activity, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
-import { Badge } from "@/components/ui/Badge";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
@@ -17,6 +16,7 @@ import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
 import { TrustStrip } from "@/components/TrustStrip";
+import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
 import { SiemDashboard } from "@/components/visuals/soc/SiemDashboard";
 import { AlertFunnel } from "@/components/visuals/soc/AlertFunnel";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -196,38 +196,12 @@ export default function ManagedSocPage() {
         </Container>
       </section>
 
-      {/* DELIVERABLES */}
-      <section className="py-20 bg-bg-1">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <Eyebrow>What ships at handover</Eyebrow>
-              <h3 className="mt-3 font-display text-2xl font-black sm:text-3xl">
-                Build deliverables
-              </h3>
-              <ul className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                {service.deliverables.map((d) => (
-                  <li key={d} className="flex gap-3 text-sm">
-                    <CheckCircle2 className="size-5 text-neon-cyan shrink-0 mt-0.5" />
-                    <span className="text-fg-muted leading-relaxed">{d}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:col-span-5">
-              <Eyebrow color="purple">Industries</Eyebrow>
-              <h3 className="mt-3 font-display text-2xl font-black sm:text-3xl">
-                Sectors we operate in
-              </h3>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {service.industriesServed.map((i) => (
-                  <Badge key={i} variant="outline">{i}</Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <DeliverablesIndustries
+        service={service}
+        eyebrow="What ships at handover"
+        heading="Build deliverables"
+        tone="raised"
+      />
 
       {/* TOOL STACK */}
       <section className="py-20">
