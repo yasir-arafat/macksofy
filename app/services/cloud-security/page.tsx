@@ -43,6 +43,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "cloud-security";
 
@@ -481,6 +482,13 @@ export default function CloudSecurityPage() {
               );
             })}
           </ol>
+          <div className="mt-12">
+            <Methodology
+              slug={SLUG}
+              phases={service.methodology}
+              subjectLabel={service.shortTitle}
+            />
+          </div>
         </Container>
       </section>
 

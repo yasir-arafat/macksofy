@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Crosshair,
   Search,
@@ -333,48 +333,57 @@ export function EngagementPhases() {
         />
         <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
 
-        {/* initial={false} keeps the FIRST phase visible in server HTML;
-              switching phases still animates. */}
-          <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={active}
-            initial={reduce ? false : { opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={reduce ? undefined : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative grid gap-10 lg:grid-cols-12 p-8 sm:p-10 lg:p-12"
-          >
+        {/*
+          Every phase's activities stay in the DOM. This rendered only
+          PHASES[active], so 20 of its 24 activities were missing from the
+          server HTML on the HOMEPAGE and /services/vapt. Inactive panels use
+          `hidden` and carry NO display utility class — a Tailwind
+          `grid`/`flex`/`block` would override `[hidden] { display: none }`
+          and stack every phase visible at once.
+        */}
+        {PHASES.map((ph, pi) => {
+          const isActive = pi === active;
+          return (
+            <div
+              key={ph.title}
+              hidden={!isActive}
+              className={
+                isActive
+                  ? "relative grid gap-10 lg:grid-cols-12 p-8 sm:p-10 lg:p-12"
+                  : undefined
+              }
+            >
             {/* Left column: icon + meta */}
             <div className="lg:col-span-4">
               <div className="flex items-center gap-4 mb-4">
                 <div
                   className={cn(
                     "relative grid size-16 place-items-center rounded-2xl bg-bg-2 ring-2",
-                    phase.accent.ring,
-                    phase.accent.glow
+                    ph.accent.ring,
+                    ph.accent.glow
                   )}
                 >
-                  <Icon className={cn("size-8", phase.accent.text)} />
+                  <Icon className={cn("size-8", ph.accent.text)} />
                 </div>
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
-                    Phase {phase.num}
+                    Phase {ph.num}
                   </div>
-                  <div className={cn("font-mono text-xs uppercase tracking-wider", phase.accent.text)}>
-                    {phase.duration}
+                  <div className={cn("font-mono text-xs uppercase tracking-wider", ph.accent.text)}>
+                    {ph.duration}
                   </div>
                 </div>
               </div>
 
               <h3 className="font-display text-3xl font-black text-fg leading-tight text-balance">
-                {phase.title}
+                {ph.title}
               </h3>
-              <p className={cn("mt-2 font-mono text-xs uppercase tracking-wider", phase.accent.text)}>
-                {phase.subtitle}
+              <p className={cn("mt-2 font-mono text-xs uppercase tracking-wider", ph.accent.text)}>
+                {ph.subtitle}
               </p>
 
               <p className="mt-5 text-fg-muted leading-relaxed text-pretty">
-                {phase.description}
+                {ph.description}
               </p>
             </div>
 
@@ -385,7 +394,7 @@ export function EngagementPhases() {
                   Key activities
                 </div>
                 <ul className="grid gap-2 sm:grid-cols-2">
-                  {phase.activities.map((a, i) => (
+                  {ph.activities.map((a, i) => (
                     <motion.li
                       key={a}
                       initial={reduce ? false : { opacity: 0, x: -8 }}
@@ -393,7 +402,7 @@ export function EngagementPhases() {
                       transition={{ delay: 0.1 + i * 0.06 }}
                       className="flex items-start gap-2.5 text-sm"
                     >
-                      <CheckCircle2 className={cn("size-4 shrink-0 mt-0.5", phase.accent.text)} />
+                      <CheckCircle2 className={cn("size-4 shrink-0 mt-0.5", ph.accent.text)} />
                       <span className="text-fg-muted leading-relaxed">{a}</span>
                     </motion.li>
                   ))}
@@ -405,7 +414,7 @@ export function EngagementPhases() {
                   Tools / artifacts
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {phase.tools.map((t) => (
+                  {ph.tools.map((t) => (
                     <span
                       key={t}
                       className="font-mono text-[11px] rounded-md bg-white/5 ring-1 ring-line px-2 py-1 text-fg-muted"
@@ -420,13 +429,14 @@ export function EngagementPhases() {
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
                   Deliverable
                 </div>
-                <div className={cn("mt-1.5 font-display text-base font-bold", phase.accent.text)}>
-                  {phase.deliverable}
+                <div className={cn("mt-1.5 font-display text-base font-bold", ph.accent.text)}>
+                  {ph.deliverable}
                 </div>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+                      </div>
+          );
+        })}
 
         {/* Progress bar */}
         {!reduce && (

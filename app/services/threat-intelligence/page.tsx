@@ -24,6 +24,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "threat-intelligence";
 
@@ -218,6 +219,27 @@ export default function ThreatIntelPage() {
                 <ToolStack tools={service.toolStack.map((t) => ({ name: t }))} />
               </div>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Renders service.methodology, which the page's HowTo schema already
+          describes and links to as #methodology — previously that anchor did
+          not exist and none of these activities appeared on the page. */}
+      <section id="methodology" className="py-20">
+        <Container>
+          <div className="max-w-3xl">
+            <Eyebrow>Programme methodology</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+              Requirements to briefing.
+            </h2>
+          </div>
+          <div className="mt-10">
+            <Methodology
+              slug={SLUG}
+              phases={service.methodology}
+              subjectLabel={service.shortTitle}
+            />
           </div>
         </Container>
       </section>
