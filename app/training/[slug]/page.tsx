@@ -28,6 +28,7 @@ import { SITE } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
 import { Outcomes } from "@/components/visuals/outcomes/Outcomes";
 import { Curriculum } from "@/components/visuals/curriculum/Curriculum";
+import { CourseFit } from "@/components/training/CourseFit";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { References } from "@/components/sections/References";
 import { getShortAnswer } from "@/content/shortAnswers";
@@ -280,6 +281,12 @@ export default async function CourseDetail({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      <CourseFit
+        whoIsItFor={c.whoIsItFor}
+        prerequisites={c.prerequisites}
+        courseShortTitle={c.shortTitle}
+      />
 
       {/* CURRICULUM */}
       <section className="py-20">
