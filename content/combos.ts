@@ -9043,7 +9043,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Mumbai · API Security ──────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "mumbai",
     serviceSlug: "api-security",
     headline: "API Security Testing in Mumbai · Fintech & BFSI APIs",
@@ -9157,7 +9156,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Bengaluru · API Security ───────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "bengaluru",
     serviceSlug: "api-security",
     headline: "API Security Testing in Bengaluru · SaaS & Product APIs",
@@ -9271,7 +9269,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Delhi NCR · API Security ───────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "delhi",
     serviceSlug: "api-security",
     headline: "API Security Testing in Delhi NCR · Gov, India Stack & Enterprise",
@@ -9390,7 +9387,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Mumbai · DFIR ──────────────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "mumbai",
     serviceSlug: "digital-forensics-incident-response",
     headline: "DFIR Services in Mumbai · BFSI Incident Response",
@@ -9504,7 +9500,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Bengaluru · DFIR ───────────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "bengaluru",
     serviceSlug: "digital-forensics-incident-response",
     headline: "DFIR Services in Bengaluru · Cloud & SaaS Incident Response",
@@ -9618,7 +9613,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Delhi NCR · DFIR ───────────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "delhi",
     serviceSlug: "digital-forensics-incident-response",
     headline: "DFIR Services in Delhi NCR · Government & Enterprise IR",
@@ -9736,7 +9730,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Mumbai · vCISO ─────────────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "mumbai",
     serviceSlug: "vciso",
     headline: "Virtual CISO (vCISO) in Mumbai · BFSI & Fintech",
@@ -9850,7 +9843,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Bengaluru · vCISO ──────────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "bengaluru",
     serviceSlug: "vciso",
     headline: "Virtual CISO (vCISO) in Bengaluru · SaaS & Startups",
@@ -9964,7 +9956,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─ Delhi NCR · vCISO ──────────────────────────────────────────────
   {
-    updated: "2026-05-31",
     citySlug: "delhi",
     serviceSlug: "vciso",
     headline: "Virtual CISO (vCISO) in Delhi NCR · Enterprise & Mid-Market",
@@ -10079,7 +10070,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Dubai × Cloud Security
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-03",
     citySlug: "dubai",
     serviceSlug: "cloud-security",
     headline: "Cloud Security in Dubai · DESC ISR, DIFC & PDPL Residency",
@@ -10219,7 +10209,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Abu Dhabi × VAPT
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-03",
     citySlug: "abu-dhabi",
     serviceSlug: "vapt",
     headline: "VAPT Services in Abu Dhabi · ADHICS, ADGM & NESA",
@@ -10359,7 +10348,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Abu Dhabi × Managed SOC
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-03",
     citySlug: "abu-dhabi",
     serviceSlug: "managed-soc",
     headline: "Managed SOC in Abu Dhabi · NESA, ADGM & Energy CII",
@@ -10489,7 +10477,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Abu Dhabi × Cloud Security
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-03",
     citySlug: "abu-dhabi",
     serviceSlug: "cloud-security",
     headline: "Cloud Security in Abu Dhabi · ADDA, Sovereign Cloud & ADHICS",
@@ -10627,7 +10614,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Abu Dhabi × Red Teaming
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-18",
     citySlug: "abu-dhabi",
     serviceSlug: "red-teaming",
     headline: "Red Team Operations in Abu Dhabi · Energy, ADGM & Gov",
@@ -10769,7 +10755,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Abu Dhabi × Digital Forensics & Incident Response
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-18",
     citySlug: "abu-dhabi",
     serviceSlug: "digital-forensics-incident-response",
     headline: "Incident Response & DFIR in Abu Dhabi · Energy & Gov",
@@ -10889,7 +10874,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Abu Dhabi × Network Security Architecture
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-18",
     citySlug: "abu-dhabi",
     serviceSlug: "network-security-architecture",
     headline: "Network Security Architecture in Abu Dhabi · OT & Gov",
@@ -11009,7 +10993,6 @@ export const COMBOS: CityServiceCombo[] = [
   // Dubai × Digital Forensics & Incident Response
   // ─────────────────────────────────────────────────────────────────────
   {
-    updated: "2026-06-18",
     citySlug: "dubai",
     serviceSlug: "digital-forensics-incident-response",
     headline: "Incident Response & DFIR in Dubai · DIFC, DESC & Gov",
@@ -11127,7 +11110,6 @@ export const COMBOS: CityServiceCombo[] = [
 
 // ── Bengaluru · AI / LLM Security Testing ──────────────────────────
   {
-    updated: "2026-07-23",
     citySlug: "bengaluru",
     serviceSlug: "ai-pentesting",
     headline: "AI / LLM Security Testing in Bengaluru · SaaS & GCC",
@@ -11260,7 +11242,6 @@ export const COMBOS: CityServiceCombo[] = [
 
 // ── Hyderabad · AI / LLM Security Testing ──────────────────────────
   {
-    updated: "2026-07-23",
     citySlug: "hyderabad",
     serviceSlug: "ai-pentesting",
     headline: "AI / LLM Security Testing in Hyderabad · HITEC City",
@@ -11392,7 +11373,6 @@ export const COMBOS: CityServiceCombo[] = [
 
 // ── Mumbai · AI / LLM Security Testing ─────────────────────────────
   {
-    updated: "2026-07-23",
     citySlug: "mumbai",
     serviceSlug: "ai-pentesting",
     headline: "AI / LLM Security Testing in Mumbai · BFSI & Fintech",

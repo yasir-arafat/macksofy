@@ -12,7 +12,16 @@ export const SITE = {
   // Stable sitemap lastmod baseline for pages without a per-item `updated`
   // date. Bump ONLY when content is broadly revised — never on unrelated
   // deploys — so <lastmod> stays a truthful freshness signal.
-  contentRevision: "2026-05-31",
+  //
+  // ⚠️ THIS IS A MANUAL MARKER AND IT ROTS SILENTLY. It sat at 2026-05-31 for
+  // three months while the SSR sweep (2026-08-24/25) rewrote the visible body
+  // text of nearly every page — 604k characters unhidden and 698 strings that
+  // had been structured-data-only turned into real copy. The sitemap therefore
+  // told Google "unchanged since May 31" about 204 of 267 URLs that had in fact
+  // just changed substantially, on a young domain where crawl demand is the
+  // binding constraint. Run `npm run sitemap:freshness` after any broad content
+  // change; it fails when this date is older than the newest content commit.
+  contentRevision: "2026-08-25",
 
   email: "services@macksofy.com",
   phone: "+919930824239",
