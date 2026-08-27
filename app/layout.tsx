@@ -103,7 +103,6 @@ export const metadata: Metadata = {
   description: clampDesc(SITE.description),
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: SITE.url }],
-  generator: "Next.js",
   keywords: [
     "cybersecurity company India",
     "cybersecurity company Mumbai",

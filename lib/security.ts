@@ -14,6 +14,7 @@
  */
 
 import { IS_PROD } from "./env";
+import { SITE } from "./site";
 
 // Cloudflare Turnstile test secret that always validates — used ONLY in dev
 // when no real secret is configured. Production fails closed instead (see
@@ -191,4 +192,45 @@ export function escapeHtml(s: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+/**
+ * Reject browser-initiated cross-origin state changes on the /api routes.
+ *
+ * SECURITY (CWE-352): /api/contact and /api/lead-magnet are unauthenticated
+ * and state-changing (they send mail). A `Content-Type: application/json` POST
+ * is not a CORS "simple request", so a browser must preflight it — and because
+ * the app never answers a preflight with Access-Control-Allow-Origin, the
+ * browser already blocks the cross-site case. This is the belt to that
+ * suspenders: it holds even if a future edge/CDN rule starts echoing a
+ * permissive ACAO, and it costs one header read.
+ *
+ * Policy:
+ *   • Origin present and NOT in the allowlist → reject (a real browser always
+ *     sends Origin on a cross-origin POST, so this is the attack path).
+ *   • Origin absent → allow through. Non-browser clients (curl, uptime checks,
+ *     server-side integrations) legitimately omit it, and Turnstile — not this
+ *     check — is the actual human gate.
+ *
+ * Vercel preview deployments are allowed so the forms stay testable on
+ * *.vercel.app before a production promote.
+ */
+const ALLOWED_ORIGINS = new Set([
+  SITE.url,
+  "https://macksofy.com",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+]);
+
+export function isAllowedOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  if (!origin) return true; // Non-browser client — see policy note above.
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  // Vercel preview deployments: https://<project>-<hash>-<scope>.vercel.app
+  try {
+    const { protocol, hostname } = new URL(origin);
+    return protocol === "https:" && hostname.endsWith(".vercel.app");
+  } catch {
+    return false; // Unparseable Origin — treat as hostile.
+  }
 }

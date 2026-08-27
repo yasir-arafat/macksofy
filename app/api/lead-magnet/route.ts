@@ -2,7 +2,12 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 import { SITE } from "@/lib/site";
-import { clientIp, createRateLimiter, escapeHtml } from "@/lib/security";
+import {
+  clientIp,
+  createRateLimiter,
+  escapeHtml,
+  isAllowedOrigin,
+} from "@/lib/security";
 
 /**
  * Allowlist of magnet slugs the frontend is permitted to request. Any other
@@ -40,6 +45,16 @@ export async function POST(request: Request) {
       { error: "Too many requests. Please retry in a few minutes." },
       { status: 429, headers: { "Retry-After": "600" } }
     );
+  }
+
+  // Reject browser-initiated cross-origin POSTs (CWE-352). This route has no
+  // captcha, so the origin check is the only cross-site control in front of it.
+  if (!isAllowedOrigin(request)) {
+    console.warn(
+      "[lead-magnet] Blocked cross-origin POST from",
+      request.headers.get("origin")
+    );
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   let payload: unknown;

@@ -128,6 +128,13 @@ const nextConfig: NextConfig = {
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
       // Process-level isolation from attacker windows.
       { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+      // Companion to COOP: stop arbitrary cross-origin documents embedding
+      // this site's sub-resources (cross-origin resource inclusion + the
+      // speculative-execution side-channel class COOP/CORP were designed
+      // against). COOP was already set without it, which left the isolation
+      // half-built. Publicly embeddable assets opt back out to `cross-origin`
+      // in the per-path overrides below — keep those two in sync.
+      { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
       // Disable powerful browser features by default; explicit opt-in elsewhere.
       {
         key: "Permissions-Policy",
@@ -150,6 +157,10 @@ const nextConfig: NextConfig = {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
           },
+          // Fonts and chunks are fetched by the document origin, but keep them
+          // cross-origin-readable so a future CDN/preview host can serve them
+          // without tripping CORP.
+          { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
         ],
       },
 
@@ -160,6 +171,9 @@ const nextConfig: NextConfig = {
         source: "/_next/image(.*)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=86400" },
+          // Optimised images are legitimately hot-linked by social/rich-result
+          // renderers — CORP must not block them.
+          { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
         ],
       },
 
@@ -196,6 +210,23 @@ const nextConfig: NextConfig = {
           },
         ],
       })),
+
+      // Social/preview imagery is embedded by other origins by definition
+      // (Slack, WhatsApp, LinkedIn, X, Google rich results), so these opt out
+      // of the site-wide CORP `same-origin` above. Everything here is public
+      // marketing art — there is nothing to leak by allowing embedding.
+      {
+        source: "/api/og",
+        headers: [
+          { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
+        ],
+      },
+      {
+        source: "/:icon(icon.svg|apple-icon.png|favicon.ico)",
+        headers: [
+          { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
+        ],
+      },
 
       // Note: the homepage and other top-level HTML responses intentionally
       // keep Next.js's per-route defaults. The previous site-wide

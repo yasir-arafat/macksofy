@@ -7,6 +7,7 @@ import {
   createRateLimiter,
   verifyTurnstile,
   escapeHtml,
+  isAllowedOrigin,
 } from "@/lib/security";
 
 const Schema = z.object({
@@ -21,6 +22,12 @@ const Schema = z.object({
   // Cloudflare Turnstile token issued by the client widget.
   cfToken: z.string().min(10).max(2048),
 });
+
+/**
+ * Captcha pre-gate. Only the Turnstile token is validated at this stage so the
+ * human check can run BEFORE the full schema — see the ordering note in POST.
+ */
+const TokenOnly = z.object({ cfToken: z.string().min(10).max(2048) });
 
 export const runtime = "nodejs";
 
@@ -44,6 +51,16 @@ export async function POST(request: Request) {
     );
   }
 
+  // Reject browser-initiated cross-origin POSTs (CWE-352). See isAllowedOrigin
+  // for why an absent Origin is allowed through.
+  if (!isAllowedOrigin(request)) {
+    console.warn(
+      "[contact] Blocked cross-origin POST from",
+      request.headers.get("origin")
+    );
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   let payload: unknown;
   try {
     payload = await request.json();
@@ -51,12 +68,36 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  // ── Captcha BEFORE full validation (schema-disclosure oracle fix) ─────
+  // Validating the full schema first turned this route into an unauthenticated
+  // schema oracle: an empty POST came back 422 with every field name, type and
+  // length bound in `details`. Gating on Turnstile first means an unverified
+  // caller can only ever observe 403 — the field map is never reachable without
+  // solving the challenge. The token is shape-checked first so a malformed body
+  // costs no outbound siteverify call, and the IP rate limiter above already
+  // bounds how often this path can be driven at all.
+  const gate = TokenOnly.safeParse(payload);
+  if (!gate.success) {
+    return NextResponse.json({ error: "Validation failed" }, { status: 422 });
+  }
+
+  const ok = await verifyTurnstile(gate.data.cfToken, ip, "contact");
+  if (!ok) {
+    return NextResponse.json(
+      {
+        error:
+          "Human verification failed. Please complete the challenge again and resubmit.",
+      },
+      { status: 403 }
+    );
+  }
+
+  // Full validation runs only for verified humans. `details` is deliberately
+  // NOT returned — the client form does its own field-level validation, and
+  // nothing in the app consumes this payload.
   const parsed = Schema.safeParse(payload);
   if (!parsed.success) {
-    return NextResponse.json(
-      { error: "Validation failed", details: parsed.error.flatten() },
-      { status: 422 }
-    );
+    return NextResponse.json({ error: "Validation failed" }, { status: 422 });
   }
   const data = parsed.data;
 
@@ -67,18 +108,6 @@ export async function POST(request: Request) {
       ok: true,
       message: "Thanks — we'll be in touch shortly.",
     });
-  }
-
-  // Captcha — verify with Cloudflare.
-  const ok = await verifyTurnstile(data.cfToken, ip, "contact");
-  if (!ok) {
-    return NextResponse.json(
-      {
-        error:
-          "Human verification failed. Please complete the challenge again and resubmit.",
-      },
-      { status: 403 }
-    );
   }
 
   const apiKey = process.env.RESEND_API_KEY;
