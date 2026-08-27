@@ -77,8 +77,22 @@ const revDate = new Date(`${revision}T23:59:59Z`); // generous: whole day counts
 const contentDate = new Date(lastContentDate);
 const staleDays = Math.floor((contentDate - revDate) / 86400000);
 
+// How many content commits have landed since the marker was bumped — the
+// number you actually judge "was this a BROAD revision?" against.
+let commitsSince = 0;
+try {
+  commitsSince = execFileSync(
+    "git",
+    ["rev-list", "--count", `--since=${revision}T23:59:59Z`, "HEAD", "--", ...CONTENT_PATHS],
+    { cwd: ROOT, encoding: "utf8" }
+  ).trim();
+} catch {
+  commitsSince = "?";
+}
+
 console.log(`contentRevision      : ${revision}`);
 console.log(`last content commit  : ${lastContentDate.slice(0, 10)}  ${lastContentCommit}  ${subject}`);
+console.log(`content commits since: ${commitsSince}`);
 
 if (process.argv.includes("--live")) {
   const xml = execFileSync(
@@ -97,13 +111,32 @@ if (process.argv.includes("--live")) {
   }
 }
 
-if (staleDays > 0) {
+// contentRevision marks a BROAD revision, so ordinary day-to-day edits must not
+// trip this. Failing on every touch would push us to bump the date constantly,
+// which is the "every URL changes on every deploy" state that makes <lastmod>
+// worthless — the precise failure the stable constant is there to avoid. What
+// actually broke the site was a THREE-MONTH drift, so only sustained drift is
+// an error; anything shorter is an advisory you judge for yourself.
+const DRIFT_FAIL_DAYS = 30;
+
+if (staleDays > DRIFT_FAIL_DAYS) {
   console.error(
-    `\nFAIL: content shipped ${staleDays} day(s) AFTER contentRevision was last bumped.\n` +
-      `      The sitemap is advertising a <lastmod> older than the content it describes.\n` +
-      `      Bump SITE.contentRevision to ${lastContentDate.slice(0, 10)} (or later) and redeploy.`
+    `\nFAIL: content has been shipping for ${staleDays} days without bumping contentRevision.\n` +
+      `      ${commitsSince} content commit(s) have landed since ${revision}, so the sitemap is\n` +
+      `      advertising a <lastmod> materially older than the content it describes.\n` +
+      `      Bump SITE.contentRevision to ${lastContentDate.slice(0, 10)} and redeploy.`
   );
   process.exit(1);
+}
+
+if (staleDays > 0) {
+  console.log(
+    `\nADVISORY: ${commitsSince} content commit(s) since ${revision} (latest ${staleDays}d after).\n` +
+      `          Fine if those were narrow edits. If any BROADLY revised copy across the site,\n` +
+      `          bump SITE.contentRevision to ${lastContentDate.slice(0, 10)}.\n` +
+      `          Errors at >${DRIFT_FAIL_DAYS}d of drift.`
+  );
+  process.exit(0);
 }
 
 console.log(`\nOK: contentRevision is current (no content commits after it).`);
