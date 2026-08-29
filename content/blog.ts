@@ -103,6 +103,107 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // DPDP RULES 2025 COMPLIANCE CALENDAR — content-plan-2026-08-30.
+  // A NEW URL, deliberately, against this repo's default of repointing an
+  // existing page. Justification, measured before writing: the site owns four
+  // DPDP assets that are all indexed and ranking (/audit/dpdp-act pos 12.5,
+  // /audit/dpdp-sdf pos 8.3, the SDF post pos 5.4, cross-border pos 6.9) and
+  // NONE of them covers the deadline intent -- "May 2027" x0, "November 2026"
+  // x0, "Rules, 2025" x0 across all of content/ at the time of writing. The
+  // SDF post is also audience-narrower: the phased dates bind EVERY Data
+  // Fiduciary, not only designated SDFs. So the intent genuinely has no home,
+  // which is this repo's own bar for adding a URL rather than repointing.
+  // The four existing pages were repointed onto the Rules in the same pass;
+  // this post is the hub they point at, not a competitor to them.
+  // SOURCING: the gazette reference (G.S.R. 846(E), signed 13 Nov 2025,
+  // published 14 Nov 2025) and the 12/18-month phasing were corroborated
+  // across independent analyses on 2026-08-30, incl. EY India's DPDP Rules
+  // 2025 note (immediate Board provisions / consent manager at 12 months /
+  // data fiduciary obligations at 18 months) and India Briefing's timeline.
+  // GOTCHA FOR WHOEVER UPDATES THIS: 13 vs 14 November is NOT an error in the
+  // sources -- 13 Nov is the date the notification bears, 14 Nov is the date
+  // of publication in the Gazette. Most competitor content picks one silently.
+  // The annual-cadence claim for the SDF audit/DPIA comes from the Rules as
+  // read by those analyses, not from the Act, which says only "periodic" --
+  // keep that distinction if you edit this, it is the post's sharpest point.
+  // ===================================================================
+  {
+    slug: "dpdp-rules-2025-compliance-deadlines",
+    seoTitle: "DPDP Rules 2025 — India Compliance Deadlines by May 2027",
+    seoDescription:
+      "India's DPDP Rules 2025 commence in phases from 14 November 2025 — consent managers at 12 months, data fiduciaries at 18. The dates, and what to do in each.",
+    title:
+      "DPDP Rules 2025 — Every India Compliance Deadline, and What to Do in Each Window",
+    description:
+      "India's Digital Personal Data Protection Rules, 2025 turned a two-year-old Act into a dated compliance programme. Here is the phased commencement calendar, who each phase binds, and why an eighteen-month runway is not eighteen months of preparation time.",
+    date: "2026-08-30",
+    updated: "2026-08-30",
+    author: "Macksofy Audit Team",
+    authorRole: "Compliance & regulatory audit practice",
+    readingTime: "11 min read",
+    category: "Regulatory",
+    tags: ["DPDP", "DPDP Act", "Data Protection", "Compliance", "Privacy", "SDF"],
+    heroKind: "incident",
+    heroEyebrow: "India · DPDP Rules, 2025",
+    keywords: [
+      "DPDP Rules 2025",
+      "DPDP compliance deadline India",
+      "DPDP Rules 2025 timeline",
+      "when is DPDP compliance mandatory",
+      "DPDP May 2027 deadline",
+      "DPDP consent manager November 2026",
+      "DPDP independent data audit deadline",
+      "Digital Personal Data Protection Act 2023",
+      "independent data auditor India",
+      "DPIA India",
+    ],
+    blocks: [
+      { type: "lead", text: "India's Digital Personal Data Protection Act was passed in 2023 and then sat, for two years, without a single operational deadline attached to it. That changed when MeitY notified the Digital Personal Data Protection Rules, 2025. The Rules did not merely add detail — they started a clock, and they started it in phases, which is why an organisation can be squarely in scope today and not yet in breach of anything. This is the calendar, what each phase actually binds, and the planning mistake we see most often in readiness engagements." },
+      { type: "heading", level: 2, id: "the-dates", text: "The dates, and why you will see two of them" },
+      { type: "para", text: "The Rules were notified by gazette notification G.S.R. 846(E). The notification bears the date 13 November 2025; it was published in the Official Gazette on 14 November 2025. Both dates are correct and they are not in conflict — one is the date of signing, the other the date of publication. It is worth knowing which is which, because commencement periods are measured from publication, and a plan built on the wrong anchor is a day out at every milestone. A day rarely matters; knowing your source does." },
+      { type: "table", caption: "DPDP Rules, 2025 — phased commencement, measured from publication on 14 November 2025", headers: ["Phase", "Approx. date", "What starts applying", "Who it binds"], rows: [
+        ["On notification", "14 Nov 2025", "Provisions constituting the Data Protection Board of India", "The State — it stands the regulator up"],
+        ["+12 months", "~14 Nov 2026", "Consent Manager obligations, including registration and the framework around it", "Entities operating as Consent Managers"],
+        ["+18 months", "~14 May 2027", "Data Fiduciary obligations in substance, with the Board's adjudicatory and penalty powers fully live", "Every Data Fiduciary, with extra duties on SDFs"],
+      ] },
+      { type: "callout", tone: "info", title: "Verify the dates before you build a plan on them.", text: "The phase structure above — Board provisions immediately, consent managers at twelve months, Data Fiduciary obligations at eighteen — is consistent across the major independent analyses of the notified Rules. The approximate calendar dates are derived by counting from publication. Before a board paper or a budget commitment rests on a specific day, read the commencement provisions in the notified Rules themselves. This is a compliance calendar, not legal advice." },
+      { type: "heading", level: 2, id: "not-eighteen-months", text: "Eighteen months of runway is not eighteen months of preparation" },
+      { type: "para", text: "This is the single most expensive misreading of the calendar, and it is easy to make. “Data Fiduciary obligations apply from around May 2027” gets filed as “we have until May 2027,” and the programme is scheduled backwards from that date with the work finishing on it. But several of the obligations are not states you enter — they are artefacts you must already hold." },
+      { type: "para", text: "A Significant Data Fiduciary owes an independent data audit. An audit is not a switch thrown on a deadline: it needs a defined scope, an appointed independent auditor, fieldwork, evidence, findings, and remediation of whatever the findings surface. Every one of those sits before the date, not on it. The same is true of a Data Protection Impact Assessment, and of the consent and notice architecture the audit will test — you cannot evidence a consent flow you deployed the week before." },
+      { type: "callout", tone: "warning", title: "Work backwards, and the real deadline is inside 2026.", text: "Take the roughly May 2027 date. A first statutory independent audit needs findings closed before it, which needs fieldwork before that, which needs a readiness assessment and remediation window before that, which needs data-flow mapping and a functioning DPO before that. Chained honestly, the start of that sequence lands in 2026 for most organisations — and it collides with the consent-manager phase at roughly November 2026. The runway is real, but it is mostly already spoken for." },
+      { type: "heading", level: 2, id: "who-is-bound", text: "Which of these phases is actually about you" },
+      { type: "para", text: "The three phases bind three different populations, and conflating them produces either wasted effort or a missed obligation. The first phase is about the regulator existing at all. The second is narrow. The third is the one that reaches almost everyone." },
+      { type: "list", items: [
+        "Every Data Fiduciary — any organisation determining the purpose and means of processing personal data of individuals in India. The eighteen-month phase is your phase. Baseline duties apply: lawful processing on consent or a legitimate use, clear notice, purpose limitation and minimisation, accuracy, reasonable security safeguards, breach notification, erasure on withdrawal, grievance redressal, binding processor contracts, and verifiable parental consent for children's data.",
+        "Significant Data Fiduciaries — a subset the Central Government designates by notification, on factors including volume and sensitivity of data, risk to Data Principals, and effects on sovereignty, electoral democracy, State security and public order. You inherit everything above plus an India-based DPO answerable to the board, an independent data audit, Data Protection Impact Assessments, and algorithmic transparency and fairness assessment.",
+        "Consent Managers — entities that register with the Board to give Data Principals a single point to give, manage, review and withdraw consent. This is the twelve-month phase, and it is a business someone opts into, not a status conferred on ordinary data fiduciaries.",
+      ] },
+      { type: "callout", tone: "tip", title: "Periodic in the Act, annual under the Rules.", text: "The Act describes the SDF's data audit and impact assessment as periodic without fixing a cadence. The Rules are where the cadence lives, and the operative expectation for an SDF is annual — an annual independent data audit and an annual DPIA. That distinction changes the shape of the spend: it is a recurring programme with an owner and a calendar, not a project that closes. If you budgeted a one-off, you budgeted the wrong thing." },
+      { type: "heading", level: 2, id: "penalties", text: "What is actually at risk" },
+      { type: "para", text: "Penalties under the DPDP Act reach ₹250 crore for a single instance of failing to take reasonable security safeguards, and the Data Protection Board can adjudicate, demand remediation and restrict cross-border transfers. Two features of that regime are worth internalising because they differ from the GDPR model Indian compliance teams often carry across: the ceiling is per-breach rather than a share of global turnover, and it attaches to specific enumerated failures rather than to a general standard. The full adjudicatory and penalty machinery comes with the eighteen-month phase — which is precisely why the current window is the cheap one." },
+      { type: "heading", level: 2, id: "what-to-do", text: "What to do in each window" },
+      { type: "list", ordered: true, items: [
+        "Now, through 2026 — establish the facts. Map data flows end to end: what personal data you hold, where it came from, the lawful basis, who it is shared with, where it leaves India, and how long you keep it. Nothing else in the programme can be evidenced until this exists, and it is the single longest-lead item.",
+        "Now — decide whether you are likely to be designated. SDF status is conferred, not chosen, but the designation factors are public. If you are a large consumer platform, a major BFSI or fintech, a significant health-data or ad-tech processor, or a telecom, plan on the SDF duty set rather than waiting to be told.",
+        "Through 2026 — stand up the DPO function properly. For an SDF the role must be India-based and answerable to the board, and it is the published contact for grievance redressal. That is an appointment with a reporting line and a budget, not a title added to an existing job description.",
+        "Late 2026 — run a readiness audit before the statutory one. The independent data audit produces a written opinion you cannot quietly walk back. Find your gaps in an advisory engagement where the output is a remediation plan, not in the statutory audit where the output is a finding.",
+        "Late 2026 into 2027 — close the technical safeguards duty. Reasonable security safeguards is an obligation you have to demonstrate, not assert: penetration testing, breach detection and response, access control and encryption evidence, and a tested incident workflow that can meet notification timelines.",
+        "Before the applicable date — commission the statutory independent audit and the DPIA, with enough time for findings to be closed rather than merely raised.",
+      ] },
+      { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
+      { type: "para", text: "Macksofy runs DPDP readiness and audit work for Indian Data Fiduciaries and prospective Significant Data Fiduciaries: data-flow mapping and DPIAs, readiness data audits ahead of the statutory independent audit, DPO-function and grievance-workflow design, and the technical assurance the reasonable-security-safeguards duty demands. See the [DPDP readiness audit](/audit/dpdp-act) for the baseline programme, the [Significant Data Fiduciary engagement](/audit/dpdp-sdf) for the Section 10 duty set, [what an SDF actually has to do](/blog/dpdp-significant-data-fiduciary-obligations-2026) for the obligation map, [cross-border transfer rules](/blog/dpdp-cross-border-transfer-2026) if you export data, [VAPT](/services/vapt) for the safeguards testing, and [DFIR](/services/digital-forensics-incident-response) for breach readiness." },
+    ],
+    faqs: [
+      { q: "When is the DPDP compliance deadline in India?", a: "The DPDP Rules, 2025 were notified by G.S.R. 846(E) dated 13 November 2025 and published on 14 November 2025, and they commence in phases. Provisions constituting the Data Protection Board applied on notification. Consent Manager obligations follow at twelve months, around November 2026. Data Fiduciary obligations apply in substance at eighteen months, around May 2027, when the Board's adjudicatory and penalty powers are fully live." },
+      { q: "Why do sources give different dates for the DPDP Rules notification?", a: "Because two different events have two different dates. The gazette notification G.S.R. 846(E) bears the date 13 November 2025, and it was published in the Official Gazette on 14 November 2025. Commencement periods run from publication, so 14 November 2025 is the anchor to count phases from." },
+      { q: "Does the May 2027 date mean we can start in 2027?", a: "No, and this is the most common planning error. Several obligations are artefacts you must already hold on the date rather than states you enter on it. An independent data audit needs scoping, an appointed auditor, fieldwork, findings and remediation, all of which precede the deadline. Chained backwards, most organisations need the sequence underway during 2026." },
+      { q: "Do the DPDP Rules apply to every business in India?", a: "The Data Fiduciary obligations reach any organisation that determines the purpose and means of processing personal data of individuals in India, which is most businesses. The additional Significant Data Fiduciary duties apply only to those the Central Government designates by notification, and Consent Manager obligations apply only to entities that register to operate as Consent Managers." },
+      { q: "How often does a Significant Data Fiduciary need an independent data audit?", a: "Annually. The Act frames the SDF's data audit and impact assessment as periodic without fixing a cadence; the Rules set it, and the operative expectation is an annual independent data audit and an annual DPIA alongside algorithmic transparency and fairness assessment. Budget it as a recurring programme rather than a one-off project." },
+      { q: "What is the maximum penalty under the DPDP Act?", a: "Up to ₹250 crore for a single instance of failing to take reasonable security safeguards. Unlike the GDPR, the ceiling is per-breach rather than a percentage of global turnover, and it attaches to specific enumerated failures. The Board's full adjudicatory and penalty powers come with the eighteen-month phase around May 2027." },
+    ],
+  },
+
+  // ===================================================================
   // CERT-In EMPANELMENT PROCESS — batch item #3 (blog-batch-2026-08-09).
   // Targets `cert in empanelment process` / `cert-in empanelment process`
   // (46 impr, pos ~22 = page 3, 0 clicks). Deliberately a NEW URL rather
@@ -7390,12 +7491,13 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "dpdp-significant-data-fiduciary-obligations-2026",
-    seoTitle: "DPDP Act — Significant Data Fiduciary Duties (2026)",
-    seoDescription: "Notified as a Significant Data Fiduciary under India's DPDP Act? The extra duties — a Board-responsible DPO, independent data audit and periodic DPIAs.",
+    seoTitle: "DPDP SDF Duties 2026 — DPO, Audit, DPIA Deadlines",
+    seoDescription: "Notified a Significant Data Fiduciary under India's DPDP Act? The extra duties — India-based DPO, annual independent data audit, annual DPIA — and when each bites.",
     title: "DPDP Act — What a Significant Data Fiduciary Actually Has to Do (2026)",
     description:
       "If your organisation is notified as a Significant Data Fiduciary under India's DPDP Act, you inherit extra duties on top of every Data Fiduciary obligation — a Board-responsible DPO in India, an independent data audit, and periodic DPIAs. Here is the obligation map and a readiness path.",
     date: "2026-05-31",
+    updated: "2026-08-30",
     author: "Macksofy Audit Team",
     authorRole: "Compliance & regulatory audit practice",
     readingTime: "12 min read",
@@ -7405,6 +7507,9 @@ def fetch_logs(service: str) -> str:
     heroEyebrow: "India · DPDP Act",
     keywords: [
       "DPDP Significant Data Fiduciary obligations",
+      "DPDP Rules 2025 compliance deadline",
+      "DPDP independent data audit requirement",
+      "DPDP compliance May 2027",
       "SDF DPDP Act 2026",
       "DPDP DPO India requirement",
       "DPDP data audit independent auditor",
@@ -7415,8 +7520,17 @@ def fetch_logs(service: str) -> str:
     ],
     blocks: [
       { type: "lead", text: "India's Digital Personal Data Protection (DPDP) Act applies to every Data Fiduciary — but a subset of organisations carry a heavier load. If the Central Government notifies you as a Significant Data Fiduciary (SDF), you inherit three additional, audit-visible obligations on top of every baseline duty: a Data Protection Officer based in India and answerable to your Board, an independent data audit, and periodic Data Protection Impact Assessments. This is the obligation map, who gets designated, and how to be ready before the notification rather than after." },
-      { type: "para", text: "An SDF is not a category you opt into; it is one the government designates. Under the Act, the Central Government may notify a Data Fiduciary or a class of them as significant based on factors including the volume and sensitivity of personal data processed, the risk to the rights of Data Principals, the potential effect on the sovereignty and integrity of India, the risk to electoral democracy, the security of the State, and public order. Large consumer platforms, major BFSI and fintech players, big health-data and ad-tech processors, and telecoms are the obvious candidates. The framing below draws on the Act and the DPDP Rules; verify exact thresholds against the latest notified Rules, as the operational detail lives there." },
+      { type: "para", text: "An SDF is not a category you opt into; it is one the government designates. Under the Act, the Central Government may notify a Data Fiduciary or a class of them as significant based on factors including the volume and sensitivity of personal data processed, the risk to the rights of Data Principals, the potential effect on the sovereignty and integrity of India, the risk to electoral democracy, the security of the State, and public order. Large consumer platforms, major BFSI and fintech players, big health-data and ad-tech processors, and telecoms are the obvious candidates. The framing below draws on the Act and on the Digital Personal Data Protection Rules, 2025, which MeitY notified by G.S.R. 846(E) dated 13 November 2025 and published in the Gazette on 14 November 2025. That notification is what turned the Act's duties into a dated compliance programme — see the timeline below. Verify exact thresholds against the notified Rules, as the operational detail lives there." },
       { type: "callout", tone: "info", title: "Baseline first, then the SDF add-ons.", text: "An SDF must do everything a Data Fiduciary does — lawful processing on consent or a legitimate use, clear notice, purpose limitation and data minimisation, accuracy, reasonable security safeguards, breach notification to the Data Protection Board and affected principals, erasure on withdrawal, grievance redressal, binding processor contracts, and verifiable parental consent for children's data with no tracking or targeted advertising to children. The three SDF obligations sit on top of all of that." },
+      { type: "heading", level: 2, id: "when-it-bites", text: "When this actually bites — the Rules 2025 clock" },
+      { type: "para", text: "The DPDP Act received assent in 2023, but for two years it had no operational deadlines. The Digital Personal Data Protection Rules, 2025 supplied them. MeitY notified the Rules by G.S.R. 846(E), dated 13 November 2025 and published in the Gazette on 14 November 2025 — you will see both dates cited, and they refer to the signing and the publication respectively. The Rules commence in phases rather than all at once, which is why an organisation can be simultaneously in-scope and not yet in breach." },
+      { type: "table", caption: "DPDP Rules, 2025 — phased commencement, measured from the 14 November 2025 publication", headers: ["Phase", "Approx. date", "What starts applying"], rows: [
+        ["On notification", "14 Nov 2025", "Provisions constituting the Data Protection Board of India"],
+        ["+12 months", "~14 Nov 2026", "Consent Manager obligations — registration and the framework around it"],
+        ["+18 months", "~14 May 2027", "Data Fiduciary obligations in substance, with the Board's adjudicatory and penalty powers fully live"],
+      ] },
+      { type: "callout", tone: "warning", title: "The 18-month runway is not 18 months of preparation time.", text: "An SDF owes an annual independent data audit and an annual DPIA. An audit that has to be complete by the 18-month date cannot start at the 18-month date — the fieldwork, the findings and the remediation all sit before it. Working backwards from May 2027, a first statutory audit needs its readiness work underway well before, which is why the practical deadline for most SDFs is the end of 2026, not mid-2027. The consent-manager phase at roughly November 2026 lands in the same window." },
+      { type: "para", text: "One nuance worth getting right, because it changes the budget line: the Act describes the SDF's audit and impact assessment as periodic, while the Rules set the cadence. Read together, the operative expectation is annual — an annual independent data audit and an annual DPIA, alongside algorithmic transparency and fairness assessment and enhanced due diligence on technical measures. Treat these as a recurring programme with an owner and a calendar, not a one-off project that closes." },
       { type: "heading", level: 2, id: "the-three", text: "The three SDF obligations" },
       { type: "para", text: "Section 10 of the Act sets out the additional duties for an SDF. Each is designed to be externally visible — a named accountable person, an independent assurance opinion, and a documented risk assessment — so the regulator can test compliance without sitting inside your systems." },
       { type: "table", caption: "Significant Data Fiduciary — the three additional obligations", headers: ["Obligation", "What it requires", "What you must be able to show"], rows: [
@@ -7455,9 +7569,12 @@ def fetch_logs(service: str) -> str:
         "Tighten the breach-response path — detection, Board/Data-Protection-Board notification, and Data-Principal notification — and rehearse it.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "Macksofy helps Data Fiduciaries and prospective SDFs get DPDP-ready and stay ready: data-flow mapping and DPIAs, readiness data audits ahead of the statutory independent audit, DPO-function and grievance-workflow design, and the technical assurance — VAPT, breach-readiness and DFIR — that the security-safeguards duty demands. See our [Significant Data Fiduciary engagement](/audit/dpdp-sdf), the baseline [DPDP readiness audit](/audit/dpdp-act), [VAPT](/services/vapt) for the reasonable-security-safeguards testing, [DFIR](/services/digital-forensics-incident-response) for breach readiness and response, the [CERT-In empanelled audit](/audit/cert-in-empanelled-audit) for the related incident-reporting workflow, and our [SaaS & fintech practice](/industries/saas-fintech) for how we tailor this to data-heavy platforms." },
+      { type: "para", text: "Macksofy helps Data Fiduciaries and prospective SDFs get DPDP-ready and stay ready: data-flow mapping and DPIAs, readiness data audits ahead of the statutory independent audit, DPO-function and grievance-workflow design, and the technical assurance — VAPT, breach-readiness and DFIR — that the security-safeguards duty demands. See the [DPDP Rules 2025 compliance calendar](/blog/dpdp-rules-2025-compliance-deadlines) for the phased dates every Data Fiduciary is working to, our [Significant Data Fiduciary engagement](/audit/dpdp-sdf), the baseline [DPDP readiness audit](/audit/dpdp-act), [VAPT](/services/vapt) for the reasonable-security-safeguards testing, [DFIR](/services/digital-forensics-incident-response) for breach readiness and response, the [CERT-In empanelled audit](/audit/cert-in-empanelled-audit) for the related incident-reporting workflow, and our [SaaS & fintech practice](/industries/saas-fintech) for how we tailor this to data-heavy platforms." },
     ],
     faqs: [
+      { q: "When is the DPDP compliance deadline in India?", a: "The Digital Personal Data Protection Rules, 2025 were notified by G.S.R. 846(E) dated 13 November 2025 and published on 14 November 2025, and they commence in phases. Provisions constituting the Data Protection Board applied on notification; Consent Manager obligations follow at twelve months, around November 2026; and Data Fiduciary obligations apply in substance at eighteen months, around May 2027, when the Board's penalty powers are fully live. Verify the exact dates against the notified Rules before relying on them for a compliance plan." },
+      { q: "How often does a Significant Data Fiduciary need an independent data audit?", a: "Annually. The Act frames the SDF's data audit and impact assessment as periodic; the Rules set the cadence, and the operative expectation is an annual independent data audit and an annual DPIA, alongside algorithmic transparency and fairness assessment. Because the audit must be complete rather than merely started by the applicable date, most SDFs need readiness work underway through 2026 rather than in 2027." },
+      { q: "What is the maximum penalty under the DPDP Act?", a: "Up to ₹250 crore for a single instance of failing to take reasonable security safeguards, with the Data Protection Board able to adjudicate and impose penalties in full once the eighteen-month phase completes around May 2027. Penalties are per-breach rather than capped as a share of turnover, which is a meaningful difference from the GDPR model." },
       { q: "Who decides if my organisation is a Significant Data Fiduciary?", a: "The Central Government designates SDFs by notification. It is not a self-assessment. The decision rests on factors set out in the DPDP Act — the volume and sensitivity of personal data you process, the risk to Data Principals' rights, and broader public-interest dimensions such as the sovereignty and integrity of India, the security of the State, electoral democracy and public order. Large consumer platforms, major BFSI/fintech, health-data, ad-tech and telecom processors are the likely candidates." },
       { q: "What are the extra obligations an SDF carries?", a: "Three, on top of every baseline Data Fiduciary duty: appoint a Data Protection Officer based in India and responsible to the Board (and serving as the grievance contact); appoint an independent data auditor to evaluate compliance with the Act; and undertake periodic Data Protection Impact Assessments and audits, plus any further measures the Rules prescribe." },
       { q: "Does the DPDP DPO have to be in India?", a: "Yes. Unlike the GDPR, the DPDP Act requires the SDF's Data Protection Officer to be based in India and responsible to the Board of Directors or equivalent governing body. The role is also the published point of contact for grievance redressal, so it must be a real, resourced and reachable function — not a distant group-privacy contact." },

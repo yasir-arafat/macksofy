@@ -156,7 +156,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "audit:dpdp-act": {
     q: "What is DPDP Act compliance?",
-    a: "The Digital Personal Data Protection Act, 2023 governs how Indian businesses collect, process, and protect personal data — mandating consent, breach notification, and data-principal rights. Macksofy runs DPDP gap assessments, builds consent and RoPA frameworks, and prepares Significant Data Fiduciaries for audit.",
+    a: "The Digital Personal Data Protection Act, 2023 governs how Indian businesses collect, process and protect personal data — mandating consent, breach notification and data-principal rights. The DPDP Rules, 2025, published 14 November 2025, put it on a clock: Data Fiduciary obligations apply in substance around May 2027. Macksofy runs DPDP gap assessments, builds consent and RoPA frameworks, and prepares Significant Data Fiduciaries for audit.",
   },
   "audit:regulatory-vapt": {
     q: "What is regulatory VAPT?",
@@ -220,7 +220,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "audit:dpdp-sdf": {
     q: "What is a DPDP Significant Data Fiduciary?",
-    a: "Under the DPDP Act, the government can designate high-volume or high-risk processors as Significant Data Fiduciaries, triggering extra duties — a Data Protection Officer, Data Protection Impact Assessments, and independent audits. Macksofy prepares SDFs for these obligations and conducts the required DPDP audit.",
+    a: "Under the DPDP Act, the government can designate high-volume or high-risk processors as Significant Data Fiduciaries, triggering extra duties — an India-based Data Protection Officer, Data Protection Impact Assessments and independent data audits, which the DPDP Rules, 2025 make annual ahead of the roughly May 2027 compliance date. Macksofy prepares SDFs for these obligations and conducts the required DPDP audit.",
   },
   "audit:uae-pdpl": {
     q: "What is UAE PDPL compliance?",
@@ -598,9 +598,13 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What does DPDP §16 say about cross-border data transfers?",
     a: "Section 16 of India's DPDP Act permits transferring personal data outside India by default, but lets the Central Government restrict transfers to notified countries — a blocklist, not GDPR's adequacy allowlist. Sectoral rules still apply where stricter. Macksofy runs DPDP readiness assessments and data-residency reviews for Indian SaaS and BFSI.",
   },
+  "blog:dpdp-rules-2025-compliance-deadlines": {
+    q: "When is the DPDP compliance deadline in India?",
+    a: "India's DPDP Rules, 2025 were published on 14 November 2025 and commence in phases: provisions constituting the Data Protection Board applied on notification, Consent Manager obligations at twelve months (around November 2026), and Data Fiduciary obligations in substance at eighteen months (around May 2027), when the Board's penalty powers are fully live. Macksofy runs DPDP readiness and independent data audits in India.",
+  },
   "blog:dpdp-significant-data-fiduciary-obligations-2026": {
     q: "What must a Significant Data Fiduciary do under the DPDP Act?",
-    a: "A Significant Data Fiduciary is one the Central Government notifies by volume and sensitivity of data handled. On top of every Data Fiduciary duty, it must appoint a Data Protection Officer based in India and answerable to the board, commission an independent data auditor, and run periodic Data Protection Impact Assessments. Macksofy delivers DPDP readiness and data audits.",
+    a: "A Significant Data Fiduciary is one the Central Government notifies by volume and sensitivity of data handled. On top of every Data Fiduciary duty, it must appoint a Data Protection Officer based in India and answerable to the board, commission an independent data auditor, and run Data Protection Impact Assessments — annually under the DPDP Rules, 2025, ahead of the roughly May 2027 date when Data Fiduciary obligations apply in substance. Macksofy delivers DPDP readiness and data audits.",
   },
   "blog:uae-cybersecurity-compliance-pdpl-nesa-2026": {
     q: "What is the difference between PDPL and NESA in the UAE?",
