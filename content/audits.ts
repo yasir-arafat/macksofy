@@ -1632,7 +1632,7 @@ export const AUDITS: Audit[] = [
 
   {
     slug: "cicra",
-    updated: "2026-07-25",
+    updated: "2026-08-30",
     title: "CICRA Compliance Audit",
     shortTitle: "CICRA",
     icon: Database,
@@ -1778,6 +1778,14 @@ export const AUDITS: Audit[] = [
       },
     ],
     faqs: [
+      {
+        q: "What does CICRA stand for?",
+        a: "The Credit Information Companies (Regulation) Act, 2005 — the Indian statute governing credit information companies and the institutions that submit data to them. It is a credit-data law, not a general cyber framework, and a CICRA audit is scoped to credit information handling rather than to enterprise security maturity.",
+      },
+      {
+        q: "Who needs a CICRA audit?",
+        a: "Credit Information Companies themselves, and the banks, NBFCs, fintech lenders, lending service providers, microfinance institutions, co-branded card issuers and account aggregators that submit or consume credit data as Specified Users. The obligations differ between a CIC and a Specified User, so scoping starts with establishing which you are — or whether you are both.",
+      },
       {
         q: "Are NBFCs required to do an annual CICRA audit?",
         a: "Yes per RBI Master Direction. Larger NBFCs run quarterly + annual external audit.",

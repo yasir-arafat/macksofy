@@ -1353,7 +1353,7 @@ export const POSTS: BlogPost[] = [
     slug: "soc-analyst-training-india-2026",
     seoTitle: "SOC Analyst Training India 2026 — CSA vs SOC-200 vs CySA+",
     seoDescription: "Which SOC analyst certification is worth it in India? A 2026 comparison of EC-Council CSA, OffSec SOC-200 / OSDA and CompTIA CySA+ on cost and difficulty.",
-    updated: "2026-07-25",
+    updated: "2026-08-30",
     title: "SOC Analyst Training in India 2026 — CSA vs SOC-200 vs CySA+ Career Guide",
     description:
       "Which SOC analyst certification is worth it in India? Honest 2026 comparison of EC-Council CSA, OffSec SOC-200 / OSDA and CompTIA CySA+ — costs in INR, exam difficulty, hiring impact.",
@@ -1405,7 +1405,7 @@ export const POSTS: BlogPost[] = [
         headers: ["Cert", "Cost (₹)", "Course length", "India hiring weight", "Best fit"],
         rows: [
           ["EC-Council CSA", "~52,000", "5 days + iLabs", "High (BFSI / MSSP)", "Entry"],
-          ["OffSec SOC-200 / OSDA", "~1,55,000", "90-day lab + 24h exam", "High (mature SOCs)", "L2 step-up"],
+          ["OffSec SOC-200 / OSDA", "~1,66,800 ($1,749)", "90-day lab + 24h exam", "High (mature SOCs)", "L2 step-up"],
           ["CompTIA CySA+", "~38,000", "Self-paced + exam", "Medium (govt / PSU)", "Entry · vendor-neutral"],
           ["BTL1 (Security Blue Team)", "~38,000", "Hands-on + exam", "Growing", "Practical entry"],
         ],
@@ -1508,9 +1508,9 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "red-team-certifications-india-2026",
-    seoTitle: "Red Team Certifications 2026 — OSEP vs CRTO vs CRTP",
-    seoDescription: "Honest 2026 comparison of red team certifications for Indian operators — OSEP, CRTO, CRTP, CRTE and OSCE3 on pricing in INR, difficulty and what each teaches.",
-    updated: "2026-07-25",
+    seoTitle: "Red Team Certification Cost India 2026 — CRTP, CRTO, OSEP",
+    seoDescription: "CRTP, CRTE, CRTO, CPTS and OSEP prices for Indian buyers in 2026 — vendor list in USD/GBP with INR conversions, hidden retake fees, and which to buy first.",
+    updated: "2026-08-30",
     title: "Red Team Certifications India 2026 — OSEP vs CRTO vs CRTP Comparison",
     description:
       "Honest comparison of red team certifications for Indian operators in 2026. OSEP, CRTO, CRTP, CRTE, OSCE3 — pricing in INR, exam difficulty, what each one actually teaches.",
@@ -1523,17 +1523,21 @@ export const POSTS: BlogPost[] = [
     heroKind: "ad",
     heroEyebrow: "Red team certification stack",
     keywords: [
+      "CRTP certification cost in India",
+      "CRTO certification cost in India",
+      "CRTP price in India",
+      "CRTE price",
+      "OSEP certification cost",
+      "CPTS certification cost in India",
       "red team certifications India 2026",
       "OSEP vs CRTO",
       "CRTP CRTE comparison",
-      "Indian red team operator",
       "OSCE3 India",
-      "red team training Mumbai",
     ],
     blocks: [
       {
         type: "lead",
-        text: "Red team work in India has matured fast. What used to be 'OSCP and figure it out' is now a stratified profession with EDR-aware tradecraft, mature C2 ops, and AD specialisation. If you're already past OSCP and wondering which red team cert to take next, here's the honest 2026 ranking — based on the operators we've actually placed into top BFSI red teams over the past two years.",
+        text: "A red team certification in India costs anywhere from about \u20b923,800 to \u20b95 lakh, and the gap between the cheapest and the most expensive is far wider than the gap in what they teach. This page gives the current vendor list price for CRTP, CRTE, CRTO, CPTS, OSEP and OSCE3, what each fee actually covers, the retake and lab-extension charges nobody quotes upfront, and an honest ranking of which to buy first \u2014 based on the operators we have placed into BFSI red teams over the past two years.",
       },
       {
         type: "diagram",
@@ -1548,14 +1552,75 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "table",
-        caption: "Cost in INR · time investment · what you actually learn",
-        headers: ["Cert", "Cost (₹)", "Time", "Focus", "Recognition"],
+        caption:
+          "Vendor list prices read from each vendor's own pricing page on 30 August 2026. INR converted at ₹95.4/USD and ₹129.6/GBP (rates of 28 August 2026).",
+        headers: ["Cert", "Vendor list", "≈ ₹", "What the fee covers"],
         rows: [
-          ["OSEP", "1,55,000", "200–300 h", "AV/EDR evasion · advanced AD", "Top tier"],
-          ["CRTO", "60,000", "150–200 h", "Cobalt Strike · adversary sim", "Highly respected"],
-          ["CRTP", "20,000", "60–80 h", "AD foundations", "Strong"],
-          ["CRTE", "35,000", "80–120 h", "Multi-forest AD", "Specialist"],
-          ["OSCE3 (bundle)", "3,50,000", "1,000+ h", "Web · evasion · ROP", "Elite (Top 5%)"],
+          ["CRTP", "$249", "23,800", "30-day lab · lifetime course material · 1 exam attempt"],
+          ["CRTE", "$299", "28,500", "30-day lab · lifetime course material · 1 exam attempt"],
+          ["CPTS", "$490 / yr", "46,700", "HTB Silver Annual — Tier II modules and 1 exam voucher"],
+          ["CRTO", "£399", "51,700", "See the note below — we could not read this from the vendor"],
+          ["OSEP", "$1,749", "1,66,800", "90-day PEN-300 course and labs · 1 exam attempt"],
+          ["OSCE3", "3 × $1,749", "5,00,500", "No single SKU — OSEP + OSWE + OSED, bought separately"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Why these are quoted in dollars and pounds first",
+        text: "Every vendor here bills in USD or GBP, so the rupee figure moves with the exchange rate rather than with the vendor's price list. The INR column is converted at ₹95.4 to the dollar and ₹129.6 to the pound, the rates on 28 August 2026 — quoted so you can recompute against today's rate instead of trusting a number that was typed once and left to drift. That drift is real: the figures this page carried until August 2026 were wrong in both directions, overstating CRTE by about 23% and understating OSCE3 by about 30%.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "CRTO is the one figure we could not read from the vendor",
+        text: "Zero-Point Security's course page was returning a Cloudflare 1014 error for every visitor when we checked on 30 August 2026, so £399 comes from independent reviews rather than the vendor's own page. Those reviews also disagree on what the fee now includes — one describes 40 hours of lab time and a single exam attempt, another describes lifetime lab access and unlimited retakes — which points to Zero-Point having changed its model during 2026. Treat £399 as the headline only, and confirm the inclusions with the vendor before you pay.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What the sticker price leaves out",
+        id: "hidden-costs",
+      },
+      {
+        type: "para",
+        text: "Every price above buys one exam attempt. The pass rates on these exams are not published, but nobody plans a budget around passing first time — and the second attempt is where the quoted figure stops being the real figure. These are the charges that follow a fail.",
+      },
+      {
+        type: "table",
+        headers: ["Extra", "Vendor list", "≈ ₹", "When it applies"],
+        rows: [
+          ["CRTP / CRTE exam re-attempt", "$99", "9,400", "Failed the exam, course material still valid"],
+          ["CRTP 30-day lab extension", "$199", "19,000", "Ran out of lab time — includes a complimentary attempt"],
+          ["CRTE 30-day lab extension", "$249", "23,800", "The same, on the CRTE lab"],
+          ["OffSec exam retake (OSEP)", "$249", "23,800", "Failed the 48-hour exam"],
+          ["CPTS standalone voucher", "$210", "20,000", "Already used this year's included voucher"],
+          ["HTB Student plan", "$8 / mo", "765 / mo", "Tier II modules only — no exam voucher included"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The cheapest CRTP is not the $249 one",
+        text: "Altered Security sells CRTP at $249 for 30 days, $379 for 60 and $499 for 90. A 30-day lab plus one $199 extension costs $448 — more than the 90-day tier at $499 buys you in a single purchase only by a small margin, and the extension carries a complimentary exam attempt the base tier does not. If you have a full-time job and 60–80 hours of study ahead of you, buy the longer lab up front rather than extending twice.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Effort and standing, not just price",
+        id: "effort",
+      },
+      {
+        type: "table",
+        caption: "Study time is our own observed range across mentored candidates, not a vendor figure.",
+        headers: ["Cert", "Study time", "Focus", "Recognition in India"],
+        rows: [
+          ["CRTP", "60–80 h", "AD foundations", "Strong"],
+          ["CRTE", "80–120 h", "Multi-forest AD", "Specialist"],
+          ["CPTS", "250–350 h", "Full-scope pentest + reporting", "Growing, still behind OSCP"],
+          ["CRTO", "150–200 h", "Cobalt Strike · adversary sim", "Highly respected"],
+          ["OSEP", "200–300 h", "AV/EDR evasion · advanced AD", "Top tier"],
+          ["OSCE3", "1,000+ h", "Web · evasion · ROP", "Elite (Top 5%)"],
         ],
       },
       {
@@ -1586,7 +1651,17 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "CRTP is the fastest path to credible AD depth on a résumé. ₹20,000, 30 days, single-forest AD environment with all the bread-and-butter techniques: Kerberoasting, AS-REP, ACL abuse, GPO abuse, basic lateral movement. We send our junior consultants here as their first add-on after OSCP.",
+        text: "CRTP is the fastest path to credible AD depth on a résumé, and at $249 — about ₹23,800 — it is the cheapest entry on this page by a wide margin. Thirty days of lab, a single-forest AD environment, and all the bread-and-butter techniques: Kerberoasting, AS-REP roasting, ACL abuse, GPO abuse, basic lateral movement. Course material access is lifetime, so the fee buys something that outlasts the lab window. We send our junior consultants here as their first add-on after OSCP.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "CPTS — the cheapest serious pentest cert",
+        id: "cpts",
+      },
+      {
+        type: "para",
+        text: "Hack The Box's CPTS is the outlier on price, and the one most cost comparisons get wrong. The $490 Silver Annual subscription buys a year of every Academy module up to Tier II and includes one exam voucher — so the exam is not a separate line item the way it is at OffSec. Adding a voucher price on top of the subscription, as this page itself used to, double-counts and inflates the total by roughly a fifth. The honest all-in for a first attempt is $490, about ₹46,700. If you already hold module access, a standalone voucher is $210. Indian job listings still name OSCP far more often, so CPTS buys depth rather than HR signal.",
       },
       {
         type: "comparison",
@@ -1595,7 +1670,7 @@ export const POSTS: BlogPost[] = [
           label: "OSEP",
           tone: "purple",
           bullets: [
-            "Cost ₹1,55,000",
+            "Cost $1,749 ≈ ₹1,66,800",
             "EDR evasion deep-dive",
             "Custom loaders + AMSI/ETW patching",
             "48h hands-on exam, no Cobalt Strike",
@@ -1606,7 +1681,7 @@ export const POSTS: BlogPost[] = [
           label: "CRTO",
           tone: "cyan",
           bullets: [
-            "Cost ₹60,000",
+            "Cost £399 ≈ ₹51,700",
             "Cobalt Strike opsec",
             "BOF dev + malleable C2 profiles",
             "48h hands-on exam, full C2 environment",
@@ -1665,8 +1740,24 @@ export const POSTS: BlogPost[] = [
         a: "OSEP exam is harder; CRTO course is broader. Most candidates who pass both rate OSEP exam significantly more difficult.",
       },
       {
-        q: "Is OSCE3 worth ₹3.5L?",
-        a: "Only if your employer covers it or you're already a senior red teamer. The salary uplift is real, but ROI as an out-of-pocket purchase is questionable for early-career operators.",
+        q: "How much does CRTP cost in India in 2026?",
+        a: "Altered Security lists CRTP at $249 for a 30-day lab, which is about ₹23,800 at ₹95.4 to the dollar. That covers lifetime access to the course material and one exam attempt. Longer labs are $379 for 60 days and $499 for 90. A failed exam costs $99 to re-attempt, and a 30-day lab extension is $199. Altered Security bills in dollars, so confirm the rupee figure against the day's rate.",
+      },
+      {
+        q: "How much does CRTO cost in India in 2026?",
+        a: "Zero-Point Security's UK list price for CRTO is £399, roughly ₹51,700 at ₹129.6 to the pound. We could not read that from the vendor directly — its course page was returning a Cloudflare error when we checked on 30 August 2026 — and independent reviews disagree on whether the fee now includes unlimited exam retakes or a single attempt. Confirm both the price and the inclusions with Zero-Point before buying.",
+      },
+      {
+        q: "What is the difference in cost between CRTP and CRTE?",
+        a: "CRTP is $249 and CRTE is $299 for the equivalent 30-day tier — about ₹23,800 and ₹28,500, a gap of roughly ₹4,700. The real difference is not the fee but the lab: CRTE assumes CRTP-level fluency, runs a multi-forest environment, and has a 48-hour exam against CRTP's 24. Take CRTP first; the ₹4,700 saved by skipping it is not the constraint.",
+      },
+      {
+        q: "How much does CPTS cost in India?",
+        a: "Hack The Box's Silver Annual plan is $490 a year, about ₹46,700, and includes both the Academy modules up to Tier II and one CPTS exam voucher. A standalone voucher, if you have used this year's, is $210. Beware comparisons that add a voucher price on top of the subscription — the subscription already contains one, and adding them double-counts.",
+      },
+      {
+        q: "Is OSCE3 worth ₹5 lakh?",
+        a: "There is no single OSCE3 product to buy. It is awarded for holding OSEP, OSWE and OSED, so the realistic cost is three OffSec Course + Cert bundles at $1,749 each — $5,247, or roughly ₹5,00,500. At that price it is worth it only if your employer covers it or you are already a senior red teamer. The salary uplift is real, but as an out-of-pocket purchase the ROI is questionable for early-career operators.",
       },
     ],
   },
@@ -4638,8 +4729,9 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "cpts-vs-oscp-certification-comparison-india-2026",
-    seoTitle: "CPTS vs OSCP 2026 — Which Pentest Cert to Take in India",
-    seoDescription: "HTB's CPTS vs OffSec's OSCP — cost in INR, exam difficulty, India hiring perception and salary impact, compared by a CERT-In empanelled training provider.",
+    seoTitle: "CPTS Cost in India 2026 — CPTS vs OSCP Compared",
+    seoDescription: "What CPTS actually costs in India in 2026 — HTB's $490 Silver Annual against OffSec's $1,749 OSCP bundle in INR, with exam format and India hiring reality.",
+    updated: "2026-08-30",
     title: "CPTS vs OSCP — Which Pentest Certification Should You Take in India?",
     description:
       "Hack The Box's CPTS vs OffSec's OSCP — cost in INR, exam difficulty, India hiring perception, salary impact. An honest comparison from a CERT-In empanelled training provider.",
@@ -4651,10 +4743,12 @@ def fetch_logs(service: str) -> str:
     heroKind: "cert-compare",
     heroEyebrow: "Certification comparison",
     keywords: [
+      "CPTS certification cost in India",
+      "CPTS cost in India",
       "CPTS vs OSCP",
+      "OSCP vs CPTS 2026",
       "CPTS certification India",
       "Hack The Box CPTS worth it",
-      "OSCP vs CPTS 2026",
       "pentest certification India 2026",
       "CPTS HTB India",
     ],
@@ -4681,7 +4775,7 @@ def fetch_logs(service: str) -> str:
           label: "CPTS (HTB CPTS)",
           tone: "purple",
           bullets: [
-            "Cost (India): ~₹50,000 (₹40k cube/Tier + exam)",
+            "Cost: $490 / yr ≈ ₹46,700 (Silver Annual, voucher included)",
             "Exam: 7 days hands-on + 4 days reporting",
             "Lab time: Pay-as-you-go HTB Academy",
             "Recognition: Growing fast in India; 'OSCP-equivalent' in many JDs",
@@ -4697,14 +4791,27 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "table",
+        caption:
+          "Vendor list prices read from offsec.com and help.hackthebox.com on 30 August 2026, converted at ₹95.4/USD (rate of 28 August 2026).",
         headers: ["Item", "OSCP", "CPTS"],
         rows: [
-          ["Course + lab", "₹1,18,000 (PEN-200 90-day)", "₹40,000 (HTB Academy bundle)"],
-          ["Exam voucher", "₹27,000 (included in PEN-200)", "₹17,000"],
-          ["Total all-in", "₹1,45,000", "₹57,000"],
+          ["Vendor list price", "$1,749 ≈ ₹1,66,800", "$490 / yr ≈ ₹46,700"],
+          [
+            "What that covers",
+            "90-day PEN-200 course + labs + one exam attempt",
+            "A year of Academy modules to Tier II + one exam voucher",
+          ],
+          ["Exam voucher", "Included in the bundle", "Included — $210 ≈ ₹20,000 standalone"],
+          ["Retake after a fail", "$249 ≈ ₹23,800", "$210 ≈ ₹20,000"],
+          ["Through Macksofy", "₹1,45,000 — the official bundle at ~15% off list", "—"],
           ["Macksofy mentorship add-on", "₹35,000", "₹25,000"],
-          ["With mentorship", "₹1,80,000", "₹82,000"],
         ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Do not add the CPTS voucher on top of the subscription",
+        text: "This page used to, and it is the most common error in CPTS cost comparisons. Hack The Box's $490 Silver Annual already includes one CPTS-class exam voucher, so quoting a subscription plus a separate voucher inflates the real figure by roughly a fifth. The $210 voucher price applies only when you have already used the one your subscription came with. The honest all-in for a first attempt is $490 — about ₹46,700.",
       },
       {
         type: "heading",
@@ -4780,6 +4887,14 @@ def fetch_logs(service: str) -> str:
     ],
     faqs: [
       {
+        q: "How much does CPTS certification cost in India?",
+        a: "Hack The Box's Silver Annual plan is $490 a year — about ₹46,700 at ₹95.4 to the dollar — and includes both a year of Academy modules up to Tier II and one CPTS exam voucher. That is the honest all-in for a first attempt. A standalone voucher, once you have used the included one, is $210. HTB bills in dollars, so check the rupee figure against the day's rate.",
+      },
+      {
+        q: "Is CPTS cheaper than OSCP?",
+        a: "Substantially. OffSec's OSCP Course + Cert bundle lists at $1,749 (about ₹1,66,800) against HTB's $490 (about ₹46,700) — roughly three and a half times the price. Retakes follow the same pattern at $249 versus $210. Macksofy supplies the official OffSec bundle at ₹1,45,000, which narrows the gap but does not close it.",
+      },
+      {
         q: "Is CPTS easier than OSCP?",
         a: "Different. The technical depth is comparable; the time pressure on OSCP is harsher; the report expectations on CPTS are heavier. Most candidates find one significantly easier than the other based on their working style, not their skill level.",
       },
@@ -4800,6 +4915,7 @@ def fetch_logs(service: str) -> str:
   {
     slug: "crtp-vs-crte-certification-guide-india-2026",
     seoTitle: "CRTP vs CRTE 2026 — AD Certification Guide for India",
+    updated: "2026-08-30",
     title: "CRTP vs CRTE — Altered Security's AD Certification Guide for India (2026)",
     description:
       "Altered Security's CRTP and CRTE — what each covers, exam style, costs in INR, and how Indian red teamers should sequence them. Includes CRTM context.",
@@ -4835,7 +4951,7 @@ def fetch_logs(service: str) -> str:
           label: "CRTP (Certified Red Team Professional)",
           tone: "cyan",
           bullets: [
-            "Cost: ~₹20,000 (30-day lab + exam)",
+            "Cost: $249 ≈ ₹23,800 (30-day lab + 1 exam attempt)",
             "Exam: 24h hands-on + 24h reporting",
             "Focus: Single forest AD attacks (foundations)",
             "Difficulty: Moderate — beginner-friendly to AD",
@@ -4846,7 +4962,7 @@ def fetch_logs(service: str) -> str:
           label: "CRTE (Certified Red Team Expert)",
           tone: "purple",
           bullets: [
-            "Cost: ~₹35,000 (30-day lab + exam)",
+            "Cost: $299 ≈ ₹28,500 (30-day lab + 1 exam attempt)",
             "Exam: 48h hands-on + 24h reporting",
             "Focus: Multi-forest, cross-trust, advanced AD",
             "Difficulty: Hard — assumes CRTP-level fluency",

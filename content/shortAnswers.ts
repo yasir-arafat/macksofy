@@ -256,7 +256,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "audit:cicra": {
     q: "What is a CICRA compliance audit?",
-    a: "A CICRA audit is a structured review of an organisation's critical information systems, cyber risks, and control maturity, benchmarked to recognised frameworks such as the NIST CSF and CERT-In guidance. Macksofy runs CICRA-style assessments to help Indian enterprises measure, prioritise, and close their most material security gaps.",
+    a: "A CICRA audit tests compliance with India's Credit Information Companies (Regulation) Act, 2005 and the RBI Master Direction on credit information reporting — covering submission accuracy to CIBIL, Experian, Equifax and CRIF, the 30-day dispute-resolution mandate, and Section 17A consumer rights. Macksofy audits both credit bureaus and the lenders, NBFCs and fintechs that feed them.",
   },
   "audit:wasa-audit": {
     q: "What is a WASA (Web Application Security Assessment)?",
@@ -479,7 +479,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "blog:red-team-certifications-india-2026": {
     q: "OSEP vs CRTO vs CRTP — which red team certification is best?",
-    a: "CRTP teaches Active Directory attack fundamentals, CRTO focuses on modern command-and-control and evasion tradecraft, and OSEP is the most advanced, covering AV/EDR bypass and hardened AD. Beginners usually start with CRTP; experienced testers target OSEP. Macksofy runs red-team certification bootcamps aligned to MITRE ATT&CK in India.",
+    a: "CRTP teaches Active Directory attack fundamentals and lists at $249, CRTO covers command-and-control and evasion tradecraft at £399, and OSEP is the most advanced, covering AV/EDR bypass and hardened AD at $1,749. Beginners usually start with CRTP; experienced testers target OSEP. Macksofy runs red-team certification bootcamps aligned to MITRE ATT&CK in India.",
   },
   "blog:top-10-penetration-testing-tools-2026": {
     q: "What penetration testing tools should every pentester master?",
