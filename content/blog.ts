@@ -7492,7 +7492,7 @@ def fetch_logs(service: str) -> str:
   {
     slug: "dpdp-significant-data-fiduciary-obligations-2026",
     seoTitle: "DPDP SDF Duties 2026 — DPO, Audit, DPIA Deadlines",
-    seoDescription: "Notified a Significant Data Fiduciary under India's DPDP Act? The extra duties — India-based DPO, annual independent data audit, annual DPIA — and when each bites.",
+    seoDescription: "Notified a Significant Data Fiduciary under DPDP? The extra duties — India-based DPO, annual independent data audit, annual DPIA — and when each bites.",
     title: "DPDP Act — What a Significant Data Fiduciary Actually Has to Do (2026)",
     description:
       "If your organisation is notified as a Significant Data Fiduciary under India's DPDP Act, you inherit extra duties on top of every Data Fiduciary obligation — a Board-responsible DPO in India, an independent data audit, and periodic DPIAs. Here is the obligation map and a readiness path.",

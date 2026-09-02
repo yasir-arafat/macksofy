@@ -477,18 +477,23 @@ export default function CehLandingPage() {
         <Container>
           <Eyebrow color="amber">From our learners</Eyebrow>
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
+            {/* Attribution is by role + sector only — never a personal name.
+                Same rule as content/testimonials.ts and content/courses.ts:
+                these are illustrative learner voices, not consented
+                attributable quotes. This block carried invented names until
+                2026-09-02. */}
             {[
               {
                 quote:
                   "Macksofy's labs were the difference — I'd already faced everything before exam day. Cleared CEH v13 on my first attempt.",
-                name: "Rohan M.",
-                role: "SOC Analyst, BFSI",
+                name: "SOC Analyst",
+                role: "BFSI",
               },
               {
                 quote:
                   "Came in with zero security background. A few weeks later I was running Burp Suite and Metasploit confidently.",
-                name: "Priya S.",
-                role: "Cybersecurity Engineer",
+                name: "Cybersecurity Engineer",
+                role: "Career switcher",
               },
             ].map((t) => (
               <figure key={t.name} className="glass rounded-2xl border border-line p-6">

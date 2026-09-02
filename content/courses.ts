@@ -37,6 +37,15 @@ export interface Course {
     summary: string;
     points: string[];
   };
+  /**
+   * Attribution is by ROLE + SECTOR only — `name` carries the role, `role`
+   * carries the sector. Never a personal name. These are illustrative client
+   * voices, not consented attributable quotes, and the same rule that governs
+   * content/testimonials.ts governs this field: re-adding a real person's name
+   * requires documented permission from that person. Do not restate an entry
+   * that already exists in content/testimonials.ts, and do not put an
+   * unsourced statistic inside a quote — both defects shipped here once.
+   */
   testimonials: { name: string; role: string; quote: string }[];
   faqs: { q: string; a: string }[];
   seoTitle: string;
@@ -176,8 +185,9 @@ export const COURSES: Course[] = [
       ],
     },
     testimonials: [
-      { name: "Rohan M.", role: "SOC Analyst, BFSI MNC", quote: "Cleared CEH v13 on first attempt. Macksofy's labs were the difference — I'd already faced everything before exam day." },
-      { name: "Priya S.", role: "Cybersecurity Engineer, Hyderabad", quote: "Came in with zero security background. 5 weeks later I was running Burp Suite and Metasploit confidently." },
+      // The second entry here restated the Hyderabad quote already carried by
+      // content/testimonials.ts, so it was removed rather than anonymised.
+      { name: "SOC Analyst", role: "BFSI MNC", quote: "Cleared CEH v13 on first attempt. Macksofy's labs were the difference — I'd already faced everything before exam day." },
     ],
     faqs: [
       { q: "Is CEH the same as an ethical hacking course?", a: "Yes. CEH v13 is the certification form of an ethical hacking course — it teaches the same offensive skill set (reconnaissance, scanning, exploitation, post-exploitation, reporting) and ends in a credential employers recognise. If you are comparing ethical hacking courses in Mumbai, the practical questions are whether the provider is an EC-Council Accredited Training Center, whether an exam voucher is included, and how much of the time is spent in labs rather than slides." },
@@ -308,9 +318,11 @@ export const COURSES: Course[] = [
       { role: "E-discovery Analyst", salaryINR: "₹6–11 LPA", experience: "1–3 years" },
     ],
     placement: STD_PLACEMENT,
-    testimonials: [
-      { name: "Inspector K.J.", role: "Cyber Cell, Maharashtra Police", quote: "Macksofy's CHFI for our cyber cell raised investigation quality measurably. India-context-aware and respectful of operational realities." },
-    ],
+    // Removed: this restated the Maharashtra Police quote already carried by
+    // content/testimonials.ts (correctly attributed there to "Cyber Cell,
+    // Maharashtra Police" with no personal name), but attached an identifiable
+    // officer's name to it. Add a real, consented quote here or leave empty.
+    testimonials: [],
     faqs: [
       { q: "Is CHFI accepted by Indian law enforcement?", a: "Yes — widely recognized by Indian police forces, CBI and corporate legal teams. Macksofy has trained Maharashtra Police on this curriculum." },
       { q: "What's the price in Mumbai?", a: "₹45,000 all-inclusive: training, official courseware, exam voucher and lab access." },
@@ -662,10 +674,12 @@ export const COURSES: Course[] = [
         "Career coaching for Indian + UAE markets",
       ],
     },
-    testimonials: [
-      { name: "Vivek I.", role: "Senior Pen-Tester · BFSI MNC, Mumbai", quote: "Macksofy's bootcamp is the only reason I cleared OSCP on the first try. The AD module alone was worth the price." },
-      { name: "Faisal R.", role: "Application Security Engineer, Dubai", quote: "Mentor support continued for weeks after the official course ended. They actually care if you pass." },
-    ],
+    // Removed: these two were one quote. content/testimonials.ts carries a
+    // single Dubai entry — "Cleared OSCP on the first attempt thanks to
+    // Macksofy's bootcamp. Mentor support continued for weeks after the
+    // official course. They actually care if you pass." — which was split in
+    // half here, given two invented names, and one half relocated to Mumbai.
+    testimonials: [],
     faqs: [
       { q: "What is the cost of OSCP certification in India in 2026?", a: "The official OffSec PEN-200 + 90-day lab + exam bundle is around ₹1,70,000 (USD 1,749). Through Macksofy the same official bundle — course, 90-day PWK lab and exam voucher — is ₹1,45,000 (15% off the standard listing), with EMI across 3 / 6 / 12 months. Macksofy's 60+ hour instructor-led bootcamp and mentor-until-pass support are a separate add-on priced on top of that, so ask for a combined quote. There is no free or pirated path that grants a real OSCP credential." },
       { q: "Is OSCP and OSCP+ the same? What changed in the 2024 / 2026 exam?", a: "OSCP+ is OffSec's rebrand of OSCP that took effect in late 2024 and is the current exam in 2026. The new format dropped the buffer-overflow box, expanded the Active Directory set (full AD chain worth ~40 points) and replaced bonus lab points with a CPE-based 3-year recertification. Macksofy's bootcamp is fully aligned to the OSCP+ exam — see our blog post on what changed." },
@@ -1563,7 +1577,7 @@ export const COURSES: Course[] = [
       ],
     },
     testimonials: [
-      { name: "Sneha K.", role: "SOC Analyst L1, Mumbai BFSI", quote: "Joined a top private bank's SOC 2 weeks after completing the course. The Wazuh labs were exactly what they tested me on." },
+      { name: "SOC Analyst (L1)", role: "Mumbai BFSI", quote: "Joined a top private bank's SOC 2 weeks after completing the course. The Wazuh labs were exactly what they tested me on." },
     ],
     faqs: [
       { q: "Do you cover Splunk or only Wazuh?", a: "Both. Wazuh + ELK is our hands-on lab (free, open source, extremely employable in India). We also cover Splunk SPL and Enterprise Security so you can interview confidently for either stack." },
@@ -1631,7 +1645,7 @@ export const COURSES: Course[] = [
       ],
     },
     testimonials: [
-      { name: "Aisha K.", role: "AppSec Engineer · Listed Fintech", quote: "The business-logic and access-control modules unlocked findings I'd been missing for a year. Salary went up 60% within 6 months of completing." },
+      { name: "Application Security Engineer", role: "Listed fintech", quote: "The business-logic and access-control modules unlocked findings I'd been missing for a year." },
     ],
     faqs: [
       { q: "Do I need OSCP first?", a: "Not necessarily. OSCP and Web App Security cover overlapping but different ground. Many students take this course before OSCP if AppSec is the career goal." },
@@ -1697,7 +1711,7 @@ export const COURSES: Course[] = [
       ],
     },
     testimonials: [
-      { name: "CISO, Listed Indian Bank", role: "(Reference available on request)", quote: "Macksofy's pentest team trained 40 of our developers over 4 weeks. Critical findings dropped 60% in the next quarter's audit." },
+      { name: "CISO", role: "Listed Indian bank · reference on request", quote: "Macksofy's pentest team trained 40 of our developers over 4 weeks, and the next quarter's audit reflected it." },
     ],
     faqs: [
       { q: "What's a typical engagement size?", a: "From a 2-day developer secure-coding workshop (10–20 people) to a multi-month engineering program. We scope on a discovery call." },

@@ -41,7 +41,7 @@ import { getShortAnswer } from "@/content/shortAnswers";
 export const metadata = buildMetadata({
   title: "Cyber Security & Ethical Hacking Courses in India",
   description:
-    "21 cyber security and ethical hacking courses — CEH v13, OSCP, CHFI, SOC Analyst and CompTIA. Live online across India and the UAE, or classroom at our Mumbai BKC institute. Mentor until you pass.",
+    "21 cyber security and ethical hacking courses — CEH v13, OSCP, CHFI, SOC Analyst and CompTIA. Live online across India and the UAE, or classroom in Mumbai.",
   path: "/training",
   keywords: [
     "cyber security course",
