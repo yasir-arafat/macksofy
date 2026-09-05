@@ -103,6 +103,160 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // CRTP vs CRTO — content-opps-2026-09-05. A NEW URL, deliberately,
+  // against this repo's repoint-first default. Justification, measured
+  // before writing: "crtp vs crto" + "crto vs crtp" (~110 impr/90d) rank
+  // pos 8-9 on /blog/red-team-certifications-india-2026 — a BROAD six-cert
+  // list, not a head-to-head. On this domain narrow buyer-intent beats
+  // broad, so a dedicated comparison is the right match for the exact
+  // query. Inbound links ENGINEERED from the pillar + crtp-vs-crte +
+  // crto-vs-oscp (below), not hoped for; the pillar keeps the broad
+  // "red team certifications india" query, this page takes the head-to-head.
+  // ===================================================================
+  {
+    slug: "crtp-vs-crto-comparison-india-2026",
+    title: "CRTP vs CRTO: Which Red Team Certification to Take First in India (2026)",
+    seoTitle: "CRTP vs CRTO 2026: Which Red Team Cert First?",
+    description:
+      "CRTP or CRTO first? They test different layers of the red-team stack: CRTP is cheap Active Directory attack depth, CRTO is Cobalt Strike operator tradecraft. Cost in INR, exam format, India hiring signal, and the order that actually works.",
+    seoDescription:
+      "CRTP vs CRTO in 2026: cost in INR, exam format, and which red-team certification to take first in India. An honest, provider-neutral comparison.",
+    date: "2026-09-05",
+    updated: "2026-09-05",
+    author: "Macksofy Red Team",
+    readingTime: "9 min read",
+    category: "Certification Guide",
+    tags: ["CRTP", "CRTO", "Red Team", "Career"],
+    heroKind: "cert-compare",
+    heroEyebrow: "Certification comparison",
+    keywords: [
+      "CRTP vs CRTO",
+      "CRTO vs CRTP",
+      "CRTP or CRTO",
+      "CRTP certification India",
+      "CRTO certification India",
+      "CRTP cost in India",
+      "CRTO cost in India",
+      "red team certification India 2026",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "CRTP and CRTO sound like rivals: both are hands-on Active Directory red-team certifications, both are popular in India, and both cost a fraction of OffSec's prices. But they sit at different layers of the same engagement. CRTP teaches you to break into and escalate through an Active Directory forest. CRTO teaches you to run a Cobalt Strike operation through that forest without getting caught. For most people the honest answer is not either/or: it is CRTP first, then CRTO.",
+      },
+      {
+        type: "comparison",
+        title: "At a glance",
+        left: {
+          label: "CRTP (Altered Security)",
+          tone: "cyan",
+          bullets: [
+            "Cost: $249 for a 30-day lab, about ₹23,800 — the cheapest serious red-team cert",
+            "Focus: Active Directory attacks — Kerberoasting, AS-REP roasting, ACL and GPO abuse, domain and forest escalation",
+            "Exam: 24-hour hands-on lab, then a report",
+            "Level: beginner-friendly, no prior red-team experience assumed",
+            "Best for: your first credible AD-attack credential",
+          ],
+        },
+        right: {
+          label: "CRTO (Zero-Point Security)",
+          tone: "purple",
+          bullets: [
+            "Cost: £399, about ₹51,700 (per independent reviews — verify current pricing)",
+            "Focus: adversary simulation with Cobalt Strike — malleable C2 profiles, BOFs, opsec and evasion",
+            "Exam: 48-hour hands-on, assumed-breach, flag-based, no separate report",
+            "Level: assumes you already know AD attacks",
+            "Best for: moving into red-team operator work",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "They are not the same tier",
+        id: "not-the-same-tier",
+      },
+      {
+        type: "para",
+        text: "The most common mistake is treating CRTP and CRTO as two options for the same slot on a CV. They are two layers of one engagement. CRTP is the get-in-and-escalate layer: from a low-privilege foothold, enumerate the domain, abuse Kerberos, ACLs and GPOs, and climb to domain and forest admin. CRTO is the run-the-operation layer: deploy and operate a Cobalt Strike C2, write malleable profiles and Beacon Object Files, and move through the same kind of AD environment while staying under the defenders' radar. You use CRTP skills to own the forest; you use CRTO skills to do it as a controlled, evasive adversary simulation.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Which one first?",
+        id: "which-first",
+      },
+      {
+        type: "para",
+        text: "Take CRTP first. It is a quarter of the price, it assumes no prior red-team experience, and the Active Directory attack chain it drills is the foundation CRTO quietly expects you to already have. Move to CRTO once you are heading into actual operator work — running C2, worrying about opsec and evasion, simulating a named threat actor. If you already hold OSCP or have real AD-attack experience, you can go straight to CRTO and skip CRTP; the reverse rarely works, because CRTO's assumed-breach exam is unforgiving if the AD fundamentals are shaky.",
+      },
+      {
+        type: "table",
+        caption: "CRTP vs CRTO — side by side (2026, India)",
+        headers: ["Dimension", "CRTP", "CRTO"],
+        rows: [
+          ["Vendor", "Altered Security", "Zero-Point Security"],
+          ["Price (India)", "$249, about ₹23,800", "£399, about ₹51,700 (per reviews)"],
+          ["Lab", "30 days ($379/60, $499/90)", "Lab access bundled with the course"],
+          ["Exam", "24h hands-on + report", "48h hands-on, assumed-breach, flags"],
+          ["Skill layer", "Break in and escalate in AD", "Operate C2 and evade"],
+          ["Tooling", "Native AD tradecraft, PowerShell", "Cobalt Strike, BOFs, malleable C2"],
+          ["Prerequisites", "None assumed", "AD-attack fluency assumed"],
+          ["India hiring signal", "Common first AD add-on", "Respected by mature red teams"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The honest order",
+        text: "CRTP, then real operator time, then CRTO. Collecting both back-to-back with no engagement experience in between is exactly the pattern senior red teamers screen out in two interview questions. The certificate proves you can pass an exam; the gap between exams is where you become worth hiring.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What each costs in India (2026)",
+        id: "cost-india",
+      },
+      {
+        type: "para",
+        text: "CRTP is the cheapest credible red-team certification on the market: $249 for a 30-day lab, roughly ₹23,800, with 60- and 90-day tiers at $379 and $499 and lifetime access to the course material. CRTO is listed at £399, about ₹51,700 — but treat that as an estimate. When we last checked, Zero-Point Security's own pricing page was intermittently unreachable and independent reviews disagreed on exactly what the fee includes, so confirm the current figure and inclusions before you pay. For the full six-certification cost table see our [red team certifications in India cost breakdown](/blog/red-team-certifications-india-2026); if you are weighing the Altered Security ladder, [CRTP vs CRTE](/blog/crtp-vs-crte-certification-guide-india-2026) covers the next step up; and if OffSec is in the mix, read [CRTO vs OSCP](/blog/crto-vs-oscp-honest-comparison-2026) alongside [what OSCP actually costs in India](/blog/oscp-training-in-mumbai-2026).",
+      },
+      {
+        type: "para",
+        text: "On hiring: in India, CRTP is a common first add-on for pentesters moving toward Active Directory work, and CRTO is genuinely respected by the mature red teams at the top private banks, big-3 IT-services internal red teams, and MDR providers. Neither yet clears an HR keyword filter the way OSCP does, so if a job description is the target, OSCP is still the default ask and these two are the depth behind it.",
+      },
+      {
+        type: "cta",
+        title: "Training toward CRTP or CRTO?",
+        text: "Macksofy runs red-team training and mentors engineers through the Active Directory and C2 tradecraft both exams test. Tell us where you are and we will map the fastest honest path.",
+        href: "/contact?interest=Red+Team+Training",
+        cta: "Talk to our red team",
+      },
+    ],
+    faqs: [
+      {
+        q: "CRTP or CRTO — which should I take first?",
+        a: "CRTP first. It is about a quarter of the price, assumes no prior red-team experience, and drills the Active Directory attack chain that CRTO expects you to already know. Move to CRTO when you are heading into operator work with Cobalt Strike.",
+      },
+      {
+        q: "How much do CRTP and CRTO cost in India?",
+        a: "CRTP is $249 for a 30-day lab, roughly ₹23,800. CRTO is listed around £399, roughly ₹51,700 per independent reviews — confirm the current figure directly, as the vendor's pricing page has been intermittently unreachable and reviews disagree on inclusions.",
+      },
+      {
+        q: "Do I need OSCP before CRTP or CRTO?",
+        a: "It is not required, but OSCP-level foundations — Linux, manual exploitation, enumeration — make both far easier. A common path in India is OSCP, then CRTP for Active Directory depth, then CRTO for operator tradecraft.",
+      },
+      {
+        q: "Do Indian employers recognise CRTP and CRTO?",
+        a: "CRTP is a common first AD add-on and is well understood by technical interviewers. CRTO is respected by mature red teams at private banks, big-3 IT-services internal red teams and MDR providers, but is less likely to clear an HR keyword filter than OSCP.",
+      },
+      {
+        q: "Is CRTP or CRTO harder?",
+        a: "They are different rather than strictly harder. CRTP tests the breadth of Active Directory attacks from a foothold; CRTO tests operator tradecraft and evasion with Cobalt Strike in an unforgiving 48-hour assumed-breach exam. CRTO feels harder mainly because it assumes the AD skills CRTP teaches.",
+      },
+    ],
+  },
+  // ===================================================================
   // DPDP RULES 2025 COMPLIANCE CALENDAR — content-plan-2026-08-30.
   // A NEW URL, deliberately, against this repo's default of repointing an
   // existing page. Justification, measured before writing: the site owns four
@@ -1752,7 +1906,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "CRTP is the fastest path to credible AD depth on a résumé, and at $249 — about ₹23,800 — it is the cheapest entry on this page by a wide margin. Thirty days of lab, a single-forest AD environment, and all the bread-and-butter techniques: Kerberoasting, AS-REP roasting, ACL abuse, GPO abuse, basic lateral movement. Course material access is lifetime, so the fee buys something that outlasts the lab window. We send our junior consultants here as their first add-on after OSCP.",
+        text: "CRTP is the fastest path to credible AD depth on a résumé, and at $249 — about ₹23,800 — it is the cheapest entry on this page by a wide margin. Thirty days of lab, a single-forest AD environment, and all the bread-and-butter techniques: Kerberoasting, AS-REP roasting, ACL abuse, GPO abuse, basic lateral movement. Course material access is lifetime, so the fee buys something that outlasts the lab window. We send our junior consultants here as their first add-on after OSCP. Choosing between it and the operator cert? See [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
       },
       {
         type: "heading",
@@ -4328,7 +4482,7 @@ nmap --randomize-hosts -iL targets.txt`,
     blocks: [
       {
         type: "lead",
-        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](/blog/oscp-training-in-mumbai-2026).) They are very different in what they test, who they impress, and what they prepare you for.",
+        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](/blog/oscp-training-in-mumbai-2026).) They are very different in what they test, who they impress, and what they prepare you for. If your real alternative to CRTO is the cheaper AD cert rather than OSCP, see [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
       },
       {
         type: "comparison",
@@ -5038,7 +5192,7 @@ def fetch_logs(service: str) -> str:
     blocks: [
       {
         type: "lead",
-        text: "Altered Security (formerly Pentester Academy) runs the most India-friendly AD-focused certifications on the market. CRTP and CRTE are favourites among Indian red teamers because they're affordable, deep, and unmistakably hands-on. Here's how to think about them in 2026 and which to take when.",
+        text: "Altered Security (formerly Pentester Academy) runs the most India-friendly AD-focused certifications on the market. CRTP and CRTE are favourites among Indian red teamers because they're affordable, deep, and unmistakably hands-on. Here's how to think about them in 2026 and which to take when. If your other option is the Cobalt Strike operator cert, see [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
       },
       {
         type: "diagram",
