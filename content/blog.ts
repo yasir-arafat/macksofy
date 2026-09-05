@@ -1982,7 +1982,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of ₹1.84L pays back in 4 months. With OSEP layered on, the delta is closer to ₹15 LPA and the payback drops to 3 months.",
+        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of ₹1.84L pays back in 4 months (see the [full OSCP price breakdown in INR](/blog/oscp-training-in-mumbai-2026)). With OSEP layered on, the delta is closer to ₹15 LPA and the payback drops to 3 months.",
       },
       {
         type: "callout",
@@ -2176,7 +2176,7 @@ export const POSTS: BlogPost[] = [
     slug: "oscp-training-in-mumbai-2026",
     seoTitle: "OSCP Cost in India 2026 — Full Price Breakdown in INR",
     seoDescription: "What OSCP actually costs in India in 2026 — OffSec's $1,749 bundle and $2,749 Learn One in rupees, the exam-only trap, retake fees and total to certify.",
-    updated: "2026-08-12",
+    updated: "2026-09-05",
     title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
     description:
       "What OSCP costs in India in 2026, in rupees and in dollars — every OffSec plan priced, the exam-only trap, what a retake adds, and the total to certify. Plus course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
@@ -2288,7 +2288,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Macksofy supplies the official OffSec bundle — the PEN-200 course, the 90-day lab and the exam voucher — at ₹1,45,000, roughly 15% below buying at list, with EMI across 3, 6 and 12 months. That figure covers the vendor bundle and nothing else. Macksofy's own 60+ hour instructor-led bootcamp and mentor-until-pass support are quoted separately on top of it, so ask for a combined quote rather than assuming the training is included in the number.",
+        text: "Macksofy supplies the official OffSec bundle — the PEN-200 course, the 90-day lab and the exam voucher — at ₹1,45,000, roughly 15% below buying at list, with EMI across 3, 6 and 12 months. That figure covers the vendor bundle and nothing else. [Macksofy's own 60+ hour instructor-led bootcamp](/training/oscp) and mentor-until-pass support are quoted separately on top of it, so ask for a combined quote rather than assuming the training is included in the number.",
       },
       {
         type: "callout",
@@ -4328,7 +4328,7 @@ nmap --randomize-hosts -iL targets.txt`,
     blocks: [
       {
         type: "lead",
-        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. They are very different in what they test, who they impress, and what they prepare you for.",
+        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](/blog/oscp-training-in-mumbai-2026).) They are very different in what they test, who they impress, and what they prepare you for.",
       },
       {
         type: "comparison",
@@ -4982,7 +4982,7 @@ def fetch_logs(service: str) -> str:
         type: "callout",
         tone: "info",
         title: "What we tell our students",
-        text: "If you can afford OSCP, do OSCP first — the recognition is worth the premium. If you can't, CPTS is no longer a 'second-tier' choice; it's a perfectly legitimate first credential. We have placed CPTS-only graduates into Indian BFSI pentest roles at ₹10-13 LPA in 2026.",
+        text: "If you can afford OSCP ([here is what it costs in India](/blog/oscp-training-in-mumbai-2026)), do OSCP first — the recognition is worth the premium. If you can't, CPTS is no longer a 'second-tier' choice; it's a perfectly legitimate first credential. We have placed CPTS-only graduates into Indian BFSI pentest roles at ₹10-13 LPA in 2026.",
       },
       MACKSOFY_CTA("oscp-bootcamp", "Our pentest certification prep"),
     ],
@@ -5496,7 +5496,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "Many senior practitioners hold both. CEH first as a fast HR-filter cert (~3 months) and then OSCP+ for the practical credibility (~6 months). The combined investment is ~₹2L total, returns a salary uplift typically inside the first promotion cycle, and signals both breadth and depth on a CV.",
+        text: "Many senior practitioners hold both. CEH first as a fast HR-filter cert (~3 months) and then OSCP+ for the practical credibility (~6 months). The combined investment is ~₹2L total ([OSCP's own cost in India breaks down here](/blog/oscp-training-in-mumbai-2026)), returns a salary uplift typically inside the first promotion cycle, and signals both breadth and depth on a CV.",
       },
       {
         type: "heading",
