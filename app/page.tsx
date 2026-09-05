@@ -31,7 +31,10 @@ export const metadata = buildMetadata({
     "CERT-In auditor Mumbai",
     "VAPT services Mumbai",
     "OSCP training India",
-    "CEH training Mumbai",
+    // "CEH training Mumbai" removed 2026-09-05: /training/ceh owns the Mumbai
+    // ethical-hacking/CEH intent and the homepage now routes it there
+    // (see components/home/TrainingPreview.tsx). Meta keywords do not rank,
+    // but leaving it here would contradict the handoff for the next editor.
     "SOC analyst training India",
     "ISO 27001 consultant India",
     "cybersecurity Dubai UAE",

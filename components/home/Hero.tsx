@@ -49,7 +49,7 @@ import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const TYPEWRITER_PHRASES = [
-  "ethical hacking labs",
+  "hands-on hacking labs",
   "OSCP-certified pen-testers",
   "CERT-In empanelled audits",
   "24×7 SOC operations",

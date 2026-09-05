@@ -38,7 +38,28 @@ export function TrainingPreview() {
                   <span className="gradient-text">Mentor until you pass.</span>
                 </>
               }
-              description="Ethical hacking, penetration testing, SOC and forensics courses — EC-Council and CompTIA authorized programs, Offensive Security exam-prep bootcamps, and our own SOC Analyst and Web App Security career tracks. 100% practical labs, live online or classroom in Mumbai."
+              // Homepage handoff (2026-09-05): the phrase "ethical hacking course
+              // in Mumbai" now appears ONLY as the anchor below, pointing to
+              // /training/ceh — the page that already targets that intent and
+              // converts it, while the homepage ranked #1-2 for it at 0% CTR
+              // (GSC 2026-09-05). Do not re-add "ethical hacking ... courses ...
+              // in Mumbai" as prose here; that is the snippet that made the
+              // homepage compete with the page that should own the term.
+              description={
+                <>
+                  Penetration testing, SOC, digital forensics and Offensive
+                  Security exam-prep tracks — EC-Council and CompTIA authorized
+                  programs with 100% practical labs, live online or classroom at
+                  our Mumbai BKC institute. Our{" "}
+                  <Link
+                    href="/training/ceh"
+                    className="text-neon-cyan underline-offset-4 hover:underline"
+                  >
+                    ethical hacking course in Mumbai
+                  </Link>{" "}
+                  is the CEH v13 track.
+                </>
+              }
             />
           </FadeIn>
           <FadeIn delay={0.1}>
