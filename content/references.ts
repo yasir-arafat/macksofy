@@ -53,6 +53,7 @@ export const REFS: Record<string, Reference> = {
   "cis-controls": { label: "CIS Critical Security Controls", url: "https://www.cisecurity.org/controls", issuer: "CIS" },
   // India regulators
   "cert-in": { label: "CERT-In", url: "https://www.cert-in.org.in/", issuer: "CERT-In · MeitY" },
+  "dot": { label: "Department of Telecommunications (DoT)", url: "https://dot.gov.in/", issuer: "DoT, Govt. of India" },
   "rbi": { label: "RBI Master Directions", url: "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx", issuer: "Reserve Bank of India" },
   "sebi": { label: "SEBI", url: "https://www.sebi.gov.in/", issuer: "SEBI" },
   "irdai": { label: "IRDAI", url: "https://irdai.gov.in/", issuer: "IRDAI" },
@@ -179,6 +180,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   // Referer from the empanelment page, so a deep link from macksofy.com would
   // land readers on a broken document.
   "blog:cert-in-empanelment-process-2026": ["cert-in-empanel", "cert-in"],
+  "blog:telecom-cyber-security-rules-2024-india-compliance": ["dot", "cert-in"],
   "blog:penetration-testing-vapt-guide-india-2026": ["nist-800-115", "owasp-top-10", "cvss", "cert-in"],
   "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
   "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],

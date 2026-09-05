@@ -103,6 +103,151 @@ const MACKSOFY_CTA = (slug: string, label: string): BlogBlock => ({
 
 export const POSTS: BlogPost[] = [
   // ===================================================================
+  // Telecom Cyber Security Rules 2024 — the queued content idea (memory:
+  // "3 mentions sitewide"; measured 2026-09-05: 0 in content/, ~0 GSC
+  // telecom demand, no telecom authority). A NEW URL, deliberately: it is
+  // a true topical gap, not a repoint. Honest expectation set in the
+  // handoff — this is a slow bet with no existing footprint, so it is
+  // written narrow (a compliance explainer that routes to VAPT/SOC/DFIR),
+  // not a broad guide, and its inbound links are engineered from the
+  // Indian-cyber-regulatory posts below.
+  // ===================================================================
+  {
+    slug: "telecom-cyber-security-rules-2024-india-compliance",
+    title: "Telecom Cyber Security Rules 2024: What India's Telecom Entities Must Do",
+    seoTitle: "Telecom Cyber Security Rules 2024: India Compliance",
+    description:
+      "India's Telecom Cyber Security Rules, 2024 put a six-hour incident-reporting clock, a mandatory Chief Telecommunication Security Officer, and standing SOC and testing duties on every telecom entity. Who must comply, the timelines, and the compliance checklist.",
+    seoDescription:
+      "Telecom Cyber Security Rules 2024: the six-hour incident clock, the mandatory CTSO, SOC and VAPT duties, and who must comply. An India compliance guide.",
+    date: "2026-09-05",
+    updated: "2026-09-05",
+    author: "Macksofy Audit Team",
+    readingTime: "10 min read",
+    category: "Compliance",
+    tags: ["Telecom", "Compliance", "CERT-In", "Regulatory"],
+    heroKind: "blue-team",
+    heroEyebrow: "India regulatory",
+    keywords: [
+      "Telecom Cyber Security Rules 2024",
+      "Telecom Cyber Security Rules India",
+      "Telecommunications Act 2023 cyber security",
+      "CTSO Chief Telecommunication Security Officer",
+      "telecom incident reporting 6 hours",
+      "telecom cyber security compliance India",
+      "DoT telecom security rules",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "On 21 November 2024 the Department of Telecommunications notified the Telecommunications (Telecom Cyber Security) Rules, 2024 under the Telecommunications Act, 2023. They place hard obligations on every telecom service provider and network operator in India: a six-hour clock to report a security incident, a mandatory Chief Telecommunication Security Officer who must be an Indian citizen, and a standing duty to test, monitor and defend the network. Here is what the rules require, who they bind, and what a telecom entity has to put in place.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "At a glance",
+        text: "Notified 21 November 2024 under sections 22(1) and 56(2)(v) of the Telecommunications Act, 2023, and in force on publication with a short transition before the operative duties apply. They bind telecommunication entities — telecom service providers and network operators — with separate device-identifier duties for manufacturers and importers. Confirm the current deadlines against the DoT Gazette notification before you plan around a date.",
+      },
+      { type: "heading", level: 2, text: "Who has to comply", id: "who-complies" },
+      {
+        type: "para",
+        text: "The rules bind a 'telecommunication entity': anyone who provides a telecommunication service or operates a telecommunication network under the Telecommunications Act, 2023. In practice that is mobile operators, internet service providers, and the operators of the networks behind them. Equipment manufacturers and importers pick up a narrower set of duties around device identifiers, covered below.",
+      },
+      { type: "heading", level: 2, text: "The six-hour incident clock", id: "six-hour-clock" },
+      {
+        type: "para",
+        text: "The headline obligation is speed. A telecommunication entity that becomes aware of a security incident affecting its network or services must report it to the Central Government within six hours. A fuller report follows within twenty-four hours and must set out the number of users affected, the duration of the incident, the geographical area impacted, the extent of the disruption, the impact, and the remedial measures taken or proposed.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Two six-hour clocks, not one",
+        text: "Telecom entities already owe CERT-In a six-hour report for certain incidents under the 2022 Directions. These rules add a parallel report to the DoT. Build one incident runbook that satisfies both, because in a live incident you will not have time to reconcile two reporting regimes on the fly.",
+      },
+      { type: "heading", level: 2, text: "The CTSO — a named, accountable person", id: "ctso" },
+      {
+        type: "para",
+        text: "Every telecommunication entity must appoint a Chief Telecommunication Security Officer. The CTSO must be a citizen and resident of India, owns the implementation of the entity's telecom cyber security framework, and is the entity's liaison with the government for compliance and incident reporting. This is a named, accountable role rather than a committee: the point is that there is one person the regulator can hold responsible.",
+      },
+      { type: "heading", level: 2, text: "The standing security obligations", id: "obligations" },
+      {
+        type: "para",
+        text: "Beyond reporting, the rules require a telecommunication entity to run a real security programme. It must adopt a telecom cyber security policy covering risk assessment, network testing, incident response and forensics; put in place the means to monitor its network for security incidents; test its systems for vulnerabilities; keep the records the government may call for; and comply with the directions and audits the government issues. In plain terms: a written policy, a monitoring capability, regular testing, and the logs to prove it.",
+      },
+      {
+        type: "table",
+        caption: "The core duties and who owns them",
+        headers: ["Duty", "What it means in practice", "Owner"],
+        rows: [
+          ["Report incidents", "6 hours to notify, 24 hours for the detailed report", "CTSO"],
+          ["Cyber security policy", "Risk assessment, testing, response, forensics", "CTSO / board"],
+          ["Monitor the network", "A SOC or equivalent watching for incidents", "Security operations"],
+          ["Test for vulnerabilities", "Vulnerability assessment and penetration testing", "Security / external auditor"],
+          ["Keep records", "Logs and evidence the government may require", "IT / security"],
+          ["Cooperate with government", "Furnish data and submit to directions and audit", "CTSO"],
+        ],
+      },
+      { type: "heading", level: 2, text: "What the government can ask for", id: "govt-data" },
+      {
+        type: "para",
+        text: "The rules let the Central Government, or an agency it authorises, require a telecommunication entity to furnish traffic data and other data — not the content of messages — for the purpose of telecom cyber security. Data collected this way may be shared with other agencies or stakeholders only for telecom cyber security, and the rules require safeguards against unauthorised access. If you operate a network, assume the data you hold can be called for, and hold it accordingly.",
+      },
+      { type: "heading", level: 2, text: "Device identifiers (IMEI)", id: "equipment" },
+      {
+        type: "para",
+        text: "A separate strand binds device makers and importers. Manufacturers must register the International Mobile Equipment Identity (IMEI) of a device before its first sale in India, and importers must register identifiers before import. Tampering with a device identifier is prohibited, and devices with tampered identifiers can be blocked from networks. If your business touches the device supply chain rather than the network, this is the part of the rules that reaches you.",
+      },
+      { type: "heading", level: 2, text: "The compliance checklist", id: "checklist" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Appoint a CTSO who meets the citizen-and-resident test and give them board-level access.",
+          "Write and adopt the telecom cyber security policy — risk assessment, testing, incident response, forensics.",
+          "Stand up monitoring: a security operations centre, in-house or managed, that can actually see an incident.",
+          "Run a baseline vulnerability assessment and penetration test, and fix what it finds.",
+          "Build one incident runbook that files the six-hour report to both the DoT and CERT-In, and rehearse it.",
+          "Sort out logging and retention so you can produce what the government may require.",
+          "Register device identifiers if you manufacture or import equipment.",
+        ],
+      },
+      { type: "heading", level: 2, text: "Most of this you can reuse from CERT-In work", id: "reuse" },
+      {
+        type: "para",
+        text: "If you already run a CERT-In empanelled audit programme, you are closer than you think. The testing, monitoring and incident-response duties in these rules overlap heavily with the CERT-In 2022 Directions and the empanelled-audit process — see our walkthrough of the [CERT-In empanelment process](/blog/cert-in-empanelment-process-2026) and the [buyer's guide to a CERT-In empanelled audit](/blog/cert-in-empanelled-audit-guide-2026). The practical gaps for most telecom entities are the named CTSO, the DoT reporting line, and proof that the monitoring and testing actually run. Macksofy covers those pieces as a CERT-In empanelled auditor: [VAPT](/services/vapt) for the testing duty, a [managed SOC](/services/managed-soc) for the monitoring duty, and [digital forensics and incident response](/services/digital-forensics-incident-response) for the six-hour clock.",
+      },
+      {
+        type: "cta",
+        title: "Preparing for the Telecom Cyber Security Rules?",
+        text: "Macksofy is a CERT-In empanelled auditor. We run the VAPT, the SOC and the incident response the rules require, and help you stand up the reporting line and the evidence trail. Tell us where your network is today.",
+        href: "/contact?interest=Telecom+Cyber+Security+Rules",
+        cta: "Talk to our audit team",
+      },
+    ],
+    faqs: [
+      {
+        q: "Who must comply with the Telecom Cyber Security Rules, 2024?",
+        a: "Every telecommunication entity — telecom service providers and network operators under the Telecommunications Act, 2023. Equipment manufacturers and importers additionally have to register and protect device identifiers.",
+      },
+      {
+        q: "What is the six-hour rule?",
+        a: "A telecommunication entity must report a security incident affecting its network or services to the Central Government within six hours of becoming aware of it, then file a detailed report within twenty-four hours covering users affected, duration, geography, disruption, impact and remedial action.",
+      },
+      {
+        q: "Who can be the Chief Telecommunication Security Officer?",
+        a: "The CTSO must be a citizen and resident of India. They own the entity's telecom cyber security framework and act as the liaison with the government for compliance and incident reporting.",
+      },
+      {
+        q: "Do the rules require penetration testing and a SOC?",
+        a: "Yes in substance. The cyber security policy must cover network testing, and the entity must be able to monitor for and respond to incidents. Vulnerability assessment and penetration testing plus a security operations centre are the practical way to meet those duties.",
+      },
+      {
+        q: "When did the rules take effect?",
+        a: "They were notified on 21 November 2024 and came into force on publication, with a short transition before the operative obligations apply. Confirm the current applicable deadlines against the DoT Gazette notification, as some duties phase in.",
+      },
+    ],
+  },
+  // ===================================================================
   // CRTP vs CRTO — content-opps-2026-09-05. A NEW URL, deliberately,
   // against this repo's repoint-first default. Justification, measured
   // before writing: "crtp vs crto" + "crto vs crtp" (~110 impr/90d) rank
@@ -637,7 +782,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and our note on [how to choose a cybersecurity company in India](/best-cybersecurity-company).",
+        text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and our note on [how to choose a cybersecurity company in India](/best-cybersecurity-company). Telecom operators owe a parallel six-hour report under the [Telecom Cyber Security Rules 2024](/blog/telecom-cyber-security-rules-2024-india-compliance).",
       },
       {
         type: "cta",
@@ -5995,7 +6140,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "The simple rule is regulator-of-record. If your principal business licence is granted by RBI (banking, NBFC, payment systems, prepaid instruments), RBI CSF is your primary framework. If your business is securities-side (broking, depository participation, asset management, investment advisory), SEBI CSCRF governs. Dual-licence entities — a bank-owned AMC, a broker subsidiary of a bank, a fintech holding both an NBFC and a stockbroker licence — must comply with both at the entity level holding each licence, which in practice means two CISOs (or a Group CISO with two reporting lines), two audit calendars and two incident reporting flows.",
+        text: "The simple rule is regulator-of-record. If your principal business licence is granted by RBI (banking, NBFC, payment systems, prepaid instruments), RBI CSF is your primary framework. If your business is securities-side (broking, depository participation, asset management, investment advisory), SEBI CSCRF governs. Regulators outside finance run their own regimes: telecom operators answer to the DoT under the [Telecom Cyber Security Rules 2024](/blog/telecom-cyber-security-rules-2024-india-compliance). Dual-licence entities — a bank-owned AMC, a broker subsidiary of a bank, a fintech holding both an NBFC and a stockbroker licence — must comply with both at the entity level holding each licence, which in practice means two CISOs (or a Group CISO with two reporting lines), two audit calendars and two incident reporting flows.",
       },
       {
         type: "heading",
