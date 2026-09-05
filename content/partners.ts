@@ -17,7 +17,6 @@ export const PARTNERS: Partner[] = [
   { name: "PwC", category: "Client", initials: "PW" },
   { name: "Maharashtra Police", category: "Client", initials: "MP" },
   { name: "Tata Group", category: "Client", initials: "TT" },
-  { name: "Reliance", category: "Client", initials: "RL" },
   { name: "Aditya Birla", category: "Client", initials: "AB" },
   { name: "ICICI Bank", category: "Client", initials: "IC" },
   { name: "Mahindra", category: "Client", initials: "MH" },

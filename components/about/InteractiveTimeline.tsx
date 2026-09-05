@@ -62,7 +62,7 @@ const MILESTONES: Milestone[] = [
     highlights: [
       "Started VAPT and red-team engagements",
       "First UAE engagements (Dubai, Abu Dhabi)",
-      "Tata Group, Reliance and HSBC join client roster",
+      "Tata Group and HSBC join client roster",
     ],
     metric: { value: "5,000+", label: "Professionals trained" },
     icon: Globe2,

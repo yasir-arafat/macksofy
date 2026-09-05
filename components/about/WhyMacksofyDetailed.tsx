@@ -45,7 +45,7 @@ const REASONS = [
   {
     icon: Users,
     title: "11 years · thousands of alumni · 250+ enterprises",
-    body: "Since 2014: thousands of professionals trained, hundreds of pen-tests delivered, 30+ regulated audits per year. Trusted by HSBC, PwC, Verizon, Maharashtra Police, Tata Group and 30+ RBI-regulated co-op banks.",
+    body: "Since 2014: thousands of professionals trained, hundreds of pen-tests delivered, 30+ regulated audits per year. Trusted by HSBC, PwC, Maharashtra Police, Tata Group and 30+ RBI-regulated co-op banks.",
     accent: "text-neon-green",
   },
 ];

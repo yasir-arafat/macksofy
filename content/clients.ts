@@ -18,7 +18,6 @@ export const CLIENTS: Client[] = [
   // -----------------------------------------------
   { name: "HSBC", logo: "/clients/HSBC.png", category: "Enterprise & Multinational" },
   { name: "PwC", logo: "/clients/PWC.png", category: "Enterprise & Multinational" },
-  { name: "Verizon", logo: "/clients/Verizon.png", category: "Enterprise & Multinational" },
   { name: "Allegion", logo: "/clients/Allegion.png", category: "Enterprise & Multinational" },
   { name: "Forvis Mazars", logo: "/clients/Forvis-mazars.png", category: "Enterprise & Multinational" },
   { name: "Viacom 18", logo: "/clients/Viacom-18.png", category: "Tech, Media & Startups" },
