@@ -206,10 +206,38 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value:
-              "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800",
+              "public, max-age=0, s-maxage=2592000, stale-while-revalidate=604800",
           },
         ],
       })),
+
+      // Homepage + static top-level marketing pages: same long edge cache
+      // as the content sections above. These are prerendered and only change
+      // on redeploy (which purges the CDN), so a 30-day s-maxage is safe and
+      // stops Googlebot/AI-crawler hits from repeatedly cold-fetching origin.
+      // /contact is deliberately EXCLUDED — it reads searchParams and renders
+      // dynamically, so it must not be pinned at the edge.
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=0, s-maxage=2592000, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source:
+          "/:page(about|awards|best-cybersecurity-company|ceh-v13-training|clients|glossary|press|privacy|team)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=0, s-maxage=2592000, stale-while-revalidate=604800",
+          },
+        ],
+      },
 
       // Social/preview imagery is embedded by other origins by definition
       // (Slack, WhatsApp, LinkedIn, X, Google rich results), so these opt out
@@ -228,10 +256,13 @@ const nextConfig: NextConfig = {
         ],
       },
 
-      // Note: the homepage and other top-level HTML responses intentionally
-      // keep Next.js's per-route defaults. The previous site-wide
-      // "no-store, must-revalidate" override killed CDN HTML caching and
-      // hurt TTFB on repeat visits — do not reintroduce it.
+      // Note: the homepage + the static top-level pages above now carry an
+      // explicit long s-maxage (added to stop crawler-driven origin re-fetches
+      // inflating Fast Origin Transfer). This is NOT the old site-wide
+      // "no-store, must-revalidate" override that killed CDN HTML caching —
+      // that override is the opposite of caching and must never be reintroduced.
+      // Any NEW dynamic top-level route (like /contact) must be kept OUT of the
+      // source lists above.
     ];
   },
 };
