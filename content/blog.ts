@@ -3115,7 +3115,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
     blocks: [
       {
         type: "lead",
-        text: "If you're starting cybersecurity training and asking which laptop to buy, here's the honest answer: you need fewer specs than the influencers tell you. Most coursework runs in a Kali VM with 8 GB RAM allocated. Where the spec game gets serious is when you start doing red-team work, AD lab simulation or hashcat cracking — and even then, ₹1.5L of laptop covers 95% of what you'll actually do.",
+        text: "If you're starting [cybersecurity training](/training) and asking which laptop to buy, here's the honest answer: you need fewer specs than the influencers tell you. Most coursework runs in a Kali VM with 8 GB RAM allocated. Where the spec game gets serious is when you start doing red-team work, AD lab simulation or hashcat cracking — and even then, ₹1.5L of laptop covers 95% of what you'll actually do.",
       },
       {
         type: "heading",
@@ -3198,6 +3198,12 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           "Buying refurbished without IPMI checks — easy way to inherit corporate-locked devices",
           "Optimising for 'discrete GPU' that you won't use until you're cracking hashes 12 months later",
         ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Once your machine is set up",
+        text: "Hardware is the easy part. If you are still choosing a certification path, [OSCP vs CEH for Indian students](/blog/oscp-vs-ceh-india-2026) breaks down which one fits a beginner's budget and goals — and once Kali is installed, [Burp Suite for beginners](/blog/burp-suite-for-beginners-2026) is the first tool most students learn.",
       },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's bring-your-own-laptop bootcamps"),
     ],
