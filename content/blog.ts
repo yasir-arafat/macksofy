@@ -7398,6 +7398,7 @@ def fetch_logs(service: str) -> str:
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
       { type: "para", text: "Our DFIR practice delivers AD-compromise IR on a 24/7 retainer basis to Indian banks, NBFCs, and insurers, with a guaranteed 1-hour engagement SLA. Engagements cover the full five-phase playbook above plus the CERT-In and RBI/SEBI/IRDAI reporting workflow as a single deliverable. Macksofy is CERT-In empanelled. See /services/digital-forensics-incident-response for the engagement scope and /resources/active-directory-compromise-runbook for the operational runbook we publish openly." },
+      { type: "para", text: "If you are reading this before an incident rather than during one, the more useful next step is choosing who to call: [how to choose a DFIR provider in India](/blog/dfir-services-how-to-choose-india-2026) covers what to verify before you sign, what a retainer should actually contain, and why evidence handling decides whether your findings survive a regulator." },
     ],
     faqs: [
       { q: "How long does an Indian BFSI AD-compromise IR engagement typically take?", a: "End-to-end, 4-12 weeks. Detect + Contain is hours 0-12. Eradicate is hours 12-72. Recovery is week 1-6 (longer if a forest rebuild is chosen). Lessons + hardening backlog closes out at week 12. CERT-In reporting happens at hour 6; RBI/SEBI/IRDAI follow-up reporting layers on by sector." },
@@ -7599,6 +7600,7 @@ def fetch_logs(service: str) -> str:
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
       { type: "para", text: "Our DFIR practice delivers ransomware IR retainers, ransomware-readiness assessments, and post-incident reviews for Indian banks, NBFCs and insurers. CERT-In empanelled; RBI CSF and IRDAI Information & Cyber Security alignment as standard output. See /services/digital-forensics-incident-response for the retainer scope, /resources/ransomware-ir-runbook-india for the operational runbook we publish openly, and /services/phishing-simulation for the prevention-pillar service." },
+      { type: "para", text: "Choosing that responder is its own decision, and it is much easier made calmly: [how to choose a DFIR provider in India](/blog/dfir-services-how-to-choose-india-2026) sets out the due-diligence checklist, the retainer-versus-ad-hoc trade-off, and the evidence-handling questions most buyers never think to ask." },
     ],
     faqs: [
       { q: "Does RBI mandate specific ransomware controls?", a: "Yes. The RBI Cyber Security Framework for scheduled commercial banks and the equivalent for NBFCs/UCBs require documented IR plans, segregated backups, network segmentation, EDR, SOC monitoring, IR drills, and reporting workflows. Ransomware-specific controls are inspected against these control families. The IT Governance Framework adds board-level oversight expectations." },
