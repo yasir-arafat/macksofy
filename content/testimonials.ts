@@ -23,8 +23,13 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     role: "Cyber Cell",
-    company: "Maharashtra Police",
-    city: "Mumbai",
+    // Attributed by role + sector only, per the policy in the interface doc
+    // above. This entry previously named a state police force. These quotes are
+    // illustrative and not consented, so putting one in the mouth of an
+    // identifiable public body was the one entry that broke the file's own rule.
+    // The city is omitted here too: "State Police Force" plus a city re-identifies
+    // the force, which is why this entry alone carries no city.
+    company: "State Police Force",
     quote:
       "The CHFI training Macksofy delivered for our cyber cell raised investigation quality measurably. Practical, India-context-aware, and respectful of our operational realities.",
     rating: 5,
