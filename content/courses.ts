@@ -1718,11 +1718,12 @@ export const COURSES: Course[] = [
       { q: "Do you deliver in UAE?", a: "Yes. We have regional partners in Dubai and have delivered on-site engagements with banks, telcos and government across the UAE." },
       { q: "Can you align training to ISO 27001 / SOC 2 awareness requirements?", a: "Yes. We can structure training to satisfy specific compliance evidence needs." },
       { q: "Do you run OT / ICS security training?", a: "Yes, as a customized corporate engagement rather than a scheduled public batch. Track G covers IEC 62443 zones and conduits, the Purdue model, IT-to-OT pivot paths, Modbus and DNP3 protocol awareness, and how to work safely around PLCs, HMIs and historians. The syllabus depends on your plant, so it is scoped on a discovery call." },
+      { q: "Do you run security awareness training for all staff?", a: "Yes — as a corporate track for the whole workforce, not a public batch. It pairs with our [phishing simulation programme](/services/phishing-simulation), which supplies the click-rate baseline and the RBI / SEBI / ISO 27001 awareness-evidence pack most auditors ask for." },
       { q: "Do you run cloud security training?", a: "Yes — Track F covers AWS, Azure and GCP: identity and access misconfiguration, storage and key-management hardening, cloud-native logging and CSPM triage, and cloud attack paths walked in a lab tenant. Like the other tracks it is delivered as a corporate engagement scoped to the platforms you actually run." },
     ],
     seoTitle: "Corporate Cybersecurity Training in India & UAE | Macksofy",
-    seoDescription: "Customized cybersecurity training for engineering teams, SOCs, boards and specialist squads — including OT / ICS and cloud security tracks. On-site India + UAE.",
-    keywords: ["corporate cybersecurity training India", "corporate cybersecurity training UAE", "secure coding workshop Mumbai", "DevSecOps training India", "cyber resilience training", "OT security training", "OT cyber security training", "ICS security training India", "cloud security training", "cloud security training India"],
+    seoDescription: "Corporate cybersecurity training in India and the UAE — cloud, OT/ICS, secure coding, SOC and security-awareness tracks, on-site or virtual.",
+    keywords: ["corporate cybersecurity training India", "corporate cybersecurity training UAE", "employee cybersecurity training India", "security awareness training Mumbai", "cloud security training India", "OT security training India", "endpoint security training", "secure coding workshop Mumbai", "DevSecOps training India", "cyber resilience training", "OT security training", "OT cyber security training", "ICS security training India", "cloud security training", "cloud security training India"],
   },
 ];
 

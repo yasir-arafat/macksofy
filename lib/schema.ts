@@ -361,6 +361,12 @@ export function courseSchema(course: Course) {
  * one source of truth.
  */
 export function courseProductSchema(course: Course) {
+  // Google requires a Product to carry offers, review or aggregateRating. Quote-based
+  // courses (corporate training) have no price, so a Product node here would always be
+  // invalid. The Course node on the same page already describes the offering correctly,
+  // so emit nothing rather than an incomplete entity.
+  if (!course.priceINR) return null;
+
   const url = `${BASE}/training/${course.slug}`;
   return {
     "@context": "https://schema.org",

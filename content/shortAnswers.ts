@@ -426,7 +426,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "course:corporate-training": {
     q: "What is corporate cybersecurity training?",
-    a: "Corporate cybersecurity training upskills a company's employees or security team — from security awareness for all staff to hands-on technical training for engineers. Macksofy designs customized corporate programs (CEH, SOC, secure coding, awareness) delivered on-site or virtual across India and the UAE.",
+    a: "Corporate cybersecurity training upskills a company's employees or security team — from security awareness for all staff to hands-on technical training for engineers. Macksofy designs customized corporate programs (secure coding, SOC onboarding, cloud, OT/ICS and security awareness) delivered on-site or virtual across India and the UAE.",
   },
 
   // ─────────────────────────── BLOG (money-query posts) ───────────────────────────

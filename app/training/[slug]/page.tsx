@@ -71,7 +71,7 @@ export default async function CourseDetail({ params }: PageProps) {
       <JsonLd
         data={[
           courseSchema(c),
-          courseProductSchema(c),
+          ...(courseProductSchema(c) ? [courseProductSchema(c)!] : []),
           breadcrumbSchema([
             { name: "Training", url: "/training" },
             { name: c.shortTitle, url: `/training/${c.slug}` },
