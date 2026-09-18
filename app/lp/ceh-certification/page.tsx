@@ -108,7 +108,7 @@ const WHY = [
   {
     icon: Briefcase,
     title: "Placement support",
-    body: "1:1 resume & LinkedIn rewrite, mock interviews, and direct introductions to 80+ hiring partners across India & UAE.",
+    body: "1:1 resume & LinkedIn rewrite, mock interviews, and direct introductions to hiring partners across India & UAE.",
   },
 ];
 
@@ -429,7 +429,7 @@ export default function CehLandingPage() {
       <section className="border-t border-line bg-bg-1/40 py-12">
         <Container className="mb-7">
           <p className="text-center font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-fg-faint">
-            Our consultants secure 250+ enterprises across India &amp; UAE
+            Our consultants secure enterprises across India &amp; UAE
           </p>
         </Container>
         <ClientsMarquee />

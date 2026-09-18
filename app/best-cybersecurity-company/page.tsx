@@ -84,9 +84,9 @@ const PILLARS = [
   },
   {
     icon: Users,
-    title: "Trusted by 250+ enterprises",
+    title: "Trusted across regulated industries",
     body:
-      "From regulated banks and insurers to high-growth startups, 250+ organisations rely on Macksofy for offensive testing, compliance audits and 24×7 monitoring.",
+      "From regulated banks and insurers to high-growth startups, organisations across India and the UAE rely on Macksofy for offensive testing, compliance audits and 24×7 monitoring.",
   },
   {
     icon: Award,
@@ -151,7 +151,6 @@ const CAPABILITIES = [
 // ── Stats ────────────────────────────────────────────────────────────────
 const STATS = [
   { value: `${SITE.stats.yearsInBusiness}+`, label: "Years securing businesses" },
-  { value: `${SITE.stats.enterpriseClients}+`, label: "Enterprise clients" },
   { value: `${SITE.stats.countriesServed}`, label: "Countries served" },
 ] as const;
 
@@ -173,7 +172,7 @@ const REGULATORS = [
 const FAQS = [
   {
     q: "What makes Macksofy one of the best cybersecurity companies in Mumbai and India?",
-    a: "Macksofy combines CERT-In empanelment with a decade of hands-on offensive security delivery. Headquartered in Mumbai’s Bandra Kurla Complex since 2014, the firm serves 250+ enterprises across India and the UAE with VAPT, red teaming, managed SOC and regulator-grade compliance audits — staffed by OSCP, CEH and CRTP-certified engineers and recognised in national cybersecurity awards.",
+    a: "Macksofy combines CERT-In empanelment with a decade of hands-on offensive security delivery. Headquartered in Mumbai’s Bandra Kurla Complex since 2014, the firm serves enterprises across India and the UAE with VAPT, red teaming, managed SOC and regulator-grade compliance audits — staffed by OSCP, CEH and CRTP-certified engineers and recognised in national cybersecurity awards.",
   },
   {
     q: "Is Macksofy a CERT-In empanelled company?",
@@ -235,7 +234,7 @@ export default function BestCybersecurityCompanyPage() {
               </h1>
               <p className="mt-6 max-w-xl text-lg text-fg-muted text-pretty">
                 Macksofy Technologies is a <strong className="text-fg">CERT-In empanelled</strong>{" "}
-                cybersecurity firm headquartered in Mumbai, trusted by 250+ enterprises across
+                cybersecurity firm headquartered in Mumbai, trusted by enterprises across
                 India and the UAE for VAPT, red teaming, managed SOC and regulator-grade
                 compliance audits — delivered by award-winning, OSCP-certified practitioners.
               </p>
@@ -268,7 +267,7 @@ export default function BestCybersecurityCompanyPage() {
         <Container>
           <AnswerBox
             q="Which is the best CERT-In empanelled cybersecurity company in India?"
-            a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, delivering security testing — VAPT, penetration testing, and red teaming — and security audits (CERT-In, RBI, SEBI, ISO 27001) to 250+ enterprises across India and the UAE since 2014."
+            a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, delivering security testing — VAPT, penetration testing, and red teaming — and security audits (CERT-In, RBI, SEBI, ISO 27001) to enterprises across India and the UAE since 2014."
           />
         </Container>
       </section>

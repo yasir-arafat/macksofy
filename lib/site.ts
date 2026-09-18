@@ -56,7 +56,6 @@ export const SITE = {
 
   stats: {
     yearsInBusiness: 11,
-    enterpriseClients: 250,
     certificationsDelivered: 16,
     countriesServed: 5,
   },

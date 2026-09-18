@@ -90,7 +90,7 @@ export const COURSE_DURATION_ISO: Record<string, string> = {
 // Default placement block reused by leaner course entries.
 const STD_PLACEMENT = {
   summary:
-    "Macksofy's placement desk works directly with 80+ hiring partners across India and the UAE. Resume coaching, mock interviews and direct intros included.",
+    "Macksofy's placement desk works directly with hiring partners across India and the UAE. Resume coaching, mock interviews and direct intros included.",
   points: [
     "1:1 resume + LinkedIn rewrite with our hiring desk",
     "Mock interviews with active practitioners",
@@ -176,7 +176,7 @@ export const COURSES: Course[] = [
     ],
     placement: {
       summary:
-        "70%+ of CEH graduates progress into security roles within 6 months. Our placement cell connects you with 80+ hiring partners across India and UAE.",
+        "Our placement cell connects CEH graduates with hiring partners across India and UAE.",
       points: [
         "1:1 resume and LinkedIn rewrite with our hiring desk",
         "Mock interviews with senior pen-testers (technical + behavioural)",
@@ -194,7 +194,7 @@ export const COURSES: Course[] = [
       { q: "Is Macksofy an authorized CEH v13 partner?", a: "Yes. Macksofy Technologies is an EC-Council Accredited Training Center (ATC). You receive official EC-Council courseware, hands-on lab access throughout the programme, and one CEH v13 (312-50) exam voucher." },
       { q: "What is the CEH v13 fee in Mumbai / India?", a: "₹50,000 all-inclusive: training, official EC-Council courseware, lab access, exam voucher, and our placement support. EMI options are available." },
       { q: "How is v13 different from v12?", a: "v13 integrates AI throughout — including AI-assisted attack modules and defensive AI controls. The exam structure (125 MCQs, 4 hours) is unchanged." },
-      { q: "Does Macksofy guarantee a job?", a: "We don't guarantee placement (no honest training company can), but we connect 70%+ of our graduates with security roles via our hiring network within 6 months." },
+      { q: "Does Macksofy guarantee a job?", a: "We don't guarantee placement (no honest training company can), but we connect graduates with security roles through our hiring network." },
       { q: "Can I take the course online?", a: "Yes — every batch is delivered live online (with on-camera trainer interaction) and at our Mumbai BKC center. Recordings are available for revision." },
     ],
     // "CEH v13" stays first: /training/ceh already converts "ceh training in
@@ -670,7 +670,7 @@ export const COURSES: Course[] = [
       points: [
         "1:1 mentorship until you pass — including post-bootcamp lab guidance",
         "Mock interviews modeled on real BFSI / Big-4 hiring loops",
-        "Direct intros to hiring partners (HSBC, PwC, EY, Mahindra, fintechs)",
+        "Direct intros to hiring partners (HSBC, PwC, fintechs)",
         "Career coaching for Indian + UAE markets",
       ],
     },

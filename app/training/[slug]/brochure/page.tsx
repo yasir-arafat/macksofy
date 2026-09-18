@@ -261,7 +261,7 @@ export default async function CourseBrochure({ params }: PageProps) {
             mentor office hours and exam-day prep at no additional cost.
           </li>
           <li>
-            <strong>Placement desk</strong> — Macksofy works with 80+ hiring
+            <strong>Placement desk</strong> — Macksofy works with hiring
             partners across India and the UAE; your post-course resume,
             portfolio review and mock interviews are included.
           </li>

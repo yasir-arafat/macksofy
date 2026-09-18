@@ -18,7 +18,6 @@ export const PARTNERS: Partner[] = [
   { name: "Tata Group", category: "Client", initials: "TT" },
   { name: "Aditya Birla", category: "Client", initials: "AB" },
   { name: "ICICI Bank", category: "Client", initials: "IC" },
-  { name: "Mahindra", category: "Client", initials: "MH" },
 
   // Tech partners
   { name: "AWS", category: "Technology", initials: "AW" },

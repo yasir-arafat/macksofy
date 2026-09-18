@@ -73,7 +73,7 @@ const ABOUT_DROPDOWN_BASE: DropdownItem[] = [
   {
     label: "Our Clients",
     href: "/clients",
-    description: "250+ enterprises trust Macksofy",
+    description: "Enterprises across India and the UAE",
     icon: Users,
   },
   {

@@ -73,7 +73,7 @@ const STATUS_ITEMS = [
   "✓  EC-Council ATC",
   "🟢  Mumbai SOC · 24×7 monitored",
   "📍  Mumbai BKC HQ · Dubai delivery · India + UAE engagements",
-  "🎓  Thousands of professionals trained · 250+ enterprises secured",
+  "🎓  Thousands of professionals trained · enterprises secured across India + UAE",
   "🏆  CSI Cyber Security Awards 2025 winner",
 ];
 

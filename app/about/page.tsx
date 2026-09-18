@@ -27,7 +27,7 @@ export const metadata = buildMetadata({
   title:
     "About Macksofy Technologies — Cybersecurity Consulting & Training Since 2014",
   description:
-    "CERT-In empanelled cybersecurity consultancy founded in Mumbai in 2014, with an EC-Council ATC training arm. 250+ enterprise clients across India and the UAE.",
+    "CERT-In empanelled cybersecurity consultancy founded in Mumbai in 2014, with an EC-Council ATC training arm. Enterprise clients across India and the UAE.",
   path: "/about",
   geo: HQ_GEO,
   keywords: [
@@ -234,7 +234,7 @@ export default function AboutPage() {
       <section className="py-16 border-y border-line">
         <Container className="mb-8">
           <p className="text-center font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-fg-faint">
-            250+ enterprises, banks, government bodies and education institutions across India + UAE
+            Enterprises, banks, government bodies and education institutions across India + UAE
           </p>
         </Container>
         <ClientsMarquee />

@@ -100,7 +100,7 @@ export const CLIENT_CATEGORIES: { key: ClientCategory; description: string }[] =
   {
     key: "Cooperative Banking & BFSI",
     description:
-      "30+ RBI-regulated cooperative and urban banks across Maharashtra. Annual System Audit Reports, VAPT and CERT-In format compliance.",
+      "RBI-regulated cooperative and urban banks across Maharashtra. Annual System Audit Reports, VAPT and CERT-In format compliance.",
   },
   {
     key: "Education",

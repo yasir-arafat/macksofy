@@ -127,7 +127,7 @@ export function Manifesto() {
           practitioner first, and a trainer second. We don&rsquo;t hire teachers
           — we work backwards from the cases we just shipped. That&rsquo;s the
           loop our alumni now run inside HSBC, PwC, Tata and
-          30+ RBI-regulated cooperative banks.
+          RBI-regulated cooperative banks.
         </Reveal>
       </Container>
     </section>
