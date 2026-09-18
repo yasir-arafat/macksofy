@@ -64,7 +64,6 @@ export const SITE = {
   trustSignals: [
     "CERT-In Empanelled Information Security Auditor",
     "EC-Council Accredited Training Center",
-    "CompTIA Authorized Partner",
     "ISO 27001 Certified",
     "Startup India Recognized",
     "Engagements across India and UAE",

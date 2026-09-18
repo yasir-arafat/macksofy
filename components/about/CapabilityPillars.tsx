@@ -50,7 +50,7 @@ const PILLARS = [
   {
     key: "training",
     label: "Cybersecurity Training",
-    desc: "EC-Council and CompTIA authorized programs, plus Offensive Security exam-prep bootcamps and Macksofy career tracks. Mentor until you pass.",
+    desc: "EC-Council accredited and CompTIA certification programs, plus Offensive Security exam-prep bootcamps and Macksofy career tracks. Mentor until you pass.",
     href: "/training",
     bullets: [
       "CEH · OSCP · CSA · CHFI",

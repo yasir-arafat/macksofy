@@ -22,7 +22,6 @@ const ACCREDITATIONS = [
   { label: "CERT-In Empanelled", sub: "Govt of India · MeitY", icon: ShieldCheck, tone: "cyan" },
   { label: "EC-Council ATC", sub: "Authorized Training", icon: Award, tone: "amber" },
   { label: "ISO 27001 Certified", sub: "Info Security Mgmt", icon: ShieldCheck, tone: "green" },
-  { label: "CompTIA Authorized Partner", sub: "Training Delivery", icon: Award, tone: "purple" },
 ] as const;
 
 const TONE_CLASS: Record<string, string> = {

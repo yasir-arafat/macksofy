@@ -248,8 +248,6 @@ export default async function CourseBrochure({ params }: PageProps) {
             <strong>Vendor-true delivery</strong> — Macksofy is{" "}
             {c.vendor === "EC-Council"
               ? "an EC-Council Accredited Training Center (ATC)"
-              : c.vendor === "CompTIA"
-              ? "a CompTIA Authorized Partner"
               : "a hands-on cybersecurity training provider"}{" "}
             delivering practitioner-led bootcamps with exam-prep support.
           </li>
@@ -373,9 +371,6 @@ export default async function CourseBrochure({ params }: PageProps) {
           </span>
           <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
             EC-Council ATC
-          </span>
-          <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
-            CompTIA Authorized
           </span>
           <span className="rounded-full ring-1 ring-slate-300 bg-white px-3 py-1">
             ISO 27001 Certified

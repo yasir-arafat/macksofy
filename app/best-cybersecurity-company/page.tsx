@@ -104,7 +104,7 @@ const PILLARS = [
     icon: ShieldCheck,
     title: "Accredited & certified",
     body:
-      "EC-Council Accredited Training Centre, CompTIA Authorized Partner, ISO 27001 certified and Startup India recognised — credentials that stand up to procurement and vendor due-diligence.",
+      "EC-Council Accredited Training Centre, ISO 27001 certified and Startup India recognised — credentials that stand up to procurement and vendor due-diligence.",
   },
 ] as const;
 

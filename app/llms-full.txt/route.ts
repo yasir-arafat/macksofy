@@ -45,7 +45,7 @@ export async function GET() {
   push(`- **Phone**: ${SITE.phoneDisplay}`);
   push(`- **Email**: ${SITE.email}`);
   push();
-  push("Macksofy is a cybersecurity consulting firm with three integrated practices: offensive security (penetration testing, red teaming), defensive security (managed SOC, DFIR, identity), and compliance audits (CERT-In, RBI, SEBI, ISO 27001, SOC 2, PCI-DSS, NESA, DESC, ADHICS, DPDP). The training division runs EC-Council ATC, OffSec exam-prep bootcamps and CompTIA Authorized programs.");
+  push("Macksofy is a cybersecurity consulting firm with three integrated practices: offensive security (penetration testing, red teaming), defensive security (managed SOC, DFIR, identity), and compliance audits (CERT-In, RBI, SEBI, ISO 27001, SOC 2, PCI-DSS, NESA, DESC, ADHICS, DPDP). The training division runs EC-Council ATC, OffSec exam-prep bootcamps and CompTIA certification training.");
   push();
 
   // ── Services ─────────────────────────────────────────────────────

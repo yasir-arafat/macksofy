@@ -1379,7 +1379,7 @@ export const COURSES: Course[] = [
     format: "Live instructor-led · Online + Mumbai BKC",
     priceINR: 40000,
     hero: {
-      eyebrow: "CompTIA Authorized Training Partner",
+      eyebrow: "CompTIA Certification Training",
       tagline: "Vendor-neutral. Globally recognized. DoD compliant.",
       description:
         "CySA+ is CompTIA's intermediate cybersecurity analyst credential — heavily focused on threat hunting, SOC operations and software vulnerability management. DoD 8570/8140 compliant. Recognized worldwide.",
@@ -1411,8 +1411,8 @@ export const COURSES: Course[] = [
     faqs: [
       { q: "Is CySA+ worth it in India?", a: "Yes — CySA+ is increasingly required by MNCs and DoD-adjacent contractors. It's also a strong CV item for global roles." },
     ],
-    seoTitle: "CompTIA CySA+ Training Mumbai | Authorized Partner | Macksofy",
-    seoDescription: "CompTIA CySA+ training in Mumbai by authorized partner Macksofy. Hands-on labs, exam voucher, ₹40,000.",
+    seoTitle: "CompTIA CySA+ Training Mumbai | Macksofy",
+    seoDescription: "CompTIA CySA+ training in Mumbai by Macksofy. Hands-on labs, exam voucher, ₹40,000.",
     keywords: ["CySA+ training Mumbai", "CompTIA CySA+ India", "CS0-003 training"],
   },
 
@@ -1428,7 +1428,7 @@ export const COURSES: Course[] = [
     format: "Live instructor-led · Online + Mumbai BKC",
     priceINR: 40000,
     hero: {
-      eyebrow: "CompTIA Authorized Training Partner",
+      eyebrow: "CompTIA Certification Training",
       tagline: "Job-focused Linux administration + security.",
       description:
         "CompTIA Linux+ covers system management, security, scripting and troubleshooting — distribution-neutral. A strong foundation for security and DevOps careers in India + UAE.",
@@ -1476,7 +1476,7 @@ export const COURSES: Course[] = [
     format: "Live instructor-led · Online + Mumbai BKC",
     priceINR: 40000,
     hero: {
-      eyebrow: "CompTIA Authorized Training Partner",
+      eyebrow: "CompTIA Certification Training",
       tagline: "Hands-on server administration certification.",
       description:
         "Server+ is CompTIA's flagship server-admin certification covering hardware, virtualization, security and disaster recovery across physical, virtual and cloud servers.",
@@ -1508,7 +1508,7 @@ export const COURSES: Course[] = [
       { q: "How is Server+ different from MCSA?", a: "Server+ is vendor-neutral, MCSA is Microsoft-specific. Server+ is broader and travels better between job environments." },
     ],
     seoTitle: "CompTIA Server+ Training Mumbai | Macksofy",
-    seoDescription: "CompTIA Server+ SK0-005 training in Mumbai by authorized partner Macksofy. Hands-on labs, ₹40,000.",
+    seoDescription: "CompTIA Server+ SK0-005 training in Mumbai by Macksofy. Hands-on labs, ₹40,000.",
     keywords: ["Server+ training Mumbai", "CompTIA Server training India", "SK0-005"],
   },
 

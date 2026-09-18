@@ -38,8 +38,8 @@ const REASONS = [
   },
   {
     icon: Globe2,
-    title: "Vendor-true · Authorized partner",
-    body: "EC-Council ATC. CompTIA Authorized. Mile2 Partner. Real vouchers, official labs, no proxies — verified directly with each vendor.",
+    title: "Vendor-true delivery",
+    body: "EC-Council Accredited Training Center. Real vouchers, official labs, no proxies — sourced directly from the vendor.",
     accent: "text-neon-pink",
   },
   {

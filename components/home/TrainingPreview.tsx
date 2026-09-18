@@ -48,8 +48,8 @@ export function TrainingPreview() {
               description={
                 <>
                   Penetration testing, SOC, digital forensics and Offensive
-                  Security exam-prep tracks — EC-Council and CompTIA authorized
-                  programs with 100% practical labs, live online or classroom at
+                  Security exam-prep tracks — EC-Council accredited and CompTIA
+                  certification programs with 100% practical labs, live online or classroom at
                   our Mumbai BKC institute. Our{" "}
                   <Link
                     href="/training/ceh"

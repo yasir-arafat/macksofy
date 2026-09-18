@@ -406,15 +406,15 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "course:cysa-plus": {
     q: "What is the CompTIA CySA+ certification?",
-    a: "CompTIA CySA+ (Cybersecurity Analyst) is an intermediate, hands-on credential focused on threat detection, behavioural analytics, and incident response for SOC roles. As a CompTIA Authorized Partner, Macksofy delivers CySA+ training with practical labs in India.",
+    a: "CompTIA CySA+ (Cybersecurity Analyst) is an intermediate, hands-on credential focused on threat detection, behavioural analytics, and incident response for SOC roles. Macksofy delivers CySA+ training with practical labs in India.",
   },
   "course:linux-plus": {
     q: "What is the CompTIA Linux+ certification?",
-    a: "CompTIA Linux+ validates the Linux administration, scripting, and security skills that underpin most security and DevOps work. As a CompTIA Authorized Partner, Macksofy delivers Linux+ training with hands-on command-line labs in India.",
+    a: "CompTIA Linux+ validates the Linux administration, scripting, and security skills that underpin most security and DevOps work. Macksofy delivers Linux+ training with hands-on command-line labs in India.",
   },
   "course:server-plus": {
     q: "What is the CompTIA Server+ certification?",
-    a: "CompTIA Server+ validates server hardware, administration, virtualization, and disaster-recovery skills for on-prem and hybrid environments. As a CompTIA Authorized Partner, Macksofy delivers Server+ training with practical labs in India.",
+    a: "CompTIA Server+ validates server hardware, administration, virtualization, and disaster-recovery skills for on-prem and hybrid environments. Macksofy delivers Server+ training with practical labs in India.",
   },
   "course:soc-analyst": {
     q: "What is Macksofy's SOC Analyst program?",

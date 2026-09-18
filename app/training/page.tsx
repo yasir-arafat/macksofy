@@ -220,7 +220,7 @@ export default function TrainingPage() {
         <Container className="relative pt-12 pb-20 sm:pt-16 sm:pb-28">
           <Breadcrumbs items={[{ name: "Training", href: "/training" }]} />
           <div className="mt-8 max-w-4xl">
-            <Eyebrow color="purple">Authorized · EC-Council · CompTIA · Mile2</Eyebrow>
+            <Eyebrow color="purple">EC-Council ATC · CompTIA · OffSec prep</Eyebrow>
             <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
               Cyber security &amp; ethical hacking courses.{" "}
               <span className="gradient-text">Mentor until you pass.</span>
@@ -406,21 +406,21 @@ export default function TrainingPage() {
         </Container>
       </section>
 
-      {/* Authorized Partners */}
+      {/* Accredited training */}
       <section className="py-20 bg-bg-1 border-y border-line">
         <Container>
           <div className="text-center mb-10">
-            <Eyebrow color="amber">Authorized Partners</Eyebrow>
+            <Eyebrow color="amber">Accredited Training</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
               Real vouchers, official labs.{" "}
               <span className="gradient-text">No proxies.</span>
             </h2>
             <p className="mt-3 text-fg-muted max-w-2xl mx-auto text-pretty">
-              Macksofy is an authorized partner / accredited training center for the
-              certifications below — verified by each vendor.
+              Macksofy is an EC-Council Accredited Training Center. Vouchers and
+              official labs are sourced directly from the vendor.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 max-w-xs mx-auto">
             {VENDOR_LOGOS.map((v) => (
               <div
                 key={v.vendor}

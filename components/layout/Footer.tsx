@@ -70,7 +70,7 @@ const SOCIALS = [
 
 const STATUS_ITEMS = [
   "🛡  CERT-In Empanelled · Information Security Auditor",
-  "✓  EC-Council ATC · CompTIA Authorized",
+  "✓  EC-Council ATC",
   "🟢  Mumbai SOC · 24×7 monitored",
   "📍  Mumbai BKC HQ · Dubai delivery · India + UAE engagements",
   "🎓  Thousands of professionals trained · 250+ enterprises secured",
