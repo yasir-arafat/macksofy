@@ -12,9 +12,10 @@ export const VENDOR_LOGOS: { vendor: CourseVendor; src: string; alt: string; lab
   // accreditation whatever the alt text says - the same reasoning already
   // applied to OffSec in app/lp/ceh-certification/page.tsx. CompTIA courses
   // are still taught and still named; only the partnership claim is removed.
-  // No Mile2 logo either: the partnership could not be evidenced (2026-09-18),
-  // and no course in COURSES is delivered under vendor "Mile2" - an
-  // accreditation with no delivery behind it does not survive due-diligence.
+  // No Mile2 logo either: the partnership could not be evidenced (2026-09-18)
+  // and no course was delivered under it - an accreditation with no delivery
+  // behind it does not survive due-diligence. "Mile2" has also been dropped
+  // from the CourseVendor union, so re-adding it is a deliberate act.
 ];
 
 export const vendorLogo = (vendor: CourseVendor) =>

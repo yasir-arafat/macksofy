@@ -1,7 +1,7 @@
 import { metroKeywords } from "@/lib/site";
 
 export type CourseLevel = "Foundation" | "Intermediate" | "Professional";
-export type CourseVendor = "EC-Council" | "OffSec" | "CompTIA" | "Mile2" | "Macksofy";
+export type CourseVendor = "EC-Council" | "OffSec" | "CompTIA" | "Macksofy";
 
 export interface Course {
   /** ISO date of last meaningful content change (drives sitemap lastmod). */
