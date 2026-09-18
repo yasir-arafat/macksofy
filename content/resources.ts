@@ -53,6 +53,9 @@ export type ResourceBlock =
 export interface Resource {
   /** ISO date of last meaningful content change (drives sitemap lastmod). */
   updated?: string;
+  /** Real ISO publication date. Omitted from schema when unset — never
+   *  synthesised from `publishedYear`. */
+  published?: string;
   slug: string;
   type: ResourceType;
   title: string;

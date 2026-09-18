@@ -101,7 +101,7 @@ export default async function CityPage({ params }: PageProps) {
             { name: c.name, url: `/locations/${c.slug}` },
           ]),
           faqSchema(c.faqs),
-          cityLocalBusinessSchema(c),
+          ...(cityLocalBusinessSchema(c) ? [cityLocalBusinessSchema(c)!] : []),
           {
             "@context": "https://schema.org",
             "@type": "Service",

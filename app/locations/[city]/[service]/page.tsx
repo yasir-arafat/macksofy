@@ -135,7 +135,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
             { name: c.name, url: `/locations/${c.slug}` },
             { name: s.shortTitle, url: `/locations/${c.slug}/${s.slug}` },
           ]),
-          cityLocalBusinessSchema(c),
+          ...(cityLocalBusinessSchema(c) ? [cityLocalBusinessSchema(c)!] : []),
           {
             "@context": "https://schema.org",
             "@type": "Service",

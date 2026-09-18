@@ -37,9 +37,17 @@ export async function generateMetadata({
     path: `/resources/${r.slug}`,
     keywords: r.keywords,
     type: "article",
-    publishedTime: `${r.publishedYear}-01-01`,
+    ...(r.published && { publishedTime: r.published }),
   });
 }
+
+const ORG_NODE = {
+  "@type": "Organization",
+  "@id": `${SITE.url}#organization`,
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/logo.png`,
+} as const;
 
 function articleSchema(
   r: ReturnType<typeof getResourceBySlug>,
@@ -56,13 +64,16 @@ function articleSchema(
     image: `${SITE.url}${SITE.ogImage}`,
     inLanguage: "en-IN",
     isPartOf: { "@id": `${SITE.url}#website` },
-    publisher: { "@id": `${SITE.url}#organization` },
-    author: { "@id": `${SITE.url}#organization` },
-    datePublished: `${r.publishedYear}-01-01`,
-    // Mirrors the blog convention (dateModified: updated ?? published) — falls
-    // back to the publication date when a resource has never been revised, so
-    // the value stays truthful rather than absent.
-    dateModified: r.updated ?? `${r.publishedYear}-01-01`,
+    // Inlined rather than a bare @id: JsonLd emits sibling <script> blocks, and
+    // Google does not guarantee merging a reference across them.
+    publisher: ORG_NODE,
+    author: ORG_NODE,
+    // Emitted only when the resource carries a real date. `${r.publishedYear}-01-01`
+    // synthesised a January-1st publication date for all 18 resources and, because
+    // no resource sets `updated`, made dateModified identical to it — two fabricated
+    // dates, not one truthful fallback.
+    ...(r.published && { datePublished: r.published }),
+    ...(r.updated && { dateModified: r.updated }),
     keywords: r.keywords.join(", "),
     about: r.topics.map((t) => ({ "@type": "Thing", name: t })),
     articleSection: r.type,

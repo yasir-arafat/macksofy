@@ -100,6 +100,9 @@ export function organizationSchema() {
     sameAs: Object.values(SITE.social),
     areaServed: AREA_SERVED,
     award: awardEntries.map((a) => a.name),
+    // Only genuine credentials belong here. SITE.trustSignals used to include
+    // "Engagements across India and UAE", a coverage statement that was being
+    // served to Google as an EducationalOccupationalCredential.
     hasCredential: SITE.trustSignals.map((t) => ({
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "Certification / Empanelment",
@@ -178,6 +181,33 @@ export function localBusinessSchema() {
  * Macksofy's brand identity but pins addressLocality + geo to the city
  * so each metro page is its own LocalBusiness entity in Google's eyes.
  */
+/**
+ * Inline Organization reference. JsonLd.tsx emits each schema object as its own
+ * sibling <script> rather than one @graph, so a bare {"@id": ...} depends on
+ * Google merging across blocks — which it does not guarantee. Mirrors the shape
+ * already used by Course.provider.
+ */
+const ORG_REF = {
+  "@type": "Organization",
+  "@id": `${BASE}#organization`,
+  name: SITE.name,
+  url: BASE,
+  logo: `${BASE}/logo.png`,
+} as const;
+
+/**
+ * Street addresses for cities where Macksofy actually has premises. A
+ * LocalBusiness node asserts a physical place of business, so it is emitted only
+ * for cities on this map. Everywhere else the page still carries the HQ
+ * Organization node and a Service node with areaServed, which is the correct way
+ * to model a service area you travel to — and matches what the city pages
+ * themselves say in copy ("Not yet — but our senior consultants travel from
+ * Mumbai BKC"). Add a city here only when there is a real, verifiable address.
+ */
+const CITY_OFFICE_ADDRESS: Record<string, string> = {
+  mumbai: SITE.hq.street,
+};
+
 export function cityLocalBusinessSchema(city: {
   slug: string;
   name: string;
@@ -185,6 +215,9 @@ export function cityLocalBusinessSchema(city: {
   geo: { lat: number; lng: number };
   mapQuery?: string;
 }) {
+  const street = CITY_OFFICE_ADDRESS[city.slug];
+  if (!street) return null;
+
   // Derive country/region/hours from the city rather than hardcoding India.
   // UAE location pages (Dubai, Abu Dhabi, UAE) must emit addressCountry "AE"
   // and the Gulf Mon–Fri work week — hardcoding "IN"/Mon–Sat mislabeled them
@@ -204,6 +237,7 @@ export function cityLocalBusinessSchema(city: {
     parentOrganization: { "@id": `${BASE}#organization` },
     address: {
       "@type": "PostalAddress",
+      streetAddress: street,
       addressLocality: city.name,
       addressRegion: city.state,
       addressCountry: uae ? "AE" : "IN",
@@ -504,10 +538,14 @@ export function caseStudySchema(
     image: `${BASE}${SITE.ogImage}`,
     inLanguage: "en-IN",
     isPartOf: { "@id": `${BASE}#website` },
-    publisher: { "@id": `${BASE}#organization` },
-    author: { "@id": `${BASE}#organization` },
-    datePublished: `${cs.year}-01-01`,
-    dateModified: `${cs.year}-12-31`,
+    publisher: ORG_REF,
+    author: ORG_REF,
+    // Dates are emitted only when the content actually carries one. The previous
+    // `${cs.year}-01-01` / `${cs.year}-12-31` pattern fabricated both, and minted a
+    // future dateModified every January — Google's Article guidance requires dates
+    // to be genuine and not future-dated.
+    ...(cs.published && { datePublished: cs.published }),
+    ...(cs.updated && { dateModified: cs.updated }),
     keywords: cs.keywords.join(", "),
     about: cs.tags.map((t) => ({ "@type": "Thing", name: t })),
     mentions: [

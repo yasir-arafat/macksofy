@@ -34,6 +34,9 @@ export type EngagementType =
 export interface CaseStudyHero {
   /** ISO date of last meaningful content change (drives sitemap lastmod). */
   updated?: string;
+  /** Real ISO publication date. Omitted from schema entirely when unset —
+   *  never synthesised from `year`, which produced fabricated dates. */
+  published?: string;
   slug: string;
 
   /* Identity (always anonymised) */

@@ -65,7 +65,6 @@ export const SITE = {
     "EC-Council Accredited Training Center",
     "ISO 27001 Certified",
     "Startup India Recognized",
-    "Engagements across India and UAE",
   ],
 
   /**
