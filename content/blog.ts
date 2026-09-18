@@ -8535,6 +8535,192 @@ def fetch_logs(service: str) -> str:
       { q: "How does multi-cloud monitoring support CERT-In incident reporting?", a: "CERT-In requires reporting certain incidents within six hours, which is only achievable if you can detect and reconstruct what happened quickly. In multi-cloud, logs scattered across three separate provider consoles make that nearly impossible. Centralising cloud-native logs from every provider into one monitored SOC — correlated with on-prem and application telemetry and retained to the longest applicable mandate — is what makes the six-hour clock realistic, and it simultaneously satisfies the monitoring and retention expectations in RBI CSF and SEBI CSCRF." },
     ],
   },
+
+  // ===================================================================
+  // DFIR provider selection — commercial-investigation intent
+  // ("dfir services company", "incident response services for bfsi").
+  // Deliberately does NOT repeat the first-24-hours playbook: that is
+  // ad-compromise-ir-playbook-indian-bfsi-2026 and
+  // ransomware-readiness-bfsi-india-2026, both linked from here.
+  // ===================================================================
+  {
+    slug: "dfir-services-how-to-choose-india-2026",
+    seoTitle: "DFIR Services in India: How to Choose a Responder (2026)",
+    seoDescription:
+      "How Indian BFSI firms pick a DFIR provider: empanelment, evidence handling, retainer terms and the questions to ask before an incident, not during one.",
+    updated: "2026-09-18",
+    title: "How to Choose a DFIR Provider in India — Before You Need One",
+    description:
+      "Most Indian organisations choose an incident-response provider while the incident is running, which is the worst possible moment. What to check, what a retainer should contain, and how evidence handling decides whether your findings survive a regulator or a court.",
+    date: "2026-09-18",
+    author: "Macksofy DFIR Team",
+    authorRole: "Digital forensics and incident response practice",
+    readingTime: "11 min read",
+    category: "Incident Response",
+    tags: ["DFIR", "Incident Response", "BFSI", "CERT-In", "India", "Forensics"],
+    heroKind: "incident",
+    heroEyebrow: "India · 2026 · Engagement guide",
+    keywords: [
+      "dfir services company india",
+      "incident response services for bfsi",
+      "digital forensics company india",
+      "incident response retainer india",
+      "how to choose a dfir provider",
+      "cyber forensics company mumbai",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Almost every organisation we are called into has chosen its incident-response provider during the incident. That is the one moment when you cannot assess anyone properly: you are compromised, the clock is running, and the first firm that answers the phone gets the engagement. This guide is about the decision you make beforehand — what separates a forensics practice from a pentest vendor with a forensics page, and what to put in writing before anything happens.",
+      },
+      {
+        type: "para",
+        text: "If you are mid-incident right now, stop reading this and use the phased playbook instead: [AD compromise IR playbook for Indian BFSI](/blog/ad-compromise-ir-playbook-indian-bfsi-2026) covers detection through recovery hour by hour, and [ransomware readiness for Indian BFSI](/blog/ransomware-readiness-bfsi-india-2026) covers the containment decisions. Come back to this page when the incident is closed and you are deciding who to retain.",
+      },
+
+      { type: "heading", level: 2, id: "not-the-same", text: "A pentest vendor is not a DFIR responder" },
+      {
+        type: "para",
+        text: "The two look adjacent on a capability slide and are different disciplines. A penetration test is a scheduled, scoped exercise where you control the environment and the tester writes findings. An incident response is unscheduled, unscoped, adversarial and evidential: the environment is actively hostile, the scope is whatever the attacker touched, and the output may be read by a regulator, an insurer, a board, or a court. Testing skill transfers. Evidence discipline does not, and it is the part that decides whether your conclusions hold up.",
+      },
+      {
+        type: "list",
+        items: [
+          "A tester can re-run a failed check. A responder who contaminates volatile memory has destroyed the artefact permanently.",
+          "A test report argues severity. A forensic report has to survive someone hostile asking how you know.",
+          "Testing runs on your schedule. Response runs on the attacker's, which is usually a Friday night.",
+          "A test is bounded by a scope document. Response scope is discovered, and it usually grows.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "what-to-check", text: "What to verify before you sign" },
+      {
+        type: "para",
+        text: "Ask for evidence of each of these in writing. A provider who cannot answer the evidence-handling questions specifically is telling you something useful.",
+      },
+      {
+        type: "table",
+        caption: "Due-diligence checklist for an Indian DFIR provider",
+        headers: ["What to check", "Why it matters", "What a good answer looks like"],
+        rows: [
+          ["CERT-In empanelment, and the category", "Regulators and tenders frequently require an empanelled auditor, and empanelment is scoped by category — being on the list does not mean being on it for your kind of work", "The provider names its category and points you at the official CERT-In list rather than a logo on its own site"],
+          ["Who actually turns up", "Sales engineers and delivery engineers are often different people; in IR the named responder matters more than the firm", "Named leads, their certifications, and a commitment that the person on the call is on the engagement"],
+          ["Evidence handling and chain of custody", "This determines whether findings survive a regulator, an insurer or litigation", "A written procedure: acquisition order, hashing, storage, custody log, and who signs it"],
+          ["Volatile-data capability", "Memory, running processes and network state are gone after a reboot; many providers only do disk", "Memory acquisition as standard, with tooling named and an order-of-volatility policy"],
+          ["Regulatory reporting support", "Your obligations run in parallel with the investigation and the deadlines are short", "They draft or review the regulator notification with you, and have done it before in your sector"],
+          ["Response-time commitment", "\"Best effort\" is not a commitment", "A contractual acknowledgement and on-site window, with the escalation path written down"],
+          ["Data residency of the evidence", "Indian obligations around log retention and storage location apply to your evidence too", "Evidence stays in India unless you agree otherwise in writing"],
+          ["Conflict position", "Your IR provider auditing its own prior work is a conflict", "They will say so, and will tell you when to bring in a third party"],
+        ],
+      },
+
+      { type: "heading", level: 2, id: "evidence", text: "Evidence handling is the part nobody asks about" },
+      {
+        type: "para",
+        text: "It is also the part that decides whether the engagement was worth paying for. An investigation that reaches a correct conclusion through an undocumented process gives you an answer you cannot use. If the matter becomes an insurance claim, an employment dispute, a regulatory finding or a prosecution, the first question is not what you found — it is how you know, and who could have altered it between acquisition and analysis.",
+      },
+      {
+        type: "list",
+        items: [
+          "Acquisition in order of volatility — memory before disk, live network state before shutdown.",
+          "Cryptographic hashes taken at acquisition and verified before and after every analysis step.",
+          "Analysis performed on copies, never on the original media.",
+          "A custody log with names, timestamps and handovers, maintained from acquisition to disposal.",
+          "A repeatable method, so a second examiner can reach the same conclusion from the same evidence.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "The reboot question",
+        text: "Ask any prospective provider what they want you to do if you discover a compromise at 2am and their team is four hours away. If the answer is \"shut it down\", ask what happens to the memory. If the answer is \"leave it exactly as it is and isolate at the network layer\", they have done this before.",
+      },
+
+      { type: "heading", level: 2, id: "retainer", text: "Retainer or call-when-it-happens?" },
+      {
+        type: "para",
+        text: "A retainer is not primarily about a discount. It is about the work that happens before the incident — the provider already knowing your estate, your logging, your escalation contacts and your regulatory position — because all of that is time you do not have later.",
+      },
+      {
+        type: "table",
+        caption: "What actually differs",
+        headers: ["", "Retainer", "Ad-hoc engagement"],
+        rows: [
+          ["Time to first action", "Contract and scope already agreed; work starts on the call", "Procurement, scoping and NDA first, while the incident continues"],
+          ["Environment knowledge", "Pre-built: architecture, logging coverage, crown jewels", "Discovered during the incident, from people who are already busy"],
+          ["Logging gaps", "Found and fixed during onboarding, before they cost you an investigation", "Found during the investigation, when they are unfixable retroactively"],
+          ["Commercial position", "Rates fixed in advance", "Negotiated at your weakest moment"],
+          ["Unused hours", "Typically redirect to readiness work — tabletop exercises, playbook review", "Not applicable"],
+        ],
+      },
+      {
+        type: "para",
+        text: "The honest counter-argument: if you have no security team, no central logging and no tested backups, a retainer is not the first thing to buy. Fix detection and recovery first — a responder can only reconstruct what your logs recorded.",
+      },
+
+      { type: "heading", level: 2, id: "reporting", text: "Your reporting clock runs during the investigation, not after it" },
+      {
+        type: "para",
+        text: "Indian organisations covered by the CERT-In Directions of 2022 must report specified classes of incident within six hours of noticing them, keep ICT logs for a rolling 180 days, and store those logs in India. Sector regulators add their own notifications on top. The practical consequence is that your provider has to be able to support a notification while the investigation is still incomplete — a notification that says what is known, what is not yet known, and what is being done. A provider who wants to wait for a complete picture before writing anything down will make you miss the window.",
+      },
+      {
+        type: "para",
+        text: "Our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026) covers the Directions and the reporting obligations in full, including what the log-retention rule means in practice.",
+      },
+
+      { type: "heading", level: 2, id: "red-flags", text: "Red flags" },
+      {
+        type: "list",
+        items: [
+          "A named response time with no contract term behind it.",
+          "No written evidence-handling procedure, or one that appears only after you ask twice.",
+          "Disk-only acquisition, or no answer on memory.",
+          "A proposal that scopes the investigation in hours before anyone has looked at the environment.",
+          "Reluctance to say which cases they have not been able to resolve, and why.",
+          "Certifications listed for the firm but not for the people who would be assigned.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "macksofy", text: "Where Macksofy fits" },
+      {
+        type: "para",
+        text: "Macksofy is a CERT-In empanelled auditor and runs [digital forensics and incident response](/services/digital-forensics-incident-response) for Indian and UAE organisations, mostly in BFSI. We will tell you plainly when a retainer is not the right purchase yet — if the logging is not there, the honest sequence is detection first, response capability second.",
+      },
+      {
+        type: "cta",
+        title: "Talk to the DFIR practice",
+        text: "If you are deciding between a retainer and ad-hoc cover, or you want your current provider's evidence procedure reviewed, we will walk through it with you.",
+        href: "/services/digital-forensics-incident-response",
+        cta: "See the DFIR practice",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between DFIR and a penetration test?",
+        a: "A penetration test is a scheduled, scoped exercise that finds weaknesses before an attacker does. DFIR is unscheduled and evidential: it establishes what an attacker actually did, when, and what they took, in a way that survives scrutiny from a regulator, an insurer or a court. They need different skills and different discipline, and being good at one does not imply the other.",
+      },
+      {
+        q: "Do I need a CERT-In empanelled provider for incident response?",
+        a: "It depends on who is asking. Empanelment is frequently required for government work, regulated-sector audits and tenders, and it is often expected by Indian regulators reviewing an incident. Empanelment is also granted by category, so check that the provider is empanelled for the kind of work you need rather than empanelled in general.",
+      },
+      {
+        q: "Should I shut down a compromised machine?",
+        a: "Not before you have taken advice, because shutting down destroys memory — running processes, network connections, injected code and often the only copy of encryption keys. Isolating the machine at the network layer usually preserves evidence while stopping the spread. Agree this rule with your provider in advance, not at 2am.",
+      },
+      {
+        q: "What does a DFIR retainer normally include?",
+        a: "Typically a contractual response commitment, pre-agreed rates and scope, an onboarding exercise that maps your estate and logging, named responders, and a defined escalation path. Many retainers let unused hours be spent on readiness work such as tabletop exercises or playbook reviews. Terms vary widely, so compare what is contractual against what is described as best effort.",
+      },
+      {
+        q: "How long does an incident investigation take?",
+        a: "It depends on the size of the estate, how much logging survived and how long the attacker was present. Containment is usually measured in hours to days; establishing the full scope and root cause is usually weeks. Be sceptical of anyone who scopes the investigation precisely before looking at the environment.",
+      },
+      {
+        q: "Can our existing pentest vendor handle an incident?",
+        a: "Sometimes, but ask the evidence questions before you assume it. Acquisition order, hashing, chain-of-custody documentation and memory capability are the things that decide whether the findings are usable afterwards, and they are not part of normal penetration-testing practice.",
+      },
+    ],
+  },
 ];
 
 export const getPostBySlug = (slug: string) => POSTS.find((p) => p.slug === slug);
