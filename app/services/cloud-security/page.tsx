@@ -110,7 +110,7 @@ export default function CloudSecurityPage() {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href="/contact?interest=Cloud%20Security" size="lg" withArrow>
+                <LinkButton href="/contact#enquiry?interest=Cloud%20Security" size="lg" withArrow>
                   Request a quote
                 </LinkButton>
                 <LinkButton href="#architecture" variant="outline" size="lg">

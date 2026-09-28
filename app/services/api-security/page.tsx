@@ -100,7 +100,7 @@ export default function ApiSecPage() {
               {service.hero.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <LinkButton href="/contact?interest=API%20Security" size="lg" withArrow>
+              <LinkButton href="/contact#enquiry?interest=API%20Security" size="lg" withArrow>
                 Request a quote
               </LinkButton>
               <LinkButton href="#owasp-api" variant="outline" size="lg">
@@ -335,7 +335,7 @@ export default function ApiSecPage() {
               engagement window plus 90 days, then are securely destroyed
               against a CERT-In-acceptable retention policy.
             </p>
-            <LinkButton href="/contact?interest=API%20Security" size="md" withArrow>
+            <LinkButton href="/contact#enquiry?interest=API%20Security" size="md" withArrow>
               Talk to an API lead
             </LinkButton>
           </div>

@@ -273,7 +273,7 @@ export default function PentauditPage() {
               price: "0",
               priceCurrency: "INR",
               description: "Free 14-day trial",
-              url: `${SITE.url}/contact?interest=Pentaudit`,
+              url: `${SITE.url}/contact#enquiry?interest=Pentaudit`,
             },
           },
           // This page now renders an AnswerBox, so the FAQPage node may
@@ -315,7 +315,7 @@ export default function PentauditPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <LinkButton
-                  href="/contact?interest=Pentaudit"
+                  href="/contact#enquiry?interest=Pentaudit"
                   size="lg"
                   withArrow
                 >
@@ -656,7 +656,7 @@ export default function PentauditPage() {
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <LinkButton
-                  href="/contact?interest=Pentaudit"
+                  href="/contact#enquiry?interest=Pentaudit"
                   size="lg"
                   withArrow
                 >

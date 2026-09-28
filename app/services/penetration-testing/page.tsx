@@ -92,7 +92,7 @@ export default function PentestPage() {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href="/contact?interest=Penetration%20Testing" size="lg" withArrow>
+                <LinkButton href="/contact#enquiry?interest=Penetration%20Testing" size="lg" withArrow>
                   Request a quote
                 </LinkButton>
                 <LinkButton href="#methodology" variant="outline" size="lg">

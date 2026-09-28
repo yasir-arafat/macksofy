@@ -46,7 +46,7 @@ import {
 } from "@/content/cehV13";
 
 const PATH = "/ceh-v13-training";
-const ENQUIRE = `/contact?interest=${encodeURIComponent("CEH v13 Training")}`;
+const ENQUIRE = `/contact#enquiry?interest=${encodeURIComponent("CEH v13 Training")}`;
 
 export const metadata = buildMetadata({
   // absoluteTitle: the title is 58 chars, inside the 60-char hard budget but

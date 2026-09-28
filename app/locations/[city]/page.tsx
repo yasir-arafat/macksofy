@@ -142,7 +142,7 @@ export default async function CityPage({ params }: PageProps) {
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link
-                  href={`/contact?interest=${encodeURIComponent(`Cybersecurity in ${c.name}`)}#enquiry`}
+                  href={`/contact#enquiry?interest=${encodeURIComponent(`Cybersecurity in ${c.name}`)}`}
                   className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple h-12 px-6 text-sm font-bold text-white shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:shadow-[0_0_45px_rgba(168,85,247,0.45)] transition-shadow"
                 >
                   Get a {c.name} quote

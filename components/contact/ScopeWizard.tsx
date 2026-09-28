@@ -96,13 +96,13 @@ export function ScopeWizard() {
     setStep(1);
   };
 
-  // Build the prefilled form URL.
+  // Keep the server URL canonical while retaining client-side form prefill.
   const prefillURL = useMemo(() => {
     if (!state.service) return "/contact#enquiry";
     const params = new URLSearchParams({
       interest: state.service,
     });
-    return `/contact?${params.toString()}#enquiry`;
+    return `/contact#enquiry?${params.toString()}`;
   }, [state]);
 
   return (

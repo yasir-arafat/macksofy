@@ -100,7 +100,7 @@ export default function WebSecPage() {
               {service.hero.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <LinkButton href="/contact?interest=Web%20App%20Security" size="lg" withArrow>
+              <LinkButton href="/contact#enquiry?interest=Web%20App%20Security" size="lg" withArrow>
                 Request a quote
               </LinkButton>
               <LinkButton href="#owasp" variant="outline" size="lg">
@@ -275,7 +275,7 @@ export default function WebSecPage() {
               engagement window plus 90 days, then are securely destroyed
               against a CERT-In-acceptable retention policy.
             </p>
-            <LinkButton href="/contact?interest=Web%20App%20Security" size="md" withArrow>
+            <LinkButton href="/contact#enquiry?interest=Web%20App%20Security" size="md" withArrow>
               Talk to a web lead
             </LinkButton>
           </div>

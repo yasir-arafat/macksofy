@@ -123,7 +123,7 @@ export default async function IndustryDetail({ params }: PageProps) {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <LinkButton
-                  href={`/contact?interest=${encodeURIComponent(industry.shortName + " engagement")}`}
+                  href={`/contact#enquiry?interest=${encodeURIComponent(industry.shortName + " engagement")}`}
                   size="lg"
                   withArrow
                 >

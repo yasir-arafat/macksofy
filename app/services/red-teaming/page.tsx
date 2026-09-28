@@ -107,7 +107,7 @@ export default function RedTeamPage() {
               {service.hero.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <LinkButton href="/contact?interest=Red%20Team" size="lg" withArrow>
+              <LinkButton href="/contact#enquiry?interest=Red%20Team" size="lg" withArrow>
                 Discuss an engagement
               </LinkButton>
               <LinkButton href="#kill-chain" variant="outline" size="lg">

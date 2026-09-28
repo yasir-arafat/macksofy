@@ -196,7 +196,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <LinkButton
-                  href={`/contact?interest=${encodeURIComponent(`${s.shortTitle} ${c.name}`)}`}
+                  href={`/contact#enquiry?interest=${encodeURIComponent(`${s.shortTitle} ${c.name}`)}`}
                   size="lg"
                   withArrow
                 >

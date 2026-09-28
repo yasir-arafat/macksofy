@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -67,6 +67,7 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
     control,
     formState: { errors, isSubmitting, touchedFields },
     reset,
+    setValue,
     trigger,
   } = useForm<FormValues>({
     resolver: zodResolver(Schema),
@@ -76,6 +77,27 @@ export function ContactForm({ initialInterest = "" }: { initialInterest?: string
 
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+
+  // Internal contact CTAs keep the canonical server URL clean and carry the
+  // selected topic in the fragment instead. Fragments are client-only, so
+  // search crawlers see one /contact URL while visitors retain form prefill.
+  useEffect(() => {
+    const applyInterestFromHash = () => {
+      const [anchor, query = ""] = window.location.hash.slice(1).split("?");
+      if (anchor !== "enquiry") return;
+
+      const interest = new URLSearchParams(query).get("interest");
+      if (interest) setValue("interest", interest);
+
+      window.requestAnimationFrame(() => {
+        document.getElementById("enquiry")?.scrollIntoView({ block: "start" });
+      });
+    };
+
+    applyInterestFromHash();
+    window.addEventListener("hashchange", applyInterestFromHash);
+    return () => window.removeEventListener("hashchange", applyInterestFromHash);
+  }, [setValue]);
 
   // --- Turnstile state ---
   // BUG FIX: track the token in a ref AND state so the submit handler always

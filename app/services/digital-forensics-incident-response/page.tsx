@@ -104,7 +104,7 @@ export default function DfirPage() {
               <LinkButton href="tel:+919930824239" size="lg">
                 <Phone className="size-4 mr-2 inline" />Call IR hotline
               </LinkButton>
-              <LinkButton href="/contact?interest=DFIR%20Retainer" variant="outline" size="lg">
+              <LinkButton href="/contact#enquiry?interest=DFIR%20Retainer" variant="outline" size="lg">
                 Discuss retainer
               </LinkButton>
             </div>

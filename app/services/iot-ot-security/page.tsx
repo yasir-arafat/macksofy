@@ -113,7 +113,7 @@ export default function IotOtSecurityPage() {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href="/contact?interest=IoT%20%26%20OT%20Security" size="lg" withArrow>
+                <LinkButton href="/contact#enquiry?interest=IoT%20%26%20OT%20Security" size="lg" withArrow>
                   Request a quote
                 </LinkButton>
                 <LinkButton href="#purdue" variant="outline" size="lg">

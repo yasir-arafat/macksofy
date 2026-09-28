@@ -127,7 +127,7 @@ export default async function AuditDetail({ params }: PageProps) {
                 {a.hero.description}
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <LinkButton href={`/contact?interest=${encodeURIComponent(a.title)}`} size="lg" withArrow>
+                <LinkButton href={`/contact#enquiry?interest=${encodeURIComponent(a.title)}`} size="lg" withArrow>
                   Request Audit
                 </LinkButton>
                 <LinkButton href="/contact" variant="outline" size="lg">

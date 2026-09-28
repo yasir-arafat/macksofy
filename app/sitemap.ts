@@ -24,15 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const rev = (updated?: string): Date =>
     updated ? new Date(updated) : CONTENT_REV;
 
-  // hreflang: every URL serves both en-IN and en-AE — declaring both
-  // (with x-default) tells Google the same content is targeted at both
-  // markets, avoiding duplicate-content penalties without per-locale URLs.
-  const altLanguages = (path: string): Record<string, string> => ({
-    "x-default": `${base}${path}`,
-    "en-IN": `${base}${path}`,
-    "en-AE": `${base}${path}`,
-  });
-
   // Post lastmod = the post's own date (clamping any future-dated drafts to
   // now). Revised 2026-05-31: previously this returned max(postDate, now),
   // bumping every post's lastmod to build time on each deploy. That was a
@@ -46,8 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const stat = (
     path: string,
-    priority: number,
-    freq: "daily" | "weekly" | "monthly",
     lastModified: Date = CONTENT_REV,
     images?: string[]
   ): MetadataRoute.Sitemap[number] => {
@@ -59,9 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const entry: MetadataRoute.Sitemap[number] = {
       url: `${base}${p}`,
       lastModified,
-      changeFrequency: freq,
-      priority,
-      alternates: { languages: altLanguages(p) },
     };
     if (images && images.length > 0) entry.images = images;
     return entry;
@@ -81,84 +67,72 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const awardImages = AWARDS.map((a) => `${base}${a.image}`);
 
-  // changeFrequency policy (revised 2026-05-26 to address GSC
-  // "Discovered – currently not indexed" backlog on the 2-day-old domain):
-  //
-  //   daily   → live-updating index pages (homepage, blog index, /resources)
-  //   weekly  → high-value canonical pages we actually iterate on
-  //             (services / audits / training / industries / case studies)
-  //   monthly → genuinely stable pages (privacy, products, awards listing,
-  //             location × service templated combos)
-  //
-  // The previous all-monthly policy on a freshly-launched site told
-  // Google there was no urgency to crawl, contributing to the
-  // discovery-not-crawled backlog.
+  // Keep sitemap signals factual: canonical URLs, truthful last-modified
+  // dates, and selected image references. Search engines do not need
+  // priority/change-frequency hints, and hreflang is omitted until distinct
+  // locale URLs exist.
   return [
-    stat("/", 1.0, "daily", now, [`${base}/og-default.png`]),
-    stat("/services", 0.95, "weekly"),
-    stat("/audit", 0.95, "weekly"),
-    stat("/training", 0.9, "weekly"),
-    stat("/training/offsec", 0.95, "weekly"),
-    stat("/contact", 0.8, "monthly"),
-    stat("/about", 0.7, "monthly"),
-    stat("/best-cybersecurity-company", 0.9, "weekly"),
-    stat("/ceh-v13-training", 0.9, "weekly"),
-    stat("/blog", 0.85, "daily", freshenBlog(latestPostDate)),
-    stat("/clients", 0.7, "monthly"),
-    stat("/awards", 0.7, "monthly", CONTENT_REV, awardImages),
-    stat("/press", 0.7, "monthly"),
-    stat("/glossary", 0.8, "monthly"),
+    stat("/", CONTENT_REV, [`${base}/og-default.png`]),
+    stat("/services"),
+    stat("/audit"),
+    stat("/training"),
+    stat("/training/offsec"),
+    stat("/contact"),
+    stat("/about"),
+    stat("/best-cybersecurity-company"),
+    stat("/ceh-v13-training"),
+    stat("/blog", freshenBlog(latestPostDate)),
+    stat("/clients"),
+    stat("/awards", CONTENT_REV, awardImages),
+    stat("/press"),
+    stat("/glossary"),
     // /team + expert profiles enter the sitemap only once real named experts
     // exist (getPersonAuthors() is empty until then) — no thin placeholder URLs.
     ...(getPersonAuthors().length > 0
       ? [
-          stat("/team", 0.7, "monthly"),
+          stat("/team"),
           ...getPersonAuthors().map((p) =>
-            stat(`/team/${p.slug}`, 0.6, "monthly")
+            stat(`/team/${p.slug}`)
           ),
         ]
       : []),
-    stat("/products/pentaudit", 0.9, "weekly"),
-    stat("/products/learn-to-exploit", 0.85, "monthly"),
-    stat("/privacy", 0.4, "monthly"),
-    stat("/case-studies", 0.9, "weekly"),
+    stat("/products/pentaudit"),
+    stat("/products/learn-to-exploit"),
+    stat("/privacy"),
+    stat("/case-studies"),
     ...CASE_STUDIES.map((c) =>
-      stat(`/case-studies/${c.slug}`, 0.85, "weekly", rev(c.updated))
+      stat(`/case-studies/${c.slug}`, rev(c.updated))
     ),
-    stat("/resources", 0.9, "daily"),
+    stat("/resources"),
     ...RESOURCES.map((r) =>
-      stat(`/resources/${r.slug}`, 0.8, "weekly", rev(r.updated))
+      stat(`/resources/${r.slug}`, rev(r.updated))
     ),
-    stat("/industries", 0.9, "weekly"),
+    stat("/industries"),
     ...INDUSTRIES.map((i) =>
-      stat(`/industries/${i.slug}`, 0.85, "weekly", rev(i.updated))
+      stat(`/industries/${i.slug}`, rev(i.updated))
     ),
-    stat("/locations", 0.85, "weekly"),
-    ...CITIES.map((c) =>
-      stat(`/locations/${c.slug}`, c.primary ? 0.95 : 0.9, "weekly")
-    ),
+    stat("/locations"),
+    ...CITIES.map((c) => stat(`/locations/${c.slug}`)),
     // All combos ship in the sitemap. (Wave-gating was retired — see
     // SITEMAP_COMBO_PAIRS in content/combos.ts, which now maps every combo;
     // RELEASED_THROUGH_WAVE / COMBO_WAVES were removed.)
     ...SITEMAP_COMBO_PAIRS.map((p) =>
-      stat(`/locations/${p.city}/${p.service}`, 0.7, "monthly", rev(p.updated))
+      stat(`/locations/${p.city}/${p.service}`, rev(p.updated))
     ),
     ...SERVICES.map((s) =>
-      stat(`/services/${s.slug}`, 0.9, "weekly", rev(s.updated))
+      stat(`/services/${s.slug}`, rev(s.updated))
     ),
     ...COURSES.map((c) =>
-      stat(`/training/${c.slug}`, 0.85, "weekly", rev(c.updated), [
+      stat(`/training/${c.slug}`, rev(c.updated), [
         `${base}${c.image}`,
       ])
     ),
     ...AUDITS.map((a) =>
-      stat(`/audit/${a.slug}`, a.authority ? 0.95 : 0.9, "weekly", rev(a.updated))
+      stat(`/audit/${a.slug}`, rev(a.updated))
     ),
     ...POSTS.map((p) =>
       stat(
         `/blog/${p.slug}`,
-        0.75,
-        "weekly",
         freshenBlog(new Date(p.updated ?? p.date))
       )
     ),

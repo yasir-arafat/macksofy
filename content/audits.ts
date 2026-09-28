@@ -751,6 +751,7 @@ export const AUDITS: Audit[] = [
   },
 
   {
+    updated: "2026-09-28",
     slug: "rbi-csf",
     title: "RBI Cyber Security Framework Audit",
     shortTitle: "RBI CSF",
@@ -918,10 +919,9 @@ export const AUDITS: Audit[] = [
         a: "Fully integrated into our methodology — board IT Strategy Committee, CISO independence, IT steering committee evidence and audit committee reporting.",
       },
     ],
-    seoTitle:
-      "RBI Cyber Security Framework Audit | Banks, NBFCs, PA-PGs | Macksofy",
+    seoTitle: "RBI Cyber Security Framework Audit & Compliance",
     seoDescription:
-      "CERT-In empanelled RBI CSF audit for banks, UCBs, NBFCs, payment aggregators. System Audit Report drafting + RBI inspector support. India.",
+      "RBI Cyber Security Framework audit and compliance for banks, UCBs, NBFCs and payment operators, covering controls, SAR evidence and inspection readiness.",
     keywords: [
       "RBI CSF audit India",
       "RBI System Audit Report",

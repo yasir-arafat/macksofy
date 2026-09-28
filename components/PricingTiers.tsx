@@ -114,7 +114,7 @@ export function PricingTiers({
               </ul>
 
               <Link
-                href={`/contact?interest=${encodeURIComponent(contactInterest)}#enquiry`}
+                href={`/contact#enquiry?interest=${encodeURIComponent(contactInterest)}`}
                 className={`mt-6 inline-flex items-center justify-between w-full gap-2 rounded-full px-4 py-2.5 text-sm font-bold transition-all ${
                   t.popular
                     ? "bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple text-white shadow-[0_0_24px_-8px_rgba(0,229,255,0.55)] hover:shadow-[0_0_36px_-6px_rgba(168,85,247,0.55)]"

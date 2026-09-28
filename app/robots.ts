@@ -19,12 +19,15 @@ import { SITE } from "@/lib/site";
  * publicly identifies a UA gets an explicit Allow block. Crawlers
  * not in this list still get the open `*` rule.
  *
- * The Disallow on /api/ and /_next/ is repeated per-crawler because
+ * The private-route rules are repeated per-crawler because
  * a crawler with a specific User-agent block ignores the catch-all
  * `*` rules — must be repeated in each block to apply.
  */
 
-const COMMON_RULES = { allow: "/", disallow: ["/api/", "/_next/"] };
+const COMMON_RULES = {
+  allow: ["/", "/_next/static/", "/_next/image"],
+  disallow: ["/api/", "/_next/"],
+};
 
 // Bots welcomed by name. Grouped by operator for readability.
 const AI_CRAWLERS = [

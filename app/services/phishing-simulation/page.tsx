@@ -161,7 +161,7 @@ export default function PhishingSimulationPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <LinkButton
-                href={`/contact?interest=${encodeURIComponent(service.title)}`}
+                href={`/contact#enquiry?interest=${encodeURIComponent(service.title)}`}
                 size="lg"
                 withArrow
               >

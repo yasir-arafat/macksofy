@@ -91,7 +91,7 @@ export default function ThreatIntelPage() {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href="/contact?interest=Threat%20Intelligence" size="lg" withArrow>
+                <LinkButton href="/contact#enquiry?interest=Threat%20Intelligence" size="lg" withArrow>
                   Discuss intel program
                 </LinkButton>
                 <LinkButton href="#actors" variant="outline" size="lg">

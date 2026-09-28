@@ -215,7 +215,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href={`/contact?interest=${encodeURIComponent(service.title)}`} size="lg" withArrow>
+                <LinkButton href={`/contact#enquiry?interest=${encodeURIComponent(service.title)}`} size="lg" withArrow>
                   Request a quote
                 </LinkButton>
                 <LinkButton href="#methodology" variant="outline" size="lg">
@@ -424,7 +424,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
                   <LinkButton
-                    href={`/contact?interest=${encodeURIComponent(service.title)}`}
+                    href={`/contact#enquiry?interest=${encodeURIComponent(service.title)}`}
                     size="lg"
                     withArrow
                   >

@@ -95,7 +95,7 @@ export default function VaptServicePage() {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href="/contact?interest=VAPT" size="lg" withArrow>
+                <LinkButton href="/contact#enquiry?interest=VAPT" size="lg" withArrow>
                   Request a quote
                 </LinkButton>
                 <LinkButton href="#methodology" variant="outline" size="lg">

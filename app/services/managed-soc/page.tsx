@@ -90,7 +90,7 @@ export default function ManagedSocPage() {
                 {service.hero.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <LinkButton href="/contact?interest=Managed%20SOC" size="lg" withArrow>
+                <LinkButton href="/contact#enquiry?interest=Managed%20SOC" size="lg" withArrow>
                   Discuss your SOC
                 </LinkButton>
                 <LinkButton href="#funnel" variant="outline" size="lg">

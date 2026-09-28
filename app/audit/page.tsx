@@ -183,7 +183,7 @@ export default function AuditPage() {
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
-                  href="/contact?interest=Cybersecurity%20Audit"
+                  href="/contact#enquiry?interest=Cybersecurity%20Audit"
                   className="inline-flex items-center gap-2 rounded-full border border-line bg-bg-2/40 px-5 h-11 text-sm font-bold text-fg-muted hover:text-fg hover:border-neon-cyan/40 transition-colors"
                 >
                   <Search className="size-4" /> Find my framework

@@ -104,6 +104,7 @@ export const COURSES: Course[] = [
   // EC-COUNCIL
   // ============================================================
   {
+    updated: "2026-09-28",
     slug: "ceh",
     code: "CEH v13",
     title: "Certified Ethical Hacker (CEH v13) — AI-Powered",
@@ -202,9 +203,9 @@ export const COURSES: Course[] = [
     // must not regress. What follows it is the phrase buyers actually type —
     // "ethical hacking course in Mumbai" drew 573 impressions in the same
     // window, all of them answered by the homepage, for a total of 1 click.
-    seoTitle: "CEH v13 Ethical Hacking Course in Mumbai — EC-Council ATC",
+    seoTitle: "Ethical Hacking Course Mumbai: CEH v13 | ₹50,000",
     seoTitleAbsolute: true,
-    seoDescription: "Ethical hacking course in Mumbai from an EC-Council ATC: authorized CEH v13 training with AI-powered labs, exam voucher and placement support. ₹50,000.",
+    seoDescription: "CEH v13 ethical hacking course in Mumbai with live labs, official courseware, exam voucher and placement support. ₹50,000; online and classroom batches.",
     keywords: ["CEH training Mumbai", "CEH v13 India", "ethical hacking course Mumbai", "EC-Council ATC India", "CEH certification India", "best ethical hacking institute India"],
   },
 

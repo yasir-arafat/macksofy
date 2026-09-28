@@ -220,7 +220,7 @@ export const POSTS: BlogPost[] = [
         type: "cta",
         title: "Preparing for the Telecom Cyber Security Rules?",
         text: "Macksofy is a CERT-In empanelled auditor. We run the VAPT, the SOC and the incident response the rules require, and help you stand up the reporting line and the evidence trail. Tell us where your network is today.",
-        href: "/contact?interest=Telecom+Cyber+Security+Rules",
+        href: "/contact#enquiry?interest=Telecom+Cyber+Security+Rules",
         cta: "Talk to our audit team",
       },
     ],
@@ -374,7 +374,7 @@ export const POSTS: BlogPost[] = [
         type: "cta",
         title: "Training toward CRTP or CRTO?",
         text: "Macksofy runs red-team training and mentors engineers through the Active Directory and C2 tradecraft both exams test. Tell us where you are and we will map the fastest honest path.",
-        href: "/contact?interest=Red+Team+Training",
+        href: "/contact#enquiry?interest=Red+Team+Training",
         cta: "Talk to our red team",
       },
     ],
@@ -1162,9 +1162,9 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "penetration-testing-vapt-guide-india-2026",
-    seoTitle: "Penetration Testing & VAPT: Complete Guide (India 2026)",
-    seoDescription: "A definitive 2026 guide to penetration testing and VAPT in India — the difference, the PTES/OWASP methodology, timelines, cost drivers and CERT-In triggers.",
-    updated: "2026-07-25",
+    seoTitle: "VAPT & Penetration Testing Guide India 2026",
+    seoDescription: "A practical India guide to VAPT and penetration testing: process, types, timelines, cost drivers, deliverables, CVSS scoring and CERT-In requirements.",
+    updated: "2026-09-28",
     title: "Penetration Testing & VAPT: The Complete Guide (India, 2026)",
     description:
       "A definitive guide to penetration testing and VAPT for Indian organisations in 2026 — the difference between vulnerability assessment and penetration testing, the types, the PTES/OWASP methodology, CVSS scoring, timelines, cost drivers, deliverables, regulatory triggers (CERT-In, RBI, SEBI, PCI-DSS, DPDP) and how to choose a CERT-In empanelled provider.",
@@ -1369,9 +1369,9 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cert-in-empanelled-audit-guide-2026",
-    seoTitle: "CERT-In Empanelled Audit: The Complete Guide (2026)",
-    seoDescription: "What CERT-In empanelment means in 2026, who needs an empanelled audit, what it covers, the 2022 Directions, report format — and how to verify a provider.",
-    updated: "2026-07-25",
+    seoTitle: "CERT-In Empanelled Audit: Scope & Process (2026)",
+    seoDescription: "Learn what a CERT-In empanelled audit covers, who needs one, the audit process, timelines, report format, 2022 Directions and how to verify an auditor.",
+    updated: "2026-09-28",
     title: "CERT-In Empanelled Audit: The Complete Guide (2026)",
     description:
       "Everything Indian organisations need to know about CERT-In empanelled audits in 2026 — what CERT-In empanelment means, who needs an empanelled audit, what it covers, the CERT-In Directions of 2022 (6-hour reporting, 180-day logs), the report format, timelines, cost drivers, how CERT-In compares to ISO 27001 and SOC 2, and how to verify a provider's empanelment.",
@@ -1908,9 +1908,9 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "red-team-certifications-india-2026",
-    seoTitle: "Red Team Certification Cost India 2026 — CRTP, CRTO, OSEP",
-    seoDescription: "CRTP, CRTE, CRTO, CPTS and OSEP prices for Indian buyers in 2026 — vendor list in USD/GBP with INR conversions, hidden retake fees, and which to buy first.",
-    updated: "2026-08-30",
+    seoTitle: "Best Red Team Certifications India 2026: Costs",
+    seoDescription: "Compare CRTP, CRTE, CRTO, CPTS and OSEP costs in India for 2026, including INR prices, retake fees, difficulty and which red team certification to choose.",
+    updated: "2026-09-28",
     title: "Red Team Certifications India 2026 — OSEP vs CRTO vs CRTP Comparison",
     description:
       "Honest comparison of red team certifications for Indian operators in 2026. OSEP, CRTO, CRTP, CRTE, OSCE3 — pricing in INR, exam difficulty, what each one actually teaches.",
@@ -2473,9 +2473,9 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "oscp-training-in-mumbai-2026",
-    seoTitle: "OSCP Cost in India 2026 — Full Price Breakdown in INR",
-    seoDescription: "What OSCP actually costs in India in 2026 — OffSec's $1,749 bundle and $2,749 Learn One in rupees, the exam-only trap, retake fees and total to certify.",
-    updated: "2026-09-05",
+    seoTitle: "OSCP Certification Cost in India 2026: INR Fees",
+    seoDescription: "OSCP certification cost in India for 2026: compare course and exam fees in INR, retakes, forex charges and the realistic total cost to get certified.",
+    updated: "2026-09-28",
     title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
     description:
       "What OSCP costs in India in 2026, in rupees and in dollars — every OffSec plan priced, the exam-only trap, what a retake adds, and the total to certify. Plus course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",

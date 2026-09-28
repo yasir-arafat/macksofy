@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   Bug,
   ShieldCheck,
@@ -29,17 +30,31 @@ const tones = {
 } as const;
 
 export function EngagementChips({ active }: { active?: string }) {
+  const [selected, setSelected] = useState(active);
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      const [anchor, query = ""] = window.location.hash.slice(1).split("?");
+      if (anchor !== "enquiry") return;
+      setSelected(new URLSearchParams(query).get("interest") ?? undefined);
+    };
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
   return (
     <div className="flex flex-wrap gap-2">
       {CHIPS.map((c, i) => {
         const Icon = c.icon;
-        const isActive = active === c.label;
+        const isActive = selected === c.label;
         return (
           <Reveal as="div" y={6} delay={i * 0.04} duration={0.3}
             key={c.label}
           >
             <Link
-              href={`/contact?interest=${encodeURIComponent(c.label)}#enquiry`}
+              href={`/contact#enquiry?interest=${encodeURIComponent(c.label)}`}
               scroll={false}
               className={cn(
                 "inline-flex items-center gap-2 rounded-full border bg-bg-2/40 px-3.5 py-2 text-xs font-semibold text-fg-muted transition-all",

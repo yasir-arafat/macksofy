@@ -201,7 +201,7 @@ export default async function CourseDetail({ params }: PageProps) {
 
                 <div className="mt-6 grid gap-2.5">
                   <LinkButton
-                    href={`/contact?interest=${encodeURIComponent(c.shortTitle + " Training")}`}
+                    href={`/contact#enquiry?interest=${encodeURIComponent(c.shortTitle + " Training")}`}
                     withArrow
                     className="w-full"
                   >
