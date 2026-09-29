@@ -267,6 +267,18 @@ export default async function BlogPostPage({ params }: PageProps) {
                     year: "numeric",
                   })}
                 </span>
+                {p.showUpdatedDate && p.updated && p.updated !== p.date && (
+                  <span className="inline-flex items-center gap-2">
+                    <Calendar className="size-4 text-neon-green" />
+                    Updated{" "}
+                    {new Date(p.updated).toLocaleDateString("en-IN", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </span>
+                )}
                 <span className="inline-flex items-center gap-2">
                   <Clock className="size-4 text-neon-cyan" /> {p.readingTime}
                 </span>

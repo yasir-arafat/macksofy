@@ -53,6 +53,7 @@ export const REFS: Record<string, Reference> = {
   "cis-controls": { label: "CIS Critical Security Controls", url: "https://www.cisecurity.org/controls", issuer: "CIS" },
   // India regulators
   "cert-in": { label: "CERT-In", url: "https://www.cert-in.org.in/", issuer: "CERT-In · MeitY" },
+  "cert-in-directions": { label: "CERT-In Directions under section 70B", url: "https://www.cert-in.org.in/Directions70B.jsp", issuer: "CERT-In · MeitY" },
   "dot": { label: "Department of Telecommunications (DoT)", url: "https://dot.gov.in/", issuer: "DoT, Govt. of India" },
   "rbi": { label: "RBI Master Directions", url: "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx", issuer: "Reserve Bank of India" },
   "sebi": { label: "SEBI", url: "https://www.sebi.gov.in/", issuer: "SEBI" },
@@ -86,6 +87,11 @@ export const REFS: Record<string, Reference> = {
   "ec-council": { label: "EC-Council (CEH · CHFI · CPENT)", url: "https://www.eccouncil.org/", issuer: "EC-Council" },
   "offsec": { label: "OffSec (OSCP · OSEP · OSWE)", url: "https://www.offsec.com/", issuer: "OffSec" },
   "comptia": { label: "CompTIA Certifications", url: "https://www.comptia.org/en-us/certifications/", issuer: "CompTIA" },
+  "offsec-soc-200": { label: "SOC-200: Security Operations and Defensive Analysis", url: "https://www.offsec.com/courses/soc-200/", issuer: "OffSec" },
+  "portswigger-web-security": { label: "Web Security Academy", url: "https://portswigger.net/web-security", issuer: "PortSwigger" },
+  "ec-council-ecih": { label: "EC-Council Certified Incident Handler", url: "https://www.eccouncil.org/train-certify/ec-council-certified-incident-handler-ecih/", issuer: "EC-Council" },
+  "giac-gcih": { label: "GIAC Certified Incident Handler", url: "https://www.giac.org/certifications/certified-incident-handler-gcih/", issuer: "GIAC" },
+  "microsoft-ad-security": { label: "Best practices for securing Active Directory", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory", issuer: "Microsoft Learn" },
 };
 
 /** Which references apply to each money page. Keys: `"<kind>:<slug>"`. */
@@ -192,6 +198,13 @@ export const PAGE_REFS: Record<string, string[]> = {
   "blog:offsec-learn-one-india-pricing-roi-2026": ["offsec"],
   "blog:red-team-certifications-india-2026": ["offsec", "mitre-attack"],
   "blog:top-10-penetration-testing-tools-2026": ["owasp-wstg", "nist-800-115", "mitre-attack"],
+  "blog:osda-exam-tips-2026": ["offsec-soc-200", "mitre-attack", "nist-csf"],
+  "blog:burp-suite-for-beginners-2026": ["portswigger-web-security", "owasp-wstg", "owasp-top-10"],
+  "blog:ecih-vs-gcih-incident-handler-certification-2026": ["ec-council-ecih", "giac-gcih", "nist-800-61"],
+  "blog:dfir-services-how-to-choose-india-2026": ["nist-800-61", "cert-in-directions", "mitre-attack"],
+  "blog:windows-ad-attack-cheatsheet-2026": ["microsoft-ad-security", "mitre-attack", "nist-800-115"],
+  "blog:dpdp-vs-gdpr-2026": ["meity-dpdp", "gdpr", "iso-27701"],
+  "blog:dpdp-cross-border-transfer-2026": ["meity-dpdp", "rbi", "gdpr"],
 };
 
 /** Authoritative references for a money page. Returns [] when unmapped. */

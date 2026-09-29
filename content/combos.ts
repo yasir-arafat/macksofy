@@ -1243,6 +1243,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "gurugram",
     serviceSlug: "red-teaming",
+    updated: "2026-09-29",
     headline: "Red Team Operations in Gurugram · BFSI",
     lead: "Adversary-simulation engagements built around Gurugram private-bank HQs, NBFC lenders and high-growth fintechs across Cyber City and Golf Course Road.",
     body: [
@@ -1951,6 +1952,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "chennai",
     serviceSlug: "penetration-testing",
+    updated: "2026-09-29",
     headline:
       "Penetration Testing in Chennai · BFSI & SaaS",
     lead:
@@ -3064,6 +3066,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "uae",
     serviceSlug: "cloud-security",
+    updated: "2026-09-29",
     headline:
       "Cloud Security Audit in the UAE · Federal",
     lead:
@@ -3765,6 +3768,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "delhi",
     serviceSlug: "vapt",
+    updated: "2026-09-29",
     headline: "VAPT Services in Delhi · Government, PSU & Ministry",
     lead: "CERT-In empanelled VAPT for central government, PSUs, ministries and Delhi-NCR fintech — GeM-listed, submission-format reporting.",
     body: [
@@ -4107,6 +4111,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "hyderabad",
     serviceSlug: "managed-soc",
+    updated: "2026-09-29",
     headline: "Managed SOC in Hyderabad · Pharma, GCC & HITEC City",
     lead: "24×7 SIEM-led managed SOC for Hyderabad pharma, US-healthcare GCCs and HITEC City SaaS — GxP, HIPAA and DPDP-aware detection content.",
     body: [
@@ -4620,6 +4625,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "noida",
     serviceSlug: "web-application-security",
+    updated: "2026-09-29",
     headline: "Web Application Security in Noida · Fintech & Payments",
     lead: "Manual-first AppSec for Noida fintechs, payment aggregators, Sector 18 SaaS and IT-services majors — OWASP ASVS L3, RBI and DPDP-aligned.",
     body: [
@@ -6332,6 +6338,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "pune",
     serviceSlug: "web-application-security",
+    updated: "2026-09-29",
     headline: "Web Application Security in Pune · IT Services & Edtech",
     lead: "OWASP ASVS L3 AppSec for Pune IT-services delivery, Magarpatta edtech, Kharadi SaaS and connected-vehicle customer apps — parent-standard + DPDP overlay.",
     body: [
@@ -6675,6 +6682,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "noida",
     serviceSlug: "penetration-testing",
+    updated: "2026-09-29",
     headline: "Penetration Testing in Noida · Fintech & Payment Aggregators",
     lead: "OSCP / OSEP-led pentests for Noida fintechs, RBI PA-PG licensees, Sector 18 SaaS and foreign-bank GCCs — RBI-aligned, Yotta NM1 tenant-ready.",
     body: [
@@ -6846,6 +6854,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "noida",
     serviceSlug: "managed-soc",
+    updated: "2026-09-29",
     headline: "Managed SOC in Noida · Fintech, Payment Aggregators & GCC",
     lead: "24×7 SOC for Noida fintechs, RBI PA-PG licensees, Sector 132 foreign-bank GCCs and Yotta NM1 tenants — RBI-aligned, parent-customer cadence.",
     body: [
@@ -7017,6 +7026,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "noida",
     serviceSlug: "cloud-security",
+    updated: "2026-09-29",
     headline: "Cloud Security in Noida · Fintech, GCC & Yotta NM1",
     lead: "AWS / Azure / GCP cloud security for Noida fintechs, RBI PA-PG licensees, foreign-bank GCC parent-cloud and Yotta NM1 tenants — RBI + DPDP §16 evidence.",
     body: [
@@ -7531,6 +7541,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "chennai",
     serviceSlug: "cloud-security",
+    updated: "2026-09-29",
     headline: "Cloud Security in Chennai · OMR SaaS, Auto OEM & PSU Bank",
     lead: "AWS / Azure / GCP cloud security for Chennai OMR SaaS, Sriperumbudur auto OEM connected-car back-ends, PSU bank cloud workloads and TNeGA cloud.",
     body: [
@@ -7702,6 +7713,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "ahmedabad",
     serviceSlug: "penetration-testing",
+    updated: "2026-09-29",
     headline: "Penetration Testing in Ahmedabad · GIFT IFSC & Pharma",
     lead: "Scenario-led pentests for Ahmedabad GIFT IFSC banking units, Zydus / Torrent / Cadila pharma and Gujarat textiles — IFSCA + USFDA aligned.",
     body: [
@@ -8558,6 +8570,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "dubai",
     serviceSlug: "managed-soc",
+    updated: "2026-09-29",
     headline: "Managed SOC in Dubai · DESC ISR, DIFC & DFSA-aligned",
     lead: "24×7 SOC for Dubai BFSI, DIFC fintech, hospitality majors and Smart Dubai operators — DESC ISR v2 + DFSA + DIFC DP Law detection content.",
     body: [
@@ -9732,6 +9745,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "mumbai",
     serviceSlug: "vciso",
+    updated: "2026-09-29",
     headline: "Virtual CISO (vCISO) in Mumbai · BFSI & Fintech",
     lead: "Fractional security leadership for Mumbai NBFCs, fintechs and brokers — RBI/SEBI/IRDAI-aligned programs, board reporting and CISO-office augmentation from our BKC HQ.",
     body: [
@@ -10757,6 +10771,7 @@ export const COMBOS: CityServiceCombo[] = [
   {
     citySlug: "abu-dhabi",
     serviceSlug: "digital-forensics-incident-response",
+    updated: "2026-09-29",
     headline: "Incident Response & DFIR in Abu Dhabi · Energy & Gov",
     lead: "NESA / aeCERT-aligned incident response and digital forensics for Abu Dhabi energy, government, ADGM and healthcare — OT-aware containment, multi-regulator breach reporting, retainer-backed, delivered Mumbai BKC → AUH.",
     body: [

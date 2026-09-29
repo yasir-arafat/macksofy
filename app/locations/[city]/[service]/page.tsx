@@ -38,6 +38,7 @@ import { SITE } from "@/lib/site";
 import { ComboStats } from "@/components/visuals/combo/ComboStats";
 import { ComboTimeline } from "@/components/visuals/combo/ComboTimeline";
 import { AnswerBox } from "@/components/sections/AnswerBox";
+import { References } from "@/components/sections/References";
 import { comboShortAnswer } from "@/content/shortAnswers";
 
 interface PageProps {
@@ -125,6 +126,14 @@ export default async function CityServiceComboPage({ params }: PageProps) {
   const wantsDeliverables = (combo.deliverables?.length ?? 0) > 0;
   const wantsCaseStudy = !!combo.caseStudy;
   const wantsFaqs = (combo.faqs?.length ?? 0) > 0;
+  const updatedLabel = combo.updated
+    ? new Date(`${combo.updated}T00:00:00Z`).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      })
+    : null;
 
   return (
     <>
@@ -194,6 +203,11 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <p className="mt-5 max-w-2xl text-lg text-fg-muted text-pretty leading-relaxed">
                 {combo.lead}
               </p>
+              {updatedLabel && (
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-fg-faint">
+                  Scope guidance reviewed {updatedLabel}
+                </p>
+              )}
               <div className="mt-7 flex flex-wrap gap-3">
                 <LinkButton
                   href={`/contact#enquiry?interest=${encodeURIComponent(`${s.shortTitle} ${c.name}`)}`}
@@ -292,6 +306,64 @@ export default async function CityServiceComboPage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      {/* ─── BUYER BRIEF — rendered after a meaningful page review ─── */}
+      {combo.updated && (
+        <section className="py-20 border-t border-line">
+          <Container>
+            <div className="grid gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <Eyebrow color="amber">Proposal checklist</Eyebrow>
+                <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
+                  What should a {c.name} {s.shortTitle.toLowerCase()} proposal include?
+                </h2>
+                <p className="mt-5 text-fg-muted text-pretty leading-relaxed">
+                  A comparable proposal should define the scope boundary, testing
+                  assumptions, evidence format, remediation ownership and retest
+                  terms in writing. For a {c.name} engagement, require the
+                  provider to address the relevant sector and regulatory context
+                  instead of reusing a generic national scope.
+                </p>
+              </div>
+              <div className="lg:col-span-7 grid gap-4 sm:grid-cols-3">
+                {[
+                  {
+                    title: "Scope boundary",
+                    text: `Name the assets, environments, exclusions and access level for the ${s.shortTitle.toLowerCase()} work.`,
+                  },
+                  {
+                    title: "Evidence standard",
+                    text: `State how findings will be validated, prioritised and mapped to the requirements relevant in ${c.name}.`,
+                  },
+                  {
+                    title: "Closure terms",
+                    text: "Define remediation support, retest timing, final evidence and the executive or regulator-facing output.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-2xl glass p-5">
+                    <h3 className="font-display text-base font-bold text-fg">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-fg-muted leading-relaxed">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="mt-8 text-sm text-fg-muted">
+              Compare the detailed{" "}
+              <Link
+                href={`/services/${s.slug}`}
+                className="font-semibold text-neon-cyan hover:underline"
+              >
+                {s.shortTitle} methodology and deliverables
+              </Link>{" "}
+              before approving the scope.
+            </p>
+          </Container>
+        </section>
+      )}
 
       {/* ─── METHODOLOGY HORIZONTAL TIMELINE ─── */}
       {wantsTimeline && (
@@ -516,6 +588,13 @@ export default async function CityServiceComboPage({ params }: PageProps) {
             </div>
           </Container>
         </section>
+      )}
+
+      {combo.updated && (
+        <References
+          pageKey={`service:${s.slug}`}
+          heading="Standards referenced in this scope"
+        />
       )}
 
       <LeadCapture />
