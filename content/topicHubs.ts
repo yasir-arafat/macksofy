@@ -15,6 +15,7 @@ export interface TopicHub {
     description: string;
   };
   postSlugs: string[];
+  caseStudySlugs?: string[];
   updated: string;
 }
 
@@ -63,6 +64,11 @@ export const TOPIC_HUBS: TopicHub[] = [
       "nmap-cheatsheet-2026",
       "burp-suite-for-beginners-2026",
     ],
+    caseStudySlugs: [
+      "listed-fintech-bola-jwt-pentest",
+      "bfsi-mnc-bkc-internal-ad-pentest",
+      "gcc-telecom-mobile-app-takeover",
+    ],
     updated: "2026-09-29",
   },
   {
@@ -107,6 +113,10 @@ export const TOPIC_HUBS: TopicHub[] = [
       "cloud-misconfigurations-rbi-sebi-audit-2026",
       "multi-cloud-security-bfsi-india-2026",
       "telecom-cyber-security-rules-2024-india-compliance",
+    ],
+    caseStudySlugs: [
+      "pharma-ransomware-dfir-india-2026",
+      "maharashtra-manufacturer-lockbit-dfir",
     ],
     updated: "2026-09-29",
   },
@@ -154,6 +164,7 @@ export const TOPIC_HUBS: TopicHub[] = [
       "crto-vs-oscp-honest-comparison-2026",
       "osep-vs-oscp",
     ],
+    caseStudySlugs: ["listed-bank-red-team-edr-bypass"],
     updated: "2026-09-29",
   },
   {
@@ -241,6 +252,10 @@ export const TOPIC_HUBS: TopicHub[] = [
       "rbi-it-governance-readiness-checklist-2026",
       "sebi-cscrf-compliance-readiness-2026",
       "telecom-cyber-security-rules-2024-india-compliance",
+    ],
+    caseStudySlugs: [
+      "listed-fintech-bola-jwt-pentest",
+      "bfsi-mnc-bkc-internal-ad-pentest",
     ],
     updated: "2026-09-29",
   },

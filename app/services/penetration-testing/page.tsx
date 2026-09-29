@@ -26,6 +26,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 
 const SLUG = "penetration-testing";
 
@@ -283,6 +284,7 @@ export default function PentestPage() {
         tone="plain"
       />
 
+      <CaseStudyProof serviceSlug={SLUG} />
       <TrustStrip />
 
       <section className="py-20">

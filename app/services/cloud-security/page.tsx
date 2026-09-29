@@ -43,6 +43,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "cloud-security";
@@ -616,6 +617,7 @@ export default function CloudSecurityPage() {
         tone="raised"
       />
 
+      <CaseStudyProof serviceSlug={SLUG} />
       <TrustStrip />
 
       <section className="py-20">

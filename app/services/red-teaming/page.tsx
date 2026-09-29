@@ -35,6 +35,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "red-teaming";
@@ -475,6 +476,7 @@ export default function RedTeamPage() {
         tone="plain"
       />
 
+      <CaseStudyProof serviceSlug={SLUG} />
       <TrustStrip />
 
       <section className="py-20">

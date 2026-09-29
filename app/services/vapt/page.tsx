@@ -29,6 +29,7 @@ import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 
 const SLUG = "vapt";
 
@@ -326,6 +327,7 @@ export default function VaptServicePage() {
 
       <DeliverablesIndustries service={service} tone="raised" />
 
+      <CaseStudyProof serviceSlug={SLUG} />
       <TrustStrip />
 
       {/* FAQ */}

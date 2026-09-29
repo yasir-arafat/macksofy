@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: PageProps) {
     path: `/case-studies/${cs.slug}`,
     keywords: cs.keywords,
     type: "article",
-    publishedTime: `${cs.year}-01-01`,
-    modifiedTime: `${cs.year}-12-31`,
+    publishedTime: cs.published,
+    modifiedTime: cs.updated ?? cs.published,
   });
 }
 

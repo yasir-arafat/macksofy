@@ -15,6 +15,7 @@ import { buildMetadata, dynamicOgImagePath } from "@/lib/seo";
 import { POSTS, type BlogPost } from "@/content/blog";
 import { TOPIC_HUBS, getTopicHubBySlug } from "@/content/topicHubs";
 import { SITE } from "@/lib/site";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -251,6 +252,18 @@ export default async function TopicHubPage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      <CaseStudyProof
+        caseStudySlugs={hub.caseStudySlugs}
+        eyebrow={hub.slug === "managed-soc" ? "Related response evidence" : "Related engagement proof"}
+        heading={hub.slug === "managed-soc" ? "See how incident response performed under pressure." : "Read the engagement records behind the guidance."}
+        description={
+          hub.slug === "managed-soc"
+            ? "These long-form records cover the downstream incident-response work a SOC must enable. They are presented as related operational evidence, not as managed-SOC case studies."
+            : "Each anonymised record shows the original scope, execution phases, material findings, reported outcomes and metrics without disclosing the client identity."
+        }
+        tone="default"
+      />
 
       <section className="py-16">
         <Container>

@@ -23,6 +23,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "digital-forensics-incident-response";
@@ -260,6 +261,7 @@ export default function DfirPage() {
         tone="raised"
       />
 
+      <CaseStudyProof serviceSlug={SLUG} />
       <TrustStrip />
 
       <section className="py-20 bg-bg-1">
