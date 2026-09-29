@@ -2,10 +2,10 @@ export const SITE = {
   name: "Macksofy Technologies",
   shortName: "Macksofy",
   legalName: "Macksofy Technologies Pvt Ltd",
-  positioning: "Cybersecurity Consulting · CERT-In Empanelled Audits · Advanced Training",
-  tagline: "Securing Businesses. Training Cyber Warriors.",
+  positioning: "Cybersecurity Services · CERT-In Empanelled Audits · Managed SOC",
+  tagline: "Security assurance for real business risk.",
   description:
-    "CERT-In empanelled cybersecurity firm serving India and the UAE — penetration testing, VAPT, SOC engineering, red teaming and DFIR, plus hands-on training.",
+    "CERT-In empanelled cybersecurity firm serving India and the UAE with penetration testing, VAPT, managed SOC, red teaming, API security, AI security and DFIR.",
   url: "https://www.macksofy.com",
   ogImage: "/og-default.png",
   founded: "2014",

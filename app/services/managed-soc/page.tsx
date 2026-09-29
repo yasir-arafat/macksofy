@@ -83,7 +83,7 @@ export default function ManagedSocPage() {
                   <Activity className="size-7" />
                 </div>
                 <h1 className="font-display text-4xl font-black sm:text-5xl lg:text-[3.4rem] text-balance leading-[1.05]">
-                  A SOC that detects what <span className="gradient-text">matters</span>.
+                  Managed SOC services that detect what <span className="gradient-text">matters</span>.
                 </h1>
               </div>
               <p className="mt-6 max-w-2xl text-lg text-fg-muted text-pretty leading-relaxed">

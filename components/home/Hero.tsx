@@ -49,15 +49,15 @@ import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const TYPEWRITER_PHRASES = [
-  "hands-on hacking labs",
-  "OSCP-certified pen-testers",
+  "manual penetration tests",
   "CERT-In empanelled audits",
-  "24×7 SOC operations",
-  "real-world red teams",
+  "managed SOC operations",
+  "goal-based red teams",
+  "API and AI security assessments",
 ];
 
-const HEADLINE_LINE_1 = ["Securing", "businesses."];
-const HEADLINE_LINE_2 = ["Training", "cyber", "warriors."];
+const HEADLINE_LINE_1 = ["Cybersecurity", "services"];
+const HEADLINE_LINE_2 = ["built", "for", "real", "risk."];
 
 // SSR-visible reveal: start fully visible so crawlers and no-JS users
 // see the content; client hydration plays a brief blur-up via
@@ -138,13 +138,12 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.7 }}
               className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted text-pretty"
             >
-              CERT-In empanelled cybersecurity consulting firm with an advanced training
-              division. We deliver{" "}
+              CERT-In empanelled cybersecurity company delivering{" "}
               <span className="text-neon-cyan font-semibold">
                 <Typewriter phrases={TYPEWRITER_PHRASES} />
               </span>
               <br />
-              for India&rsquo;s top BFSI, fintech and government clients.
+              for regulated and high-growth organisations across India and the UAE.
             </motion.div>
 
             <motion.div
@@ -157,8 +156,8 @@ export function Hero() {
               <LinkButton href="/contact" size="lg" withArrow>
                 Book Consultation
               </LinkButton>
-              <LinkButton href="/training" variant="outline" size="lg">
-                Enroll Now
+              <LinkButton href="/services" variant="outline" size="lg">
+                Explore Services
               </LinkButton>
               <a
                 href={`tel:${SITE.phone}`}
@@ -251,10 +250,11 @@ function RevealWord({
 
 const TICKER_ITEMS = [
   "CERT-In Empanelled",
-  "EC-Council ATC",
   "ISO 27001 Certified",
-  "Thousands of professionals trained",
-  "200+ engagements / yr",
+  "VAPT + Penetration Testing",
+  "Managed SOC",
+  "Red Team Operations",
+  "API + AI Security",
   "Mumbai · Dubai · Hyderabad · Muscat · Toronto",
 ];
 

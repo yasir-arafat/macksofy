@@ -376,8 +376,8 @@ export const SERVICES: Service[] = [
   // 3 -----------------------------------------------------------------
   {
     slug: "managed-soc",
-    title: "SOC Setup & SIEM Engineering (Wazuh + ELK)",
-    shortTitle: "SOC + SIEM",
+    title: "Managed SOC & SIEM Services",
+    shortTitle: "Managed SOC",
     icon: Activity,
     iconName: "Activity",
     category: "Managed Services",
@@ -496,9 +496,9 @@ export const SERVICES: Service[] = [
         a: "Yes — Macksofy MDR offers 24×7 managed SOC services from our Mumbai operations center, with India data residency.",
       },
     ],
-    seoTitle: "SOC Setup & SIEM Engineering Services India | Wazuh + ELK | Macksofy",
+    seoTitle: "Managed SOC Services India | 24×7 SOC & SIEM",
     seoDescription:
-      "Build, tune and operationalize a Security Operations Center with Wazuh, ELK, Splunk or Sentinel. CERT-In empanelled, India + UAE engagements.",
+      "Managed SOC services and SIEM engineering with 24×7 monitoring, tuned detections and incident workflows across Wazuh, ELK, Splunk and Sentinel.",
     keywords: [
       "SOC setup India",
       "SIEM implementation Mumbai",

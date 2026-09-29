@@ -8,6 +8,15 @@ import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/FadeIn
 import { ServiceCardShell } from "@/components/home/ServiceCardShell";
 import { NavIcon } from "@/components/layout/NavIcon";
 
+const HOME_FEATURED_SLUGS = [
+  "vapt",
+  "penetration-testing",
+  "managed-soc",
+  "red-teaming",
+  "ai-pentesting",
+  "api-security",
+] as const;
+
 /**
  * INP: this was a Client Component, so `import { SERVICES }` pulled all 165 KB
  * of content/services.ts — the complete page body of all 24 services — into
@@ -16,7 +25,9 @@ import { NavIcon } from "@/components/layout/NavIcon";
  * shells (<ServiceCardShell>, <FadeIn>, <StaggerItem>) cross into the client.
  */
 export function ServicesOverview() {
-  const featured = SERVICES.slice(0, 6);
+  const featured = HOME_FEATURED_SLUGS.map((slug) =>
+    SERVICES.find((service) => service.slug === slug),
+  ).filter((service): service is (typeof SERVICES)[number] => Boolean(service));
   return (
     <section className="relative py-24 sm:py-32">
       <div className="absolute inset-0 spotlight-blend opacity-40" />
@@ -73,7 +84,7 @@ export function ServicesOverview() {
 
         <div className="mt-12 flex justify-center">
           <LinkButton href="/services" variant="secondary" withArrow>
-            Explore all 9 services
+            Explore all {SERVICES.length} services
           </LinkButton>
         </div>
       </Container>

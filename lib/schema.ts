@@ -138,7 +138,7 @@ export function organizationSchema() {
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService", "EducationalOrganization"],
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${BASE}#localbusiness`,
     name: SITE.name,
     image: `${BASE}/logo.png`,
@@ -173,6 +173,33 @@ export function localBusinessSchema() {
     // policy requires AggregateRating to be backed by on-page Review nodes
     // sourced from real users. Re-add only when wired to a verified review
     // provider (Google Reviews / Trustpilot / G2) feed with count > 0.
+  };
+}
+
+/**
+ * Training is a distinct business offering, so its education entity is emitted
+ * only within the /training route segment rather than inherited by service,
+ * audit, article and location pages.
+ */
+export function educationalOrganizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "@id": `${BASE}/training#organization`,
+    name: SITE.name,
+    url: `${BASE}/training`,
+    parentOrganization: { "@id": `${BASE}#organization` },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE.hq.street,
+      addressLocality: SITE.hq.city,
+      addressRegion: SITE.hq.region,
+      postalCode: SITE.hq.postalCode,
+      addressCountry: SITE.hq.country,
+    },
+    telephone: SITE.phone,
+    email: SITE.email,
+    areaServed: AREA_SERVED,
   };
 }
 

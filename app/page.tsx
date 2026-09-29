@@ -1,7 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { ClientLogos } from "@/components/home/ClientLogos";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
-import { TrainingPreview } from "@/components/home/TrainingPreview";
 import { CertInSection } from "@/components/home/CertInSection";
 import { HowWeWork } from "@/components/home/HowWeWork";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -15,12 +14,12 @@ import { Eyebrow } from "@/components/ui/SectionTitle";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/schema";
 import { buildMetadata, HQ_GEO } from "@/lib/seo";
-import { SITE, metroKeywords } from "@/lib/site";
+import { metroKeywords } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: `${SITE.name} — Cybersecurity Company in Mumbai · Pan-India · UAE`,
+  title: "CERT-In Empanelled Cybersecurity Company in India",
   description:
-    "CERT-In empanelled cybersecurity company in Mumbai serving India and the UAE — VAPT, penetration testing, SOC, red teaming, DFIR, plus CEH and OSCP training.",
+    "CERT-In empanelled cybersecurity company for VAPT, penetration testing, managed SOC, red teaming, API and AI security across India and the UAE.",
   path: "/",
   geo: HQ_GEO,
   keywords: [
@@ -30,12 +29,6 @@ export const metadata = buildMetadata({
     "best cybersecurity firm India",
     "CERT-In auditor Mumbai",
     "VAPT services Mumbai",
-    "OSCP training India",
-    // "CEH training Mumbai" removed 2026-09-05: /training/ceh owns the Mumbai
-    // ethical-hacking/CEH intent and the homepage now routes it there
-    // (see components/home/TrainingPreview.tsx). Meta keywords do not rank,
-    // but leaving it here would contradict the handoff for the next editor.
-    "SOC analyst training India",
     "ISO 27001 consultant India",
     "cybersecurity Dubai UAE",
     "cyber security company in India",
@@ -62,8 +55,8 @@ const HOME_FAQS = [
     a: "Penetration testing, VAPT, SOC setup (Wazuh + ELK + Splunk + Sentinel), Web/API security testing, cloud security (AWS/Azure/GCP), red teaming, digital forensics & incident response, malware analysis, and threat intelligence.",
   },
   {
-    q: "Which trainings do you offer?",
-    a: "CEH v13 (EC-Council ATC), OSCP exam-prep bootcamp, SOC Analyst, Web Application Security, and customized Corporate Training programs.",
+    q: "What is the difference between VAPT and penetration testing?",
+    a: "VAPT combines broad vulnerability discovery with targeted exploitation and is often selected for compliance-driven assurance. Penetration testing is a deeper, goal-oriented exercise that validates whether specific weaknesses can be chained into material business impact.",
   },
   {
     q: "How do I request a quote?",
@@ -80,9 +73,8 @@ export default function HomePage() {
       <ServicesOverview />
       <CertInSection />
       <HowWeWork />
-      <TrainingPreview />
       <MetroCoverage
-        description="From our Mumbai BKC headquarters and Hyderabad regional hub, we deliver pentests, audits and training engagements to BFSI, fintech, government and SaaS clients across India and the UAE."
+        description="From our Mumbai BKC headquarters and Hyderabad regional hub, we deliver penetration tests, security audits, managed SOC and red-team engagements across India and the UAE."
       />
       <Testimonials />
       <StatsBand />
@@ -101,7 +93,7 @@ export default function HomePage() {
             <div className="lg:order-last lg:col-span-5">
               <AnswerBox
                 q="What does Macksofy Technologies do?"
-                a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving clients across India and the UAE. It delivers penetration testing and VAPT, managed SOC, red teaming, and digital forensics, alongside regulator-aligned audits (RBI, SEBI, ISO 27001) and EC-Council / OffSec exam-prep training."
+                a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving clients across India and the UAE. It delivers penetration testing and VAPT, managed SOC, red teaming, API and AI security assessments, digital forensics, and regulator-aligned audits."
               />
             </div>
             <div className="lg:col-span-7">
