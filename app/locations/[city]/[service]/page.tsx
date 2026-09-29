@@ -28,7 +28,7 @@ import {
   breadcrumbSchema,
   cityLocalBusinessSchema,
   faqSchema,
-  methodologyHowToSchema,
+  methodologyItemListSchema,
 } from "@/lib/schema";
 import { buildMetadata, TITLE_LIMIT_CORE } from "@/lib/seo";
 import { getCityBySlug, cityGeoMeta } from "@/content/cities";
@@ -162,7 +162,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
           // for AI search across every combo that ships a methodology.
           ...(wantsTimeline
             ? [
-                methodologyHowToSchema({
+                methodologyItemListSchema({
                   subjectLabel: `${s.shortTitle} in ${c.name}`,
                   url: `${pageUrl}#methodology`,
                   phases: combo.methodology!,

@@ -51,7 +51,7 @@ const CHECK_ALL = flag("all");
 
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-  "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+  "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const jitter = (ms) => ms + Math.floor((Math.random() - 0.5) * ms * 0.6);

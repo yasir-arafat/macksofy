@@ -490,37 +490,29 @@ export function auditSchema(audit: Audit) {
 }
 
 /**
- * Emit HowTo schema for a service / audit methodology. Each phase
- * becomes a `HowToStep` whose `itemListElement` carries the activity
- * sub-steps. Eligible for Google's HowTo rich result (where still
- * supported) and consumed by AI search engines as a structured
- * walkthrough.
- *
- * Pass `subjectLabel` so the HowTo `name` reads naturally — e.g.
- * "How Macksofy delivers a Penetration Testing engagement" rather
- * than a bare service title.
+ * Describe a service or audit methodology as an ordered list. The visible
+ * page remains the primary source; this mirrors its delivery phases without
+ * relying on the retired HowTo search feature.
  */
-export function methodologyHowToSchema(args: {
+export function methodologyItemListSchema(args: {
   subjectLabel: string;
   url: string;
   phases: { phase: string; activities: string[] }[];
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: `How Macksofy delivers a ${args.subjectLabel} engagement`,
-    description: `Phased delivery methodology Macksofy follows for ${args.subjectLabel} engagements — every step documented for CERT-In, ISO 27001 and SOC 2 evidence packs.`,
+    "@type": "ItemList",
+    name: `${args.subjectLabel} engagement methodology`,
+    description: `Ordered delivery phases for a ${args.subjectLabel} engagement.`,
     url: args.url,
     inLanguage: "en-IN",
-    step: args.phases.map((p, i) => ({
-      "@type": "HowToStep",
+    numberOfItems: args.phases.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: args.phases.map((p, i) => ({
+      "@type": "ListItem",
       position: i + 1,
       name: p.phase,
-      itemListElement: p.activities.map((a, j) => ({
-        "@type": "HowToDirection",
-        position: j + 1,
-        text: a,
-      })),
+      description: p.activities.join("; "),
     })),
   };
 }

@@ -16,7 +16,7 @@ import {
   breadcrumbSchema,
   faqSchema,
   auditSchema,
-  methodologyHowToSchema,
+  methodologyItemListSchema,
 } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -82,7 +82,7 @@ export default async function AuditDetail({ params }: PageProps) {
             { name: a.shortTitle, url: `/audit/${a.slug}` },
           ]),
           faqSchema(a.faqs),
-          methodologyHowToSchema({
+          methodologyItemListSchema({
             subjectLabel: a.shortTitle,
             url: `${SITE.url}/audit/${a.slug}#methodology`,
             phases: a.methodology,

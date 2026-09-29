@@ -1,0 +1,14 @@
+{
+  "launchDate": "2026-09-29",
+  "pages": [
+    "/services/penetration-testing",
+    "/services/vapt",
+    "/services/managed-soc",
+    "/services/web-application-security",
+    "/services/api-security",
+    "/services/mobile-application-security",
+    "/services/red-teaming",
+    "/services/source-code-review",
+    "/services/ai-pentesting"
+  ]
+}

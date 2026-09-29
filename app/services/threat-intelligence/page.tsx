@@ -12,7 +12,7 @@ import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { WhereWeDeliver } from "@/components/sections/WhereWeDeliver";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, faqSchema, serviceSchema, methodologyHowToSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, serviceSchema, methodologyItemListSchema } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
@@ -56,7 +56,7 @@ export default function ThreatIntelPage() {
             { name: service.title, url: `/services/${service.slug}` },
           ]),
           faqSchema(service.faqs),
-          methodologyHowToSchema({
+          methodologyItemListSchema({
             subjectLabel: service.shortTitle,
             url: `${SITE.url}/services/${service.slug}#methodology`,
             phases: service.methodology,
@@ -223,7 +223,7 @@ export default function ThreatIntelPage() {
         </Container>
       </section>
 
-      {/* Renders service.methodology, which the page's HowTo schema already
+      {/* Renders service.methodology, which the page's methodology schema already
           describes and links to as #methodology — previously that anchor did
           not exist and none of these activities appeared on the page. */}
       <section id="methodology" className="py-20">

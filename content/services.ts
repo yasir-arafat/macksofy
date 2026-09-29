@@ -67,6 +67,7 @@ export interface Service {
 export const SERVICES: Service[] = [
   // 1 -----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "penetration-testing",
     title: "Penetration Testing",
     shortTitle: "Pentest",
@@ -219,9 +220,9 @@ export const SERVICES: Service[] = [
         a: "Annual retainer programs typically reduce per-engagement cost by 25–35% compared to one-off engagements. Talk to us for a quote.",
       },
     ],
-    seoTitle: "Penetration Testing Services India & UAE | CERT-In | Macksofy",
+    seoTitle: "Penetration Testing India | Manual Pentest",
     seoDescription:
-      "Manual + tooled penetration testing by OSCP/OSWE-certified consultants. CERT-In empanelled, free retest, MITRE ATT&CK mapping. Mumbai, India and UAE.",
+      "Manual penetration testing across web, API, mobile, cloud and infrastructure. Receive validated findings, developer-ready fixes and a verification retest.",
     keywords: [
       "penetration testing services India",
       "penetration testing Mumbai",
@@ -234,6 +235,7 @@ export const SERVICES: Service[] = [
 
   // 2 -----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "vapt",
     title: "Vulnerability Assessment & Penetration Testing (VAPT)",
     shortTitle: "VAPT",
@@ -360,9 +362,9 @@ export const SERVICES: Service[] = [
         a: "Minimum annually for compliance. Mature programs run quarterly + after every major release. Macksofy offers retainer pricing for both.",
       },
     ],
-    seoTitle: "VAPT Services India | Vulnerability Assessment + Pentest | Macksofy",
+    seoTitle: "VAPT Services India | Manual Testing + Retest",
     seoDescription:
-      "CERT-In empanelled VAPT services for BFSI, fintech, healthcare. Manual exploitation + scanner triage, regulator-format reports, free retest. Mumbai + UAE.",
+      "CERT-In empanelled VAPT with authenticated assessment, manual exploitation and false-positive triage, plus regulator-ready reporting and a verification retest.",
     keywords: [
       "VAPT services India",
       "VAPT Mumbai",
@@ -375,6 +377,7 @@ export const SERVICES: Service[] = [
 
   // 3 -----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "managed-soc",
     title: "Managed SOC & SIEM Services",
     shortTitle: "Managed SOC",
@@ -496,9 +499,9 @@ export const SERVICES: Service[] = [
         a: "Yes — Macksofy MDR offers 24×7 managed SOC services from our Mumbai operations center, with India data residency.",
       },
     ],
-    seoTitle: "Managed SOC Services India | 24×7 SOC & SIEM",
+    seoTitle: "Managed SOC Services India | 24×7 Monitoring",
     seoDescription:
-      "Managed SOC services and SIEM engineering with 24×7 monitoring, tuned detections and incident workflows across Wazuh, ELK, Splunk and Sentinel.",
+      "24×7 managed SOC monitoring, SIEM engineering, tuned detections and incident workflows across Wazuh, Elastic, Splunk and Microsoft Sentinel.",
     keywords: [
       "SOC setup India",
       "SIEM implementation Mumbai",
@@ -511,6 +514,7 @@ export const SERVICES: Service[] = [
 
   // 4 -----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "web-application-security",
     title: "Web Application Security Testing",
     shortTitle: "Web App Pentest",
@@ -637,9 +641,9 @@ export const SERVICES: Service[] = [
         a: "Always. Mutual NDA is step 0 of every engagement.",
       },
     ],
-    seoTitle: "Web Application Security Testing India | OSWE-Led | Macksofy",
+    seoTitle: "Web App Pentest India | OWASP + Business Logic",
     seoDescription:
-      "OSWE-led web application pentesting. OWASP Top 10 + business-logic + auth + SSO. Manual exploitation, dev-ready reports, free retest. India + UAE.",
+      "Manual web application pentesting for OWASP risks, authentication, SSO and business logic. Get reproducible evidence, developer-ready fixes and a retest.",
     keywords: [
       "web application security testing India",
       "web app penetration testing Mumbai",
@@ -652,6 +656,7 @@ export const SERVICES: Service[] = [
 
   // 4b ----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "api-security",
     title: "API Security Testing",
     shortTitle: "API Pentest",
@@ -796,9 +801,9 @@ export const SERVICES: Service[] = [
         a: "Always. Mutual NDA is step 0 of every engagement.",
       },
     ],
-    seoTitle: "API Security Testing India | REST + GraphQL + gRPC | Macksofy",
+    seoTitle: "API Pentest India | REST, GraphQL & gRPC",
     seoDescription:
-      "Manual API security testing across REST, GraphQL and gRPC, aligned to the OWASP API Top 10 — dev-ready reports, a Postman regression suite and a free retest.",
+      "Manual API penetration testing across REST, GraphQL and gRPC for BOLA, auth, JWT, OAuth and business logic, with reproducible evidence and a retest.",
     keywords: [
       "API security testing India",
       "API penetration testing Mumbai",
@@ -813,6 +818,7 @@ export const SERVICES: Service[] = [
 
   // 5 -----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "mobile-application-security",
     title: "Mobile Application Security Testing",
     shortTitle: "Mobile Pentest",
@@ -984,9 +990,9 @@ export const SERVICES: Service[] = [
         a: "We flag policy issues (privacy manifest gaps on iOS 17+, restricted permission overuse on Android 14+, Data Safety form mismatches) as a separate appendix so submission rejections don't blindside a release.",
       },
     ],
-    seoTitle: "Mobile App Security Testing India & UAE | Android + iOS | Macksofy",
+    seoTitle: "Mobile App Pentest India | Android & iOS",
     seoDescription:
-      "OWASP MASVS-aligned mobile penetration testing for Android and iOS — Frida, Burp and manual exploitation for RBI mobile banking and PCI DSS. India + UAE.",
+      "Manual Android and iOS penetration testing aligned to OWASP MASVS, covering binaries, runtime controls, local storage and backend APIs with a retest.",
     keywords: [
       "mobile application penetration testing India",
       "Android pentest Mumbai",
@@ -1133,6 +1139,7 @@ export const SERVICES: Service[] = [
 
   // 6 -----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "red-teaming",
     title: "Red Team Operations",
     shortTitle: "Red Team",
@@ -1249,9 +1256,9 @@ export const SERVICES: Service[] = [
         a: "Our team operates in environments protected by all the major commercial EDRs and has documented bypass capability. We provide bypass methodology in the report so your team can build detections.",
       },
     ],
-    seoTitle: "Red Team Services in India | Adversary Simulation | Macksofy",
+    seoTitle: "Red Team Services India | Adversary Simulation",
     seoDescription:
-      "Goal-based red team and adversary simulation in India. EDR bypass, MITRE ATT&CK mapping, purple-team handoff. CERT-In empanelled.",
+      "Goal-based red team services that test attack paths, detection and response against realistic adversaries, with ATT&CK mapping and a purple-team handoff.",
     keywords: [
       "red team services India",
       "adversary simulation Mumbai",
@@ -1811,6 +1818,7 @@ export const SERVICES: Service[] = [
 
   // 11 ----------------------------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "source-code-review",
     title: "Secure Source Code Review",
     shortTitle: "Code Review",
@@ -1983,9 +1991,9 @@ export const SERVICES: Service[] = [
         a: "Yes. Mutual NDA signed before any code is shared. Source is stored encrypted at rest, only the assigned reviewer has access, and everything is wiped 30 days after the retest closes. We never copy, fork or retain your code beyond the engagement window. On-prem review option is available for the most sensitive engagements.",
       },
     ],
-    seoTitle: "Secure Source Code Review Services India & UAE | SAST + Manual | Macksofy",
+    seoTitle: "Secure Code Review India | Manual + SAST",
     seoDescription:
-      "Manual and SAST source code review by OSCP/OSWE-trained reviewers across Java, .NET, Node.js, Python and Go — OWASP and CWE aligned. India + UAE.",
+      "Manual secure code review plus SAST and dependency analysis across major stacks. Findings include file-and-line evidence, fixes and regression guidance.",
     keywords: [
       "secure code review India",
       "source code review services",
@@ -2906,6 +2914,7 @@ export const SERVICES: Service[] = [
 
   // 18 — AI Pentesting -----------------------------------------------
   {
+    updated: "2026-09-29",
     slug: "ai-pentesting",
     title: "AI / LLM Security Testing",
     shortTitle: "AI Pentest",
@@ -3050,9 +3059,9 @@ export const SERVICES: Service[] = [
         a: "Yes — MCP server security is a fast-growing engagement type. We enumerate exposed tools, fuzz parameters, test authorization boundaries and look for confused-deputy patterns where the agent invokes privileged MCP tools on the user's behalf.",
       },
     ],
-    seoTitle: "AI / LLM Penetration Testing India & UAE | OWASP LLM Top 10 + MITRE ATLAS | Macksofy",
+    seoTitle: "AI Security Testing India | LLM, RAG & Agents",
     seoDescription:
-      "Security testing for LLM apps, RAG pipelines, AI agents and MCP servers — OWASP LLM Top 10 and MITRE ATLAS aligned. Prompt injection, tool-use abuse.",
+      "AI security testing for LLM apps, RAG pipelines, agents and tool integrations. Test prompt injection, data leakage and authorization with actionable fixes.",
     keywords: [
       "AI penetration testing India",
       "LLM security testing India",

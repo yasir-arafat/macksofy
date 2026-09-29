@@ -13,7 +13,7 @@ import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { WhereWeDeliver } from "@/components/sections/WhereWeDeliver";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, faqSchema, serviceSchema, methodologyHowToSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, serviceSchema, methodologyItemListSchema } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
@@ -61,7 +61,7 @@ export default function VaptServicePage() {
             { name: service.title, url: `/services/${service.slug}` },
           ]),
           faqSchema(service.faqs),
-          methodologyHowToSchema({
+          methodologyItemListSchema({
             subjectLabel: service.shortTitle,
             url: `${SITE.url}/services/${service.slug}#methodology`,
             phases: service.methodology,

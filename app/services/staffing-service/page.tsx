@@ -24,7 +24,7 @@ import {
   breadcrumbSchema,
   faqSchema,
   serviceSchema,
-  methodologyHowToSchema,
+  methodologyItemListSchema,
 } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
@@ -116,7 +116,7 @@ export default function StaffingPage() {
             { name: service.title, url: `/services/${service.slug}` },
           ]),
           faqSchema(service.faqs),
-          methodologyHowToSchema({
+          methodologyItemListSchema({
             subjectLabel: service.shortTitle,
             url: `${SITE.url}/services/${service.slug}#methodology`,
             phases: service.methodology,

@@ -2,20 +2,10 @@
 """
 Google Search Console client for macksofy.com.
 
-Auth is the `gsc-audit` service account (granted siteOwner on this property
-on 2026-08-07). The private key is NOT stored in this repo — it lives at one
-canonical path outside the repo and is read from there. This repo auto-deploys
-to Vercel on push to `main`, so a key committed here would ship to a public
-remote; keeping it out of the tree is deliberate, not incidental.
-
-    key path : $GSC_SA_KEY, else /root/audit/gsc/service-account.json
-    property : https://www.macksofy.com/   <-- WITH www. The .ae property has
-                                               NO www. Passing the wrong form
-                                               returns an EMPTY result set that
-                                               is indistinguishable from "this
-                                               site has no data", so this module
-                                               always resolves the property
-                                               against sites().list() first.
+Authentication uses a local service-account key supplied through GSC_SA_KEY or
+GOOGLE_APPLICATION_CREDENTIALS. The key is never stored in this repository.
+The property is resolved against sites().list() so URL-prefix and domain
+properties cannot silently produce an empty result set.
 
 Usage as a CLI (prints a live access check + 28-day summary):
     python3 scripts/gsc_client.py
@@ -28,29 +18,44 @@ Usage as a module:
 """
 import datetime as dt
 import os
+from urllib.parse import quote
 
+import requests
+from google.auth.transport.requests import AuthorizedSession, Request
 from google.oauth2 import service_account
-from googleapiclient.discovery import build
 
 DEFAULT_SITE = 'https://www.macksofy.com/'
-DEFAULT_KEY = '/root/audit/gsc/service-account.json'
+DEFAULT_KEY = (
+    os.environ.get('GSC_SA_KEY')
+    or os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+    or ''
+)
 SCOPES = ['https://www.googleapis.com/auth/webmasters']
 
 # Search Console data lags ~2-3 days. Anchoring a window to `today` silently
 # averages in empty days, which reads as a traffic drop that never happened.
 DATA_LAG_DAYS = 3
+NEUTRAL_USER_AGENT = (
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+    'AppleWebKit/537.36 (KHTML, like Gecko) '
+    'Chrome/140.0.0.0 Safari/537.36'
+)
 
 
 def client(key_path: str | None = None):
     """Build an authorised Search Console service."""
-    key = key_path or os.environ.get('GSC_SA_KEY', DEFAULT_KEY)
-    if not os.path.exists(key):
+    key = key_path or DEFAULT_KEY
+    if not key or not os.path.isfile(key):
         raise SystemExit(
-            f'GSC service-account key not found at {key}.\n'
-            f'Set GSC_SA_KEY to its location, or restore it to {DEFAULT_KEY}.'
+            'Search Console credentials are not configured. Set GSC_SA_KEY '
+            'or GOOGLE_APPLICATION_CREDENTIALS to the local key path.'
         )
+    base = requests.Session()
+    base.headers.update({'User-Agent': NEUTRAL_USER_AGENT})
     creds = service_account.Credentials.from_service_account_file(key, scopes=SCOPES)
-    return build('searchconsole', 'v1', credentials=creds, cache_discovery=False)
+    session = AuthorizedSession(creds, auth_request=Request(session=base))
+    session.headers.update({'User-Agent': NEUTRAL_USER_AGENT})
+    return session
 
 
 def resolve_property(svc, hint: str = DEFAULT_SITE) -> str:
@@ -59,7 +64,9 @@ def resolve_property(svc, hint: str = DEFAULT_SITE) -> str:
     Matches on registrable host so http/https, www/non-www and sc-domain:
     variants all resolve to whatever form is actually granted.
     """
-    granted = [s['siteUrl'] for s in svc.sites().list().execute().get('siteEntry', [])]
+    response = svc.get('https://www.googleapis.com/webmasters/v3/sites', timeout=30)
+    response.raise_for_status()
+    granted = [s['siteUrl'] for s in response.json().get('siteEntry', [])]
     if hint in granted:
         return hint
 
@@ -85,10 +92,16 @@ def date_window(days: int = 28):
 
 def search_analytics(svc, dimensions=('date',), days: int = 28,
                      row_limit: int = 1000, site: str | None = None,
+                     start_date: str | None = None,
+                     end_date: str | None = None,
                      **body_extra):
     """Run a Search Analytics query and return its rows."""
     site = site or resolve_property(svc)
-    start, end = date_window(days)
+    start, end = (
+        (start_date, end_date)
+        if start_date and end_date
+        else date_window(days)
+    )
     body = {
         'startDate': start,
         'endDate': end,
@@ -96,17 +109,29 @@ def search_analytics(svc, dimensions=('date',), days: int = 28,
         'rowLimit': row_limit,
         **body_extra,
     }
-    return svc.searchanalytics().query(siteUrl=site, body=body).execute().get('rows', [])
+    endpoint = (
+        'https://www.googleapis.com/webmasters/v3/sites/'
+        f'{quote(site, safe="")}/searchAnalytics/query'
+    )
+    response = svc.post(endpoint, json=body, timeout=60)
+    response.raise_for_status()
+    return response.json().get('rows', [])
 
 
 def inspect_url(svc, url: str, site: str | None = None):
     """URL Inspection API result for one URL (requires Owner - this SA has it)."""
     site = site or resolve_property(svc)
-    return svc.urlInspection().index().inspect(body={
+    response = svc.post(
+        'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect',
+        json={
         'inspectionUrl': url,
         'siteUrl': site,
         'languageCode': 'en-US',
-    }).execute()['inspectionResult']
+        },
+        timeout=60,
+    )
+    response.raise_for_status()
+    return response.json()['inspectionResult']
 
 
 def _main():
