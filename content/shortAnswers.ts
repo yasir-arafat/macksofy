@@ -644,6 +644,26 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is agentic AI security testing?",
     a: "Agentic AI security testing assesses the complete action chain across the model, planner, tools, identity, data, memory, approval gates, and downstream systems. It verifies that malicious instructions, poisoned content, or a compromised component cannot make an AI agent access data or perform actions beyond the user's authority.",
   },
+  "blog:top-vapt-companies-india-2026": {
+    q: "How should businesses compare VAPT companies in India?",
+    a: "Compare VAPT companies using the same written scope and a weighted scorecard for manual testing depth, assigned tester capability, reporting evidence, regulatory fit, safety controls, and retest terms. Verify current CERT-In empanelment directly when required. Macksofy provides comparable VAPT scopes and evidence lists across India.",
+  },
+  "blog:top-cert-in-empanelled-audit-providers-india-2026": {
+    q: "How should businesses compare CERT-In empanelled audit providers?",
+    a: "First verify the provider's legal entity on CERT-In's current official panel. Then compare scope expertise, assigned team, regulator mapping, evidence quality, independence, data handling, remediation support, and closure terms. Macksofy structures audits around the relying regulator, required evidence, and submission deadline.",
+  },
+  "blog:top-managed-soc-providers-india-2026": {
+    q: "How should businesses compare managed SOC providers in India?",
+    a: "Compare managed SOC providers with the same telemetry inventory and incident scenarios. Score onboarding, detection engineering, investigation quality, response authority, service continuity, reporting, data governance, and exit readiness instead of alert counts or tool logos. Macksofy builds and operates managed SOC services across India and the UAE.",
+  },
+  "blog:top-red-teaming-companies-india-2026": {
+    q: "How should businesses compare red teaming companies in India?",
+    a: "Compare red teaming companies on business-objective design, assigned operator depth, rules of engagement, safety governance, threat realism, detection reconciliation, and purple-team transfer. Ask for an anonymised attack narrative and interview the proposed operators. Macksofy runs goal-based adversary simulations mapped to MITRE ATT&CK.",
+  },
+  "blog:top-ai-security-assessment-companies-india-2026": {
+    q: "How should businesses compare AI security assessment companies?",
+    a: "Choose a provider that tests the full AI application: models, instructions, RAG, tools, APIs, identity, authorization, memory, approvals, and operations. Compare reproducible impact, remediation depth, and regression handover rather than prompt volume. Macksofy assesses LLM, RAG, and agentic systems across India and the UAE.",
+  },
   "blog:windows-ad-attack-cheatsheet-2026": {
     q: "What are the core Active Directory attack techniques?",
     a: "The standard Active Directory attack path runs from unauthenticated recon through Kerberoasting and AS-REP roasting for credentials, then ACL and delegation abuse for lateral movement, and DCSync for domain-wide credential extraction. This cheatsheet collects the working commands for each stage, with detection-evasion notes for authorized testing.",
