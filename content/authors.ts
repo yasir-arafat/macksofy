@@ -237,6 +237,24 @@ export const AUTHORS: Record<string, Author> = {
       "AI Red Teaming",
     ],
   },
+  "AI Security Assessment Team": {
+    type: "team",
+    key: "AI Security Assessment Team",
+    name: "AI Security Assessment Team",
+    role: "Agentic AI and LLM application security",
+    description:
+      "Security practitioners focused on testing autonomous agents, tool integrations, retrieval pipelines, memory, authorization boundaries, and model-connected applications.",
+    knowsAbout: [
+      "Agentic AI Security",
+      "AI Agent Penetration Testing",
+      "LLM Application Security",
+      "Prompt Injection",
+      "Tool and Function-Call Security",
+      "MCP Server Security",
+      "RAG Security",
+      "AI Red Teaming",
+    ],
+  },
   "AppSec": {
     type: "team",
     key: "AppSec",

@@ -640,6 +640,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "How do MCP servers get hacked?",
     a: "MCP (Model Context Protocol) servers expose tools to AI agents, and are attacked through tool poisoning, indirect prompt injection, over-broad credentials that let an agent exfiltrate secrets, and unsanitised tool parameters that reach a shell as command injection. This guide sets out the threat model and the controls that mitigate each.",
   },
+  "blog:agentic-ai-security-testing-checklist-2026": {
+    q: "What is agentic AI security testing?",
+    a: "Agentic AI security testing assesses the complete action chain across the model, planner, tools, identity, data, memory, approval gates, and downstream systems. It verifies that malicious instructions, poisoned content, or a compromised component cannot make an AI agent access data or perform actions beyond the user's authority.",
+  },
   "blog:windows-ad-attack-cheatsheet-2026": {
     q: "What are the core Active Directory attack techniques?",
     a: "The standard Active Directory attack path runs from unauthenticated recon through Kerberoasting and AS-REP roasting for credentials, then ACL and delegation abuse for lateral movement, and DCSync for domain-wide credential extraction. This cheatsheet collects the working commands for each stage, with detection-evasion notes for authorized testing.",

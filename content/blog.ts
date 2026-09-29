@@ -4986,6 +4986,10 @@ def fetch_logs(service: str) -> str:
         title: "Macksofy AI security review",
         text: "We deliver MCP server reviews and broader LLM application security assessments under our AppSec engagement umbrella. Reach out if you've shipped MCP servers to production or developer environments and want an independent review.",
       },
+      {
+        type: "para",
+        text: "MCP is only one layer of an autonomous system. For end-to-end coverage across planning, identity, memory, human approvals, and multi-agent handoffs, use the [agentic AI security testing checklist](/blog/agentic-ai-security-testing-checklist-2026).",
+      },
       MACKSOFY_CTA("ai-security", "Our AI security engagements"),
     ],
     faqs: [
@@ -8802,6 +8806,340 @@ def fetch_logs(service: str) -> str:
       {
         q: "Can our existing pentest vendor handle an incident?",
         a: "Sometimes, but ask the evidence questions before you assume it. Acquisition order, hashing, chain-of-custody documentation and memory capability are the things that decide whether the findings are usable afterwards, and they are not part of normal penetration-testing practice.",
+      },
+    ],
+  },
+  // ===================================================================
+  // Agentic AI security testing — lead-generation guide
+  // ===================================================================
+  {
+    slug: "agentic-ai-security-testing-checklist-2026",
+    seoTitle: "Agentic AI Security Testing Checklist (2026)",
+    seoDescription:
+      "A practical 2026 checklist for testing AI agents, tools, memory, identity, RAG, approvals and downstream actions before production deployment.",
+    title: "Agentic AI Security Testing in 2026: A Practical Assessment Checklist",
+    description:
+      "AI agents can plan, call tools, retain memory and change real systems. This buyer-ready checklist explains what an agentic AI security assessment must test, what evidence it should produce and when a standard application pentest is not enough.",
+    date: "2026-09-29",
+    author: "AI Security Assessment Team",
+    authorRole: "Agentic AI and LLM application security",
+    readingTime: "13 min read",
+    category: "AI Security",
+    tags: ["Agentic AI", "AI Security", "AI Agents", "MCP", "LLM"],
+    heroKind: "ai",
+    heroEyebrow: "Agentic AI · Security assessment · 2026",
+    keywords: [
+      "agentic AI security testing",
+      "AI agent penetration testing",
+      "AI agent security checklist",
+      "agentic AI risk assessment",
+      "LLM agent red teaming",
+      "MCP security assessment",
+      "AI pentesting",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Agentic AI security testing is an end-to-end assessment of what an AI agent can see, decide and do. It tests the model, planner, tools, identity, retrieval data, memory, approval gates and downstream systems as one attack path. The goal is not merely to make the model say something unsafe; it is to prove whether an attacker can steer the agent into an unauthorized action, data disclosure or persistent compromise.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "The short answer",
+        text: "A defensible assessment must test instructions and data from every source, enforce the user's identity at every tool call, constrain the agent's privileges, challenge approval boundaries, and show that monitoring and a kill switch still work when the agent behaves unexpectedly.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Why agentic AI needs a different security test",
+        id: "why-agentic-ai-testing-is-different",
+      },
+      {
+        type: "para",
+        text: "A conventional web application receives a request, runs predictable code and returns a response. An agent can interpret an ambiguous goal, create a plan, select a tool, retrieve external content, call another service, save memory and continue acting. Each step may be individually permitted while the combined chain produces an outcome no single control anticipated.",
+      },
+      {
+        type: "comparison",
+        title: "The testing boundary has moved",
+        left: {
+          label: "Standard application pentest",
+          tone: "cyan",
+          bullets: [
+            "Tests routes, parameters, sessions and business logic",
+            "Assumes mostly deterministic application behaviour",
+            "Validates authorization at known endpoints",
+            "Finds vulnerabilities within a defined technical boundary",
+          ],
+        },
+        right: {
+          label: "Agentic AI security assessment",
+          tone: "purple",
+          bullets: [
+            "Tests goals, plans, context, tools, memory and handoffs",
+            "Challenges non-deterministic action sequences",
+            "Rechecks authorization at every consequential action",
+            "Follows trust across models, data sources and downstream systems",
+          ],
+        },
+      },
+      {
+        type: "para",
+        text: "A web, API or cloud pentest is still necessary because agents sit on ordinary infrastructure. But it does not answer the agent-specific question: can untrusted content change the system's plan and turn legitimate capabilities into an attack chain? That requires adversarial testing at the level where the model chooses and combines actions.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Map the complete agent attack surface first",
+        id: "agent-attack-surface",
+      },
+      {
+        type: "para",
+        text: "Before testing prompts, build an action-oriented system map. Record every source of instructions, every identity the agent can use, every tool it can invoke, every store it can read or change, and every point where a human is expected to approve an action. Missing one hidden integration can invalidate the rest of the assessment.",
+      },
+      {
+        type: "table",
+        caption: "Minimum attack-surface inventory for an AI agent",
+        headers: ["Layer", "What to inventory", "Primary security question"],
+        rows: [
+          ["User and session", "Users, tenants, roles, delegated identities", "Whose authority is the agent actually using?"],
+          ["Model and planner", "System instructions, routing, planning and retry logic", "Can untrusted content override the intended goal?"],
+          ["Tools and functions", "APIs, plugins, MCP servers, code execution and automation", "Can a permitted tool be abused outside its intended purpose?"],
+          ["Knowledge and RAG", "Documents, websites, vector stores and connectors", "Can poisoned content become an instruction or leak another user's data?"],
+          ["Memory", "Conversation, long-term, profile and task memory", "Can an attacker persist instructions or corrupt future decisions?"],
+          ["Approval gates", "Human review, confirmation screens and policy checks", "Does the reviewer see the real action, target and impact?"],
+          ["Downstream systems", "SaaS, cloud, databases, email, source control and endpoints", "What is the maximum blast radius of one agent identity?"],
+          ["Operations", "Logs, budgets, rate limits, alerts, pause and revoke controls", "Can operators detect, explain and stop harmful behaviour?"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The 10-point agentic AI security testing checklist",
+        id: "security-testing-checklist",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "1. Direct and indirect prompt injection",
+        id: "prompt-injection",
+      },
+      {
+        type: "para",
+        text: "Test hostile instructions entered directly by a user and instructions hidden in content the agent retrieves: documents, support tickets, web pages, emails, code comments and tool responses. The test passes only when untrusted data remains data. Refusing one obvious jailbreak is not enough; assess whether the same payload can influence tool selection, arguments, memory or later steps in the plan.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "2. Goal hijacking and instruction priority",
+        id: "goal-hijacking",
+      },
+      {
+        type: "para",
+        text: "Challenge conflicts between system policy, developer instructions, user goals, retrieved text and tool output. Try to make the agent reinterpret a safe objective into a dangerous subtask. Controls should be tied to actions and policy, not to the model remembering which sentence had the highest priority.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "3. Tool misuse and function-call abuse",
+        id: "tool-misuse",
+      },
+      {
+        type: "para",
+        text: "Fuzz tool names, parameters, encodings and multi-step combinations. Look for command injection, server-side request forgery, path traversal, unsafe file operations and business-logic abuse behind a valid function call. The model is not a security boundary: every tool must validate its input and authorization independently. Use the dedicated [MCP server security guide](/blog/mcp-server-security-how-hacked-2026) when MCP is part of the tool layer.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "4. Identity, tenant isolation and confused-deputy paths",
+        id: "identity-and-tenant-isolation",
+      },
+      {
+        type: "para",
+        text: "Verify that the requesting user's identity and tenant context survive every handoff. An agent with a shared service credential can become a confused deputy: the user is allowed to ask, the agent is allowed to act, but the user should not inherit the agent's full authority. Test cross-tenant object references, cached context, delegated tokens, background jobs and tools that trust agent-supplied identity fields.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "5. Excessive agency and privilege",
+        id: "excessive-agency",
+      },
+      {
+        type: "para",
+        text: "Calculate the maximum damage available to one compromised session. Can the agent approve payments, change access, deploy code, delete data or send messages without a second control? Replace broad credentials with task-scoped, time-limited grants. Require a fresh authorization check for every consequential action, even when an earlier planning step was approved.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "6. Secret and sensitive-data exfiltration",
+        id: "data-exfiltration",
+      },
+      {
+        type: "para",
+        text: "Seed the test environment with synthetic markers and determine whether the agent can expose them through chat, logs, tool arguments, URLs, generated files or outbound messages. Include system prompts, connection strings, retrieved records and other users' context. Egress controls should prevent an agent from choosing an unapproved destination simply because the model considers it useful.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "7. Memory poisoning and persistence",
+        id: "memory-poisoning",
+      },
+      {
+        type: "para",
+        text: "Test whether a low-trust interaction can plant a durable instruction, preference or false fact that changes future sessions. Verify memory provenance, tenant boundaries, expiry, review and deletion. A security control that blocks the first attempt but stores the attack for later is not a successful control.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "8. Tool and model supply-chain manipulation",
+        id: "supply-chain-manipulation",
+      },
+      {
+        type: "para",
+        text: "Review who can change system prompts, tool descriptions, packages, model versions, adapters, connectors and retrieval sources. Test whether a newly added tool can impersonate another tool or influence the planner through its metadata. Releases should be pinned, reviewed and reversible, with an inventory that links every component to an owner and update path.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "9. Multi-agent handoffs and trust propagation",
+        id: "multi-agent-handoffs",
+      },
+      {
+        type: "para",
+        text: "When one agent delegates to another, validate the task, data, identity and permission passed across the boundary. A specialist agent must not treat another agent's output as trusted instructions. Test loops, role confusion, spoofed agent identity and a chain in which several low-risk actions combine into a high-impact result.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "10. Failure recovery, cost abuse and the kill switch",
+        id: "failure-recovery",
+      },
+      {
+        type: "para",
+        text: "Force timeouts, malformed tool responses, partial failures and contradictory state. Check whether retries repeat a payment, message or deletion. Test unbounded loops and resource consumption. Operators need hard limits for steps, time, tokens, spend and downstream actions, plus a tested way to pause execution, revoke credentials and preserve an auditable record.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How a useful assessment should run",
+        id: "assessment-method",
+      },
+      {
+        type: "table",
+        caption: "A practical engagement sequence",
+        headers: ["Phase", "Work performed", "Output"],
+        rows: [
+          ["1. Discovery", "Inventory agents, models, prompts, tools, identities, data, memory and environments", "System and data-flow map with confirmed scope"],
+          ["2. Threat modelling", "Define protected actions, trust boundaries, abuse cases and maximum credible impact", "Prioritized attack hypotheses and test plan"],
+          ["3. Adversarial testing", "Exercise prompt, tool, identity, data, memory and multi-agent attack chains", "Reproducible evidence with affected actions and conditions"],
+          ["4. Control validation", "Test prevention, detection, approval, rate limiting, rollback and shutdown", "Control-gap matrix tied to business impact"],
+          ["5. Remediation and retest", "Review fixes and replay the original chains plus bypass variants", "Verified closure record and residual-risk statement"],
+        ],
+      },
+      {
+        type: "para",
+        text: "Run destructive scenarios in a production-representative test environment using synthetic records and non-production credentials. The important word is representative: a harmless demo agent with no real tools cannot prove that production authorization, approval or monitoring will hold. Where production validation is necessary, agree safe actions, rate limits and rollback conditions before testing begins.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Evidence a buyer should require",
+        id: "assessment-deliverables",
+      },
+      {
+        type: "para",
+        text: "A list of jailbreak prompts is not an assessment report. Procurement and engineering teams should ask for evidence that connects a hostile input to an unauthorized outcome, shows the exact control failure, and gives the product team a fix it can verify.",
+      },
+      {
+        type: "list",
+        items: [
+          "An architecture and trust-boundary map covering models, data, tools, identities and downstream systems.",
+          "An action inventory that labels read, write, execute, communicate, approve and delete capabilities.",
+          "Reproducible attack chains with prerequisites, prompts or inputs, tool calls and observable impact.",
+          "Severity based on business impact and required attacker access, not on model behaviour alone.",
+          "Developer-ready remediation for code, authorization, prompts, tool schemas and operational controls.",
+          "Coverage notes that state what was not tested and why.",
+          "Retest evidence demonstrating that the original exploit and reasonable variants no longer work.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Avoid prompt-only testing",
+        text: "If the engagement never observes tool calls, identity decisions, stored memory, data access and downstream side effects, it cannot measure the risk created by an agent's ability to act. Prompt evaluation is one input to agent security testing, not the whole engagement.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "When should you commission an agentic AI security assessment?",
+        id: "when-to-test",
+      },
+      {
+        type: "para",
+        text: "Test before the first production release if the agent can access confidential data or change another system. Repeat the assessment after a material change to its model, system instructions, identity design, tool set, memory, retrieval sources or approval flow. A new high-privilege tool can change the risk more than a complete user-interface redesign.",
+      },
+      {
+        type: "list",
+        items: [
+          "The agent can send, publish, purchase, approve, deploy, modify or delete.",
+          "It uses shared or service-level credentials to act for multiple users.",
+          "It reads untrusted external content before choosing an action.",
+          "It stores long-term memory or shares context across users or agents.",
+          "It connects to internal APIs, source control, cloud consoles, support systems or financial workflows.",
+          "A regulator, customer or insurer expects independent security evidence before launch.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How this checklist maps to current guidance",
+        id: "standards-and-guidance",
+      },
+      {
+        type: "para",
+        text: "Use this testing plan alongside the [OWASP Top 10 for Agentic Applications for 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/), the adversary techniques catalogued in [MITRE ATLAS](https://atlas.mitre.org/), and the governance lifecycle in the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework). Together they provide a useful risk taxonomy, attack-language reference and governance frame. The assessment still needs to translate them into the specific actions, identities and data flows of your system.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The decision rule",
+        id: "decision-rule",
+      },
+      {
+        type: "para",
+        text: "If an AI feature only drafts text for a user to review, start with model and data-risk testing. If it can choose a tool or cause a side effect, test it as an agent. The security boundary is not the chat window; it is the furthest system the agent can influence with the strongest identity available to it.",
+      },
+      {
+        type: "cta",
+        title: "Test the action chain before an attacker does",
+        text: "Get an independent assessment of your agent's prompts, tools, identity, data, memory, approval gates and downstream impact, with reproducible findings and a remediation retest.",
+        href: "/services/ai-pentesting",
+        cta: "Plan an AI security assessment",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is agentic AI security testing?",
+        a: "It is an end-to-end security assessment of an AI agent's model, instructions, planner, tools, identity, data, memory, approval gates and downstream actions. The test determines whether hostile input or compromised context can cause unauthorized access, disclosure or side effects.",
+      },
+      {
+        q: "How is agentic AI testing different from LLM penetration testing?",
+        a: "LLM testing often focuses on model output, prompt injection and data leakage. Agentic AI testing follows those weaknesses into actions: tool selection, API calls, authorization decisions, stored memory, inter-agent handoffs and changes to downstream systems.",
+      },
+      {
+        q: "What should an AI agent security assessment include?",
+        a: "At minimum it should cover direct and indirect prompt injection, goal hijacking, tool misuse, tenant isolation, excessive privilege, data exfiltration, memory poisoning, supply-chain changes, multi-agent trust and safe failure or shutdown.",
+      },
+      {
+        q: "Can automated scanners test AI agents?",
+        a: "They can fuzz prompts, APIs and tool schemas, and they are useful for repeatable regression tests. They do not replace manual analysis of business logic, multi-step action chains, approval quality, identity propagation or the business impact of an apparently valid action.",
+      },
+      {
+        q: "When should an AI agent be security tested?",
+        a: "Test before production when the agent can access sensitive data or perform consequential actions. Retest after material changes to the model, system instructions, tools, credentials, retrieval sources, memory, approval workflow or downstream integrations.",
+      },
+      {
+        q: "Is an MCP security review enough for an AI agent?",
+        a: "No. MCP may be one tool interface, but the agent's risk also depends on planning, identity, retrieval data, memory, approval gates, non-MCP integrations and multi-agent handoffs. Review MCP in depth, then test the complete action chain.",
       },
     ],
   },
