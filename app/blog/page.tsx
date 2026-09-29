@@ -11,9 +11,10 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata, dynamicOgImagePath } from "@/lib/seo";
 import type { BlogPost } from "@/content/blog";
-import { POSTS, POST_CATEGORIES, POSTS_PER_PAGE } from "@/content/blog";
+import { POSTS, POSTS_PER_PAGE } from "@/content/blog";
 import { BlogPagination } from "@/components/blog/BlogPagination";
 import { SITE } from "@/lib/site";
+import { TOPIC_HUBS } from "@/content/topicHubs";
 
 /** Topical featured image for a post, via the /api/og generator (relative). */
 const postImage = (p: BlogPost) =>
@@ -107,10 +108,15 @@ export default function BlogIndexPage() {
                   </div>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-1.5">
-                  {POST_CATEGORIES.map((c) => (
-                    <Badge key={c} variant="neutral">
-                      {c}
-                    </Badge>
+                  {TOPIC_HUBS.map((hub) => (
+                    <Link key={hub.slug} href={`/blog/category/${hub.slug}`}>
+                      <Badge
+                        variant="neutral"
+                        className="hover:text-neon-cyan hover:ring-neon-cyan/40 transition-colors"
+                      >
+                        {hub.name}
+                      </Badge>
+                    </Link>
                   ))}
                 </div>
               </div>

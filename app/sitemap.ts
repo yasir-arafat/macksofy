@@ -11,6 +11,7 @@ import { SITEMAP_COMBO_PAIRS } from "@/content/combos";
 import { AWARDS } from "@/content/awards";
 import { INDUSTRIES } from "@/content/industries";
 import { getPersonAuthors } from "@/content/authors";
+import { TOPIC_HUBS } from "@/content/topicHubs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
@@ -82,6 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/best-cybersecurity-company"),
     stat("/ceh-v13-training"),
     stat("/blog", freshenBlog(latestPostDate)),
+    ...TOPIC_HUBS.map((hub) =>
+      stat(`/blog/category/${hub.slug}`, rev(hub.updated))
+    ),
     stat("/clients"),
     stat("/awards", CONTENT_REV, awardImages),
     stat("/press"),

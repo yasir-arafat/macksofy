@@ -22,6 +22,7 @@ import { SERVICES } from "@/content/services";
 import { BlogContent, BlogToc } from "@/components/blog/BlogContent";
 import { SITE } from "@/lib/site";
 import { dynamicOgImage, dynamicOgImagePath } from "@/lib/seo";
+import { topicHubForPost } from "@/content/topicHubs";
 
 /**
  * Word count from a post's blocks — used in BlogPosting schema's
@@ -130,6 +131,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const wordCount = postWordCount(p.blocks);
   const excerpt = postExcerpt(p.blocks);
   const shortAnswer = getShortAnswer(`blog:${p.slug}`);
+  const topicHub = topicHubForPost(p.slug);
   const postOgImage = dynamicOgImage({
     title: p.title,
     eyebrow: p.category,
@@ -242,6 +244,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </Badge>
                 ))}
               </div>
+              {topicHub && (
+                <Link
+                  href={`/blog/category/${topicHub.slug}`}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-neon-cyan hover:underline underline-offset-4"
+                >
+                  Explore the {topicHub.name} topic hub
+                  <ArrowRight className="size-4" />
+                </Link>
+              )}
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-fg-faint">
                 <span className="inline-flex items-center gap-2">
                   <User className="size-4 text-neon-cyan" />{" "}
