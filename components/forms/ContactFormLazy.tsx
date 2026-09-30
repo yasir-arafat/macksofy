@@ -34,7 +34,7 @@ const ContactForm = dynamic(
   { ssr: false, loading: () => <FormSkeleton /> },
 );
 
-export function ContactFormLazy() {
+export function ContactFormLazy({ initialInterest = "" }: { initialInterest?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
 
@@ -66,7 +66,7 @@ export function ContactFormLazy() {
 
   return (
     <div ref={ref} className="min-h-[1016px] sm:min-h-[768px]">
-      {show ? <ContactForm /> : <FormSkeleton />}
+      {show ? <ContactForm initialInterest={initialInterest} /> : <FormSkeleton />}
       <noscript>
         <p className="text-sm text-fg-muted">
           This form needs JavaScript.{" "}

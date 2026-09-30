@@ -2,10 +2,8 @@ import Link from "next/link";
 import {
   ShieldCheck,
   FileCheck2,
-  Award,
   Building2,
   Globe2,
-  Users,
   MapPin,
   ArrowRight,
   BadgeCheck,
@@ -29,6 +27,7 @@ import { CertInHero } from "@/components/visuals/CertInBadge";
 import { ComplianceMatrix } from "@/components/visuals/ComplianceMatrix";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
+import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 import {
@@ -39,72 +38,66 @@ import {
 import { buildMetadata, HQ_GEO } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
+const PAGE_PATH = "/best-cybersecurity-company";
+const LAST_REVIEWED = "2026-09-30";
+const PAGE_DESCRIPTION =
+  "Evaluate a CERT-In empanelled cybersecurity partner for VAPT, red teaming, managed SOC and regulatory audits using documented methods and engagement evidence.";
+
 export const metadata = buildMetadata({
-  title: "Best Cybersecurity Company in Mumbai & India — CERT-In Empanelled",
-  description:
-    "Macksofy is a CERT-In empanelled cybersecurity company in Mumbai serving India and the UAE since 2014 — VAPT, red teaming, SOC and compliance audits.",
-  path: "/best-cybersecurity-company",
+  title: "Why Choose Us for Cybersecurity Services",
+  description: PAGE_DESCRIPTION,
+  path: PAGE_PATH,
   geo: HQ_GEO,
-  ogEyebrow: "CERT-IN EMPANELLED",
-  ogTitle: "Best Cybersecurity Company in Mumbai & India",
+  ogEyebrow: "EVIDENCE-LED SECURITY",
+  ogTitle: "Why Choose Our Cybersecurity Team",
   ogKind: "macksofy",
   keywords: [
-    "best cybersecurity company in Mumbai",
-    "best cybersecurity company in India",
-    "top cyber security company Mumbai",
-    "CERT-In empanelled company Mumbai",
-    "CERT-In empanelled cybersecurity company India",
-    "cyber security company in Mumbai",
-    "VAPT company Mumbai",
-    "penetration testing company India",
-    "information security auditor Mumbai",
-    "top cybersecurity firms India 2026",
-    "cyber security company in India",
-    "best CERT-In empanelled company India",
-    "security testing company India",
-    "security audit company India",
-    "CERT-In empanelled security testing",
-    "CERT-In empanelled security audit",
+    "why choose a cybersecurity partner",
+    "CERT-In empanelled security partner",
+    "cybersecurity consulting partner India",
+    "security assessment team Mumbai",
+    "enterprise VAPT partner India",
+    "regulatory cybersecurity audit partner",
   ],
 });
 
-// ── Why Macksofy ranks among the best ────────────────────────────────────
+// Verifiable buyer criteria, not self-awarded rankings.
 const PILLARS = [
   {
     icon: FileCheck2,
-    title: "CERT-In Empanelled",
+    title: "Verify the designation",
     body:
-      "Empanelled by the Indian Computer Emergency Response Team (CERT-In) under MeitY as an Information Security Auditing Organisation. Our reports are accepted by SEBI, RBI, IRDAI, UIDAI and every major Indian regulator.",
+      "Check the exact contracting entity on CERT-In's official list before procurement. The government directory, not a vendor badge, is the authoritative source.",
   },
   {
     icon: Building2,
-    title: "Mumbai HQ, since 2014",
+    title: "Confirm who delivers",
     body:
-      "Headquartered in Bandra Kurla Complex, Mumbai — India’s financial capital — with a decade of delivery across BFSI, fintech, healthcare, SaaS, manufacturing and government.",
+      "Define the named delivery roles, manual testing depth, escalation path and reporting owner in the scope—not after testing starts.",
   },
   {
-    icon: Users,
-    title: "Trusted across regulated industries",
+    icon: Target,
+    title: "Inspect the method",
     body:
-      "From regulated banks and insurers to high-growth startups, organisations across India and the UAE rely on Macksofy for offensive testing, compliance audits and 24×7 monitoring.",
+      "Match each asset type to a recognised testing guide, then require manual validation of business logic and authorisation boundaries beyond scanner output.",
   },
   {
-    icon: Award,
-    title: "Award-winning practitioners",
+    icon: BadgeCheck,
+    title: "Review the deliverable",
     body:
-      "Recognised in the Google Vulnerability Reward Program, EC-Council’s Circle of Excellence and multiple national cybersecurity awards — backed by OSCP, CEH and CRTP-grade engineers.",
+      "Agree severity scoring, evidence quality, business context, remediation guidance, executive reporting and the closure-retest process before kickoff.",
   },
   {
     icon: Globe2,
-    title: "India + UAE delivery",
+    title: "Fit the operating context",
     body:
-      "Engagements delivered across 5 countries, with dedicated coverage for the UAE and wider GCC (NESA, ADHICS, DESC ISR) alongside the full Indian regulatory stack.",
+      "Map the work to the regulations, location and evidence expectations that actually apply instead of buying a generic compliance checklist.",
   },
   {
     icon: ShieldCheck,
-    title: "Accredited & certified",
+    title: "Demand engagement proof",
     body:
-      "EC-Council Accredited Training Centre, ISO 27001 certified and Startup India recognised — credentials that stand up to procurement and vendor due-diligence.",
+      "Use detailed, anonymised case records to assess scope, approach, findings and remediation outcomes rather than relying on uncheckable superlatives.",
   },
 ] as const;
 
@@ -154,8 +147,7 @@ const STATS = [
   { value: `${SITE.stats.countriesServed}`, label: "Countries served" },
 ] as const;
 
-// ── Regulators that accept our reports ───────────────────────────────────
-const REGULATORS = [
+const FRAMEWORKS = [
   "CERT-In",
   "RBI",
   "SEBI",
@@ -171,12 +163,12 @@ const REGULATORS = [
 // ── FAQ (also emitted as FAQPage schema) ─────────────────────────────────
 const FAQS = [
   {
-    q: "What makes Macksofy one of the best cybersecurity companies in Mumbai and India?",
-    a: "Macksofy combines CERT-In empanelment with a decade of hands-on offensive security delivery. Headquartered in Mumbai’s Bandra Kurla Complex since 2014, the firm serves enterprises across India and the UAE with VAPT, red teaming, managed SOC and regulator-grade compliance audits — staffed by OSCP, CEH and CRTP-certified engineers and recognised in national cybersecurity awards.",
+    q: "Why should an enterprise consider this cybersecurity team?",
+    a: "Buyers can evaluate the team against verifiable criteria: current CERT-In empanelment, documented testing methods, defined reporting and retest deliverables, relevant service depth, and detailed anonymised case studies. The right choice still depends on the buyer's scope, sector, timeline and evidence requirements.",
   },
   {
-    q: "Is Macksofy a CERT-In empanelled company?",
-    a: "Yes. Macksofy Technologies is empanelled by the Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology (MeitY) as an Information Security Auditing Organisation. CERT-In empanelment means our audit reports are accepted by Indian regulators including SEBI, RBI, IRDAI and UIDAI without rework.",
+    q: "How should CERT-In empanelment be verified?",
+    a: "Use CERT-In's official empanelment directory and match the legal entity shown there to the entity named in the proposal and contract. Empanelment is an important eligibility and competency signal, but buyers should still assess scope, assigned personnel, methodology, report format and retesting terms.",
   },
   {
     q: "Where is Macksofy located?",
@@ -184,17 +176,30 @@ const FAQS = [
   },
   {
     q: "What cybersecurity services does Macksofy provide?",
-    a: "Macksofy delivers VAPT and penetration testing (network, web, mobile, API, cloud), red teaming, managed SOC and detection engineering, DFIR and threat intelligence, cloud and application security, and CERT-In / RBI / SEBI / ISO 27001 / PCI DSS / DPDP Act compliance audits — plus an advanced cybersecurity training division (OSCP, CEH, SOC analyst).",
+    a: "The services covered here include VAPT and penetration testing for network, web, mobile, API and cloud assets; red teaming; managed SOC and detection engineering; DFIR and threat intelligence; cloud and application security; and regulatory or standards-aligned security audits.",
   },
   {
     q: "Which industries does Macksofy work with?",
-    a: "Macksofy serves BFSI and fintech, healthcare, SaaS and technology, manufacturing and OT, insurance, energy and utilities, and government/PSU clients — sectors where regulatory compliance and breach impact are highest.",
+    a: "The published service and case-study library covers BFSI and fintech, healthcare, SaaS and technology, manufacturing and OT, insurance, energy and utilities, and government or public-sector environments.",
   },
   {
     q: "Does Macksofy serve clients outside Mumbai?",
-    a: `Yes. While Macksofy is headquartered in Mumbai, engagements are delivered remotely and on-site across India (${SERVED_METROS_LIST.join(", ")}) and internationally across 5 countries, with dedicated UAE and GCC coverage for NESA, ADHICS and DESC ISR frameworks.`,
+    a: `Yes. The team is headquartered in Mumbai and publishes coverage for major Indian metros (${SERVED_METROS_LIST.join(", ")}), plus UAE and GCC engagements. Delivery mode and on-site requirements are confirmed during scoping.`,
   },
 ];
+
+const WEB_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE.url}${PAGE_PATH}#webpage`,
+  url: `${SITE.url}${PAGE_PATH}`,
+  name: "Why Choose Us for Cybersecurity Services",
+  description: PAGE_DESCRIPTION,
+  isPartOf: { "@id": `${SITE.url}#website` },
+  mainEntity: { "@id": `${SITE.url}#organization` },
+  dateModified: LAST_REVIEWED,
+  inLanguage: "en-IN",
+};
 
 export default function BestCybersecurityCompanyPage() {
   return (
@@ -204,8 +209,9 @@ export default function BestCybersecurityCompanyPage() {
           / #localbusiness graph nodes. Keep only the page-specific schema. */}
       <JsonLd
         data={[
+          WEB_PAGE_SCHEMA,
           breadcrumbSchema([
-            { name: "Best Cybersecurity Company in Mumbai & India", url: "/best-cybersecurity-company" },
+            { name: "Why Choose Us for Cybersecurity Services", url: PAGE_PATH },
           ]),
           faqSchema(FAQS),
         ]}
@@ -229,21 +235,23 @@ export default function BestCybersecurityCompanyPage() {
                 <Badge variant="purple">Since {SITE.founded}</Badge>
               </div>
               <h1 className="mt-6 font-display text-4xl font-black tracking-tighter sm:text-5xl lg:text-6xl text-balance leading-[0.95]">
-                The best cybersecurity company in{" "}
-                <span className="gradient-text">Mumbai &amp; India</span>
+                Why enterprises choose our{" "}
+                <span className="gradient-text">cybersecurity team</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg text-fg-muted text-pretty">
-                Macksofy Technologies is a <strong className="text-fg">CERT-In empanelled</strong>{" "}
-                cybersecurity firm headquartered in Mumbai, trusted by enterprises across
-                India and the UAE for VAPT, red teaming, managed SOC and regulator-grade
-                compliance audits — delivered by award-winning, OSCP-certified practitioners.
+                Evaluate a <strong className="text-fg">CERT-In empanelled</strong> security
+                partner using evidence you can inspect: official status, defined methodology,
+                clear deliverables, relevant service depth and documented engagement outcomes.
+              </p>
+              <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-fg-faint">
+                <time dateTime={LAST_REVIEWED}>Last reviewed 30 September 2026</time>
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <LinkButton href="/contact" size="lg" withArrow>
                   Talk to a security expert
                 </LinkButton>
                 <LinkButton href="/audit/cert-in-empanelled-audit" variant="secondary" size="lg">
-                  Our CERT-In authority
+                  Review audit scope
                 </LinkButton>
               </div>
               <dl className="mt-12 grid max-w-lg grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
@@ -266,24 +274,34 @@ export default function BestCybersecurityCompanyPage() {
       <section className="pb-6">
         <Container>
           <AnswerBox
-            q="Which is the best CERT-In empanelled cybersecurity company in India?"
-            a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, delivering security testing — VAPT, penetration testing, and red teaming — and security audits (CERT-In, RBI, SEBI, ISO 27001) to enterprises across India and the UAE since 2014."
+            q="What should an enterprise verify before choosing a cybersecurity provider?"
+            a="Verify any required government or industry designation at the official source; inspect the proposed methodology, assigned roles and sample deliverable; confirm remediation and retest terms; and review evidence from comparable engagements. Price and badges alone do not establish delivery fit."
           />
+          <p className="mt-5 text-sm text-fg-muted">
+            Comparing the wider market? Use the{" "}
+            <Link
+              href="/blog/cyber-security-companies-in-mumbai-india-2026"
+              className="font-semibold text-neon-cyan underline-offset-4 hover:underline"
+            >
+              cybersecurity company comparison and buyer checklist
+            </Link>
+            .
+          </p>
         </Container>
       </section>
 
-      {/* ── WHY WE'RE RATED AMONG THE BEST ───────────────────────────── */}
+      {/* ── BUYER CRITERIA ────────────────────────────────────────────── */}
       <section className="relative py-20 sm:py-28">
         <Container className="relative">
           <SectionTitle
             eyebrow="Why Macksofy"
             title={
               <>
-                Why enterprises rank us among India’s{" "}
-                <span className="gradient-text">top cybersecurity firms</span>
+                Evaluate the team on{" "}
+                <span className="gradient-text">evidence, not rankings</span>
               </>
             }
-            description="Empanelment, track record and bench strength — the three things procurement teams and CISOs actually verify before they sign."
+            description="These are the checks procurement and security leaders can complete before they approve a scope or sign a contract."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {PILLARS.map((p, i) => (
@@ -307,22 +325,22 @@ export default function BestCybersecurityCompanyPage() {
         <Container className="relative">
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <FadeIn className="lg:col-span-6">
-              <Eyebrow>The Authority</Eyebrow>
+              <Eyebrow>Official verification</Eyebrow>
               <h2 className="mt-4 font-display text-3xl font-black tracking-tighter sm:text-4xl lg:text-5xl text-balance leading-[1.0]">
-                CERT-In empanelment, accepted on the{" "}
-                <span className="gradient-text">first read</span>
+                Check CERT-In status at the{" "}
+                <span className="gradient-text">authoritative source</span>
               </h2>
               <p className="mt-6 text-lg text-fg-muted text-pretty">
-                Being empanelled by CERT-In under MeitY is the strongest trust signal an Indian
-                security auditor can hold. It means our methodology, reporting and auditor
-                credentials have been vetted by the national CERT — so the reports we produce are
-                accepted by regulators without a second cycle.
+                CERT-In publishes the official list of empanelled information security auditing
+                organisations. Buyers should verify the legal entity there, then confirm that the
+                proposed scope and deliverables meet the requirements of the applicable regulator,
+                standard or contract. Empanelment does not replace engagement-level due diligence.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  "Audit reports accepted by SEBI, RBI, IRDAI and UIDAI without rework",
-                  "Controls mapped across Indian and global frameworks in a single engagement",
-                  "Engineers certified in OSCP, CEH, CRTP and ISO 27001 Lead Auditor",
+                  "Match the legal entity in the proposal to the official directory",
+                  "Write the applicable framework and report format into the scope",
+                  "Confirm assigned roles, evidence handling and closure-retest terms",
                 ].map((line) => (
                   <li key={line} className="flex items-start gap-3">
                     <BadgeCheck className="mt-0.5 size-5 shrink-0 text-neon-cyan" />
@@ -331,22 +349,30 @@ export default function BestCybersecurityCompanyPage() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-wrap gap-2">
-                {REGULATORS.map((r) => (
+                {FRAMEWORKS.map((r) => (
                   <Badge key={r} variant="outline">
                     {r}
                   </Badge>
                 ))}
               </div>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-wrap gap-3">
+                <LinkButton
+                  href="https://www.cert-in.org.in/certEmpanelment.jsp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  withArrow
+                >
+                  Verify on CERT-In
+                </LinkButton>
                 <LinkButton href="/audit/cert-in-empanelled-audit" withArrow>
-                  Explore our CERT-In audit
+                  Review the audit service
                 </LinkButton>
               </div>
             </FadeIn>
             <FadeIn className="lg:col-span-6" delay={0.15}>
               <Eyebrow color="purple">Frameworks we cover</Eyebrow>
               <p className="mt-3 mb-6 text-fg-muted">
-                One engagement, mapped across the regulators that govern your industry.
+                Scope mapping is selected according to the buyer's actual sector and obligations.
               </p>
               <ComplianceMatrix />
             </FadeIn>
@@ -389,6 +415,17 @@ export default function BestCybersecurityCompanyPage() {
         </Container>
       </section>
 
+      <CaseStudyProof
+        caseStudySlugs={[
+          "listed-fintech-bola-jwt-pentest",
+          "gcc-telecom-mobile-app-takeover",
+          "listed-bank-red-team-edr-bypass",
+        ]}
+        eyebrow="Documented engagement evidence"
+        heading="Inspect the work behind the claims."
+        description="These anonymised records show the scope, approach, findings and reported outcomes for penetration testing, mobile security and red-team engagements."
+      />
+
       {/* ── COVERAGE ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="absolute inset-0 bg-grid opacity-20" />
@@ -400,8 +437,9 @@ export default function BestCybersecurityCompanyPage() {
               <span className="gradient-text">GCC reach</span>
             </h2>
             <p className="mt-5 text-lg text-fg-muted text-pretty">
-              From our Bandra Kurla Complex headquarters we deliver to enterprises across every
-              major Indian metro — and across the UAE and wider GCC.
+              The published delivery footprint covers major Indian metros plus the UAE and wider
+              GCC. On-site availability, data-location constraints and timelines are confirmed
+              during scoping.
             </p>
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-2.5">
@@ -444,7 +482,7 @@ export default function BestCybersecurityCompanyPage() {
       </section>
 
       {/* ── LEAD CAPTURE ─────────────────────────────────────────────── */}
-      <LeadCapture />
+      <LeadCapture focus="services" />
     </>
   );
 }

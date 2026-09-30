@@ -21,7 +21,7 @@ export const SITE = {
   // just changed substantially, on a young domain where crawl demand is the
   // binding constraint. Run `npm run sitemap:freshness` after any broad content
   // change; it fails when this date is older than the newest content commit.
-  contentRevision: "2026-08-25",
+  contentRevision: "2026-09-30",
 
   email: "services@macksofy.com",
   phone: "+919930824239",

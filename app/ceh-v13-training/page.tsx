@@ -614,7 +614,7 @@ export default function CehV13TrainingPage() {
               <Link href="/services/vapt" className="text-neon-cyan underline-offset-4 hover:underline">VAPT</Link>,{" "}
               <Link href="/audit/cert-in-empanelled-audit" className="text-neon-cyan underline-offset-4 hover:underline">CERT-In empanelled audits</Link>{" "}
               and{" "}
-              <Link href="/best-cybersecurity-company" className="text-neon-cyan underline-offset-4 hover:underline">how we work</Link>.
+              <Link href="/services" className="text-neon-cyan underline-offset-4 hover:underline">security consulting services</Link>.
             </p>
           </Container>
         </section>

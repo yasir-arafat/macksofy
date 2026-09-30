@@ -80,7 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/training/offsec"),
     stat("/contact"),
     stat("/about"),
-    stat("/best-cybersecurity-company"),
+    stat("/best-cybersecurity-company", new Date("2026-09-30")),
     stat("/ceh-v13-training"),
     stat("/blog", freshenBlog(latestPostDate)),
     ...TOPIC_HUBS.map((hub) =>

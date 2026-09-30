@@ -147,12 +147,12 @@ export default function AboutPage() {
               }
               description={
                 <>
-                  It&rsquo;s also why Macksofy is consistently ranked among the{" "}
+                  For an evidence-based market comparison, use our guide to{" "}
                   <Link
-                    href="/best-cybersecurity-company"
+                    href="/blog/cyber-security-companies-in-mumbai-india-2026"
                     className="font-semibold text-neon-cyan hover:text-fg transition-colors"
                   >
-                    best cybersecurity companies in Mumbai &amp; India
+                    cyber security companies in Mumbai &amp; India
                   </Link>
                   .
                 </>

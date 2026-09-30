@@ -168,7 +168,7 @@ export function Footer({ nav }: { nav: NavIndex }) {
           <FooterCol title="Company">
             <FooterLinkAnimated href="/about">About</FooterLinkAnimated>
             <FooterLinkAnimated href="/best-cybersecurity-company">
-              Best Cybersecurity Company
+              Why Choose Us
             </FooterLinkAnimated>
             <FooterLinkAnimated href="/industries">Industries</FooterLinkAnimated>
             <FooterLinkAnimated href="/clients">Clients</FooterLinkAnimated>
