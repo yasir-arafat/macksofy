@@ -644,6 +644,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is mobile application security testing?",
     a: "Mobile application security testing is the assessment of an Android or iOS app and the backend it calls for exploitable weaknesses: secrets and data on the device, the TLS channel, and the authentication, authorisation and business logic of its APIs. Macksofy tests both platforms manually against OWASP MASVS for clients in India and the UAE, with per-finding proof and a retest.",
   },
+  "blog:secure-source-code-review-services-india-2026": {
+    q: "What is a secure source code review?",
+    a: "A secure source code review is a white-box assessment in which reviewers trace how untrusted input moves through an application's code to the sinks where it can cause harm, confirming which paths are exploitable. Macksofy combines SAST, dependency and secrets scanning with manual review across nine languages for clients in India and the UAE, with human-confirmed findings and a retest.",
+  },
   "blog:agentic-ai-security-testing-checklist-2026": {
     q: "What is agentic AI security testing?",
     a: "Agentic AI security testing assesses the complete action chain across the model, planner, tools, identity, data, memory, approval gates, and downstream systems. It verifies that malicious instructions, poisoned content, or a compromised component cannot make an AI agent access data or perform actions beyond the user's authority.",

@@ -1503,7 +1503,7 @@ export const POSTS: BlogPost[] = [
       { type: "para", text: "For a detailed comparison of the two most-confused options, read [CERT-In empanelled vs ISO 27001](/blog/cert-in-empanelled-vs-iso-27001-2026). Many BFSI and SaaS organisations end up maintaining all three, because they serve regulators, enterprise buyers and global customers at once." },
 
       { type: "heading", level: 2, id: "cost-time", text: "How long does a CERT-In audit take, and what drives cost?" },
-      { type: "para", text: "As with any security engagement, effort is driven by scope, not a fixed licence. The main drivers are the number of applications, hosts and cloud environments; the depth of source-code review; whether a closure retest is included; and the compliance mapping required. A typical mid-sized engagement runs about one week of scoping, one to three weeks of testing, one week of reporting, and a short retest window — but a large BFSI estate can run considerably longer." },
+      { type: "para", text: "As with any security engagement, effort is driven by scope, not a fixed licence. The main drivers are the number of applications, hosts and cloud environments; the depth of [source-code review](/blog/secure-source-code-review-services-india-2026); whether a closure retest is included; and the compliance mapping required. A typical mid-sized engagement runs about one week of scoping, one to three weeks of testing, one week of reporting, and a short retest window — but a large BFSI estate can run considerably longer." },
       {
         type: "stat-row",
         stats: [
@@ -10413,6 +10413,273 @@ def fetch_logs(service: str) -> str:
       {
         q: "How often should a mobile app be tested?",
         a: "At minimum before each major release and annually, and whenever the authentication, payment or data-handling flows change. Regulated entities in banking, payments and securities typically test on a defined cycle set by their regulator, and many move to a quarterly cadence once the app handles transactions.",
+      },
+    ],
+  },
+  // ===================================================================
+  // Secure source code review — commercial-investigation intent
+  // ("source code review companies / services / company", "secure code
+  // review tool(s)", language-specific "<lang> secure code" / "<lang> sast").
+  // The service page was the only URL surfacing, at position 4-33, with no
+  // article behind it. Links the service page, the VAPT hub, the web and
+  // API testing services, and the compliance pages that drive the purchase.
+  // ===================================================================
+  {
+    slug: "secure-source-code-review-services-india-2026",
+    seoTitle: "Source Code Review Services in India: Buyer's Guide (2026)",
+    seoDescription:
+      "What a secure source code review covers, how it differs from a SAST scan and a pentest, which tools matter, and how to scope, evidence and buy one in India.",
+    title: "Secure Source Code Review Services in India: What a Real Review Covers and How to Buy One",
+    description:
+      "A source code review is the only assessment that sees the flaw before it is reachable. It is also the easiest to fake: run a scanner, export the findings, add a cover page. This guide sets out what a manual review actually covers, where SAST and SCA tools fit and where they stop, how a review differs from a penetration test, and how an Indian buyer should scope, evidence and sign off one.",
+    date: "2026-10-10",
+    author: "AppSec",
+    authorRole: "Application security and secure code review practice",
+    readingTime: "12 min read",
+    category: "Web AppSec",
+    tags: ["Source Code Review", "SAST", "Application Security", "Secure SDLC", "Penetration Testing", "India"],
+    heroKind: "web",
+    heroEyebrow: "Secure code review · SAST · SCA · 2026",
+    keywords: [
+      "source code review services",
+      "source code review companies india",
+      "secure source code review",
+      "secure code review tool",
+      "sast vs manual code review",
+      "source code review vs penetration testing",
+      "secure code review india",
+      "code review for compliance",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "A secure source code review is a white-box assessment: a reviewer with the code, the build and the architecture traces how untrusted input moves through the application to the places where it can do damage — a database query, a file path, a shell, a deserialiser, an authorisation decision — and confirms which of those paths are actually exploitable. Automated tools do the first pass. The value is in the second, and in the fact that the review sees flaws a penetration test can never reach from the outside.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "The short answer",
+        text: "A defensible review combines an automated baseline (SAST, dependency and secrets scanning across the full git history) with a manual trace of authentication, authorisation, cryptography, injection sinks, deserialisation and trust boundaries — and it reports only findings a human has confirmed, each with a file and line, a weakness class, a severity tied to exploitability, and a fix in the codebase's own language.",
+      },
+
+      { type: "heading", level: 2, id: "review-vs-scan", text: "A code review is not a SAST scan with a cover page" },
+      {
+        type: "para",
+        text: "Static application security testing (SAST) tools are necessary and nowhere near sufficient. They pattern-match code against known weakness shapes, which makes them good at finding a raw SQL concatenation and poor at knowing whether the string ever reaches a database, who can call that path, and what it would give an attacker. A review that stops at the scanner export produces two failure modes at once: hundreds of findings nobody will fix, and silence on the authorisation and business-logic flaws that scanners cannot see at all.",
+      },
+      {
+        type: "comparison",
+        title: "What each half of a review is good at",
+        left: {
+          label: "Automated baseline (SAST, SCA, secrets)",
+          tone: "cyan",
+          bullets: [
+            "Coverage: every file, every dependency, every commit in history",
+            "Known weakness shapes — injection sinks, weak crypto calls, dangerous functions",
+            "Vulnerable third-party components with a published CVE",
+            "Secrets committed to the repository, including ones later deleted",
+            "Speed and repeatability: the same sweep runs in CI after the engagement",
+          ],
+        },
+        right: {
+          label: "Manual review",
+          tone: "purple",
+          bullets: [
+            "Whether a flagged path is reachable, by whom, and what it yields",
+            "Authorisation and tenant isolation — who can read or change whose data",
+            "Business logic: order of operations, state machines, race windows, limits",
+            "Cryptographic design, not just algorithm names — key handling, token construction",
+            "Trust boundaries the tool cannot see: internal services, queues, admin paths",
+          ],
+        },
+      },
+      {
+        type: "para",
+        text: "Ask any provider what proportion of their effort is manual, and ask for a sanitised report. If the findings read like tool output — a rule name, a line number, no reachability argument — the review was a scan.",
+      },
+
+      { type: "heading", level: 2, id: "coverage", text: "What a secure source code review covers" },
+      {
+        type: "para",
+        text: "The review follows the data. For each entry point — HTTP handlers, message consumers, scheduled jobs, file imports, admin consoles — the reviewer asks where the input goes, what checks it passes, and which sinks it can reach. The areas below are where the serious findings cluster, and a proposal should name each of them.",
+      },
+      {
+        type: "table",
+        caption: "Review areas and the findings each one produces",
+        headers: ["Area", "What the reviewer traces", "Typical finding"],
+        rows: [
+          ["Authentication and sessions", "Login, password handling, reset flows, token issuance and validation, session lifetime and revocation", "JWT accepted with signature check disabled on one path; reset token predictable; session never invalidated server-side"],
+          ["Authorisation and tenant isolation", "Every data access against the identity making it; object-level and function-level checks; multi-tenant filters", "Object identifiers trusted from the client (BOLA / IDOR); admin function reachable by a normal role; tenant filter missing on one query"],
+          ["Injection sinks", "SQL, NoSQL, LDAP and OS command construction; template rendering; HTML output encoding", "Second-order SQL injection through a value stored safely and used unsafely; server-side template injection in a notification system"],
+          ["Deserialisation, files and SSRF", "Object deserialisation of untrusted data; upload handling and path construction; outbound requests built from user input", "Unsafe deserialiser reachable from a REST handler; path traversal in a download endpoint; SSRF from a PDF or webhook feature reaching internal services"],
+          ["Cryptography", "Algorithm and mode choice, key storage, IV and nonce handling, token construction, password hashing", "Static key in a constants file; ECB mode; home-grown token signing; fast hash used for passwords"],
+          ["Secrets and configuration", "Credentials in code, configuration and git history; debug and feature flags; environment handling", "Production database password in a deleted commit; debug endpoints compiled into release builds"],
+          ["Dependencies and supply chain", "Direct and transitive components, their versions and known CVEs; build and CI configuration", "A vulnerable logging or serialisation library two levels deep; a CI step that executes untrusted pull-request input"],
+          ["Logging and error handling", "What is written to logs and error responses; what is swallowed", "Tokens and PII in application logs; stack traces returned to clients; failures that fail open"],
+        ],
+      },
+
+      { type: "heading", level: 2, id: "review-vs-pentest", text: "Source code review versus penetration testing" },
+      {
+        type: "para",
+        text: "They are complementary, and the question is usually about sequence and budget rather than either-or. A [penetration test](/blog/penetration-testing-vapt-guide-india-2026) proves exploitability from the outside and finds what the deployed system exposes, including configuration and infrastructure the code never shows. A code review finds what the running system hides: the path that is only reachable with a role the tester did not have, the flaw in a feature not yet switched on, the weak cryptography that looks fine over the wire.",
+      },
+      {
+        type: "table",
+        caption: "Choosing between a review and a test",
+        headers: ["", "Source code review", "Penetration test"],
+        rows: [
+          ["Vantage point", "Inside: code, build, configuration, history", "Outside: the deployed application as an attacker sees it"],
+          ["Finds best", "Authorisation and logic flaws, unsafe sinks, crypto design, secrets, vulnerable dependencies", "Deployment and infrastructure issues, exploitability under real controls, chained attack paths"],
+          ["Misses", "Runtime configuration, infrastructure, controls applied outside the code", "Code paths the tester cannot reach or trigger; latent flaws behind feature flags"],
+          ["Best moment", "Before release, during a major refactor, after a security incident, before an acquisition", "Before go-live and on a recurring cycle against production-like environments"],
+          ["Evidence it produces", "File and line, weakness class, reachability argument, fix in code", "Request and response, proof of impact, severity under real conditions"],
+          ["Compliance role", "Secure-development and code-review controls", "Testing and assurance controls"],
+        ],
+      },
+      {
+        type: "para",
+        text: "For a customer-facing application that handles money or regulated data, the usual sequence is a review before release and a [web application](/services/web-application-security) or [API security test](/services/api-security) against the deployed build, with the review findings used to steer the test toward the paths that matter.",
+      },
+
+      { type: "heading", level: 2, id: "tools", text: "Secure code review tools: what each class does and where it stops" },
+      {
+        type: "para",
+        text: "Buyers searching for a single secure code review tool are usually looking for something that does not exist. Four classes of tool each cover a slice, and a competent review uses all four before a reviewer starts reading.",
+      },
+      {
+        type: "table",
+        caption: "Tool classes used in a code review",
+        headers: ["Class", "Examples", "What it finds", "Where it stops"],
+        rows: [
+          ["SAST (pattern and taint analysis)", "Semgrep, CodeQL, SonarQube, Bandit, gosec, Brakeman, commercial scanners", "Dangerous sinks, known weakness shapes, source-to-sink flows when rules exist", "Reachability, authorisation, business logic, anything without a rule"],
+          ["SCA and SBOM", "OWASP Dependency-Check, Trivy, Snyk Open Source", "Components with published vulnerabilities; an inventory for compliance and incident response", "Whether the vulnerable function is actually called; unpublished flaws in dependencies"],
+          ["Secrets scanning", "Gitleaks, TruffleHog", "Credentials and keys in code, configuration and the full commit history", "Whether a secret is live, and what it grants — both need a human to check"],
+          ["Custom queries", "Repository-specific Semgrep and CodeQL rules", "Patterns unique to the codebase: the internal authorisation helper that must wrap every handler, the one safe way to build a query", "Must be written by someone who has already understood the codebase"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The tools should outlive the engagement",
+        text: "A good review leaves the automated baseline behind: the rules tuned to your repository, the pre-commit hooks, the CI gate with agreed thresholds. If the proposal does not include a handover of the tooling and the custom rules, the next review starts from zero.",
+      },
+
+      { type: "heading", level: 2, id: "scoping", text: "Scoping a code review in India: decide these before you ask for a price" },
+      {
+        type: "para",
+        text: "Reviews are priced on lines of code, languages and the number of crown-jewel modules, so an unscoped request produces either an inflated quote or a shallow one. Decide the following first and put it in the request.",
+      },
+      {
+        type: "table",
+        caption: "Scoping inputs for a secure source code review",
+        headers: ["Decision", "Why it matters", "What to specify"],
+        rows: [
+          ["Access model", "Read-only repository access is faster; on-premises review from a controlled machine is required for some BFSI, defence and healthcare codebases", "Repository grant to a pinned branch, or on-site review with no code leaving the premises — and the source-handling terms in the NDA"],
+          ["Branch or tag pin", "A review of a moving target is not reproducible, and the retest has no baseline", "The exact commit under review, frozen for the engagement"],
+          ["Size and languages", "Effort scales with lines of code and the number of language and framework stacks", "Approximate lines per language, frameworks, and whether generated or vendored code is excluded"],
+          ["Crown-jewel modules", "Full-codebase coverage at equal depth wastes effort on low-risk code", "Authentication, payments, PII handling, admin, integrations — the modules that get the deepest manual pass"],
+          ["Build and run environment", "A reviewer who can build and run the code confirms reachability instead of guessing", "Build instructions, a working environment or container, and test credentials for each role"],
+          ["Architecture briefing", "An hour with a lead developer saves days of reading", "Data-flow diagram, trust boundaries, internal services, and the list of entry points"],
+          ["Compliance target", "The report must be written for the reader who will consume it", "The regulation or standard, the auditor's expected format, and the submission date"],
+          ["Retest", "A finding is closed when the fix is reviewed, not when it is merged", "Retest window and whether it is included"],
+        ],
+      },
+
+      { type: "heading", level: 2, id: "compliance", text: "The compliance drivers behind most Indian code reviews" },
+      {
+        type: "para",
+        text: "Most code reviews in India are bought because an auditor, regulator or customer asked for one. Knowing which requirement is driving yours decides the scope, the report format and sometimes who is allowed to do the work.",
+      },
+      {
+        type: "list",
+        items: [
+          "ISO 27001 — the secure-development controls expect security requirements, secure coding and security testing during development, and a code review is the usual evidence for the coding control. See the [ISO 27001 audit](/audit/iso-27001) page for the control set.",
+          "PCI DSS — requirement 6 expects bespoke and custom software to be developed securely and reviewed for vulnerabilities before release; the review is the evidence. The [PCI DSS](/audit/pci-dss) page covers the wider scope.",
+          "RBI-regulated entities — the [IT governance direction](/audit/rbi-it-governance) expects security assessment of applications across the lifecycle, and auditors routinely ask for code-level evidence on critical systems.",
+          "SEBI-regulated entities — the [cyber security and cyber resilience framework](/audit/sebi-cscrf) expects regular application security testing, and a code review of critical systems is the strongest form of it.",
+          "CERT-In empanelled audits — a code review can be delivered as part of an empanelled engagement; the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026) explains the engagement model and the report format.",
+          "SOC 2 and customer due diligence — enterprise customers and SOC 2 auditors increasingly ask for evidence of secure development, and a dated review with a retest record is the cleanest answer. See [SOC 2](/audit/soc-2).",
+          "Acquisitions — a code review with an SBOM is the standard technical due-diligence artefact when buying a software company or product.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "report", text: "What the report should contain, and what should not be in it" },
+      {
+        type: "list",
+        items: [
+          "Only human-confirmed findings. Unconfirmed scanner output belongs in an appendix, labelled as such, or nowhere.",
+          "For every finding: file and line, the weakness class (a CWE identifier), the entry point and the path to the sink, the severity with the exploitability reasoning, and a fix written in the codebase's language and framework.",
+          "A runnable proof or reproduction for every high and critical finding.",
+          "A software bill of materials, with the vulnerable components flagged and the reachable ones distinguished from the merely present.",
+          "An SDLC handover: the tuned rules, the pre-commit and CI configuration, and the thresholds agreed with the development team.",
+          "A compliance mapping written for the auditor who will read it, and a retest record showing what was closed and what was accepted as risk.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Padding tells",
+        text: "Style and lint observations, unreachable code, \"no obfuscation\", and a dependency with a CVE in a function the code never calls are not security findings. A report that counts them is optimising for finding count, not for your risk.",
+      },
+
+      { type: "heading", level: 2, id: "time-cost", text: "How long a review takes and what moves the price" },
+      {
+        type: "para",
+        text: "A focused review of one module — a payment service, an authentication subsystem — typically runs one to one and a half weeks. A full-codebase review of a mid-sized product is usually two and a half to four weeks. The drivers are lines of code, the number of languages and frameworks, how many crown-jewel modules get the deep manual pass, whether the review is on-site, and whether a build environment is available. Insist on a fixed price against the pinned scope; a day rate against an estimate is how reviews run over without getting deeper.",
+      },
+
+      { type: "heading", level: 2, id: "red-flags", text: "Red flags in a code review provider" },
+      {
+        type: "list",
+        items: [
+          "A proposal priced without asking for lines of code, languages or the crown-jewel modules.",
+          "No stated manual proportion, or a sample report that reads like tool output.",
+          "No plan to build and run the code — reachability will be guessed.",
+          "Secrets scanning on the current branch only, not the history.",
+          "Findings without a fix in the codebase's own language.",
+          "No retest, or a retest that accepts a developer's word for the fix.",
+          "Reviewers named on the proposal who are not the reviewers on the engagement.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "macksofy", text: "Where Macksofy fits" },
+      {
+        type: "para",
+        text: "Macksofy delivers [secure source code review](/services/source-code-review) across Java, .NET, Node.js, Python, Go, PHP, Ruby, Swift and Kotlin as a manual-led engagement on top of an automated SAST, SCA and secrets baseline, with every finding human-confirmed, a fix in the codebase's language, an SBOM, and an SDLC handover. Reviews run against a read-only repository grant or on-site for codebases that cannot leave the premises, and the compliance evidence is written for the auditor who will read it. The wider assessment options sit in the [VAPT and penetration testing hub](/blog/category/penetration-testing-vapt).",
+      },
+      {
+        type: "cta",
+        title: "Scope a source code review",
+        text: "Send the languages, the approximate size, the modules that matter most and the requirement you are reporting under, and we will return a fixed-price proposal against a pinned scope.",
+        href: "/services/source-code-review",
+        cta: "See the code review service",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is a secure source code review?",
+        a: "It is a white-box security assessment in which reviewers, with access to the code and build, trace how untrusted input moves through the application to the places it can cause harm, and confirm which paths are exploitable. It combines automated SAST, dependency and secrets scanning with a manual review of authentication, authorisation, cryptography, injection sinks and trust boundaries.",
+      },
+      {
+        q: "Is a SAST scan the same as a code review?",
+        a: "No. SAST tools find known weakness shapes quickly and at full coverage, but they cannot judge reachability, authorisation or business logic, and they produce many findings that are not exploitable. A code review uses SAST as a baseline and then relies on a human reviewer to confirm, prioritise and find the classes of flaw tools cannot see.",
+      },
+      {
+        q: "Source code review or penetration test — which do we need?",
+        a: "Usually both, in sequence. A code review before release finds flaws in paths a tester cannot reach from outside and fixes them cheaply. A penetration test against the deployed build proves exploitability under real controls and finds deployment and infrastructure issues the code never shows. If the budget allows one, choose by what the auditor or customer is asking for.",
+      },
+      {
+        q: "Which secure code review tool should we use?",
+        a: "No single tool covers a review. A sound baseline combines a SAST tool such as Semgrep or CodeQL, a dependency scanner that produces an SBOM, and a secrets scanner run across the full git history, with rules tuned to the codebase. The tooling matters less than the manual review on top of it and the handover of the tuned rules into your pipeline.",
+      },
+      {
+        q: "Does the code have to leave our premises?",
+        a: "Not necessarily. Many reviews run against read-only access to a pinned branch in your repository. For sensitive codebases in banking, defence or healthcare, the review can run on-site from a controlled machine with nothing leaving the premises, which should be written into the source-handling terms of the agreement.",
+      },
+      {
+        q: "How long does a source code review take?",
+        a: "A focused review of a single module typically takes one to one and a half weeks; a full review of a mid-sized codebase usually takes two and a half to four weeks. Size, the number of languages, the depth required on critical modules and whether a build environment is available are what move the duration.",
       },
     ],
   },

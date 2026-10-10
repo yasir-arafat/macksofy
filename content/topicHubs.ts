@@ -57,6 +57,7 @@ export const TOPIC_HUBS: TopicHub[] = [
       "top-vapt-companies-india-2026",
       "penetration-testing-vapt-guide-india-2026",
       "mobile-application-security-testing-guide-india-2026",
+      "secure-source-code-review-services-india-2026",
       "active-directory-pentest-guide-india-2026",
       "red-team-vs-penetration-testing-2026",
       "vapt-vs-red-team-2026",
