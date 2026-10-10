@@ -640,6 +640,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "How do MCP servers get hacked?",
     a: "MCP (Model Context Protocol) servers expose tools to AI agents, and are attacked through tool poisoning, indirect prompt injection, over-broad credentials that let an agent exfiltrate secrets, and unsanitised tool parameters that reach a shell as command injection. This guide sets out the threat model and the controls that mitigate each.",
   },
+  "blog:mobile-application-security-testing-guide-india-2026": {
+    q: "What is mobile application security testing?",
+    a: "Mobile application security testing is the assessment of an Android or iOS app and the backend it calls for exploitable weaknesses: secrets and data on the device, the TLS channel, and the authentication, authorisation and business logic of its APIs. Macksofy tests both platforms manually against OWASP MASVS for clients in India and the UAE, with per-finding proof and a retest.",
+  },
   "blog:agentic-ai-security-testing-checklist-2026": {
     q: "What is agentic AI security testing?",
     a: "Agentic AI security testing assesses the complete action chain across the model, planner, tools, identity, data, memory, approval gates, and downstream systems. It verifies that malicious instructions, poisoned content, or a compromised component cannot make an AI agent access data or perform actions beyond the user's authority.",

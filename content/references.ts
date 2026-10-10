@@ -187,6 +187,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   // land readers on a broken document.
   "blog:cert-in-empanelment-process-2026": ["cert-in-empanel", "cert-in"],
   "blog:telecom-cyber-security-rules-2024-india-compliance": ["dot", "cert-in"],
+  "blog:mobile-application-security-testing-guide-india-2026": ["owasp-masvs", "owasp-api", "rbi", "cert-in", "pci-dss"],
   "blog:penetration-testing-vapt-guide-india-2026": ["nist-800-115", "owasp-top-10", "cvss", "cert-in"],
   "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
   "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],

@@ -1293,7 +1293,7 @@ export const POSTS: BlogPost[] = [
           "Onsite vs remote — internal/AD tests may require onsite or VPN access and scheduling.",
         ],
       },
-      { type: "callout", tone: "info", title: "Indicative market ranges (India, 2026)", text: "As a rough guide only: a single web-app VAPT commonly runs ₹60,000–₹1,50,000; an external network test ₹75,000–₹2,00,000; a mobile app ₹80,000–₹2,00,000; and a full red-team engagement ₹5,00,000 and up. Always get a fixed-price proposal against a written scope — a credible provider will scope before quoting, not quote before scoping." },
+      { type: "callout", tone: "info", title: "Indicative market ranges (India, 2026)", text: "As a rough guide only: a single web-app VAPT commonly runs ₹60,000–₹1,50,000; an external network test ₹75,000–₹2,00,000; a mobile app ₹80,000–₹2,00,000; and a full red-team engagement ₹5,00,000 and up. Always get a fixed-price proposal against a written scope — a credible provider will scope before quoting, not quote before scoping. For what a mobile scope should include before you compare quotes, see the [mobile application security testing guide](/blog/mobile-application-security-testing-guide-india-2026)." },
       {
         type: "stat-row",
         stats: [
@@ -10129,6 +10129,290 @@ def fetch_logs(service: str) -> str:
       {
         q: "When should an AI system be retested?",
         a: "Retest after material changes to the model, system prompt, retrieval corpus, embedding model, tool schema, connector, identity permissions, memory, guardrail, application code or downstream API. Maintain regression tests for high-risk abuse cases between independent assessments.",
+      },
+    ],
+  },
+  // ===================================================================
+  // Mobile application security testing — informational-to-commercial
+  // intent ("mobile security testing", "mobile security testing guide",
+  // "owasp mobile application security", "mobile app penetration testing").
+  // Before this post the only page surfacing for the cluster was the
+  // service page, at position 38-88. Links to the mobile service page,
+  // the VAPT hub and the documented telecom case study.
+  // ===================================================================
+  {
+    slug: "mobile-application-security-testing-guide-india-2026",
+    seoTitle: "Mobile App Security Testing Guide: OWASP MASVS (2026)",
+    seoDescription:
+      "What a mobile app security test covers in 2026: OWASP MASVS scope, Android and iOS checks, backend API testing, the evidence to demand and how to scope one.",
+    title: "Mobile Application Security Testing in 2026: What a Real Test Covers and How to Scope One",
+    description:
+      "Most mobile app security tests stop at a scanner report and a list of hardening gaps nobody will fix. This guide sets out what a defensible test covers — the OWASP MASVS control groups, the Android and iOS specifics, the backend half most providers skip — and how an Indian buyer should scope, evidence and sign off one.",
+    date: "2026-10-10",
+    author: "Macksofy Pentest Team",
+    authorRole: "Application and mobile penetration testing practice",
+    readingTime: "13 min read",
+    category: "Penetration Testing",
+    tags: ["Mobile Security", "OWASP MASVS", "Android", "iOS", "Penetration Testing", "API Security", "India"],
+    heroKind: "web",
+    heroEyebrow: "Android · iOS · OWASP MASVS · 2026",
+    keywords: [
+      "mobile security testing",
+      "mobile application security testing",
+      "mobile security testing guide",
+      "owasp mobile application security",
+      "mobile app penetration testing india",
+      "android app penetration testing",
+      "ios app penetration testing",
+      "owasp masvs",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Mobile application security testing is the assessment of an Android or iOS app and the backend it talks to, done the way an attacker holds the phone: the build is decompiled, instrumented at runtime on a rooted or jailbroken device, its traffic intercepted, and every API it calls attacked for authorisation and logic flaws. The device-side checks are the part everyone recognises. The backend half is where the money-moving findings almost always are, and it is the half that a scanner-led test leaves out.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "The short answer",
+        text: "A defensible mobile test covers three layers: the binary (secrets, storage, platform configuration, tamper resistance), the channel (TLS, pinning, what the app trusts) and the backend (authentication, authorisation, business logic, rate limits) — scoped against OWASP MASVS at an agreed verification level, with every finding proven on a real device and mapped to the regulation that applies to you.",
+      },
+
+      { type: "heading", level: 2, id: "three-layers", text: "What a mobile application security test actually covers" },
+      {
+        type: "para",
+        text: "A mobile app is three attack surfaces wearing one icon. The binary runs on hardware the attacker fully controls, so anything inside it — keys, endpoints, feature flags, logic — should be assumed readable. The network channel runs over Wi-Fi the attacker may own. And the backend is an ordinary set of APIs that happens to be called from a phone, which means it inherits every web and API weakness plus a few of its own: device binding, OTP flows, deep links and push notifications.",
+      },
+      {
+        type: "table",
+        caption: "The three layers of a mobile test and what each one finds",
+        headers: ["Layer", "What is tested", "Typical findings", "Who it hurts"],
+        rows: [
+          ["Binary (static + runtime)", "Decompiled code, stored data, platform configuration, third-party SDKs, anti-tamper controls", "Hard-coded credentials, tokens in shared preferences or plist files, exported components, debug flags, verbose logging", "Any customer whose device, backup or cloud sync is reachable"],
+          ["Channel", "TLS configuration, certificate pinning, trust anchors, cleartext exceptions, WebView traffic", "Pinning only on the login screen, user-installed CAs trusted, HTTP fallbacks, WebView loading remote content without restriction", "Customers on hostile or shared networks"],
+          ["Backend", "Every endpoint the app calls, as the app calls it, plus the ones it does not expose in the UI", "Cross-account data access (BOLA), expired tokens still accepted, OTP and PIN brute force, mass assignment, deep links that change authenticated state", "Everyone — these findings scale to the whole customer base"],
+        ],
+      },
+      {
+        type: "para",
+        text: "The practical consequence for a buyer: if a proposal describes the binary and channel layers in detail and treats the backend as \"API testing on request\", you are buying half a test. The findings that reach a board or a regulator are nearly always in the third row.",
+      },
+
+      { type: "heading", level: 2, id: "masvs", text: "OWASP MASVS, in plain terms" },
+      {
+        type: "para",
+        text: "The OWASP Mobile Application Security Verification Standard (MASVS) is the reference most serious mobile tests are scoped against, and the OWASP Mobile Application Security Testing Guide (MASTG) is its companion set of test cases. Version 2 of MASVS reorganised the standard into control groups, each a short list of requirements. Knowing the groups lets you read a proposal and a report critically.",
+      },
+      {
+        type: "table",
+        caption: "MASVS v2 control groups and what a failure looks like in practice",
+        headers: ["Control group", "What it requires", "What a failure looks like"],
+        rows: [
+          ["MASVS-STORAGE", "Sensitive data is stored only where it needs to be, using platform-protected storage, and is not leaked through logs, backups, clipboards or screenshots", "A session token in SharedPreferences, card data in an unencrypted SQLite file, PII in logcat on a release build"],
+          ["MASVS-CRYPTO", "Current algorithms, proper key management, keys in the Keystore or Keychain rather than in code", "A static AES key in a constants class, ECB mode, a custom scheme that \"obfuscates\" rather than encrypts"],
+          ["MASVS-AUTH", "Authentication and session handling that holds up on the backend, not just in the UI; biometric and local authentication that cannot be bypassed by patching the app", "Biometric check that returns a boolean the server never verifies, OTP that can be replayed, sessions that never expire server-side"],
+          ["MASVS-NETWORK", "All traffic over TLS to verified endpoints, with pinning where the threat model demands it", "Cleartext permitted in the network security configuration, pinning that covers one endpoint, user CAs trusted"],
+          ["MASVS-PLATFORM", "Safe use of platform IPC, WebViews, deep links and app permissions", "An exported activity that reaches authenticated screens, a deep link that accepts a token parameter, a WebView with JavaScript bridges exposed to arbitrary origins"],
+          ["MASVS-CODE", "Up-to-date dependencies, platform security features enabled, no debug leftovers", "A vulnerable third-party SDK, debuggable release build, backup enabled with sensitive data inside"],
+          ["MASVS-RESILIENCE", "Resistance to reverse engineering and tampering — root and jailbreak detection, integrity checks, obfuscation — for apps whose threat model needs it", "Root detection defeated by a one-line hook, integrity check that can be patched out, no response to instrumentation"],
+          ["MASVS-PRIVACY", "Data minimisation, transparency and user control over what the app collects", "Permissions well beyond the app's purpose, third-party analytics receiving identifiers, no way to exercise deletion"],
+        ],
+      },
+      {
+        type: "para",
+        text: "MASVS also defines verification profiles. MAS-L1 is the baseline every app should meet. MAS-L2 adds defence-in-depth for apps handling sensitive data — banking, payments, health, identity. MAS-R is the resilience profile, which only matters if your threat model includes attackers tampering with the app itself, as it does for payment and lending apps. Insist the proposal names the profile; \"MASVS-aligned\" without a profile is a hedge.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Resilience is not a substitute for a secure backend",
+        text: "Root detection, anti-Frida checks and obfuscation slow an attacker down; they never stop one with a rooted device and a weekend. If the backend trusts the app — accepts a client-side \"biometric passed\" flag, or an expired token, or a price sent by the client — resilience controls just delay the inevitable. Fix the trust boundary first.",
+      },
+
+      { type: "heading", level: 2, id: "android-ios", text: "Android and iOS: what actually differs" },
+      {
+        type: "para",
+        text: "The MASVS groups apply to both platforms, but the attack surface is shaped differently, and a test that treats iOS as \"Android with fewer problems\" misses things. If the app ships on both, both builds are in scope; the backend is shared, but the storage, IPC and platform configuration findings rarely transfer one-to-one.",
+      },
+      {
+        type: "comparison",
+        title: "Where the platform-specific findings come from",
+        left: {
+          label: "Android (APK / AAB)",
+          tone: "cyan",
+          bullets: [
+            "Exported activities, services, receivers and content providers — the manifest is the first attack map",
+            "Intent injection and implicit intents bridging into authenticated screens",
+            "SharedPreferences, SQLite and Realm databases, and whether backup is permitted",
+            "Network security configuration: cleartext exceptions and trust anchors",
+            "Root detection and Play Integrity, the replacement for SafetyNet, and how the app reacts when they fail",
+            "Native libraries and bundled SDKs with known vulnerabilities",
+          ],
+        },
+        right: {
+          label: "iOS (IPA)",
+          tone: "purple",
+          bullets: [
+            "Keychain item protection classes and what survives an unlocked device or a backup",
+            "NSUserDefaults and plist files used as if they were secure storage",
+            "App Transport Security exceptions that re-enable cleartext or weak TLS",
+            "URL schemes and universal links as the deep-link surface",
+            "Jailbreak detection and anti-debugging, and whether the app fails open",
+            "Background snapshot caching and pasteboard leakage of sensitive screens",
+          ],
+        },
+      },
+
+      { type: "heading", level: 2, id: "real-findings", text: "The findings that matter, and the ones that are not findings" },
+      {
+        type: "para",
+        text: "Mobile reports are padded more than any other kind of pentest report, because the tooling generates a long list of hardening observations that are cheap to list and expensive to fix. Two tests of the same app can produce a forty-finding report and a six-finding report, and the six-finding one can be the better test. The difference is whether each item is proven to matter.",
+      },
+      {
+        type: "table",
+        caption: "How to read a mobile findings list",
+        headers: ["What the report says", "Is it a finding?", "What a good report does instead"],
+        rows: [
+          ["\"The application can be decompiled\"", "No. Every app can be decompiled; this is how the test starts", "Reports what was found inside — a credential, an endpoint, a bypassable check — with the impact proven"],
+          ["\"Certificate pinning can be bypassed\"", "No. Bypassing pinning on a rooted test device is a technique, not a weakness", "Reports what the intercepted traffic revealed about the backend"],
+          ["\"Root / jailbreak detection can be bypassed\"", "Usually no, unless the profile is MAS-R and the control was contractually required", "States whether the backend behaves differently on a rooted device, which is what the control is for"],
+          ["\"API key found in the binary\"", "Only if the key grants something", "Demonstrates what the key reaches — a backend, a cloud bucket, a third-party service — and rates it on that"],
+          ["\"Backup is enabled\"", "Low at most, on its own", "Shows the sensitive data actually present in a backup, or downgrades it to informational"],
+          ["\"Expired token accepted by the transfer endpoint\"", "Yes — this is the test paying for itself", "Reproduces it on a second test account with a recorded proof and a severity tied to the transaction limit"],
+        ],
+      },
+      {
+        type: "para",
+        text: "Ask a prospective provider for a sanitised sample report and count how many findings are in the left column. A report that leads with \"app is decompilable\" is telling you the engagement stopped at the scanner.",
+      },
+
+      { type: "heading", level: 2, id: "backend", text: "The backend half most mobile tests skip" },
+      {
+        type: "para",
+        text: "Once traffic is intercepted, the app becomes a client for a set of APIs, and those APIs are tested with the same discipline as any [API security assessment](/services/api-security): object-level and function-level authorisation on every endpoint, mass assignment, rate limits, and the handling of every identifier the app sends. The mobile-specific additions are the flows that only exist because the client is a phone.",
+      },
+      {
+        type: "list",
+        items: [
+          "Device binding and registration — can a second device enrol against a victim account with only the data the app sends? Is the device identifier something the attacker can choose?",
+          "OTP and PIN flows — length, retry limits, whether verification happens server-side, whether a successful OTP can be replayed, and whether the \"resend\" path leaks anything.",
+          "Biometric and local authentication — whether the backend issues anything on the strength of a client-side result.",
+          "Deep links, universal links and app links — every parameter is attacker-controlled; a link that adds a payment instrument or changes a contact detail while authenticated is an account-takeover primitive.",
+          "Push notification handlers — what the app does with data in a notification payload, and whether it is treated as trusted.",
+          "Hidden and legacy endpoints — the ones the UI no longer calls but the backend still serves, usually with older, weaker authorisation.",
+          "Transaction logic — limits enforced client-side, amounts and beneficiaries trusted from the client, idempotency on retry.",
+        ],
+      },
+      {
+        type: "para",
+        text: "The documented [GCC telecom mobile app engagement](/case-studies/gcc-telecom-mobile-app-takeover) shows how these layers chain: a per-installation API key stored in cleartext on the device, combined with a deep link that bound a payment instrument to the victim's account, produced a one-tap account takeover. Neither finding was severe on its own in a scanner's view. Together they would have been a regulator-reported incident in launch week.",
+      },
+
+      { type: "heading", level: 2, id: "scoping", text: "Scoping a mobile test in India: what to decide before the proposal" },
+      {
+        type: "para",
+        text: "The quality of a mobile test is mostly decided in scoping. Providers quote against whatever you give them, and a vague scope produces a cheap, shallow test that passes procurement and fails the audit. Decide the following before you ask for a price, and put the answers in the request.",
+      },
+      {
+        type: "table",
+        caption: "Scoping inputs for a mobile application security test",
+        headers: ["Decision", "Why it matters", "What to specify"],
+        rows: [
+          ["Builds and platforms", "A production build with release protections behaves differently from a debug build; iOS and Android are separate scopes", "Version-pinned APK or AAB and IPA, release-signed, with the protections that will ship"],
+          ["Backend in or out", "The impactful findings live there, and a backend test needs environment access and test data", "In scope, against a staging environment that mirrors production, with the full API surface the app calls"],
+          ["Verification profile", "Sets the depth and the price; a banking app at MAS-L1 is under-tested", "MAS-L1, MAS-L2 or MAS-L2 plus MAS-R, chosen from the data the app handles"],
+          ["Test accounts and roles", "Authorisation testing needs at least two accounts per role and the ability to move value between them", "Two or more accounts per customer type, with funded test balances where transactions exist"],
+          ["Devices and OS versions", "Behaviour differs across OS versions and vendors; some controls only exist on newer OS releases", "Minimum supported OS version, and whether rooted or jailbroken devices are in scope for resilience testing"],
+          ["Third-party SDKs", "Payment, analytics, identity and advertising SDKs are inside your binary and your liability", "Inventory of SDKs, and whether their behaviour is in scope"],
+          ["Regulatory mapping", "The report will be read against a specific regulation, and the mapping is easier to do during the test than after", "Which regime applies — see the next section — and the format the auditor or regulator expects"],
+          ["Retest", "A finding is closed when it is retested, not when the developer says so", "Retest window and whether it is included"],
+        ],
+      },
+
+      { type: "heading", level: 2, id: "regulation", text: "Which Indian requirements your app is being tested against" },
+      {
+        type: "para",
+        text: "Most Indian mobile apps that warrant a professional test sit under at least one regime that expects one. The regime shapes the scope, the evidence and sometimes who is allowed to do the testing, so name it at the start.",
+      },
+      {
+        type: "list",
+        items: [
+          "Banks, payment system operators and payment apps — the RBI's digital payment security controls set expectations for mobile payment applications, including device binding, secure storage on the device, protection of the channel and detection of compromised devices. Tests for these apps are scoped at MAS-L2 with resilience controls, and the findings are mapped to the RBI direction the auditor will ask about.",
+          "Lending apps — the RBI's digital lending rules limit what a lending app may read from the device and require explicit consent for the access it does take; a test should include the permission and data-collection review, not only the exploitation work. See the [RBI digital lending audit](/audit/rbi-digital-lending) for the compliance side.",
+          "Market intermediaries — SEBI's Cyber Security and Cyber Resilience Framework expects regular testing of customer-facing applications, and the mobile trading app is the most exposed of them.",
+          "Apps using Aadhaar or DigiLocker — the UIDAI integration and the handling of identity data have their own requirements and will be in the auditor's scope.",
+          "Anyone needing a CERT-In empanelled audit — mobile application security testing is one of the categories an empanelled auditor can be engaged for; the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026) covers how the engagement and the report format work.",
+          "Payment card data on the device — if the app stores or transmits cardholder data, PCI DSS scoping applies to the app and the test should say what it found in storage and in transit.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "deliverable", text: "What the deliverable should contain" },
+      {
+        type: "para",
+        text: "The report is the only thing that survives the engagement, and it will be read by developers who need to fix things, an auditor who needs to tick things, and possibly a regulator who needs to be convinced. It has to serve all three.",
+      },
+      {
+        type: "list",
+        items: [
+          "A MASVS attestation with the profile stated, and a control-by-control result rather than a single pass or fail.",
+          "Per-finding proof recorded on a real device — a screen recording or request-and-response pair that a developer can reproduce without the tester present.",
+          "Decompiled-code references with the file and line where the issue lives, for binary findings.",
+          "Backend findings written as API findings — endpoint, parameter, accounts used, and the exact cross-account or logic effect observed.",
+          "A severity tied to demonstrated impact, not to the scanner's default, with the regulatory mapping beside it.",
+          "Platform-specific remediation — a Keystore or Keychain pattern, a deep-link allowlist, a pinning configuration — not a generic \"encrypt sensitive data\".",
+          "A retest record showing what was closed, what was accepted as risk, and by whom.",
+        ],
+      },
+
+      { type: "heading", level: 2, id: "time-cost", text: "How long it takes and what moves the price" },
+      {
+        type: "para",
+        text: "A single-platform app with a modest backend is typically a one-to-two-week engagement; both platforms with a transactional backend and a MAS-L2 plus resilience scope is usually two to three weeks. What moves the price is the backend surface, the number of roles and flows, the verification profile, and whether resilience testing against a protected release build is required. Indicative Indian price ranges for mobile and other assessment types are in the [VAPT and penetration testing guide](/blog/penetration-testing-vapt-guide-india-2026); always get a fixed price against a written scope rather than a day rate against an estimate.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "The cheap quote tell",
+        text: "A mobile quote that is a fraction of the others usually excludes the backend, tests one platform, or stops at automated scanning. Ask which of the three it is. All three produce a report; none of them produces assurance.",
+      },
+
+      { type: "heading", level: 2, id: "macksofy", text: "Where Macksofy fits" },
+      {
+        type: "para",
+        text: "Macksofy runs [mobile application security testing](/services/mobile-application-security) for Android and iOS as a manual-led engagement: decompilation and runtime instrumentation on real devices, channel interception, and a full backend assessment, attested against OWASP MASVS at an agreed profile and mapped to the RBI, SEBI, UIDAI or PCI requirement that applies. The wider engagement options — web, API, network, cloud and identity — are collected in the [VAPT and penetration testing hub](/blog/category/penetration-testing-vapt).",
+      },
+      {
+        type: "cta",
+        title: "Scope a mobile application security test",
+        text: "Send the platforms, the kind of data the app handles and the regulation you report under, and we will return a scoped proposal with the verification profile stated.",
+        href: "/services/mobile-application-security",
+        cta: "See the mobile testing service",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is mobile application security testing?",
+        a: "It is the assessment of a mobile app and its backend for weaknesses an attacker could exploit, covering the binary (secrets, storage, platform configuration), the network channel (TLS and pinning) and the APIs the app calls (authentication, authorisation, business logic). A thorough test decompiles the app, instruments it at runtime on a rooted or jailbroken device and attacks the backend as the app does.",
+      },
+      {
+        q: "What is OWASP MASVS and why does it matter?",
+        a: "The OWASP Mobile Application Security Verification Standard is the reference standard for what a secure mobile app should do, organised into control groups covering storage, cryptography, authentication, network, platform interaction, code quality, resilience and privacy. Scoping a test against MASVS at a stated profile — MAS-L1, MAS-L2 or MAS-R — makes the test comparable, auditable and harder to hollow out.",
+      },
+      {
+        q: "Is a mobile app pentest different from an API pentest?",
+        a: "A mobile test includes an API test and adds the device side: how the app stores data, what it trusts, how it can be tampered with, and the mobile-only flows such as device binding, OTP, biometrics and deep links. An API-only test misses the device findings; a device-only test misses the findings that affect every customer at once.",
+      },
+      {
+        q: "Should both Android and iOS be tested?",
+        a: "If both ship, yes. The backend is shared, but storage, inter-process communication, platform configuration and resilience findings are platform-specific and rarely transfer. Testing one platform and assuming the other matches is the most common way a serious iOS or Android finding gets missed.",
+      },
+      {
+        q: "Is bypassing certificate pinning or root detection a vulnerability?",
+        a: "On its own, no. Both can be bypassed by any competent tester on a device they control; they are techniques used to perform the test, not weaknesses in the app. They become relevant only when the profile requires resilience controls, and even then the question is what the bypass allowed the tester to reach in the backend.",
+      },
+      {
+        q: "How often should a mobile app be tested?",
+        a: "At minimum before each major release and annually, and whenever the authentication, payment or data-handling flows change. Regulated entities in banking, payments and securities typically test on a defined cycle set by their regulator, and many move to a quarterly cadence once the app handles transactions.",
       },
     ],
   },
