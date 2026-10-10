@@ -372,7 +372,7 @@ export default function BestCybersecurityCompanyPage() {
             <FadeIn className="lg:col-span-6" delay={0.15}>
               <Eyebrow color="purple">Frameworks we cover</Eyebrow>
               <p className="mt-3 mb-6 text-fg-muted">
-                Scope mapping is selected according to the buyer's actual sector and obligations.
+                Scope mapping is selected according to the buyer&apos;s actual sector and obligations.
               </p>
               <ComplianceMatrix />
             </FadeIn>
