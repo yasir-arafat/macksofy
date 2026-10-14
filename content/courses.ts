@@ -85,6 +85,8 @@ export const COURSE_DURATION_ISO: Record<string, string> = {
   "server-plus": "PT40H",
   "soc-analyst": "PT80H",
   "web-application-security": "PT100H",
+  // OffSec lists AI-300 at 65 content hours; the Macksofy wrap-around is extra.
+  osai: "PT65H",
 };
 
 // Default placement block reused by leaner course entries.
@@ -1278,6 +1280,116 @@ export const COURSES: Course[] = [
       ...metroKeywords("OSED training"),
       ...metroKeywords("EXP-301 training"),
       ...metroKeywords("exploit development course"),
+    ],
+  },
+
+  // ------------------------------------------------------------
+  // OSAI / AI-300 — OffSec AI Red Teamer. Added 2026-10-14.
+  // Facts below are from OffSec's public AI-300 course page (65 content
+  // hours, 24-hour proctored exam, $1,749 bundle / $2,749 Learn One,
+  // OSCP-level experience recommended, OSAI permanent / OSAI+ 3-year).
+  // No priceINR on purpose: Macksofy has no published INR price for this
+  // bundle yet, so the Product node is suppressed and the page quotes on
+  // enquiry. Add priceINR only once a real number exists.
+  // ------------------------------------------------------------
+  {
+    updated: "2026-10-14",
+    slug: "osai",
+    code: "OSAI / AI-300",
+    title: "OSAI — Advanced AI Red Teaming (AI-300)",
+    shortTitle: "OSAI",
+    level: "Professional",
+    vendor: "OffSec",
+    image: "/courses/OSAI.jpg",
+    duration: "65-hour OffSec course + 24-hour exam",
+    format: "Hybrid · Macksofy mentorship + OffSec course",
+    hero: {
+      eyebrow: "AI red-team certification bootcamp",
+      tagline: "Break the agent. Poison the pipeline. Pivot through the model.",
+      description:
+        "OSAI is OffSec's AI Red Teamer certification — a 24-hour practical exam against an AI-enabled enterprise where you attack LLM agents, multi-agent protocols, RAG pipelines, embeddings, MCP tool surfaces and the infrastructure underneath. Macksofy's bootcamp pairs the official AI-300 course with the LearnToExploit Model Attack & Red Teaming lab track, so every attack class is practised before exam day.",
+    },
+    whoIsItFor: [
+      "OSCP / OSEP holders moving into AI red teaming",
+      "Penetration testers asked to assess LLM and agent features",
+      "AI engineers who want to understand adversarial threats to their own systems",
+      "Security engineers defending AI infrastructure",
+    ],
+    prerequisites: [
+      "OSCP or equivalent hands-on penetration testing experience (OffSec's recommendation)",
+      "Comfort with Linux, Windows, networking and basic scripting",
+      "No prior AI / ML background required — helpful, not mandatory",
+    ],
+    outcomes: [
+      "Fingerprint an AI target: model, tools, retrieval, guardrails and agent topology",
+      "Compromise AI agents through direct and indirect prompt injection into tool calls",
+      "Attack multi-agent systems and the Agent-to-Agent (A2A) protocol",
+      "Exploit RAG pipelines, vector stores and embedding inversion",
+      "Abuse Model Context Protocol (MCP) servers and tool surfaces",
+      "Run AI/ML supply-chain attacks and pivot from AI infrastructure into cloud and Kubernetes",
+      "Pass the 24-hour proctored OSAI exam and deliver the report",
+    ],
+    // Aligned to the official OffSec AI-300 learning modules (11), plus the
+    // two Macksofy bootcamp modules that sit around them.
+    curriculum: [
+      { module: "Module 01 · Introduction to Red Teaming AI Systems", topics: ["How LLM applications are assembled", "Why instructions and data share one token stream", "Scoping and rules of engagement for AI targets"] },
+      { module: "Module 02 · Reconnaissance for AI Targets", topics: ["Model and provider fingerprinting", "Capability, tool and retrieval enumeration", "Guardrail and filter mapping"] },
+      { module: "Module 03 · Attacking AI Agents", topics: ["Direct and indirect prompt injection into agent loops", "Tool-call hijacking and excessive agency", "Agent memory attacks"] },
+      { module: "Module 04 · Attacking Multi-Agent Systems & the A2A Protocol", topics: ["Agent discovery and registration abuse", "Rogue-agent routing", "Cross-agent trust and task injection"] },
+      { module: "Module 05 · Exploiting RAG Pipelines", topics: ["Retrieval access-control bypass", "Stored injection through indexed documents", "Knowledge-base poisoning"] },
+      { module: "Module 06 · Attacking Embeddings", topics: ["Embedding inversion (vec2text)", "Vector-store exfiltration", "Similarity-search manipulation"] },
+      { module: "Module 07 · Attacking Model Context Protocol & Tool Surfaces", topics: ["MCP server enumeration", "Tool poisoning and description injection", "Over-permissioned tool chains"] },
+      { module: "Module 08 · Supply Chain Attacks on AI/ML Systems", topics: ["Malicious model artefacts (pickle)", "Tokenizer and model tampering", "Module hijack in ML pipelines"] },
+      { module: "Module 09 · AI Infrastructure & Deployment Exploits", topics: ["Cloud IAM abuse from AI services", "Kubernetes RBAC and container escape", "GPU and inference-server exposure"] },
+      { module: "Module 10 · Threat Modeling for AI-Enabled Targets", topics: ["Trust-boundary inventory", "MITRE ATLAS and OWASP LLM Top 10 mapping", "Prioritising attack paths"] },
+      { module: "Module 11 · Assembling the Pieces — Capstone Red Team Engagement", topics: ["End-to-end chain: recon → app exploit → platform → persistence", "Evidence for non-deterministic findings", "Exam-style reporting"] },
+      { module: "Macksofy bootcamp · LearnToExploit Model Attack & Red Teaming lab track", topics: ["12 modules and 9 browser labs mapped to the AI-300 modules", "Jailbreak, output-handling and system-prompt extraction classes OSAI does not teach", "Full-engagement reporting module"] },
+      { module: "Macksofy bootcamp · 24-hour mock exam + report review", topics: ["One timed mock engagement in an AI-enabled lab", "Mentor review of the written report", "Time-allocation playbook for the proctored exam"] },
+    ],
+    toolsCovered: ["Burp Suite", "Python attack harnesses", "garak", "PyRIT", "vec2text", "MCP Inspector", "kubectl", "AWS CLI", "LearnToExploit AI labs"],
+    careerRoles: [
+      { role: "AI Red Teamer", salaryINR: "₹20–40 LPA", experience: "4+ years" },
+      { role: "AI Security Engineer", salaryINR: "₹18–35 LPA", experience: "3+ years" },
+    ],
+    placement: STD_PLACEMENT,
+    testimonials: [],
+    faqs: [
+      { q: "What is OSAI and what does AI-300 cover?", a: "OSAI is the OffSec AI Red Teamer certification earned by passing the exam for AI-300: Advanced AI Red Teaming. The course is 11 learning modules covering AI reconnaissance, attacking agents, multi-agent and A2A systems, RAG pipelines, embeddings, MCP tool surfaces, AI/ML supply chain, AI infrastructure (cloud, Kubernetes, containers), threat modeling and a capstone engagement." },
+      { q: "What is the OSAI exam format?", a: "A 24-hour proctored practical exam. You are given VPN access to a realistic AI-enabled enterprise environment, must identify and exploit vulnerabilities across the AI application and the infrastructure behind it, and submit a report. An OffSec proctor monitors the session." },
+      { q: "What is the cost of OSAI / AI-300 in India in 2026?", a: "OffSec lists the Course + Cert bundle (90 days of access, one exam attempt) at $1,749 and Learn One (one year, two attempts) at $2,749 — roughly ₹1,70,000 and ₹2,67,000 at current rates. Macksofy quotes the mentor-led bootcamp separately on enquiry; EMI across 3, 6 or 12 months is available." },
+      { q: "Do I need OSCP before OSAI?", a: "OffSec recommends OSCP or equivalent hands-on experience, and the exam assumes you can already pivot through networks, cloud and Kubernetes once an AI component gives you a foothold. Prior AI or ML knowledge is helpful but not required — the course teaches it." },
+      { q: "What is the difference between OSAI and OSAI+?", a: "Both come from the same exam. OSAI never expires. The OSAI+ designation expires three years after you pass, and is renewed by passing a qualifying OffSec exam, a recertification exam, or through OffSec's CPE programme." },
+      { q: "How does Macksofy prepare you for the OSAI exam?", a: "The bootcamp wraps the official AI-300 course with the LearnToExploit Model Attack & Red Teaming track — 12 modules and 9 browser labs mapped module-by-module to AI-300 — a timed mock engagement, and mentor review of your report. Most candidates complete LearnToExploit first, then the OffSec material, then the mock." },
+      { q: "Should I do the LearnToExploit Model Attack & Red Teaming course first?", a: "Yes, if you have not yet attacked an LLM application. It costs ₹10,000, runs in the browser, and covers the attack classes behind every AI-300 module plus jailbreaking, output handling and system-prompt extraction, which AI-300 does not teach as separate modules. Finish it before the OffSec labs and the 65-hour course goes much faster." },
+      { q: "Is OSAI worth it for a penetration tester in India?", a: "If you already test web and infrastructure, OSAI is the shortest path to being the person on the team who can scope and deliver an AI red-team engagement. Demand is coming from BFSI, SaaS and GCC teams shipping copilots and agents; the credential is new, so holders are scarce." },
+      { q: "Does Macksofy run OSAI cohorts online and in the UAE?", a: "Yes — live online cohorts pan-India, classroom batches in Mumbai, and corporate AI red-team batches for teams in Dubai and Abu Dhabi." },
+    ],
+    // 45 chars, under TITLE_LIMIT_CORE, so the template appends " | Macksofy"
+    // itself and the "| OffSec AI-300" segment survives clampTitle.
+    seoTitle: "OSAI Training India 2026 | OffSec AI-300 Prep",
+    seoDescription: "OffSec OSAI / AI-300 Advanced AI Red Teaming training in India 2026 — agents, A2A, RAG, embeddings, MCP and AI infrastructure, with a 24-hour exam. Mentor-led, lab-first.",
+    keywords: [
+      "OSAI training India",
+      "OSAI certification India 2026",
+      "AI-300 training India",
+      "OffSec AI-300",
+      "OffSec AI Red Teamer",
+      "OSAI cost India",
+      "OSAI exam",
+      "OSAI vs OSAI+",
+      "AI red teaming course India",
+      "AI red teaming certification",
+      "LLM red teaming course",
+      "LLM penetration testing training",
+      "prompt injection training",
+      "RAG security training",
+      "MCP security training",
+      "agentic AI security course",
+      "OSAI bootcamp",
+      "OSAI UAE Dubai",
+      "OSAI vs LearnToExploit",
+      ...metroKeywords("OSAI training"),
+      ...metroKeywords("AI red teaming course"),
     ],
   },
 

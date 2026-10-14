@@ -207,8 +207,9 @@ export const TOPIC_HUBS: TopicHub[] = [
       "agentic-ai-security-testing-checklist-2026",
       "mcp-server-security-how-hacked-2026",
       "ceh-v13-ai-training-india-2026",
+      "osai-vs-learntoexploit-model-attack-red-teaming-2026",
     ],
-    updated: "2026-09-29",
+    updated: "2026-10-14",
   },
   {
     slug: "cert-in-compliance",

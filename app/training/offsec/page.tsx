@@ -36,7 +36,7 @@ const ELITE = OFFSEC_COURSES.filter((c) =>
 const OFFSEC_FAQS = [
   {
     q: "Does Macksofy provide training for every Offensive Security certification?",
-    a: "Yes — Macksofy runs hands-on exam-prep bootcamps that cover the full Offensive Security certification stack: PEN-200 / OSCP+, PEN-300 / OSEP, WEB-200 / OSWA, WEB-300 / OSWE, PEN-210 / OSWP, EXP-301 / OSED, EXP-312 / OSMR, SOC-200 / OSDA and SEC-100 / OSCC. Each bootcamp bundles official OffSec course enrolment with a structured 60–80 hour Macksofy mentor-led programme.",
+    a: "Yes — Macksofy runs hands-on exam-prep bootcamps that cover the full Offensive Security certification stack: PEN-200 / OSCP+, PEN-300 / OSEP, WEB-200 / OSWA, WEB-300 / OSWE, PEN-210 / OSWP, EXP-301 / OSED, EXP-312 / OSMR, AI-300 / OSAI, SOC-200 / OSDA and SEC-100 / OSCC. Each bootcamp bundles official OffSec course enrolment with a structured 60–80 hour Macksofy mentor-led programme.",
   },
   {
     q: "Which Offensive Security certification should I take first in 2026?",
@@ -68,7 +68,7 @@ const OFFSEC_FAQS = [
   },
   {
     q: "What's the Offensive Security career path roadmap from beginner to expert?",
-    a: "Stage 1 (foundation): SEC-100 (OSCC) — networking, Linux, Windows, scripting, web, AD, SecOps. Stage 2 (core): OSCP+ for offence, OSDA for defence, OSWA for web, OSWP for wireless. Stage 3 (advanced): OSEP for red team, OSWE for white-box web, OSED for exploit dev. Stage 4 (elite): OSMR for macOS specialisation.",
+    a: "Stage 1 (foundation): SEC-100 (OSCC) — networking, Linux, Windows, scripting, web, AD, SecOps. Stage 2 (core): OSCP+ for offence, OSDA for defence, OSWA for web, OSWP for wireless. Stage 3 (advanced): OSEP for red team, OSWE for white-box web, OSED for exploit dev, OSAI for AI red teaming. Stage 4 (elite): OSMR for macOS specialisation.",
   },
 ];
 
@@ -76,7 +76,7 @@ export const metadata = buildMetadata({
   title:
     "Offensive Security Certifications Training in India 2026 | OSCP+ · OSEP · OSWE · OSWA · OSDA · OSED · OSMR | Macksofy",
   description:
-    "Mentor-led Offensive Security exam-prep in India — OSCP+, OSEP, OSWA, OSWE, OSWP, OSDA, OSED and OSMR bootcamps. Mentor support until you pass.",
+    "Mentor-led Offensive Security exam-prep in India — OSCP+, OSEP, OSWA, OSWE, OSWP, OSDA, OSED, OSMR and OSAI bootcamps. Mentor support until you pass.",
   path: "/training/offsec",
   keywords: [
     "Offensive Security training India",
@@ -91,6 +91,7 @@ export const metadata = buildMetadata({
     "best Offensive Security training institute India",
     "Offensive Security exam prep India",
     "OffSec UAE Dubai",
+    "OSAI training India",
     ...metroKeywords("Offensive Security training"),
     ...metroKeywords("OSCP bootcamp"),
   ],
@@ -113,7 +114,7 @@ const STAGE_INTRO = {
     eyebrow: "Stage 3 · Advanced",
     title: "Level up to elite roles.",
     description:
-      "OSEP for red-team operators, OSWE for white-box AppSec, OSED for exploit developers. These pay 30–60% more than the core certs.",
+      "OSEP for red-team operators, OSWE for white-box AppSec, OSED for exploit developers, OSAI for AI red teamers. These pay 30–60% more than the core certs.",
   },
   elite: {
     eyebrow: "Stage 4 · Elite",

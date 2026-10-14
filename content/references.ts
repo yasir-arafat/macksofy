@@ -37,6 +37,7 @@ export const REFS: Record<string, Reference> = {
   "owasp-llm": { label: "OWASP Top 10 for LLM Applications", url: "https://genai.owasp.org/llm-top-10/", issuer: "OWASP" },
   // MITRE
   "mitre-attack": { label: "MITRE ATT&CK", url: "https://attack.mitre.org/", issuer: "MITRE" },
+  "mitre-atlas": { label: "MITRE ATLAS", url: "https://atlas.mitre.org/", issuer: "MITRE" },
   "mitre-cwe": { label: "MITRE CWE", url: "https://cwe.mitre.org/", issuer: "MITRE" },
   "mitre-capec": { label: "MITRE CAPEC", url: "https://capec.mitre.org/", issuer: "MITRE" },
   // NIST
@@ -173,6 +174,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "course:osda": ["offsec", "mitre-attack", "nist-csf"],
   "course:osed": ["offsec", "mitre-cwe"],
   "course:osmr": ["offsec"],
+  "course:osai": ["offsec", "owasp-llm", "mitre-atlas"],
   "course:cysa-plus": ["comptia", "mitre-attack", "nist-csf"],
   "course:linux-plus": ["comptia"],
   "course:server-plus": ["comptia"],
@@ -190,6 +192,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "blog:telecom-cyber-security-rules-2024-india-compliance": ["dot", "cert-in"],
   "blog:mobile-application-security-testing-guide-india-2026": ["owasp-masvs", "owasp-api", "rbi", "cert-in", "pci-dss"],
   "blog:secure-source-code-review-services-india-2026": ["owasp-code-review", "owasp-asvs", "mitre-cwe", "owasp-top-10", "pci-dss"],
+  "blog:osai-vs-learntoexploit-model-attack-red-teaming-2026": ["offsec", "owasp-llm", "mitre-atlas"],
   "blog:penetration-testing-vapt-guide-india-2026": ["nist-800-115", "owasp-top-10", "cvss", "cert-in"],
   "blog:cert-in-empanelled-audit-guide-2026": ["cert-in", "cvss", "owasp-top-10"],
   "blog:cyber-security-companies-in-mumbai-india-2026": ["cert-in", "iso-27001"],

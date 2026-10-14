@@ -380,6 +380,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     q: "What is the OSEP certification?",
     a: "The Offensive Security Experienced Penetration Tester (OSEP, OffSec) is an advanced credential in evading defences, bypassing antivirus/EDR, and compromising hardened Active Directory environments. Macksofy runs an OSEP exam-prep bootcamp for experienced pentesters in India.",
   },
+  "course:osai": {
+    q: "What is the OSAI certification?",
+    a: "The OffSec AI Red Teamer (OSAI) is OffSec's certification for attacking AI-enabled systems, earned through the 24-hour practical exam of the AI-300 Advanced AI Red Teaming course. It covers AI reconnaissance, LLM agents, multi-agent and A2A protocols, RAG pipelines, embeddings, MCP tool surfaces, AI/ML supply chain and AI infrastructure. Macksofy runs an OSAI exam-prep bootcamp in India built around the LearnToExploit Model Attack & Red Teaming lab track.",
+  },
   "course:oswe": {
     q: "What is the OSWE certification?",
     a: "The Offensive Security Web Expert (OSWE, OffSec) is an advanced white-box web-application security certification focused on source-code review and chaining vulnerabilities into working exploits. Macksofy runs an OSWE exam-prep bootcamp with hands-on web-exploitation labs in India.",
@@ -647,6 +651,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   "blog:secure-source-code-review-services-india-2026": {
     q: "What is a secure source code review?",
     a: "A secure source code review is a white-box assessment in which reviewers trace how untrusted input moves through an application's code to the sinks where it can cause harm, confirming which paths are exploitable. Macksofy combines SAST, dependency and secrets scanning with manual review across nine languages for clients in India and the UAE, with human-confirmed findings and a retest.",
+  },
+  "blog:osai-vs-learntoexploit-model-attack-red-teaming-2026": {
+    q: "Which should I do first, OSAI or the LearnToExploit Model Attack & Red Teaming course?",
+    a: "Do LearnToExploit first. Its 12 modules and 9 browser labs cover the attack classes behind every OffSec AI-300 module plus jailbreaking, output handling and system-prompt extraction, for ₹10,000 with no prerequisites. OSAI then adds depth on multi-agent A2A protocols, embedding inversion and MCP internals, a 24-hour proctored exam and the OffSec credential, at roughly ₹1,70,000.",
   },
   "blog:agentic-ai-security-testing-checklist-2026": {
     q: "What is agentic AI security testing?",

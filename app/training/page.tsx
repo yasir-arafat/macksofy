@@ -41,7 +41,7 @@ import { getShortAnswer } from "@/content/shortAnswers";
 export const metadata = buildMetadata({
   title: "Cyber Security & Ethical Hacking Courses in India",
   description:
-    "21 cyber security and ethical hacking courses — CEH v13, OSCP, CHFI, SOC Analyst and CompTIA. Live online across India and the UAE, or classroom in Mumbai.",
+    "22 cyber security and ethical hacking courses — CEH v13, OSCP, CHFI, SOC Analyst and CompTIA. Live online across India and the UAE, or classroom in Mumbai.",
   path: "/training",
   keywords: [
     "cyber security course",
@@ -123,6 +123,11 @@ const COURSE_ROUTES: { goal: string; why: string; slugs: string[] }[] = [
     goal: "I already test networks and want advanced red teaming",
     why: "Evasion, breaching defences and wireless attack specialisation.",
     slugs: ["osep", "oswp"],
+  },
+  {
+    goal: "I want to red-team AI, LLM and agent systems",
+    why: "OffSec's AI red-team certification — agents, RAG, MCP and AI infrastructure — prepared on the LearnToExploit AI lab track.",
+    slugs: ["osai"],
   },
   {
     goal: "I want exploit development and reverse engineering",

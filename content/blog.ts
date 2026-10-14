@@ -10683,6 +10683,258 @@ def fetch_logs(service: str) -> str:
       },
     ],
   },
+
+  // ===================================================================
+  // OSAI vs LearnToExploit Model Attack & Red Teaming (2026-10-14).
+  // Companion to /training/osai. The OSAI side is from OffSec's public
+  // AI-300 page (11 modules, 65 h, 24 h proctored exam, $1,749 / $2,749).
+  // The LearnToExploit side is from the platform's own catalogue
+  // (12 modules, 9 labs, ₹10,000, Specialist tier, OWASP LLM Top 10 +
+  // MITRE ATLAS mapping). Where OSAI goes deeper (A2A, embeddings, MCP
+  // internals) the article says so — the recommendation is a sequence,
+  // not a substitution, and the coverage table must stay honest.
+  // ===================================================================
+  {
+    slug: "osai-vs-learntoexploit-model-attack-red-teaming-2026",
+    title: "OSAI vs LearnToExploit Model Attack & Red Teaming: Which AI Red-Team Course Comes First in 2026?",
+    seoTitle: "OSAI vs LearnToExploit AI Red Teaming Course 2026",
+    description:
+      "OffSec's OSAI (AI-300) and the LearnToExploit Model Attack & Red Teaming course compared module by module — cost in INR, labs, exam format, what each covers, and the order that gets you through the 24-hour OSAI exam.",
+    seoDescription:
+      "OSAI (AI-300) vs LearnToExploit Model Attack & Red Teaming, compared module by module: INR cost, labs, exam format, coverage gaps, and which to do first.",
+    date: "2026-10-14",
+    author: "AI Security",
+    readingTime: "11 min read",
+    category: "Certification Guides",
+    tags: ["OSAI", "AI Red Teaming", "LLM Security", "OffSec", "LearnToExploit"],
+    heroKind: "cert-compare",
+    heroEyebrow: "AI red-team progression",
+    keywords: [
+      "OSAI vs LearnToExploit",
+      "OSAI preparation",
+      "AI-300 preparation course",
+      "AI red teaming course India",
+      "LLM red teaming course",
+      "OSAI cost India",
+      "OffSec AI Red Teamer prep",
+      "Model Attack and Red Teaming course",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "OffSec's AI-300 is the first vendor certification built around attacking AI-enabled enterprises, and the OSAI exam is a 24-hour proctored engagement. The LearnToExploit Model Attack & Red Teaming course is a 12-module, lab-first track that costs about a seventeenth of the OffSec bundle. They are not substitutes. This is the module-by-module map of what each one teaches, where each goes deeper, and why the cheap one comes first.",
+      },
+      {
+        type: "comparison",
+        title: "At a glance",
+        left: {
+          label: "OSAI · AI-300 (OffSec)",
+          tone: "purple",
+          bullets: [
+            "Cost: $1,749 bundle (~₹1,70,000) or $2,749 Learn One (~₹2,67,000)",
+            "Format: 65 hours of self-paced content + OffSec labs",
+            "Modules: 11 learning modules + capstone",
+            "Exam: 24-hour proctored practical + report",
+            "Prerequisite: OSCP or equivalent recommended",
+            "Credential: OSAI (permanent) / OSAI+ (3-year)",
+          ],
+        },
+        right: {
+          label: "Model Attack & Red Teaming (LearnToExploit)",
+          tone: "cyan",
+          bullets: [
+            "Cost: ₹10,000, one-time",
+            "Format: browser-based, 12 modules, 9 hands-on labs",
+            "Mapped to OWASP LLM Top 10 (2025) and MITRE ATLAS",
+            "Ends with a full-engagement and reporting module",
+            "Prerequisite: HTTP, Python basics, web-app security concepts",
+            "Tier: Specialist (the platform's top offensive tier)",
+          ],
+        },
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What OSAI actually tests",
+        id: "osai",
+      },
+      {
+        type: "para",
+        text: "AI-300 is written for people who already pen-test. OffSec recommends OSCP-level experience because the exam environment is an enterprise with an AI layer on top: once an agent or a RAG pipeline gives you a foothold, you are expected to keep going through cloud identity, Kubernetes and containers the way you would on any other engagement. The eleven learning modules are:",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Introduction to Red Teaming AI Systems",
+          "Reconnaissance for AI Targets",
+          "Attacking AI Agents",
+          "Attacking Multi-Agent Systems and the Agent-to-Agent (A2A) Protocol",
+          "Exploiting RAG Pipelines",
+          "Attacking Embeddings",
+          "Attacking Model Context Protocol and Tool Surfaces",
+          "Supply Chain Attacks on AI/ML Systems",
+          "AI Infrastructure and Deployment Exploits",
+          "Threat Modeling for AI-Enabled Targets",
+          "Assembling the Pieces — Capstone Red Team Engagement",
+        ],
+      },
+      {
+        type: "para",
+        text: "The exam is a 24-hour proctored session over VPN against a realistic AI-enabled environment, followed by a report. Passing earns OSAI, which does not expire, and the OSAI+ designation, which expires three years after the exam unless you renew through a qualifying OffSec exam, a recertification exam or OffSec's CPE programme. Full details are on the [Macksofy OSAI training page](/training/osai).",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What the LearnToExploit course actually teaches",
+        id: "learntoexploit",
+      },
+      {
+        type: "para",
+        text: "Model Attack & Red Teaming is built the other way round: it starts from the application, not from the infrastructure. Every module after the first two ends in a browser lab against a deliberately vulnerable LLM application, and the finding taxonomy is the OWASP Top 10 for LLM Applications with MITRE ATLAS for adversary tactics. The twelve modules are:",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Foundations of AI Red Teaming & MITRE ATLAS",
+          "Recon & Attack-Surface Mapping for AI Systems",
+          "Direct Prompt Injection",
+          "Indirect / Stored Prompt Injection",
+          "System-Prompt & Sensitive-Data Extraction",
+          "Jailbreaking & Guardrail Evasion",
+          "RAG & Vector-Store Access-Control Bypass",
+          "Improper Output Handling",
+          "Excessive Agency & Agent-Tool Abuse",
+          "Data & Model Poisoning / Supply Chain",
+          "AI Infrastructure to Cloud & Enterprise Pivot",
+          "Full Engagement & Reporting",
+        ],
+      },
+      {
+        type: "para",
+        text: "Nine of those modules carry a lab, from a naive chatbot with a secret in its system prompt through a document assistant that executes instructions hidden in uploads, a RAG knowledge base that enforces authorisation in prose, an order-placing agent with too many tools, a poisoned community knowledge base, and finally a deployment agent whose tool gives you SSRF into the surrounding cloud. The last module is reporting: scoping an AI engagement, rating severity for non-deterministic findings, and writing evidence that reproduces. That is the part most self-taught AI testers skip, and it is the part the OSAI exam grades.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Module-by-module coverage map",
+        id: "coverage",
+      },
+      {
+        type: "para",
+        text: "The question that matters is not which course is bigger. It is whether finishing LearnToExploit leaves you practised in the attack classes behind each OSAI module. Here is the honest map.",
+      },
+      {
+        type: "table",
+        headers: ["OSAI (AI-300) module", "LearnToExploit coverage", "Verdict"],
+        rows: [
+          ["01 Introduction to red teaming AI", "M1 Foundations & MITRE ATLAS", "Covered, with the OWASP LLM taxonomy added"],
+          ["02 Reconnaissance for AI targets", "M2 Recon & attack-surface mapping", "Covered; same deliverable (a target profile)"],
+          ["03 Attacking AI agents", "M3 + M4 prompt injection, M9 excessive agency", "Covered across three labs"],
+          ["04 Multi-agent systems & A2A", "M9 single-agent tool abuse", "Partial — A2A protocol attacks are OSAI-only"],
+          ["05 Exploiting RAG pipelines", "M7 RAG authz bypass, M10 KB poisoning", "Covered across two labs"],
+          ["06 Attacking embeddings", "Not a dedicated module", "OSAI-only (embedding inversion)"],
+          ["07 MCP & tool surfaces", "M9 agent-tool abuse", "Partial — tool abuse yes, MCP transport internals no"],
+          ["08 AI/ML supply chain", "M10 data & model poisoning / supply chain", "Covered"],
+          ["09 AI infrastructure & deployment", "M11 AI infra to cloud & enterprise pivot", "Covered in miniature; OSAI goes deeper on K8s / IAM"],
+          ["10 Threat modeling for AI targets", "M1 trust boundaries, M2 target profile, M12 scoping", "Covered"],
+          ["11 Capstone engagement", "M12 Full engagement & reporting", "Covered, with a reporting method OSAI assumes you have"],
+        ],
+        caption: "OSAI's eleven learning modules against the LearnToExploit syllabus. 'Partial' means the attack class is practised but the specific protocol is not.",
+      },
+      {
+        type: "para",
+        text: "Read the other way, LearnToExploit teaches five things OSAI does not treat as modules at all: system-prompt and sensitive-data extraction, jailbreaking and guardrail evasion, improper output handling (the pivot from an AI finding to XSS or command execution in the host app), direct prompt injection as its own discipline, and report writing. Those are the classes that make up most real AI engagements in India today, because most clients are shipping a copilot or a RAG assistant, not a multi-agent mesh.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Where each one is more advanced",
+        text: "At the application layer, LearnToExploit covers more ground than AI-300: twelve attack classes against nine labs, versus OffSec's eleven modules of which four are infrastructure and process. At the platform layer, OSAI is deeper: agent-to-agent protocols, embedding inversion, MCP internals and a full cloud and Kubernetes pivot, examined under proctoring for 24 hours. Neither replaces the other.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Does finishing LearnToExploit get you through OSAI?",
+        id: "readiness",
+      },
+      {
+        type: "para",
+        text: "It gets you through the application half of the exam with the methodology and the reporting habit already in place, which is the half candidates fail on when they arrive from a conventional pen-test background and treat an LLM like a deterministic target. What it does not do is replace the OffSec labs for multi-agent, embedding and MCP attacks, or the network, cloud and Kubernetes depth that OSCP-level experience brings. That is exactly why the [Macksofy OSAI bootcamp](/training/osai) uses the LearnToExploit course as its lab track and adds a timed 24-hour mock engagement with report review on top: the sequence is LearnToExploit, then the AI-300 material, then the mock, then the exam.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Cost, time and prerequisites side by side",
+        id: "cost",
+      },
+      {
+        type: "table",
+        headers: ["Dimension", "OSAI / AI-300", "LearnToExploit MA&RT"],
+        rows: [
+          ["Price", "$1,749 bundle (~₹1,70,000) · $2,749 Learn One (~₹2,67,000)", "₹10,000"],
+          ["Content", "65 hours; OffSec estimates 50–100 hours to be exam-ready", "12 modules; the first two are ~3 hours each, the rest are lab-paced"],
+          ["Hands-on", "OffSec lab environment", "9 browser labs, one per attack class"],
+          ["Exam", "24-hour proctored practical + report", "Course assessment plus a full-engagement reporting module"],
+          ["Prerequisites", "OSCP or equivalent recommended", "HTTP, Python basics, web-app security concepts"],
+          ["Framework mapping", "OffSec syllabus", "OWASP LLM Top 10 (2025) + MITRE ATLAS"],
+          ["Credential", "OSAI (no expiry) + OSAI+ (3 years)", "LearnToExploit course certificate"],
+          ["Access", "90 days (bundle) or 1 year (Learn One)", "Platform account"],
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Which to choose",
+        id: "choose",
+      },
+      {
+        type: "list",
+        items: [
+          "You have never attacked an LLM application: start with LearnToExploit. It is the cheapest way to find out whether you enjoy this work before spending ₹1,70,000.",
+          "You already hold OSCP or OSEP and your employer wants an AI red-team credential: do LearnToExploit in the first fortnight of your OffSec access, then the AI-300 modules in order, then a mock.",
+          "You are an AI engineer who wants to understand the attacks against your own stack: LearnToExploit alone covers the OWASP LLM Top 10 end to end; add OSAI only if you will be running engagements.",
+          "You run a team that ships copilots or agents: put the whole team through LearnToExploit as a corporate batch and send the one or two people who will own AI assessments to OSAI.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "How we measure readiness",
+        text: "Before a candidate books the OSAI exam, Macksofy asks for one thing: a written report from the LearnToExploit full-engagement module that a mentor would sign off as client-deliverable. Candidates who can produce it have the two skills the exam actually grades — a repeatable method against a non-deterministic target, and evidence that reproduces.",
+      },
+      {
+        type: "cta",
+        title: "Start the sequence",
+        text: "Macksofy's OSAI bootcamp bundles the LearnToExploit Model Attack & Red Teaming track, mentor-led AI-300 preparation and a timed mock engagement. Live online across India, classroom in Mumbai, corporate batches in the UAE.",
+        href: "/training/osai",
+        cta: "See the OSAI bootcamp",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is LearnToExploit Model Attack & Red Teaming enough to pass OSAI on its own?",
+        a: "No. It covers the application-layer attack classes behind every AI-300 module and adds five OSAI does not teach, but it does not replace OffSec's labs for A2A, embedding inversion and MCP internals, or the cloud and Kubernetes depth the exam expects. Do it first, then the AI-300 material.",
+      },
+      {
+        q: "How much does OSAI cost in India?",
+        a: "OffSec lists the Course + Cert bundle at $1,749 (about ₹1,70,000) with 90 days of access and one exam attempt, and Learn One at $2,749 (about ₹2,67,000) with a year of access and two attempts. The LearnToExploit course is ₹10,000.",
+      },
+      {
+        q: "What is the OSAI exam format?",
+        a: "A 24-hour proctored practical exam over VPN against a realistic AI-enabled enterprise environment, followed by a written report. OSAI never expires; the OSAI+ designation is valid for three years.",
+      },
+      {
+        q: "Does the LearnToExploit course have labs?",
+        a: "Yes. Nine of its twelve modules end in a browser lab against a vulnerable LLM application: prompt injection, stored injection, system-prompt extraction, guardrail evasion, RAG access-control bypass, output handling, agent-tool abuse, knowledge-base poisoning and an AI-infrastructure-to-cloud pivot.",
+      },
+      {
+        q: "Do I need OSCP before OSAI?",
+        a: "OffSec recommends OSCP or equivalent hands-on experience. The AI material does not assume it, but the exam environment does: once an AI component gives you a foothold, you are expected to pivot through cloud identity and Kubernetes like any other engagement.",
+      },
+    ],
+  },
 ];
 
 export const getPostBySlug = (slug: string) => POSTS.find((p) => p.slug === slug);
