@@ -41,6 +41,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 
 const SLUG = "phishing-simulation";
 
@@ -458,6 +459,8 @@ export default function PhishingSimulationPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href={`/services/${SLUG}`} />
 
       <References pageKey={`service:${SLUG}`} />
       <GlossaryLinks href={`/services/${SLUG}`} />

@@ -26,6 +26,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 
 const SLUG = "penetration-testing";
@@ -306,6 +307,8 @@ export default function PentestPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/penetration-testing" />
 
       <References pageKey="service:penetration-testing" />
       <GlossaryLinks href="/services/penetration-testing" />

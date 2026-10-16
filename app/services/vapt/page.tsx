@@ -28,6 +28,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 
@@ -350,6 +351,8 @@ export default function VaptServicePage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/vapt" />
 
       <References pageKey="service:vapt" />
       <GlossaryLinks href="/services/vapt" />

@@ -23,6 +23,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "managed-soc";
@@ -279,6 +280,8 @@ export default function ManagedSocPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/managed-soc" />
 
       <References pageKey="service:managed-soc" />
       <GlossaryLinks href="/services/managed-soc" />

@@ -35,6 +35,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
@@ -498,6 +499,8 @@ export default function RedTeamPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/red-teaming" />
 
       <References pageKey="service:red-teaming" />
       <GlossaryLinks href="/services/red-teaming" />

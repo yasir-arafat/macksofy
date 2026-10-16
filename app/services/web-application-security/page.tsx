@@ -35,6 +35,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "web-application-security";
@@ -357,6 +358,8 @@ export default function WebSecPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/web-application-security" />
 
       <References pageKey="service:web-application-security" />
       <GlossaryLinks href="/services/web-application-security" />

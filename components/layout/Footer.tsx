@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
-import type { NavIndex } from "@/lib/nav-index";
+import type { MegaItemData, NavIndex } from "@/lib/nav-index";
 import { cn } from "@/lib/utils";
 import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
 import { Reveal } from "@/components/motion/Reveal";
@@ -184,6 +184,34 @@ export function Footer({ nav }: { nav: NavIndex }) {
             <FooterLinkAnimated href="/sitemap.xml">Sitemap</FooterLinkAnimated>
           </FooterCol>
         </div>
+
+        {/* ─── Full site index ───
+            The header mega-menu mounts its panels only while open (INP), so
+            Googlebot — which renders but never hovers — saw none of those
+            links; the Oct 2026 audit counted 90 pages with <=2 inlinks. This
+            puts every service, training and audit link in the server HTML,
+            collapsed by default (<details> content is still in the DOM and
+            crawled). Plain <a>s, no motion: it must stay cheap. */}
+        <details className="group mt-12 rounded-2xl border border-line">
+          <summary className="cursor-pointer list-none px-5 py-4 text-sm font-semibold text-fg hover:text-neon-cyan">
+            Full index — all {nav.counts.services} services, {nav.counts.courses}{" "}
+            trainings and {nav.counts.audits} audit frameworks
+            <span className="ml-2 inline-block transition-transform group-open:rotate-90">›</span>
+          </summary>
+          <div className="grid gap-8 px-5 pb-6 sm:grid-cols-2 lg:grid-cols-3">
+            <SiteIndexList
+              title="Services"
+              items={nav.mega.services}
+              extra={[{ title: "Service locations", href: "/locations" }]}
+            />
+            <SiteIndexList
+              title="Training"
+              items={nav.mega.training}
+              extra={[{ title: "OffSec training hub", href: "/training/offsec" }]}
+            />
+            <SiteIndexList title="Audits & compliance" items={nav.mega.audit} />
+          </div>
+        </details>
 
         {/* ─── Reach Macksofy strip: contact + live clocks ─── */}
         <div className="mt-14 pt-10 border-t border-line grid gap-8 lg:grid-cols-12 items-start">
@@ -632,6 +660,41 @@ function ContactRow({
         <span>{children}</span>
       </a>
     </li>
+  );
+}
+
+/* ──────────────────────────────────────────────────────────────
+   FULL SITE INDEX (collapsed list inside <details>)
+   ────────────────────────────────────────────────────────────── */
+function SiteIndexList({
+  title,
+  items,
+  extra = [],
+}: {
+  title: string;
+  items: Pick<MegaItemData, "href" | "title">[];
+  extra?: Pick<MegaItemData, "href" | "title">[];
+}) {
+  return (
+    <div>
+      <div className="mt-2 mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-neon-cyan">
+        {title}
+      </div>
+      <ul className="space-y-1.5 text-sm">
+        {[...items, ...extra].map((i) => (
+          <li key={i.href}>
+            {/* prefetch off: opening the index must not fire ~90 prefetches */}
+            <Link
+              href={i.href}
+              prefetch={false}
+              className="text-fg-muted hover:text-neon-cyan transition-colors"
+            >
+              {i.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

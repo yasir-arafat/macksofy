@@ -36,6 +36,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 
 const SLUG = "api-security";
 
@@ -395,6 +396,8 @@ export default function ApiSecPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/api-security" />
 
       <References pageKey="service:api-security" />
       <GlossaryLinks href="/services/api-security" />

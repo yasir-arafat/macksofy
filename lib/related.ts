@@ -18,6 +18,7 @@ import type { Industry } from "@/content/industries";
 import type { BlogPost } from "@/content/blog";
 import type { Resource } from "@/content/resources";
 import type { Service } from "@/content/services";
+import type { TopicHub } from "@/content/topicHubs";
 
 type Scored<T> = { item: T; score: number };
 
@@ -255,4 +256,35 @@ export function pickAuditsForResource(
     return { item: a, score };
   });
   return topN(scored, n);
+}
+
+/**
+ * Guides that support a commercial page (service or audit), newest first.
+ *
+ * Two sources, merged and de-duplicated:
+ *  1. posts in the topic hub whose `primaryService` is this page, and
+ *  2. posts whose body already links to this page (in-text, CTA or bare path).
+ *
+ * Why: the October 2026 audit found the newest buyer guides "unknown to
+ * Google" — they were linked only from category hubs Googlebot had not yet
+ * discovered. Service pages are indexed and recrawled weekly, so a reciprocal
+ * "guides" strip gives Googlebot a path from a known page to each new post,
+ * and to the hub itself. Newest-first is deliberate: the posts that need a
+ * discovery path are the recent ones.
+ */
+export function pickGuidesForPage(
+  href: string,
+  posts: BlogPost[],
+  hubs: TopicHub[],
+  n = 4
+): { hub: TopicHub | undefined; posts: BlogPost[] } {
+  const hub = hubs.find((h) => h.primaryService.href === href);
+  const fromHub = new Set(hub?.postSlugs ?? []);
+  const escaped = href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const linksHere = new RegExp(`${escaped}(?![\\w/-])`);
+  const picked = posts
+    .filter((p) => fromHub.has(p.slug) || linksHere.test(JSON.stringify(p.blocks)))
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+    .slice(0, n);
+  return { hub, posts: picked };
 }

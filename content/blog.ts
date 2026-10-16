@@ -1371,9 +1371,13 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "cert-in-empanelled-audit-guide-2026",
-    seoTitle: "CERT-In Empanelled Audit: Scope & Process (2026)",
-    seoDescription: "Learn what a CERT-In empanelled audit covers, who needs one, the audit process, timelines, report format, 2022 Directions and how to verify an auditor.",
-    updated: "2026-09-28",
+    // Buyer intent only. "Process" was dropped from the SERP title on
+    // 2026-10-16: it pulled auditor-side "empanelment process" queries onto
+    // this page and split them with cert-in-empanelment-process-2026, which
+    // owns that intent (GSC Sep–Oct 2026: both ranked 5–17, neither got clicks).
+    seoTitle: "CERT-In Empanelled Audit: Who Needs It, Scope & Cost",
+    seoDescription: "What a CERT-In empanelled audit covers, who needs one, timelines, report format, cost drivers, the 2022 Directions and how to verify an auditor.",
+    updated: "2026-10-16",
     title: "CERT-In Empanelled Audit: The Complete Guide (2026)",
     description:
       "Everything Indian organisations need to know about CERT-In empanelled audits in 2026 — what CERT-In empanelment means, who needs an empanelled audit, what it covers, the CERT-In Directions of 2022 (6-hour reporting, 180-day logs), the report format, timelines, cost drivers, how CERT-In compares to ISO 27001 and SOC 2, and how to verify a provider's empanelment.",
@@ -1390,7 +1394,7 @@ export const POSTS: BlogPost[] = [
       "cert-in empanelled auditor",
       "cert-in audit",
       "what is a cert-in empanelled audit",
-      "cert-in empanelment",
+      "cert-in empanelled audit requirement",
       "cert-in directions 2022",
       "cert-in 6 hour reporting",
       "cert-in audit cost",
@@ -1405,6 +1409,7 @@ export const POSTS: BlogPost[] = [
 
       { type: "heading", level: 2, id: "what-is-certin", text: "What is CERT-In and what does empanelment mean?" },
       { type: "para", text: "CERT-In (the Indian Computer Emergency Response Team) is the national agency for responding to cyber-security incidents, operating under Section 70B of the Information Technology Act, 2000. Among its statutory functions, it empanels information-security auditing organisations: firms that pass CERT-In's technical assessment are added to an official list and authorised to conduct security audits for government bodies and critical sectors. Empanelment is therefore not a marketing badge — it is a government vetting of an auditor's technical competence, valid for a defined period, and published on the CERT-In website." },
+      { type: "callout", tone: "info", title: "Running an auditing firm rather than buying an audit?", text: "This guide is for organisations that need an empanelled audit. If you want to get your own firm on the panel — the annual application window, eligibility, the practical skill tests and the interview — read [the CERT-In empanelment process, step by step](/blog/cert-in-empanelment-process-2026)." },
 
       { type: "heading", level: 2, id: "what-is-audit", text: "What is a CERT-In empanelled audit?" },
       { type: "para", text: "A CERT-In empanelled audit is a structured security assessment — typically VAPT plus configuration and process review — carried out by an empanelled auditor and delivered in CERT-In's expected report format, with the auditor's attestation. In practice it is the report a regulator, tender authority or enterprise customer will accept as independent proof that your systems were tested competently and that findings were remediated. The empanelled entity's name and attestation on the report are what give it weight." },

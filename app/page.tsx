@@ -15,6 +15,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/schema";
 import { buildMetadata, HQ_GEO } from "@/lib/seo";
 import { metroKeywords } from "@/lib/site";
+import Link from "next/link";
+import { POSTS } from "@/content/blog";
 
 export const metadata = buildMetadata({
   title: "CERT-In Empanelled Cybersecurity Company in India",
@@ -108,7 +110,50 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+      {/* Latest guides — a crawl path from the most-recrawled URL on the site
+          to the newest posts. The Oct 2026 audit found new guides "unknown to
+          Google" because only not-yet-discovered category hubs linked them.
+          Kept to bare title links: the homepage DOM is already heavy. */}
+      <section className="pb-20" aria-labelledby="latest-guides">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="latest-guides" className="font-display text-2xl font-black sm:text-3xl">
+              Latest guides
+            </h2>
+            <Link href="/blog" className="text-sm font-semibold text-neon-cyan hover:underline">
+              All articles →
+            </Link>
+          </div>
+          <ul className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            {LATEST_POSTS.map((p) => (
+              <li key={p.slug} className="border-t border-white/10 pt-4">
+                <span className="text-xs font-mono uppercase tracking-wider text-fg-muted">
+                  {p.category} · {formatPostDate(p.date)}
+                </span>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="mt-1 block font-display text-base font-bold text-fg hover:text-neon-cyan"
+                >
+                  {p.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
       <LeadCapture />
     </>
   );
+}
+
+const LATEST_POSTS = [...POSTS]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 6);
+
+function formatPostDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }

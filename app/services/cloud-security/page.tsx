@@ -43,6 +43,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
@@ -692,6 +693,8 @@ export default function CloudSecurityPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/cloud-security" />
 
       <References pageKey="service:cloud-security" />
       <GlossaryLinks href="/services/cloud-security" />

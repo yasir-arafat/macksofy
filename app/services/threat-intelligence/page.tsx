@@ -24,6 +24,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "threat-intelligence";
@@ -272,6 +273,8 @@ export default function ThreatIntelPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/threat-intelligence" />
 
       <References pageKey="service:threat-intelligence" />
       <GlossaryLinks href="/services/threat-intelligence" />

@@ -45,6 +45,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
 const SLUG = "iot-ot-security";
@@ -701,6 +702,8 @@ export default function IotOtSecurityPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/iot-ot-security" />
 
       <References pageKey="service:iot-ot-security" />
       <GlossaryLinks href="/services/iot-ot-security" />

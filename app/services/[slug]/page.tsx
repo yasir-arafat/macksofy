@@ -38,6 +38,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -497,6 +498,8 @@ export default async function ServiceDetail({ params }: PageProps) {
           </Container>
         </section>
       )}
+
+      <GuidesStrip href={`/services/${service.slug}`} subject={service.shortTitle} />
 
       <WhereWeDeliver
         subject={service.shortTitle}

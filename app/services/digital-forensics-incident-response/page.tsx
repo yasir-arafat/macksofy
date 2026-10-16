@@ -23,6 +23,7 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 import { GlossaryLinks } from "@/components/sections/GlossaryLinks";
 import { References } from "@/components/sections/References";
+import { GuidesStrip } from "@/components/sections/GuidesStrip";
 import { CaseStudyProof } from "@/components/case-studies/CaseStudyProof";
 import { Methodology } from "@/components/visuals/methodology/Methodology";
 
@@ -283,6 +284,8 @@ export default function DfirPage() {
         subjectShort={service.shortTitle}
         serviceSlug={service.slug}
       />
+
+      <GuidesStrip href="/services/digital-forensics-incident-response" />
 
       <References pageKey="service:digital-forensics-incident-response" />
       <GlossaryLinks href="/services/digital-forensics-incident-response" />
