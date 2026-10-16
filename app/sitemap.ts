@@ -83,7 +83,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     stat("/contact"),
     stat("/about"),
     stat("/best-cybersecurity-company", new Date("2026-09-30")),
-    stat("/ceh-v13-training"),
     stat("/blog", freshenBlog(latestPostDate)),
     ...TOPIC_HUBS.map((hub) =>
       stat(`/blog/category/${hub.slug}`, rev(hub.updated))

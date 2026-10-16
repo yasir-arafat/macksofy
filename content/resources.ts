@@ -2113,6 +2113,7 @@ export const RESOURCES: Resource[] = [
         ],
       },
       { type: "para", text: "AI frameworks that generate working exploits from a CVE description in minutes have changed the economics of weaponisation. Any organisation holding 30-day or even 7-day windows for internet-exposed systems is running a risk posture formulated before the current AI capability environment existed." },
+      { type: "para", text: "For the longer analysis of how AI-assisted exploit generation drove the mandate, read [CERT-In's 12-hour patch mandate explained](/blog/cert-in-12-hour-patch-mandate-ai-exploitation-2026)." },
       { type: "heading", text: "When you can't patch in time — compensating controls" },
       { type: "para", text: "CERT-In explicitly accepts interim containment where vendor patches don't exist or deployment can't be compressed. A documented measure executed within 12 hours satisfies the intent of the standard:" },
       { type: "list", items: [

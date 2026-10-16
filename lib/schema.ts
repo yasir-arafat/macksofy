@@ -244,6 +244,11 @@ export function cityLocalBusinessSchema(city: {
 }) {
   const street = CITY_OFFICE_ADDRESS[city.slug];
   if (!street) return null;
+  // The HQ is already described sitewide by the `${BASE}#localbusiness` node.
+  // A second node with a different @id for the same office split one place
+  // into two entities on 14 Mumbai pages (audit 2026-10-16). Only branch
+  // offices get their own node.
+  if (street === SITE.hq.street) return null;
 
   // Derive country/region/hours from the city rather than hardcoding India.
   // UAE location pages (Dubai, Abu Dhabi, UAE) must emit addressCountry "AE"

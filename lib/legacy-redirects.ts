@@ -17,6 +17,12 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   // complete source of truth.
   { source: "/services/dfir", destination: "/services/digital-forensics-incident-response" },
   { source: "/cert-in-12-hour-patch-mandate-macksofy-brief.pdf", destination: "/cert-in-12-hour-patch-mandate.pdf" },
+  // Consolidated 2026-10-16: a second CEH v13 sales page with zero internal
+  // links, competing with /training/ceh (the page that owns CEH intent under
+  // the two-site plan). GSC Aug–Oct 2026: positions 36–59, 0 clicks. The route
+  // source (app/ceh-v13-training, components/ceh/*) is left in place, now
+  // unreachable, pending a decision on merging its curriculum sections.
+  { source: "/ceh-v13-training", destination: "/training/ceh" },
 
   // The legacy PHP site's homepage. Unmapped .php paths are answered by the
   // Vercel WAF with 403 + x-vercel-mitigated: deny, which is the wrong answer

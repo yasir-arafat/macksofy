@@ -30,10 +30,13 @@ export async function GET() {
   lines.push(`- Contact: ${SITE.email} · ${SITE.phoneDisplay}`);
   lines.push("");
 
+  // Entry descriptions use each page's factual seoDescription, not the hero
+  // tagline: "VAPT done properly — not a scan with a cover page" tells a
+  // model nothing about scope, market or deliverables.
   lines.push("## Cybersecurity Services");
   for (const s of SERVICES) {
     lines.push(
-      `- [${s.title}](${SITE.url}/services/${s.slug}): ${s.hero.tagline}`
+      `- [${s.title}](${SITE.url}/services/${s.slug}): ${s.seoDescription}`
     );
   }
   lines.push("");
@@ -41,21 +44,21 @@ export async function GET() {
   lines.push("## Compliance & Audit");
   for (const a of AUDITS) {
     lines.push(
-      `- [${a.title}](${SITE.url}/audit/${a.slug}): ${a.hero.tagline}`
+      `- [${a.title}](${SITE.url}/audit/${a.slug}): ${a.seoDescription}`
     );
   }
   lines.push("");
 
   lines.push("## Training & Certifications");
   for (const c of COURSES) {
-    lines.push(`- [${c.title}](${SITE.url}/training/${c.slug}): ${c.code}`);
+    lines.push(`- [${c.title}](${SITE.url}/training/${c.slug}): ${c.seoDescription}`);
   }
   lines.push("");
 
   lines.push("## Industries Served");
   for (const i of INDUSTRIES) {
     lines.push(
-      `- [${i.name}](${SITE.url}/industries/${i.slug}): ${i.hero.headline}`
+      `- [${i.name}](${SITE.url}/industries/${i.slug}): ${i.seoDescription}`
     );
   }
   lines.push("");

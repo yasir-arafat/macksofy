@@ -113,7 +113,11 @@ export default function GlossaryPage() {
           <section
             key={cat}
             id={catId(cat)}
-            className={`scroll-mt-28 py-16 ${ci % 2 === 1 ? "bg-bg-1" : ""}`}
+            // content-visibility: the page renders 114 term cards; off-screen
+            // categories skip layout/paint until scrolled near. DOM, text and
+            // #term anchors are unchanged (anchor jumps and find-in-page still
+            // work). Intrinsic size is a rough per-category placeholder.
+            className={`scroll-mt-28 py-16 [content-visibility:auto] [contain-intrinsic-size:auto_1600px] ${ci % 2 === 1 ? "bg-bg-1" : ""}`}
           >
             <Container>
               <Eyebrow color={ci % 2 === 0 ? "cyan" : "purple"}>{cat}</Eyebrow>

@@ -409,7 +409,7 @@ export const POSTS: BlogPost[] = [
   // A NEW URL, deliberately, against this repo's default of repointing an
   // existing page. Justification, measured before writing: the site owns four
   // DPDP assets that are all indexed and ranking (/audit/dpdp-act pos 12.5,
-  // /audit/dpdp-sdf pos 8.3, the SDF post pos 5.4, cross-border pos 6.9) and
+  // [DPDP Significant Data Fiduciary audit](/audit/dpdp-sdf) pos 8.3, the SDF post pos 5.4, cross-border pos 6.9) and
   // NONE of them covers the deadline intent -- "May 2027" x0, "November 2026"
   // x0, "Rules, 2025" x0 across all of content/ at the time of writing. The
   // SDF post is also audience-narrower: the phased dates bind EVERY Data
@@ -833,9 +833,9 @@ export const POSTS: BlogPost[] = [
   },
   // ===================================================================
   // ABDM M1 WASA — the digital-health compliance driver behind the WASA
-  // cluster. Supports the /audit/wasa-audit money page (which ranks for
+  // cluster. Supports the [WASA audit](/audit/wasa-audit) money page (which ranks for
   // "wasa audit" but had zero ABDM vocabulary until 2026-08-09) and
-  // /industries/healthcare. Targets the untapped ABDM/ABHA/safe-to-host
+  // [healthcare cybersecurity](/industries/healthcare). Targets the untapped ABDM/ABHA/safe-to-host
   // demand: the site earned 0 impressions on any of it as of 2026-08-06.
   // NOTE ON CLAIMS: NHA sets these requirements and revises them. Primary
   // NHA policy text was NOT readable when this was written, so the post
@@ -1162,7 +1162,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   // PILLAR 1 — Penetration Testing & VAPT: The Complete Guide (India 2026).
   // Topic-cluster hub for the Pentest/VAPT pillar. Anchors to money pages
-  // /services/penetration-testing + /services/vapt; links down to the
+  // [penetration testing](/services/penetration-testing) + [VAPT services](/services/vapt); links down to the
   // supporting posts (tools, AD pentest, VAPT vs red team, etc.).
   // ===================================================================
   {
@@ -1369,7 +1369,7 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   // PILLAR 7 — CERT-In Empanelled Audit: The Complete Guide (2026).
   // Topic-cluster hub for the CERT-In / compliance pillar. Anchors to the
-  // money page /audit/cert-in-empanelled-audit; links across to the Pentest
+  // money page [CERT-In empanelled audit](/audit/cert-in-empanelled-audit); links across to the Pentest
   // pillar and down to the CERT-In supporting posts.
   // ===================================================================
   {
@@ -7388,7 +7388,7 @@ def fetch_logs(service: str) -> str:
       { type: "heading", level: 3, id: "evidence-pack", text: "5. Evidence pack for the Data Protection Board" },
       { type: "para", text: "Keep one evidence set containing the cross-border flow inventory, data classification, destination decision, applicable notification check, architecture evidence, contractual fallback summaries and any required DPIA. The pack should let an internal reviewer or regulator reconstruct why a transfer was allowed on the date it occurred, rather than relying on a present-day snapshot." },
       { type: "heading", level: 2, id: "sdf-threshold", text: "Significant Data Fiduciary — the threshold that changes everything" },
-      { type: "para", text: "DPDP section 10 introduces the Significant Data Fiduciary classification. A notified SDF has additional duties, including an India-based DPO, a DPIA and an independent data audit at the prescribed cadence. Do not assume that company size alone creates the designation, and do not assume a separate certification automatically qualifies an auditor for DPDP work. Track the notification and Board criteria, while preparing the controls that would take longest to implement." },
+      { type: "para", text: "DPDP section 10 introduces the Significant Data Fiduciary classification. A notified SDF has additional duties, including an India-based DPO, a DPIA and an independent data audit at the prescribed cadence. Do not assume that company size alone creates the designation, and do not assume a separate certification automatically qualifies an auditor for DPDP work. Track the notification and Board criteria, while preparing the controls that would take longest to implement. What that independent data audit covers is set out on our [DPDP Significant Data Fiduciary audit](/audit/dpdp-sdf) page." },
       { type: "heading", level: 2, id: "next-90-days", text: "What to do in the next 90 days" },
       { type: "list", items: [
         "Inventory cross-border personal-data flows at data-class level.",
@@ -7489,7 +7489,7 @@ def fetch_logs(service: str) -> str:
         "Disclosing 'all clear' before the 30-day follow-up audit confirms it.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "Our DFIR practice delivers AD-compromise IR on a 24/7 retainer basis to Indian banks, NBFCs, and insurers, with a guaranteed 1-hour engagement SLA. Engagements cover the full five-phase playbook above plus the CERT-In and RBI/SEBI/IRDAI reporting workflow as a single deliverable. Macksofy is CERT-In empanelled. See /services/digital-forensics-incident-response for the engagement scope and /resources/active-directory-compromise-runbook for the operational runbook we publish openly." },
+      { type: "para", text: "Our DFIR practice delivers AD-compromise IR on a 24/7 retainer basis to Indian banks, NBFCs, and insurers, with a guaranteed 1-hour engagement SLA. Engagements cover the full five-phase playbook above plus the CERT-In and RBI/SEBI/IRDAI reporting workflow as a single deliverable. Macksofy is CERT-In empanelled. See [digital forensics and incident response](/services/digital-forensics-incident-response) for the engagement scope and [Active Directory compromise IR runbook](/resources/active-directory-compromise-runbook) for the operational runbook we publish openly." },
       { type: "para", text: "If you are reading this before an incident rather than during one, the more useful next step is choosing who to call: [how to choose a DFIR provider in India](/blog/dfir-services-how-to-choose-india-2026) covers what to verify before you sign, what a retainer should actually contain, and why evidence handling decides whether your findings survive a regulator." },
     ],
     faqs: [
@@ -7497,7 +7497,7 @@ def fetch_logs(service: str) -> str:
       { q: "Do we have to rebuild the AD forest after a compromise?", a: "Not always, but often. Across our Indian BFSI engagements, ~70% of cases lead to a forest rebuild — the break-even is roughly 6-8 confirmed persistence findings. Cleanup is possible for limited compromises but requires a 30/60/90-day follow-up audit cadence to manage re-compromise risk." },
       { q: "Why reset KRBTGT twice?", a: "A single KRBTGT reset keeps the previous password in the AD password-history slot, which Kerberos still accepts. Two resets, with a 10-hour replication wait between them, are required to fully invalidate any forged TGTs (golden tickets)." },
       { q: "How does this interact with the CERT-In 6-hour rule?", a: "CERT-In Direction 20(3)/2022 requires reporting within 6 hours of awareness for reportable incidents (defined in the Annexure I list — AD compromise typically qualifies). The reporting decision is the CISO's, taken in consultation with external counsel; technical containment runs in parallel and is not blocked by the report." },
-      { q: "Does Macksofy offer 24/7 IR retainers in India and the UAE?", a: "Yes. We deliver 24/7 DFIR retainers with a 1-hour engagement SLA across India and the UAE — Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida, Dubai and Abu Dhabi. See /services/digital-forensics-incident-response for the retainer scope." },
+      { q: "Does Macksofy offer 24/7 IR retainers in India and the UAE?", a: "Yes. We deliver 24/7 DFIR retainers with a 1-hour engagement SLA across India and the UAE — Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Gurugram, Noida, Dubai and Abu Dhabi. See [digital forensics and incident response](/services/digital-forensics-incident-response) for the retainer scope." },
       { q: "What's the relationship between this playbook and the RBI Cyber Security Framework?", a: "The RBI CSF (and the IT Governance Framework that supersedes parts of it) requires banks to have a documented incident-response procedure, regular IR drills, and reporting workflows to RBI within defined windows. This playbook is the operational instantiation of those requirements for AD-specific incidents — what RBI inspectors look for in audits." },
     ],
   },
@@ -7598,7 +7598,7 @@ def fetch_logs(service: str) -> str:
         "Skipping the data-classification work because it's slow — every downstream control becomes a guess without it.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "Our architecture and audit practices deliver Zero Trust programme work for Indian banks, NBFCs and insurers — from the 8-week current-state assessment through the 18-month rollout governance and the RBI inspection-readiness deliverables. CERT-In empanelled; RBI IT Governance Framework alignment as a standard output. See /services/identity-security-zero-trust for the identity-pillar engagement and /audit/rbi-it-governance for the inspection-readiness audit." },
+      { type: "para", text: "Our architecture and audit practices deliver Zero Trust programme work for Indian banks, NBFCs and insurers — from the 8-week current-state assessment through the 18-month rollout governance and the RBI inspection-readiness deliverables. CERT-In empanelled; RBI IT Governance Framework alignment as a standard output. See [identity security and zero trust](/services/identity-security-zero-trust) for the identity-pillar engagement and [RBI IT governance audit](/audit/rbi-it-governance) for the inspection-readiness audit." },
     ],
     faqs: [
       { q: "Is Zero Trust mandatory under the RBI IT Governance Framework?", a: "The ITGF does not name Zero Trust as a label, but it requires identity-based access control, least privilege, network segmentation, encryption, and incident readiness — the controls that Zero Trust operationalises. In practice, the only architectural pattern that satisfies the ITGF expectations at the granularity RBI inspects against is Zero Trust." },
@@ -7684,14 +7684,14 @@ def fetch_logs(service: str) -> str:
       { type: "para", text: "RBI inspections look for evidence that the bank not only suffered the incident but learned from it. The post-incident review should land within 12 weeks of detection, feed into the next IT/Risk Committee agenda, drive backlog items for the security programme, and be referenced in the next year's RBI CSF self-assessment. Macksofy includes the post-incident review and the regulator-ready briefing pack as standard deliverables on ransomware IR engagements." },
       { type: "heading", level: 2, id: "drill-cadence", text: "The drill cadence that survives RBI inspection" },
       { type: "list", items: [
-        "Phishing simulation — quarterly, with reporting against industry-benchmark click rates (we use the /services/phishing-simulation service for this in client engagements).",
+        "Phishing simulation — quarterly, with reporting against industry-benchmark click rates (we use the [phishing simulation](/services/phishing-simulation) service for this in client engagements).",
         "IR tabletop — quarterly, with the executive team (M.D., CISO, CIO, head of operations, head of legal, head of communications).",
         "Full IR drill — annually, with a live containment scenario in a clone of production.",
         "Backup-restore drill — quarterly, with a full restore-to-isolated-environment exercise.",
         "Vendor-incident drill — annually, simulating a supply-chain incident at a shared-services vendor.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "Our DFIR practice delivers ransomware IR retainers, ransomware-readiness assessments, and post-incident reviews for Indian banks, NBFCs and insurers. CERT-In empanelled; RBI CSF and IRDAI Information & Cyber Security alignment as standard output. See /services/digital-forensics-incident-response for the retainer scope, /resources/ransomware-ir-runbook-india for the operational runbook we publish openly, and /services/phishing-simulation for the prevention-pillar service." },
+      { type: "para", text: "Our DFIR practice delivers ransomware IR retainers, ransomware-readiness assessments, and post-incident reviews for Indian banks, NBFCs and insurers. CERT-In empanelled; RBI CSF and IRDAI Information & Cyber Security alignment as standard output. See [digital forensics and incident response](/services/digital-forensics-incident-response) for the retainer scope, [ransomware incident response runbook](/resources/ransomware-ir-runbook-india) for the operational runbook we publish openly, and [phishing simulation](/services/phishing-simulation) for the prevention-pillar service." },
       { type: "para", text: "Choosing that responder is its own decision, and it is much easier made calmly: [how to choose a DFIR provider in India](/blog/dfir-services-how-to-choose-india-2026) sets out the due-diligence checklist, the retainer-versus-ad-hoc trade-off, and the evidence-handling questions most buyers never think to ask." },
     ],
     faqs: [
@@ -7700,7 +7700,7 @@ def fetch_logs(service: str) -> str:
       { q: "Should an Indian bank pay the ransom?", a: "The decision is the board's. RBI does not currently prohibit payment, but the international consensus and customer-trust optics weigh against it. The Macksofy DFIR practice generally advises against payment — encryption keys delivered by attackers are unreliable, and payment funds the next attack. Document whatever decision is made for the next regulator review." },
       { q: "How often should an Indian bank run a ransomware drill?", a: "Phishing simulation quarterly; IR tabletop quarterly with executive participation; full IR drill annually with live containment; backup-restore drill quarterly; vendor-incident drill annually. RBI inspections look for evidence of this cadence in the bank's risk-management documentation." },
       { q: "What's the realistic recovery time for an Indian bank ransomware incident?", a: "From containment to declared 'operational restored', 2-8 weeks depending on scope, backup quality, and whether a forest rebuild is required. The full post-incident audit and regulator close-out closes at 12 weeks. Most of the operational impact lands in the first 5-10 days." },
-      { q: "Does Macksofy offer 24/7 ransomware IR retainers?", a: "Yes. 24/7 DFIR retainers with a 1-hour engagement SLA across India and the UAE. See /services/digital-forensics-incident-response for the retainer scope." },
+      { q: "Does Macksofy offer 24/7 ransomware IR retainers?", a: "Yes. 24/7 DFIR retainers with a 1-hour engagement SLA across India and the UAE. See [digital forensics and incident response](/services/digital-forensics-incident-response) for the retainer scope." },
     ],
   },
   {
@@ -7732,6 +7732,7 @@ def fetch_logs(service: str) -> str:
     blocks: [
       { type: "lead", text: "On 25 May 2026 CERT-In published its AI Threat Landscape guidance and, with it, an indicative 12-hour expectation for containing or remediating known exploited vulnerabilities on internet-facing and high-value 'crown-jewel' systems. The number is not arbitrary and it is not aspirational — it is calibrated to how fast AI-assisted attackers now weaponise a disclosed flaw. Read it as a leading indicator of where patch-compliance standards are heading everywhere, not an India-only curiosity." },
       { type: "para", text: "CERT-In's guidance is the operational culmination of an advisory mapping the growing role of generative AI, large language models and autonomous agent frameworks across the attack lifecycle — reconnaissance, vulnerability scanning, targeted phishing and adaptive malware. The headline is the timeline, but the more important shift is the benchmark CERT-In chose: India's national cybersecurity authority is now pacing remediation expectations against AI-driven threat timelines rather than legacy IT change-management windows. Our reading below draws on CERT-In's advisory and the Cloud Security Alliance's May 2026 research note analysing the mandate; the framing is ours, the timeline is CERT-In's." },
+      { type: "para", text: "The [12-hour patch mandate research note](/resources/cert-in-12-hour-patch-mandate) condenses this analysis into the tiered remediation schedule, the compensating controls CERT-In accepts, and a 30/60/90-day checklist." },
       { type: "cta", title: "Download the research note", text: "Prefer a PDF to share with your CISO or board? Grab the Macksofy research note — the tiered schedule, the collapsing-exploit-window data, the compensating-control path and the 30/60/90-day action list, sources cited.", href: "/cert-in-12-hour-patch-mandate.pdf", cta: "Download PDF" },
       { type: "heading", level: 2, id: "what-certin-published", text: "What CERT-In actually published" },
       { type: "para", text: "The guidance establishes a tiered remediation schedule keyed to the intersection of vulnerability severity and system-exposure profile — not a single deadline applied to everything. This is risk-based prioritisation, and it substantially reduces the operational burden relative to a flat 12-hour rule. The 12-hour window applies narrowly: to known exploited vulnerabilities (KEVs) — those already active in the wild and catalogued in threat-intelligence feeds — affecting systems directly exposed to the internet or classified as high-value internal assets." },
@@ -7778,7 +7779,7 @@ def fetch_logs(service: str) -> str:
         "Map your readiness against the CERT-In AI-threat framing and identify control gaps before a supervisory review or an inspection does.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy delivers the readiness work this guidance demands: continuous VAPT against internet-facing assets, KEV-aligned threat-intelligence integration, compensating-control playbook design, and the emergency-remediation runbooks that make a 12-hour window operationally feasible. Engagements range from a focused exposure-and-readiness assessment to a managed programme that runs the detect-correlate-contain loop on your behalf. See /services/vapt for the assessment scope, /services/managed-soc for the continuous-monitoring and rapid-containment capability, /services/threat-intelligence for KEV-aligned feeds, /audit/cert-in-empanelled-audit for the empanelled-audit engagement, and /resources/cert-in-incident-reporting-checklist for the related 6-hour incident-reporting workflow." },
+      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy delivers the readiness work this guidance demands: continuous VAPT against internet-facing assets, KEV-aligned threat-intelligence integration, compensating-control playbook design, and the emergency-remediation runbooks that make a 12-hour window operationally feasible. Engagements range from a focused exposure-and-readiness assessment to a managed programme that runs the detect-correlate-contain loop on your behalf. See [VAPT services](/services/vapt) for the assessment scope, [managed SOC](/services/managed-soc) for the continuous-monitoring and rapid-containment capability, [threat intelligence](/services/threat-intelligence) for KEV-aligned feeds, [CERT-In empanelled audit](/audit/cert-in-empanelled-audit) for the empanelled-audit engagement, and [CERT-In incident reporting checklist](/resources/cert-in-incident-reporting-checklist) for the related 6-hour incident-reporting workflow." },
     ],
     faqs: [
       { q: "Is CERT-In's 12-hour patch mandate legally binding?", a: "Not as published. CERT-In framed the timelines in its May 2026 AI Threat Landscape guidance as indicative expectations rather than legally binding obligations. The operational signal is still strong — the regulator is benchmarking patch cadence against AI-speed exploitation — and indicative expectations have a history of hardening into enforced requirements (the 6-hour incident-reporting direction being the precedent). Treat it as the direction of supervisory expectation." },
@@ -10702,7 +10703,7 @@ def fetch_logs(service: str) -> str:
 
   // ===================================================================
   // OSAI vs LearnToExploit Model Attack & Red Teaming (2026-10-14).
-  // Companion to /training/osai. The OSAI side is from OffSec's public
+  // Companion to [OSAI training](/training/osai). The OSAI side is from OffSec's public
   // AI-300 page (11 modules, 65 h, 24 h proctored exam, $1,749 / $2,749).
   // The LearnToExploit side is from the platform's own catalogue
   // (12 modules, 9 labs, ₹10,000, Specialist tier, OWASP LLM Top 10 +

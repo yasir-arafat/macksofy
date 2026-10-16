@@ -1,5 +1,6 @@
 import { CheckCircle2, Info, AlertTriangle, Lightbulb } from "lucide-react";
 import type { ResourceBlock } from "@/content/resources";
+import { inline } from "@/components/ui/InlineText";
 
 const CALLOUT_ICON = {
   info: Info,
@@ -39,7 +40,7 @@ export function ResourceContent({ blocks }: { blocks: ResourceBlock[] }) {
     <div className="prose prose-slate max-w-none print:prose-sm">
       {blocks.map((b, i) => {
         if (b.type === "para") {
-          return <p key={i}>{b.text}</p>;
+          return <p key={i}>{inline(b.text, undefined)}</p>;
         }
         if (b.type === "heading") {
           const level = b.level ?? 2;
@@ -50,7 +51,7 @@ export function ResourceContent({ blocks }: { blocks: ResourceBlock[] }) {
           return (
             <ul key={i}>
               {b.items.map((it, j) => (
-                <li key={j}>{it}</li>
+                <li key={j}>{inline(it, undefined)}</li>
               ))}
             </ul>
           );

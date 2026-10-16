@@ -14,6 +14,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { COURSES } from "@/content/courses";
+import { POSTS } from "@/content/blog";
 import { SITE, metroKeywords } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
 
@@ -337,7 +338,49 @@ export default function OffSecHubPage() {
         </Container>
       </section>
 
+      {/* Hub for the certification-comparison posts. Seven "X vs OSCP"-style
+          posts competed for overlapping queries with no page tying them
+          together (audit 2026-10-16); this is the money page they point to. */}
+      <section className="py-20">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <Eyebrow color="purple">Compare the certifications</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
+              OSCP against the alternatives.
+            </h2>
+            <ul className="mt-8 divide-y divide-line border-y border-line">
+              {COMPARISONS.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={`/blog/${p.slug}`}
+                    className="flex items-center justify-between gap-4 py-4 font-semibold text-fg hover:text-neon-cyan"
+                  >
+                    {p.title}
+                    <ArrowRight className="size-4 shrink-0" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      </section>
+
       <LeadCapture />
     </>
   );
 }
+
+const COMPARISON_SLUGS = [
+  "oscp-vs-ceh-india-2026",
+  "oscp-plus-vs-oscp-2026",
+  "osep-vs-oscp",
+  "oswe-vs-oscp",
+  "cpts-vs-oscp-certification-comparison-india-2026",
+  "crto-vs-oscp-honest-comparison-2026",
+  "crtp-vs-crto-comparison-india-2026",
+  "crtp-vs-crte-certification-guide-india-2026",
+  "osai-vs-learntoexploit-model-attack-red-teaming-2026",
+];
+const COMPARISONS = COMPARISON_SLUGS.map((s) => POSTS.find((p) => p.slug === s)).filter(
+  (p): p is (typeof POSTS)[number] => Boolean(p)
+);
