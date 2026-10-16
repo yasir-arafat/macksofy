@@ -17,13 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
   const now = new Date();
 
-  // Stable lastmod baseline for pages without their own `updated` date.
-  // Using this instead of `now` stops every deploy from re-stamping ~190
-  // stable URLs with the build date (which makes <lastmod> meaningless to
-  // Google). Per-item `updated` overrides it when a page actually changes.
-  const CONTENT_REV = new Date(SITE.contentRevision);
-  const rev = (updated?: string): Date =>
-    updated ? new Date(updated) : CONTENT_REV;
+  // lastmod only where we actually know it. A page without its own `updated`
+  // date emits no <lastmod> at all. Until 2026-10-16 those pages borrowed a
+  // hand-set sitewide revision date (SITE.contentRevision): 187 of 286 URLs
+  // shared one date, which teaches Google to ignore lastmod for the whole
+  // sitemap — including the URLs whose date is real. Set `updated` on an
+  // entry when its content genuinely changes.
+  const rev = (updated?: string): Date | undefined =>
+    updated ? new Date(updated) : undefined;
 
   // Post lastmod = the post's own date (clamping any future-dated drafts to
   // now). Revised 2026-05-31: previously this returned max(postDate, now),
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const stat = (
     path: string,
-    lastModified: Date = CONTENT_REV,
+    lastModified?: Date,
     images?: string[]
   ): MetadataRoute.Sitemap[number] => {
     // Normalise the homepage to the no-trailing-slash form so the sitemap URL
@@ -48,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const p = path === "/" ? "" : path;
     const entry: MetadataRoute.Sitemap[number] = {
       url: `${base}${p}`,
-      lastModified,
+      ...(lastModified && { lastModified }),
     };
     if (images && images.length > 0) entry.images = images;
     return entry;
@@ -73,7 +74,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // priority/change-frequency hints, and hreflang is omitted until distinct
   // locale URLs exist.
   return [
-    stat("/", CONTENT_REV, [`${base}/og-default.png`]),
+    // The homepage lists the newest posts, so it genuinely changes with them.
+    stat("/", freshenBlog(latestPostDate), [`${base}/og-default.png`]),
     stat("/services"),
     stat("/audit"),
     stat("/training"),
@@ -87,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       stat(`/blog/category/${hub.slug}`, rev(hub.updated))
     ),
     stat("/clients"),
-    stat("/awards", CONTENT_REV, awardImages),
+    stat("/awards", undefined, awardImages),
     stat("/press"),
     stat("/glossary"),
     // /team + expert profiles enter the sitemap only once real named experts

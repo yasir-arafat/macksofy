@@ -9,19 +9,10 @@ export const SITE = {
   url: "https://www.macksofy.com",
   ogImage: "/og-default.png",
   founded: "2014",
-  // Stable sitemap lastmod baseline for pages without a per-item `updated`
-  // date. Bump ONLY when content is broadly revised — never on unrelated
-  // deploys — so <lastmod> stays a truthful freshness signal.
-  //
-  // ⚠️ THIS IS A MANUAL MARKER AND IT ROTS SILENTLY. It sat at 2026-05-31 for
-  // three months while the SSR sweep (2026-08-24/25) rewrote the visible body
-  // text of nearly every page — 604k characters unhidden and 698 strings that
-  // had been structured-data-only turned into real copy. The sitemap therefore
-  // told Google "unchanged since May 31" about 204 of 267 URLs that had in fact
-  // just changed substantially, on a young domain where crawl demand is the
-  // binding constraint. Run `npm run sitemap:freshness` after any broad content
-  // change; it fails when this date is older than the newest content commit.
-  contentRevision: "2026-09-30",
+  // (contentRevision — a hand-set sitewide sitemap lastmod baseline — was
+  // retired 2026-10-16. It rotted once (stale for 3 months after the Aug SSR
+  // sweep) and, when current, still stamped ~190 URLs with one shared date.
+  // Pages without their own `updated` now emit no <lastmod>; see app/sitemap.ts.)
 
   email: "services@macksofy.com",
   phone: "+919930824239",

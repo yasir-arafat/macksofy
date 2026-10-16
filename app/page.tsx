@@ -110,6 +110,29 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+      {/* Training handoff, one line only. The homepage dropped TrainingPreview on
+          2026-09-29 to focus on services, and with it the only homepage link
+          carrying "ethical hacking course in Mumbai" to /training/ceh. GSC
+          after that date: /training/ceh fell from pos 8.9 to 12.5 on the query
+          and impressions for both URLs dropped ~70-80% (28-day normalised).
+          This restores the anchor without bringing training back as a
+          homepage section. Keep the phrase in the anchor only — as prose it
+          makes the homepage compete for the term (see TrainingPreview.tsx). */}
+      <section className="pb-12">
+        <Container>
+          <p className="text-sm text-fg-muted">
+            Training:{" "}
+            <Link href="/training/ceh" className="text-neon-cyan hover:underline">
+              ethical hacking course in Mumbai
+            </Link>{" "}
+            (CEH v13) and{" "}
+            <Link href="/training/corporate-training" className="text-neon-cyan hover:underline">
+              corporate cybersecurity training
+            </Link>{" "}
+            for in-house teams.
+          </p>
+        </Container>
+      </section>
       {/* Latest guides — a crawl path from the most-recrawled URL on the site
           to the newest posts. The Oct 2026 audit found new guides "unknown to
           Google" because only not-yet-discovered category hubs linked them.

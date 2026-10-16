@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "gsc:priority": "python3 scripts/gsc_priority_monitor.py",
-    "track:index": "node scripts/index-tracker.mjs",
-    "sitemap:freshness": "node scripts/sitemap-freshness.mjs"
+    "track:index": "node scripts/index-tracker.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

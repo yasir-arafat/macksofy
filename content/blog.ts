@@ -366,12 +366,13 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "CRTP is the cheapest credible red-team certification on the market: $249 for a 30-day lab, roughly ₹23,800, with 60- and 90-day tiers at $379 and $499 and lifetime access to the course material. CRTO is listed at £399, about ₹51,700 — but treat that as an estimate. When we last checked, Zero-Point Security's own pricing page was intermittently unreachable and independent reviews disagreed on exactly what the fee includes, so confirm the current figure and inclusions before you pay. For the full six-certification cost table see our [red team certifications in India cost breakdown](/blog/red-team-certifications-india-2026); if you are weighing the Altered Security ladder, [CRTP vs CRTE](/blog/crtp-vs-crte-certification-guide-india-2026) covers the next step up; and if OffSec is in the mix, read [CRTO vs OSCP](/blog/crto-vs-oscp-honest-comparison-2026) alongside [what OSCP actually costs in India](/blog/oscp-training-in-mumbai-2026).",
+        text: "CRTP is the cheapest credible red-team certification on the market: $249 for a 30-day lab, roughly ₹23,800, with 60- and 90-day tiers at $379 and $499 and lifetime access to the course material. CRTO is listed at £399, about ₹51,700 — but treat that as an estimate. When we last checked, Zero-Point Security's own pricing page was intermittently unreachable and independent reviews disagreed on exactly what the fee includes, so confirm the current figure and inclusions before you pay. For the full six-certification cost table see our [red team certifications in India cost breakdown](/blog/red-team-certifications-india-2026); if you are weighing the Altered Security ladder, [CRTP vs CRTE](/blog/crtp-vs-crte-certification-guide-india-2026) covers the next step up; and if OffSec is in the mix, read [CRTO vs OSCP](/blog/crto-vs-oscp-honest-comparison-2026) alongside [what OSCP actually costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/).",
       },
       {
         type: "para",
         text: "On hiring: in India, CRTP is a common first add-on for pentesters moving toward Active Directory work, and CRTO is genuinely respected by the mature red teams at the top private banks, big-3 IT-services internal red teams, and MDR providers. Neither yet clears an HR keyword filter the way OSCP does, so if a job description is the target, OSCP is still the default ask and these two are the depth behind it.",
       },
+      { type: "para", text: "If you would rather build the same Active Directory attack and evasion skills with an instructor, the closest course Macksofy teaches is OffSec's PEN-300 — see [OSEP training](/training/osep)." },
       {
         type: "cta",
         title: "Training toward CRTP or CRTO?",
@@ -786,6 +787,7 @@ export const POSTS: BlogPost[] = [
         type: "para",
         text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and use the [cybersecurity company comparison and buyer checklist](/blog/cyber-security-companies-in-mumbai-india-2026) when building a shortlist. Telecom operators owe a parallel six-hour report under the [Telecom Cyber Security Rules 2024](/blog/telecom-cyber-security-rules-2024-india-compliance).",
       },
+      { type: "para", text: "If you are on the other side of the table — an organisation that needs an audit rather than a firm seeking empanelment — see how Macksofy runs a [CERT-In empanelled audit](/audit/cert-in-empanelled-audit)." },
       {
         type: "cta",
         title: "Need a CERT-In empanelled audit?",
@@ -1116,6 +1118,7 @@ export const POSTS: BlogPost[] = [
           "Ask what the deliverable bundle contains, and check it against what you actually have to submit",
         ],
       },
+      { type: "para", text: "Macksofy's [WASA audit for ABDM M1](/audit/wasa-audit) page sets out how the assessment is scoped and what the submission report contains." },
       {
         type: "cta",
         title: "Need an ABDM WASA from a CERT-In empanelled auditor?",
@@ -1412,7 +1415,7 @@ export const POSTS: BlogPost[] = [
       { type: "callout", tone: "info", title: "Running an auditing firm rather than buying an audit?", text: "This guide is for organisations that need an empanelled audit. If you want to get your own firm on the panel — the annual application window, eligibility, the practical skill tests and the interview — read [the CERT-In empanelment process, step by step](/blog/cert-in-empanelment-process-2026)." },
 
       { type: "heading", level: 2, id: "what-is-audit", text: "What is a CERT-In empanelled audit?" },
-      { type: "para", text: "A CERT-In empanelled audit is a structured security assessment — typically VAPT plus configuration and process review — carried out by an empanelled auditor and delivered in CERT-In's expected report format, with the auditor's attestation. In practice it is the report a regulator, tender authority or enterprise customer will accept as independent proof that your systems were tested competently and that findings were remediated. The empanelled entity's name and attestation on the report are what give it weight." },
+      { type: "para", text: "A CERT-In empanelled audit is a structured security assessment — typically VAPT plus configuration and process review — carried out by an empanelled auditor and delivered in CERT-In's expected report format, with the auditor's attestation. In practice it is the report a regulator, tender authority or enterprise customer will accept as independent proof that your systems were tested competently and that findings were remediated. The empanelled entity's name and attestation on the report are what give it weight. (Macksofy's own [CERT-In empanelled audit](/audit/cert-in-empanelled-audit) page sets out how that engagement is scoped and delivered.)" },
 
       { type: "heading", level: 2, id: "who-needs", text: "Who needs a CERT-In empanelled audit?" },
       { type: "para", text: "The requirement usually arrives through a regulator, a contract, or a tender rather than from CERT-In directly. The common drivers:" },
@@ -1748,7 +1751,7 @@ export const POSTS: BlogPost[] = [
         "Insist that the final report follows closure and a follow-up audit on production, and that critical/high findings are escalated to you live during the engagement, not buried in the deliverable.",
       ] },
       { type: "heading", level: 2, id: "how-macksofy-helps", text: "How Macksofy helps" },
-      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy already runs to this standard: manual, methodology-driven VAPT mapped to ISO/IEC, OWASP WSTG/ASVS/MSTG, OSSTMM3 and CERT-In's Baseline Requirements rather than a scanner pass; reports carrying CVSS and EPSS scoring with CWE/CVE mapping and a board-ready executive summary; secure, named-PoC delivery; and follow-up audits that verify closure on production. See /services/vapt for the assessment scope, /audit/cert-in-empanelled-audit for an empanelled-format engagement, /services/web-application-security and /services/mobile-application-security for app-layer testing aligned to the OWASP guides, and /services/cloud-security for CSA CCM-based cloud audits. If you want a second opinion on whether your last report would survive these guidelines, we will review it. If you are still shortlisting a partner, our guide to [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) walks through how to verify CERT-In empanelment and what separates an audit-grade firm from a scanner-and-logo one." },
+      { type: "para", text: "As a CERT-In empanelled auditor, Macksofy already runs to this standard: manual, methodology-driven VAPT mapped to ISO/IEC, OWASP WSTG/ASVS/MSTG, OSSTMM3 and CERT-In's Baseline Requirements rather than a scanner pass; reports carrying CVSS and EPSS scoring with CWE/CVE mapping and a board-ready executive summary; secure, named-PoC delivery; and follow-up audits that verify closure on production. See [VAPT services](/services/vapt) for the assessment scope, the [CERT-In empanelled audit](/audit/cert-in-empanelled-audit) for an empanelled-format engagement, [web application security testing](/services/web-application-security) and [mobile application security testing](/services/mobile-application-security) for app-layer testing aligned to the OWASP guides, and [cloud security assessment](/services/cloud-security) for CSA CCM-based cloud audits. If you want a second opinion on whether your last report would survive these guidelines, we will review it. If you are still shortlisting a partner, our guide to [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) walks through how to verify CERT-In empanelment and what separates an audit-grade firm from a scanner-and-logo one." },
     ],
     faqs: [
       { q: "What are CERT-In's Comprehensive Cyber Security Audit Policy Guidelines?", a: "They are CERT-In's Version 1.0 guidelines, dated 25 July 2025, that define end to end how a cyber security audit by a CERT-In empanelled auditing organisation must be scoped, conducted, scored and reported. Issued under Section 70B of the IT Act 2000, they bind both empanelled auditors and the auditee organisations they assess, across the public and private sectors." },
@@ -2143,6 +2146,7 @@ export const POSTS: BlogPost[] = [
           ["GCC red team · UAE", "AED 25–40k / mo"],
         ],
       },
+      { type: "para", text: "For instructor-led preparation toward the OffSec end of this list, see [OffSec training in India](/training/offsec)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP + AD red team bootcamp"),
     ],
     faqs: [
@@ -2296,7 +2300,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of ₹1.84L pays back in 4 months (see the [full OSCP price breakdown in INR](/blog/oscp-training-in-mumbai-2026)). With OSEP layered on, the delta is closer to ₹15 LPA and the payback drops to 3 months.",
+        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of ₹1.84L pays back in 4 months (see the [full OSCP price breakdown in INR](https://www.macksofytrainings.com/oscp-cost-india-2026/)). With OSEP layered on, the delta is closer to ₹15 LPA and the payback drops to 3 months.",
       },
       {
         type: "callout",
@@ -2319,6 +2323,7 @@ export const POSTS: BlogPost[] = [
           "SOC-200 / OSDA — for blue-team / detection engineers (different track, similar Learn One pricing)",
         ],
       },
+      { type: "para", text: "For instructor-led options across OSCP, OSEP, OSWE and the other OffSec certifications, see [OffSec training in India](/training/offsec)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OffSec OSCP track"),
     ],
     faqs: [
@@ -2488,12 +2493,17 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "oscp-training-in-mumbai-2026",
-    seoTitle: "OSCP Certification Cost in India 2026: INR Fees",
-    seoDescription: "OSCP certification cost in India for 2026: compare course and exam fees in INR, retakes, forex charges and the realistic total cost to get certified.",
-    updated: "2026-09-28",
-    title: "OSCP Training in Mumbai 2026 — Complete Guide to Cost, Syllabus, Exam & Career",
+    // Two-site plan, phase 1 (owner decision 2026-09-18): OSCP *cost* intent
+    // belongs to macksofytrainings.com, which already outranks this post for
+    // it (avg pos 3.5 vs 6.9). Retargeted 2026-10-16 from "OSCP certification
+    // cost in India" to Mumbai training; the pricing section stays for readers
+    // and hands the full fee breakdown to the training site.
+    seoTitle: "OSCP Training in Mumbai 2026: Bootcamp, Syllabus & Exam",
+    seoDescription: "OSCP training in Mumbai for 2026: how the instructor-led bootcamp runs alongside PEN-200, the syllabus, a 90-day prep plan, exam mechanics and salary impact.",
+    updated: "2026-10-16",
+    title: "OSCP Training in Mumbai 2026 — Bootcamp, Syllabus, Exam & Career",
     description:
-      "What OSCP costs in India in 2026, in rupees and in dollars — every OffSec plan priced, the exam-only trap, what a retake adds, and the total to certify. Plus course structure, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
+      "How OSCP training works in Mumbai in 2026 — the instructor-led bootcamp alongside OffSec's PEN-200, what the plans include, the syllabus, a 90-day prep plan, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
     date: "2026-04-30",
     author: "Macksofy Editorial",
     readingTime: "14 min read",
@@ -2502,24 +2512,18 @@ export const POSTS: BlogPost[] = [
     heroKind: "cert-compare",
     heroEyebrow: "Mumbai OSCP training",
     keywords: [
-      "OSCP cost in India",
-      "OSCP exam cost in india",
-      "OSCP price in India",
-      "OSCP certification cost in indian rupees",
-      "OSCP certification cost in INR",
-      "OSCP exam fees in india",
-      "OSCP price india",
-      "OSCP certification cost",
-      "OSCP training cost",
-      "OSCP syllabus 2026",
       "OSCP training Mumbai 2026",
       "OSCP course Mumbai",
+      "OSCP bootcamp Mumbai",
       "best OSCP institute Mumbai",
+      "OSCP corporate training Mumbai",
+      "OSCP syllabus 2026",
+      "OSCP 90-day prep plan",
     ],
     blocks: [
       {
         type: "lead",
-        text: "The first question almost everyone asks about OSCP is what it costs — and the honest answer is that the sticker price is not the number that matters. OffSec bills in US dollars, sells the exam three different ways, and the cheapest-looking option is usually the most expensive once you account for a second attempt. This is the full cost breakdown in rupees, plus the syllabus, exam mechanics, the 90 days before exam day, and how Mumbai's training options stack up.",
+        text: "OSCP is the certification most Mumbai pen-testers aim for first, and the way you prepare for it matters more than any other choice you make. This guide covers what the exam actually tests, which OffSec plan to buy and why the second attempt decides it, the syllabus, the 90 days before exam day, and how Mumbai's training options — self-study, bootcamps and corporate cohorts — stack up.",
       },
       {
         type: "diagram",
@@ -2544,7 +2548,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Start with the fact that changes every other number on this page: OffSec prices OSCP in US dollars, not rupees. There is no separate India price list. Whatever you pay in INR is that dollar figure converted on the day you buy, plus whatever forex markup your card issuer adds — so any Indian site quoting a fixed rupee price is quoting a snapshot, not a rate card. The dollar figures below are OffSec's own published prices; the rupee columns are approximate and will drift.",
+        text: "For the full fee breakdown — course bundles, retakes and GST — see our training institute's guide to [OSCP certification cost in India](https://www.macksofytrainings.com/oscp-cost-india-2026/). The short version follows. Start with the fact that changes every other number on this page: OffSec prices OSCP in US dollars, not rupees. There is no separate India price list. Whatever you pay in INR is that dollar figure converted on the day you buy, plus whatever forex markup your card issuer adds — so any Indian site quoting a fixed rupee price is quoting a snapshot, not a rate card. The dollar figures below are OffSec's own published prices; the rupee columns are approximate and will drift.",
       },
       {
         type: "table",
@@ -2885,6 +2889,7 @@ export const POSTS: BlogPost[] = [
       // and this post is the strongest internal signal the CEH course page has
       // for "ethical hacking course" intent. Link straight at the page, with
       // the phrase people search as the anchor text.
+      { type: "para", text: "For how Macksofy runs the course — format, labs and exam preparation — see [CEH v13 training in Mumbai](/training/ceh)." },
       {
         type: "cta",
         title: "Train with an EC-Council ATC in Mumbai",
@@ -3220,6 +3225,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
         title: "Once your machine is set up",
         text: "Hardware is the easy part. If you are still choosing a certification path, [OSCP vs CEH for Indian students](/blog/oscp-vs-ceh-india-2026) breaks down which one fits a beginner's budget and goals — and once Kali is installed, [Burp Suite for beginners](/blog/burp-suite-for-beginners-2026) is the first tool most students learn.",
       },
+      { type: "para", text: "Once the machine is sorted, skills are the bottleneck: Macksofy's [cybersecurity training tracks](/training) run from entry-level certifications to OffSec's advanced exams, taught on the laptop you bring." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's bring-your-own-laptop bootcamps"),
     ],
     faqs: [
@@ -3368,6 +3374,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           "Both — senior consulting at top boutiques (Doyensec, NCC, IOActive)",
         ],
       },
+      { type: "para", text: "Macksofy runs instructor-led [OSWE training](/training/oswe) for the web-exploitation path and [OSCP training](/training/oscp) for the network path." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP and OSWE prep"),
     ],
     faqs: [
@@ -3525,6 +3532,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           "OSCP + OSEP / CRTO, 3+ yr exp → CRTE for multi-forest, or specialist OSED / OSWE",
         ],
       },
+      { type: "para", text: "Macksofy teaches both: [OSEP training](/training/osep) for the evasion and Active Directory path, and [OSCP training](/training/oscp) for the foundation." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSEP prep with OSCP refresher"),
     ],
     faqs: [
@@ -4674,7 +4682,7 @@ nmap --randomize-hosts -iL targets.txt`,
     blocks: [
       {
         type: "lead",
-        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](/blog/oscp-training-in-mumbai-2026).) They are very different in what they test, who they impress, and what they prepare you for. If your real alternative to CRTO is the cheaper AD cert rather than OSCP, see [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
+        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/).) They are very different in what they test, who they impress, and what they prepare you for. If your real alternative to CRTO is the cheaper AD cert rather than OSCP, see [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
       },
       {
         type: "comparison",
@@ -4800,6 +4808,7 @@ nmap --randomize-hosts -iL targets.txt`,
         type: "para",
         text: "If you already work in a SOC and want to move to red team, OSCP is the door. If you have OSCP and want to move into senior offensive roles, CRTO is the differentiator. If you can only afford one and you target Indian BFSI red-team specifically, OSCP wins on raw hiring volume.",
       },
+      { type: "para", text: "For the OSCP route, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside OffSec's PEN-200 course." },
       MACKSOFY_CTA("oscp-bootcamp", "Our OSCP and CRTO prep"),
     ],
     faqs: [
@@ -5358,8 +5367,9 @@ def fetch_logs(service: str) -> str:
         type: "callout",
         tone: "info",
         title: "What we tell our students",
-        text: "If you can afford OSCP ([here is what it costs in India](/blog/oscp-training-in-mumbai-2026)), do OSCP first — the recognition is worth the premium. If you can't, CPTS is no longer a 'second-tier' choice; it's a perfectly legitimate first credential. We have placed CPTS-only graduates into Indian BFSI pentest roles at ₹10-13 LPA in 2026.",
+        text: "If you can afford OSCP ([here is what it costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/)), do OSCP first — the recognition is worth the premium. If you can't, CPTS is no longer a 'second-tier' choice; it's a perfectly legitimate first credential. We have placed CPTS-only graduates into Indian BFSI pentest roles at ₹10-13 LPA in 2026.",
       },
+      { type: "para", text: "If OSCP is the one you choose, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside OffSec's PEN-200 course." },
       MACKSOFY_CTA("oscp-bootcamp", "Our pentest certification prep"),
     ],
     faqs: [
@@ -5523,6 +5533,7 @@ def fetch_logs(service: str) -> str:
           "Both: take a sleep break 12h in; passers consistently sleep, failures consistently push through",
         ],
       },
+      { type: "para", text: "For an instructor-led route into Active Directory and evasion tradecraft, see Macksofy's [OSEP training](/training/osep), built on OffSec's PEN-300." },
       MACKSOFY_CTA("crtp", "Our AD-focused training tracks"),
     ],
     faqs: [
@@ -5872,7 +5883,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "Many senior practitioners hold both. CEH first as a fast HR-filter cert (~3 months) and then OSCP+ for the practical credibility (~6 months). The combined investment is ~₹2L total ([OSCP's own cost in India breaks down here](/blog/oscp-training-in-mumbai-2026)), returns a salary uplift typically inside the first promotion cycle, and signals both breadth and depth on a CV.",
+        text: "Many senior practitioners hold both. CEH first as a fast HR-filter cert (~3 months) and then OSCP+ for the practical credibility (~6 months). The combined investment is ~₹2L total ([OSCP's own cost in India breaks down here](https://www.macksofytrainings.com/oscp-cost-india-2026/)), returns a salary uplift typically inside the first promotion cycle, and signals both breadth and depth on a CV.",
       },
       {
         type: "heading",

@@ -413,54 +413,6 @@ export function courseSchema(course: Course) {
   };
 }
 
-/**
- * Product schema for a training course. Course schema (above) covers
- * the educational-entity surface; Product schema covers the commerce
- * surface — Google can show course pricing in shopping/SERPs from
- * either, and emitting both is valid (different @id, same canonical
- * provider). Mirrors the offer block from courseSchema so price stays
- * one source of truth.
- */
-export function courseProductSchema(course: Course) {
-  // Google requires a Product to carry offers, review or aggregateRating. Quote-based
-  // courses (corporate training) have no price, so a Product node here would always be
-  // invalid. The Course node on the same page already describes the offering correctly,
-  // so emit nothing rather than an incomplete entity.
-  if (!course.priceINR) return null;
-
-  const url = `${BASE}/training/${course.slug}`;
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${url}#product`,
-    name: course.title,
-    description: course.hero.description,
-    url,
-    image: course.image.startsWith("http") ? course.image : `${BASE}${course.image}`,
-    sku: course.code,
-    mpn: course.code,
-    category: "Cybersecurity Training",
-    brand: {
-      "@type": "Brand",
-      name: SITE.name,
-    },
-    isRelatedTo: { "@id": `${url}#course` },
-    ...(course.priceINR && {
-      offers: {
-        "@type": "Offer",
-        price: course.priceINR,
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        itemCondition: "https://schema.org/NewCondition",
-        url,
-        seller: { "@id": `${BASE}#organization` },
-        validFrom: SITE.founded,
-        ...(course.priceNote && { description: course.priceNote }),
-      },
-    }),
-  };
-}
-
 export function serviceSchema(service: Service) {
   return {
     "@context": "https://schema.org",

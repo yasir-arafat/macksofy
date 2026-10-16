@@ -7,9 +7,9 @@ import { COMBO_PAIRS } from "@/content/combos";
 
 /**
  * "Where we deliver [subject]" — service / audit / training cross-link
- * footer strip. Surfaces the top metro routes plus any meaningfully reviewed
- * combo that would otherwise fall below the default cut — fixes the weak-linking
- * gap without expanding every service page indiscriminately
+ * footer strip. Surfaces the top metro routes plus every city that has a real
+ * combo page for this service but falls below the default cut — fixes the
+ * weak-linking gap without expanding every service page indiscriminately
  * (service pages previously only linked to other services in the
  * same category).
  *
@@ -44,15 +44,12 @@ export function WhereWeDeliver({
     : [];
   const comboSet = new Set(comboCities ?? derivedCombo);
   const baseCities = CITIES.filter((c) => c.slug !== "uae").slice(0, limit);
-  const reviewedCitySet = new Set(
-    serviceSlug
-      ? COMBO_PAIRS.filter(
-          (p) => p.service === serviceSlug && Boolean(p.updated)
-        ).map((p) => p.city)
-      : []
-  );
+  // Every combo page needs a link from its parent service page. Supplementing
+  // only *reviewed* combos (those with `updated`) left 11 Dubai / Abu Dhabi /
+  // Ahmedabad combos linked from city hubs alone; the Oct 2026 audit found
+  // combos in that state "Discovered – currently not indexed".
   const supplementalCities = CITIES.filter(
-    (c) => reviewedCitySet.has(c.slug) && !baseCities.some((b) => b.slug === c.slug)
+    (c) => comboSet.has(c.slug) && !baseCities.some((b) => b.slug === c.slug)
   );
   const cities = [...baseCities, ...supplementalCities];
 

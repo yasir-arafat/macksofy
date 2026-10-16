@@ -19,7 +19,7 @@ import { ToolStack } from "@/components/visuals/ToolStack";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { LeadCapture } from "@/components/home/LeadCapture";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, courseProductSchema, courseSchema, faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, courseSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { COURSES, getCourseBySlug } from "@/content/courses";
 import { pickRelatedCourses } from "@/lib/related";
@@ -71,7 +71,6 @@ export default async function CourseDetail({ params }: PageProps) {
       <JsonLd
         data={[
           courseSchema(c),
-          ...(courseProductSchema(c) ? [courseProductSchema(c)!] : []),
           breadcrumbSchema([
             { name: "Training", url: "/training" },
             { name: c.shortTitle, url: `/training/${c.slug}` },

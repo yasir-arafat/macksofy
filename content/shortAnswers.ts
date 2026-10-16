@@ -470,8 +470,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   // position 7-11 earning zero clicks; Mumbai is 6.6%. Same repoint as the
   // CEH syllabus fix in cc77cb9 — serve the intent the page actually ranks for.
   "blog:oscp-training-in-mumbai-2026": {
-    q: "How much does OSCP cost in India?",
-    a: "OffSec sells OSCP two ways: a Course + Cert Bundle at $1,749 for 90 days of PEN-200, labs and one exam attempt, or Learn One at $2,749 a year with two attempts — roughly ₹1,70,000 and ₹2,67,000. Retakes are $249. OffSec bills in US dollars, so the rupee figure moves with the exchange rate.",
+    // Retargeted 2026-10-16 (two-site plan): cost intent now belongs to the
+    // training site; this page answers the Mumbai training question.
+    q: "How does OSCP training work in Mumbai?",
+    a: "Most Mumbai candidates pair OffSec's PEN-200 course and labs with a mentor-led bootcamp. Macksofy's runs as a 12-week hybrid programme alongside the 90-day OffSec lab, ending in the 24-hour hands-on exam and a 24-hour reporting window. The deciding choice is the OffSec plan: Learn One includes a second exam attempt, the Course + Cert Bundle does not.",
   },
   "blog:soc-analyst-training-india-2026": {
     q: "Which SOC analyst certification is best in India — CSA, SOC-200, or CySA+?",
