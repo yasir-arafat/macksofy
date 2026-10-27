@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Shell } from "@/components/layout/Shell";
+import { CrawlNav } from "@/components/layout/CrawlNav";
 import { LazyClientWidgets } from "@/components/widgets/LazyClientWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -242,6 +243,7 @@ export default function RootLayout({
         {/* Shell renders the global chrome (Header/Footer/widgets) on every
             page EXCEPT paid-ad landing pages under /lp, which are intentionally
             chrome-free. See components/layout/Shell.tsx. */}
+        <CrawlNav nav={nav} />
         <Shell
           header={<Header nav={nav} />}
           footer={<Footer nav={nav} />}

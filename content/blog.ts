@@ -250,6 +250,422 @@ export const POSTS: BlogPost[] = [
     ],
   },
   // ===================================================================
+  // VAPT Cost in India 2026 — commercial intent post targeting
+  // "vapt cost india", "penetration testing cost india", "vapt pricing".
+  // The site has zero ranking for commercial service queries (1 click
+  // from 106 impressions on service pages). This post fills the gap.
+  // ===================================================================
+  {
+    slug: "vapt-cost-india-2026",
+    title: "How Much Does VAPT Cost in India in 2026? Pricing Breakdown by Scope",
+    seoTitle: "VAPT Cost India 2026: Pricing by Scope & Complexity",
+    seoDescription: "VAPT pricing in India for 2026 — what drives cost, typical price ranges by scope (web app, network, API, mobile, cloud), and how to compare quotes from CERT-In empanelled vendors.",
+    description:
+      "VAPT pricing in India for 2026 — what drives cost, typical price ranges by scope (web app, network, API, mobile, cloud), and how to compare quotes honestly.",
+    date: "2026-10-27",
+    author: "Macksofy Delivery Lead",
+    authorRole: "Offensive security",
+    readingTime: "10 min read",
+    category: "Penetration Testing",
+    tags: ["VAPT", "Penetration Testing", "Pricing", "India", "Buyer Guide"],
+    heroKind: "web",
+    heroEyebrow: "Buyer guide · India",
+    keywords: [
+      "VAPT cost India",
+      "penetration testing cost India",
+      "VAPT pricing India",
+      "VAPT cost Mumbai",
+      "pentest cost India 2026",
+      "vulnerability assessment cost",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "The honest answer is ₹1.5 lakh to ₹25 lakh, depending on what you are testing and how deep you need the engagement to go. The dishonest answer is the ₹50,000 quote that covers a scanner report with a cover page. This guide explains what drives real VAPT pricing in India so you can compare quotes on substance rather than sticker price.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Key takeaway",
+        text: "The three variables that move VAPT cost the most are scope (number and type of assets), depth (automated scan vs manual exploitation), and compliance format (a CERT-In format report costs more than a generic finding list because it carries legal weight).",
+      },
+      { type: "heading", level: 2, text: "What is included in a VAPT engagement", id: "whats-included" },
+      {
+        type: "para",
+        text: "A proper VAPT engagement is not a tool scan. It includes scoping (defining which assets, environments and user roles are in play), automated vulnerability scanning, manual penetration testing (where an operator actually tries to exploit findings), evidence collection, risk-rated reporting, and a free retest window after remediation. Vendors who skip the manual testing phase will always quote lower — and their report will always miss the findings that matter.",
+      },
+      {
+        type: "para",
+        text: "For a primer on the methodology behind these engagements, see our [penetration testing and VAPT guide for India](/blog/penetration-testing-vapt-guide-india-2026). For the compliance layer, see the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026).",
+      },
+      { type: "heading", level: 2, text: "VAPT pricing ranges by scope in 2026", id: "pricing-ranges" },
+      {
+        type: "table",
+        headers: ["Scope", "Typical Range (₹)", "What Drives Cost Up"],
+        rows: [
+          ["Single web application (unauthenticated)", "₹1.5 L – ₹3 L", "Number of roles, API endpoints, file upload, payment flows"],
+          ["Web app + authenticated (multi-role)", "₹3 L – ₹6 L", "Role count, workflow complexity, business logic depth"],
+          ["API-only (REST / GraphQL)", "₹2 L – ₹5 L", "Endpoint count, auth model (OAuth/JWT/mTLS), rate limiting"],
+          ["Mobile app (Android + iOS)", "₹3 L – ₹7 L", "Native vs hybrid, cert pinning bypass, backend API scope"],
+          ["Internal network (up to 500 IPs)", "₹4 L – ₹8 L", "Active Directory complexity, VLAN segmentation, OT/IoT"],
+          ["Cloud posture (AWS / Azure / GCP)", "₹3 L – ₹8 L", "Account count, IAM complexity, container/K8s presence"],
+          ["Full-scope enterprise (web + network + cloud + mobile)", "₹10 L – ₹25 L", "Asset count, compliance format (RBI SAR / SEBI / CERT-In)"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Red flag: quotes under ₹1 lakh for a web application",
+        text: "If a vendor quotes under ₹1 lakh for a web application VAPT, they are almost certainly running an automated scanner (Nessus, Qualys, or Acunetix) and wrapping the output in a template. That is a vulnerability assessment, not a penetration test. The report will miss business logic flaws, chained attack paths and authentication bypass — the findings regulators and auditors actually care about.",
+      },
+      { type: "heading", level: 2, text: "What drives VAPT cost higher", id: "cost-drivers" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "**Scope breadth** — more applications, more IPs, more environments (staging + production) means more days of testing.",
+          "**Depth of manual testing** — a grey-box engagement with multiple authenticated roles costs 2-3x more than an unauthenticated scan because each role requires separate test passes.",
+          "**Compliance reporting format** — a CERT-In format report, an RBI System Audit Report, or a SEBI cybersecurity attestation carries specific structure requirements. Vendors who hold [CERT-In empanelment](/audit/cert-in-empanelled-audit) charge more because the report is legally acceptable without rework.",
+          "**Retest window** — a 30-day free retest is standard. Extended retest windows (60–90 days) or multiple retest cycles add cost.",
+          "**Operator certification level** — engagements staffed by OSCP/OSWE/OSEP-certified operators cost more than those staffed by CEH-only teams. The finding quality is materially different.",
+          "**Timeline compression** — a 2-week turnaround on a scope that normally takes 4 weeks requires parallel operators and carries a premium.",
+        ],
+      },
+      { type: "heading", level: 2, text: "How to compare VAPT quotes", id: "compare-quotes" },
+      {
+        type: "para",
+        text: "When you have 3-4 quotes on the table, normalize them on these dimensions before comparing price:",
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**Scope definition** — are all vendors quoting against the same asset list and environment? A quote that excludes the API or the mobile app is not cheaper, it is narrower.",
+          "**Manual vs automated** — ask each vendor what percentage of the engagement is manual exploitation vs automated scanning. Below 60% manual is a scan report.",
+          "**Operator credentials** — ask for the certifications of the people who will actually do the testing, not the company's collective credentials.",
+          "**Report format** — will the report satisfy your regulator (CERT-In, RBI, SEBI, IRDAI) without rework? Ask for an anonymised sample.",
+          "**Retest included** — is remediation verification included? How many cycles? What is the window?",
+          "**CERT-In empanelment** — for regulated entities, only a [CERT-In empanelled auditor](/audit/cert-in-empanelled-audit) produces a report that regulators accept at face value. Non-empanelled vendors produce reports that may trigger follow-up queries. See our [top CERT-In empanelled audit providers](/blog/top-cert-in-empanelled-audit-providers-india-2026) for a ranked comparison.",
+        ],
+      },
+      { type: "heading", level: 2, text: "Annual programme vs one-off engagement", id: "annual-vs-oneoff" },
+      {
+        type: "para",
+        text: "A single VAPT engagement is a snapshot. An annual programme — quarterly or continuous testing — costs 2-3x the one-off price but catches the vulnerabilities introduced by every release cycle. For organisations shipping code weekly, a one-off VAPT is outdated before the report is read. Most of our BFSI and SaaS clients run quarterly cycles mapped to their release cadence.",
+      },
+      {
+        type: "para",
+        text: "For a comparison of engagement models beyond VAPT — including red team assessments and managed security programmes — see [VAPT vs red team](/blog/vapt-vs-red-team-2026) and the [top VAPT companies in India](/blog/top-vapt-companies-india-2026) buyer guide.",
+      },
+      { type: "heading", level: 2, text: "City-specific pricing notes", id: "city-pricing" },
+      {
+        type: "para",
+        text: "VAPT pricing in India does not vary significantly by city — most engagements are delivered remotely with an on-site kickoff and exit briefing. Whether you are in [Mumbai](/locations/mumbai), [Bengaluru](/locations/bengaluru), [Delhi NCR](/locations/delhi), [Hyderabad](/locations/hyderabad) or [Pune](/locations/pune), the pricing ranges above apply. On-site testing (for network VAPT or air-gapped environments) may carry travel costs for engagements outside Mumbai.",
+      },
+      {
+        type: "cta",
+        title: "Get a scoped VAPT quote",
+        text: "Tell us what you are testing, your compliance requirement, and your timeline. We will give you a fixed-price quote — no hourly billing, no scope creep.",
+        href: "/contact",
+        cta: "Request a VAPT quote",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does VAPT cost in India?",
+        a: "VAPT cost in India ranges from ₹1.5 lakh for a single web application to ₹25 lakh for a full-scope enterprise engagement covering web, network, cloud and mobile. The main cost drivers are asset count, manual testing depth, compliance reporting format, and operator certification level.",
+      },
+      {
+        q: "Why do VAPT quotes vary so much between vendors?",
+        a: "Because vendors are quoting different things. A ₹50,000 quote is an automated scan with a branded cover page. A ₹5 lakh quote is a manual penetration test by certified operators with a compliance-format report and retest window. Always compare scope, manual-vs-automated ratio, and report format before comparing price.",
+      },
+      {
+        q: "Is CERT-In empanelment required for VAPT in India?",
+        a: "It is not legally required for all organisations, but for regulated entities (BFSI under RBI, capital markets under SEBI, government under MeitY), a CERT-In empanelled auditor's report is the only one accepted without follow-up queries. For unregulated companies, empanelment is a strong quality signal.",
+      },
+      {
+        q: "Does VAPT pricing differ between Mumbai, Delhi and Bengaluru?",
+        a: "Not meaningfully. Most VAPT engagements are delivered remotely. On-site testing for network or air-gapped environments may add travel costs outside the vendor's base city.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // Penetration Testing RFP Checklist — commercial intent post targeting
+  // "penetration testing RFP", "VAPT RFP template", "how to hire a
+  // pentest vendor". Captures mid-funnel buyers who are already past
+  // awareness and building vendor shortlists.
+  // ===================================================================
+  {
+    slug: "penetration-testing-rfp-checklist-india-2026",
+    title: "Penetration Testing RFP Checklist for Indian Enterprises (2026)",
+    seoTitle: "Penetration Testing RFP Checklist India 2026",
+    seoDescription: "A 2026 penetration testing RFP checklist for Indian enterprises — what to specify in scope, how to evaluate vendor responses, and the compliance clauses RBI/SEBI/CERT-In expect.",
+    description:
+      "Penetration testing RFP checklist for Indian enterprises — what to specify, how to evaluate vendor responses, and the compliance clauses regulators expect.",
+    date: "2026-10-27",
+    author: "Macksofy Delivery Lead",
+    authorRole: "Offensive security",
+    readingTime: "9 min read",
+    category: "Penetration Testing",
+    tags: ["Penetration Testing", "VAPT", "RFP", "India", "Procurement"],
+    heroKind: "web",
+    heroEyebrow: "Procurement guide · India",
+    keywords: [
+      "penetration testing RFP",
+      "VAPT RFP template India",
+      "pentest vendor evaluation",
+      "VAPT vendor checklist",
+      "how to hire pentester India",
+      "penetration testing vendor comparison",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Writing a penetration testing RFP that attracts strong vendors and filters weak ones is itself a security skill. Most RFPs we receive are either too vague (test everything, give us a report) or too prescriptive (run these 14 tools in this order). Both produce bad outcomes. This checklist sits in the middle — specific enough to get comparable quotes, open enough to let good operators show what they can do.",
+      },
+      { type: "heading", level: 2, text: "Section 1: Scope definition", id: "scope" },
+      {
+        type: "para",
+        text: "The scope section is where most RFPs fail. An ambiguous scope means every vendor quotes against a different target, and you cannot compare the responses. Be explicit about:",
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**Asset inventory** — list every application, API, network range, cloud account and mobile app in scope. Include URLs, IP ranges and environment (production vs staging).",
+          "**User roles** — for authenticated testing, list the roles to be tested (admin, user, guest, API consumer). Each role is a separate test pass.",
+          "**Environments** — specify whether testing runs on production, staging, or both. Production testing requires change-control coordination.",
+          "**Exclusions** — explicitly list anything out of scope (third-party SaaS, specific IP ranges, DDoS testing, social engineering).",
+          "**Compliance requirement** — state whether the report must satisfy CERT-In, RBI, SEBI, IRDAI or ISO 27001 audit requirements. This changes the report format, the methodology documentation and the vendor qualifications needed.",
+        ],
+      },
+      { type: "heading", level: 2, text: "Section 2: Vendor qualification requirements", id: "vendor-quals" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**CERT-In empanelment** — for regulated entities, require current [CERT-In empanelment](/audit/cert-in-empanelled-audit) with audit scope covering information security assessments.",
+          "**Operator certifications** — require at least OSCP for web/network testing. For red team scope, require OSEP or CRTO. For web application focus, require OSWE or BSCP. CEH alone is not sufficient for manual exploitation.",
+          "**Insurance** — require professional indemnity and cyber liability insurance covering the engagement value.",
+          "**Past engagements** — ask for 3 anonymised case studies in your sector (BFSI, healthcare, SaaS, government). Verify the vendor actually performed the work, not a subcontractor.",
+          "**Team composition** — require the vendor to name the lead operator and provide their individual certifications. Firms that staff senior operators at sales and junior operators at delivery are common.",
+        ],
+      },
+      { type: "heading", level: 2, text: "Section 3: Methodology and deliverables", id: "methodology" },
+      {
+        type: "para",
+        text: "Require the vendor to describe their methodology in their response. A good response will reference OWASP Testing Guide, PTES, or OSSTMM and explain how they adapt it to your scope. A bad response will paste a generic waterfall diagram.",
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**Automated vs manual split** — ask vendors to state the percentage of manual testing. Below 60% manual is an automated scan dressed as a pentest.",
+          "**Tool disclosure** — ask vendors to list their primary tools. This is not so you can dictate tools, but so you can verify they have commercial licences (Burp Suite Pro, not Community).",
+          "**Critical finding escalation** — require same-day notification for critical/high findings (RCE, authentication bypass, data exposure) with a secure communication channel.",
+          "**Report format** — specify the structure: executive summary, technical findings with CVSS scores, evidence (screenshots, request/response pairs), remediation guidance, and a compliance mapping section if applicable.",
+          "**Retest** — require at least one free retest cycle within 30 days of remediation. Define what counts as a retest (re-validation of fixed findings only, or full re-engagement).",
+        ],
+      },
+      { type: "heading", level: 2, text: "Section 4: Evaluation criteria", id: "evaluation" },
+      {
+        type: "table",
+        headers: ["Criterion", "Weight", "What to Look For"],
+        rows: [
+          ["Technical approach", "30%", "Methodology depth, manual testing commitment, tool stack"],
+          ["Team qualifications", "25%", "Named operators, individual certs (OSCP/OSWE/OSEP), sector experience"],
+          ["CERT-In / regulatory compliance", "20%", "Active empanelment, report format samples, regulatory experience"],
+          ["Pricing", "15%", "Fixed-price vs time-and-materials, retest inclusion, scope clarity"],
+          ["References & track record", "10%", "Verifiable case studies, client references in your sector"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Do not weight price above 20%",
+        text: "Weighting price above 20% in a pentest RFP systematically selects for scan-based vendors. The cheapest VAPT quote is almost always the one that does the least manual work. See our [VAPT cost guide](/blog/vapt-cost-india-2026) for what pricing should look like at each scope level.",
+      },
+      { type: "heading", level: 2, text: "Section 5: Compliance and legal clauses", id: "compliance-clauses" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**NDA** — mutual, executed before scope details are shared.",
+          "**Rules of engagement** — define testing windows, escalation contacts, and what constitutes a stop condition (data exposure, service disruption).",
+          "**Data handling** — require the vendor to delete all engagement data (findings, evidence, credentials) within 90 days of report delivery.",
+          "**Subcontracting** — prohibit subcontracting of the testing work without prior written consent. Many firms resell capacity from freelance operators.",
+          "**Incident during testing** — define liability and response procedures if the vendor causes a service disruption.",
+        ],
+      },
+      { type: "heading", level: 2, text: "RFP timeline template", id: "timeline" },
+      {
+        type: "table",
+        headers: ["Milestone", "Suggested Timeline"],
+        rows: [
+          ["RFP issued", "Day 0"],
+          ["Vendor questions deadline", "Day 7"],
+          ["Responses due", "Day 21"],
+          ["Shortlist and technical presentations", "Day 28–35"],
+          ["Vendor selection and contracting", "Day 42"],
+          ["Engagement kickoff", "Day 49–56"],
+        ],
+      },
+      {
+        type: "para",
+        text: "For a broader vendor comparison methodology, see our [top VAPT companies in India](/blog/top-vapt-companies-india-2026) buyer guide and the [cybersecurity company buyer checklist](/blog/cyber-security-companies-in-mumbai-india-2026).",
+      },
+      {
+        type: "cta",
+        title: "Need help writing the RFP?",
+        text: "We have responded to hundreds of VAPT RFPs for BFSI, SaaS, government and healthcare clients. We can help you write a scope definition that gets comparable, honest quotes.",
+        href: "/contact",
+        cta: "Talk to our delivery team",
+      },
+    ],
+    faqs: [
+      {
+        q: "What should a penetration testing RFP include?",
+        a: "A complete pentest RFP includes: asset inventory with URLs and IP ranges, user roles for authenticated testing, environment specification (prod/staging), compliance requirements (CERT-In/RBI/SEBI), vendor qualification criteria (empanelment, operator certs), methodology requirements, deliverable format, retest terms, evaluation weights, and legal/NDA clauses.",
+      },
+      {
+        q: "Should I require CERT-In empanelment in a VAPT RFP?",
+        a: "Yes, if you are a regulated entity (BFSI under RBI, capital markets under SEBI, government under MeitY). For unregulated companies, requiring empanelment is still a strong quality filter — it means the vendor has passed CERT-In's own qualification review.",
+      },
+      {
+        q: "How do I evaluate pentest vendor responses?",
+        a: "Weight technical approach (30%), team qualifications (25%), regulatory compliance (20%), pricing (15%), and references (10%). Ask for an anonymised sample report and interview the named operator — not just the account manager.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // Managed SOC Pricing India 2026 — commercial intent post targeting
+  // "managed soc cost india", "soc as a service pricing india",
+  // "in-house vs outsourced soc cost".
+  // ===================================================================
+  {
+    slug: "managed-soc-pricing-india-2026",
+    title: "Managed SOC Pricing in India 2026: In-House vs Outsourced Cost Breakdown",
+    seoTitle: "Managed SOC Pricing India 2026: Cost Breakdown",
+    seoDescription: "Managed SOC pricing in India for 2026 — in-house vs outsourced cost comparison, pricing models (per-endpoint, per-EPS, flat fee), and what to negotiate before signing.",
+    description:
+      "Managed SOC pricing in India for 2026 — in-house vs outsourced cost breakdown, pricing models, and what to negotiate before signing a managed detection contract.",
+    date: "2026-10-27",
+    author: "Macksofy SOC Lead",
+    authorRole: "Blue-team operations",
+    readingTime: "11 min read",
+    category: "Blue Team",
+    tags: ["Managed SOC", "Pricing", "SIEM", "MDR", "India", "Buyer Guide"],
+    heroKind: "blue-team",
+    heroEyebrow: "Buyer guide · India",
+    keywords: [
+      "managed SOC cost India",
+      "SOC as a service pricing India",
+      "managed SOC pricing",
+      "in-house vs outsourced SOC cost",
+      "MDR pricing India",
+      "24x7 SOC cost India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "A managed SOC in India costs ₹15 lakh to ₹1.5 crore per year depending on endpoint count, log volume, response authority, and compliance format. An in-house SOC with equivalent 24x7 coverage costs 3-5x more when you account for the people, tooling, facility and attrition you will actually face. This guide breaks down both models so you can budget accurately.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Key insight",
+        text: "The biggest hidden cost of an in-house SOC is not the SIEM licence — it is analyst attrition. SOC L1 analysts in India turn over at 30-40% annually. Every departure costs 3-4 months of productivity in hiring, onboarding and ramp-up. A managed SOC absorbs that attrition cost.",
+      },
+      { type: "heading", level: 2, text: "In-house SOC cost breakdown", id: "in-house-cost" },
+      {
+        type: "table",
+        headers: ["Cost Component", "Annual Cost (₹)", "Notes"],
+        rows: [
+          ["SIEM licence (Splunk / Elastic / Sentinel)", "₹20 L – ₹80 L", "Scales with daily ingest volume (GB/day)"],
+          ["SOC analysts (6-8 for 24x7 coverage)", "₹48 L – ₹96 L", "₹6-12 LPA per analyst × 8 for shift coverage"],
+          ["SOC lead / manager", "₹15 L – ₹25 L", "One senior hire to run the operation"],
+          ["Threat intel feeds", "₹5 L – ₹15 L", "Commercial feeds beyond open-source"],
+          ["SOAR / automation tooling", "₹10 L – ₹30 L", "Palo Alto XSOAR, Splunk SOAR, or open-source"],
+          ["Infrastructure (servers, storage, network)", "₹10 L – ₹20 L", "On-prem or cloud compute for SIEM"],
+          ["Training and certification", "₹5 L – ₹10 L", "Analyst upskilling, annual recertification"],
+          ["Facility and physical security", "₹5 L – ₹15 L", "Dedicated SOC room if required by regulator"],
+          ["Attrition replacement cost", "₹10 L – ₹20 L", "2-3 replacements/year × 3-4 months productivity loss"],
+          ["**Total**", "**₹1.28 Cr – ₹3.11 Cr**", "For a mid-size enterprise (500-2000 endpoints)"],
+        ],
+      },
+      { type: "heading", level: 2, text: "Managed SOC pricing models", id: "pricing-models" },
+      {
+        type: "para",
+        text: "Managed SOC vendors in India use three pricing models. Each has trade-offs:",
+      },
+      {
+        type: "table",
+        headers: ["Model", "Typical Range", "Pros", "Cons"],
+        rows: [
+          ["Per-endpoint / per-seat", "₹800 – ₹2,500/endpoint/month", "Predictable, scales with headcount", "Penalises growth; log-heavy servers cost the same as idle laptops"],
+          ["Per-EPS (events per second)", "₹3 – ₹8/EPS/month", "Scales with actual telemetry volume", "Hard to predict; noisy sources inflate cost unpredictably"],
+          ["Flat monthly fee (tiered)", "₹1.25 L – ₹12 L/month", "Budget certainty, negotiable scope", "May include volume caps that trigger overage charges"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Watch for hidden costs",
+        text: "Many managed SOC contracts exclude: custom detection rule development (₹5-15K per rule), incident response beyond triage (separate retainer), compliance reporting (extra), and log storage beyond 90 days (per-GB overage). Get these in writing before signing.",
+      },
+      { type: "heading", level: 2, text: "What to negotiate in a managed SOC contract", id: "negotiation" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "**Detection engineering included** — the vendor should write and tune detection rules for your environment, not just deploy out-of-box rules. Ask how many custom rules are included per quarter.",
+          "**Response authority** — define whether the SOC can isolate endpoints, block IPs, or disable accounts without calling you first. Faster response needs pre-authorised playbooks.",
+          "**SLA definitions** — MTTD (mean time to detect), MTTA (mean time to acknowledge), and MTTR (mean time to respond) must be defined precisely. Ask what pauses the clock.",
+          "**Data residency** — for RBI/SEBI-regulated entities, log data may need to stay in India. Confirm the SOC's data centre locations.",
+          "**Exit terms** — define data return, transition support, and minimum notice period. A 12-month lock-in with 6-month notice is predatory.",
+          "**Compliance reporting** — if you need RBI CSF or SEBI CSCRF evidence from the SOC, that reporting format must be in the contract, not a future discussion.",
+        ],
+      },
+      { type: "heading", level: 2, text: "When to build vs buy", id: "build-vs-buy" },
+      {
+        type: "para",
+        text: "Build in-house when: you have 5,000+ endpoints, regulatory requirements demand full data sovereignty, you can recruit and retain a team of 8+ analysts in your city, and your CISO has SOC operations experience. Buy managed SOC when: you have under 5,000 endpoints, analyst attrition is a problem, you need 24x7 coverage faster than a 6-month build-out, or your compliance deadline is closer than your hiring pipeline.",
+      },
+      {
+        type: "para",
+        text: "For a deeper evaluation of managed SOC vendors, see our [top managed SOC providers in India](/blog/top-managed-soc-providers-india-2026) buyer scorecard. For detection engineering and SOC operations content, browse our [managed SOC and detection guides](/blog/category/managed-soc).",
+      },
+      {
+        type: "cta",
+        title: "Get a managed SOC quote scoped to your environment",
+        text: "Tell us your endpoint count, log sources, compliance requirements, and response expectations. We will give you a fixed monthly quote with no EPS surprises.",
+        href: "/contact",
+        cta: "Request a SOC quote",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does a managed SOC cost in India?",
+        a: "A managed SOC in India costs ₹15 lakh to ₹1.5 crore per year depending on endpoint count, log volume, response authority, and compliance format. Per-endpoint pricing ranges from ₹800 to ₹2,500 per endpoint per month.",
+      },
+      {
+        q: "Is a managed SOC cheaper than building in-house?",
+        a: "Yes, for most mid-size enterprises. An in-house 24x7 SOC costs ₹1.3-3 crore annually when you include analysts, SIEM, tooling, facility, training and attrition replacement. A managed SOC delivering equivalent coverage typically costs 30-50% of that.",
+      },
+      {
+        q: "What SLAs should I expect from a managed SOC in India?",
+        a: "Expect MTTD under 15 minutes for critical alerts, MTTA under 30 minutes, and MTTR under 4 hours for high-severity incidents. These should be contractual, not aspirational, with penalty clauses for repeated misses.",
+      },
+      {
+        q: "Do managed SOC providers in India offer CERT-In compliance reporting?",
+        a: "Some do. Macksofy's managed SOC includes CERT-In incident reporting format, RBI CSF evidence packs and SEBI CSCRF compliance reporting as part of the base engagement. Many vendors charge extra for compliance-format reporting.",
+      },
+    ],
+  },
+
+  // ===================================================================
   // CRTP vs CRTO — content-opps-2026-09-05. A NEW URL, deliberately,
   // against this repo's repoint-first default. Justification, measured
   // before writing: "crtp vs crto" + "crto vs crtp" (~110 impr/90d) rank
@@ -785,7 +1201,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and use the [cybersecurity company comparison and buyer checklist](/blog/cyber-security-companies-in-mumbai-india-2026) when building a shortlist. Telecom operators owe a parallel six-hour report under the [Telecom Cyber Security Rules 2024](/blog/telecom-cyber-security-rules-2024-india-compliance).",
+        text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and use the [cybersecurity company comparison and buyer checklist](/blog/cyber-security-companies-in-mumbai-india-2026) when building a shortlist. Our [top CERT-In empanelled audit providers in India](/blog/top-cert-in-empanelled-audit-providers-india-2026) ranking evaluates firms on panel tenure, audit volume and specialist depth. Telecom operators owe a parallel six-hour report under the [Telecom Cyber Security Rules 2024](/blog/telecom-cyber-security-rules-2024-india-compliance).",
       },
       { type: "para", text: "If you are on the other side of the table — an organisation that needs an audit rather than a firm seeking empanelment — see how Macksofy runs a [CERT-In empanelled audit](/audit/cert-in-empanelled-audit)." },
       {
@@ -1240,7 +1656,7 @@ export const POSTS: BlogPost[] = [
           ["Red team", "Full-scope adversary emulation across all of the above", "MITRE ATT&CK · TIBER-style"],
         ],
       },
-      { type: "para", text: "For a deeper look at specific surfaces, see our guides on [Active Directory penetration testing](/blog/active-directory-pentest-guide-india-2026) and the [top penetration-testing tools for 2026](/blog/top-10-penetration-testing-tools-2026). Where full adversary emulation is the goal rather than coverage, read [VAPT vs red team](/blog/vapt-vs-red-team-2026) and [red team vs penetration testing](/blog/red-team-vs-penetration-testing-2026)." },
+      { type: "para", text: "For a deeper look at specific surfaces, see our guides on [Active Directory penetration testing](/blog/active-directory-pentest-guide-india-2026), [mobile application security testing](/blog/mobile-application-security-testing-guide-india-2026) and the [top penetration-testing tools for 2026](/blog/top-10-penetration-testing-tools-2026). Where full adversary emulation is the goal rather than coverage, read [VAPT vs red team](/blog/vapt-vs-red-team-2026), [red team vs penetration testing](/blog/red-team-vs-penetration-testing-2026) and our [top red-teaming companies in India](/blog/top-red-teaming-companies-india-2026) ranking." },
 
       { type: "heading", level: 2, id: "methodology", text: "How does a penetration test work? The seven phases" },
       { type: "para", text: "A professional test follows a repeatable methodology — most commonly the Penetration Testing Execution Standard (PTES), aligned with OWASP for applications and NIST SP 800-115 for infrastructure. The phases are the same whether the target is a web app or an entire network:" },
@@ -1903,6 +2319,10 @@ export const POSTS: BlogPost[] = [
         title: "The portfolio nobody talks about",
         text: "Half the candidates we coach skip building a public portfolio. A small GitHub repo with 5 well-written Sigma rules, a TryHackMe profile at ~5,000 points, or a write-up of a Wazuh deployment beats almost any single certification at L1 hiring rounds.",
       },
+      {
+        type: "para",
+        text: "For more on detection engineering, SOC operations and incident handling, browse our [managed SOC and detection guides](/blog/category/managed-soc).",
+      },
       MACKSOFY_CTA("soc-analyst", "Macksofy's SOC Analyst track"),
     ],
     faqs: [
@@ -2146,7 +2566,7 @@ export const POSTS: BlogPost[] = [
           ["GCC red team · UAE", "AED 25–40k / mo"],
         ],
       },
-      { type: "para", text: "For instructor-led preparation toward the OffSec end of this list, see [OffSec training in India](/training/offsec)." },
+      { type: "para", text: "For instructor-led preparation toward the OffSec end of this list, see [OffSec training in India](/training/offsec). And for broader reading on adversary simulation — engagement scoping, operator tooling and purple-team transfer — browse our [red teaming and adversary simulation guides](/blog/category/red-teaming)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP + AD red team bootcamp"),
     ],
     faqs: [
@@ -2959,7 +3379,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Burp Suite is to web pentesting what AutoCAD is to architecture. Pro license (~₹35,000/year) is non-negotiable for serious work. Manual proxy intercept, Repeater, Intruder, Collaborator and the BApp store cover 95% of web testing use cases. Master it before anything else.",
+        text: "Burp Suite is to web pentesting what AutoCAD is to architecture. Pro license (~₹35,000/year) is non-negotiable for serious work. Manual proxy intercept, Repeater, Intruder, Collaborator and the BApp store cover 95% of web testing use cases. Master it before anything else. If you are just getting started, our [Burp Suite for beginners](/blog/burp-suite-for-beginners-2026) guide walks through setup, proxy configuration and your first intercepted request.",
       },
       {
         type: "heading",
@@ -6130,6 +6550,14 @@ def fetch_logs(service: str) -> str:
           "Level 4 — Mature detection, threat-intel feed → run first blind red team with a small white cell.",
           "Level 5 — Continuous red team / CART → embed operators or rotate vendors quarterly against evolving objectives.",
         ],
+      },
+      {
+        type: "para",
+        text: "Once you have decided which engagement type fits, the next question is which firm to hire. Our [top red-teaming companies in India](/blog/top-red-teaming-companies-india-2026) ranking evaluates vendors on operator credentials, kill-chain depth and detection-gap reporting — the criteria that separate a real red team from a rebadged pentest.",
+      },
+      {
+        type: "para",
+        text: "For deeper dives on adversary simulation — engagement scoping, operator tooling, purple-team transfer and detection reconciliation — browse our [red teaming and adversary simulation guides](/blog/category/red-teaming).",
       },
       {
         type: "cta",
@@ -9718,6 +10146,10 @@ def fetch_logs(service: str) -> str:
           "Describe data residency, privileged access, retention, sub-processors and termination deletion.",
           "List all base-service exclusions and the rate card or process for work outside those boundaries.",
         ],
+      },
+      {
+        type: "para",
+        text: "For further reading on detection engineering, SOC staffing models, incident-response planning and SIEM selection, browse our [managed SOC and detection guides](/blog/category/managed-soc) — a curated collection of field-tested SOC operations content.",
       },
       {
         type: "cta",

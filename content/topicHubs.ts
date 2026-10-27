@@ -54,6 +54,8 @@ export const TOPIC_HUBS: TopicHub[] = [
         "See the assessment scope, manual validation method, deliverables and retest model for a commercial VAPT engagement.",
     },
     postSlugs: [
+      "vapt-cost-india-2026",
+      "penetration-testing-rfp-checklist-india-2026",
       "top-vapt-companies-india-2026",
       "penetration-testing-vapt-guide-india-2026",
       "mobile-application-security-testing-guide-india-2026",
@@ -71,7 +73,7 @@ export const TOPIC_HUBS: TopicHub[] = [
       "bfsi-mnc-bkc-internal-ad-pentest",
       "gcc-telecom-mobile-app-takeover",
     ],
-    updated: "2026-10-10",
+    updated: "2026-10-27",
   },
   {
     slug: "managed-soc",
@@ -107,6 +109,7 @@ export const TOPIC_HUBS: TopicHub[] = [
         "See the SIEM onboarding, detection engineering, investigation, response and reporting model for managed SOC delivery.",
     },
     postSlugs: [
+      "managed-soc-pricing-india-2026",
       "top-managed-soc-providers-india-2026",
       "ransomware-readiness-bfsi-india-2026",
       "ad-compromise-ir-playbook-indian-bfsi-2026",
@@ -120,7 +123,7 @@ export const TOPIC_HUBS: TopicHub[] = [
       "pharma-ransomware-dfir-india-2026",
       "maharashtra-manufacturer-lockbit-dfir",
     ],
-    updated: "2026-09-29",
+    updated: "2026-10-27",
   },
   {
     slug: "red-teaming",

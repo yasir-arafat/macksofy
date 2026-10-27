@@ -48,6 +48,7 @@ export interface Course {
    */
   testimonials: { name: string; role: string; quote: string }[];
   faqs: { q: string; a: string }[];
+  upcomingBatches?: { date: string; mode: string; seats?: string }[];
   seoTitle: string;
   /**
    * Set when `seoTitle` is already the complete SERP title, so it is emitted
@@ -205,6 +206,11 @@ export const COURSES: Course[] = [
     // must not regress. What follows it is the phrase buyers actually type —
     // "ethical hacking course in Mumbai" drew 573 impressions in the same
     // window, all of them answered by the homepage, for a total of 1 click.
+    upcomingBatches: [
+      { date: "2026-11-09", mode: "Weekend · Mumbai BKC + Live Online", seats: "12 seats" },
+      { date: "2026-11-23", mode: "Weekday Intensive · 5 days · Live Online", seats: "8 seats" },
+      { date: "2026-12-07", mode: "Weekend · Mumbai BKC + Live Online", seats: "15 seats" },
+    ],
     seoTitle: "Ethical Hacking Course Mumbai: CEH v13 | ₹50,000",
     seoTitleAbsolute: true,
     seoDescription: "CEH v13 ethical hacking course in Mumbai with live labs, official courseware, exam voucher and placement support. ₹50,000; online and classroom batches.",

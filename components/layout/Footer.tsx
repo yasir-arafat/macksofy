@@ -393,14 +393,19 @@ function PreFooterCTA() {
               Where we engage
               <ChevronRight className="size-3 group-hover:translate-x-0.5 transition-transform" />
             </Link>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {[
-                { city: "Mumbai", role: "Global HQ", flag: "🇮🇳", slug: "mumbai", primary: true },
-                { city: "Bengaluru", role: "South India", flag: "🇮🇳", slug: "bengaluru" },
-                { city: "Delhi NCR", role: "North India", flag: "🇮🇳", slug: "delhi" },
+                { city: "Mumbai", role: "HQ", flag: "🇮🇳", slug: "mumbai", primary: true },
+                { city: "Bengaluru", role: "South", flag: "🇮🇳", slug: "bengaluru" },
+                { city: "Delhi NCR", role: "North", flag: "🇮🇳", slug: "delhi" },
                 { city: "Hyderabad", role: "Deccan", flag: "🇮🇳", slug: "hyderabad" },
-                { city: "Dubai", role: "UAE delivery", flag: "🇦🇪", slug: "dubai", primary: true },
-                { city: "Abu Dhabi", role: "UAE federal", flag: "🇦🇪", slug: "abu-dhabi" },
+                { city: "Pune", role: "West", flag: "🇮🇳", slug: "pune" },
+                { city: "Chennai", role: "South", flag: "🇮🇳", slug: "chennai" },
+                { city: "Noida", role: "NCR", flag: "🇮🇳", slug: "noida" },
+                { city: "Gurugram", role: "NCR", flag: "🇮🇳", slug: "gurugram" },
+                { city: "Ahmedabad", role: "West", flag: "🇮🇳", slug: "ahmedabad" },
+                { city: "Dubai", role: "UAE", flag: "🇦🇪", slug: "dubai", primary: true },
+                { city: "Abu Dhabi", role: "UAE", flag: "🇦🇪", slug: "abu-dhabi" },
               ].map((l, i) => (
                 <Reveal as="div" y={10} delay={0.2 + i * 0.05}
                   key={l.city}

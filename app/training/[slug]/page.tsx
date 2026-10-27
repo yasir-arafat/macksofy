@@ -198,6 +198,37 @@ export default async function CourseDetail({ params }: PageProps) {
                   </div>
                 )}
 
+                {c.upcomingBatches && c.upcomingBatches.length > 0 && (
+                  <div className="mt-5 space-y-2">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-neon-cyan font-bold">
+                      Upcoming batches
+                    </div>
+                    {c.upcomingBatches.map((b) => (
+                      <div
+                        key={b.date}
+                        className="flex items-center justify-between gap-2 rounded-lg bg-bg-2/60 ring-1 ring-line px-3 py-2"
+                      >
+                        <div>
+                          <div className="text-sm font-semibold text-fg">
+                            {new Date(`${b.date}T00:00:00Z`).toLocaleDateString("en-IN", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              timeZone: "UTC",
+                            })}
+                          </div>
+                          <div className="text-[11px] text-fg-muted">{b.mode}</div>
+                        </div>
+                        {b.seats && (
+                          <span className="text-[10px] font-mono text-neon-cyan whitespace-nowrap">
+                            {b.seats}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <div className="mt-6 grid gap-2.5">
                   <LinkButton
                     href={`/contact#enquiry?interest=${encodeURIComponent(c.shortTitle + " Training")}`}
