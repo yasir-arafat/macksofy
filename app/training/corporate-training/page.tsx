@@ -176,7 +176,8 @@ export const metadata = buildMetadata({
 });
 
 export default function CorporateTrainingPage() {
-  const testimonial = course.testimonials[0];
+  // No testimonial block: course testimonials are illustrative, not consented
+  // quotes (see content/courses.ts), so they are not shown here as a real CISO.
 
   return (
     <>
@@ -389,14 +390,6 @@ export default function CorporateTrainingPage() {
               </div>
             ))}
           </div>
-          {testimonial && (
-            <figure className="mt-10 max-w-3xl rounded-2xl border border-line bg-bg-1/60 p-6">
-              <blockquote className="text-lg text-fg text-pretty">“{testimonial.quote}”</blockquote>
-              <figcaption className="mt-3 font-mono text-xs uppercase tracking-wider text-fg-faint">
-                {testimonial.name} · {testimonial.role}
-              </figcaption>
-            </figure>
-          )}
           <p className="mt-10 max-w-3xl text-sm text-fg-muted">
             Training for yourself rather than a team? Individual certification
             courses are in the{" "}

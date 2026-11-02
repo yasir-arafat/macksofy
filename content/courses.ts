@@ -49,6 +49,8 @@ export interface Course {
   testimonials: { name: string; role: string; quote: string }[];
   faqs: { q: string; a: string }[];
   upcomingBatches?: { date: string; mode: string; seats?: string }[];
+  /** Visible H1 when it should differ from `title` (which also names the course on cards and in schema). */
+  h1?: string;
   seoTitle: string;
   /**
    * Set when `seoTitle` is already the complete SERP title, so it is emitted
@@ -111,6 +113,8 @@ export const COURSES: Course[] = [
     slug: "ceh",
     code: "CEH v13",
     title: "Certified Ethical Hacker (CEH v13) — AI-Powered",
+    // Matches the SERP title: "ethical hacking course in mumbai" is the query this page is losing.
+    h1: "Ethical Hacking Course in Mumbai — CEH v13",
     shortTitle: "CEH",
     level: "Foundation",
     vendor: "EC-Council",

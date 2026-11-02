@@ -49,6 +49,16 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
+// Rebuild course pages daily so a batch whose start date has passed drops off
+// without waiting for the next deploy.
+export const revalidate = 86400;
+
+/** Batches starting today or later, by India date. */
+function futureBatches(batches: { date: string; mode: string; seats?: string }[] = []) {
+  const todayIST = new Date(Date.now() + 5.5 * 3600 * 1000).toISOString().slice(0, 10);
+  return batches.filter((b) => b.date >= todayIST);
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const c = getCourseBySlug(slug);
@@ -71,6 +81,7 @@ export default async function CourseDetail({ params }: PageProps) {
   if (!c) notFound();
   const sa = getShortAnswer(`course:${slug}`);
   const related = pickRelatedCourses(c, COURSES, 3);
+  const batches = futureBatches(c.upcomingBatches);
 
   return (
     <>
@@ -147,7 +158,7 @@ export default async function CourseDetail({ params }: PageProps) {
                 {c.popular && <Badge variant="amber">Popular</Badge>}
               </div>
               <h1 className="mt-5 font-display text-4xl font-black sm:text-5xl lg:text-6xl text-balance leading-[1.05]">
-                {c.title}
+                {c.h1 ?? c.title}
               </h1>
               <p className="mt-3 text-2xl font-display font-bold gradient-text">
                 {c.hero.tagline}
@@ -204,12 +215,12 @@ export default async function CourseDetail({ params }: PageProps) {
                   </div>
                 )}
 
-                {c.upcomingBatches && c.upcomingBatches.length > 0 && (
+                {batches.length > 0 && (
                   <div className="mt-5 space-y-2">
                     <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-neon-cyan font-bold">
                       Upcoming batches
                     </div>
-                    {c.upcomingBatches.map((b) => (
+                    {batches.map((b) => (
                       <div
                         key={b.date}
                         className="flex items-center justify-between gap-2 rounded-lg bg-bg-2/60 ring-1 ring-line px-3 py-2"
