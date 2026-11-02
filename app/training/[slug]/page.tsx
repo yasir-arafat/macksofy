@@ -37,8 +37,14 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// corporate-training has its own page (app/training/corporate-training), which
+// wins over this dynamic route. Skipping it here avoids building it twice.
+const DEDICATED_PAGES = new Set(["corporate-training"]);
+
 export function generateStaticParams() {
-  return COURSES.map((c) => ({ slug: c.slug }));
+  return COURSES.filter((c) => !DEDICATED_PAGES.has(c.slug)).map((c) => ({
+    slug: c.slug,
+  }));
 }
 
 export const dynamicParams = false;

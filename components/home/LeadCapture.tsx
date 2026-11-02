@@ -18,7 +18,14 @@ const SERVICE_TRUST = [
   { icon: Globe, label: "India and UAE engagement coverage" },
 ];
 
-export function LeadCapture({ focus = "all" }: { focus?: "all" | "services" }) {
+export function LeadCapture({
+  focus = "all",
+  interest,
+}: {
+  focus?: "all" | "services";
+  /** Pre-selects the form's interest field, e.g. "Corporate Training". */
+  interest?: string;
+}) {
   const serviceOnly = focus === "services";
   const trustSignals = serviceOnly ? SERVICE_TRUST : TRUST;
 
@@ -52,7 +59,7 @@ export function LeadCapture({ focus = "all" }: { focus?: "all" | "services" }) {
           </div>
           <div className="lg:col-span-7">
             <div className="rounded-3xl glass-strong p-6 sm:p-8 glow-blend">
-              <ContactFormLazy initialInterest={serviceOnly ? "Cybersecurity Audit" : ""} />
+              <ContactFormLazy initialInterest={interest ?? (serviceOnly ? "Cybersecurity Audit" : "")} />
             </div>
           </div>
         </div>
