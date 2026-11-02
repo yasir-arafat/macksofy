@@ -24,6 +24,15 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   // unreachable, pending a decision on merging its curriculum sections.
   { source: "/ceh-v13-training", destination: "/training/ceh" },
 
+  // Merged 2026-11-02: same-city VAPT and penetration-testing combo pages
+  // targeted the same buyers, and Google indexed only one of each pair (the
+  // other was "Discovered – not indexed" and never crawled). The kept page now
+  // covers both terms and carries the dropped page's distinct FAQs.
+  { source: "/locations/ahmedabad/penetration-testing", destination: "/locations/ahmedabad/vapt" },
+  { source: "/locations/chennai/penetration-testing", destination: "/locations/chennai/vapt" },
+  { source: "/locations/noida/penetration-testing", destination: "/locations/noida/vapt" },
+  { source: "/locations/delhi/vapt", destination: "/locations/delhi/penetration-testing" },
+
   // The legacy PHP site's homepage. Unmapped .php paths are answered by the
   // Vercel WAF with 403 + x-vercel-mitigated: deny, which is the wrong answer
   // for this one specifically: /index.php is the single most-linked and

@@ -734,9 +734,10 @@ export const COMBOS: CityServiceCombo[] = [
 
   // 5 ─ Noida · VAPT ────────────────────────────────────────────────
   {
+    updated: "2026-11-02",
     citySlug: "noida",
     serviceSlug: "vapt",
-    headline: "VAPT Services in Noida · Fintech & IT",
+    headline: "VAPT & Penetration Testing in Noida · Fintech & PA-PG",
     lead: "CERT-In empanelled VAPT for Noida and Greater Noida fintech, payment, edtech and IT-services clients across Sectors 18, 62, 125, 132 and the Yotta NM1 belt.",
     body: [
       "Noida's cybersecurity profile is unlike any other NCR metro. The Noida Expressway corridor (Sectors 125, 132, 142 and 150) hosts the newer fintech, payment-aggregator and IT-services HQs. Sector 62 and Sector 63 anchor the older IT campuses (HCL, TCS, Birlasoft, Coforge). Sector 18 is the consumer-facing edge — neo-banking, e-commerce ops and BPO call-centre back-offices. Greater Noida adds the Yotta NM1 hyperscale data-centre belt and the Jewar airport greenfield build-out which is generating a steady stream of clean-slate ISMS implementations. The VAPT buyer is typically a head-of-engineering or a first CISO who has just inherited an RBI Payment Aggregator / Payment Aggregator-Payment Gateway licence ambition and a 90-day audit clock.",
@@ -898,6 +899,10 @@ export const COMBOS: CityServiceCombo[] = [
         q: "Do you support Jewar airport tenant greenfield ISMS plus VAPT?",
         a: "Yes — we have a starter SoW for Jewar airport-tenant greenfield clients that bundles a CISO-as-a-service partial-time engagement with the VAPT cycle so the tenant CTO gets policy framework, technical testing and audit-readiness in one contract.",
       },
+      // Carried over from /locations/noida/penetration-testing (merged 2026-11-02).
+      { q: "Can the engagement satisfy our foreign-bank parent's adversary-simulation standard?", a: "Yes for Sector 132 / Greater Noida foreign-bank GCC scope. Engagement aligns to the parent's adversary-simulation standard (NIST SP 800-115 v2 derivative for US parents, CREST CHECK or CBEST for UK parents, TIBER-EU for European parents). Report drops directly into the parent's TPRM tool (Archer, ServiceNow IRM, ProcessUnity) in the parent's preferred template." },
+      // Carried over from /locations/noida/penetration-testing (merged 2026-11-02).
+      { q: "Do you cover AI / LLM application objectives — fraud-model-evasion, prompt-injection?", a: "Yes — LLM / AI application objectives are standard for 2026 Noida fintech engagements. Fraud-model-evasion through adversarial-input crafting, direct + indirect prompt-injection (via RAG corpus or upstream customer-data), tool-use-abuse on agent reasoning, training-data exfiltration and BFSI-specific customer-impersonation paths through LLM-customer-service-assistants." },
     ],
   },
 
@@ -1768,10 +1773,10 @@ export const COMBOS: CityServiceCombo[] = [
   // 2 · Delhi × Penetration Testing
   // ─────────────────────────────────────────────────────────────────────
   {
+    updated: "2026-11-02",
     citySlug: "delhi",
     serviceSlug: "penetration-testing",
-    headline:
-      "Penetration Testing in Delhi · Gov + PSU",
+    headline: "VAPT & Penetration Testing in Delhi · Gov, PSU & Ministry",
     lead:
       "CERT-In empanelled penetration testing for Delhi-headquartered ministries, PSUs, regulators and central agencies — STQC, NIC and GeM-compatible deliverables in regulator-readable format.",
     body: [
@@ -1943,191 +1948,15 @@ export const COMBOS: CityServiceCombo[] = [
         q: "Will you adhere to the CERT-In 6-hour incident-reporting SLA during testing?",
         a: "Yes — that is treated as a hard SLA inside the engagement. We pre-define the escalation path to the CERT-In handle, the ministry security-cell number and the additional secretary's office, and any test-induced incident (or pre-existing compromise we discover) is reported inside the six-hour window per the 28 April 2022 CERT-In directive.",
       },
+      // Carried over from /locations/delhi/vapt (merged 2026-11-02).
+      { q: "Can you offer Indian-soil-only delivery (no foreign-soil data egress)?", a: "Yes — for defence-adjacent and ministry engagements that require it, we deploy Indian-passport-only senior consultants and run the engagement on Indian-soil tooling and storage only. We provide a signed attestation that satisfies the procuring department's information-security policy." },
+      // Carried over from /locations/delhi/vapt (merged 2026-11-02).
+      { q: "How do you handle MeitY / NCSC office submission format?", a: "MeitY and NCSC office expect VAPT reports in a specific format with control-by-control crosswalk to the department's information-security policy and a department-side risk-register sync. Our Delhi bench has shipped this format repeatedly; we maintain templates against the current MeitY guidelines for citizen-portal, APIGW and Aadhaar-integrated scopes." },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────────
   // 3 · Chennai × Penetration Testing
-  // ─────────────────────────────────────────────────────────────────────
-  {
-    citySlug: "chennai",
-    serviceSlug: "penetration-testing",
-    updated: "2026-09-29",
-    headline:
-      "Penetration Testing in Chennai · BFSI & SaaS",
-    lead:
-      "CERT-In empanelled penetration testing for Chennai banks, gold-loan NBFCs, OMR / Tidel Park SaaS and Sholinganallur GCCs — RBI Cyber Resilience, SOC 2 and ISO 27001 mapped in one report.",
-    body: [
-      "Chennai's cybersecurity buyer profile splits across three distinct clusters that demand three distinct penetration-testing playbooks. The South-India BFSI HQs concentrated around Anna Salai, Mylapore and T. Nagar — Indian Bank, Indian Overseas Bank, City Union Bank, Karur Vysya Bank, the long tail of state co-operative banks under TNSCB, and the gold-loan NBFC majors (Manappuram Finance headquartered in Valapad, Muthoot regional HQ in Chennai) — bring an RBI Master Direction on IT Governance + Cyber Resilience scope with legacy core-banking edges. The OMR (Old Mahabalipuram Road) / Sholinganallur / Tidel Park SaaS belt, running from Tidel Park near Velachery down to the Sholinganallur ELCOT estate and onward to Siruseri SIPCOT-IT, brings a product-engineering scope tied to SOC 2 Type 2, ISO 27001 and the API Security Top 10. The Sriperumbudur / Oragadam / Ambattur manufacturing-IT belt brings the OT-adjacent scope tied to IEC-62443 and the Hindustan Lever / TVS / Hyundai / Renault-Nissan supply chains. Generic 'web pentest' SoWs do not survive the first technical kickoff in any of the three.",
-      "For Chennai banks and NBFCs we run penetration tests aligned to RBI's Master Direction on IT Governance and the Cyber Resilience framework, with the SEBI CSCRF overlay for any depository-participant or AMC arm and the gold-loan-specific NBFC ML (Master Direction on Lending) controls where the NBFC operates the pledge-management portal and ATM-grade gold-loan disbursement kiosks across Tamil Nadu and Kerala. Reports are in CERT-In empanelled format with the empanelment letter the bank's IS auditor needs to file with RBI's CSITE Cell. We test the actual money-movement flow — net-banking, the legacy core-banking edge (Finacle / Flexcube / TCS BaNCS instances some Chennai banks still run on AIX), the gold-loan branch-tablet authentication chain, the ATM-switch / card-personalisation vendor integration, and the south-Indian co-operative-bank-specific NPCI sub-member sponsorship flow.",
-      "For OMR / Sholinganallur SaaS and GCC clients the scope follows the product-engineering pattern that Bengaluru and Hyderabad SaaS share, with three Chennai-specific overlays. First, the long tail of US-healthcare and BFSI buyers means HIPAA / HITRUST and PCI-DSS DSS-on-cloud readiness sit on the same test plan as the OWASP ASVS / API Security Top 10 baseline. Second, the GraphQL-heavy stacks that the Tidel Park / Siruseri SaaS belt has standardised on demand explicit field-level and depth-limit authorisation testing, not just endpoint-level. Third, multi-tenant isolation testing is critical because the Chennai SaaS belt is unusually concentrated in shared-DB-tenant designs — separating tenants by row-level security in PostgreSQL is the dominant pattern and the dominant bug class we close.",
-      "For Sriperumbudur / Oragadam / Ambattur manufacturing-IT and supply-chain partners (the Hindustan Lever, TVS, Hyundai, Renault-Nissan, Ashok Leyland orbits), the scope adds an OT-adjacent layer — the Manufacturing Execution System (MES) integration with the ERP, the dealer-management-system (DMS) portal where third-party showrooms log in, and the supplier-portal where Tier-1 / Tier-2 / Tier-3 suppliers exchange schedules and quality data. IEC-62443 aligned reviews are delivered alongside the IT-side penetration test where the customer demands the joint scope.",
-      "Senior consultants fly from Mumbai BKC for kickoff and the onsite-testing days, with Hyderabad HITEC as an alternate hub for the south-Indian fortnightly cadence. Most engagements run 3-5 weeks with re-testing of critical and high findings included in the base SoW so RBI / customer remediation windows are not missed. For long-running Chennai BFSI programmes we keep a Chennai-resident lead consultant on the engagement throughout, with weekly onsite days at Anna Salai / Mylapore / T. Nagar branches and the data-centre site in Perungudi or the SIPCOT-IT corridor.",
-      "Chennai banking and NBFC clients almost always have older core-banking integrations carrying weight that no modern API gateway is meant to bear — direct DB links from a third-party reconciliation tool, FTP/SFTP file drops between the bank and NPCI / NACH / RTGS vendors, legacy CICS / MQ bridges between a mainframe core and a JBoss-era web tier, and the long tail of MS Access front-ends that branch operations still run. We test those legacy edges directly rather than declaring them out of scope, because the regulator's audit team will not declare them out of scope when they come for the next inspection. The CERT-In format report includes a 'legacy edge inventory' annex specifically for this reason.",
-      "For OMR SaaS clients shipping to US healthcare or BFSI buyers we add an HIPAA / HITRUST or PCI-DSS DSS-readiness overlay where it pays for itself in the next customer security review. The same test plan generates evidence acceptable to the SOC 2 Type 2 auditor, the ISO 27001 surveillance assessor, the customer's CISO questionnaire and (where the buyer is a US health system) the HITRUST-certified-vendor questionnaire. The Tidel Park and Siruseri SaaS belt has standardised on this dual-purpose evidence model and we deliver it as one engagement.",
-      "Adversary modelling for Chennai-cluster engagements is regionally grounded. We test against the actual patterns hitting south-Indian banks and NBFCs — ATM-jackpotting attempts traceable to the FASTCash variant that affected south-Asian banks in 2024, gold-loan branch-tablet credential reuse leading to disbursement-fraud chains, NPCI sub-member sponsorship abuse where the parent scheduled bank's switch becomes the entry point, ALPHV / RansomHub affiliate footholds on Sriperumbudur supplier portals where a Tier-2 vendor's CI/CD pipeline becomes the path into the OEM's MES. Each finding is mapped to the TTP and the threat actor most likely to weaponise it, with the detection-engineering recommendation paired in.",
-    ],
-    buyerConcerns: [
-      "RBI Master Direction IT Governance + Cyber Resilience evidence quality",
-      "South-India co-operative bank + gold-loan NBFC operational nuances",
-      "Legacy core-banking edge — Finacle / Flexcube / BaNCS on AIX with FTP / MQ bridges",
-      "OMR SaaS multi-tenant isolation and row-level-security in shared-DB designs",
-      "GraphQL field-level authz and depth-limit / batch-query abuse",
-      "API Security Top 10 + OWASP ASVS L2 + HIPAA / HITRUST / PCI-DSS overlay",
-      "Sriperumbudur / Oragadam manufacturing supply-chain portal testing (IEC-62443 adjacent)",
-      "CERT-In empanelled auditor letter for next RBI / customer audit",
-      "Re-testing inside RBI / customer remediation windows included in SoW",
-    ],
-    differentiators: [
-      "Three distinct playbooks for the three Chennai clusters — South-India BFSI, OMR / Tidel Park SaaS and Sriperumbudur manufacturing — not the same web-app pentest relabelled.",
-      "Legacy edge testing of Finacle / Flexcube / BaNCS on AIX, MQ / CICS bridges and FTP / NPCI vendor links — the bits most pentest vendors declare out of scope.",
-      "Reports map simultaneously to RBI Cyber Resilience, SEBI CSCRF, SOC 2 Type 2, ISO 27001 and HIPAA / HITRUST in one document — useful for Chennai firms straddling regulated and SaaS revenue.",
-      "Chennai-resident lead consultant on long-running BFSI programmes, plus senior fly-in from Mumbai BKC or Hyderabad HITEC for kickoff and exit.",
-      "Re-testing of critical and high findings included in the SoW so RBI and customer remediation windows are never missed.",
-    ],
-    seoDescription:
-      "CERT-In empanelled penetration testing in Chennai for South-India banks, gold-loan NBFCs, OMR / Tidel Park SaaS and Sriperumbudur manufacturing.",
-    keywords: [
-      "penetration testing Chennai",
-      "CERT-In pentest Chennai",
-      "OMR penetration testing",
-      "Tidel Park pentest Chennai",
-      "Chennai banking pentest",
-      "gold loan NBFC pentest",
-      "Sholinganallur SaaS pentest",
-      "Sriperumbudur manufacturing pentest",
-      "RBI Cyber Resilience Chennai",
-      "Chennai SaaS HIPAA pentest",
-    ],
-    stats: [
-      { value: "40+", label: "Chennai engagements delivered" },
-      { value: "3 clusters", label: "BFSI · SaaS · manufacturing playbooks" },
-      { value: "Same-week", label: "Onsite arrival (BKC / HYD)" },
-      { value: "TNeGA", label: "Eligible state-government vendor" },
-    ],
-    methodology: [
-      {
-        phase: "01 · Cluster Scoping + Kickoff",
-        activities: [
-          "Cluster classification — BFSI / OMR SaaS / Sriperumbudur manufacturing — and corresponding playbook",
-          "Onsite kickoff at Anna Salai / Mylapore / Tidel Park / Sholinganallur / Oragadam",
-          "Legacy edge inventory — Finacle / Flexcube / BaNCS / MQ / FTP / NPCI vendor links",
-          "Regulator + customer evidence-overlay agreement (RBI + SOC 2 + HIPAA / HITRUST as applicable)",
-        ],
-      },
-      {
-        phase: "02 · Threat Model + External Recon",
-        activities: [
-          "Regional adversary modelling — FASTCash variants, ALPHV / RansomHub supplier-portal footholds",
-          "External attack-surface enumeration — subdomain, certificate, DNS, exposed S3 / blob",
-          "Application architecture review with the engineering / IT team",
-          "Aadhaar AUA / KUA wrapper review where in scope (gold-loan branch tablets etc.)",
-        ],
-      },
-      {
-        phase: "03 · Exploit + Lateral",
-        activities: [
-          "Web + API + mobile testing against OWASP ASVS L2 + API Security Top 10",
-          "Multi-tenant isolation tests on shared-DB SaaS (row-level-security probing)",
-          "GraphQL field-level authz, depth limits and batch-query abuse",
-          "Legacy edge exploit chains — MQ / CICS / FTP / direct DB-link paths",
-        ],
-      },
-      {
-        phase: "04 · Report + Crosswalk",
-        activities: [
-          "CERT-In empanelled format report + STQC-style observation-risk-recommendation table",
-          "Crosswalk per finding to RBI Cyber Resilience / SEBI CSCRF / SOC 2 / ISO 27001 / HIPAA",
-          "Jira-importable CSV + private GitHub Issues handoff for SaaS clients",
-          "Board-pack executive summary for BFSI audit committee",
-        ],
-      },
-      {
-        phase: "05 · Re-test + Closure",
-        activities: [
-          "30-day re-test of all critical and high findings included in SoW",
-          "Closure ledger filed with RBI IS auditor / SOC 2 auditor / customer CISO",
-          "Detection-engineering recommendations handed to client SOC for SIEM tuning",
-          "Optional continuous-testing retainer for fortnightly OMR SaaS release trains",
-        ],
-      },
-    ],
-    industries: [
-      {
-        name: "South-India BFSI HQs",
-        blurb:
-          "Indian Bank, IOB, City Union, Karur Vysya and TN co-operative banks around Anna Salai / Mylapore / T. Nagar.",
-      },
-      {
-        name: "Gold-loan NBFCs",
-        blurb:
-          "Manappuram + Muthoot regional HQs — pledge portals and branch-tablet auth across TN / Kerala / AP networks.",
-      },
-      {
-        name: "OMR / Tidel Park SaaS",
-        blurb:
-          "B2B SaaS shipping to US healthcare + BFSI buyers — GraphQL-heavy stacks with HIPAA / HITRUST / SOC 2 needs.",
-      },
-      {
-        name: "Sholinganallur / Siruseri GCCs",
-        blurb:
-          "US + UK enterprise GCCs in SIPCOT-IT — privilege paths between Chennai operators and offshore production.",
-      },
-      {
-        name: "Sriperumbudur / Oragadam manufacturing",
-        blurb:
-          "Hyundai, Renault-Nissan, TVS, Hindustan Lever supply-chain portals — IEC-62443-adjacent supplier-portal scope.",
-      },
-      {
-        name: "TN state government",
-        blurb:
-          "TNeGA-listed cybersecurity vendor for state-government portals and centrally-sponsored-scheme instances.",
-      },
-    ],
-    deliverables: [
-      "CERT-In empanelled format report with STQC-style observation-risk-recommendation tabulation",
-      "Legacy edge inventory annex — Finacle / Flexcube / BaNCS / MQ / FTP / NPCI vendor link findings",
-      "Multi-framework crosswalk (RBI / SEBI / SOC 2 / ISO 27001 / HIPAA / HITRUST / PCI-DSS)",
-      "GraphQL + API Security Top 10 findings with field-level authz repros",
-      "Multi-tenant isolation report with row-level-security probe results",
-      "Jira-importable CSV + private GitHub Issues (SaaS clients) / board-pack executive summary (BFSI)",
-      "30-day re-test closure ledger inside regulator and customer remediation windows",
-      "Optional fortnightly continuous-testing retainer for OMR SaaS release trains",
-    ],
-    caseStudy: {
-      industry: "Chennai-headquartered gold-loan NBFC — multi-state branch network",
-      scope:
-        "CERT-In empanelled penetration test of pledge-management portal, branch-tablet authentication chain, NACH / NPCI sub-member integration and core-banking edge — across 2,400 branches",
-      outcome:
-        "34 findings closed in 4 weeks · 6 critical disbursement-fraud paths remediated before RBI follow-up · branch-tablet credential rotation enforced across TN + Kerala + AP networks · re-test closure ledger filed with the IS auditor inside the 30-day window.",
-    },
-    faqs: [
-      {
-        q: "Do you understand south-Indian co-operative bank operational reality?",
-        a: "Yes — we have delivered RBI Cyber Resilience-aligned tests for TNSCB-network co-operative banks, including the NPCI sub-member sponsorship path where the parent scheduled bank's switch is the entry point, the AIX-hosted core-banking edge and the branch-network MPLS topology that has not been redesigned since the 2008 CBS migration. Scoping factors all of this in.",
-      },
-      {
-        q: "Can your same report close RBI, SOC 2 and HIPAA in one cycle?",
-        a: "Yes — the crosswalk-per-finding model maps each issue to RBI Cyber Resilience / SEBI CSCRF, SOC 2 CC controls, ISO 27001 Annex A and HIPAA Security Rule + HITRUST CSF where applicable. Chennai SaaS firms straddling US-healthcare revenue and India-regulated arms use this to avoid running three separate penetration tests.",
-      },
-      {
-        q: "Will you test the legacy Finacle / Flexcube / BaNCS edges, or declare them out of scope?",
-        a: "We test them. Most vendors declare the MQ / CICS / FTP / direct-DB-link paths out of scope because they are awkward — but the regulator will not declare them out of scope when the inspection arrives, and that is where the actual money-movement abuse lives. Our reports include a 'legacy edge inventory' annex specifically for this.",
-      },
-      {
-        q: "Do you handle the Sriperumbudur / Oragadam OEM supplier-portal scope?",
-        a: "Yes — we deliver IEC-62443-adjacent reviews of supplier portals, dealer-management systems and MES-ERP integrations for the Hyundai, Renault-Nissan, TVS, Ashok Leyland and Hindustan Lever supply-chain ecosystems where the customer demands the joint IT + OT-adjacent scope. The OT side is air-gap-tested separately when relevant.",
-      },
-      {
-        q: "Are you a TNeGA-empanelled state-government cybersecurity vendor?",
-        a: "Yes — we participate in TN-eGA tenders and central GeM listings, and we handle Tamil-language documentation requirements where state-government engagements demand it. Centrally-sponsored-scheme state instances deployed in Tamil Nadu fall under this delivery model.",
-      },
-      {
-        q: "What is the onsite cadence for a Chennai BFSI engagement?",
-        a: "Senior consultants fly from Mumbai BKC for kickoff and onsite testing days, with Hyderabad HITEC as an alternate hub for the fortnightly cadence. For long-running Chennai BFSI programmes we keep a Chennai-resident lead consultant on the engagement throughout, with weekly onsite days at Anna Salai / Mylapore / T. Nagar branches and the data-centre site in Perungudi or the SIPCOT-IT corridor.",
-      },
-    ],
-  },
 
   // ─────────────────────────────────────────────────────────────────────
   // 4 · Gurugram × Managed SOC
@@ -3764,175 +3593,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─────────────────────────────────────────────────────────────────────
   // 13 · Delhi × VAPT
-  // ─────────────────────────────────────────────────────────────────────
-  {
-    citySlug: "delhi",
-    serviceSlug: "vapt",
-    updated: "2026-09-29",
-    headline: "VAPT Services in Delhi · Government, PSU & Ministry",
-    lead: "CERT-In empanelled VAPT for central government, PSUs, ministries and Delhi-NCR fintech — GeM-listed, submission-format reporting.",
-    body: [
-      "Delhi VAPT is overwhelmingly a government and PSU procurement story — and the Indian central-government cybersecurity buyer is a fundamentally different customer from a private-sector BFSI buyer. Tendering routes through GeM (Government e-Marketplace), the Central Public Procurement Portal (CPPP) or the Defence e-Procurement portal where applicable. The buyer asks for a CERT-In empanelled vendor letter, the latest empanelment certificate, a GeM-listed vendor seller-ID, the ISO 27001:2022 and ISO 9001:2015 certificates, and a list of comparable central-government and PSU engagement experience. Macksofy carries all of these and has delivered VAPT engagements to central-government departments, public-sector banks, defence-adjacent organisations and Aadhaar ecosystem actors.",
-      "Central-government VAPT scoping has its own shape. The asset inventory typically includes a citizen-facing portal (often hosted at *.gov.in, sometimes at *.nic.in for NIC-hosted workloads), a Bhashini-translated regional-language frontend, a Bharat-Aadhaar-authentication layer (AUA / KUA for Aadhaar-enabled identity verification, DigiLocker integration, eKYC API consumption), an API-gateway-of-India (APIGW) layer for inter-ministry data exchange, and a back-office mainframe or commercial-banking platform behind it. We map each component to its specific MeitY / CERT-In control set and crosswalk to the National Cyber Security Coordinator (NCSC) office's expectations where applicable.",
-      "The Bharat / Aadhaar / DigiLocker / API-gateway-of-India scope is unique to Delhi and a Macksofy strength. Aadhaar-AUA / KUA VAPT requires UIDAI-aligned testing methodology — biometric-replay resistance, e-KYC consent-flow integrity, virtual-ID handling, the authentication-API rate-limit and the audit-log evidence requirement under the Aadhaar Authentication Regulations 2016 (as amended 2024). DigiLocker integration testing checks the OAuth scope handling against MeitY's DigiLocker partner-onboarding checklist. APIGW-of-India testing checks the inter-ministry consent-and-purpose-binding layer that MeitY rolled out under the Digital India ecosystem.",
-      "PSU bank VAPT in Delhi is a hybrid — RBI's regulatory expectations (Cyber Security Framework, MD-ITGRC) combined with the Department of Financial Services (DFS) circular cadence and the Comptroller and Auditor General of India (CAG) audit overlay. PSU banks are unusual because the IT estate is heterogeneous (Finacle and BaNCS coexisting, legacy mainframe-RACF still in production, branch-network spread across 4,000-15,000 nodes), the procurement cycle is long, and the audit-committee oversight is split between the bank's board and the DFS as the majority shareholder. We size proposals accordingly — fixed-fee SoW with explicit milestone-based payments tied to CAG audit cycles, and a separate inspection-defence retainer for the DFS / RBI thematic-review cycle.",
-      "Defence-adjacent and ministry-adjacent VAPT engagements have additional handling requirements — sometimes a security-clearance-equivalent for senior consultants, sometimes a no-cloud-data-transfer clause, sometimes an Indian-passport-only consultant requirement, and almost always an Indian-soil-data-residency requirement that we honour by default. Macksofy maintains an Indian-soil-only delivery option (no foreign-soil data egress) for these engagements, with attestation that satisfies the procuring department's information-security policy.",
-      "Delhi-NCR fintech VAPT is the second buyer segment — different methodology, same firm. Delhi-NCR (especially the Connaught Place / Karol Bagh / Saket / South Extension corridor and the parts of Gurugram and Noida that fall under 'Delhi' in informal procurement language) hosts a layer of fintech, lending, payments and BNPL operators that buy VAPT under RBI master directions. The methodology is the same as our Mumbai BFSI VAPT — the difference is procurement (faster, CTO-and-AppSec-lead signoff) and onsite cadence (Connaught Place walk-in, Karol Bagh / Saket inside two hours, Noida and Gurugram via the Yamuna Expressway or DND).",
-      "GeM tendering reality matters. Most central-government engagements close via GeM's reverse auction or BoQ-based bidding. Pricing transparency, the GeM seller-ID, the empanelment certificate and the comparable engagement experience are the four levers that decide the L1 outcome. Macksofy maintains a Delhi-resident bid-desk for active GeM tender response within the portal's 7-21 day windows. Procurement on PSU engagements is slower (3-6 months from RFP to PO) but the engagement length is longer (12-18 months from initial VAPT to follow-on retest cycles) so the lifetime value of a PSU-bank or ministry relationship is high.",
-      "Onsite cadence is dictated by Delhi geography. Connaught Place, ITO and the central-government secretariat belt are walk-in same day from Aerocity. Saket, South Extension and the ministry-adjacent zones inside the ring road are within 90 minutes. Noida (Sectors 16, 18, 62) and Greater Noida are via Yamuna Expressway in 60-90 minutes. Gurugram (Cyber City, DLF) is via NH-48 in 60-75 minutes. PSU bank head-office visits in Connaught Place or Bhavan-area secretariat addresses are walk-in. For multi-quarter ministry engagements we maintain a Delhi-resident lead consultant.",
-    ],
-    buyerConcerns: [
-      "CERT-In empanelment certificate, GeM seller-ID and comparable central-government engagement experience",
-      "MeitY / NCSC office submission-format VAPT reporting for ministries",
-      "UIDAI-aligned Aadhaar AUA / KUA testing methodology and Aadhaar Authentication Regulations 2016 evidence",
-      "DigiLocker partner-onboarding checklist coverage where DigiLocker integration is in scope",
-      "API-gateway-of-India (APIGW) consent-and-purpose-binding layer testing",
-      "PSU bank RBI CSF + DFS circular + CAG audit overlay reconciliation",
-      "Indian-passport-only consultant and Indian-soil-data-residency attestation for defence-adjacent engagements",
-      "GeM tender response inside the portal's 7-21 day window with bid-desk presence in Delhi",
-      "PSU-grade milestone payments tied to CAG audit cycles",
-    ],
-    differentiators: [
-      "CERT-In empanelled + GeM-listed + Delhi-resident bid-desk for active tender response inside GeM's 7-21 day window.",
-      "UIDAI-aligned Aadhaar AUA / KUA testing methodology with biometric-replay, consent-flow integrity, virtual-ID and audit-log evidence under Aadhaar Authentication Regulations 2016.",
-      "Indian-soil-only delivery option (no foreign-soil data egress) with attestation for defence-adjacent and ministry engagements.",
-      "Bharat / DigiLocker / APIGW-of-India scope expertise — Digital India ecosystem testing not available from generic VAPT vendors.",
-      "PSU-grade milestone payments aligned to CAG audit cycles and a separate inspection-defence retainer for DFS / RBI thematic-review cycles.",
-    ],
-    seoDescription:
-      "CERT-In empanelled VAPT services in Delhi for central government, PSUs, ministries and Delhi-NCR fintech. GeM-listed, Aadhaar / DigiLocker / APIGW scope.",
-    keywords: [
-      "VAPT Delhi",
-      "government VAPT Delhi",
-      "PSU bank VAPT Delhi",
-      "CERT-In auditor Delhi",
-      "GeM VAPT vendor Delhi",
-      "Aadhaar AUA KUA VAPT",
-      "DigiLocker VAPT",
-      "ministry cybersecurity audit Delhi",
-      "Delhi central government pentest",
-    ],
-    stats: [
-      { value: "GeM listed", label: "Government procurement" },
-      { value: "12+", label: "PSU / ministry engagements" },
-      { value: "Indian-soil", label: "Delivery option available" },
-      { value: "<2 hrs", label: "Central Delhi onsite SLA" },
-    ],
-    methodology: [
-      {
-        phase: "01 · Tender & Scope",
-        activities: [
-          "GeM / CPPP / Defence e-Procurement bid response with empanelment certificate, seller-ID and comparable engagement list",
-          "Joint kickoff with the procuring department's IT secretary or DGS&D representative",
-          "Indian-soil-only delivery attestation and Indian-passport-only consultant deployment where required",
-          "MeitY / NCSC office submission-format reporting selected at kickoff",
-        ],
-      },
-      {
-        phase: "02 · Asset & Ecosystem Map",
-        activities: [
-          "Citizen-portal, regional-language frontend, Aadhaar AUA / KUA, DigiLocker and APIGW component inventory",
-          "PSU bank Finacle / BaNCS / RACF inventory reconciliation with the bank's IT estate",
-          "External attack-surface mapping limited to Indian-soil tooling (no foreign-soil data egress)",
-          "MeitY / CERT-In / NCSC control crosswalk to the asset inventory",
-        ],
-      },
-      {
-        phase: "03 · Aadhaar / DigiLocker / APIGW Testing",
-        activities: [
-          "Biometric-replay resistance, eKYC consent-flow integrity and virtual-ID handling per UIDAI methodology",
-          "Aadhaar authentication-API rate-limit and audit-log evidence under Authentication Regulations 2016",
-          "DigiLocker OAuth scope handling against MeitY partner-onboarding checklist",
-          "APIGW inter-ministry consent-and-purpose-binding layer testing with Digital India ecosystem mapping",
-        ],
-      },
-      {
-        phase: "04 · PSU / Ministry Reporting",
-        activities: [
-          "MeitY / NCSC submission-format report with control-by-control crosswalk",
-          "PSU bank RBI CSF + DFS circular + CAG audit overlay reconciliation document",
-          "Department-specific information-security-policy alignment annex",
-          "Indian-soil-only delivery attestation signed by Macksofy authorised signatory",
-        ],
-      },
-      {
-        phase: "05 · Re-test & Inspection-Defence",
-        activities: [
-          "Re-test of every Critical and High inside the procurement-defined remediation window",
-          "DFS / RBI thematic-review inspection-defence retainer for PSU banks",
-          "CAG audit-cycle milestone payment release per the PO terms",
-          "Ministry-side post-engagement risk-register sync where the department maintains one",
-        ],
-      },
-    ],
-    industries: [
-      {
-        name: "Central government departments",
-        blurb: "Citizen-portal, regional-language frontend, Aadhaar AUA / KUA and APIGW scopes — MeitY / NCSC submission-format reporting.",
-      },
-      {
-        name: "Public-sector banks",
-        blurb: "PSU bank Finacle / BaNCS estates — RBI CSF + DFS circular + CAG audit overlay reconciliation.",
-      },
-      {
-        name: "Defence-adjacent organisations",
-        blurb: "Indian-soil-only delivery, Indian-passport-only consultants and security-clearance-equivalent senior bench.",
-      },
-      {
-        name: "Aadhaar ecosystem actors",
-        blurb: "AUA / KUA / Sub-AUA entities — UIDAI methodology, Authentication Regulations 2016 evidence, virtual-ID handling.",
-      },
-      {
-        name: "Delhi-NCR fintech & lending",
-        blurb: "Connaught Place / Karol Bagh / Saket fintech — RBI master direction VAPT with fast CTO-and-AppSec-lead signoff.",
-      },
-      {
-        name: "State PSUs (Delhi Govt)",
-        blurb: "Delhi Government IT department and DJB / DTC-adjacent IT estates — state-procurement-portal VAPT with MeitY format.",
-      },
-    ],
-    deliverables: [
-      "VAPT report in CERT-In empanelled + MeitY / NCSC submission format with department-specific control crosswalk",
-      "Aadhaar AUA / KUA Authentication Regulations 2016 evidence pack where in scope",
-      "DigiLocker partner-onboarding checklist coverage where DigiLocker integration is in scope",
-      "APIGW consent-and-purpose-binding layer testing memo for Digital India ecosystem actors",
-      "PSU bank RBI CSF + DFS + CAG overlay reconciliation document",
-      "Indian-soil-only delivery attestation signed by Macksofy authorised signatory",
-      "GeM-portal-compatible bid response and engagement closure documentation",
-      "Free re-test of every Critical and High inside the procurement-defined remediation window",
-    ],
-    caseStudy: {
-      industry: "Central Government Ministry (Citizen-Services Portal with Aadhaar AUA + DigiLocker Integration)",
-      scope: "End-to-end VAPT — citizen-portal (Hindi + 8 regional-language Bhashini frontends), Aadhaar AUA / KUA layer, DigiLocker OAuth integration, APIGW-of-India inter-ministry consent layer; Indian-soil-only delivery; 8-week engagement",
-      outcome: "Six Aadhaar AUA authentication-API rate-limit gaps closed pre-disclosure; two DigiLocker OAuth scope-handling issues closed in coordination with MeitY's DigiLocker team; one APIGW consent-and-purpose-binding bypass closed; report accepted by the ministry's IT secretary on first read and submitted to CERT-In without clarification request.",
-    },
-    faqs: [
-      {
-        q: "Are you GeM-listed and CERT-In empanelled for central-government tenders?",
-        a: "Yes — Macksofy is a GeM-listed cybersecurity services vendor and a CERT-In empanelled auditor. We hold the seller-ID, the empanelment certificate (latest cycle), ISO 27001:2022 and ISO 9001:2015. We respond to GeM tenders within the portal's 7-21 day windows via our Delhi-resident bid-desk.",
-      },
-      {
-        q: "Can you offer Indian-soil-only delivery (no foreign-soil data egress)?",
-        a: "Yes — for defence-adjacent and ministry engagements that require it, we deploy Indian-passport-only senior consultants and run the engagement on Indian-soil tooling and storage only. We provide a signed attestation that satisfies the procuring department's information-security policy.",
-      },
-      {
-        q: "Do you handle Aadhaar AUA / KUA scope per UIDAI methodology?",
-        a: "Yes. The Aadhaar Authentication Regulations 2016 (as amended) define a specific methodology — biometric-replay resistance, eKYC consent-flow integrity, virtual-ID handling, authentication-API rate-limit and audit-log evidence. We deliver in that exact format with the evidence pack the UIDAI Authentication-Service-Operations team accepts.",
-      },
-      {
-        q: "Will your VAPT close a PSU bank's RBI CSF, DFS circular and CAG audit overlay in one engagement?",
-        a: "Yes — we crosswalk the same evidence to all three. The RBI CSITE Cell, the Department of Financial Services and the CAG each read the relevant slice without separate audits. Milestone payments are tied to CAG audit cycles per the PO terms.",
-      },
-      {
-        q: "How do you handle MeitY / NCSC office submission format?",
-        a: "MeitY and NCSC office expect VAPT reports in a specific format with control-by-control crosswalk to the department's information-security policy and a department-side risk-register sync. Our Delhi bench has shipped this format repeatedly; we maintain templates against the current MeitY guidelines for citizen-portal, APIGW and Aadhaar-integrated scopes.",
-      },
-      {
-        q: "Can you serve Delhi-NCR fintech alongside central-government engagements?",
-        a: "Yes — same firm, different bench. Delhi-NCR fintech (Connaught Place / Karol Bagh / Saket and the Noida / Gurugram corridors that fall under 'Delhi' in informal procurement language) gets the same RBI master direction VAPT methodology we run in Mumbai, with faster CTO-and-AppSec-lead signoff and same-day Connaught Place / Saket onsite cadence.",
-      },
-    ],
-  },
 
   // ─────────────────────────────────────────────────────────────────────
   // 14 · Bengaluru × Red Teaming
@@ -4795,9 +4455,10 @@ export const COMBOS: CityServiceCombo[] = [
   // 19 · Ahmedabad × VAPT
   // ─────────────────────────────────────────────────────────────────────
   {
+    updated: "2026-11-02",
     citySlug: "ahmedabad",
     serviceSlug: "vapt",
-    headline: "VAPT Services in Ahmedabad · GIFT IFSC, Pharma & Textiles",
+    headline: "VAPT & Penetration Testing in Ahmedabad · GIFT IFSC & Pharma",
     lead: "CERT-In empanelled VAPT for Ahmedabad and GIFT City — IFSCA-aligned for IFSC banking units plus pharma 21 CFR Part 11 for Zydus / Torrent / Cadila scopes.",
     body: [
       "Ahmedabad VAPT splits naturally into two engagement profiles that no other Indian metro combines: the GIFT City IFSC offshore-finance cluster regulated by IFSCA, and the Ahmedabad city pharma + textile + co-operative-banking estate regulated by RBI, USFDA, DCGI and DPDP. The GIFT City work involves IFSCA-format submission, cross-border operational-resilience expectations, and trading-system-specific scope. The Ahmedabad city work involves 21 CFR Part 11 audit-trail compliance, USFDA inspection-readiness, RBI Master Direction closure for co-operative banks and DPDP RoPA for retail. Macksofy delivers both from Mumbai BKC by senior consultants flying BOM → AMD in one hour and reaching GIFT City inside 90 minutes of landing.",
@@ -4959,6 +4620,8 @@ export const COMBOS: CityServiceCombo[] = [
         q: "How fast can you mobilise to GIFT City or to a Pirana / Moraiya pharma site?",
         a: "Mumbai → AMD flight (1 hour) + GIFT City drive (30 minutes from the airport) or Pirana / Moraiya drive (45-60 minutes). Same-day onsite kickoff is feasible if mobilised before noon. For multi-week pharma engagements with multiple site visits, we plan the visit sequence around plant shift schedules and the QA team's availability.",
       },
+      // Carried over from /locations/ahmedabad/penetration-testing (merged 2026-11-02).
+      { q: "Will your pharma pentest fit our older lab-instrument estate at Pirana / Moraiya / Sarkhej?", a: "Yes — Ahmedabad pharma pentest scoping accounts for the older lab-instrument estate reality (Windows 10 / 2016 HPLC / GC / dissolution-tester baselines, more legacy connectivity than Hyderabad's average). QA-witnessed walk-throughs are calibrated accordingly. The no-state-alteration acknowledgement covers any GMP-validated system in scope." },
     ],
   },
 
@@ -6678,175 +6341,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─────────────────────────────────────────────────────────────────────
   // 30 · Noida × Penetration Testing
-  // ─────────────────────────────────────────────────────────────────────
-  {
-    citySlug: "noida",
-    serviceSlug: "penetration-testing",
-    updated: "2026-09-29",
-    headline: "Penetration Testing in Noida · Fintech & Payment Aggregators",
-    lead: "OSCP / OSEP-led pentests for Noida fintechs, RBI PA-PG licensees, Sector 18 SaaS and foreign-bank GCCs — RBI-aligned, Yotta NM1 tenant-ready.",
-    body: [
-      "Noida penetration testing is dominated by the payment-aggregator-and-fintech cluster that has accumulated across Sectors 16, 18, 62 and 132 — plus the foreign-bank GCC back-office captives in Sector 132 and Greater Noida, and the Yotta NM1 hyperscale-data-centre tenant ecosystem that has emerged since 2024. The pentest scope here is structurally different from the broader VAPT (which we run for the same buyers under regulatory mandate) and structurally different from the AppSec engagement (which focuses on the application surface alone). Noida pentest is the scenario-led, objective-based engagement that the CTO and AppSec lead buy together — the regulator-style VAPT closes the licence audit, the AppSec engagement closes the application-layer evidence, and the pentest answers the question 'if a motivated actor went after our money-movement infrastructure today, how far would they get?'.",
-      "RBI PA-PG licensee scope dominates. Noida is the second-densest payment-aggregator concentration in India after Mumbai, with multiple RBI PA-licensed payment aggregators headquartered in Sectors 18 and 62. Pentest objectives at this profile typically target the settlement-flow integrity ('mint a payout without minting a debit'), the merchant-portal authorisation matrix ('escalate from a merchant role to a platform-admin role'), the partner-API trust chain ('compromise the upstream payment-stack vendor's integration and pivot to our payout API'), and the dispute-flow integrity ('frame a chargeback that the dispute-flow approves'). The deliverable evidence the bank's audit committee and the RBI Department of Payment and Settlement Systems both read.",
-      "Lending fintech and BNPL scope follows. Noida hosts a layer of lending fintechs and BNPL operators that buy pentest with loan-origination-flow-abuse objectives. Test surface includes KYC bypass (OVD-tamper, Aadhaar AUA / KUA-replay, DigiLocker scope confusion), multi-account-stitching (the highest-yield loan-fraud path in our 2025-2026 lending engagements), partner-API trust chains (account aggregator integration, credit-bureau integration, lending-service-provider integration), and the collections-app abuse paths (skiptrace-data-egress, customer-impersonation through the collections-agent app). RBI Digital Lending Guidelines (2022) clause closure is built in.",
-      "Foreign-bank GCC scope adds parent-control overlay. Sector 132 and Greater Noida host foreign-bank captives — Standard Chartered, HSBC, Deutsche Bank, Barclays, RBS-NatWest, BNP Paribas, Citi back-office captives. Pentest engagements here align to the parent's adversary-simulation standard — typically NIST SP 800-115 v2 derivative for US-parent captives, CREST CHECK or CBEST for UK-parent captives, TIBER-EU for European-parent captives. The report drops into the parent's TPRM tool. The Indian regulator overlay (RBI for India-side operations) is reconciled alongside.",
-      "Yotta NM1 tenant pentest is the Noida 2026 specialty. Yotta NM1 hyperscale data-centre tenants face a shared-responsibility-model pentest scope — the tenant's workload, the management-plane isolation between tenants, the operator-side controls (Yotta's network, physical, hypervisor), and the data-residency / customer-data-isolation evidence the RBI inspector will ask for in the next thematic review. The pentest is run with Yotta operations pre-notified per the engagement letter; findings are reconciled at the shared-responsibility boundary.",
-      "AI / LLM application security has become standard. Noida fintechs in 2026 deploy LLM-based customer-service assistants, RAG-backed FAQ systems, agent-orchestrated KYC-document-processing flows, and AI-driven fraud-detection models. Pentest objectives now include LLM application objectives where the customer's threat model surfaces them — direct + indirect prompt-injection (via RAG corpus or upstream customer-data), tool-use-abuse on agent reasoning, training-data exfiltration, fraud-model-evasion through adversarial-input crafting, and the BFSI-specific customer-impersonation paths.",
-      "Procurement reality matters. Noida fintech pentest engagements close through the CTO, the AppSec lead and (for RBI PA-PG licensees) the head of compliance. Engagement letters cover trespass-and-deception waivers for KYC-vendor-integration testing, production safe-harbour for the live merchant-portal scope, and the RBI inspection-defence support clause that the licensee will draw on at the next CSITE Cell or Department of Payment and Settlement Systems thematic review. Foreign-bank GCC engagements close through the Indian CISO with the parent's regional CISO copied. Onsite cadence — Mumbai BKC senior consultants fly Mumbai → Delhi and reach any Noida sector in 45-90 minutes via Yamuna or DND.",
-      "Engagement length is typically 4-6 weeks for fintech / payment-aggregator scope, 5-7 weeks for foreign-bank GCC scope (longer because of parent-control-catalogue overhead), 3-4 weeks for Sector 18 SaaS scope, and 4-5 weeks for Yotta NM1 tenant scope (with shared-responsibility reconciliation overhead). All engagements include a paired detection-engineering analyst with the customer's blue-team for the closing week and a joint SOC tabletop with the customer's MSSP partner if the SOC is outsourced.",
-    ],
-    buyerConcerns: [
-      "RBI PA-PG licensee settlement-flow / merchant-portal-authz / partner-API / dispute-flow objectives",
-      "RBI Digital Lending Guidelines (2022) clause closure for lending fintech / BNPL scope",
-      "KYC bypass — Aadhaar AUA / KUA-replay, OVD-tamper, DigiLocker scope confusion, multi-account-stitching",
-      "Foreign-bank GCC parent's adversary-simulation standard (NIST SP 800-115 v2 / CREST / CBEST / TIBER-EU)",
-      "Yotta NM1 tenant shared-responsibility-model pentest with operator pre-notification",
-      "AI / LLM application objectives — prompt-injection, fraud-model-evasion, training-data exfil",
-      "Account aggregator / DigiLocker / Aadhaar AUA-KUA integration trust-chain testing",
-      "RBI inspection-defence support for CSITE / DPSS thematic-review cycles",
-      "Parent TPRM tool drop-in (Archer / ServiceNow IRM / ProcessUnity) for GCC scope",
-    ],
-    differentiators: [
-      "RBI PA-PG + Digital Lending Guidelines + parent-standard (NIST / CREST / CBEST / TIBER-EU) pentest under one bench — selected per buyer profile at kickoff.",
-      "Yotta NM1 tenant pentest capability — shared-responsibility-model engagement with operator pre-notification and management-plane-isolation testing.",
-      "Aadhaar AUA / KUA-replay, OVD-tamper and multi-account-stitching playbook accumulated across 40+ Noida lending-fintech engagements.",
-      "LLM / AI application objectives standard for 2026 — fraud-model-evasion, prompt-injection, training-data exfil for AI-driven fintech surfaces.",
-      "Mumbai BKC senior bench at 2-hour flight + 45-90 minute drive — same-day onsite arrival; embedded Noida lead consultant for sustained programmes.",
-    ],
-    seoDescription:
-      "OSCP / OSEP-led penetration testing in Noida for fintechs, payment aggregators, Yotta NM1 tenants and foreign-bank GCCs. RBI / DPDP / parent-standard aligned.",
-    keywords: [
-      "penetration testing Noida",
-      "Noida pentest fintech",
-      "RBI PA-PG pentest",
-      "Yotta NM1 pentest",
-      "Sector 18 pentest",
-      "Greater Noida pentest",
-      "OSCP pentest Noida",
-      "foreign bank GCC pentest Noida",
-      "lending fintech pentest Noida",
-    ],
-    stats: [
-      { value: "OSCP / OSEP", label: "Senior bench credentials" },
-      { value: "40+", label: "Noida lending-fintech engagements" },
-      { value: "Yotta NM1", label: "Tenant pentest capability" },
-      { value: "4-6 wks", label: "Typical engagement" },
-    ],
-    methodology: [
-      {
-        phase: "01 · Objective & Playbook Selection",
-        activities: [
-          "Joint kickoff with CTO + AppSec lead + (for RBI PA-PG) head of compliance or (for GCC) parent's regional CISO",
-          "Methodology selection — RBI PA-PG + Digital Lending Guidelines / parent's adversary-simulation standard / Yotta NM1 shared-responsibility scope",
-          "Engagement letter — trespass-and-deception, production safe-harbour, Yotta operator pre-notification where applicable",
-          "Single written objective signed by CTO + AppSec lead + (where applicable) head of compliance",
-        ],
-      },
-      {
-        phase: "02 · Recon & Initial Access",
-        activities: [
-          "OSINT against the fintech's customer base, foreign-bank GCC parent's footprint or Yotta NM1 tenant ecosystem",
-          "Spear-phish lure calibration — funding-announcement, RBI thematic-review or parent's release-cadence news",
-          "Sector 18 / 62 / 132 tower-lobby tailgate where physical assessment is in scope",
-          "Vendor-portal compromise on KYC vendor, account aggregator, credit-bureau, or upstream payment-stack vendor",
-        ],
-      },
-      {
-        phase: "03 · Domain-Specific Operations",
-        activities: [
-          "RBI PA-PG — settlement-flow integrity, merchant-portal authz, partner-API trust chain, dispute-flow integrity",
-          "Lending fintech — KYC bypass, multi-account-stitching, AA / credit-bureau integration, collections-app abuse",
-          "Foreign-bank GCC — parent's adversary-simulation-standard-aligned objectives with parent-control-catalogue closure",
-          "Yotta NM1 tenant — management-plane isolation, tenant-bleed, data-residency, shared-responsibility reconciliation",
-        ],
-      },
-      {
-        phase: "04 · Regulator + Parent Reporting",
-        activities: [
-          "RBI PA-PG / Digital Lending Guidelines crosswalk per finding, in submission-format language",
-          "Foreign-bank GCC parent-standard report (NIST CSF / CIS / parent-specific) for TPRM drop-in",
-          "Yotta NM1 shared-responsibility evidence pack at the operator-tenant boundary",
-          "Customer-procurement vendor-pack annex for foreign-bank-customer scopes",
-        ],
-      },
-      {
-        phase: "05 · SOC Tabletop & Re-test",
-        activities: [
-          "Free re-test of every Critical and High inside a 60-day window or the regulator-defined remediation period",
-          "Joint SOC tabletop with the fintech's blue-team or MSSP partner (kill-chain replay)",
-          "Paired detection content (Sigma / SPL / KQL) — 6-12 production-ready rules shipped to the customer's SIEM",
-          "RBI CSITE / DPSS inspection-defence support for next thematic review",
-        ],
-      },
-    ],
-    industries: [
-      {
-        name: "Payment aggregators (RBI PA-PG)",
-        blurb: "Sector 18 / 62 PA-PG licensees — settlement-flow, merchant-portal authz and partner-API objectives with RBI inspection-defence overlay.",
-      },
-      {
-        name: "Lending fintech & BNPL",
-        blurb: "Noida lending fintechs — loan-origination abuse, RBI Digital Lending Guidelines + AA / credit-bureau integration depth.",
-      },
-      {
-        name: "Foreign-bank GCC back-offices",
-        blurb: "Sector 132 + Greater Noida foreign-bank captives — parent's adversary-simulation standard with TPRM drop-in.",
-      },
-      {
-        name: "Sector 18 SaaS",
-        blurb: "Sector 18 product companies — multi-tenant authz and cloud-native objectives with DPDP §16 overlay.",
-      },
-      {
-        name: "Yotta NM1 tenants",
-        blurb: "Hyperscale-data-centre-resident fintech and SaaS — shared-responsibility-model pentest with operator pre-notification.",
-      },
-      {
-        name: "Edtech & SaaS unicorns",
-        blurb: "Sectors 16 / 62 edtech and SaaS — student-data isolation, KYC / age-gating and AI-tutor LLM surface objectives.",
-      },
-    ],
-    deliverables: [
-      "Objective verdict (met / partially met / not met) with timestamped operator-console replay",
-      "Kill-chain narrative as one-page board-pack entry per phase with screenshot + timeline",
-      "RBI PA-PG / Digital Lending Guidelines crosswalk per finding for fintech scope",
-      "Foreign-bank GCC parent-standard report for TPRM drop-in",
-      "Yotta NM1 shared-responsibility evidence pack at the operator-tenant boundary",
-      "6-12 production-ready SIEM detection rules (Sigma / SPL / KQL) per engagement",
-      "Joint SOC tabletop session with operator-console kill-chain replay",
-      "Free re-test of every Critical and High inside a 60-day window",
-    ],
-    caseStudy: {
-      industry: "Noida-headquartered RBI PA-PG Licensee (Sector 18 HQ, Yotta NM1 tenant, foreign-bank-partner integration)",
-      scope: "5-week scenario-led pentest — single objective: mint a settlement-flow payout without minting the corresponding debit by D+10 without SOC or RBI-inspector-level detection; merchant-portal (44 endpoints), payout API, settlement API, dispute-flow API, KYC-vendor integration, account aggregator integration, AI-customer-service-assistant LLM surface, Yotta NM1 shared-responsibility scope",
-      outcome: "Objective met at D+7 via a partner-API trust-chain compromise on the upstream payment-stack vendor's developer portal → payout-API token replay → settlement-API reconciliation-drift exploitation (controlled-stop, evidenced via screenshot + hash, no actual minting); one indirect-prompt-injection-via-RAG path on the LLM customer-service assistant closed; Yotta NM1 shared-responsibility evidence pack accepted by RBI inspector first read; 9 paired SIEM rules adopted by the customer's blue-team inside two weeks; RBI DPSS thematic review cleared with zero clarifications.",
-    },
-    faqs: [
-      {
-        q: "Will your pentest close my RBI PA-PG or Digital Lending Guidelines audit obligation?",
-        a: "The pentest is scenario-led against the audit committee's question rather than checklist-driven against the regulator's clause set — for the regulator-clause-closure work we run a parallel VAPT or AppSec engagement. But the pentest deliverable carries the RBI PA-PG / Digital Lending Guidelines crosswalk per finding so the same evidence inputs the next CSITE Cell or DPSS thematic review.",
-      },
-      {
-        q: "Do you handle Yotta NM1 tenant pentest with operator pre-notification?",
-        a: "Yes — Yotta NM1 tenant pentest is a 2026 capability for our Noida bench. The engagement letter codifies Yotta operations pre-notification, the shared-responsibility-model boundary is reconciled at kickoff, and the management-plane isolation testing runs through the agreed scope. Output is the shared-responsibility evidence pack the RBI inspector reads.",
-      },
-      {
-        q: "Can the engagement satisfy our foreign-bank parent's adversary-simulation standard?",
-        a: "Yes for Sector 132 / Greater Noida foreign-bank GCC scope. Engagement aligns to the parent's adversary-simulation standard (NIST SP 800-115 v2 derivative for US parents, CREST CHECK or CBEST for UK parents, TIBER-EU for European parents). Report drops directly into the parent's TPRM tool (Archer, ServiceNow IRM, ProcessUnity) in the parent's preferred template.",
-      },
-      {
-        q: "Do you cover AI / LLM application objectives — fraud-model-evasion, prompt-injection?",
-        a: "Yes — LLM / AI application objectives are standard for 2026 Noida fintech engagements. Fraud-model-evasion through adversarial-input crafting, direct + indirect prompt-injection (via RAG corpus or upstream customer-data), tool-use-abuse on agent reasoning, training-data exfiltration and BFSI-specific customer-impersonation paths through LLM-customer-service-assistants.",
-      },
-      {
-        q: "How quickly can you mobilise to Noida from Mumbai BKC?",
-        a: "Mumbai → Delhi flight (2 hours) + Aerocity → Noida drive (45-90 minutes via DND or Yamuna). Same-day kickoff onsite is feasible if mobilised before noon. For sustained multi-quarter programmes we maintain an embedded Noida lead consultant with a local mobile.",
-      },
-      {
-        q: "How does the engagement compare to your Noida AppSec or VAPT?",
-        a: "AppSec is application-layer-and-below depth on the customer-facing app surface. VAPT is regulator-required and checklist-driven against RBI master directions. Pentest is scenario-led against a single audit-committee-readable objective with no fixed asset list. Most Noida fintech clients run all three each year — AppSec for the customer-facing app surface, VAPT for the regulator, pentest for the audit committee's question.",
-      },
-    ],
-  },
 
   // ─────────────────────────────────────────────────────────────────────
   // 31 · Noida × Managed SOC
@@ -7196,9 +6690,10 @@ export const COMBOS: CityServiceCombo[] = [
   // 33 · Chennai × VAPT
   // ─────────────────────────────────────────────────────────────────────
   {
+    updated: "2026-11-02",
     citySlug: "chennai",
     serviceSlug: "vapt",
-    headline: "VAPT Services in Chennai · PSU Banks, Auto OEM & OMR SaaS",
+    headline: "VAPT & Penetration Testing in Chennai · PSU Banks & SaaS",
     lead: "CERT-In empanelled VAPT for Chennai PSU banks, Sriperumbudur auto OEMs, OMR SaaS and TNeGA — RBI CSF + IEC-62443 + TNeGA submission-format.",
     body: [
       "Chennai VAPT splits into four buyer profiles that demand different methodology stacks. PSU and private banks headquartered in Chennai (Indian Bank, Indian Overseas Bank, multiple cooperative banks) need RBI Cyber Security Framework + Master Direction on IT Governance, Risk, Controls and Assurance Practices (November 2023) closure for the next CSITE Cell or Department of Financial Services thematic review. Auto OEMs and Tier-1 suppliers across the Sriperumbudur / Oragadam / Maraimalai Nagar belt need IT-and-OT VAPT scopes aligned to IEC-62443 plus (for German / Japanese / Korean automaker customers) TISAX or equivalent procurement-audit-driven control catalogue coverage. OMR (Old Mahabalipuram Road) SaaS unicorns and product companies need SOC 2 Type II + ISO 27001:2022 + DPDP-aligned VAPT. And the Tamil Nadu state-government IT estate needs CERT-In + TNeGA + DPDP + Tamil-language documentation evidence.",
@@ -7360,6 +6855,10 @@ export const COMBOS: CityServiceCombo[] = [
         q: "What is the engagement length for PSU bank vs OMR SaaS vs state-government?",
         a: "6-10 weeks for PSU bank VAPT (longer because of branch-network and IT-estate scale), 5-7 weeks for auto OEM IT-and-OT combined, 3-4 weeks for OMR SaaS, 4-5 weeks for TNeGA / state-government with Tamil-language documentation overhead. All engagements include a re-test window of every Critical and High inside the regulator-defined remediation period.",
       },
+      // Carried over from /locations/chennai/penetration-testing (merged 2026-11-02).
+      { q: "Can your same report close RBI, SOC 2 and HIPAA in one cycle?", a: "Yes — the crosswalk-per-finding model maps each issue to RBI Cyber Resilience / SEBI CSCRF, SOC 2 CC controls, ISO 27001 Annex A and HIPAA Security Rule + HITRUST CSF where applicable. Chennai SaaS firms straddling US-healthcare revenue and India-regulated arms use this to avoid running three separate penetration tests." },
+      // Carried over from /locations/chennai/penetration-testing (merged 2026-11-02).
+      { q: "Will you test the legacy Finacle / Flexcube / BaNCS edges, or declare them out of scope?", a: "We test them. Most vendors declare the MQ / CICS / FTP / direct-DB-link paths out of scope because they are awkward — but the regulator will not declare them out of scope when the inspection arrives, and that is where the actual money-movement abuse lives. Our reports include a 'legacy edge inventory' annex specifically for this." },
     ],
   },
 
@@ -7709,175 +7208,6 @@ export const COMBOS: CityServiceCombo[] = [
 
   // ─────────────────────────────────────────────────────────────────────
   // 36 · Ahmedabad × Penetration Testing
-  // ─────────────────────────────────────────────────────────────────────
-  {
-    citySlug: "ahmedabad",
-    serviceSlug: "penetration-testing",
-    updated: "2026-09-29",
-    headline: "Penetration Testing in Ahmedabad · GIFT IFSC & Pharma",
-    lead: "Scenario-led pentests for Ahmedabad GIFT IFSC banking units, Zydus / Torrent / Cadila pharma and Gujarat textiles — IFSCA + USFDA aligned.",
-    body: [
-      "Ahmedabad penetration testing splits across three sharply different buyer profiles. GIFT City IFSC entities (international banking units, capital markets participants, reinsurance, aircraft lessors) need IFSCA-aligned adversary-simulation engagements with cross-border operational-resilience evidence. Ahmedabad city pharma (Zydus, Torrent, Cadila, Intas) needs pharma-specific pentest playbooks (regulated-data-flow corruption objectives, lab-instrument-as-foothold scenarios) coordinated with the next USFDA inspection cycle. Ahmedabad / Surat textile and apparel exporters need procurement-audit-driven pentest aligned to Walmart / Amazon / Target customer-control catalogues. Macksofy delivers all three from Mumbai BKC by senior consultants flying BOM → AMD in one hour.",
-      "GIFT IFSC pentest scoping is unique to Ahmedabad. The IFSCA cyber framework is built on RBI + SEBI baselines but adds operational-resilience, cross-border-data and trading-system clauses unique to IFSC. Pentest objectives at IFSC entities typically target cross-border settlement-flow integrity ('compromise the foreign-correspondent-bank connectivity'), the IBU-Mumbai-parent control register reconciliation ('exploit the parent-to-IFSC interface'), the IFSCA capital-markets-participant trading-system authorisation ('compromise the foreign-currency trading-system without IFSCA-supervised SOC detection'), or the reinsurance settlement-system integrity ('frame an unauthorised counterparty bordereau'). Engagement letters include IFSCA inspection-defence acknowledgement and DIFC Courts-equivalent jurisdiction reconciliation where applicable.",
-      "Pharma red-team-style pentest scoping mirrors our Hyderabad pharma pentest practice but with Ahmedabad-specific operational reality. Zydus, Torrent, Cadila and Intas R&D campuses (Pirana, Moraiya, Sarkhej, Changodar) have older lab-instrument estates than Hyderabad pharma (more legacy HPLC / GC / dissolution-tester deployments running on Windows 10 / 2016 baselines). Objectives target clinical-trial-data integrity ahead of the next USFDA Pre-Approval Inspection, IP exfiltration ahead of major-formulation-launch milestones, or API-plant OT-environment compromise. Three-estate traversal (corporate IT, R&D network, QC lab network with controlled-stop at the data-integrity boundary).",
-      "Textile / apparel exporter pentest scoping is the Ahmedabad-Surat specialty. Walmart, Amazon, Target, Costco and large foreign-retail customer procurement audits demand cyber-resilience evidence including periodic penetration testing. Pentest scope covers the customer-data e-commerce platform (Shopify, WooCommerce, Magento, custom-built), supplier-portal authentication, manufacturing-floor IoT-enabled production-line monitoring (the highest-yield attack-surface in our experience for textile exporters), and the export-customer EDI / API integration trust chain. Deliverables map onto the customer-procurement-driven control catalogue (Walmart's vendor-cybersecurity policy is the most rigorous; Amazon's Vendor Performance Standards have specific cyber-resilience elements; Target's SCERT framework imposes its own checklist).",
-      "Co-operative bank pentest layer adds a fourth playbook overlap. Gujarat hosts multiple cooperative banks (UCBs and DCCBs) and Ahmedabad-headquartered NBFCs operating under RBI Department of Supervision oversight. Pentest objectives are more modest in scope than mainline private bank engagements — typically targeting net-banking transaction-graph abuse and the smaller-scale reconciliation-layer integrity for first-time-engagement cooperative banks. Our cooperative-bank starter pentest SoW carries a 90-day pre-inspection rehearsal block for first-time RBI Department of Supervision engagements.",
-      "DPDP §16 cross-border-transfer evidence is layered into every Ahmedabad pentest. GIFT IFSC entities have cross-border-data flows by definition, pharma sponsor-data flows back to US / EU CRO parents, apparel exporters transfer customer order data to US / EU retail customers. Each requires DPDP §16 cross-border-transfer-control evidence collection during the pentest. For pharma scopes, the USFDA-bound cross-border-transfer to the US sponsor goes through a separate evidence collection step aligned with 21 CFR Part 11 §11.30 controls for open systems.",
-      "Procurement reality matters. GIFT IFSC pentest engagements close through the IBU CEO and the IFSC compliance officer with the IFSCA-registered DIE (Data Privacy Officer) copied. Pharma pentest closes through the CTO, the CISO and the QA director — engagement letters include trespass-and-deception, QA-witness scheduling for lab-instrument scope, no-state-alteration acknowledgement for GMP-validated systems, and controlled-stop at the data-integrity boundary. Textile / apparel exporter pentest closes through the CTO and the head of customer-engagement, with the customer-procurement evidence pack as the engagement deliverable. Co-operative bank pentest closes through the GM-IT and the board-IT-committee secretary.",
-      "Onsite cadence — Mumbai → AMD flight is 1 hour. GIFT City sites are 30 minutes from the airport. Pirana / Moraiya pharma sites are 45-60 minutes. SG Highway / Bopal fintech corridor is 30 minutes. Surat is 4 hours by Mumbai-Surat road or 1 hour by Mumbai-Ahmedabad flight + 4 hour drive south. Engagement length is typically 5-7 weeks for GIFT IFSC pentest (longer because of IFSCA-supervised SOC integration), 6-8 weeks for pharma three-estate engagement (mirrors Hyderabad pharma pentest length), 4-5 weeks for textile / apparel exporter pentest, 4-5 weeks for cooperative bank starter pentest.",
-    ],
-    buyerConcerns: [
-      "GIFT IFSC IBU + capital markets + reinsurance pentest with IFSCA cyber framework alignment",
-      "Cross-border settlement-flow integrity and IBU-Mumbai-parent control register reconciliation",
-      "Pharma three-estate traversal — corporate IT, R&D network, QC lab network with controlled-stop at data-integrity",
-      "Legacy lab-instrument-estate pentest with QA-witnessed walk-throughs (Windows 10 / 2016 HPLC / GC / dissolution-tester)",
-      "USFDA Pre-Approval Inspection cycle-aligned finding-closure timeline",
-      "Walmart / Amazon / Target / Costco customer-procurement-audit-driven pentest deliverable",
-      "Manufacturing-floor IoT-enabled production-line monitoring (highest-yield attack surface)",
-      "DPDP §16 cross-border-transfer evidence with 21 CFR Part 11 §11.30 overlay for pharma sponsor data",
-      "Co-operative bank first-time-engagement starter pentest with 90-day pre-inspection rehearsal",
-    ],
-    differentiators: [
-      "Three pre-built pentest playbooks under one bench — GIFT IFSC (IFSCA + cross-border), Ahmedabad pharma (legacy-lab-estate calibration), textile / apparel exporter (procurement-audit-driven) — selected per buyer profile.",
-      "GIFT IFSC capability — IFSCA cyber-framework alignment with IBU-Mumbai-parent control register reconciliation accepted by IFSCA inspectors first read.",
-      "Legacy lab-instrument-estate pentest with QA-witnessed walk-throughs calibrated to older Windows 10 / 2016 HPLC / GC / dissolution-tester baselines.",
-      "Manufacturing-floor IoT-enabled production-line monitoring scope for Walmart / Amazon / Target procurement-audit cycles.",
-      "BOM → AMD one-hour flight + 30-90 minute drive to GIFT City / Pirana / Moraiya / Sarkhej / Changodar — same-day onsite arrival.",
-    ],
-    seoDescription:
-      "Scenario-led penetration testing in Ahmedabad and GIFT City. IFSCA + USFDA + Walmart procurement-audit + RBI Master Direction aligned.",
-    keywords: [
-      "penetration testing Ahmedabad",
-      "GIFT City pentest",
-      "IFSCA pentest",
-      "Ahmedabad pharma pentest",
-      "Zydus pentest",
-      "Torrent pharma pentest",
-      "OSCP pentest Ahmedabad",
-      "Walmart pentest Ahmedabad",
-      "Gandhinagar pentest",
-    ],
-    stats: [
-      { value: "Three playbooks", label: "IFSC + Pharma + Textile" },
-      { value: "1 hr", label: "BOM → AMD flight" },
-      { value: "Legacy-lab", label: "Calibration for older estates" },
-      { value: "5-8 wks", label: "Typical engagement" },
-    ],
-    methodology: [
-      {
-        phase: "01 · Playbook & Objective Selection",
-        activities: [
-          "Joint kickoff with IBU CEO + IFSC compliance officer (GIFT) or CTO + CISO + QA director (pharma) or CTO + customer-engagement (textile)",
-          "Single written objective signed off — cross-border settlement for IFSC, clinical-trial-data integrity for pharma, customer-procurement evidence for textile",
-          "Engagement letter — IFSCA inspection-defence (IFSC) / QA-witness + no-state-alteration (pharma) / customer-procurement evidence pack (textile)",
-          "DPDP §16 cross-border-data-flow inventory for evidence collection scope",
-        ],
-      },
-      {
-        phase: "02 · Recon & Initial Access",
-        activities: [
-          "OSINT against the IBU's foreign-correspondent-bank ecosystem (IFSC), Zydus / Torrent / Cadila R&D + QA functions (pharma) or apparel-exporter customer base (textile)",
-          "Spear-phish lure calibration — IFSCA thematic review (IFSC) / USFDA Pre-Approval Inspection cycle (pharma) / Walmart / Amazon supplier-onboarding cycle (textile)",
-          "GIFT City / Pirana / Moraiya / Sarkhej / Changodar / Surat tower-lobby tailgate where physical assessment is in scope",
-          "Vendor-portal compromise on CDS / LIMS vendor (pharma) or upstream EDI / API vendor (textile)",
-        ],
-      },
-      {
-        phase: "03 · Domain-Specific Operations",
-        activities: [
-          "IFSC — cross-border settlement-flow integrity, IBU-Mumbai-parent control register reconciliation, capital-markets-participant trading-system authorisation",
-          "Pharma — three-estate traversal (corporate IT, R&D network, QC lab network) with QA-witnessed lab-instrument walk-throughs and controlled-stop at data-integrity",
-          "Textile / apparel — customer-data e-commerce platform, supplier-portal, manufacturing-floor IoT-enabled production-line, customer EDI / API integration",
-          "Cooperative bank — net-banking transaction-graph abuse + smaller-scale reconciliation-layer integrity",
-        ],
-      },
-      {
-        phase: "04 · Regulator / Customer-Format Reporting",
-        activities: [
-          "IFSC — IFSCA cyber-framework + DPDP §16 + IBU-Mumbai-parent control register reconciliation memo",
-          "Pharma — 21 CFR Part 11 §11.10 / §11.30 + GMP Annex 11 + ALCOA+ + DPDP §16 sponsor-data evidence",
-          "Textile / apparel — Walmart / Amazon / Target / Costco customer-procurement-driven control catalogue evidence pack",
-          "Cooperative bank — RBI Master Direction + Department of Supervision submission-format",
-        ],
-      },
-      {
-        phase: "05 · Closure & Re-test",
-        activities: [
-          "Free re-test of every Critical and High inside the regulator / customer-procurement-cycle remediation period",
-          "IFSC — IFSCA inspection-defence support for next thematic review",
-          "Pharma — USFDA Pre-Approval Inspection rehearsal pack with QA director + IT head",
-          "Textile / apparel — customer-procurement-cycle evidence-pack handover with the customer-engagement function",
-        ],
-      },
-    ],
-    industries: [
-      {
-        name: "GIFT IFSC banking units (IBU)",
-        blurb: "IFSCA-aligned pentest — IBU core platform, cross-border settlement, IBU-Mumbai-parent control register reconciliation.",
-      },
-      {
-        name: "GIFT IFSC capital markets & reinsurance",
-        blurb: "NSE IFSC / India INX / BSE INX participants + reinsurance entities — IFSCA capital-markets + reinsurance settlement-system pentest.",
-      },
-      {
-        name: "Ahmedabad pharma (Zydus / Torrent / Cadila / Intas)",
-        blurb: "Pirana / Moraiya / Sarkhej / Changodar R&D, API and formulation plants — three-estate pharma pentest with QA-witnessed lab-instrument scope.",
-      },
-      {
-        name: "Apparel exporters (Ahmedabad / Surat)",
-        blurb: "Customer-data e-commerce + supplier-portal + manufacturing-floor IoT pentest with Walmart / Amazon / Target customer-procurement-driven control catalogue.",
-      },
-      {
-        name: "Gujarat co-operative banks & NBFCs",
-        blurb: "UCBs / DCCBs and Ahmedabad-headquartered NBFCs — first-time-engagement starter pentest with 90-day pre-inspection rehearsal.",
-      },
-      {
-        name: "SG Highway / Bopal fintech corridor",
-        blurb: "Ahmedabad fintech and lending corridor — RBI master direction pentest with fast CTO-and-AppSec-lead signoff.",
-      },
-    ],
-    deliverables: [
-      "Objective verdict (met / partially met / not met) with timestamped operator-console replay",
-      "GIFT IFSC — IFSCA cyber-framework + DPDP §16 + IBU-Mumbai-parent control register reconciliation memo",
-      "Pharma — 21 CFR Part 11 §11.10 / §11.30 + GMP Annex 11 + ALCOA+ + DPDP §16 sponsor-data evidence",
-      "Three-estate traversal memo with QA-witnessed lab-instrument walk-through evidence",
-      "Textile / apparel — Walmart / Amazon / Target / Costco customer-procurement-driven control catalogue evidence pack",
-      "Cooperative bank RBI Master Direction + Department of Supervision submission-format pentest report",
-      "Joint SOC tabletop with operator-console kill-chain replay",
-      "Free re-test of every Critical and High inside the regulator-defined remediation window",
-    ],
-    caseStudy: {
-      industry: "GIFT IFSC Banking Unit (Mumbai-parent group, IBU at GIFT City SEZ, foreign-correspondent-bank integration)",
-      scope: "6-week scenario-led pentest — single objective: compromise the foreign-correspondent-bank connectivity from a GIFT City IBU foothold without IFSCA-supervised SOC detection by D+15; three onsite legs at GIFT City; IFSCA-supervised SOC integration with deconfliction bridge; IBU-Mumbai-parent control register reconciliation",
-      outcome: "Objective met at D+11 via a foreign-correspondent-bank-side spear-phish → IBU-parent interface compromise via Azure AD Connect → IFSC trading-system authorisation bypass on the foreign-currency settlement path (controlled-stop, evidenced via screenshot + hash); IFSCA cyber-resilience submission accepted on first read; IBU-Mumbai-parent control register reconciliation memo accepted by the Mumbai parent's risk committee; 9 paired Sigma rules adopted by the IFSCA-supervised SOC inside two weeks; one DPDP §16 cross-border-transfer policy violation closed.",
-    },
-    faqs: [
-      {
-        q: "Do you understand IFSCA cyber expectations vs RBI / SEBI for GIFT IFSC pentest?",
-        a: "Yes. The IFSC cyber framework is built on RBI + SEBI baselines but adds specific operational-resilience, cross-border data and trading-system clauses unique to IFSC operations. Macksofy maintains an IFSCA control register and pentest objective template alongside our RBI and SEBI packs. Engagement letters include IFSCA inspection-defence acknowledgement.",
-      },
-      {
-        q: "Will your pharma pentest fit our older lab-instrument estate at Pirana / Moraiya / Sarkhej?",
-        a: "Yes — Ahmedabad pharma pentest scoping accounts for the older lab-instrument estate reality (Windows 10 / 2016 HPLC / GC / dissolution-tester baselines, more legacy connectivity than Hyderabad's average). QA-witnessed walk-throughs are calibrated accordingly. The no-state-alteration acknowledgement covers any GMP-validated system in scope.",
-      },
-      {
-        q: "Can your engagement satisfy Walmart / Amazon / Target customer-procurement-driven control catalogues for our apparel export business?",
-        a: "Yes — textile / apparel exporter pentest is the Ahmedabad-Surat specialty. The customer-procurement evidence pack maps pentest findings onto the customer's specific control catalogue (Walmart's vendor-cybersecurity policy is the most rigorous; Amazon's Vendor Performance Standards have specific cyber-resilience elements; Target's SCERT framework imposes its own checklist). Most Ahmedabad apparel exporter clients use this pack as their annual procurement-audit submission.",
-      },
-      {
-        q: "Do you serve Gujarat co-operative banks for first-time RBI Department of Supervision pentest?",
-        a: "Yes. Our cooperative-bank starter pentest SoW has a narrower asset count, plain-English executive summary and 90-day pre-inspection rehearsal block walking the GM-IT through likely RBI Department of Supervision questions. Engagement length is typically 4-5 weeks with two onsite legs at the head office and one branch sample.",
-      },
-      {
-        q: "How fast can you mobilise to GIFT City or Pirana / Moraiya pharma plants?",
-        a: "Mumbai → AMD flight (1 hour) + GIFT City drive (30 minutes from the airport) or Pirana / Moraiya drive (45-60 minutes). Same-day onsite kickoff is feasible if mobilised before noon.",
-      },
-      {
-        q: "Do you cover IBU-Mumbai-parent control register reconciliation for our GIFT IFSC scope?",
-        a: "Yes. The IBU scope's IFSCA clauses are mapped onto the Mumbai parent's RBI Master Direction clauses where they correspond, with explicit deltas where IFSC-specific operational-resilience or cross-border expectations diverge. The output is a single risk-committee-readable view that satisfies both regulators without forcing the parent to maintain two separate views.",
-      },
-    ],
-  },
 
   // ─────────────────────────────────────────────────────────────────────
   // 37 · Gurugram × Web Application Security
