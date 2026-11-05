@@ -126,7 +126,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "audit:cybersecurity-audit": ["cert-in", "iso-27001", "nist-csf"],
   "audit:compliance-audit": ["iso-27001", "cert-in", "nist-csf"],
   "audit:risk-assessment": ["iso-27001", "nist-csf", "nist-800-53"],
-  "audit:cert-in-empanelled-audit": ["cert-in", "cvss", "owasp-top-10"],
+  "audit:cert-in-empanelled-audit": ["cert-in-empanel", "cert-in", "cvss", "owasp-top-10"],
   "audit:rbi-csf": ["rbi", "cert-in", "iso-27001"],
   "audit:sebi-cscrf": ["sebi", "cert-in", "iso-27001"],
   "audit:sebi-sar": ["sebi", "cert-in"],

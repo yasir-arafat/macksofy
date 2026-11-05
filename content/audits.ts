@@ -48,6 +48,11 @@ export interface Audit {
     tagline: string;
     description: string;
   };
+  /**
+   * Optional "verify it yourself" line under the hero description, linking a
+   * claim (e.g. CERT-In empanelment) to the issuer's own published listing.
+   */
+  verifyLink?: { lead: string; label: string; href: string };
   whyItMatters: string;
   applicability: string[];
   frameworks: string[];
@@ -560,6 +565,7 @@ export const AUDITS: Audit[] = [
   // INDIAN REGULATORY
   // ====================================================================
   {
+    updated: "2026-11-05",
     slug: "cert-in-empanelled-audit",
     title: "CERT-In Empanelled Audit",
     shortTitle: "CERT-In Audit",
@@ -572,6 +578,11 @@ export const AUDITS: Audit[] = [
       tagline: "The audit your regulator will accept on the first read.",
       description:
         "Macksofy is empanelled by the Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology. Our audits are accepted by SEBI, RBI, UIDAI, IRDAI, payment system operators and every major Indian regulator and certification body — without rework.",
+    },
+    verifyLink: {
+      lead: "Verify it yourself: Macksofy Technologies Pvt Ltd appears in CERT-In's list of empanelled information security auditing organisations, published on",
+      label: "CERT-In's empanelment page",
+      href: "https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL",
     },
     whyItMatters:
       "CERT-In empanelment is the gold standard for cybersecurity auditors in India. For BFSI entities, payment aggregators, government contractors, regulated fintechs and any organization handling sensitive Indian data, a CERT-In empanelled audit is the only one that satisfies regulator inspection. Macksofy holds active empanelment with the requisite scope to perform information security audits.",

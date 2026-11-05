@@ -127,6 +127,20 @@ export default async function AuditDetail({ params }: PageProps) {
               <p className="mt-5 max-w-2xl text-lg text-fg-muted text-pretty">
                 {a.hero.description}
               </p>
+              {a.verifyLink && (
+                <p className="mt-3 max-w-2xl text-sm text-fg-muted text-pretty">
+                  {a.verifyLink.lead}{" "}
+                  <a
+                    href={a.verifyLink.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="font-semibold text-neon-cyan hover:underline"
+                  >
+                    {a.verifyLink.label}
+                  </a>
+                  .
+                </p>
+              )}
               <div className="mt-7 flex flex-wrap gap-3">
                 <LinkButton href={`/contact#enquiry?interest=${encodeURIComponent(a.title)}`} size="lg" withArrow>
                   Request Audit
