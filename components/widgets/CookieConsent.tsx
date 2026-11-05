@@ -123,41 +123,44 @@ export function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 120, opacity: 0 }}
           transition={{ type: "spring", stiffness: 240, damping: 28 }}
-          className="fixed inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 z-[60] mx-auto max-w-3xl"
+          className="fixed inset-x-2 bottom-2 sm:inset-x-6 sm:bottom-6 z-[60] mx-auto max-w-3xl"
         >
-          <div className="relative overflow-hidden rounded-2xl glass-strong ring-1 ring-line shadow-[0_24px_60px_-12px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+          {/* Compact on phones: the first-visit banner covered ~37% of a 390x844
+              viewport (icon + 6-line copy + wrapped buttons). It now stays under
+              ~20%, and the Customise view scrolls instead of outgrowing the screen. */}
+          <div className="relative max-h-[calc(100dvh-1rem)] overflow-x-hidden overflow-y-auto rounded-2xl glass-strong ring-1 ring-line shadow-[0_24px_60px_-12px_rgba(0,0,0,0.7)] backdrop-blur-xl">
             {/* Decorative glow strip */}
             <div
               aria-hidden
               className="absolute -top-20 -right-20 size-60 rounded-full bg-neon-cyan/15 blur-3xl pointer-events-none"
             />
 
-            <div className="relative p-5 sm:p-6">
-              <div className="flex items-start gap-4">
-                <div className="grid size-10 place-items-center rounded-xl bg-neon-cyan/15 ring-1 ring-neon-cyan/40 text-neon-cyan shrink-0">
+            <div className="relative p-3.5 sm:p-6">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="hidden sm:grid size-10 place-items-center rounded-xl bg-neon-cyan/15 ring-1 ring-neon-cyan/40 text-neon-cyan shrink-0">
                   <Cookie className="size-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h2
                     id="cookie-consent-title"
-                    className="font-display text-base font-bold text-fg"
+                    className="sr-only sm:not-sr-only font-display text-base font-bold text-fg"
                   >
                     Cookies — your choice.
                   </h2>
                   <p
                     id="cookie-consent-desc"
-                    className="mt-1 text-sm text-fg-muted leading-relaxed"
+                    className="sm:mt-1 text-[13px] sm:text-sm text-fg-muted leading-snug sm:leading-relaxed"
                   >
-                    We use cookies to keep Macksofy working, to remember your
+                    We use cookies to keep the site working and remember your
                     preferences, and — only with your consent — to measure how
-                    visitors use the site. Read our{" "}
+                    it is used. See our{" "}
                     <Link
                       href="/privacy"
                       className="text-neon-cyan font-semibold hover:underline"
                     >
                       privacy &amp; cookie policy
-                    </Link>{" "}
-                    for the detail.
+                    </Link>
+                    .
                   </p>
                 </div>
                 <button
@@ -171,25 +174,27 @@ export function CookieConsent() {
               </div>
 
               {!expanded ? (
-                <div className="mt-5 flex flex-wrap items-center gap-2">
+                <div className="mt-3 sm:mt-5 flex flex-wrap items-center gap-2">
                   <button
                     type="button"
                     onClick={() => save(REJECT_NON_ESSENTIAL)}
-                    className="rounded-full border border-line bg-bg-2/60 px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg hover:border-line-strong transition-colors"
+                    aria-label="Reject non-essential cookies"
+                    className="rounded-full border border-line bg-bg-2/60 px-3.5 sm:px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg hover:border-line-strong transition-colors"
                   >
-                    Reject non-essential
+                    <span className="sm:hidden">Reject</span>
+                    <span className="hidden sm:inline">Reject non-essential</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setExpanded(true)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-bg-2/60 px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg hover:border-line-strong transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-bg-2/60 px-3.5 sm:px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg hover:border-line-strong transition-colors"
                   >
                     <Settings2 className="size-3.5" /> Customise
                   </button>
                   <button
                     type="button"
                     onClick={() => save(ACCEPT_ALL)}
-                    className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-5 h-9 text-xs font-bold text-white shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] transition-shadow"
+                    className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-4 sm:px-5 h-9 text-xs font-bold text-white shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] transition-shadow"
                   >
                     Accept all
                   </button>
