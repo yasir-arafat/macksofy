@@ -59,16 +59,12 @@ const TYPEWRITER_PHRASES = [
 const HEADLINE_LINE_1 = ["Cybersecurity", "services"];
 const HEADLINE_LINE_2 = ["built", "for", "real", "risk."];
 
-// SSR-visible reveal: start fully visible so crawlers and no-JS users
-// see the content; client hydration plays a brief blur-up via
-// whileInView (`initial:false`). This trades the per-load page-load
-// animation for a viewport-trigger animation but matches what users
-// actually perceive — the hero is in the viewport when they land.
-const HERO_REVEAL = {
-  initial: false as const,
-  whileInView: { opacity: [0, 1], y: [24, 0], filter: ["blur(8px)", "blur(0px)"] },
-  viewport: { once: true, amount: 0.1 },
-};
+// The hero copy (badge, headline, lead, CTAs, stats) is static on purpose.
+// It used to replay an opacity/blur reveal via whileInView after hydration.
+// The server HTML already showed it, so visitors saw the text paint, vanish
+// and fade back in, and the hero paragraph (the mobile LCP element) was
+// repainted ~1.4 s late. Keep entrance motion off anything above the fold
+// that the server already rendered.
 
 export function Hero() {
   const desktop = useDesktopOnly();
@@ -95,12 +91,7 @@ export function Hero() {
       <Container className="relative flex-1 flex items-center pt-20 pb-32 sm:pt-24 sm:pb-36 lg:pt-28">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-7">
-            <motion.div
-              initial={false}
-              whileInView={{ opacity: [0, 1], y: [8, 0] }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
                 <span className="relative flex size-1.5">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75 animate-ping" />
@@ -109,50 +100,35 @@ export function Hero() {
                 CERT-In Empanelled · India + UAE
                 <Sparkles className="size-3" />
               </span>
-            </motion.div>
+            </div>
 
-            {/* Word-by-word headline reveal */}
             <h1 className="mt-7 font-display text-4xl font-black tracking-tight sm:text-5xl lg:text-7xl xl:text-[5.25rem] leading-[1.05] sm:leading-[0.95]">
               <span className="block">
                 {HEADLINE_LINE_1.map((w, i) => (
                   <Fragment key={i}>
-                    <RevealWord delay={0.15 + i * 0.08}>{w}</RevealWord>{" "}
+                    <HeadlineWord>{w}</HeadlineWord>{" "}
                   </Fragment>
                 ))}
               </span>
               <span className="block mt-1">
                 {HEADLINE_LINE_2.map((w, i) => (
                   <Fragment key={i}>
-                    <RevealWord delay={0.35 + i * 0.08} gradient>
-                      {w}
-                    </RevealWord>{" "}
+                    <HeadlineWord gradient>{w}</HeadlineWord>{" "}
                   </Fragment>
                 ))}
               </span>
             </h1>
 
-            <motion.div
-              initial={HERO_REVEAL.initial}
-              whileInView={HERO_REVEAL.whileInView}
-              viewport={HERO_REVEAL.viewport}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted text-pretty"
-            >
+            <div className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted text-pretty">
               CERT-In empanelled cybersecurity company delivering{" "}
               <span className="text-neon-cyan font-semibold">
                 <Typewriter phrases={TYPEWRITER_PHRASES} />
               </span>
               <br />
               for regulated and high-growth organisations across India and the UAE.
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={HERO_REVEAL.initial}
-              whileInView={HERO_REVEAL.whileInView}
-              viewport={HERO_REVEAL.viewport}
-              transition={{ duration: 0.7, delay: 0.85 }}
-              className="mt-9 flex flex-wrap items-center gap-3"
-            >
+            <div className="mt-9 flex flex-wrap items-center gap-3">
               <LinkButton href="/contact" size="lg" withArrow>
                 Book Consultation
               </LinkButton>
@@ -166,15 +142,9 @@ export function Hero() {
                 <Phone className="size-4" />
                 {SITE.phoneDisplay}
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={false}
-              whileInView={{ opacity: [0, 1] }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.7, delay: 1 }}
-              className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-xl"
-            >
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-xl">
               {[
                 { value: 250, suffix: "+", label: "Enterprise clients" },
                 { value: 11, suffix: "+ yrs", label: "In business" },
@@ -189,7 +159,7 @@ export function Hero() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           <motion.div
@@ -209,38 +179,27 @@ export function Hero() {
 }
 
 /* ============================================================ */
-/*  Word-by-word reveal helper                                   */
+/*  Headline word                                                */
 /* ============================================================ */
 
-function RevealWord({
+// One word of the H1. Kept as inline-block spans so the per-word gradient
+// renders as before; no entrance animation (see the note above Hero).
+function HeadlineWord({
   children,
-  delay,
   gradient = false,
 }: {
   children: React.ReactNode;
-  delay: number;
   gradient?: boolean;
 }) {
-  // SSR ships the H1 visible (opacity 1, y 0) so crawlers, no-JS users
-  // and the LCP measurement see the headline immediately. Once the
-  // client hydrates we still animate the entrance via whileInView.
   return (
-    <motion.span
-      initial={false}
-      whileInView={{ y: [24, 0], opacity: [0, 1] }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.85,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+    <span
       className={cn(
         "inline-block leading-[1.1] pb-[0.12em]",
         gradient && "gradient-text"
       )}
     >
       {children}
-    </motion.span>
+    </span>
   );
 }
 
