@@ -357,7 +357,7 @@ export default function BestCybersecurityCompanyPage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <LinkButton
-                  href="https://www.cert-in.org.in/certEmpanelment.jsp"
+                  href="https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL"
                   target="_blank"
                   rel="noopener noreferrer"
                   withArrow
