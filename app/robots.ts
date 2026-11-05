@@ -24,8 +24,11 @@ import { SITE } from "@/lib/site";
  * `*` rules — must be repeated in each block to apply.
  */
 
+// /api/og serves every page's og:image and the blog posts' schema image.
+// Crawlers apply the longest matching rule, so this Allow overrides the
+// /api/ Disallow for those images only; the rest of /api/ stays blocked.
 const COMMON_RULES = {
-  allow: ["/", "/_next/static/", "/_next/image"],
+  allow: ["/", "/_next/static/", "/_next/image", "/api/og"],
   disallow: ["/api/", "/_next/"],
 };
 
