@@ -263,6 +263,8 @@ export const POSTS: BlogPost[] = [
     description:
       "VAPT pricing in India for 2026 — what drives cost, typical price ranges by scope (web app, network, API, mobile, cloud), and how to compare quotes honestly.",
     date: "2026-10-27",
+    updated: "2026-11-05",
+    showUpdatedDate: true,
     author: "Macksofy Delivery Lead",
     authorRole: "Offensive security",
     readingTime: "10 min read",
@@ -281,13 +283,13 @@ export const POSTS: BlogPost[] = [
     blocks: [
       {
         type: "lead",
-        text: "The honest answer is ₹1.5 lakh to ₹25 lakh, depending on what you are testing and how deep you need the engagement to go. The dishonest answer is the ₹50,000 quote that covers a scanner report with a cover page. This guide explains what drives real VAPT pricing in India so you can compare quotes on substance rather than sticker price.",
+        text: "The honest answer is roughly ₹1.5 lakh to ₹25 lakh for a manual, report-grade engagement, depending on what you are testing and how deep you need the engagement to go. A quote far below that range usually buys a scanner report with a cover page. All figures here are indicative 2026 planning ranges, not quotes. This guide explains what drives real VAPT pricing in India so you can compare quotes on substance rather than sticker price.",
       },
       {
         type: "callout",
         tone: "info",
         title: "Key takeaway",
-        text: "The three variables that move VAPT cost the most are scope (number and type of assets), depth (automated scan vs manual exploitation), and compliance format (a CERT-In format report costs more than a generic finding list because it carries legal weight).",
+        text: "The three variables that move VAPT cost the most are scope (number and type of assets), depth (automated scan vs manual exploitation), and compliance format (a CERT-In format report costs more than a generic finding list because it follows a regulator-defined structure).",
       },
       { type: "heading", level: 2, text: "What is included in a VAPT engagement", id: "whats-included" },
       {
@@ -313,10 +315,14 @@ export const POSTS: BlogPost[] = [
         ],
       },
       {
+        type: "para",
+        text: "These are market ranges across Indian vendors. For comparison, Macksofy's own published tiers are ₹2.5-5 lakh for a single asset or app (manual and tooled testing, CERT-In format report, free 30-day retest), ₹6-12 lakh for a multi-asset engagement, and from ₹15 lakh for a quarterly programme on a large estate.",
+      },
+      {
         type: "callout",
         tone: "warning",
-        title: "Red flag: quotes under ₹1 lakh for a web application",
-        text: "If a vendor quotes under ₹1 lakh for a web application VAPT, they are almost certainly running an automated scanner (Nessus, Qualys, or Acunetix) and wrapping the output in a template. That is a vulnerability assessment, not a penetration test. The report will miss business logic flaws, chained attack paths and authentication bypass — the findings regulators and auditors actually care about.",
+        title: "Red flag: a web-app quote far below these ranges",
+        text: "If a web application VAPT quote sits far below the ranges above, ask how much of the effort is manual. Very low quotes usually mean an automated scanner (Nessus, Qualys, or Acunetix) with the output wrapped in a template. That is a vulnerability assessment, not a penetration test. The report will miss business logic flaws, chained attack paths and authentication bypass — the findings regulators and auditors actually care about.",
       },
       { type: "heading", level: 2, text: "What drives VAPT cost higher", id: "cost-drivers" },
       {
@@ -324,8 +330,8 @@ export const POSTS: BlogPost[] = [
         ordered: true,
         items: [
           "**Scope breadth** — more applications, more IPs, more environments (staging + production) means more days of testing.",
-          "**Depth of manual testing** — a grey-box engagement with multiple authenticated roles costs 2-3x more than an unauthenticated scan because each role requires separate test passes.",
-          "**Compliance reporting format** — a CERT-In format report, an RBI System Audit Report, or a SEBI cybersecurity attestation carries specific structure requirements. Vendors who hold [CERT-In empanelment](/audit/cert-in-empanelled-audit) charge more because the report is legally acceptable without rework.",
+          "**Depth of manual testing** — a multi-role authenticated web-app test costs roughly double an unauthenticated one (₹3-6 lakh vs ₹1.5-3 lakh in the table above) because each role requires separate test passes.",
+          "**Compliance reporting format** — a CERT-In format report, an RBI System Audit Report, or a SEBI cybersecurity attestation carries specific structure requirements. Vendors who hold [CERT-In empanelment](/audit/cert-in-empanelled-audit) charge more because their reports are built to those formats and need less rework.",
           "**Retest window** — a 30-day free retest is standard. Extended retest windows (60–90 days) or multiple retest cycles add cost.",
           "**Operator certification level** — engagements staffed by OSCP/OSWE/OSEP-certified operators cost more than those staffed by CEH-only teams. The finding quality is materially different.",
           "**Timeline compression** — a 2-week turnaround on a scope that normally takes 4 weeks requires parallel operators and carries a premium.",
@@ -341,17 +347,17 @@ export const POSTS: BlogPost[] = [
         ordered: false,
         items: [
           "**Scope definition** — are all vendors quoting against the same asset list and environment? A quote that excludes the API or the mobile app is not cheaper, it is narrower.",
-          "**Manual vs automated** — ask each vendor what percentage of the engagement is manual exploitation vs automated scanning. Below 60% manual is a scan report.",
+          "**Manual vs automated** — ask each vendor how many days of the engagement are manual exploitation versus automated scanning. If most of the effort is scanning, you are buying a scan report.",
           "**Operator credentials** — ask for the certifications of the people who will actually do the testing, not the company's collective credentials.",
           "**Report format** — will the report satisfy your regulator (CERT-In, RBI, SEBI, IRDAI) without rework? Ask for an anonymised sample.",
           "**Retest included** — is remediation verification included? How many cycles? What is the window?",
-          "**CERT-In empanelment** — for regulated entities, only a [CERT-In empanelled auditor](/audit/cert-in-empanelled-audit) produces a report that regulators accept at face value. Non-empanelled vendors produce reports that may trigger follow-up queries. See our [top CERT-In empanelled audit providers](/blog/top-cert-in-empanelled-audit-providers-india-2026) for a ranked comparison.",
+          "**CERT-In empanelment** — for regulated entities, regulators commonly expect the audit to come from a [CERT-In empanelled auditor](/audit/cert-in-empanelled-audit), and a non-empanelled report is more likely to draw follow-up queries. See our [top CERT-In empanelled audit providers](/blog/top-cert-in-empanelled-audit-providers-india-2026) for a ranked comparison.",
         ],
       },
       { type: "heading", level: 2, text: "Annual programme vs one-off engagement", id: "annual-vs-oneoff" },
       {
         type: "para",
-        text: "A single VAPT engagement is a snapshot. An annual programme — quarterly or continuous testing — costs 2-3x the one-off price but catches the vulnerabilities introduced by every release cycle. For organisations shipping code weekly, a one-off VAPT is outdated before the report is read. Most of our BFSI and SaaS clients run quarterly cycles mapped to their release cadence.",
+        text: "A single VAPT engagement is a snapshot. An annual programme — quarterly or continuous testing — costs more than a one-off (our own quarterly programme starts at ₹15 lakh, against ₹2.5-5 lakh for a single-asset test) but catches the vulnerabilities introduced by every release cycle. For organisations shipping code weekly, a one-off VAPT is outdated before the report is read, so map testing cycles to your release cadence.",
       },
       {
         type: "para",
@@ -377,11 +383,11 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Why do VAPT quotes vary so much between vendors?",
-        a: "Because vendors are quoting different things. A ₹50,000 quote is an automated scan with a branded cover page. A ₹5 lakh quote is a manual penetration test by certified operators with a compliance-format report and retest window. Always compare scope, manual-vs-automated ratio, and report format before comparing price.",
+        a: "Because vendors are quoting different things. A very low quote is often an automated scan with a branded cover page; a quote in the ranges above should buy a manual penetration test by certified operators with a compliance-format report and retest window. Always compare scope, manual-vs-automated ratio, and report format before comparing price.",
       },
       {
         q: "Is CERT-In empanelment required for VAPT in India?",
-        a: "It is not legally required for all organisations, but for regulated entities (BFSI under RBI, capital markets under SEBI, government under MeitY), a CERT-In empanelled auditor's report is the only one accepted without follow-up queries. For unregulated companies, empanelment is a strong quality signal.",
+        a: "It is not legally required for all organisations, but regulated entities (BFSI under RBI, capital markets under SEBI, government under MeitY) are commonly expected to use a CERT-In empanelled auditor, and a non-empanelled report is more likely to draw follow-up queries. For unregulated companies, empanelment is a strong quality signal.",
       },
       {
         q: "Does VAPT pricing differ between Mumbai, Delhi and Bengaluru?",
