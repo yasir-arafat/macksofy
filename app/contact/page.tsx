@@ -99,21 +99,42 @@ export default async function ContactPage({ searchParams }: PageProps) {
             "@type": "ContactPage",
             name: "Contact Macksofy Technologies",
             url: `${SITE.url}/contact`,
-            mainEntity: LOCATIONS.map((o) => ({
+            // Only locations with a Google Business Profile are emitted as
+            // places. The others (Dubai, Muscat, Toronto) are delivery or
+            // engagement sites with no street address, and the site-wide
+            // Organization schema already lists them under areaServed. The
+            // `address` text in Locations.ts is display copy, often a
+            // descriptor ("Macksofy Hyderabad office"), so it is never emitted
+            // as streetAddress. The HQ uses the canonical SITE.hq address; any
+            // other office carries city and country only until a real street
+            // address is supplied.
+            mainEntity: LOCATIONS.filter((o) => o.googleCid).map((o) => ({
               "@type": "Organization",
               name: `Macksofy Technologies — ${o.city}`,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: o.address,
-                addressLocality: o.city,
-                addressCountry: o.countryCode,
-              },
+              address: o.primary
+                ? {
+                    "@type": "PostalAddress",
+                    streetAddress: SITE.hq.street,
+                    addressLocality: SITE.hq.city,
+                    addressRegion: SITE.hq.region,
+                    postalCode: SITE.hq.postalCode,
+                    addressCountry: SITE.hq.country,
+                  }
+                : {
+                    "@type": "PostalAddress",
+                    addressLocality: o.city,
+                    addressCountry: o.countryCode,
+                  },
               ...(o.phone && { telephone: o.phone }),
               ...(o.email && { email: o.email }),
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: o.lat,
-                longitude: o.lng,
+              location: {
+                "@type": "Place",
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: o.lat,
+                  longitude: o.lng,
+                },
+                hasMap: `https://www.google.com/maps?cid=${o.googleCid}`,
               },
             })),
           },
