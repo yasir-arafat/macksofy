@@ -2511,7 +2511,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Hack The Box's CPTS is the outlier on price, and the one most cost comparisons get wrong. The $490 Silver Annual subscription buys a year of every Academy module up to Tier II and includes one exam voucher — so the exam is not a separate line item the way it is at OffSec. Adding a voucher price on top of the subscription, as this page itself used to, double-counts and inflates the total by roughly a fifth. The honest all-in for a first attempt is $490, about ₹46,700. If you already hold module access, a standalone voucher is $210. Indian job listings still name OSCP far more often, so CPTS buys depth rather than HR signal.",
+        text: "Hack The Box's CPTS is the outlier on price, and the one most cost comparisons get wrong. The $490 Silver Annual subscription buys a year of every Academy module up to Tier II and includes one exam voucher — so the exam is not a separate line item the way it is at OffSec. Adding a voucher price on top of the subscription, as this page itself used to, double-counts and inflates the total by roughly a fifth. The honest all-in for a first attempt is $490, about ₹46,700. If you already hold module access, a standalone voucher is $210. Indian job listings still name OSCP far more often, so CPTS buys depth rather than HR signal. Our training institute's [HTB CPTS certification guide](https://www.macksofytrainings.com/htb-cpts-certification-guide-india-2026/) walks through the module path and the 10-day exam in detail.",
       },
       {
         type: "comparison",
@@ -2883,7 +2883,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Median time-to-first-role for our SOC Analyst track graduates in Mumbai is 5.4 weeks. The variance comes down to two factors: portfolio quality and interview reps. Candidates who built a Wazuh deployment or wrote 5+ Sigma rules during the course land jobs ~30% faster than those with just the cert. It also helps to know who is hiring — our guide to the leading [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) maps the CERT-In empanelled firms and consultancies that drive the city's security hiring.",
+        text: "Median time-to-first-role for our SOC Analyst track graduates in Mumbai is 5.4 weeks. The variance comes down to two factors: portfolio quality and interview reps. Candidates who built a Wazuh deployment or wrote 5+ Sigma rules during the course land jobs ~30% faster than those with just the cert. If you're aiming at pentest roles, practise with our training institute's [penetration tester interview questions for freshers](https://www.macksofytrainings.com/penetration-tester-interview-questions-freshers-2026/). It also helps to know who is hiring — our guide to the leading [cyber security companies in Mumbai and India](/blog/cyber-security-companies-in-mumbai-india-2026) maps the CERT-In empanelled firms and consultancies that drive the city's security hiring.",
       },
       {
         type: "heading",
@@ -3806,7 +3806,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           "Both — senior consulting at top boutiques (Doyensec, NCC, IOActive)",
         ],
       },
-      { type: "para", text: "Macksofy runs instructor-led [OSWE training](/training/oswe) for the web-exploitation path and [OSCP training](/training/oscp) for the network path." },
+      { type: "para", text: "Macksofy runs instructor-led [OSWE training](/training/oswe) for the web-exploitation path and [OSCP training](/training/oscp) for the network path. If you want every rupee laid out before you commit — exam, retakes and the Learn One subscription — our training institute keeps an [OSWE cost guide for India](https://www.macksofytrainings.com/oswe-cost-india-2026/)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP and OSWE prep"),
     ],
     faqs: [
@@ -3964,7 +3964,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           "OSCP + OSEP / CRTO, 3+ yr exp → CRTE for multi-forest, or specialist OSED / OSWE",
         ],
       },
-      { type: "para", text: "Macksofy teaches both: [OSEP training](/training/osep) for the evasion and Active Directory path, and [OSCP training](/training/oscp) for the foundation." },
+      { type: "para", text: "Macksofy teaches both: [OSEP training](/training/osep) for the evasion and Active Directory path, and [OSCP training](/training/oscp) for the foundation. For the full rupee breakdown of the OSEP exam, retakes and Learn One, see our training institute's guide to [OSEP cost in India](https://www.macksofytrainings.com/osep-cost-india-2026/)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSEP prep with OSCP refresher"),
     ],
     faqs: [
@@ -5581,7 +5581,7 @@ def fetch_logs(service: str) -> str:
         type: "callout",
         tone: "tip",
         title: "Compare total cost, not a headline fee",
-        text: "Certification pricing changes by region, tax, delivery format and whether training, labs, an exam attempt or a retake is included. Use the issuing bodies linked in the references below as the source of truth, then compare the complete purchase against the role you want rather than choosing on badge recognition alone.",
+        text: "Certification pricing changes by region, tax, delivery format and whether training, labs, an exam attempt or a retake is included. Use the issuing bodies linked in the references below as the source of truth, then compare the complete purchase against the role you want rather than choosing on badge recognition alone. For GCIH, our training institute's guide to [GIAC certification cost in India](https://www.macksofytrainings.com/giac-certification-cost-india-2026/) adds up the attempt, retake, renewal and SANS course fees in rupees.",
       },
       {
         type: "heading",
