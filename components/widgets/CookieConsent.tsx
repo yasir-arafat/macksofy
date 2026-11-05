@@ -39,6 +39,12 @@ const REJECT_NON_ESSENTIAL = {
   marketing: false,
 };
 
+// Reject and Accept share one style so neither choice is visually favoured:
+// same size, weight, colour and emphasis. Consent should be as easy to refuse
+// as to give.
+const CHOICE_BUTTON =
+  "inline-flex items-center justify-center rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/50 px-3.5 sm:px-4 h-9 text-xs font-bold text-neon-cyan hover:bg-neon-cyan/25 transition-colors";
+
 export function CookieConsent() {
   const [show, setShow] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -177,27 +183,29 @@ export function CookieConsent() {
                 <div className="mt-3 sm:mt-5 flex flex-wrap items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => save(REJECT_NON_ESSENTIAL)}
-                    aria-label="Reject non-essential cookies"
-                    className="rounded-full border border-line bg-bg-2/60 px-3.5 sm:px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg hover:border-line-strong transition-colors"
-                  >
-                    <span className="sm:hidden">Reject</span>
-                    <span className="hidden sm:inline">Reject non-essential</span>
-                  </button>
-                  <button
-                    type="button"
                     onClick={() => setExpanded(true)}
                     className="inline-flex items-center gap-1.5 rounded-full border border-line bg-bg-2/60 px-3.5 sm:px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg hover:border-line-strong transition-colors"
                   >
                     <Settings2 className="size-3.5" /> Customise
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => save(ACCEPT_ALL)}
-                    className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-4 sm:px-5 h-9 text-xs font-bold text-white shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] transition-shadow"
-                  >
-                    Accept all
-                  </button>
+                  <div className="ml-auto flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => save(REJECT_NON_ESSENTIAL)}
+                      aria-label="Reject non-essential cookies"
+                      className={CHOICE_BUTTON}
+                    >
+                      <span className="sm:hidden">Reject</span>
+                      <span className="hidden sm:inline">Reject non-essential</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => save(ACCEPT_ALL)}
+                      className={CHOICE_BUTTON}
+                    >
+                      Accept all
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <motion.div
@@ -254,7 +262,7 @@ export function CookieConsent() {
                     <button
                       type="button"
                       onClick={() => save(REJECT_NON_ESSENTIAL)}
-                      className="ml-auto rounded-full border border-line bg-bg-2/60 px-4 h-9 text-xs font-semibold text-fg-muted hover:text-fg transition-colors"
+                      className={`ml-auto ${CHOICE_BUTTON}`}
                     >
                       Reject non-essential
                     </button>
@@ -263,14 +271,14 @@ export function CookieConsent() {
                       onClick={() =>
                         save({ necessary: true, ...prefs })
                       }
-                      className="inline-flex items-center gap-1.5 rounded-full bg-neon-cyan/15 ring-1 ring-neon-cyan/40 px-4 h-9 text-xs font-bold text-neon-cyan hover:bg-neon-cyan/25 transition-colors"
+                      className={CHOICE_BUTTON}
                     >
                       Save preferences
                     </button>
                     <button
                       type="button"
                       onClick={() => save(ACCEPT_ALL)}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple px-4 h-9 text-xs font-bold text-white shadow-[0_0_24px_rgba(0,229,255,0.3)] hover:shadow-[0_0_36px_rgba(168,85,247,0.5)] transition-shadow"
+                      className={CHOICE_BUTTON}
                     >
                       Accept all
                     </button>
