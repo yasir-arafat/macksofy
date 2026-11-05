@@ -552,6 +552,8 @@ export const POSTS: BlogPost[] = [
     description:
       "Managed SOC pricing in India for 2026 — in-house vs outsourced cost breakdown, pricing models, and what to negotiate before signing a managed detection contract.",
     date: "2026-10-27",
+    updated: "2026-11-05",
+    showUpdatedDate: true,
     author: "Macksofy SOC Lead",
     authorRole: "Blue-team operations",
     readingTime: "11 min read",
@@ -570,13 +572,13 @@ export const POSTS: BlogPost[] = [
     blocks: [
       {
         type: "lead",
-        text: "A managed SOC in India costs ₹15 lakh to ₹1.5 crore per year depending on endpoint count, log volume, response authority, and compliance format. An in-house SOC with equivalent 24x7 coverage costs 3-5x more when you account for the people, tooling, facility and attrition you will actually face. This guide breaks down both models so you can budget accurately.",
+        text: "On a flat monthly fee (₹1.25-12 lakh a month), a managed SOC in India costs ₹15 lakh to about ₹1.5 crore per year depending on endpoint count, log volume, response authority, and compliance format. Per-endpoint contracts scale with your estate instead: at ₹800-2,500 per endpoint per month, 500 endpoints comes to ₹48 lakh-₹1.5 crore a year. An in-house SOC with equivalent 24x7 coverage typically costs two to three times as much once you account for the people, tooling, facility and attrition you will actually face. All figures are indicative planning ranges, not quotes. This guide breaks down both models so you can budget accurately.",
       },
       {
         type: "callout",
         tone: "info",
         title: "Key insight",
-        text: "The biggest hidden cost of an in-house SOC is not the SIEM licence — it is analyst attrition. SOC L1 analysts in India turn over at 30-40% annually. Every departure costs 3-4 months of productivity in hiring, onboarding and ramp-up. A managed SOC absorbs that attrition cost.",
+        text: "The biggest hidden cost of an in-house SOC is not the SIEM licence — it is analyst attrition. The cost table below assumes two to three L1 replacements a year in an eight-analyst team (25-38% turnover), with each departure costing 3-4 months of productivity in hiring, onboarding and ramp-up. A managed SOC absorbs that attrition cost.",
       },
       { type: "heading", level: 2, text: "In-house SOC cost breakdown", id: "in-house-cost" },
       {
@@ -608,6 +610,10 @@ export const POSTS: BlogPost[] = [
           ["Per-EPS (events per second)", "₹3 – ₹8/EPS/month", "Scales with actual telemetry volume", "Hard to predict; noisy sources inflate cost unpredictably"],
           ["Flat monthly fee (tiered)", "₹1.25 L – ₹12 L/month", "Budget certainty, negotiable scope", "May include volume caps that trigger overage charges"],
         ],
+      },
+      {
+        type: "para",
+        text: "Run the per-endpoint numbers before you sign. At ₹800-2,500 per endpoint per month, 500 endpoints is ₹48 lakh-₹1.5 crore a year, but 2,000 endpoints is ₹1.92-6 crore, which can exceed the in-house estimate above. Price the same estate under all three models before choosing.",
       },
       {
         type: "callout",
@@ -648,15 +654,15 @@ export const POSTS: BlogPost[] = [
     faqs: [
       {
         q: "How much does a managed SOC cost in India?",
-        a: "A managed SOC in India costs ₹15 lakh to ₹1.5 crore per year depending on endpoint count, log volume, response authority, and compliance format. Per-endpoint pricing ranges from ₹800 to ₹2,500 per endpoint per month.",
+        a: "On a flat monthly fee, a managed SOC in India costs ₹15 lakh to about ₹1.5 crore per year depending on endpoint count, log volume, response authority, and compliance format. Per-endpoint pricing runs ₹800 to ₹2,500 per endpoint per month, so it scales with your estate: 500 endpoints comes to ₹48 lakh to ₹1.5 crore a year.",
       },
       {
         q: "Is a managed SOC cheaper than building in-house?",
-        a: "Yes, for most mid-size enterprises. An in-house 24x7 SOC costs ₹1.3-3 crore annually when you include analysts, SIEM, tooling, facility, training and attrition replacement. A managed SOC delivering equivalent coverage typically costs 30-50% of that.",
+        a: "Yes, for most mid-size enterprises. An in-house 24x7 SOC costs ₹1.28-3.11 crore annually when you include analysts, SIEM, tooling, facility, training and attrition replacement. A managed SOC delivering equivalent coverage typically costs a third to a half of that. Check per-endpoint quotes carefully at larger endpoint counts, where they can approach or exceed the in-house figure.",
       },
       {
-        q: "What SLAs should I expect from a managed SOC in India?",
-        a: "Expect MTTD under 15 minutes for critical alerts, MTTA under 30 minutes, and MTTR under 4 hours for high-severity incidents. These should be contractual, not aspirational, with penalty clauses for repeated misses.",
+        q: "What SLAs should I ask for from a managed SOC in India?",
+        a: "Ask for specific contractual targets rather than best effort. Targets worth putting in the contract: MTTD under 15 minutes for critical alerts, MTTA under 30 minutes, and MTTR under 4 hours for high-severity incidents, with penalty clauses for repeated misses and a clear definition of what pauses the clock.",
       },
       {
         q: "Do managed SOC providers in India offer CERT-In compliance reporting?",
