@@ -30,8 +30,6 @@ import {
 import { SITE } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceBySlug } from "@/content/services";
-import { getServicePricing } from "@/content/pricing";
-import { PricingTiers } from "@/components/PricingTiers";
 import { DownloadButton } from "@/components/DownloadButton";
 import { TrustStrip } from "@/components/TrustStrip";
 import { DeliverablesIndustries } from "@/components/services/DeliverablesIndustries";
@@ -425,11 +423,6 @@ export default function PhishingSimulationPage() {
           </div>
         </Container>
       </section>
-
-      <PricingTiers
-        pkg={getServicePricing(service.slug, service.category)}
-        contactInterest={service.title}
-      />
 
       <DeliverablesIndustries
         service={service}
