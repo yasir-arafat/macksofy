@@ -2620,7 +2620,7 @@ export const POSTS: BlogPost[] = [
     slug: "offsec-learn-one-india-pricing-roi-2026",
     seoTitle: "OffSec Learn One 2026 — India Pricing & ROI Breakdown",
     seoDescription: "Is OffSec Learn One worth ₹2.5L+ in 2026? An ROI breakdown for Indian buyers — Learn One vs PEN-200, which two certs to pick, and the salary maths.",
-    updated: "2026-08-12",
+    updated: "2026-11-06",
     title: "OffSec Learn One India 2026 — Pricing, ROI Breakdown & Cert Selection Guide",
     description:
       "Is OffSec Learn One worth ₹2.5L+ in 2026? Honest ROI breakdown for Indian buyers — Learn One vs PEN-200 standalone, which two certs to pick, and the salary maths that justify the spend.",
@@ -2732,7 +2732,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of ₹1.84L pays back in 4 months (see the [full OSCP price breakdown in INR](https://www.macksofytrainings.com/oscp-cost-india-2026/)). With OSEP layered on, the delta is closer to ₹15 LPA and the payback drops to 3 months.",
+        text: "An OSCP holder in India makes a median ₹13 LPA mid-level vs ₹6 LPA for a non-certified pen-tester. That's a ₹7 LPA delta or ~₹58,000/month. The Learn One investment of about ₹2,27,000 through Macksofy pays back in about 4 months, or just under 5 at the ₹2,67,000 list price (see the [full OSCP price breakdown in INR](https://www.macksofytrainings.com/oscp-cost-india-2026/)). With OSEP layered on (a second Learn One year, about ₹4,54,000 in total), the delta is closer to ₹15 LPA and the payback is still under 4 months.",
       },
       {
         type: "callout",
