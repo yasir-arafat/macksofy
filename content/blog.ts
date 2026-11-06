@@ -8858,6 +8858,7 @@ def fetch_logs(service: str) -> str:
     description:
       "CSPM, CWPP, CIEM and CNAPP explained without the marketing — what each actually does, where they overlap, and a practical buying sequence for Indian BFSI, fintech and SaaS estates under RBI, SEBI and DPDP.",
     date: "2026-06-23",
+    updated: "2026-11-06",
     author: "Macksofy Cloud Security Team",
     authorRole: "Cloud security & posture-management practice",
     readingTime: "11 min read",
@@ -8879,6 +8880,16 @@ def fetch_logs(service: str) -> str:
       { type: "lead", text: "If you have sat through three cloud-security vendor demos, you have heard four acronyms — CSPM, CWPP, CIEM, CNAPP — used as if they were interchangeable, and a price that grows with every letter. They are not interchangeable. They describe four distinct jobs, and a CNAPP is simply a platform that does several of them in one console. For Indian enterprises buying under RBI, SEBI CSCRF and DPDP pressure, the cost of buying the wrong layer is a dashboard full of findings nobody actions. This guide strips out the marketing and gives you a buying sequence." },
       { type: "para", text: "Start from the problem, not the product. Cloud risk falls into three buckets: how your cloud is configured, what your running workloads are exposed to, and who can do what across your accounts. Each acronym maps to one of those buckets. Get the mapping right and the buying decision becomes obvious." },
       { type: "callout", tone: "info", title: "The one-line version.", text: "CSPM finds misconfigurations. CWPP protects running workloads. CIEM right-sizes identities and permissions. CNAPP is a platform that bundles two or more of those with shared context. Buy for the job you have today; consolidate later." },
+      { type: "heading", level: 2, id: "at-a-glance", text: "CSPM vs CWPP vs CIEM vs CNAPP at a glance" },
+      {
+        type: "table",
+        headers: ["", "CSPM", "CWPP", "CIEM", "CNAPP"],
+        rows: [
+          ["Protects", "Cloud control-plane configuration", "Running workloads: VMs, containers, serverless", "Identities and permissions", "All three, with shared context"],
+          ["Typical findings", "Public buckets, open security groups, disabled logging", "Vulnerable images, runtime threats, drift", "Unused or excessive permissions, privilege-escalation paths", "Attack paths that chain exposure, vulnerability and access"],
+          ["Buy it when", "First, in every cloud estate", "You run production workloads you must defend at runtime", "IAM sprawl across multiple accounts", "You already run two or more layers and need correlation"],
+        ],
+      },
       { type: "heading", level: 2, id: "cspm", text: "1. CSPM — cloud security posture management" },
       { type: "para", text: "CSPM continuously checks your cloud configuration against benchmarks — public storage buckets, security groups open to the internet, IAM drift, disabled logging, unencrypted volumes. It is the universal starting point because it answers the first question every auditor and every board now asks: across all our accounts, what is misconfigured right now? Without posture visibility you are securing an estate you cannot see." },
       { type: "para", text: "For an Indian BFSI or fintech estate, CSPM is also where regulatory mapping begins. A good CSPM tool tags findings against RBI, SEBI CSCRF and CIS benchmarks, so the same scan that finds a public bucket also tells you which audit control it fails. That is the difference between a security tool and a compliance asset." },
