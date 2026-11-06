@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { LOCATIONS, type Location } from "./Locations";
 
@@ -229,9 +229,15 @@ function WorldMap({
   onLeave: () => void;
 }) {
   const hq = locations.find((l) => l.primary) ?? locations[0];
+  // The travelling sparks loop forever (framer opacity + SVG animateMotion),
+  // which cost main-thread time on every frame even while the map sat far
+  // below the fold. Mount them only while the map is on screen.
+  const svgRef = useRef<SVGSVGElement>(null);
+  const onScreen = useInView(svgRef, { margin: "100px" });
 
   return (
     <svg
+      ref={svgRef}
       viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
       className="w-full h-auto rounded-2xl bg-bg/60 ring-1 ring-line"
       role="img"
@@ -368,27 +374,29 @@ function WorldMap({
                     ease: "easeOut",
                   }}
                 />
-                {/* Travelling spark */}
-                <motion.circle
-                  r="2.6"
-                  fill="#22d3ee"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 1, 0] }}
-                  transition={{
-                    duration: 3.2,
-                    delay: 0.6 + i * 0.4,
-                    repeat: Infinity,
-                    repeatDelay: 1.4,
-                    times: [0, 0.1, 0.9, 1],
-                  }}
-                >
-                  <animateMotion
-                    dur="3.2s"
-                    repeatCount="indefinite"
-                    begin={`${0.6 + i * 0.4}s`}
-                    path={path}
-                  />
-                </motion.circle>
+                {/* Travelling spark (only while the map is on screen) */}
+                {onScreen && (
+                  <motion.circle
+                    r="2.6"
+                    fill="#22d3ee"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 1, 0] }}
+                    transition={{
+                      duration: 3.2,
+                      delay: 0.6 + i * 0.4,
+                      repeat: Infinity,
+                      repeatDelay: 1.4,
+                      times: [0, 0.1, 0.9, 1],
+                    }}
+                  >
+                    <animateMotion
+                      dur="3.2s"
+                      repeatCount="indefinite"
+                      begin={`${0.6 + i * 0.4}s`}
+                      path={path}
+                    />
+                  </motion.circle>
+                )}
               </g>
             );
           })}
