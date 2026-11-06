@@ -213,7 +213,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Are your reports CERT-In / ISO compliant?",
-        a: "Yes. Macksofy is a CERT-In empanelled auditor — our reports are accepted by SEBI, RBI, certification bodies and Big-4 audit firms without rework.",
+        a: "Yes. Macksofy is a CERT-In empanelled auditor — our reports are built to the formats SEBI, RBI, certification bodies and Big-4 audit firms expect.",
       },
       {
         q: "What's your discount for repeat engagements?",

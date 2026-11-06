@@ -757,7 +757,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: "CERT-In Empanelment",
     category: "India Regulatory & Compliance",
     definition:
-      "CERT-In empanelment is formal recognition of a security auditor by CERT-In, allowing its assessments to be accepted by RBI, SEBI, UIDAI, IRDAI, and other regulators without rework. Macksofy is a CERT-In empanelled auditor.",
+      "CERT-In empanelment is formal recognition of a security auditor by CERT-In; regulators such as RBI, SEBI, UIDAI and IRDAI commonly expect audits from empanelled auditors. Macksofy is a CERT-In empanelled auditor.",
     related: ["cert-in", "cert-in-empanelled-audit"],
     link: { label: "CERT-In empanelled audit", href: "/audit/cert-in-empanelled-audit" },
   },

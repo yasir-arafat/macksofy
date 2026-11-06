@@ -384,7 +384,7 @@ export default function RedTeamPage() {
                 icon: Award,
                 title: "CERT-In empanelled",
                 accent: "text-sky-300 ring-sky-400/40 bg-sky-400/10",
-                desc: "We&rsquo;re empanelled by CERT-In and our deliverables are accepted by RBI, SEBI, IRDAI and large-enterprise InfoSec committees without rework.",
+                desc: "We&rsquo;re empanelled by CERT-In and our deliverables are built for review by RBI, SEBI, IRDAI and large-enterprise InfoSec committees.",
               },
               {
                 icon: Users,

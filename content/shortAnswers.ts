@@ -136,7 +136,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "audit:cert-in-empanelled-audit": {
     q: "What is a CERT-In empanelled audit?",
-    a: "A CERT-In empanelled audit is a security assessment performed by an auditor formally empanelled by CERT-In (MeitY, Government of India), whose reports RBI, SEBI, UIDAI, and IRDAI accept without rework. Macksofy is CERT-In empanelled and delivers these audits — VAPT, application, and infrastructure — across India.",
+    a: "A CERT-In empanelled audit is a security assessment performed by an auditor formally empanelled by CERT-In (MeitY, Government of India), delivered in the report format that regulators such as RBI, SEBI, UIDAI and IRDAI expect. Macksofy is CERT-In empanelled and delivers these audits — VAPT, application, and infrastructure — across India.",
   },
   "audit:rbi-csf": {
     q: "What is RBI Cyber Security Framework compliance?",
@@ -160,7 +160,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "audit:regulatory-vapt": {
     q: "What is regulatory VAPT?",
-    a: "Regulatory VAPT is vulnerability assessment and penetration testing performed specifically to satisfy a regulator's mandate — RBI, SEBI, IRDAI, or PCI-DSS — in the format and cadence they require. Macksofy, a CERT-In empanelled auditor, delivers VAPT whose reports Indian regulators accept without rework.",
+    a: "Regulatory VAPT is vulnerability assessment and penetration testing performed specifically to satisfy a regulator's mandate — RBI, SEBI, IRDAI, or PCI-DSS — in the format and cadence they require. Macksofy, a CERT-In empanelled auditor, delivers VAPT reports built to those regulators' formats.",
   },
   "audit:iso-27001": {
     q: "What is ISO 27001 certification?",

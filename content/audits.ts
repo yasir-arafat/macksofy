@@ -577,7 +577,7 @@ export const AUDITS: Audit[] = [
       eyebrow: "Government of India · MeitY · CERT-In Empanelled",
       tagline: "The audit your regulator will accept on the first read.",
       description:
-        "Macksofy is empanelled by the Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology. Our audits are accepted by SEBI, RBI, UIDAI, IRDAI, payment system operators and every major Indian regulator and certification body — without rework.",
+        "Macksofy is empanelled by the Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology. Our audit reports are prepared in the formats that SEBI, RBI, UIDAI, IRDAI and payment system operators expect, so they are built to clear review rather than to be reworked.",
     },
     verifyLink: {
       lead: "Verify it yourself: Macksofy Technologies Pvt Ltd appears in CERT-In's list of empanelled information security auditing organisations, published on",
@@ -585,7 +585,7 @@ export const AUDITS: Audit[] = [
       href: "https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL",
     },
     whyItMatters:
-      "CERT-In empanelment is the gold standard for cybersecurity auditors in India. For BFSI entities, payment aggregators, government contractors, regulated fintechs and any organization handling sensitive Indian data, a CERT-In empanelled audit is the only one that satisfies regulator inspection. Macksofy holds active empanelment with the requisite scope to perform information security audits.",
+      "CERT-In empanelment is the gold standard for cybersecurity auditors in India. For BFSI entities, payment aggregators, government contractors, regulated fintechs and any organization handling sensitive Indian data, a CERT-In empanelled audit is what regulators and inspectors commonly expect. Macksofy holds active empanelment with the requisite scope to perform information security audits.",
     applicability: [
       "BFSI: Banks, NBFCs, brokers, AMCs, custodians, RTAs, RIAs",
       "Payment Aggregators / Payment Gateways (RBI authorized)",
@@ -1830,7 +1830,7 @@ export const AUDITS: Audit[] = [
       eyebrow: "Annual + Quarterly · Regulator-Format",
       tagline: "VAPT engineered to satisfy RBI and PCI-DSS in one engagement.",
       description:
-        "Regulator-grade VAPT for RBI-regulated entities and PCI-DSS scope environments. Our reports are accepted by RBI inspectors, PCI QSAs and Big-4 audit firms without rework.",
+        "Regulator-grade VAPT for RBI-regulated entities and PCI-DSS scope environments. Our reports are built to the formats RBI inspectors, PCI QSAs and Big-4 audit firms expect.",
     },
     whyItMatters:
       "RBI and PCI-DSS both require regular VAPT — but with very different reporting expectations. Macksofy delivers a single engagement that satisfies both: CERT-In format for RBI submission, PCI 6.5 + 11.3 evidence for QSA review.",
@@ -1927,7 +1927,7 @@ export const AUDITS: Audit[] = [
       },
       {
         title: "Regulator-format reporting",
-        blurb: "Reports that satisfy CERT-In, RBI, SEBI, IRDAI, PCI — without rework.",
+        blurb: "Reports built to CERT-In, RBI, SEBI, IRDAI and PCI formats.",
         points: [
           "CERT-In format master report",
           "Regulator-specific control mapping",

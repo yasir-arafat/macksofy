@@ -515,7 +515,7 @@ export default function CloudSecurityPage() {
                 icon: Award,
                 title: "CERT-In empanelled",
                 accent: "text-neon-cyan ring-neon-cyan/40 bg-neon-cyan/10",
-                desc: "Our cloud reports are accepted as audit evidence by Indian regulators — CERT-In, RBI, SEBI, IRDAI — without rework.",
+                desc: "Our cloud reports are built to serve as audit evidence for Indian regulators — CERT-In, RBI, SEBI, IRDAI.",
               },
               {
                 icon: Brain,

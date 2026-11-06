@@ -46,7 +46,7 @@ export const metadata = buildMetadata({
 const HOME_FAQS = [
   {
     q: "Is Macksofy CERT-In empanelled?",
-    a: "Yes — Macksofy Technologies is a CERT-In empanelled Information Security Auditor under MeitY, Government of India. Our reports are accepted by SEBI, RBI, UIDAI, IRDAI and other Indian regulators without rework.",
+    a: "Yes — Macksofy Technologies is a CERT-In empanelled Information Security Auditor under MeitY, Government of India. Our reports are built to the formats SEBI, RBI, UIDAI, IRDAI and other Indian regulators expect.",
   },
   {
     q: "Where does Macksofy operate?",
