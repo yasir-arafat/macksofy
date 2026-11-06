@@ -2801,6 +2801,7 @@ export const AUDITS: Audit[] = [
   },
 
   {
+    updated: "2026-11-06",
     slug: "soc-2",
     title: "SOC 2 Type 1 + Type 2 Audit",
     shortTitle: "SOC 2",
@@ -2954,6 +2955,14 @@ export const AUDITS: Audit[] = [
       {
         q: "Can SOC 2 + ISO 27001 share evidence?",
         a: "Yes — about 60% of controls overlap. Single evidence pack, two attestations.",
+      },
+      {
+        q: "Is there a SOC 2 certification for companies in Mumbai, Bengaluru (Bangalore) or Ahmedabad?",
+        a: "Not as a certificate. SOC 2 is an attestation report issued by a licensed CPA firm under AICPA standards; when buyers ask for 'SOC 2 certification' they mean that report. Macksofy runs the readiness work, internal audit and evidence collection and coordinates the CPA attestation for companies across India, including Mumbai, Bengaluru and Ahmedabad. (SOC 2 is unrelated to SOC analyst training, which is about working in a Security Operations Centre.)",
+      },
+      {
+        q: "Which companies usually need a SOC 2 report?",
+        a: "Mostly companies that sell to US enterprise customers: SaaS and product companies, fintech and BFSI technology vendors, and IT services firms. The trigger is usually a customer security questionnaire or a contract clause rather than an Indian regulator.",
       },
     ],
     seoTitle: "SOC 2 Type 1 + Type 2 Audit India + UAE | Macksofy",
