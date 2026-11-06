@@ -28,7 +28,9 @@ export function BlogPagination({ current, totalPages }: Props) {
       <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
         Page {current} of {totalPages}
       </div>
-      <div className="flex items-center gap-1.5">
+      {/* On phones the numbered list takes its own row above Previous/Next;
+          as one row it was 440 px wide and pushed /blog into sideways scroll. */}
+      <div className="flex flex-wrap items-center justify-center gap-1.5">
         {prevPage ? (
           <Link
             href={pageHref(prevPage)}
@@ -42,7 +44,7 @@ export function BlogPagination({ current, totalPages }: Props) {
           </span>
         )}
 
-        <ul className="flex items-center gap-1 mx-1">
+        <ul className="order-first flex w-full flex-wrap items-center justify-center gap-1 mb-2 sm:order-none sm:w-auto sm:mb-0 sm:mx-1">
           {pages.map((p) => (
             <li key={p}>
               {p === current ? (
