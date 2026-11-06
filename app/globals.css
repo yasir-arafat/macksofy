@@ -282,6 +282,18 @@ h6 {
   animation: shimmer 8s linear infinite;
 }
 
+/* Phones and touch screens: keep the gradient, drop the endless shimmer.
+   The shimmer animates background-position on background-clipped text, which
+   the browser repaints on the main thread every frame. Measured on /contact at
+   390x844 (2026-11-06): 3.25 s of main-thread work per 5 s idle with its 10
+   instances running, 0.51 s with them paused. Same policy as ParticleBackground
+   (decoration off under 768px / coarse pointer, for tap responsiveness). */
+@media (max-width: 767px), (pointer: coarse) {
+  .gradient-text {
+    animation: none;
+  }
+}
+
 /* Caret for typewriter */
 .caret::after {
   content: "";
