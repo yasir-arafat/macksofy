@@ -59,7 +59,7 @@ export function SiemDashboard() {
       <div className="flex items-center gap-3 px-5 py-3 border-b border-line bg-bg-1/80">
         <Activity className="size-4 text-emerald-400" />
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
-          macksofy-mdr · siem · live feed
+          macksofy-mdr · siem · illustrative feed
         </span>
         <span className="ml-auto inline-flex items-center gap-1.5 text-[10px] text-emerald-400">
           <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
