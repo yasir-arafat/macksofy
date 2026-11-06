@@ -1056,7 +1056,7 @@ export const POSTS: BlogPost[] = [
       {
         type: "heading",
         level: 2,
-        text: "Who is eligible to apply",
+        text: "Eligibility requirements: who can apply",
         id: "eligibility",
       },
       {
@@ -1080,7 +1080,7 @@ export const POSTS: BlogPost[] = [
       {
         type: "heading",
         level: 2,
-        text: "The four steps",
+        text: "The CERT-In empanelment process: four steps",
         id: "four-steps",
       },
       {
@@ -1877,6 +1877,7 @@ export const POSTS: BlogPost[] = [
       { type: "callout", tone: "warning", title: "The 6-hour clock is the one that catches people", text: "Most organisations discover during an audit that they have no defined process to detect, triage and report a qualifying incident to CERT-In within 6 hours. A tested incident-response runbook with named owners and a reporting template is the cheapest way to close this gap before it becomes a finding." },
 
       { type: "heading", level: 2, id: "coverage", text: "What does a CERT-In empanelled audit cover?" },
+      { type: "para", text: "Since July 2025, CERT-In's Comprehensive Cyber Security Audit Policy Guidelines (version 1.0) also govern how empanelled audits are scoped, scored and reported. Our [section-by-section analysis of the 2025 audit policy guidelines](/blog/cert-in-cyber-security-audit-policy-guidelines-2025) covers what changes for auditees." },
       { type: "para", text: "Scope is agreed up front, but a typical empanelled audit spans:" },
       {
         type: "list",
