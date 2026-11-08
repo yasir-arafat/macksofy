@@ -372,11 +372,11 @@ export function courseSchema(course: Course) {
       ...(COURSE_DURATION_ISO[course.slug] && {
         courseWorkload: COURSE_DURATION_ISO[course.slug],
       }),
-      instructor: {
-        "@type": "Person",
-        name: "Macksofy Mentor Team",
-        affiliation: { "@type": "Organization", name: SITE.name },
-      },
+      // No `instructor` until real, named trainers exist. schema.org allows
+      // only a Person here, and "Macksofy Mentor Team" was a team typed as a
+      // person (audit SCHEMA-03). Google lists instructor as recommended, not
+      // required, for Course. Add Person entries from content/authors.ts once
+      // the owner supplies them.
       location: {
         "@type": "Place",
         name: "Macksofy BKC, Mumbai",
