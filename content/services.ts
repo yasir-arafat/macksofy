@@ -1007,6 +1007,10 @@ export const SERVICES: Service[] = [
 
   // 6 -----------------------------------------------------------------
   {
+    // Last content change. Without a date the sitemap carried no <lastmod>, and
+    // Google had not re-crawled this page since 2026-07-18 ("Crawled - currently
+    // not indexed"), so it never saw any of the Aug-Nov updates.
+    updated: "2026-11-06",
     slug: "cloud-security",
     title: "Cloud Security (AWS / Azure / GCP)",
     shortTitle: "Cloud Security",
