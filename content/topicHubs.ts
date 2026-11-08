@@ -111,6 +111,7 @@ export const TOPIC_HUBS: TopicHub[] = [
     postSlugs: [
       "managed-soc-pricing-india-2026",
       "top-managed-soc-providers-india-2026",
+      "mdr-vs-mssp-2026",
       "ransomware-readiness-bfsi-india-2026",
       "ad-compromise-ir-playbook-indian-bfsi-2026",
       "dfir-services-how-to-choose-india-2026",

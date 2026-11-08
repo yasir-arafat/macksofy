@@ -2223,7 +2223,7 @@ export const POSTS: BlogPost[] = [
     blocks: [
       {
         type: "lead",
-        text: "If you're trying to break into a SOC role in India this year, you've probably noticed that the certification landscape has gotten crowded — and confusing. CSA, SOC-200, CySA+, GCIH, BTL1, the list keeps growing. After three years of placing analysts into BFSI, MSSP and product-company SOCs across Mumbai, Bengaluru and Hyderabad, here's what actually moves the needle for 2026 — and what doesn't.",
+        text: "If you're trying to break into a SOC role in India this year, you've probably noticed that the certification landscape has gotten crowded — and confusing. CSA, SOC-200, CySA+, [GCIH](/blog/ecih-vs-gcih-incident-handler-certification-2026), BTL1, the list keeps growing. After three years of placing analysts into BFSI, MSSP and product-company SOCs across Mumbai, Bengaluru and Hyderabad, here's what actually moves the needle for 2026 — and what doesn't.",
       },
       {
         type: "diagram",
@@ -2275,7 +2275,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "OSDA is the practical exam SOC analysts respect. The 24-hour live attack chain forces you to detect, correlate and document the way a real SIEM-driven SOC works. Indian L2/L3 hiring at HSBC, MasterCard, Goldman GSEC, Razorpay and Tata MDR increasingly asks for it. Cost is high — but the salary uplift makes the maths work.",
+        text: "[OSDA](/blog/osda-exam-tips-2026) is the practical exam SOC analysts respect. The 24-hour live attack chain forces you to detect, correlate and document the way a real SIEM-driven SOC works. Indian L2/L3 hiring at HSBC, MasterCard, Goldman GSEC, Razorpay and Tata MDR increasingly asks for it. Cost is high — but the salary uplift makes the maths work.",
       },
       {
         type: "heading",
@@ -2654,7 +2654,7 @@ export const POSTS: BlogPost[] = [
       {
         type: "list",
         items: [
-          "12 months of access to one course (PEN-200 / OSCP, PEN-300 / OSEP, WEB-300 / OSWE, EXP-301 / OSED, SOC-200 / OSDA)",
+          "12 months of access to one course (PEN-200 / OSCP, PEN-300 / OSEP, WEB-300 / OSWE, EXP-301 / OSED, SOC-200 / [OSDA](/blog/osda-exam-tips-2026))",
           "Two exam attempts within the 12-month window",
           "Continuous lab access (no 30/60/90-day windows)",
           "Access to the OffSec Learner community + monthly Q&A",
@@ -2998,7 +2998,7 @@ export const POSTS: BlogPost[] = [
         type: "callout",
         tone: "warning",
         title: "The exam-only option is the trap",
-        text: "The standalone OSCP+ exam is $1,699. The full Course + Cert Bundle — the same exam attempt, plus 90 days of the official PEN-200 course and the labs — is $1,749. You are being offered the entire course and lab environment for about $50. Buying the exam alone only makes sense if you already hold current PEN-200 material and lab access from another purchase; for almost everyone else it is the worst value on the page.",
+        text: "The standalone [OSCP+](/blog/oscp-plus-vs-oscp-2026) exam is $1,699. The full Course + Cert Bundle — the same exam attempt, plus 90 days of the official PEN-200 course and the labs — is $1,749. You are being offered the entire course and lab environment for about $50. Buying the exam alone only makes sense if you already hold current PEN-200 material and lab access from another purchase; for almost everyone else it is the worst value on the page.",
       },
       {
         type: "heading",
@@ -3224,7 +3224,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "CEH v13 is organised into 20 modules that follow the five phases of ethical hacking — reconnaissance, scanning, gaining access, maintaining access and covering tracks. EC-Council puts the course at 221 hands-on labs, 550 attack techniques and over 4,000 tools. The module names below are EC-Council's own; the coverage column summarises what each one actually spends its time on.",
+        text: "CEH v13 is organised into 20 modules that follow the five phases of ethical hacking — reconnaissance, scanning, gaining access, maintaining access and covering tracks. EC-Council puts the course at 221 hands-on labs, 550 attack techniques and over 4,000 tools. For practice outside the cloud labs, our [laptop guide for cybersecurity students](/blog/best-laptops-cybersecurity-students-india-2026) covers the hardware that matters. The module names below are EC-Council's own; the coverage column summarises what each one actually spends its time on.",
       },
       {
         type: "table",
@@ -4174,7 +4174,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
         type: "callout",
         tone: "success",
         title: "Readiness gate before you book the exam",
-        text: "Book only when you can reproduce the core investigations without a walkthrough, explain each alert with two independent telemetry sources, and turn your notes into a clean incident timeline. The [SOC-200 / OSDA course page](/training/osda) lists the assessed skills; the broader [SOC analyst track](/training/soc-analyst) adds SIEM and incident-response practice where the official labs expose a gap.",
+        text: "Book only when you can reproduce the core investigations without a walkthrough, explain each alert with two independent telemetry sources, and turn your notes into a clean incident timeline. The [SOC-200 / OSDA course page](/training/osda) lists the assessed skills; the broader [SOC analyst track](/training/soc-analyst) adds SIEM and incident-response practice where the official labs expose a gap. If you are also weighing incident-handler certifications, see [eCIH vs GCIH](/blog/ecih-vs-gcih-incident-handler-certification-2026).",
       },
       MACKSOFY_CTA("soc-analyst", "Our SOC Analyst track"),
     ],
@@ -6255,7 +6255,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "OSCP+ proves you can compromise real systems under exam pressure — Linux, Windows and Active Directory boxes from a starting point of 'here is an IP range' to root + a written professional report. There is no multiple-choice cushion. You either own the boxes within 24 hours and document it within the next 24, or you don't pass.",
+        text: "[OSCP+](/blog/oscp-plus-vs-oscp-2026) proves you can compromise real systems under exam pressure — Linux, Windows and Active Directory boxes from a starting point of 'here is an IP range' to root + a written professional report. There is no multiple-choice cushion. You either own the boxes within 24 hours and document it within the next 24, or you don't pass.",
       },
       {
         type: "heading",
@@ -8779,7 +8779,7 @@ def fetch_logs(service: str) -> str:
         "You've had an incident (or a near miss) and the board asked 'who owns this?' and the honest answer was 'nobody, fully'.",
         "You can't justify a full-time CISO's total compensation yet, but the part-time security gap is clearly costing you in deals, audits or risk.",
       ] },
-      { type: "callout", tone: "tip", title: "The honest test.", text: "If your security work is mostly running tools and patching, you need an MSSP or a managed SOC, not a vCISO. If your problem is that nobody senior owns strategy, risk, board/regulator reporting and the programme that ties detection, testing and compliance together — that's the vCISO-shaped hole. Buy for the gap you actually have." },
+      { type: "callout", tone: "tip", title: "The honest test.", text: "If your security work is mostly running tools and patching, you need an [MSSP](/blog/mdr-vs-mssp-2026) or a managed SOC, not a vCISO. If your problem is that nobody senior owns strategy, risk, board/regulator reporting and the programme that ties detection, testing and compliance together — that's the vCISO-shaped hole. Buy for the gap you actually have." },
       { type: "heading", level: 2, id: "vciso-vs", text: "2. vCISO vs full-time CISO vs MSSP — what each covers" },
       { type: "para", text: "These three are routinely confused, and buying the wrong one is expensive. A simple way to separate them: the MSSP operates, the vCISO leads, and the full-time CISO does both at a scale that justifies the salary." },
       { type: "table", caption: "Where each option fits", headers: ["", "Best when", "Owns", "Doesn't"], rows: [
@@ -8898,7 +8898,7 @@ def fetch_logs(service: str) -> str:
       { type: "para", text: "You need CWPP once you run meaningful compute — Kubernetes clusters, a fleet of VMs, container pipelines. If your cloud footprint is mostly managed PaaS and SaaS, CWPP matters less and posture plus identity matter more. Buy it for the workloads you actually operate, not for the architecture diagram you aspire to." },
       { type: "heading", level: 2, id: "ciem", text: "3. CIEM — cloud infrastructure entitlement management" },
       { type: "para", text: "CIEM maps and right-sizes cloud identities and their permissions. In cloud, identity is the perimeter: the breach is almost never a kicked-down door, it is an over-permissive role assumed by a leaked key. CIEM finds the toxic privilege paths — who can escalate to admin, which roles are unused, where standing privileges should be just-in-time — that a vulnerability scanner will never surface." },
-      { type: "callout", tone: "tip", title: "Where the real risk hides.", text: "In a mature multi-account estate, IAM sprawl is usually the single biggest source of cloud risk. A CIEM-driven blast-radius review routinely finds more exploitable risk than a month of workload scanning. If you can only fund one layer beyond CSPM, fund this one." },
+      { type: "callout", tone: "tip", title: "Where the real risk hides.", text: "In a mature multi-account estate, IAM sprawl is usually the single biggest source of cloud risk. A CIEM-driven blast-radius review routinely finds more exploitable risk than a month of workload scanning. In one [Bengaluru SaaS AWS audit](/case-studies/bangalore-saas-aws-iam-cloud-audit), a single wildcard IAM policy on a Lambda role gave admin-equivalent reach. If you can only fund one layer beyond CSPM, fund this one." },
       { type: "heading", level: 2, id: "cnapp", text: "4. CNAPP — the platform play" },
       { type: "para", text: "A CNAPP (Cloud-Native Application Protection Platform) unifies CSPM, CWPP and CIEM — and often IaC scanning and code-to-cloud context — in one console. Its value is not new capability; it is correlation. A CNAPP can tell you that a publicly exposed workload (CSPM) runs a vulnerable image (CWPP) and is reachable by an over-permissive role (CIEM) — and rank that single, genuinely critical path above ten thousand isolated findings." },
       { type: "comparison", title: "Three disconnected tools vs one platform", left: { label: "Best-of-breed point tools", tone: "purple", bullets: [
@@ -10061,7 +10061,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "Ask every bidder to label its offer clearly. 'Managed SOC', 'MSSP', 'MDR' and 'SIEM monitoring' are often used for overlapping packages. A provider should state the log sources, tools, shifts, languages, locations, investigation depth and response actions included in the base service. The [managed SOC service](/services/managed-soc) should be compared separately from broader [managed security services](/services/managed-security-services).",
+        text: "Ask every bidder to label its offer clearly. 'Managed SOC', 'MSSP', '[MDR](/blog/mdr-vs-mssp-2026)' and 'SIEM monitoring' are often used for overlapping packages. A provider should state the log sources, tools, shifts, languages, locations, investigation depth and response actions included in the base service. The [managed SOC service](/services/managed-soc) should be compared separately from broader [managed security services](/services/managed-security-services).",
       },
       {
         type: "heading",
