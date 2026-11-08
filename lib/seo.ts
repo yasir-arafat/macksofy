@@ -29,6 +29,7 @@ export type OgKind =
   | "product"
   | "case"
   | "industry"
+  | "resource"
   | "macksofy";
 
 interface BuildMetadataInput {
@@ -335,6 +336,8 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      // Attribute shared links to the brand's X account (audit OG-04).
+      site: `@${SITE.social.twitter.split("/").pop()}`,
       title,
       description,
       images: [ogImage],

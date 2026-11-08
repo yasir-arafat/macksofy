@@ -42,6 +42,10 @@ export async function generateMetadata({ params }: PageProps) {
     type: "article",
     publishedTime: cs.published,
     modifiedTime: cs.updated ?? cs.published,
+    // Own share card instead of the generic /og-default.png (audit OG-01).
+    ogKind: "case",
+    ogTitle: cs.headline,
+    ogEyebrow: `Case study · ${cs.sector}`,
   });
 }
 

@@ -40,6 +40,7 @@ export async function GET(req: Request) {
     product: "#06b6d4",
     case: "#f97316",
     industry: "#8b5cf6",
+    resource: "#38bdf8",
     macksofy: "#00e5ff",
   };
 

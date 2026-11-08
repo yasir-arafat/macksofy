@@ -38,6 +38,10 @@ export async function generateMetadata({
     keywords: r.keywords,
     type: "article",
     ...(r.published && { publishedTime: r.published }),
+    // Own share card instead of the generic /og-default.png (audit OG-01).
+    ogKind: "resource",
+    ogTitle: r.title,
+    ogEyebrow: r.type,
   });
 }
 
