@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Crosshair, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
@@ -108,6 +109,16 @@ export default function PentestPage() {
                   sub="CERT-In format · anonymised"
                 />
               </div>
+              <p className="mt-4 text-sm text-fg-muted">
+                Budgeting first?{" "}
+                <Link
+                  href="/blog/vapt-cost-india-2026"
+                  className="font-semibold text-neon-cyan hover:underline"
+                >
+                  See what penetration testing and VAPT cost in India in 2026
+                </Link>
+                .
+              </p>
             </div>
             <div className="lg:col-span-6">
               <PentestTerminal />

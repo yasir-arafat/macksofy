@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Activity, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionTitle";
@@ -98,6 +99,16 @@ export default function ManagedSocPage() {
                   See alert math
                 </LinkButton>
               </div>
+              <p className="mt-4 text-sm text-fg-muted">
+                Comparing in-house and managed?{" "}
+                <Link
+                  href="/blog/managed-soc-pricing-india-2026"
+                  className="font-semibold text-neon-cyan hover:underline"
+                >
+                  See managed SOC pricing in India for 2026
+                </Link>
+                .
+              </p>
             </div>
             <div className="lg:col-span-7">
               <SiemDashboard />
