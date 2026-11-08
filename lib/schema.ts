@@ -97,7 +97,7 @@ export function organizationSchema() {
         availableLanguage: ["en"],
       },
     ],
-    sameAs: Object.values(SITE.social),
+    sameAs: [...Object.values(SITE.social), SITE.googleBusinessProfile],
     areaServed: AREA_SERVED,
     award: awardEntries.map((a) => a.name),
     // Only genuine credentials belong here. SITE.trustSignals used to include
@@ -167,7 +167,7 @@ export function localBusinessSchema() {
         closes: "18:30",
       },
     ],
-    sameAs: Object.values(SITE.social),
+    sameAs: [...Object.values(SITE.social), SITE.googleBusinessProfile],
     areaServed: AREA_SERVED,
     // aggregateRating intentionally omitted — Google's rich-result spam
     // policy requires AggregateRating to be backed by on-page Review nodes

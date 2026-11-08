@@ -44,6 +44,10 @@ export const SITE = {
     facebook: "https://www.facebook.com/macksofy/",
     instagram: "https://www.instagram.com/macksofy_technologies/",
   },
+  // The Mumbai HQ's Google Business Profile (same CID as the /contact map).
+  // Kept out of `social` so it never renders as a social icon; schema adds
+  // it to sameAs.
+  googleBusinessProfile: "https://www.google.com/maps?cid=7485951626511664521",
 
   stats: {
     yearsInBusiness: 11,
