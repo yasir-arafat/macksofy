@@ -298,7 +298,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "For a primer on the methodology behind these engagements, see our [penetration testing and VAPT guide for India](/blog/penetration-testing-vapt-guide-india-2026). For the compliance layer, see the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026).",
+        text: "For a primer on the methodology behind these engagements, see our [penetration testing and VAPT guide for India](/blog/penetration-testing-vapt-guide-india-2026). For the compliance layer, see the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026). For how we scope and run engagements, see our [VAPT service](/services/vapt) and [penetration testing service](/services/penetration-testing).",
       },
       { type: "heading", level: 2, text: "VAPT pricing ranges by scope in 2026", id: "pricing-ranges" },
       {
@@ -647,7 +647,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "For a deeper evaluation of managed SOC vendors, see our [top managed SOC providers in India](/blog/top-managed-soc-providers-india-2026) buyer scorecard. For detection engineering and SOC operations content, browse our [managed SOC and detection guides](/blog/category/managed-soc).",
+        text: "For a deeper evaluation of managed SOC vendors, see our [top managed SOC providers in India](/blog/top-managed-soc-providers-india-2026) buyer scorecard. For detection engineering and SOC operations content, browse our [managed SOC and detection guides](/blog/category/managed-soc). For how we run it, see our [managed SOC service](/services/managed-soc).",
       },
       {
         type: "cta",
