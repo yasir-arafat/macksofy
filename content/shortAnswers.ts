@@ -20,9 +20,21 @@ export interface ShortAnswer {
   q: string;
   /** 40–60 word definition-first answer. */
   a: string;
+  /**
+   * Optional 130-170-word passage rendered under `a`: scope, standards and
+   * deliverables, using only facts already stated on the page. Not inherited
+   * by combo (city x service) answers, so 69 pages never repeat one block.
+   */
+  detail?: string;
 }
 
 export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
+  // ─────────────────────────── PAGES ───────────────────────────
+  "page:about": {
+    q: "Who is Macksofy Technologies?",
+    a: "Macksofy Technologies is a cybersecurity consulting and training company founded in 2014 and headquartered in Bandra Kurla Complex, Mumbai. It tests, monitors and audits the systems of organisations across India and the UAE, and trains security teams as an EC-Council Accredited Training Center.",
+    detail: "Macksofy works across four disciplines and serves seven industry groups: banking and financial services; healthcare and life sciences; SaaS and fintech; manufacturing and operational technology; government and the public sector; energy, power and utilities; and insurance. Offensive security covers VAPT, penetration testing, red teaming, and API and AI security assessments. Defensive engineering covers managed SOC design and operation, and digital forensics and incident response. Audit and compliance maps engagements to the frameworks regulated organisations report against, including the RBI Cyber Security Framework, SEBI's CSCRF and ISO 27001; the firm is empanelled by CERT-In for providing information security auditing services. Training runs EC-Council certification courses such as CEH, and customized corporate programmes for security and engineering teams. Its work is aimed at regulated and high-growth organisations, and it is delivered from Mumbai to clients across India and the UAE.",
+  },
   // ─────────────────────────── SERVICES (24) ───────────────────────────
   "service:penetration-testing": {
     q: "What is penetration testing?",
@@ -31,10 +43,12 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   "service:vapt": {
     q: "What is VAPT?",
     a: "VAPT (Vulnerability Assessment and Penetration Testing) combines automated scanning with manual, expert-led exploitation. The assessment finds weaknesses at breadth; the penetration test proves which are actually exploitable and how far an attacker could reach. Macksofy delivers CERT-In-empanelled VAPT for BFSI, fintech, and SaaS across India and the UAE.",
+    detail: "A VAPT engagement starts with scoping: which applications, APIs, hosts and environments are in play, and which user roles must be tested. Automated scanning then maps known weaknesses across that scope, and manual testing tries to exploit them, chain them and measure how far an attacker could reach. That matters because IBM's 2025 Cost of a Data Breach study put the average breach in India at a record ₹22 crore (INR 220 million), 13% more than in 2024. Macksofy aligns the testing with the OWASP Top 10 and NIST SP 800-115, scores findings with CVSS plus a business-risk rating, gives remediation guidance per CWE, and updates the client's risk register with the results. The deliverable is a VAPT report in CERT-In submission format, with findings tracked by severity, asset, owner and due date, a free retest within 30 days, and an annual closure letter. Engagements usually run 5 to 15 days, depending on scope, for BFSI, fintech and SaaS organisations in India and the UAE.",
   },
   "service:managed-soc": {
     q: "What is a managed SOC?",
     a: "A managed SOC (Security Operations Center) is an outsourced team that monitors your logs, detects threats, and responds to incidents around the clock using a SIEM. Macksofy builds and runs SOCs on Wazuh, Microsoft Sentinel, and Splunk, with detection content mapped to RBI, SEBI, and MITRE ATT&CK.",
+    detail: "Macksofy designs, builds and operates security operations centres, from a first SIEM rollout to a fully tuned 24x7 detection capability. The work covers the whole build: an architecture design, a SIEM deployed with high availability and disaster recovery, and detection content mapped to MITRE ATT&CK. The SIEM can be Wazuh with ELK, which suits Indian data-residency needs, or an existing Splunk or Microsoft Sentinel deployment. At handover the client receives an ATT&CK coverage matrix, more than 100 tuned detection rules, a library of at least 20 incident-response playbooks, and onboarding and training for its analysts. Organisations that do not want to staff the SOC themselves can add 24x7 monitoring as a managed detection and response service. For regulated BFSI entities, detection content is also mapped to RBI and SEBI requirements. CERT-In's 2022 directions require organisations in India to report specified incidents within 6 hours and keep ICT logs for a rolling 180 days, so log retention and incident reporting have to be planned around those limits.",
   },
   "service:web-application-security": {
     q: "What is web application penetration testing?",
@@ -137,6 +151,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   "audit:cert-in-empanelled-audit": {
     q: "What is a CERT-In empanelled audit?",
     a: "A CERT-In empanelled audit is a security assessment performed by an auditor formally empanelled by CERT-In (MeitY, Government of India), delivered in the report format that regulators such as RBI, SEBI, UIDAI and IRDAI expect. Macksofy is CERT-In empanelled and delivers these audits — VAPT, application, and infrastructure — across India.",
+    detail: "A CERT-In empanelled audit follows CERT-In's information security audit scope and maps findings to the framework the auditee reports against, such as the RBI Cyber Security Framework, SEBI's CSCRF, the UIDAI Aadhaar authentication model or the Cyber Crisis Management Plan. It typically combines VAPT with a review of configurations and security processes across the applications, networks and cloud systems in scope. It applies to banks, NBFCs, brokers, payment aggregators, government and PSU systems, Aadhaar ecosystem entities and critical information infrastructure. Macksofy is empanelled by CERT-In for providing information security auditing services and supplies an empanelment letter for each engagement. Each engagement delivers an audit report in the regulator-prescribed format, a findings register with risk rating, due date and management response, a free retest of remediated findings, a closure letter, and advisory support when the regulator inspects.",
   },
   "audit:rbi-csf": {
     q: "What is RBI Cyber Security Framework compliance?",
@@ -347,6 +362,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   "course:ceh": {
     q: "What is the CEH certification?",
     a: "The Certified Ethical Hacker (CEH v13, EC-Council) is a foundational credential that teaches you to think and act like an attacker across the five phases of hacking, now with an AI-driven track. As an EC-Council Accredited Training Center, Macksofy runs it as a classroom and live-online ethical hacking course in Mumbai, with hands-on labs.",
+    detail: "CEH v13 is EC-Council's Certified Ethical Hacker programme. EC-Council lists 20 modules, 221 hands-on labs, more than 550 attack techniques and over 4,000 hacking and security tools, organised around the five phases of ethical hacking (reconnaissance, scanning, gaining access, maintaining access and covering tracks), with AI-assisted techniques integrated across the modules. The exam (312-50) is 125 multiple-choice questions in four hours; EC-Council also offers a separate six-hour CEH Practical exam of 20 real-world challenges. Macksofy is an EC-Council Accredited Training Center and runs the course as 40 hours of training, either as a 5-day intensive or across 8 weekends, at its Mumbai BKC centre or live online, with official EC-Council courseware, lab access and one exam voucher. The course fee is ₹50,000. CEH is a foundational credential for people moving into security who want a recognised grounding in attacker techniques.",
   },
   "course:ceh-practical": {
     q: "What is the CEH Practical exam?",
@@ -431,6 +447,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   "course:corporate-training": {
     q: "What is corporate cybersecurity training?",
     a: "Corporate cybersecurity training upskills a company's employees or security team — from security awareness for all staff to hands-on technical training for engineers. Macksofy designs customized corporate programs (secure coding, SOC onboarding, cloud, OT/ICS and security awareness) delivered on-site or virtual across India and the UAE.",
+    detail: "Macksofy's corporate cybersecurity training is customized for each organisation rather than taught from a fixed syllabus. Programmes combine tracks: secure coding for developers, DevSecOps and CI/CD security, SOC onboarding for new analysts, executive cyber resilience, specialist squads, cloud security across AWS, Azure and GCP, OT and ICS security for plant and engineering teams, and security awareness for all staff. Each technical track draws on the matching consulting practice, such as source code review, managed SOC, red teaming or cloud security, so the material reflects work the team does for clients. Programmes can be run for all staff or for specific teams, and are delivered on-site or virtually across India and the UAE. Typical uses are bringing new SOC analysts up to speed, raising secure-coding standards in development teams, and meeting the security awareness requirements of frameworks such as ISO 27001.",
   },
 
   // ─────────────────────────── BLOG (money-query posts) ───────────────────────────
@@ -894,6 +911,19 @@ export function getShortAnswer(key: string): ShortAnswer | undefined {
  * for both Indian and UAE cities. Returns undefined if the service has no base
  * entry, so the combo template simply renders no box.
  */
+/**
+ * Optional 130-170-word passages for single city x service pages, keyed
+ * "<city>:<service>". Written for that page, not derived, so add one only
+ * where there is something specific to say about the city.
+ */
+export const COMBO_DETAILS: Record<string, string> = {
+  "mumbai:vapt": "VAPT in Mumbai is bought mostly by regulated financial firms, because the city hosts the bodies they answer to: the Reserve Bank of India's central office at Fort, SEBI's head office in Bandra Kurla Complex, and both the National Stock Exchange and BSE. Banks, NBFCs, brokers, AMCs and fintechs here usually need VAPT reports that can go to those regulators, so scoping follows money-movement flows, such as net-banking authentication, payment rails and trading gateways, rather than a generic checklist. Macksofy runs its VAPT practice from its Bandra Kurla Complex headquarters. Each engagement combines automated scanning across the agreed scope with manual exploitation aligned with the OWASP Top 10 and NIST SP 800-115, scores findings with CVSS plus a business-impact rating, and delivers a report in CERT-In submission format with retesting of fixed findings. The stakes are measurable: IBM's 2025 Cost of a Data Breach study put the average breach in India at a record ₹22 crore.",
+};
+
+export function getComboDetail(city: string, service: string): string | undefined {
+  return COMBO_DETAILS[`${city}:${service}`];
+}
+
 export function comboShortAnswer(
   serviceSlug: string,
   serviceShortTitle: string,

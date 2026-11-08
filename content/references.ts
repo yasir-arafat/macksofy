@@ -66,6 +66,7 @@ export const REFS: Record<string, Reference> = {
   "nha": { label: "National Health Authority", url: "https://nha.gov.in/", issuer: "NHA, Ministry of Health & Family Welfare" },
   "abdm-sandbox": { label: "ABDM Sandbox — integrator onboarding", url: "https://sandbox.abdm.gov.in/", issuer: "National Health Authority" },
   "cert-in-empanel": { label: "CERT-In empanelled auditing organisations", url: "https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL", issuer: "CERT-In · MeitY" },
+  "ibm-breach-2025": { label: "Cost of a Data Breach Report 2025: India findings", url: "https://in.newsroom.ibm.com/2025-08-07-India-Records-Highest-Average-Cost-of-a-Data-Breach-IBM", issuer: "IBM" },
   // International standards
   "iso-27001": { label: "ISO/IEC 27001", url: "https://www.iso.org/standard/27001", issuer: "ISO/IEC" },
   "iso-27017": { label: "ISO/IEC 27017 (Cloud)", url: "https://www.iso.org/standard/43757.html", issuer: "ISO/IEC" },
@@ -87,6 +88,7 @@ export const REFS: Record<string, Reference> = {
   "nca-saudi": { label: "Saudi National Cybersecurity Authority", url: "https://nca.gov.sa/", issuer: "NCA (KSA)" },
   // Training / certification bodies (cited on training + certification-guide pages)
   "ec-council": { label: "EC-Council (CEH · CHFI · CPENT)", url: "https://www.eccouncil.org/", issuer: "EC-Council" },
+  "ec-council-ceh": { label: "Certified Ethical Hacker (CEH)", url: "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/", issuer: "EC-Council" },
   "offsec": { label: "OffSec (OSCP · OSEP · OSWE)", url: "https://www.offsec.com/", issuer: "OffSec" },
   "comptia": { label: "CompTIA Certifications", url: "https://www.comptia.org/en-us/certifications/", issuer: "CompTIA" },
   "offsec-soc-200": { label: "SOC-200: Security Operations and Defensive Analysis", url: "https://www.offsec.com/courses/soc-200/", issuer: "OffSec" },
@@ -100,8 +102,8 @@ export const REFS: Record<string, Reference> = {
 export const PAGE_REFS: Record<string, string[]> = {
   // ── Services ──
   "service:penetration-testing": ["nist-800-115", "owasp-wstg", "cvss", "cert-in"],
-  "service:vapt": ["owasp-top-10", "nist-800-115", "cvss", "cert-in"],
-  "service:managed-soc": ["mitre-attack", "nist-csf", "cisa-kev"],
+  "service:vapt": ["owasp-top-10", "nist-800-115", "cvss", "cert-in", "ibm-breach-2025"],
+  "service:managed-soc": ["mitre-attack", "nist-csf", "cisa-kev", "cert-in-directions"],
   "service:web-application-security": ["owasp-top-10", "owasp-wstg", "owasp-asvs", "cvss"],
   "service:api-security": ["owasp-api", "owasp-asvs", "cvss"],
   "service:mobile-application-security": ["owasp-masvs", "owasp-top-10", "cvss"],
@@ -159,7 +161,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "audit:wasa-audit": ["owasp-wstg", "owasp-top-10"],
   "audit:nciipc-cii-audit": ["nciipc", "cert-in", "iec-62443"],
   // ── Training / courses (cite the exam body + the standards the course content works to) ──
-  "course:ceh": ["ec-council", "owasp-top-10", "mitre-attack"],
+  "course:ceh": ["ec-council-ceh", "ec-council", "owasp-top-10", "mitre-attack"],
   "course:ceh-practical": ["ec-council", "owasp-top-10"],
   "course:chfi": ["ec-council", "nist-800-61"],
   "course:ctia": ["ec-council", "mitre-attack"],
@@ -189,6 +191,8 @@ export const PAGE_REFS: Record<string, string[]> = {
   // Referer from the empanelment page, so a deep link from macksofy.com would
   // land readers on a broken document.
   "blog:cert-in-empanelment-process-2026": ["cert-in-empanel", "cert-in"],
+  "blog:vapt-cost-india-2026": ["ibm-breach-2025", "cert-in-empanel", "owasp-wstg", "nist-800-115", "cvss", "sebi"],
+  "blog:managed-soc-pricing-india-2026": ["ibm-breach-2025", "cert-in-directions", "mitre-attack"],
   "blog:telecom-cyber-security-rules-2024-india-compliance": ["dot", "cert-in"],
   "blog:mobile-application-security-testing-guide-india-2026": ["owasp-masvs", "owasp-api", "rbi", "cert-in", "pci-dss"],
   "blog:secure-source-code-review-services-india-2026": ["owasp-code-review", "owasp-asvs", "mitre-cwe", "owasp-top-10", "pci-dss"],

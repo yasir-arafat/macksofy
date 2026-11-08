@@ -133,7 +133,7 @@ export default function VaptServicePage() {
       {sa && (
         <section className="py-8">
           <Container>
-            <AnswerBox q={sa.q} a={sa.a} />
+            <AnswerBox q={sa.q} a={sa.a} detail={sa.detail} />
           </Container>
         </section>
       )}
@@ -167,10 +167,10 @@ export default function VaptServicePage() {
           <div className="max-w-3xl">
             <Eyebrow>The honest distinction</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              VA finds the inventory. <span className="gradient-text">PT proves the impact.</span>
+              What is the difference between <span className="gradient-text">VA and PT?</span>
             </h2>
             <p className="mt-4 text-fg-muted text-pretty">
-              A scanner can list 800 vulnerabilities in a day; an attacker only needs one to matter.
+              VA finds the inventory; PT proves the impact. A scanner can list 800 vulnerabilities in a day; an attacker only needs one to matter.
               We do both — then the report only shows you what mattered.
             </p>
           </div>
@@ -211,7 +211,7 @@ export default function VaptServicePage() {
             <div className="lg:col-span-6">
               <Eyebrow color="purple">Coverage</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Every asset class. <span className="gradient-text">Every test depth.</span>
+                Which assets can VAPT cover? <span className="gradient-text">Every asset class.</span>
               </h2>
             </div>
             <div className="lg:col-span-6">
@@ -348,7 +348,7 @@ export default function VaptServicePage() {
           <div className="max-w-3xl">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              Things people ask before signing.
+              What do buyers ask before signing for VAPT?
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={service.faqs} />

@@ -301,7 +301,7 @@ export default async function CourseDetail({ params }: PageProps) {
       {sa && (
         <section className="py-8">
           <Container>
-            <AnswerBox q={sa.q} a={sa.a} />
+            <AnswerBox q={sa.q} a={sa.a} detail={sa.detail} />
           </Container>
         </section>
       )}
@@ -386,7 +386,7 @@ export default async function CourseDetail({ params }: PageProps) {
         <Container>
           <Eyebrow color="amber">Career outcomes</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-            What roles open up after you complete this.
+            Which roles open up after this course?
           </h2>
           <div className="mt-10 overflow-hidden rounded-2xl border border-line">
             <table className="w-full text-sm">
@@ -466,7 +466,7 @@ export default async function CourseDetail({ params }: PageProps) {
           <div className="max-w-3xl mx-auto">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-              Things students ask before enrolling.
+              What do students ask before enrolling?
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={c.faqs} />

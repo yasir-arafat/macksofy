@@ -16,8 +16,8 @@ export function HowWeWork() {
             eyebrow="Methodology"
             title={
               <>
-                Six phases from{" "}
-                <span className="gradient-text">scoping to sign-off.</span>
+                How does a Macksofy engagement run?{" "}
+                <span className="gradient-text">Six phases, scoping to sign-off.</span>
               </>
             }
             description="Every Macksofy engagement follows a tested methodology — refined over a decade of CERT-In audits and BFSI red-team operations. Click through the phases or watch them auto-advance."

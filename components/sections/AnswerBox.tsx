@@ -62,11 +62,18 @@ const TONES = {
 export function AnswerBox({
   q,
   a,
+  detail,
   className,
   tone = "screen",
 }: {
   q: string;
   a: string;
+  /**
+   * Optional fuller passage (about 130-170 words) under the short answer: a
+   * self-contained explanation AI engines can cite whole, while `a` stays the
+   * 40-60-word snippet. Plain static text, no reveal, so it is never hidden.
+   */
+  detail?: string;
   className?: string;
   tone?: keyof typeof TONES;
 }) {
@@ -112,6 +119,9 @@ export function AnswerBox({
       >
         {a}
       </motion.p>
+      {detail && (
+        <p className={cn("mt-4 leading-relaxed text-pretty", t.a)}>{detail}</p>
+      )}
     </div>
   );
 }

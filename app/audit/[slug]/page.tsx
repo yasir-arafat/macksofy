@@ -72,6 +72,13 @@ export default async function AuditDetail({ params }: PageProps) {
   const related = pickRelatedAudits(a, AUDITS, 3);
   const relatedPosts = pickBlogPostsForAudit(a, POSTS, 3);
   const relatedServices = pickServicesForAudit(a, SERVICES, 3);
+  // Article and noun for headings: "an ISO 27001 audit", "a CERT-In Audit"
+  // (not "a CERT-In Audit audit"), "Compliance Audits" with no article.
+  const article = /^(ADHICS|ISO|IRDAI|NCA|NCIIPC|RBI)\b/.test(a.shortTitle) ? "an" : "a";
+  const auditNoun = /(audits?|assessment)$/i.test(a.shortTitle)
+    ? a.shortTitle
+    : `${a.shortTitle} audit`;
+  const auditPhrase = /audits$/i.test(a.shortTitle) ? auditNoun : `${article} ${auditNoun}`;
 
   return (
     <>
@@ -168,7 +175,7 @@ export default async function AuditDetail({ params }: PageProps) {
       {sa && (
         <section className="py-8">
           <Container>
-            <AnswerBox q={sa.q} a={sa.a} />
+            <AnswerBox q={sa.q} a={sa.a} detail={sa.detail} />
           </Container>
         </section>
       )}
@@ -229,7 +236,7 @@ export default async function AuditDetail({ params }: PageProps) {
         <Container>
           <Eyebrow>Methodology</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-            How we run a {a.shortTitle} engagement.
+            How does {article} {a.shortTitle} engagement run?
           </h2>
           <p className="mt-3 max-w-2xl text-fg-muted text-pretty">
             Interactive walkthrough — every phase clickable, every activity
@@ -310,7 +317,7 @@ export default async function AuditDetail({ params }: PageProps) {
           <div className="max-w-3xl">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-              {a.shortTitle} — what compliance leads ask before signing.
+              What do compliance leads ask before commissioning {auditPhrase}?
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={a.faqs} />
@@ -429,7 +436,7 @@ export default async function AuditDetail({ params }: PageProps) {
 
       <GuidesStrip
         href={`/audit/${a.slug}`}
-        subject={`a ${a.shortTitle} audit`}
+        subject={auditPhrase}
         exclude={relatedPosts.map((p) => p.slug)}
       />
 

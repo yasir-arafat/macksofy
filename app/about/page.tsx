@@ -22,6 +22,12 @@ import { WhyMacksofyDetailed } from "@/components/about/WhyMacksofyDetailed";
 import { LocationsShowcase } from "@/components/about/LocationsShowcase";
 import { AccreditationsBadgeWall } from "@/components/about/AccreditationsBadgeWall";
 import { AwardsPreview } from "@/components/about/AwardsPreview";
+import { AnswerBox } from "@/components/sections/AnswerBox";
+import { getShortAnswer } from "@/content/shortAnswers";
+
+// Question-led summary under the hero (audit GEO-04/05: /about had no answer
+// passage and no question heading).
+const aboutAnswer = getShortAnswer("page:about");
 
 export const metadata = buildMetadata({
   title:
@@ -47,6 +53,18 @@ export default function AboutPage() {
 
       {/* HERO */}
       <AboutHero />
+
+      {aboutAnswer && (
+        <section className="py-12">
+          <Container>
+            <AnswerBox
+              q={aboutAnswer.q}
+              a={aboutAnswer.a}
+              detail={aboutAnswer.detail}
+            />
+          </Container>
+        </section>
+      )}
 
       {/* MANIFESTO — typographic statement */}
       <Manifesto />
@@ -97,8 +115,8 @@ export default function AboutPage() {
               eyebrow="Mission · Vision · Values"
               title={
                 <>
-                  Three statements that{" "}
-                  <span className="gradient-text">decide how we operate.</span>
+                  What are Macksofy&rsquo;s mission, vision and{" "}
+                  <span className="gradient-text">values?</span>
                 </>
               }
               align="center"
@@ -141,8 +159,8 @@ export default function AboutPage() {
               eyebrowColor="green"
               title={
                 <>
-                  Six reasons CISOs and L&D heads{" "}
-                  <span className="gradient-text">keep coming back.</span>
+                  Why do CISOs and L&D heads{" "}
+                  <span className="gradient-text">choose Macksofy?</span>
                 </>
               }
               description={
@@ -173,8 +191,8 @@ export default function AboutPage() {
               eyebrow="Accreditations & partnerships"
               title={
                 <>
-                  The credentials behind{" "}
-                  <span className="gradient-text">every Macksofy engagement.</span>
+                  Which credentials does{" "}
+                  <span className="gradient-text">Macksofy hold?</span>
                 </>
               }
               description="Real vouchers, official labs, regulator empanelment — verified directly with each authority."

@@ -39,7 +39,7 @@ import { ComboStats } from "@/components/visuals/combo/ComboStats";
 import { ComboTimeline } from "@/components/visuals/combo/ComboTimeline";
 import { AnswerBox } from "@/components/sections/AnswerBox";
 import { References } from "@/components/sections/References";
-import { comboShortAnswer } from "@/content/shortAnswers";
+import { comboShortAnswer, getComboDetail } from "@/content/shortAnswers";
 
 interface PageProps {
   params: Promise<{ city: string; service: string }>;
@@ -244,7 +244,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
       {sa && (
         <section className="py-8">
           <Container>
-            <AnswerBox q={sa.q} a={sa.a} />
+            <AnswerBox q={sa.q} a={sa.a} detail={getComboDetail(city, service)} />
           </Container>
         </section>
       )}
@@ -266,7 +266,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <FadeIn>
                 <Eyebrow>{s.shortTitle} in {c.name}</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  How a Macksofy <span className="gradient-text">{s.shortTitle.toLowerCase()}</span> engagement runs in {c.name}.
+                  How does a Macksofy <span className="gradient-text">{s.shortTitle}</span> engagement run in {c.name}?
                 </h2>
               </FadeIn>
               <div className="mt-6 space-y-5 text-fg-muted leading-relaxed text-pretty">
@@ -315,7 +315,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <div className="lg:col-span-5">
                 <Eyebrow color="amber">Proposal checklist</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  What should a {c.name} {s.shortTitle.toLowerCase()} proposal include?
+                  What should a {c.name} {s.shortTitle} proposal include?
                 </h2>
                 <p className="mt-5 text-fg-muted text-pretty leading-relaxed">
                   A comparable proposal should define the scope boundary, testing
@@ -329,7 +329,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
                 {[
                   {
                     title: "Scope boundary",
-                    text: `Name the assets, environments, exclusions and access level for the ${s.shortTitle.toLowerCase()} work.`,
+                    text: `Name the assets, environments, exclusions and access level for the ${s.shortTitle} work.`,
                   },
                   {
                     title: "Evidence standard",
@@ -378,7 +378,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
                   </h2>
                 </div>
                 <p className="text-fg-muted text-pretty leading-relaxed lg:col-span-5 lg:pb-1">
-                  Every Macksofy {s.shortTitle.toLowerCase()} engagement in {c.name} runs
+                  Every Macksofy {s.shortTitle} engagement in {c.name} runs
                   through the same phased protocol — adapted to {c.name}-specific
                   procurement, regulator and delivery realities.
                 </p>
@@ -399,7 +399,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <FadeIn>
                 <Eyebrow color="purple">Industries served</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  Which {c.name} verticals we deliver <span className="gradient-text">{s.shortTitle}</span> for.
+                  Which {c.name} sectors does Macksofy deliver <span className="gradient-text">{s.shortTitle}</span> for?
                 </h2>
               </FadeIn>
             </div>
@@ -440,7 +440,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
                     The {c.name} <span className="gradient-text">deliverable pack</span>.
                   </h2>
                   <p className="mt-4 text-fg-muted text-pretty leading-relaxed">
-                    Every {c.name} {s.shortTitle.toLowerCase()} engagement closes with the
+                    Every {c.name} {s.shortTitle} engagement closes with the
                     pack below — regulator-ready evidence, technical detail and
                     board-readable summaries.
                   </p>
@@ -469,7 +469,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <FadeIn>
                 <Eyebrow color="amber">Recent {c.name} engagement</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  {cityArticle} {c.name} <span className="gradient-text">{s.shortTitle.toLowerCase()}</span> case study.
+                  {cityArticle} {c.name} <span className="gradient-text">{s.shortTitle}</span> case study.
                 </h2>
               </FadeIn>
               <div className="mt-10 rounded-2xl glass p-6 sm:p-8 lift">
@@ -508,7 +508,7 @@ export default async function CityServiceComboPage({ params }: PageProps) {
               <FadeIn>
                 <Eyebrow>FAQ</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                  Questions {c.name} buyers ask <span className="gradient-text">before signing</span>.
+                  What do {c.name} buyers ask <span className="gradient-text">before signing</span>?
                 </h2>
               </FadeIn>
               <div className="mt-10">

@@ -273,7 +273,7 @@ export default function CorporateTrainingPage() {
       {shortAnswer && (
         <section className="pb-12">
           <Container>
-            <AnswerBox q={shortAnswer.q} a={shortAnswer.a} />
+            <AnswerBox q={shortAnswer.q} a={shortAnswer.a} detail={shortAnswer.detail} />
           </Container>
         </section>
       )}
@@ -307,7 +307,7 @@ export default function CorporateTrainingPage() {
           <FadeIn>
             <SectionTitle
               eyebrow="Training tracks"
-              title="Pick the tracks. We fit them to your environment."
+              title="Which training tracks can you choose? Each one fits your environment."
               description="Most engagements combine two or three tracks. Each one draws on a Macksofy consulting practice, so the labs reflect what we find on client systems."
             />
           </FadeIn>
@@ -353,7 +353,7 @@ export default function CorporateTrainingPage() {
           <FadeIn>
             <SectionTitle
               eyebrow="How an engagement runs"
-              title="From discovery call to measured result."
+              title="How does a corporate training engagement run?"
               description="The pre- and post-assessments are what make this more than a workshop: you see how far the team moved, and you have evidence for the audit."
             />
           </FadeIn>
@@ -411,7 +411,7 @@ export default function CorporateTrainingPage() {
           <div className="max-w-3xl mx-auto">
             <Eyebrow color="cyan">FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-              Questions buyers ask before booking.
+              What do buyers ask before booking corporate training?
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={FAQS} />

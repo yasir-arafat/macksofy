@@ -96,12 +96,13 @@ export default function HomePage() {
               <AnswerBox
                 q="What does Macksofy Technologies do?"
                 a="Macksofy Technologies is a CERT-In empanelled cybersecurity company headquartered in Mumbai, serving clients across India and the UAE. It delivers penetration testing and VAPT, managed SOC, red teaming, API and AI security assessments, digital forensics, and regulator-aligned audits."
+                detail="Macksofy Technologies is a Mumbai-headquartered cybersecurity firm that tests, monitors and audits the systems of regulated and high-growth organisations in India and the UAE. Its offensive work covers VAPT and penetration testing of web, API, mobile, network and cloud estates, red teaming, and API and AI security assessments, reported in CERT-In submission format with a free retest. Its defensive work covers managed SOC design and operation on Wazuh, Splunk or Microsoft Sentinel, and digital forensics and incident response. Its audit practice maps engagements to the frameworks regulated entities report against, including the RBI Cyber Security Framework, SEBI's CSCRF and ISO 27001. The firm is empanelled by CERT-In for providing information security auditing services, and it runs a corporate training line for security and engineering teams alongside its consulting work. It was founded in 2014."
               />
             </div>
             <div className="lg:col-span-7">
               <Eyebrow>FAQ</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Questions buyers ask about <span className="gradient-text">Macksofy</span>.
+                What do buyers ask about <span className="gradient-text">Macksofy</span>?
               </h2>
               <div className="mt-10">
                 <FAQAccordion faqs={HOME_FAQS} />

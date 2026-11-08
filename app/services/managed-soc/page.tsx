@@ -120,7 +120,7 @@ export default function ManagedSocPage() {
       {sa && (
         <section className="py-8">
           <Container>
-            <AnswerBox q={sa.q} a={sa.a} />
+            <AnswerBox q={sa.q} a={sa.a} detail={sa.detail} />
           </Container>
         </section>
       )}
@@ -132,7 +132,8 @@ export default function ManagedSocPage() {
             <div className="lg:col-span-6">
               <Eyebrow color="purple">Stack-agnostic</Eyebrow>
               <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-                Wazuh + ELK. <span className="gradient-text">Splunk. Sentinel.</span>
+                Which SIEM does the SOC run on?{" "}
+                <span className="gradient-text">Wazuh, Splunk or Sentinel.</span>
               </h2>
               <p className="mt-5 text-fg-muted leading-relaxed">
                 We work in your stack, not ours. For mid-market BFSI seeking 24×7 monitoring
@@ -217,7 +218,7 @@ export default function ManagedSocPage() {
           <div className="max-w-3xl">
             <Eyebrow>Build methodology</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              How the SOC gets stood up.
+              How does Macksofy build a SOC?
             </h2>
           </div>
           <div className="mt-10">
@@ -277,7 +278,7 @@ export default function ManagedSocPage() {
           <div className="max-w-3xl">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              Questions before SIEM rollout.
+              What do teams ask before a SIEM rollout?
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={service.faqs} />

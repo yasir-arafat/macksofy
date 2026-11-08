@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -82,10 +83,13 @@ export function Manifesto() {
               tok.type === "highlight"
                 ? `${TONE_CLASS[tok.tone ?? "cyan"]} relative inline-block`
                 : "text-fg/95 inline-block";
+            // A real space after each word: the gap used to be margin only, so
+            // the heading's text read "We don'tlecturefrom textbooks.Weship…"
+            // to crawlers, screen readers and copy-paste (audit GEO-05).
             return (
+              <Fragment key={i}>
               <span
-                key={i}
-                className="inline-block overflow-hidden align-bottom mr-3 lg:mr-4"
+                className="inline-block overflow-hidden align-bottom"
               >
                 <Reveal
                   as="span"
@@ -111,7 +115,8 @@ export function Manifesto() {
                     />
                   )}
                 </Reveal>
-              </span>
+              </span>{" "}
+              </Fragment>
             );
           })}
         </h2>

@@ -263,7 +263,7 @@ export const POSTS: BlogPost[] = [
     description:
       "VAPT pricing in India for 2026 — what drives cost, typical price ranges by scope (web app, network, API, mobile, cloud), and how to compare quotes honestly.",
     date: "2026-10-27",
-    updated: "2026-11-05",
+    updated: "2026-11-08",
     showUpdatedDate: true,
     author: "Macksofy Delivery Lead",
     authorRole: "Offensive security",
@@ -291,16 +291,20 @@ export const POSTS: BlogPost[] = [
         title: "Key takeaway",
         text: "The three variables that move VAPT cost the most are scope (number and type of assets), depth (automated scan vs manual exploitation), and compliance format (a CERT-In format report costs more than a generic finding list because it follows a regulator-defined structure).",
       },
-      { type: "heading", level: 2, text: "What is included in a VAPT engagement", id: "whats-included" },
       {
         type: "para",
-        text: "A proper VAPT engagement is not a tool scan. It includes scoping (defining which assets, environments and user roles are in play), automated vulnerability scanning, manual penetration testing (where an operator actually tries to exploit findings), evidence collection, risk-rated reporting, and a free retest window after remediation. Vendors who skip the manual testing phase will always quote lower — and their report will always miss the findings that matter.",
+        text: "For context on the other side of the ledger, IBM's 2025 Cost of a Data Breach study put the average cost of a breach in India at a record INR 220 million (about ₹22 crore), 13% more than in 2024 ([IBM India newsroom](https://in.newsroom.ibm.com/2025-08-07-India-Records-Highest-Average-Cost-of-a-Data-Breach-IBM)). Even the top of the range above, ₹25 lakh, is around 1% of that figure. That is not a reason to overspend. It is a reason to pay for manual testing that finds exploitable issues, rather than the cheapest scan report.",
+      },
+      { type: "heading", level: 2, text: "What is included in a VAPT engagement?", id: "whats-included" },
+      {
+        type: "para",
+        text: "A proper VAPT engagement is not a tool scan. It includes scoping (defining which assets, environments and user roles are in play), automated vulnerability scanning, manual penetration testing (where an operator actually tries to exploit findings), evidence collection, risk-rated reporting, and a free retest window after remediation. Good testers follow a published methodology, such as the [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) or [NIST SP 800-115](https://csrc.nist.gov/pubs/sp/800/115/final), and score each finding with CVSS, so that a High means the same thing in every vendor's report. If the report is going to a regulator, ask whether it has to come from a CERT-In empanelled auditor: SEBI, for example, requires market infrastructure institutions to use one for VAPT. Vendors who skip the manual testing phase will always quote lower, and their report will always miss the findings that matter.",
       },
       {
         type: "para",
         text: "For a primer on the methodology behind these engagements, see our [penetration testing and VAPT guide for India](/blog/penetration-testing-vapt-guide-india-2026). For the compliance layer, see the [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026). For how we scope and run engagements, see our [VAPT service](/services/vapt) and [penetration testing service](/services/penetration-testing).",
       },
-      { type: "heading", level: 2, text: "VAPT pricing ranges by scope in 2026", id: "pricing-ranges" },
+      { type: "heading", level: 2, text: "How much does VAPT cost in India in 2026?", id: "pricing-ranges" },
       {
         type: "table",
         headers: ["Scope", "Typical Range (₹)", "What Drives Cost Up"],
@@ -324,7 +328,7 @@ export const POSTS: BlogPost[] = [
         title: "Red flag: a web-app quote far below these ranges",
         text: "If a web application VAPT quote sits far below the ranges above, ask how much of the effort is manual. Very low quotes usually mean an automated scanner (Nessus, Qualys, or Acunetix) with the output wrapped in a template. That is a vulnerability assessment, not a penetration test. The report will miss business logic flaws, chained attack paths and authentication bypass — the findings regulators and auditors actually care about.",
       },
-      { type: "heading", level: 2, text: "What drives VAPT cost higher", id: "cost-drivers" },
+      { type: "heading", level: 2, text: "What makes VAPT cost more?", id: "cost-drivers" },
       {
         type: "list",
         ordered: true,
@@ -337,7 +341,7 @@ export const POSTS: BlogPost[] = [
           "**Timeline compression** — a 2-week turnaround on a scope that normally takes 4 weeks requires parallel operators and carries a premium.",
         ],
       },
-      { type: "heading", level: 2, text: "How to compare VAPT quotes", id: "compare-quotes" },
+      { type: "heading", level: 2, text: "How do you compare VAPT quotes?", id: "compare-quotes" },
       {
         type: "para",
         text: "When you have 3-4 quotes on the table, normalize them on these dimensions before comparing price:",
@@ -354,7 +358,7 @@ export const POSTS: BlogPost[] = [
           "**CERT-In empanelment** — for regulated entities, regulators commonly expect the audit to come from a [CERT-In empanelled auditor](/audit/cert-in-empanelled-audit), and a non-empanelled report is more likely to draw follow-up queries. See our [top CERT-In empanelled audit providers](/blog/top-cert-in-empanelled-audit-providers-india-2026) for a ranked comparison.",
         ],
       },
-      { type: "heading", level: 2, text: "Annual programme vs one-off engagement", id: "annual-vs-oneoff" },
+      { type: "heading", level: 2, text: "Should you buy an annual programme or a one-off engagement?", id: "annual-vs-oneoff" },
       {
         type: "para",
         text: "A single VAPT engagement is a snapshot. An annual programme — quarterly or continuous testing — costs more than a one-off (our own quarterly programme starts at ₹15 lakh, against ₹2.5-5 lakh for a single-asset test) but catches the vulnerabilities introduced by every release cycle. For organisations shipping code weekly, a one-off VAPT is outdated before the report is read, so map testing cycles to your release cadence.",
@@ -558,7 +562,7 @@ export const POSTS: BlogPost[] = [
     description:
       "Managed SOC pricing in India for 2026 — in-house vs outsourced cost breakdown, pricing models, and what to negotiate before signing a managed detection contract.",
     date: "2026-10-27",
-    updated: "2026-11-05",
+    updated: "2026-11-08",
     showUpdatedDate: true,
     author: "Macksofy SOC Lead",
     authorRole: "Blue-team operations",
@@ -586,7 +590,11 @@ export const POSTS: BlogPost[] = [
         title: "Key insight",
         text: "The biggest hidden cost of an in-house SOC is not the SIEM licence — it is analyst attrition. The cost table below assumes two to three L1 replacements a year in an eight-analyst team (25-38% turnover), with each departure costing 3-4 months of productivity in hiring, onboarding and ramp-up. A managed SOC absorbs that attrition cost.",
       },
-      { type: "heading", level: 2, text: "In-house SOC cost breakdown", id: "in-house-cost" },
+      {
+        type: "para",
+        text: "Two public figures frame the decision. CERT-In's April 2022 directions under section 70B require organisations in India to report specified cyber incidents within 6 hours of noticing them, and to keep ICT system logs for a rolling 180 days within Indian jurisdiction ([CERT-In directions](https://www.cert-in.org.in/Directions70B.jsp)), so whichever model you choose has to detect and escalate quickly and keep logs for that long. IBM's 2025 Cost of a Data Breach study put the average breach in India at a record INR 220 million (about ₹22 crore), 13% more than in 2024 ([IBM India newsroom](https://in.newsroom.ibm.com/2025-08-07-India-Records-Highest-Average-Cost-of-a-Data-Breach-IBM)). Against that, even the top of the managed SOC range above, about ₹1.5 crore a year, is under a tenth of one average breach. Meeting a 6-hour reporting window in-house also means round-the-clock cover, which is why the cost table below assumes an eight-analyst team.",
+      },
+      { type: "heading", level: 2, text: "How much does an in-house SOC cost in India?", id: "in-house-cost" },
       {
         type: "table",
         headers: ["Cost Component", "Annual Cost (₹)", "Notes"],
@@ -603,7 +611,7 @@ export const POSTS: BlogPost[] = [
           ["**Total**", "**₹1.28 Cr – ₹3.11 Cr**", "For a mid-size enterprise (500-2000 endpoints)"],
         ],
       },
-      { type: "heading", level: 2, text: "Managed SOC pricing models", id: "pricing-models" },
+      { type: "heading", level: 2, text: "How is a managed SOC priced?", id: "pricing-models" },
       {
         type: "para",
         text: "Managed SOC vendors in India use three pricing models. Each has trade-offs:",
@@ -627,7 +635,7 @@ export const POSTS: BlogPost[] = [
         title: "Watch for hidden costs",
         text: "Many managed SOC contracts exclude: custom detection rule development (₹5-15K per rule), incident response beyond triage (separate retainer), compliance reporting (extra), and log storage beyond 90 days (per-GB overage). Get these in writing before signing.",
       },
-      { type: "heading", level: 2, text: "What to negotiate in a managed SOC contract", id: "negotiation" },
+      { type: "heading", level: 2, text: "What should you negotiate in a managed SOC contract?", id: "negotiation" },
       {
         type: "list",
         ordered: true,
@@ -640,7 +648,7 @@ export const POSTS: BlogPost[] = [
           "**Compliance reporting** — if you need RBI CSF or SEBI CSCRF evidence from the SOC, that reporting format must be in the contract, not a future discussion.",
         ],
       },
-      { type: "heading", level: 2, text: "When to build vs buy", id: "build-vs-buy" },
+      { type: "heading", level: 2, text: "Should you build a SOC or buy a managed one?", id: "build-vs-buy" },
       {
         type: "para",
         text: "Build in-house when: you have 5,000+ endpoints, regulatory requirements demand full data sovereignty, you can recruit and retain a team of 8+ analysts in your city, and your CISO has SOC operations experience. Buy managed SOC when: you have under 5,000 endpoints, analyst attrition is a problem, you need 24x7 coverage faster than a 6-month build-out, or your compliance deadline is closer than your hiring pipeline.",
