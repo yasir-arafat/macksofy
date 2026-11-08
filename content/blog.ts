@@ -3544,8 +3544,14 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "best-laptops-cybersecurity-students-india-2026",
-    seoTitle: "Best Laptops for Cybersecurity Students in India 2026",
-    seoDescription: "Specs, INR pricing and use-case ranking of the 10 best laptops for cybersecurity students in India 2026, from ₹69k picks to RTX 50-series lab machines.",
+    // CTR test from 2026-11-08 (audit ONP-02). Baseline 10-09..11-05: 145
+    // clicks / 7,508 impressions, CTR 1.93%, position 4.4. Previous values:
+    // "Best Laptops for Cybersecurity Students in India 2026" and "Specs, INR
+    // pricing and use-case ranking of the 10 best laptops for cybersecurity
+    // students in India 2026, from ₹69k picks to RTX 50-series lab machines."
+    // Judge over 28 days from the first post-change crawl.
+    seoTitle: "Best Laptops for Cyber Security Students 2026 (From ₹69k)",
+    seoDescription: "10 laptops ranked for running Kali and VMs, with real INR prices from ₹69k budget picks to RTX 50-series machines, plus the RAM and CPU specs that matter.",
     updated: "2026-09-18",
     title: "Best Laptops for Cybersecurity Students in India 2026 — Top 10 Ranked",
     description:
