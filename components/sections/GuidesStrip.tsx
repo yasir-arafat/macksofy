@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/ui/SectionTitle";
 import { POSTS } from "@/content/blog";
 import { TOPIC_HUBS } from "@/content/topicHubs";
 import { getServiceBySlug } from "@/content/services";
+import { RESOURCES } from "@/content/resources";
 import { pickGuidesForPage } from "@/lib/related";
 
 /**
@@ -32,7 +33,17 @@ export function GuidesStrip({
     POSTS.filter((p) => !exclude.includes(p.slug)),
     TOPIC_HUBS
   );
-  if (posts.length === 0) return null;
+  // Resources already declare the services they support
+  // (relatedServiceSlugs), but nothing linked back from those services, so
+  // most resources were reachable only from /resources. List every resource
+  // that names this service (at most nine today).
+  const serviceSlug = href.startsWith("/services/")
+    ? href.replace(/^\/services\//, "")
+    : null;
+  const resources = serviceSlug
+    ? RESOURCES.filter((r) => r.relatedServiceSlugs?.includes(serviceSlug))
+    : [];
+  if (posts.length === 0 && resources.length === 0) return null;
 
   return (
     <section className="py-20 bg-bg-1">
@@ -51,6 +62,7 @@ export function GuidesStrip({
             </Link>
           )}
         </div>
+        {posts.length > 0 && (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {posts.map((p) => (
             <Link
@@ -71,6 +83,26 @@ export function GuidesStrip({
             </Link>
           ))}
         </div>
+        )}
+        {resources.length > 0 && (
+          <div className="mt-10">
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-faint">
+              Field resources for {label}
+            </div>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {resources.map((r) => (
+                <li key={r.slug} className="max-w-full">
+                  <Link
+                    href={`/resources/${r.slug}`}
+                    className="inline-block max-w-full rounded-full bg-bg-2 ring-1 ring-line px-3 py-1.5 text-xs font-semibold text-fg-muted hover:text-neon-cyan hover:ring-neon-cyan/40 transition-colors"
+                  >
+                    {r.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </Container>
     </section>
   );

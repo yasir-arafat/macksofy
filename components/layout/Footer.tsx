@@ -195,7 +195,8 @@ export function Footer({ nav }: { nav: NavIndex }) {
         <details className="group mt-12 rounded-2xl border border-line">
           <summary className="cursor-pointer list-none px-5 py-4 text-sm font-semibold text-fg hover:text-neon-cyan">
             Full index — all {nav.counts.services} services, {nav.counts.courses}{" "}
-            trainings and {nav.counts.audits} audit frameworks
+            trainings, {nav.counts.audits} audit frameworks and{" "}
+            {nav.industries.length} industries
             <span className="ml-2 inline-block transition-transform group-open:rotate-90">›</span>
           </summary>
           <div className="grid gap-8 px-5 pb-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -210,6 +211,11 @@ export function Footer({ nav }: { nav: NavIndex }) {
               extra={[{ title: "OffSec training hub", href: "/training/offsec" }]}
             />
             <SiteIndexList title="Audits & compliance" items={nav.mega.audit} />
+            <SiteIndexList
+              title="Industries"
+              items={nav.industries}
+              extra={[{ title: "All industries", href: "/industries" }]}
+            />
           </div>
         </details>
 

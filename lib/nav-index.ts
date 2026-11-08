@@ -1,6 +1,7 @@
 import { COURSES } from "@/content/courses";
 import { SERVICES } from "@/content/services";
 import { AUDITS } from "@/content/audits";
+import { INDUSTRIES } from "@/content/industries";
 import { getPersonAuthors } from "@/content/authors";
 
 /**
@@ -70,6 +71,8 @@ export interface NavIndex {
     audit: MegaItemData[];
   };
   counts: { services: number; courses: number; audits: number };
+  /** Industry pages for the footer's full index (otherwise linked only from /industries). */
+  industries: Pick<MegaItemData, "href" | "title">[];
   search: SearchEntry[];
   footer: {
     services: FooterLink[];
@@ -264,6 +267,10 @@ export function buildNavIndex(): NavIndex {
       courses: COURSES.length,
       audits: AUDITS.length,
     },
+    industries: INDUSTRIES.map((i) => ({
+      title: i.name,
+      href: `/industries/${i.slug}`,
+    })),
     search,
     footer: {
       services: SERVICES.filter((s) => s.popular)
