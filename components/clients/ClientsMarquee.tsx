@@ -60,12 +60,15 @@ function MarqueeRow({
             className="relative flex h-20 w-44 shrink-0 items-center justify-center rounded-xl bg-white p-3 ring-1 ring-line transition-all hover:ring-neon-cyan/40 hover:shadow-[0_0_24px_rgba(0,229,255,0.25)]"
             title={c.name}
           >
+            {/* Fixed 176x80 instead of `fill` + sizes: same box and the same
+                256/384 px files, but a 1x/2x srcSet instead of 15 widths.
+                That trimmed ~1 KB per tag across 96 tags on the homepage. */}
             <Image
               src={c.logo}
               alt={`${c.name} logo — Macksofy client`}
-              fill
-              sizes="176px"
-              className="object-contain p-2"
+              width={176}
+              height={80}
+              className="absolute inset-0 h-full w-full object-contain p-2"
             />
           </div>
         ))}
