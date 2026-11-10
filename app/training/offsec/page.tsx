@@ -147,7 +147,7 @@ function CourseCard({
           // Designed covers already show code, name and level: keep only the
           // badges, in the top-right corner, which is empty on every cover.
           <div className="absolute top-4 right-4 flex items-center gap-2">
-            <Badge variant="cyan">OffSec</Badge>
+            <Badge variant="cyan">Offensive Security</Badge>
             {c.popular && <Badge variant="amber">Popular</Badge>}
           </div>
         ) : (
@@ -155,7 +155,7 @@ function CourseCard({
             <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-between p-4">
               <div className="flex items-center gap-2">
-                <Badge variant="cyan">OffSec</Badge>
+                <Badge variant="cyan">Offensive Security</Badge>
                 {c.popular && <Badge variant="amber">Popular</Badge>}
               </div>
               <div className="flex items-end justify-between">

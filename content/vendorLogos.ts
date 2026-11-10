@@ -20,3 +20,12 @@ export const VENDOR_LOGOS: { vendor: CourseVendor; src: string; alt: string; lab
 
 export const vendorLogo = (vendor: CourseVendor) =>
   VENDOR_LOGOS.find((v) => v.vendor === vendor);
+
+/**
+ * Vendor name as printed on course images (card badges and the course-page
+ * image label). OffSec courses show the full name "Offensive Security" there,
+ * as the site owner asked on 2026-11-10; running text elsewhere still says
+ * OffSec.
+ */
+export const vendorImageLabel = (vendor: CourseVendor): string =>
+  vendor === "OffSec" ? "Offensive Security" : vendor;

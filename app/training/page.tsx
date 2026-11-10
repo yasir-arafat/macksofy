@@ -15,7 +15,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { COURSES, getCourseBySlug } from "@/content/courses";
-import { VENDOR_LOGOS } from "@/content/vendorLogos";
+import { VENDOR_LOGOS, vendorImageLabel } from "@/content/vendorLogos";
 import { formatINR } from "@/lib/utils";
 import { metroKeywords } from "@/lib/site";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -352,7 +352,7 @@ export default function TrainingPage() {
                       // Designed covers already show code, name and level: keep only the
                       // badges, in the top-right corner, which is empty on every cover.
                       <div className="absolute top-4 right-4 flex items-center gap-2">
-                        <Badge variant="cyan">{c.vendor}</Badge>
+                        <Badge variant="cyan">{vendorImageLabel(c.vendor)}</Badge>
                         {c.popular && <Badge variant="amber">Popular</Badge>}
                       </div>
                     ) : (
@@ -360,7 +360,7 @@ export default function TrainingPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
                         <div className="absolute inset-0 flex flex-col justify-between p-4">
                           <div className="flex items-center gap-2">
-                            <Badge variant="cyan">{c.vendor}</Badge>
+                            <Badge variant="cyan">{vendorImageLabel(c.vendor)}</Badge>
                             {c.popular && <Badge variant="amber">Popular</Badge>}
                           </div>
                           <div className="flex items-end justify-between">
