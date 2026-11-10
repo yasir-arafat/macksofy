@@ -100,7 +100,7 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
               <div className="relative">
                 <Quote className="size-5 text-neon-cyan/70" />
                 <div className="mt-3 flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, j) => (
+                  {Array.from({ length: t.rating ?? 0 }).map((_, j) => (
                     <Star
                       key={j}
                       className="size-3.5 text-amber-400"
@@ -113,7 +113,7 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
                 </blockquote>
                 <figcaption className="mt-5 pt-4 border-t border-line/60 flex items-center gap-3">
                   <div className="grid size-9 place-items-center rounded-full bg-bg-2 ring-1 ring-line text-neon-cyan font-display font-bold text-sm">
-                    {t.company
+                    {(t.name ?? t.company)
                       .split(/\s+/)
                       .slice(0, 2)
                       .map((w) => w[0])
@@ -122,10 +122,10 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
                   </div>
                   <div className="min-w-0">
                     <div className="font-display text-xs font-bold text-fg truncate">
-                      {t.role}
+                      {t.name ?? t.role}
                     </div>
                     <div className="font-mono text-[10px] text-fg-faint truncate">
-                      {t.company}
+                      {t.name ? `${t.role}, ${t.company}` : t.company}
                       {t.city ? ` · ${t.city}` : ""}
                     </div>
                   </div>

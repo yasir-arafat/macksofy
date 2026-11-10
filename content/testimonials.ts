@@ -5,11 +5,17 @@ export interface Testimonial {
    * Attribution is by role + sector only. Re-adding a real person's name
    * requires documented permission from that person.
    */
+  /**
+   * Only on a real quote whose author has agreed to be named. Record in a
+   * comment on the entry who confirmed the permission and when.
+   */
+  name?: string;
   role: string;
   company: string;
   city?: string;
   quote: string;
-  rating: 5;
+  /** Stars shown with the quote. Omit when the person gave no rating. */
+  rating?: 5;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -65,5 +71,18 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Cleared OSCP on the first attempt thanks to Macksofy's bootcamp. Mentor support continued for weeks after the official course. They actually care if you pass.",
     rating: 5,
+  },
+  {
+    // Real quote, sent to Macksofy after a guest session for the college's
+    // CSE students on cybersecurity and its career paths. Permission to show
+    // his name was confirmed by the site owner on 2026-11-10. No rating:
+    // he gave none, so no stars are shown. Kept last so the three-quote
+    // strip on service pages (TrustStrip) does not pick it up.
+    name: "Mukesh Chinta",
+    role: "Assistant Professor, Dept of CSE",
+    company: "V R Siddhartha Engineering College",
+    city: "Vijayawada",
+    quote:
+      "We thank you wholeheartedly for delivering an excellent session to our students regarding the importance of Cyber Security and the career paths in this domain. I am happy to say that we received a tremendous positive response from our students.",
   },
 ];

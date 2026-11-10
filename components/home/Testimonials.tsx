@@ -50,7 +50,7 @@ export function Testimonials() {
                 </p>
                 <div className="mt-8 flex items-center gap-4">
                   <div className="grid size-12 place-items-center rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple text-bg font-display font-bold">
-                    {t.company
+                    {(t.name ?? t.company)
                       .split(/\s+/)
                       .slice(0, 2)
                       .map((w) => w[0])
@@ -58,14 +58,14 @@ export function Testimonials() {
                       .toUpperCase()}
                   </div>
                   <div>
-                    <div className="font-bold text-fg">{t.role}</div>
+                    <div className="font-bold text-fg">{t.name ?? t.role}</div>
                     <div className="text-sm text-fg-muted">
-                      {t.company}
+                      {t.name ? `${t.role}, ${t.company}` : t.company}
                       {t.city && ` · ${t.city}`}
                     </div>
                   </div>
                   <div className="ml-auto flex gap-0.5">
-                    {Array.from({ length: t.rating }).map((_, i) => (
+                    {Array.from({ length: t.rating ?? 0 }).map((_, i) => (
                       <Star key={i} className="size-4 fill-neon-cyan text-neon-cyan" />
                     ))}
                   </div>
@@ -105,7 +105,7 @@ export function Testimonials() {
                     : "glass ring-1 ring-transparent transition-shadow hover:ring-line-strong"
                 }`}
               >
-                <div className="text-sm font-semibold text-fg">{tt.role}</div>
+                <div className="text-sm font-semibold text-fg">{tt.name ?? tt.role}</div>
                 <div className="text-xs text-fg-muted line-clamp-1">
                   {tt.company}
                 </div>
