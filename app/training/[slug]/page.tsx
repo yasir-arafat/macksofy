@@ -111,7 +111,7 @@ export default async function CourseDetail({ params }: PageProps) {
           <div className="mt-10 grid gap-12 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7">
               {/* Course thumbnail */}
-              <div className="relative aspect-[3/2] mb-8 overflow-hidden rounded-2xl glass bg-bg">
+              <div className={`relative ${c.designedCover ? "aspect-video" : "aspect-[3/2]"} mb-8 overflow-hidden rounded-2xl glass bg-bg`}>
                 <Image
                   src={c.image}
                   alt={c.title}
@@ -120,8 +120,12 @@ export default async function CourseDetail({ params }: PageProps) {
                   sizes="(max-width:1024px) 100vw, 700px"
                   className="object-cover"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-bg/40 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-3">
+                {!c.designedCover && (
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-bg/40 via-transparent to-transparent" />
+                )}
+                {/* A designed cover shows its own code and title top-left, so only the
+                    vendor label is overlaid, on the right. */}
+                <div className={`absolute top-4 left-4 right-4 flex items-start ${c.designedCover ? "justify-end" : "justify-between"} gap-3`}>
                   {(() => {
                     const v = vendorLogo(c.vendor);
                     return v ? (
@@ -145,9 +149,11 @@ export default async function CourseDetail({ params }: PageProps) {
                       </span>
                     );
                   })()}
-                  <div className="rounded-md bg-bg/70 backdrop-blur px-2 py-1 font-mono text-[10px] font-bold text-neon-cyan">
-                    {c.code}
-                  </div>
+                  {!c.designedCover && (
+                    <div className="rounded-md bg-bg/70 backdrop-blur px-2 py-1 font-mono text-[10px] font-bold text-neon-cyan">
+                      {c.code}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -495,7 +501,9 @@ export default async function CourseDetail({ params }: PageProps) {
                       sizes="(max-width:768px) 100vw, 300px"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
+                    {!r.designedCover && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
+                    )}
                   </div>
                   <div className="p-5">
                     <Badge variant="cyan">{r.code}</Badge>

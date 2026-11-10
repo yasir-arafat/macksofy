@@ -14,6 +14,13 @@ export interface Course {
   vendor: CourseVendor;
   /** Local path under /public, e.g. "/courses/CEH.jpg" */
   image: string;
+  /**
+   * True when `image` is a 16:9 (1600x900) designed cover that already shows
+   * the course code, name and level (the OffSec covers). Pages frame it at
+   * 16:9 so its left-aligned title is not cropped, and skip overlay text and
+   * darkening gradients that would repeat or dim what the cover says.
+   */
+  designedCover?: true;
   duration: string;
   format: string;
   priceINR?: number;
@@ -530,6 +537,7 @@ export const COURSES: Course[] = [
     level: "Foundation",
     vendor: "OffSec",
     image: "/courses/OSCC.jpg",
+    designedCover: true,
     duration: "10 weeks · 80 hours including labs",
     format: "Live instructor-led · OffSec lab access",
     priceINR: 60000,
@@ -612,6 +620,7 @@ export const COURSES: Course[] = [
     level: "Professional",
     vendor: "OffSec",
     image: "/courses/OSCP.jpg",
+    designedCover: true,
     duration: "12-week bootcamp + 90-day OffSec lab + 24-hour exam",
     format: "Hybrid · Mentor-led with full OffSec lab access",
     priceINR: 145000,
@@ -756,6 +765,7 @@ export const COURSES: Course[] = [
     level: "Professional",
     vendor: "OffSec",
     image: "/courses/OSEP.jpg",
+    designedCover: true,
     duration: "90-day OffSec lab + 48-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -855,6 +865,7 @@ export const COURSES: Course[] = [
     level: "Professional",
     vendor: "OffSec",
     image: "/courses/OSWE.jpg",
+    designedCover: true,
     duration: "90-day OffSec lab + 48-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -945,6 +956,7 @@ export const COURSES: Course[] = [
     level: "Intermediate",
     vendor: "OffSec",
     image: "/courses/OSWA.jpg",
+    designedCover: true,
     duration: "60-day OffSec lab + 24-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -1034,6 +1046,7 @@ export const COURSES: Course[] = [
     level: "Intermediate",
     vendor: "OffSec",
     image: "/courses/OSWP.jpg",
+    designedCover: true,
     duration: "30-day OffSec lab + 4-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -1115,7 +1128,8 @@ export const COURSES: Course[] = [
     shortTitle: "SOC-200 / OSDA",
     level: "Intermediate",
     vendor: "OffSec",
-    image: "/courses/CSA-Product-Cover-1.jpg",
+    image: "/courses/OSDA.jpg",
+    designedCover: true,
     duration: "60-day OffSec lab + 24-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -1212,6 +1226,7 @@ export const COURSES: Course[] = [
     level: "Professional",
     vendor: "OffSec",
     image: "/courses/OSED.jpg",
+    designedCover: true,
     duration: "90-day OffSec lab + 48-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -1311,6 +1326,7 @@ export const COURSES: Course[] = [
     level: "Professional",
     vendor: "OffSec",
     image: "/courses/OSAI.jpg",
+    designedCover: true,
     duration: "65-hour OffSec course + 24-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     hero: {
@@ -1411,6 +1427,7 @@ export const COURSES: Course[] = [
     level: "Professional",
     vendor: "OffSec",
     image: "/courses/OSMR.jpg",
+    designedCover: true,
     duration: "90-day OffSec lab + 48-hour exam",
     format: "Hybrid · Macksofy mentorship + OffSec course",
     priceINR: 145000,
@@ -1720,6 +1737,7 @@ export const COURSES: Course[] = [
     level: "Intermediate",
     vendor: "Macksofy",
     image: "/courses/OSWE.jpg",
+    designedCover: true,
     duration: "10 weeks · 100 hours including PortSwigger labs",
     format: "Live online with Macksofy mentor + 200+ Burp Suite Academy labs",
     priceINR: 65000,
@@ -1788,6 +1806,7 @@ export const COURSES: Course[] = [
     level: "Foundation",
     vendor: "Macksofy",
     image: "/courses/OSCC.jpg",
+    designedCover: true,
     duration: "Customized · typical engagements 2–10 days",
     format: "On-site or virtual · India + UAE",
     hero: {

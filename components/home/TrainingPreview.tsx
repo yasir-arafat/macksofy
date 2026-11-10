@@ -84,21 +84,32 @@ export function TrainingPreview() {
                     sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 400px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-between p-4">
-                    <div className="flex items-center justify-between">
+                  {c.designedCover ? (
+                    // Designed covers already show code, name and level: keep only the
+                    // badges, in the top-right corner, which is empty on every cover.
+                    <div className="absolute top-4 right-4 flex items-center gap-2">
                       <Badge variant="cyan">{c.vendor}</Badge>
                       {c.popular && <Badge variant="amber">Popular</Badge>}
                     </div>
-                    <div className="flex items-end justify-between">
-                      <div className="font-mono text-xs uppercase tracking-wider text-fg-muted">
-                        {c.level}
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+                      <div className="absolute inset-0 flex flex-col justify-between p-4">
+                        <div className="flex items-center justify-between">
+                          <Badge variant="cyan">{c.vendor}</Badge>
+                          {c.popular && <Badge variant="amber">Popular</Badge>}
+                        </div>
+                        <div className="flex items-end justify-between">
+                          <div className="font-mono text-xs uppercase tracking-wider text-fg-muted">
+                            {c.level}
+                          </div>
+                          <div className="rounded-md bg-bg/60 backdrop-blur px-2 py-1 font-mono text-[10px] font-bold text-neon-cyan">
+                            {c.code}
+                          </div>
+                        </div>
                       </div>
-                      <div className="rounded-md bg-bg/60 backdrop-blur px-2 py-1 font-mono text-[10px] font-bold text-neon-cyan">
-                        {c.code}
-                      </div>
-                    </div>
-                  </div>
+                    </>
+                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col p-5">
