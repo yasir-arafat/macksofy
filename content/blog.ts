@@ -725,7 +725,7 @@ export const POSTS: BlogPost[] = [
     blocks: [
       {
         type: "lead",
-        text: "CRTP and CRTO sound like rivals: both are hands-on Active Directory red-team certifications, both are popular in India, and both cost a fraction of OffSec's prices. But they sit at different layers of the same engagement. CRTP teaches you to break into and escalate through an Active Directory forest. CRTO teaches you to run a Cobalt Strike operation through that forest without getting caught. For most people the honest answer is not either/or: it is CRTP first, then CRTO.",
+        text: "CRTP and CRTO sound like rivals: both are hands-on Active Directory red-team certifications, both are popular in India, and both cost a fraction of Offensive Security's prices. But they sit at different layers of the same engagement. CRTP teaches you to break into and escalate through an Active Directory forest. CRTO teaches you to run a Cobalt Strike operation through that forest without getting caught. For most people the honest answer is not either/or: it is CRTP first, then CRTO.",
       },
       {
         type: "comparison",
@@ -802,13 +802,13 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "CRTP is the cheapest credible red-team certification on the market: $249 for a 30-day lab, roughly ₹23,800, with 60- and 90-day tiers at $379 and $499 and lifetime access to the course material. CRTO is listed at £399, about ₹51,700 — but treat that as an estimate. When we last checked, Zero-Point Security's own pricing page was intermittently unreachable and independent reviews disagreed on exactly what the fee includes, so confirm the current figure and inclusions before you pay. For the full six-certification cost table see our [red team certifications in India cost breakdown](/blog/red-team-certifications-india-2026); if you are weighing the Altered Security ladder, [CRTP vs CRTE](/blog/crtp-vs-crte-certification-guide-india-2026) covers the next step up; and if OffSec is in the mix, read [CRTO vs OSCP](/blog/crto-vs-oscp-honest-comparison-2026) alongside [what OSCP actually costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/).",
+        text: "CRTP is the cheapest credible red-team certification on the market: $249 for a 30-day lab, roughly ₹23,800, with 60- and 90-day tiers at $379 and $499 and lifetime access to the course material. CRTO is listed at £399, about ₹51,700 — but treat that as an estimate. When we last checked, Zero-Point Security's own pricing page was intermittently unreachable and independent reviews disagreed on exactly what the fee includes, so confirm the current figure and inclusions before you pay. For the full six-certification cost table see our [red team certifications in India cost breakdown](/blog/red-team-certifications-india-2026); if you are weighing the Altered Security ladder, [CRTP vs CRTE](/blog/crtp-vs-crte-certification-guide-india-2026) covers the next step up; and if Offensive Security is in the mix, read [CRTO vs OSCP](/blog/crto-vs-oscp-honest-comparison-2026) alongside [what OSCP actually costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/).",
       },
       {
         type: "para",
         text: "On hiring: in India, CRTP is a common first add-on for pentesters moving toward Active Directory work, and CRTO is genuinely respected by the mature red teams at the top private banks, big-3 IT-services internal red teams, and MDR providers. Neither yet clears an HR keyword filter the way OSCP does, so if a job description is the target, OSCP is still the default ask and these two are the depth behind it.",
       },
-      { type: "para", text: "If you would rather build the same Active Directory attack and evasion skills with an instructor, the closest course Macksofy teaches is OffSec's PEN-300 — see [OSEP training](/training/osep)." },
+      { type: "para", text: "If you would rather build the same Active Directory attack and evasion skills with an instructor, the closest course Macksofy teaches is Offensive Security's PEN-300 — see [OSEP training](/training/osep)." },
       {
         type: "cta",
         title: "Training toward CRTP or CRTO?",
@@ -2207,11 +2207,11 @@ export const POSTS: BlogPost[] = [
   {
     slug: "soc-analyst-training-india-2026",
     seoTitle: "SOC Analyst Training India 2026 — CSA vs SOC-200 vs CySA+",
-    seoDescription: "Which SOC analyst certification is worth it in India? A 2026 comparison of EC-Council CSA, OffSec SOC-200 / OSDA and CompTIA CySA+ on cost and difficulty.",
+    seoDescription: "Which SOC analyst certification is worth it in India? A 2026 comparison of EC-Council CSA, Offensive Security SOC-200 / OSDA and CompTIA CySA+ on cost and difficulty.",
     updated: "2026-08-30",
     title: "SOC Analyst Training in India 2026 — CSA vs SOC-200 vs CySA+ Career Guide",
     description:
-      "Which SOC analyst certification is worth it in India? Honest 2026 comparison of EC-Council CSA, OffSec SOC-200 / OSDA and CompTIA CySA+ — costs in INR, exam difficulty, hiring impact.",
+      "Which SOC analyst certification is worth it in India? Honest 2026 comparison of EC-Council CSA, Offensive Security SOC-200 / OSDA and CompTIA CySA+ — costs in INR, exam difficulty, hiring impact.",
     date: "2026-05-04",
     author: "Macksofy SOC Lead",
     authorRole: "Blue-team operations",
@@ -2260,7 +2260,7 @@ export const POSTS: BlogPost[] = [
         headers: ["Cert", "Cost (₹)", "Course length", "India hiring weight", "Best fit"],
         rows: [
           ["EC-Council CSA", "~52,000", "5 days + iLabs", "High (BFSI / MSSP)", "Entry"],
-          ["OffSec SOC-200 / OSDA", "~1,66,800 ($1,749)", "90-day lab + 24h exam", "High (mature SOCs)", "L2 step-up"],
+          ["Offensive Security SOC-200 / OSDA", "~1,66,800 ($1,749)", "90-day lab + 24h exam", "High (mature SOCs)", "L2 step-up"],
           ["CompTIA CySA+", "~38,000", "Self-paced + exam", "Medium (govt / PSU)", "Entry · vendor-neutral"],
           ["BTL1 (Security Blue Team)", "~38,000", "Hands-on + exam", "Growing", "Practical entry"],
         ],
@@ -2278,7 +2278,7 @@ export const POSTS: BlogPost[] = [
       {
         type: "heading",
         level: 3,
-        text: "OffSec SOC-200 / OSDA — the depth option",
+        text: "Offensive Security SOC-200 / OSDA — the depth option",
         id: "osda",
       },
       {
@@ -2452,7 +2452,7 @@ export const POSTS: BlogPost[] = [
           ["CRTP / CRTE exam re-attempt", "$99", "9,400", "Failed the exam, course material still valid"],
           ["CRTP 30-day lab extension", "$199", "19,000", "Ran out of lab time — includes a complimentary attempt"],
           ["CRTE 30-day lab extension", "$249", "23,800", "The same, on the CRTE lab"],
-          ["OffSec exam retake (OSEP)", "$249", "23,800", "Failed the 48-hour exam"],
+          ["Offensive Security exam retake (OSEP)", "$249", "23,800", "Failed the 48-hour exam"],
           ["CPTS standalone voucher", "$210", "20,000", "Already used this year's included voucher"],
           ["HTB Student plan", "$8 / mo", "765 / mo", "Tier II modules only — no exam voucher included"],
         ],
@@ -2520,7 +2520,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Hack The Box's CPTS is the outlier on price, and the one most cost comparisons get wrong. The $490 Silver Annual subscription buys a year of every Academy module up to Tier II and includes one exam voucher — so the exam is not a separate line item the way it is at OffSec. Adding a voucher price on top of the subscription, as this page itself used to, double-counts and inflates the total by roughly a fifth. The honest all-in for a first attempt is $490, about ₹46,700. If you already hold module access, a standalone voucher is $210. Indian job listings still name OSCP far more often, so CPTS buys depth rather than HR signal. Our training institute's [HTB CPTS certification guide](https://www.macksofytrainings.com/htb-cpts-certification-guide-india-2026/) walks through the module path and the 10-day exam in detail.",
+        text: "Hack The Box's CPTS is the outlier on price, and the one most cost comparisons get wrong. The $490 Silver Annual subscription buys a year of every Academy module up to Tier II and includes one exam voucher — so the exam is not a separate line item the way it is at Offensive Security. Adding a voucher price on top of the subscription, as this page itself used to, double-counts and inflates the total by roughly a fifth. The honest all-in for a first attempt is $490, about ₹46,700. If you already hold module access, a standalone voucher is $210. Indian job listings still name OSCP far more often, so CPTS buys depth rather than HR signal. Our training institute's [HTB CPTS certification guide](https://www.macksofytrainings.com/htb-cpts-certification-guide-india-2026/) walks through the module path and the 10-day exam in detail.",
       },
       {
         type: "comparison",
@@ -2587,7 +2587,7 @@ export const POSTS: BlogPost[] = [
           ["GCC red team · UAE", "AED 25–40k / mo"],
         ],
       },
-      { type: "para", text: "For instructor-led preparation toward the OffSec end of this list, see [OffSec training in India](/training/offsec). And for broader reading on adversary simulation — engagement scoping, operator tooling and purple-team transfer — browse our [red teaming and adversary simulation guides](/blog/category/red-teaming)." },
+      { type: "para", text: "For instructor-led preparation toward the Offensive Security end of this list, see [Offensive Security training in India](/training/offsec). And for broader reading on adversary simulation — engagement scoping, operator tooling and purple-team transfer — browse our [red teaming and adversary simulation guides](/blog/category/red-teaming)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSCP + AD red team bootcamp"),
     ],
     faqs: [
@@ -2617,41 +2617,41 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Is OSCE3 worth ₹5 lakh?",
-        a: "There is no single OSCE3 product to buy. It is awarded for holding OSEP, OSWE and OSED, so the realistic cost is three OffSec Course + Cert bundles at $1,749 each — $5,247, or roughly ₹5,00,500. At that price it is worth it only if your employer covers it or you are already a senior red teamer. The salary uplift is real, but as an out-of-pocket purchase the ROI is questionable for early-career operators.",
+        a: "There is no single OSCE3 product to buy. It is awarded for holding OSEP, OSWE and OSED, so the realistic cost is three Offensive Security Course + Cert bundles at $1,749 each — $5,247, or roughly ₹5,00,500. At that price it is worth it only if your employer covers it or you are already a senior red teamer. The salary uplift is real, but as an out-of-pocket purchase the ROI is questionable for early-career operators.",
       },
     ],
   },
 
   // ===================================================================
-  // 3. OffSec Learn One India 2026 — Pricing & ROI
+  // 3. Offensive Security Learn One India 2026 — Pricing & ROI
   // ===================================================================
   {
     slug: "offsec-learn-one-india-pricing-roi-2026",
-    seoTitle: "OffSec Learn One 2026 — India Pricing & ROI Breakdown",
-    seoDescription: "Is OffSec Learn One worth ₹2.5L+ in 2026? An ROI breakdown for Indian buyers — Learn One vs PEN-200, which two certs to pick, and the salary maths.",
+    seoTitle: "Offensive Security Learn One 2026: India Pricing & ROI",
+    seoDescription: "Is Offensive Security Learn One worth ₹2.5L+ in 2026? An ROI breakdown for Indian buyers — Learn One vs PEN-200, which two certs to pick, and the salary maths.",
     updated: "2026-11-06",
-    title: "OffSec Learn One India 2026 — Pricing, ROI Breakdown & Cert Selection Guide",
+    title: "Offensive Security Learn One India 2026 — Pricing, ROI Breakdown & Cert Selection Guide",
     description:
-      "Is OffSec Learn One worth ₹2.5L+ in 2026? Honest ROI breakdown for Indian buyers — Learn One vs PEN-200 standalone, which two certs to pick, and the salary maths that justify the spend.",
+      "Is Offensive Security Learn One worth ₹2.5L+ in 2026? Honest ROI breakdown for Indian buyers — Learn One vs PEN-200 standalone, which two certs to pick, and the salary maths that justify the spend.",
     date: "2026-05-02",
     author: "Macksofy Editorial",
     readingTime: "11 min read",
     category: "Career & Salary",
-    tags: ["OffSec", "Learn One", "OSCP", "Pricing"],
+    tags: ["Offensive Security", "Learn One", "OSCP", "Pricing"],
     heroKind: "cert-compare",
-    heroEyebrow: "OffSec subscription value",
+    heroEyebrow: "Offensive Security subscription value",
     keywords: [
-      "OffSec Learn One India",
+      "Offensive Security Learn One India",
       "OSCP Learn One pricing",
-      "OffSec subscription India",
+      "Offensive Security subscription India",
       "Learn One ROI",
-      "OffSec course price India",
+      "Offensive Security course price India",
       "OSCP cost India 2026",
     ],
     blocks: [
       {
         type: "lead",
-        text: "OffSec's Learn One subscription has been around long enough that we now have hundreds of Indian buyers' worth of data on whether it's actually worth it. Short answer: yes, but not in the way the marketing suggests. Here's the honest breakdown.",
+        text: "Offensive Security's Learn One subscription has been around long enough that we now have hundreds of Indian buyers' worth of data on whether it's actually worth it. Short answer: yes, but not in the way the marketing suggests. Here's the honest breakdown.",
       },
       {
         type: "heading",
@@ -2665,7 +2665,7 @@ export const POSTS: BlogPost[] = [
           "12 months of access to one course (PEN-200 / OSCP, PEN-300 / OSEP, WEB-300 / OSWE, EXP-301 / OSED, SOC-200 / [OSDA](/blog/osda-exam-tips-2026))",
           "Two exam attempts within the 12-month window",
           "Continuous lab access (no 30/60/90-day windows)",
-          "Access to the OffSec Learner community + monthly Q&A",
+          "Access to the Offensive Security Learner community + monthly Q&A",
           "OS-12 (one of the older bundle codes) — variants depending on the path you pick",
         ],
       },
@@ -2677,7 +2677,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "table",
-        caption: "OffSec list prices as published August 2026. OffSec bills in USD — the rupee column is approximate and moves with the exchange rate.",
+        caption: "Offensive Security list prices as published August 2026. Offensive Security bills in USD — the rupee column is approximate and moves with the exchange rate.",
         headers: ["Item", "Price (USD)", "Approx. INR"],
         rows: [
           ["Learn One — single course, 12 months, 2 exam attempts", "$2,749 / year", "~₹2,67,000"],
@@ -2692,13 +2692,13 @@ export const POSTS: BlogPost[] = [
         type: "callout",
         tone: "warning",
         title: "Prices moved in 2026 — and one plan disappeared",
-        text: "OffSec raised both headline prices this year: the 90-day bundle went from $1,649 to $1,749 and Learn One from $2,599 to $2,749. The Learn Unlimited plan this page quoted until August 2026 no longer appears on OffSec's pricing page or its PEN-200 page; teams wanting multi-course access are now pointed at Learn Enterprise, which is quoted individually. Confirm the current figure on offsec.com before you pay.",
+        text: "Offensive Security raised both headline prices this year: the 90-day bundle went from $1,649 to $1,749 and Learn One from $2,599 to $2,749. The Learn Unlimited plan this page quoted until August 2026 no longer appears on Offensive Security's pricing page or its PEN-200 page; teams wanting multi-course access are now pointed at Learn Enterprise, which is quoted individually. Confirm the current figure on offsec.com before you pay.",
       },
       {
         type: "callout",
         tone: "info",
         title: "What the Macksofy price does and does not cover",
-        text: "The ₹1,45,000 and ₹2,27,000 figures above are the official OffSec bundles supplied through Macksofy at roughly 15% below list, with EMI across 3, 6 and 12 months. They cover the vendor course, labs and exam voucher only. Macksofy's instructor-led bootcamp and mentor-until-pass support are quoted separately on top — ask for a combined quote.",
+        text: "The ₹1,45,000 and ₹2,27,000 figures above are the official Offensive Security bundles supplied through Macksofy at roughly 15% below list, with EMI across 3, 6 and 12 months. They cover the vendor course, labs and exam voucher only. Macksofy's instructor-led bootcamp and mentor-until-pass support are quoted separately on top — ask for a combined quote.",
       },
       {
         type: "heading",
@@ -2727,7 +2727,7 @@ export const POSTS: BlogPost[] = [
         type: "list",
         ordered: true,
         items: [
-          "You're confident you'll pass first attempt (do the OffSec PG Practice and HTB ProLabs first)",
+          "You're confident you'll pass first attempt (do the Offensive Security PG Practice and HTB ProLabs first)",
           "You can finish the course material in 60-90 days (full-time pace)",
           "You're already past 50% of the OSCP-level material via free resources",
           "You're personally paying out-of-pocket and ROI matters more than buffer time",
@@ -2764,17 +2764,17 @@ export const POSTS: BlogPost[] = [
           "SOC-200 / OSDA — for blue-team / detection engineers (different track, similar Learn One pricing)",
         ],
       },
-      { type: "para", text: "For instructor-led options across OSCP, OSEP, OSWE and the other OffSec certifications, see [OffSec training in India](/training/offsec)." },
-      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OffSec OSCP track"),
+      { type: "para", text: "For instructor-led options across OSCP, OSEP, OSWE and the other Offensive Security certifications, see [Offensive Security training in India](/training/offsec)." },
+      MACKSOFY_CTA("oscp-bootcamp", "Macksofy's Offensive Security OSCP track"),
     ],
     faqs: [
       {
-        q: "Will the discount apply if I buy through OffSec directly?",
-        a: "No — OffSec sells direct at list price. The reduced price applies to bundles bought through Macksofy; lab access and the exam voucher are identical either way.",
+        q: "Will the discount apply if I buy through Offensive Security directly?",
+        a: "No — Offensive Security sells direct at list price. The reduced price applies to bundles bought through Macksofy; lab access and the exam voucher are identical either way.",
       },
       {
         q: "Can I switch courses within Learn One?",
-        a: "No. Each Learn One subscription is locked to one course. OffSec no longer lists a Learn Unlimited plan; multi-course access is now handled through Learn Enterprise, which is quoted individually rather than published.",
+        a: "No. Each Learn One subscription is locked to one course. Offensive Security no longer lists a Learn Unlimited plan; multi-course access is now handled through Learn Enterprise, which is quoted individually rather than published.",
       },
       {
         q: "What happens if I don't finish in 12 months?",
@@ -2944,12 +2944,12 @@ export const POSTS: BlogPost[] = [
     updated: "2026-10-16",
     title: "OSCP Training in Mumbai 2026 — Bootcamp, Syllabus, Exam & Career",
     description:
-      "How OSCP training works in Mumbai in 2026 — the instructor-led bootcamp alongside OffSec's PEN-200, what the plans include, the syllabus, a 90-day prep plan, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
+      "How OSCP training works in Mumbai in 2026 — the instructor-led bootcamp alongside Offensive Security's PEN-200, what the plans include, the syllabus, a 90-day prep plan, exam mechanics, salary impact, and how to pick a Mumbai training institute.",
     date: "2026-04-30",
     author: "Macksofy Editorial",
     readingTime: "14 min read",
     category: "Certification Guides",
-    tags: ["OSCP", "Mumbai", "OffSec", "Training"],
+    tags: ["OSCP", "Mumbai", "Offensive Security", "Training"],
     heroKind: "cert-compare",
     heroEyebrow: "Mumbai OSCP training",
     keywords: [
@@ -2964,7 +2964,7 @@ export const POSTS: BlogPost[] = [
     blocks: [
       {
         type: "lead",
-        text: "OSCP is the certification most Mumbai pen-testers aim for first, and the way you prepare for it matters more than any other choice you make. This guide covers what the exam actually tests, which OffSec plan to buy and why the second attempt decides it, the syllabus, the 90 days before exam day, and how Mumbai's training options — self-study, bootcamps and corporate cohorts — stack up.",
+        text: "OSCP is the certification most Mumbai pen-testers aim for first, and the way you prepare for it matters more than any other choice you make. This guide covers what the exam actually tests, which Offensive Security plan to buy and why the second attempt decides it, the syllabus, the 90 days before exam day, and how Mumbai's training options — self-study, bootcamps and corporate cohorts — stack up.",
       },
       {
         type: "diagram",
@@ -2989,11 +2989,11 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "For the full fee breakdown — course bundles, retakes and GST — see our training institute's guide to [OSCP certification cost in India](https://www.macksofytrainings.com/oscp-cost-india-2026/). The short version follows. Start with the fact that changes every other number on this page: OffSec prices OSCP in US dollars, not rupees. There is no separate India price list. Whatever you pay in INR is that dollar figure converted on the day you buy, plus whatever forex markup your card issuer adds — so any Indian site quoting a fixed rupee price is quoting a snapshot, not a rate card. The dollar figures below are OffSec's own published prices; the rupee columns are approximate and will drift.",
+        text: "For the full fee breakdown — course bundles, retakes and GST — see our training institute's guide to [OSCP certification cost in India](https://www.macksofytrainings.com/oscp-cost-india-2026/). The short version follows. Start with the fact that changes every other number on this page: Offensive Security prices OSCP in US dollars, not rupees. There is no separate India price list. Whatever you pay in INR is that dollar figure converted on the day you buy, plus whatever forex markup your card issuer adds — so any Indian site quoting a fixed rupee price is quoting a snapshot, not a rate card. The dollar figures below are Offensive Security's own published prices; the rupee columns are approximate and will drift.",
       },
       {
         type: "table",
-        caption: "OffSec's published prices for the OSCP path, August 2026",
+        caption: "Offensive Security's published prices for the OSCP path, August 2026",
         headers: ["What you buy", "Price (USD)", "Approx. INR", "What it includes"],
         rows: [
           ["Course + Cert Bundle", "$1,749 once", "~₹1,70,000", "90 days of PEN-200 and labs, one exam attempt"],
@@ -3037,7 +3037,7 @@ export const POSTS: BlogPost[] = [
         type: "callout",
         tone: "info",
         title: "Check the current figures before you pay",
-        text: "OffSec revises pricing and plan structure periodically — the Learn Unlimited plan this page itself quoted until August 2026 no longer appears on OffSec's pricing page or its PEN-200 page. Confirm the current price, lab duration and number of exam attempts on offsec.com at the moment of purchase rather than trusting any third-party figure, ours included.",
+        text: "Offensive Security revises pricing and plan structure periodically — the Learn Unlimited plan this page itself quoted until August 2026 no longer appears on Offensive Security's pricing page or its PEN-200 page. Confirm the current price, lab duration and number of exam attempts on offsec.com at the moment of purchase rather than trusting any third-party figure, ours included.",
       },
       {
         type: "heading",
@@ -3047,13 +3047,13 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "Macksofy supplies the official OffSec bundle — the PEN-200 course, the 90-day lab and the exam voucher — at ₹1,45,000, roughly 15% below buying at list, with EMI across 3, 6 and 12 months. That figure covers the vendor bundle and nothing else. [Macksofy's own 60+ hour instructor-led bootcamp](/training/oscp) and mentor-until-pass support are quoted separately on top of it, so ask for a combined quote rather than assuming the training is included in the number.",
+        text: "Macksofy supplies the official Offensive Security bundle — the PEN-200 course, the 90-day lab and the exam voucher — at ₹1,45,000, roughly 15% below buying at list, with EMI across 3, 6 and 12 months. That figure covers the vendor bundle and nothing else. [Macksofy's own 60+ hour instructor-led bootcamp](/training/oscp) and mentor-until-pass support are quoted separately on top of it, so ask for a combined quote rather than assuming the training is included in the number.",
       },
       {
         type: "callout",
         tone: "tip",
         title: "Two questions worth asking any Indian OSCP provider",
-        text: "First: does the price include the OffSec course and exam voucher, or only the trainer's classes? Providers quote both ways and the gap between them is well over a lakh. Second: whose name is the OffSec lab subscription registered in? It must be yours — ask for the OffSec onboarding email as proof. A provider who cannot answer either question plainly is not one to hand ₹1,45,000 to.",
+        text: "First: does the price include the Offensive Security course and exam voucher, or only the trainer's classes? Providers quote both ways and the gap between them is well over a lakh. Second: whose name is the Offensive Security lab subscription registered in? It must be yours — ask for the Offensive Security onboarding email as proof. A provider who cannot answer either question plainly is not one to hand ₹1,45,000 to.",
       },
       {
         type: "heading",
@@ -3096,7 +3096,7 @@ export const POSTS: BlogPost[] = [
         type: "callout",
         tone: "warning",
         title: "Skipping the report is why most candidates fail",
-        text: "OffSec fails ~40% of OSCP attempts on report quality alone. The exam isn't just exploitation — it's exploitation plus communication. Practice writing two complete reports before exam day.",
+        text: "Offensive Security fails ~40% of OSCP attempts on report quality alone. The exam isn't just exploitation — it's exploitation plus communication. Practice writing two complete reports before exam day.",
       },
       {
         type: "heading",
@@ -3108,7 +3108,7 @@ export const POSTS: BlogPost[] = [
         type: "table",
         headers: ["Provider", "Price (₹)", "Format", "Mentorship"],
         rows: [
-          ["OffSec direct (no support)", "1,37,000+", "Self-paced", "None"],
+          ["Offensive Security direct (no support)", "1,37,000+", "Self-paced", "None"],
           ["Macksofy ATP (with mentor)", "1,52,000", "Self-paced + weekly mentor calls", "Until you pass"],
           ["Generic 'OSCP training' centres", "60–80,000", "Often ≠ official OSCP material", "Varies"],
           ["YouTube + free resources", "0", "Self-paced", "None"],
@@ -3118,7 +3118,7 @@ export const POSTS: BlogPost[] = [
         type: "callout",
         tone: "tip",
         title: "What to actually look for in Mumbai",
-        text: "Make sure the provider gives you authentic PEN-200 access through OffSec's official channels — bring receipts, ask for the official OffSec onboarding email, and confirm the lab subscription is registered in your name. Macksofy runs on-site weekend cohorts in BKC with structured exam-prep mentorship.",
+        text: "Make sure the provider gives you authentic PEN-200 access through Offensive Security's official channels — bring receipts, ask for the official Offensive Security onboarding email, and confirm the lab subscription is registered in your name. Macksofy runs on-site weekend cohorts in BKC with structured exam-prep mentorship.",
       },
       {
         type: "heading",
@@ -3672,7 +3672,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
         title: "Once your machine is set up",
         text: "Hardware is the easy part. If you are still choosing a certification path, [OSCP vs CEH for Indian students](/blog/oscp-vs-ceh-india-2026) breaks down which one fits a beginner's budget and goals — and once Kali is installed, [Burp Suite for beginners](/blog/burp-suite-for-beginners-2026) is the first tool most students learn.",
       },
-      { type: "para", text: "Once the machine is sorted, skills are the bottleneck: Macksofy's [cybersecurity training tracks](/training) run from entry-level certifications to OffSec's advanced exams, taught on the laptop you bring." },
+      { type: "para", text: "Once the machine is sorted, skills are the bottleneck: Macksofy's [cybersecurity training tracks](/training) run from entry-level certifications to Offensive Security's advanced exams, taught on the laptop you bring." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's bring-your-own-laptop bootcamps"),
     ],
     faqs: [
@@ -3696,30 +3696,30 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "oswe-vs-oscp",
-    seoTitle: "OSWE vs OSCP 2026 — Which OffSec Certification to Take",
-    title: "OSWE vs OSCP in 2026 — Which OffSec Certification to Take (Detailed Comparison)",
+    seoTitle: "OSWE vs OSCP 2026: Which Offensive Security Cert to Take?",
+    title: "OSWE vs OSCP in 2026 — Which Offensive Security Certification to Take (Detailed Comparison)",
     description:
-      "OSCP vs OSWE — which OffSec cert should you take in 2026? Honest comparison of cost, exam style, hiring impact and the typical career paths each one unlocks.",
+      "OSCP vs OSWE — which Offensive Security cert should you take in 2026? Honest comparison of cost, exam style, hiring impact and the typical career paths each one unlocks.",
     date: "2026-04-26",
     updated: "2026-11-05",
     author: "Macksofy Editorial",
     readingTime: "10 min read",
     category: "Certification Guides",
-    tags: ["OSCP", "OSWE", "OffSec", "AppSec"],
+    tags: ["OSCP", "OSWE", "Offensive Security", "AppSec"],
     heroKind: "cert-compare",
-    heroEyebrow: "OffSec head-to-head",
+    heroEyebrow: "Offensive Security head-to-head",
     keywords: [
       "OSWE vs OSCP",
       "OSWE worth it",
       "OSCP vs OSWE 2026",
-      "OffSec certification comparison",
+      "Offensive Security certification comparison",
       "AppSec certification India",
       "OSWE India",
     ],
     blocks: [
       {
         type: "lead",
-        text: "Both are OffSec hands-on certs, both need 24-hour exam endurance, both cost similar money. But OSWE and OSCP are aimed at completely different careers — and picking the wrong one for your goals wastes 6 months. Here's the honest 2026 comparison.",
+        text: "Both are Offensive Security hands-on certs, both need 24-hour exam endurance, both cost similar money. But OSWE and OSCP are aimed at completely different careers — and picking the wrong one for your goals wastes 6 months. Here's the honest 2026 comparison.",
       },
       {
         type: "comparison",
@@ -3836,7 +3836,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
       },
       {
         q: "Is OSWE worth ₹1.45–2.27 lakh for an Indian buyer?",
-        a: "Through Macksofy the official OSWE bundle is ₹1,45,000 (90 days, one exam attempt) and a year of Learn One is about ₹2,27,000 (two attempts), both roughly 15% below OffSec's list price. If you have a clear AppSec career path — yes, the salary uplift returns the investment in 4-6 months. If you're undecided, do OSCP first.",
+        a: "Through Macksofy the official OSWE bundle is ₹1,45,000 (90 days, one exam attempt) and a year of Learn One is about ₹2,27,000 (two attempts), both roughly 15% below Offensive Security's list price. If you have a clear AppSec career path — yes, the salary uplift returns the investment in 4-6 months. If you're undecided, do OSCP first.",
       },
     ],
   },
@@ -3855,13 +3855,13 @@ impacket-psexec -k -no-pass <host>.corp.local`,
     author: "Macksofy Red Team",
     readingTime: "10 min read",
     category: "Certification Guides",
-    tags: ["OSCP", "OSEP", "Red Team", "OffSec"],
+    tags: ["OSCP", "OSEP", "Red Team", "Offensive Security"],
     heroKind: "cert-compare",
-    heroEyebrow: "OffSec red-team progression",
+    heroEyebrow: "Offensive Security red-team progression",
     keywords: [
       "OSEP vs OSCP",
       "OSEP worth it 2026",
-      "OffSec PEN-300",
+      "Offensive Security PEN-300",
       "OSEP India cost",
       "advanced AD pentest cert",
       "EDR evasion certification",
@@ -3961,7 +3961,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
       },
       {
         type: "para",
-        text: "OSEP and CRTO target similar career outcomes (advanced red team roles) but teach different toolkits. OSEP is OffSec-style — custom payloads, AV evasion from first principles, no Cobalt Strike. CRTO is Cobalt Strike-centric, opsec-focused, more 'real engagement' feel. Both are excellent. If you're picking one, pick the one your target employer's red team uses.",
+        text: "OSEP and CRTO target similar career outcomes (advanced red team roles) but teach different toolkits. OSEP is Offensive Security-style — custom payloads, AV evasion from first principles, no Cobalt Strike. CRTO is Cobalt Strike-centric, opsec-focused, more 'real engagement' feel. Both are excellent. If you're picking one, pick the one your target employer's red team uses.",
       },
       {
         type: "heading",
@@ -3990,7 +3990,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
       },
       {
         q: "Is OSEP outdated given how fast EDR evolves?",
-        a: "OffSec refreshes the course materially every 12-18 months. The current syllabus covers contemporary techniques. The fundamentals (process injection, AMSI/ETW, payload development) don't expire.",
+        a: "Offensive Security refreshes the course materially every 12-18 months. The current syllabus covers contemporary techniques. The fundamentals (process injection, AMSI/ETW, payload development) don't expire.",
       },
       {
         q: "OSEP or OSWE next after OSCP?",
@@ -4005,10 +4005,10 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   {
     slug: "osda-exam-tips-2026",
     seoTitle: "SOC-200 & OSDA Exam Tips That Work in 2026",
-    seoDescription: "How to pass OffSec's SOC-200 / OSDA first time — lab strategy, exam-day workflow, the Splunk and ELK queries to memorise, and what fails most candidates.",
+    seoDescription: "How to pass Offensive Security's SOC-200 / OSDA first time — lab strategy, exam-day workflow, the Splunk and ELK queries to memorise, and what fails most candidates.",
     title: "SOC-200 & OSDA Exam Tips That Actually Work in 2026",
     description:
-      "How to pass OffSec's SOC-200 / OSDA in one attempt — lab strategy, exam-day workflow, Splunk and ELK queries to memorize, and the mistakes that fail most candidates.",
+      "How to pass Offensive Security's SOC-200 / OSDA in one attempt — lab strategy, exam-day workflow, Splunk and ELK queries to memorize, and the mistakes that fail most candidates.",
     date: "2026-04-28",
     updated: "2026-09-29",
     showUpdatedDate: true,
@@ -4018,11 +4018,11 @@ impacket-psexec -k -no-pass <host>.corp.local`,
     category: "Blue Team",
     tags: ["SOC-200", "OSDA", "Blue Team", "Splunk"],
     heroKind: "blue-team",
-    heroEyebrow: "OffSec OSDA · Defense Analyst",
+    heroEyebrow: "Offensive Security OSDA · Defense Analyst",
     keywords: [
       "SOC-200 exam tips",
       "OSDA exam guide",
-      "OffSec defense analyst",
+      "Offensive Security defense analyst",
       "OSDA passing tips",
       "SOC-200 cheatsheet",
       "blue team certification India",
@@ -4030,7 +4030,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
     blocks: [
       {
         type: "lead",
-        text: "OffSec's SOC-200 (and its associated OSDA certification) is the most realistic blue-team exam on the market. It throws you into a live SIEM with messy real-world telemetry and asks you to detect, triage, and document attacks against Windows, Linux, and Active Directory targets — across 24 hours. Here's the playbook our analysts use to pass on the first attempt.",
+        text: "Offensive Security's SOC-200 (and its associated OSDA certification) is the most realistic blue-team exam on the market. It throws you into a live SIEM with messy real-world telemetry and asks you to detect, triage, and document attacks against Windows, Linux, and Active Directory targets — across 24 hours. Here's the playbook our analysts use to pass on the first attempt.",
       },
       {
         type: "diagram",
@@ -4444,7 +4444,7 @@ evil-winrm -i <host> -u <user> -p <pass>`,
     faqs: [
       {
         q: "Is this cheatsheet enough to pass the OSCP AD section?",
-        a: "It covers about 70% of the OSCP AD chain primitives. The remaining 30% is environment-specific tradecraft you build by repping the OffSec PG Practice and HTB ProLabs.",
+        a: "It covers about 70% of the OSCP AD chain primitives. The remaining 30% is environment-specific tradecraft you build by repping the Offensive Security PG Practice and HTB ProLabs.",
       },
       {
         q: "Why does Kerberoasting still work in 2026?",
@@ -5130,7 +5130,7 @@ nmap --randomize-hosts -iL targets.txt`,
     blocks: [
       {
         type: "lead",
-        text: "Two certifications dominate the conversation about practical offensive security: OffSec's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/).) They are very different in what they test, who they impress, and what they prepare you for. If your real alternative to CRTO is the cheaper AD cert rather than OSCP, see [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
+        text: "Two certifications dominate the conversation about practical offensive security: Offensive Security's OSCP and Zero-Point Security's CRTO. They look similar from the outside — both are 24-48 hour hands-on exams, both are well-known, both cost in five figures. (See [what OSCP actually costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/).) They are very different in what they test, who they impress, and what they prepare you for. If your real alternative to CRTO is the cheaper AD cert rather than OSCP, see [CRTP vs CRTO](/blog/crtp-vs-crto-comparison-india-2026).",
       },
       {
         type: "comparison",
@@ -5256,7 +5256,7 @@ nmap --randomize-hosts -iL targets.txt`,
         type: "para",
         text: "If you already work in a SOC and want to move to red team, OSCP is the door. If you have OSCP and want to move into senior offensive roles, CRTO is the differentiator. If you can only afford one and you target Indian BFSI red-team specifically, OSCP wins on raw hiring volume.",
       },
-      { type: "para", text: "For the OSCP route, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside OffSec's PEN-200 course." },
+      { type: "para", text: "For the OSCP route, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside Offensive Security's PEN-200 course." },
       MACKSOFY_CTA("oscp-bootcamp", "Our OSCP and CRTO prep"),
     ],
     faqs: [
@@ -5664,16 +5664,16 @@ def fetch_logs(service: str) -> str:
   {
     slug: "cpts-vs-oscp-certification-comparison-india-2026",
     seoTitle: "CPTS Cost in India 2026 — CPTS vs OSCP Compared",
-    seoDescription: "What CPTS actually costs in India in 2026 — HTB's $490 Silver Annual against OffSec's $1,749 OSCP bundle in INR, with exam format and India hiring reality.",
+    seoDescription: "What CPTS actually costs in India in 2026 — HTB's $490 Silver Annual against Offensive Security's $1,749 OSCP bundle in INR, with exam format and India hiring reality.",
     updated: "2026-08-30",
     title: "CPTS vs OSCP — Which Pentest Certification Should You Take in India?",
     description:
-      "Hack The Box's CPTS vs OffSec's OSCP — cost in INR, exam difficulty, India hiring perception, salary impact. An honest comparison from a CERT-In empanelled training provider.",
+      "Hack The Box's CPTS vs Offensive Security's OSCP — cost in INR, exam difficulty, India hiring perception, salary impact. An honest comparison from a CERT-In empanelled training provider.",
     date: "2026-01-15",
     author: "Macksofy Editorial",
     readingTime: "11 min read",
     category: "Certification Guide",
-    tags: ["CPTS", "OSCP", "Hack The Box", "OffSec"],
+    tags: ["CPTS", "OSCP", "Hack The Box", "Offensive Security"],
     heroKind: "cert-compare",
     heroEyebrow: "Certification comparison",
     keywords: [
@@ -5689,7 +5689,7 @@ def fetch_logs(service: str) -> str:
     blocks: [
       {
         type: "lead",
-        text: "Hack The Box's Certified Penetration Testing Specialist (CPTS) is rapidly closing the gap with OffSec's OSCP as the entry-level pentest credential. It's cheaper, the lab is excellent, and the exam is brutal in a different way. But OSCP still wins on hiring volume in India. Here's the unbiased comparison.",
+        text: "Hack The Box's Certified Penetration Testing Specialist (CPTS) is rapidly closing the gap with Offensive Security's OSCP as the entry-level pentest credential. It's cheaper, the lab is excellent, and the exam is brutal in a different way. But OSCP still wins on hiring volume in India. Here's the unbiased comparison.",
       },
       {
         type: "comparison",
@@ -5817,7 +5817,7 @@ def fetch_logs(service: str) -> str:
         title: "What we tell our students",
         text: "If you can afford OSCP ([here is what it costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/)), do OSCP first — the recognition is worth the premium. If you can't, CPTS is no longer a 'second-tier' choice; it's a perfectly legitimate first credential. We have placed CPTS-only graduates into Indian BFSI pentest roles at ₹10-13 LPA in 2026.",
       },
-      { type: "para", text: "If OSCP is the one you choose, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside OffSec's PEN-200 course." },
+      { type: "para", text: "If OSCP is the one you choose, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside Offensive Security's PEN-200 course." },
       MACKSOFY_CTA("oscp-bootcamp", "Our pentest certification prep"),
     ],
     faqs: [
@@ -5827,7 +5827,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         q: "Is CPTS cheaper than OSCP?",
-        a: "Substantially. OffSec's OSCP Course + Cert bundle lists at $1,749 (about ₹1,66,800) against HTB's $490 (about ₹46,700) — roughly three and a half times the price. Retakes follow the same pattern at $249 versus $210. Macksofy supplies the official OffSec bundle at ₹1,45,000, which narrows the gap but does not close it.",
+        a: "Substantially. Offensive Security's OSCP Course + Cert bundle lists at $1,749 (about ₹1,66,800) against HTB's $490 (about ₹46,700) — roughly three and a half times the price. Retakes follow the same pattern at $249 versus $210. Macksofy supplies the official Offensive Security bundle at ₹1,45,000, which narrows the gap but does not close it.",
       },
       {
         q: "Is CPTS easier than OSCP?",
@@ -5981,7 +5981,7 @@ def fetch_logs(service: str) -> str:
           "Both: take a sleep break 12h in; passers consistently sleep, failures consistently push through",
         ],
       },
-      { type: "para", text: "For an instructor-led route into Active Directory and evasion tradecraft, see Macksofy's [OSEP training](/training/osep), built on OffSec's PEN-300." },
+      { type: "para", text: "For an instructor-led route into Active Directory and evasion tradecraft, see Macksofy's [OSEP training](/training/osep), built on Offensive Security's PEN-300." },
       MACKSOFY_CTA("crtp", "Our AD-focused training tracks"),
     ],
     faqs: [
@@ -6001,23 +6001,23 @@ def fetch_logs(service: str) -> str:
   },
 
   // ===================================================================
-  // OSCP+ vs OSCP — what changed in OffSec's 2024 rebrand
+  // OSCP+ vs OSCP — what changed in Offensive Security's 2024 rebrand
   // ===================================================================
   {
     slug: "oscp-plus-vs-oscp-2026",
     seoTitle: "OSCP+ vs OSCP 2026 — What Changed for Indian Candidates",
-    seoDescription: "OffSec rebranded OSCP to OSCP+ — what actually changed for the 2026 exam: Active Directory expansion, buffer-overflow removal and CPE recertification.",
+    seoDescription: "Offensive Security rebranded OSCP to OSCP+ — what actually changed for the 2026 exam: Active Directory expansion, buffer-overflow removal and CPE recertification.",
     title: "OSCP+ vs OSCP in 2026 — What Changed, What It Means for Indian Candidates",
     description:
-      "OffSec rebranded OSCP to OSCP+ in late 2024. Here's everything that actually changed in the 2026 exam — Active Directory expansion, buffer-overflow removal, CPE recertification — and how Indian candidates should adjust their prep.",
+      "Offensive Security rebranded OSCP to OSCP+ in late 2024. Here's everything that actually changed in the 2026 exam — Active Directory expansion, buffer-overflow removal, CPE recertification — and how Indian candidates should adjust their prep.",
     date: "2026-05-06",
     author: "Macksofy Editorial",
     authorRole: "Cybersecurity Training Editorial",
     readingTime: "9 min read",
     category: "Certification Guides",
-    tags: ["OSCP", "OSCP+", "OffSec", "PEN-200"],
+    tags: ["OSCP", "OSCP+", "Offensive Security", "PEN-200"],
     heroKind: "cert-compare",
-    heroEyebrow: "OffSec rebrand explained",
+    heroEyebrow: "Offensive Security rebrand explained",
     keywords: [
       "OSCP+ vs OSCP",
       "OSCP+ what changed",
@@ -6027,14 +6027,14 @@ def fetch_logs(service: str) -> str:
       "OSCP+ exam format",
       "OSCP+ Active Directory",
       "OSCP+ recertification",
-      "OffSec OSCP+ India",
+      "Offensive Security OSCP+ India",
       "OSCP+ syllabus 2026",
       "OSCP+ cost India",
     ],
     blocks: [
       {
         type: "lead",
-        text: "In late 2024 OffSec rebranded the OSCP exam to OSCP+ and changed enough of the underlying mechanics that 2024-syllabus content is now obsolete. If you're starting in 2026, you're studying for OSCP+ — not the legacy exam. Here's what's different and what it means for Indian candidates.",
+        text: "In late 2024 Offensive Security rebranded the OSCP exam to OSCP+ and changed enough of the underlying mechanics that 2024-syllabus content is now obsolete. If you're starting in 2026, you're studying for OSCP+ — not the legacy exam. Here's what's different and what it means for Indian candidates.",
       },
       {
         type: "comparison",
@@ -6094,12 +6094,12 @@ def fetch_logs(service: str) -> str:
       {
         type: "heading",
         level: 2,
-        text: "Why OffSec made these changes",
+        text: "Why Offensive Security made these changes",
         id: "why",
       },
       {
         type: "para",
-        text: "Real-world penetration testing in 2024–26 is dominated by Active Directory and cloud — not by hand-rolled buffer overflows. OffSec aligned the exam with what hiring teams actually pay for. The recertification requirement also brings OSCP into line with industry standards (CISSP, GIAC) and makes the cert a continuing-education signal, not a one-time stamp.",
+        text: "Real-world penetration testing in 2024–26 is dominated by Active Directory and cloud — not by hand-rolled buffer overflows. Offensive Security aligned the exam with what hiring teams actually pay for. The recertification requirement also brings OSCP into line with industry standards (CISSP, GIAC) and makes the cert a continuing-education signal, not a one-time stamp.",
       },
       {
         type: "callout",
@@ -6150,7 +6150,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "Practically: no. 90 CPEs in 3 years is one OffSec annual subscription course (40 CPEs), one industry conference (8 CPEs/day) and a handful of webinars or blog posts. If you're working in security, you'll accumulate them by accident. The risk is for OSCP+ holders who leave security for unrelated roles and never log activities back into OffSec's CPE portal.",
+        text: "Practically: no. 90 CPEs in 3 years is one Offensive Security annual subscription course (40 CPEs), one industry conference (8 CPEs/day) and a handful of webinars or blog posts. If you're working in security, you'll accumulate them by accident. The risk is for OSCP+ holders who leave security for unrelated roles and never log activities back into Offensive Security's CPE portal.",
       },
       {
         type: "heading",
@@ -6161,7 +6161,7 @@ def fetch_logs(service: str) -> str:
       {
         type: "list",
         items: [
-          "OffSec direct: PEN-200 + 90-day lab + exam ≈ ₹1,70,000 (USD 1,749)",
+          "Offensive Security direct: PEN-200 + 90-day lab + exam ≈ ₹1,70,000 (USD 1,749)",
           "Through Macksofy: the same official course + 90-day lab + exam voucher = ₹1,45,000 (15% off, 3/6/12-month EMI)",
           "Macksofy 60h instructor-led bootcamp with mentor-until-pass support: quoted separately, on top of the bundle above",
           "Self-study without a mentor: cheapest route, but you absorb every retake (~$249 per attempt) and get no structured AD lab time",
@@ -6172,7 +6172,7 @@ def fetch_logs(service: str) -> str:
     faqs: [
       {
         q: "If I bought OSCP labs before Nov 2024, am I still on the old exam?",
-        a: "Check your OffSec dashboard — anyone who paid for the legacy exam was given a grace window to attempt under the old format. As of 2026, all new exam vouchers are OSCP+ only.",
+        a: "Check your Offensive Security dashboard — anyone who paid for the legacy exam was given a grace window to attempt under the old format. As of 2026, all new exam vouchers are OSCP+ only.",
       },
       {
         q: "Is OSCP+ harder than OSCP?",
@@ -6183,8 +6183,8 @@ def fetch_logs(service: str) -> str:
         a: "Most JDs still say 'OSCP' as shorthand. Hiring managers understand they're the same credential. List it on your CV as 'OSCP+ (PEN-200)'.",
       },
       {
-        q: "Will OffSec rename it back to OSCP?",
-        a: "Unlikely. The '+' positions OffSec for future tier expansion (OSCP++ etc.) and OffSec has invested heavily in the rebrand across marketing, partner materials and Discord.",
+        q: "Will Offensive Security rename it back to OSCP?",
+        a: "Unlikely. The '+' positions Offensive Security for future tier expansion (OSCP++ etc.) and Offensive Security has invested heavily in the rebrand across marketing, partner materials and Discord.",
       },
     ],
   },
@@ -6204,7 +6204,7 @@ def fetch_logs(service: str) -> str:
     authorRole: "EC-Council Accredited Training Center",
     readingTime: "11 min read",
     category: "Certification Guides",
-    tags: ["OSCP", "CEH", "OffSec", "EC-Council"],
+    tags: ["OSCP", "CEH", "Offensive Security", "EC-Council"],
     heroKind: "cert-compare",
     heroEyebrow: "Cybersecurity cert showdown",
     keywords: [
@@ -6240,7 +6240,7 @@ def fetch_logs(service: str) -> str:
           ],
         },
         right: {
-          label: "OSCP+ (OffSec PEN-200)",
+          label: "OSCP+ (Offensive Security PEN-200)",
           tone: "cyan",
           bullets: [
             "Cost: ~₹1,45,000–₹1,70,000 for the official bundle",
@@ -6381,7 +6381,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         q: "Does Macksofy offer both CEH and OSCP+ training?",
-        a: "Yes — Macksofy is an EC-Council Accredited Training Center (CEH) and runs hands-on OSCP+ exam-prep bootcamps that bundle official OffSec course enrolment with our 60+ hour mentor-led programme. Combined-track packages with EMI are available.",
+        a: "Yes — Macksofy is an EC-Council Accredited Training Center (CEH) and runs hands-on OSCP+ exam-prep bootcamps that bundle official Offensive Security course enrolment with our 60+ hour mentor-led programme. Combined-track packages with EMI are available.",
       },
     ],
   },
@@ -7370,7 +7370,7 @@ def fetch_logs(service: str) -> str:
           ["Wipro / TCS / Infosys MS", "Large MSSP / IT services SOC", "Global delivery scale", "Large IT services portfolios, captive SOCs"],
           ["Paladion (Atos)", "MDR pioneer in India", "Long-running platform (AI-Saac)", "Mid-large enterprise, established BFSI"],
           ["Inspira / Network Intelligence", "MSSP + VAPT + GRC", "Sectoral depth", "BFSI, healthcare, manufacturing"],
-          ["Macksofy", "Boutique MDR + training pipeline", "Hand-picked SOC analysts, India-trained, OffSec/EC-Council bench", "Mid-sized BFSI, fintech, regulated SaaS"],
+          ["Macksofy", "Boutique MDR + training pipeline", "Hand-picked SOC analysts, India-trained, Offensive Security/EC-Council bench", "Mid-sized BFSI, fintech, regulated SaaS"],
           ["Arctic Wolf / Sophos MDR / CrowdStrike Falcon Complete", "Global MDR with India delivery", "Mature detection content, global threat intel", "Indian arms of global firms"],
         ],
       },
@@ -11174,7 +11174,7 @@ def fetch_logs(service: str) -> str:
 
   // ===================================================================
   // OSAI vs LearnToExploit Model Attack & Red Teaming (2026-10-14).
-  // Companion to [OSAI training](/training/osai). The OSAI side is from OffSec's public
+  // Companion to [OSAI training](/training/osai). The OSAI side is from Offensive Security's public
   // AI-300 page (11 modules, 65 h, 24 h proctored exam, $1,749 / $2,749).
   // The LearnToExploit side is from the platform's own catalogue
   // (12 modules, 9 labs, ₹10,000, Specialist tier, OWASP LLM Top 10 +
@@ -11187,14 +11187,14 @@ def fetch_logs(service: str) -> str:
     title: "OSAI vs LearnToExploit Model Attack & Red Teaming: Which AI Red-Team Course Comes First in 2026?",
     seoTitle: "OSAI vs LearnToExploit AI Red Teaming Course 2026",
     description:
-      "OffSec's OSAI (AI-300) and the LearnToExploit Model Attack & Red Teaming course compared module by module — cost in INR, labs, exam format, what each covers, and the order that gets you through the 24-hour OSAI exam.",
+      "Offensive Security's OSAI (AI-300) and the LearnToExploit Model Attack & Red Teaming course compared module by module — cost in INR, labs, exam format, what each covers, and the order that gets you through the 24-hour OSAI exam.",
     seoDescription:
       "OSAI (AI-300) vs LearnToExploit Model Attack & Red Teaming, compared module by module: INR cost, labs, exam format, coverage gaps, and which to do first.",
     date: "2026-10-14",
     author: "AI Security",
     readingTime: "11 min read",
     category: "Certification Guides",
-    tags: ["OSAI", "AI Red Teaming", "LLM Security", "OffSec", "LearnToExploit"],
+    tags: ["OSAI", "AI Red Teaming", "LLM Security", "Offensive Security", "LearnToExploit"],
     heroKind: "cert-compare",
     heroEyebrow: "AI red-team progression",
     keywords: [
@@ -11204,23 +11204,23 @@ def fetch_logs(service: str) -> str:
       "AI red teaming course India",
       "LLM red teaming course",
       "OSAI cost India",
-      "OffSec AI Red Teamer prep",
+      "Offensive Security AI Red Teamer prep",
       "Model Attack and Red Teaming course",
     ],
     blocks: [
       {
         type: "lead",
-        text: "OffSec's AI-300 is the first vendor certification built around attacking AI-enabled enterprises, and the OSAI exam is a 24-hour proctored engagement. The LearnToExploit Model Attack & Red Teaming course is a 12-module, lab-first track that costs about a seventeenth of the OffSec bundle. They are not substitutes. This is the module-by-module map of what each one teaches, where each goes deeper, and why the cheap one comes first.",
+        text: "Offensive Security's AI-300 is the first vendor certification built around attacking AI-enabled enterprises, and the OSAI exam is a 24-hour proctored engagement. The LearnToExploit Model Attack & Red Teaming course is a 12-module, lab-first track that costs about a seventeenth of the Offensive Security bundle. They are not substitutes. This is the module-by-module map of what each one teaches, where each goes deeper, and why the cheap one comes first.",
       },
       {
         type: "comparison",
         title: "At a glance",
         left: {
-          label: "OSAI · AI-300 (OffSec)",
+          label: "OSAI · AI-300 (Offensive Security)",
           tone: "purple",
           bullets: [
             "Cost: $1,749 bundle (~₹1,70,000) or $2,749 Learn One (~₹2,67,000)",
-            "Format: 65 hours of self-paced content + OffSec labs",
+            "Format: 65 hours of self-paced content + Offensive Security labs",
             "Modules: 11 learning modules + capstone",
             "Exam: 24-hour proctored practical + report",
             "Prerequisite: OSCP or equivalent recommended",
@@ -11248,7 +11248,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "AI-300 is written for people who already pen-test. OffSec recommends OSCP-level experience because the exam environment is an enterprise with an AI layer on top: once an agent or a RAG pipeline gives you a foothold, you are expected to keep going through cloud identity, Kubernetes and containers the way you would on any other engagement. The eleven learning modules are:",
+        text: "AI-300 is written for people who already pen-test. Offensive Security recommends OSCP-level experience because the exam environment is an enterprise with an AI layer on top: once an agent or a RAG pipeline gives you a foothold, you are expected to keep going through cloud identity, Kubernetes and containers the way you would on any other engagement. The eleven learning modules are:",
       },
       {
         type: "list",
@@ -11269,7 +11269,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "The exam is a 24-hour proctored session over VPN against a realistic AI-enabled environment, followed by a report. Passing earns OSAI, which does not expire, and the OSAI+ designation, which expires three years after the exam unless you renew through a qualifying OffSec exam, a recertification exam or OffSec's CPE programme. Full details are on the [Macksofy OSAI training page](/training/osai).",
+        text: "The exam is a 24-hour proctored session over VPN against a realistic AI-enabled environment, followed by a report. Passing earns OSAI, which does not expire, and the OSAI+ designation, which expires three years after the exam unless you renew through a qualifying Offensive Security exam, a recertification exam or Offensive Security's CPE programme. Full details are on the [Macksofy OSAI training page](/training/osai).",
       },
       {
         type: "heading",
@@ -11339,7 +11339,7 @@ def fetch_logs(service: str) -> str:
         type: "callout",
         tone: "info",
         title: "Where each one is more advanced",
-        text: "At the application layer, LearnToExploit covers more ground than AI-300: twelve attack classes against nine labs, versus OffSec's eleven modules of which four are infrastructure and process. At the platform layer, OSAI is deeper: agent-to-agent protocols, embedding inversion, MCP internals and a full cloud and Kubernetes pivot, examined under proctoring for 24 hours. Neither replaces the other.",
+        text: "At the application layer, LearnToExploit covers more ground than AI-300: twelve attack classes against nine labs, versus Offensive Security's eleven modules of which four are infrastructure and process. At the platform layer, OSAI is deeper: agent-to-agent protocols, embedding inversion, MCP internals and a full cloud and Kubernetes pivot, examined under proctoring for 24 hours. Neither replaces the other.",
       },
       {
         type: "heading",
@@ -11349,7 +11349,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         type: "para",
-        text: "It gets you through the application half of the exam with the methodology and the reporting habit already in place, which is the half candidates fail on when they arrive from a conventional pen-test background and treat an LLM like a deterministic target. What it does not do is replace the OffSec labs for multi-agent, embedding and MCP attacks, or the network, cloud and Kubernetes depth that OSCP-level experience brings. That is exactly why the [Macksofy OSAI bootcamp](/training/osai) uses the LearnToExploit course as its lab track and adds a timed 24-hour mock engagement with report review on top: the sequence is LearnToExploit, then the AI-300 material, then the mock, then the exam.",
+        text: "It gets you through the application half of the exam with the methodology and the reporting habit already in place, which is the half candidates fail on when they arrive from a conventional pen-test background and treat an LLM like a deterministic target. What it does not do is replace the Offensive Security labs for multi-agent, embedding and MCP attacks, or the network, cloud and Kubernetes depth that OSCP-level experience brings. That is exactly why the [Macksofy OSAI bootcamp](/training/osai) uses the LearnToExploit course as its lab track and adds a timed 24-hour mock engagement with report review on top: the sequence is LearnToExploit, then the AI-300 material, then the mock, then the exam.",
       },
       {
         type: "heading",
@@ -11362,11 +11362,11 @@ def fetch_logs(service: str) -> str:
         headers: ["Dimension", "OSAI / AI-300", "LearnToExploit MA&RT"],
         rows: [
           ["Price", "$1,749 bundle (~₹1,70,000) · $2,749 Learn One (~₹2,67,000)", "₹10,000"],
-          ["Content", "65 hours; OffSec estimates 50–100 hours to be exam-ready", "12 modules; the first two are ~3 hours each, the rest are lab-paced"],
-          ["Hands-on", "OffSec lab environment", "9 browser labs, one per attack class"],
+          ["Content", "65 hours; Offensive Security estimates 50–100 hours to be exam-ready", "12 modules; the first two are ~3 hours each, the rest are lab-paced"],
+          ["Hands-on", "Offensive Security lab environment", "9 browser labs, one per attack class"],
           ["Exam", "24-hour proctored practical + report", "Course assessment plus a full-engagement reporting module"],
           ["Prerequisites", "OSCP or equivalent recommended", "HTTP, Python basics, web-app security concepts"],
-          ["Framework mapping", "OffSec syllabus", "OWASP LLM Top 10 (2025) + MITRE ATLAS"],
+          ["Framework mapping", "Offensive Security syllabus", "OWASP LLM Top 10 (2025) + MITRE ATLAS"],
           ["Credential", "OSAI (no expiry) + OSAI+ (3 years)", "LearnToExploit course certificate"],
           ["Access", "90 days (bundle) or 1 year (Learn One)", "Platform account"],
         ],
@@ -11381,7 +11381,7 @@ def fetch_logs(service: str) -> str:
         type: "list",
         items: [
           "You have never attacked an LLM application: start with LearnToExploit. It is the cheapest way to find out whether you enjoy this work before spending ₹1,70,000.",
-          "You already hold OSCP or OSEP and your employer wants an AI red-team credential: do LearnToExploit in the first fortnight of your OffSec access, then the AI-300 modules in order, then a mock.",
+          "You already hold OSCP or OSEP and your employer wants an AI red-team credential: do LearnToExploit in the first fortnight of your Offensive Security access, then the AI-300 modules in order, then a mock.",
           "You are an AI engineer who wants to understand the attacks against your own stack: LearnToExploit alone covers the OWASP LLM Top 10 end to end; add OSAI only if you will be running engagements.",
           "You run a team that ships copilots or agents: put the whole team through LearnToExploit as a corporate batch and send the one or two people who will own AI assessments to OSAI.",
         ],
@@ -11403,11 +11403,11 @@ def fetch_logs(service: str) -> str:
     faqs: [
       {
         q: "Is LearnToExploit Model Attack & Red Teaming enough to pass OSAI on its own?",
-        a: "No. It covers the application-layer attack classes behind every AI-300 module and adds five OSAI does not teach, but it does not replace OffSec's labs for A2A, embedding inversion and MCP internals, or the cloud and Kubernetes depth the exam expects. Do it first, then the AI-300 material.",
+        a: "No. It covers the application-layer attack classes behind every AI-300 module and adds five OSAI does not teach, but it does not replace Offensive Security's labs for A2A, embedding inversion and MCP internals, or the cloud and Kubernetes depth the exam expects. Do it first, then the AI-300 material.",
       },
       {
         q: "How much does OSAI cost in India?",
-        a: "OffSec lists the Course + Cert bundle at $1,749 (about ₹1,70,000) with 90 days of access and one exam attempt, and Learn One at $2,749 (about ₹2,67,000) with a year of access and two attempts. The LearnToExploit course is ₹10,000.",
+        a: "Offensive Security lists the Course + Cert bundle at $1,749 (about ₹1,70,000) with 90 days of access and one exam attempt, and Learn One at $2,749 (about ₹2,67,000) with a year of access and two attempts. The LearnToExploit course is ₹10,000.",
       },
       {
         q: "What is the OSAI exam format?",
@@ -11419,7 +11419,7 @@ def fetch_logs(service: str) -> str:
       },
       {
         q: "Do I need OSCP before OSAI?",
-        a: "OffSec recommends OSCP or equivalent hands-on experience. The AI material does not assume it, but the exam environment does: once an AI component gives you a foothold, you are expected to pivot through cloud identity and Kubernetes like any other engagement.",
+        a: "Offensive Security recommends OSCP or equivalent hands-on experience. The AI material does not assume it, but the exam environment does: once an AI component gives you a foothold, you are expected to pivot through cloud identity and Kubernetes like any other engagement.",
       },
     ],
   },

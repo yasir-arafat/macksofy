@@ -18,7 +18,7 @@ import { POSTS } from "@/content/blog";
 import { SITE, metroKeywords } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
 
-const OFFSEC_COURSES = COURSES.filter((c) => c.vendor === "OffSec");
+const OFFSEC_COURSES = COURSES.filter((c) => c.vendor === "Offensive Security");
 
 const FOUNDATION = OFFSEC_COURSES.filter((c) => c.level === "Foundation");
 const CORE = OFFSEC_COURSES.filter(
@@ -37,7 +37,7 @@ const ELITE = OFFSEC_COURSES.filter((c) =>
 const OFFSEC_FAQS = [
   {
     q: "Does Macksofy provide training for every Offensive Security certification?",
-    a: "Yes — Macksofy runs hands-on exam-prep bootcamps that cover the full Offensive Security certification stack: PEN-200 / OSCP+, PEN-300 / OSEP, WEB-200 / OSWA, WEB-300 / OSWE, PEN-210 / OSWP, EXP-301 / OSED, EXP-312 / OSMR, AI-300 / OSAI, SOC-200 / OSDA and SEC-100 / OSCC. Each bootcamp bundles official OffSec course enrolment with a structured 60–80 hour Macksofy mentor-led programme.",
+    a: "Yes — Macksofy runs hands-on exam-prep bootcamps that cover the full Offensive Security certification stack: PEN-200 / OSCP+, PEN-300 / OSEP, WEB-200 / OSWA, WEB-300 / OSWE, PEN-210 / OSWP, EXP-301 / OSED, EXP-312 / OSMR, AI-300 / OSAI, SOC-200 / OSDA and SEC-100 / OSCC. Each bootcamp bundles official Offensive Security course enrolment with a structured 60–80 hour Macksofy mentor-led programme.",
   },
   {
     q: "Which Offensive Security certification should I take first in 2026?",
@@ -45,11 +45,11 @@ const OFFSEC_FAQS = [
   },
   {
     q: "What does a Macksofy Offensive Security bootcamp include?",
-    a: "Each Macksofy OffSec bootcamp includes (a) official OffSec course enrolment + lab access, (b) a 60–80 hour Macksofy instructor-led bootcamp aligned to the current OffSec syllabus, (c) two full mock exams under timed conditions, (d) 1:1 weak-area reviews, and (e) mentor-until-pass support across first attempt and any retakes. Talk to our advisors for the current Indian pricing — EMI options across 3/6/12 months are available.",
+    a: "Each Macksofy Offensive Security bootcamp includes (a) official Offensive Security course enrolment + lab access, (b) a 60–80 hour Macksofy instructor-led bootcamp aligned to the current Offensive Security syllabus, (c) two full mock exams under timed conditions, (d) 1:1 weak-area reviews, and (e) mentor-until-pass support across first attempt and any retakes. Talk to our advisors for the current Indian pricing — EMI options across 3/6/12 months are available.",
   },
   {
     q: "What is OSCP+ and how is it different from the old OSCP?",
-    a: "OSCP+ is OffSec's rebrand of the OSCP exam that took effect late 2024. The new format dropped the buffer-overflow box, expanded the Active Directory set (a full ~40-point AD chain), replaced bonus lab points with CPE-based 3-year recertification, and tightened reporting standards. All Macksofy OffSec bootcamps are aligned to the OSCP+ format.",
+    a: "OSCP+ is Offensive Security's rebrand of the OSCP exam that took effect late 2024. The new format dropped the buffer-overflow box, expanded the Active Directory set (a full ~40-point AD chain), replaced bonus lab points with CPE-based 3-year recertification, and tightened reporting standards. All Macksofy Offensive Security bootcamps are aligned to the OSCP+ format.",
   },
   {
     q: "Are Offensive Security exams recognised in UAE / Dubai?",
@@ -57,10 +57,10 @@ const OFFSEC_FAQS = [
   },
   {
     q: "Can I attempt an Offensive Security exam without taking the course?",
-    a: "Some certs (OSCP+, OSEP, OSWA, OSWE) require an OffSec course; others (OSWP) historically allowed standalone exams. Policies change — check the official OffSec page or ask Macksofy for the current 2026 stance per certification.",
+    a: "Some certs (OSCP+, OSEP, OSWA, OSWE) require an Offensive Security course; others (OSWP) historically allowed standalone exams. Policies change — check the official Offensive Security page or ask Macksofy for the current 2026 stance per certification.",
   },
   {
-    q: "Does Macksofy support remote / online OffSec training across India?",
+    q: "Does Macksofy support remote / online Offensive Security training across India?",
     a: "Yes — live online cohorts pan-India for every Offensive Security cert, plus corporate-batch delivery on-site at client offices in Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad, Gurugram, Noida and Dubai.",
   },
   {
@@ -82,16 +82,16 @@ export const metadata = buildMetadata({
   keywords: [
     "Offensive Security training India",
     "Offensive Security certification India",
-    "OffSec certifications India",
-    "OffSec training India",
-    "OffSec courses India",
+    "Offensive Security certifications India",
+    "Offensive Security training India",
+    "Offensive Security courses India",
     "OSCP OSEP OSWE OSWA OSDA OSED OSMR training India",
-    "OffSec certification path India",
-    "OffSec roadmap 2026",
+    "Offensive Security certification path India",
+    "Offensive Security roadmap 2026",
     "Offensive Security bootcamp India",
     "best Offensive Security training institute India",
     "Offensive Security exam prep India",
-    "OffSec UAE Dubai",
+    "Offensive Security UAE Dubai",
     "OSAI training India",
     ...metroKeywords("Offensive Security training"),
     ...metroKeywords("OSCP bootcamp"),
@@ -103,7 +103,7 @@ const STAGE_INTRO = {
     eyebrow: "Stage 1 · Foundation",
     title: "Career switchers + beginners start here.",
     description:
-      "SEC-100 (OSCC) is OffSec's foundation cert — networking, Linux, Windows, scripting, web, AD, SecOps, crypto. The natural starting point if you don't already have 2+ years of IT or development experience.",
+      "SEC-100 (OSCC) is Offensive Security's foundation cert — networking, Linux, Windows, scripting, web, AD, SecOps, crypto. The natural starting point if you don't already have 2+ years of IT or development experience.",
   },
   core: {
     eyebrow: "Stage 2 · Core",
@@ -119,7 +119,7 @@ const STAGE_INTRO = {
   },
   elite: {
     eyebrow: "Stage 4 · Elite",
-    title: "The top of the OffSec stack.",
+    title: "The top of the Offensive Security stack.",
     description:
       "OSMR for macOS specialisation — fewer than a thousand holders globally.",
   },
@@ -245,12 +245,12 @@ export default function OffSecHubPage() {
         data={[
           breadcrumbSchema([
             { name: "Training", url: "/training" },
-            { name: "OffSec", url: "/training/offsec" },
+            { name: "Offensive Security", url: "/training/offsec" },
           ]),
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "OffSec Certifications offered by Macksofy India",
+            name: "Offensive Security Certifications offered by Macksofy India",
             itemListElement: OFFSEC_COURSES.map((c, i) => ({
               "@type": "ListItem",
               position: i + 1,
@@ -280,12 +280,12 @@ export default function OffSecHubPage() {
           <Breadcrumbs
             items={[
               { name: "Training", href: "/training" },
-              { name: "OffSec", href: "/training/offsec" },
+              { name: "Offensive Security", href: "/training/offsec" },
             ]}
           />
           <div className="mt-8 max-w-4xl">
             <Eyebrow color="cyan">Offensive Security Exam-Prep Bootcamps</Eyebrow>
-            <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
+            <h1 className="mt-4 font-display text-4xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
               Every Offensive Security certification.{" "}
               <span className="gradient-text">Mentor until you pass.</span>
             </h1>
@@ -293,7 +293,7 @@ export default function OffSecHubPage() {
               Macksofy runs hands-on bootcamps for the full Offensive Security
               certification stack — from the SEC-100 / OSCC foundation through
               OSCP+, OSEP, OSWE, OSWA and OSDA, up to the elite OSED, OSMR and
-              OSMR. Each cohort bundles official OffSec course enrolment with
+              OSMR. Each cohort bundles official Offensive Security course enrolment with
               a 60–80 hour Macksofy instructor-led programme and mentor-until-pass
               support, delivered across India and the UAE.
             </p>
@@ -311,7 +311,7 @@ export default function OffSecHubPage() {
           </div>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "OffSec certs delivered", value: "10 / 10", icon: Trophy },
+              { label: "Offensive Security certs delivered", value: "10 / 10", icon: Trophy },
               { label: "Mentor until pass", value: "Yes", icon: ShieldCheck },
               { label: "EMI options", value: "3 · 6 · 12 mo", icon: Award },
               { label: "Cities served", value: "13 · India + UAE", icon: Users },
@@ -340,7 +340,7 @@ export default function OffSecHubPage() {
           <div className="max-w-3xl mx-auto">
             <Eyebrow color="cyan">FAQ</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance">
-              Everything you wanted to ask about OffSec in 2026.
+              Everything you wanted to ask about Offensive Security in 2026.
             </h2>
             <div className="mt-10">
               <FAQAccordion faqs={OFFSEC_FAQS} />

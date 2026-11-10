@@ -89,9 +89,9 @@ export const REFS: Record<string, Reference> = {
   // Training / certification bodies (cited on training + certification-guide pages)
   "ec-council": { label: "EC-Council (CEH · CHFI · CPENT)", url: "https://www.eccouncil.org/", issuer: "EC-Council" },
   "ec-council-ceh": { label: "Certified Ethical Hacker (CEH)", url: "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/", issuer: "EC-Council" },
-  "offsec": { label: "OffSec (OSCP · OSEP · OSWE)", url: "https://www.offsec.com/", issuer: "OffSec" },
+  "offsec": { label: "Offensive Security (OSCP · OSEP · OSWE)", url: "https://www.offsec.com/", issuer: "Offensive Security" },
   "comptia": { label: "CompTIA Certifications", url: "https://www.comptia.org/en-us/certifications/", issuer: "CompTIA" },
-  "offsec-soc-200": { label: "SOC-200: Security Operations and Defensive Analysis", url: "https://www.offsec.com/courses/soc-200/", issuer: "OffSec" },
+  "offsec-soc-200": { label: "SOC-200: Security Operations and Defensive Analysis", url: "https://www.offsec.com/courses/soc-200/", issuer: "Offensive Security" },
   "portswigger-web-security": { label: "Web Security Academy", url: "https://portswigger.net/web-security", issuer: "PortSwigger" },
   "ec-council-ecih": { label: "EC-Council Certified Incident Handler", url: "https://www.eccouncil.org/train-certify/ec-council-certified-incident-handler-ecih/", issuer: "EC-Council" },
   "giac-gcih": { label: "GIAC Certified Incident Handler", url: "https://www.giac.org/certifications/certified-incident-handler-gcih/", issuer: "GIAC" },

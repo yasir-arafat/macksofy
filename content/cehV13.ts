@@ -24,7 +24,7 @@
  * NO standalone AI module: AI is threaded through all 20. Do not add pass
  * rates, placement percentages, student counts, salary figures, reviews or
  * ratings — none are substantiated. Macksofy's EC-Council Accredited Training
- * Center status and CERT-In empanelment are both genuine; the OffSec family is
+ * Center status and CERT-In empanelment are both genuine; the Offensive Security family is
  * exam-prep only (see feedback_macksofy_offsec_claims).
  */
 

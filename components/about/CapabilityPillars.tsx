@@ -54,7 +54,7 @@ const PILLARS = [
     href: "/training",
     bullets: [
       "CEH · OSCP · CSA · CHFI",
-      "OffSec OSWE · OSEP · OSED",
+      "Offensive Security OSWE · OSEP · OSED",
       "Corporate training",
     ],
     icon: GraduationCap,

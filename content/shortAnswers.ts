@@ -386,43 +386,43 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "course:sec-100-cybercore": {
     q: "What is SEC-100 CyberCore?",
-    a: "SEC-100 CyberCore (OffSec) is a foundational certification covering core security concepts, networking, and defensive basics — an entry point before OSCP-level training. Macksofy runs an exam-prep bootcamp for SEC-100 CyberCore with hands-on mentoring in India.",
+    a: "SEC-100 CyberCore (Offensive Security) is a foundational certification covering core security concepts, networking, and defensive basics — an entry point before OSCP-level training. Macksofy runs an exam-prep bootcamp for SEC-100 CyberCore with hands-on mentoring in India.",
   },
   "course:oscp": {
     q: "What is the OSCP certification?",
-    a: "The Offensive Security Certified Professional (OSCP, OffSec) is the industry's benchmark hands-on penetration-testing certification, earned by compromising machines in a 24-hour proctored lab exam. Macksofy runs an intensive OSCP exam-prep bootcamp with 60+ hours of mentor-led labs in India.",
+    a: "The Offensive Security Certified Professional (OSCP) is the industry's benchmark hands-on penetration-testing certification, earned by compromising machines in a 24-hour proctored lab exam. Macksofy runs an intensive OSCP exam-prep bootcamp with 60+ hours of mentor-led labs in India.",
   },
   "course:osep": {
     q: "What is the OSEP certification?",
-    a: "The Offensive Security Experienced Penetration Tester (OSEP, OffSec) is an advanced credential in evading defences, bypassing antivirus/EDR, and compromising hardened Active Directory environments. Macksofy runs an OSEP exam-prep bootcamp for experienced pentesters in India.",
+    a: "The Offensive Security Experienced Penetration Tester (OSEP) is an advanced credential in evading defences, bypassing antivirus/EDR, and compromising hardened Active Directory environments. Macksofy runs an OSEP exam-prep bootcamp for experienced pentesters in India.",
   },
   "course:osai": {
     q: "What is the OSAI certification?",
-    a: "The OffSec AI Red Teamer (OSAI) is OffSec's certification for attacking AI-enabled systems, earned through the 24-hour practical exam of the AI-300 Advanced AI Red Teaming course. It covers AI reconnaissance, LLM agents, multi-agent and A2A protocols, RAG pipelines, embeddings, MCP tool surfaces, AI/ML supply chain and AI infrastructure. Macksofy runs an OSAI exam-prep bootcamp in India built around the LearnToExploit Model Attack & Red Teaming lab track.",
+    a: "The Offensive Security AI Red Teamer (OSAI) is Offensive Security's certification for attacking AI-enabled systems, earned through the 24-hour practical exam of the AI-300 Advanced AI Red Teaming course. It covers AI reconnaissance, LLM agents, multi-agent and A2A protocols, RAG pipelines, embeddings, MCP tool surfaces, AI/ML supply chain and AI infrastructure. Macksofy runs an OSAI exam-prep bootcamp in India built around the LearnToExploit Model Attack & Red Teaming lab track.",
   },
   "course:oswe": {
     q: "What is the OSWE certification?",
-    a: "The Offensive Security Web Expert (OSWE, OffSec) is an advanced white-box web-application security certification focused on source-code review and chaining vulnerabilities into working exploits. Macksofy runs an OSWE exam-prep bootcamp with hands-on web-exploitation labs in India.",
+    a: "The Offensive Security Web Expert (OSWE) is an advanced white-box web-application security certification focused on source-code review and chaining vulnerabilities into working exploits. Macksofy runs an OSWE exam-prep bootcamp with hands-on web-exploitation labs in India.",
   },
   "course:oswa": {
     q: "What is the OSWA certification?",
-    a: "The Offensive Security Web Assessor (OSWA, OffSec) certifies black-box web-application assessment skills — finding and exploiting common web vulnerabilities without source access. Macksofy runs an OSWA exam-prep bootcamp with practical web-testing labs in India.",
+    a: "The Offensive Security Web Assessor (OSWA) certifies black-box web-application assessment skills — finding and exploiting common web vulnerabilities without source access. Macksofy runs an OSWA exam-prep bootcamp with practical web-testing labs in India.",
   },
   "course:oswp": {
     q: "What is the OSWP certification?",
-    a: "The Offensive Security Wireless Professional (OSWP, OffSec) certifies practical Wi-Fi attack skills — cracking WEP/WPA and attacking wireless infrastructure. Macksofy runs an OSWP exam-prep bootcamp with hands-on wireless labs in India.",
+    a: "The Offensive Security Wireless Professional (OSWP) certifies practical Wi-Fi attack skills — cracking WEP/WPA and attacking wireless infrastructure. Macksofy runs an OSWP exam-prep bootcamp with hands-on wireless labs in India.",
   },
   "course:osda": {
     q: "What is the OSDA certification?",
-    a: "The Offensive Security Defense Analyst (OSDA, OffSec) certifies blue-team detection skills — using SIEM and telemetry to detect and analyse attacks across the kill chain. Macksofy runs an OSDA (SOC-200) exam-prep bootcamp with live detection labs in India.",
+    a: "The Offensive Security Defense Analyst (OSDA) certifies blue-team detection skills — using SIEM and telemetry to detect and analyse attacks across the kill chain. Macksofy runs an OSDA (SOC-200) exam-prep bootcamp with live detection labs in India.",
   },
   "course:osed": {
     q: "What is the OSED certification?",
-    a: "The Offensive Security Exploit Developer (OSED, OffSec) certifies Windows exploit-development skills — stack overflows, bypassing mitigations, and writing custom shellcode. Macksofy runs an OSED exam-prep bootcamp for aspiring exploit developers in India.",
+    a: "The Offensive Security Exploit Developer (OSED) certifies Windows exploit-development skills — stack overflows, bypassing mitigations, and writing custom shellcode. Macksofy runs an OSED exam-prep bootcamp for aspiring exploit developers in India.",
   },
   "course:osmr": {
     q: "What is the OSMR certification?",
-    a: "The Offensive Security macOS Researcher (OSMR, OffSec) certifies advanced macOS exploitation and security-research skills. Macksofy runs an OSMR exam-prep bootcamp for experienced researchers targeting Apple platforms in India.",
+    a: "The Offensive Security macOS Researcher (OSMR) certifies advanced macOS exploitation and security-research skills. Macksofy runs an OSMR exam-prep bootcamp for experienced researchers targeting Apple platforms in India.",
   },
   "course:cysa-plus": {
     q: "What is the CompTIA CySA+ certification?",
@@ -490,15 +490,15 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
     // Retargeted 2026-10-16 (two-site plan): cost intent now belongs to the
     // training site; this page answers the Mumbai training question.
     q: "How does OSCP training work in Mumbai?",
-    a: "Most Mumbai candidates pair OffSec's PEN-200 course and labs with a mentor-led bootcamp. Macksofy's runs as a 12-week hybrid programme alongside the 90-day OffSec lab, ending in the 24-hour hands-on exam and a 24-hour reporting window. The deciding choice is the OffSec plan: Learn One includes a second exam attempt, the Course + Cert Bundle does not.",
+    a: "Most Mumbai candidates pair Offensive Security's PEN-200 course and labs with a mentor-led bootcamp. Macksofy's runs as a 12-week hybrid programme alongside the 90-day Offensive Security lab, ending in the 24-hour hands-on exam and a 24-hour reporting window. The deciding choice is the Offensive Security plan: Learn One includes a second exam attempt, the Course + Cert Bundle does not.",
   },
   "blog:soc-analyst-training-india-2026": {
     q: "Which SOC analyst certification is best in India — CSA, SOC-200, or CySA+?",
-    a: "There is no single best: EC-Council's CSA suits absolute beginners, OffSec's SOC-200 (OSDA) is the most hands-on detection credential, and CompTIA CySA+ is widely recognised by employers. The right pick depends on your experience and target role. Macksofy runs job-focused SOC analyst training on Wazuh, ELK, and Splunk in India.",
+    a: "There is no single best: EC-Council's CSA suits absolute beginners, Offensive Security's SOC-200 (OSDA) is the most hands-on detection credential, and CompTIA CySA+ is widely recognised by employers. The right pick depends on your experience and target role. Macksofy runs job-focused SOC analyst training on Wazuh, ELK, and Splunk in India.",
   },
   "blog:offsec-learn-one-india-pricing-roi-2026": {
-    q: "Is OffSec Learn One worth it in India?",
-    a: "OffSec Learn One is a one-year subscription bundling a course, exam attempts, and lab time — cost-effective if you certify within twelve months, since its ROI depends on finishing inside that window. Macksofy pairs OffSec pathways with mentor-led bootcamps in India to help learners complete the exam before the subscription lapses.",
+    q: "Is Offensive Security Learn One worth it in India?",
+    a: "Offensive Security Learn One is a one-year subscription bundling a course, exam attempts, and lab time — cost-effective if you certify within twelve months, since its ROI depends on finishing inside that window. Macksofy pairs Offensive Security pathways with mentor-led bootcamps in India to help learners complete the exam before the subscription lapses.",
   },
   "blog:red-team-certifications-india-2026": {
     q: "OSEP vs CRTO vs CRTP — which red team certification is best?",
@@ -517,10 +517,10 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   // Comparison posts lead with the differentiator rather than a definition:
   // the query being answered is "which one", so the extractable answer is a
   // verdict. Same pattern as blog:red-team-certifications-india-2026 above.
-  // OffSec credentials are always described as exam-prep bootcamps — Macksofy
-  // is not an OffSec partner or authorised training centre.
+  // Offensive Security credentials are always described as exam-prep bootcamps — Macksofy
+  // is not an Offensive Security partner or authorised training centre.
   "blog:oswe-vs-oscp": {
-    q: "OSWE vs OSCP — which OffSec certification should you take?",
+    q: "OSWE vs OSCP — which Offensive Security certification should you take?",
     a: "OSCP is the broad, benchmark hands-on penetration-testing certification covering networks and Active Directory; OSWE is a specialist white-box web-application exploitation certification that requires reading source code. Most candidates take OSCP first, then OSWE to specialise in appsec. Macksofy runs mentor-led OSCP and OSWE exam-prep bootcamps across India.",
   },
   "blog:osep-vs-oscp": {
@@ -541,7 +541,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "blog:oscp-plus-vs-oscp-2026": {
     q: "What is the difference between OSCP and OSCP+?",
-    a: "OSCP+ is the same exam with a currency requirement: OffSec rebranded the credential in late 2024 so OSCP+ lapses after three years unless renewed through continuing education, while plain OSCP stays lifetime but undated. The exam itself expanded Active Directory and dropped buffer overflow. Macksofy runs OSCP exam-prep bootcamps in India.",
+    a: "OSCP+ is the same exam with a currency requirement: Offensive Security rebranded the credential in late 2024 so OSCP+ lapses after three years unless renewed through continuing education, while plain OSCP stays lifetime but undated. The exam itself expanded Active Directory and dropped buffer overflow. Macksofy runs OSCP exam-prep bootcamps in India.",
   },
   "blog:oscp-vs-ceh-india-2026": {
     q: "OSCP vs CEH — which certification should you take in India?",
@@ -553,7 +553,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "blog:osda-exam-tips-2026": {
     q: "How hard is the OSDA exam and how do you pass it?",
-    a: "OSDA is OffSec's SOC-200 defensive certification, earned in a proctored exam where you detect and reconstruct attacker activity from logs rather than exploit systems. Passing turns on a disciplined query workflow in Splunk and ELK, and on documenting the full attack chain. Macksofy runs mentor-led SOC-200 exam-prep bootcamps in India.",
+    a: "OSDA is Offensive Security's SOC-200 defensive certification, earned in a proctored exam where you detect and reconstruct attacker activity from logs rather than exploit systems. Passing turns on a disciplined query workflow in Splunk and ELK, and on documenting the full attack chain. Macksofy runs mentor-led SOC-200 exam-prep bootcamps in India.",
   },
 
   // ── Service and engagement comparisons ──
@@ -673,7 +673,7 @@ export const SHORT_ANSWERS: Record<string, ShortAnswer> = {
   },
   "blog:osai-vs-learntoexploit-model-attack-red-teaming-2026": {
     q: "Which should I do first, OSAI or the LearnToExploit Model Attack & Red Teaming course?",
-    a: "Do LearnToExploit first. Its 12 modules and 9 browser labs cover the attack classes behind every OffSec AI-300 module plus jailbreaking, output handling and system-prompt extraction, for ₹10,000 with no prerequisites. OSAI then adds depth on multi-agent A2A protocols, embedding inversion and MCP internals, a 24-hour proctored exam and the OffSec credential, at roughly ₹1,70,000.",
+    a: "Do LearnToExploit first. Its 12 modules and 9 browser labs cover the attack classes behind every Offensive Security AI-300 module plus jailbreaking, output handling and system-prompt extraction, for ₹10,000 with no prerequisites. OSAI then adds depth on multi-agent A2A protocols, embedding inversion and MCP internals, a 24-hour proctored exam and the Offensive Security credential, at roughly ₹1,70,000.",
   },
   "blog:agentic-ai-security-testing-checklist-2026": {
     q: "What is agentic AI security testing?",

@@ -23,7 +23,7 @@ import { breadcrumbSchema, courseSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { COURSES, getCourseBySlug } from "@/content/courses";
 import { pickRelatedCourses } from "@/lib/related";
-import { vendorLogo, vendorImageLabel } from "@/content/vendorLogos";
+import { vendorLogo } from "@/content/vendorLogos";
 import { SITE } from "@/lib/site";
 import { formatINR } from "@/lib/utils";
 import { Outcomes } from "@/components/visuals/outcomes/Outcomes";
@@ -145,7 +145,7 @@ export default async function CourseDetail({ params }: PageProps) {
                       </div>
                     ) : (
                       <span className="rounded-lg bg-bg/70 backdrop-blur px-2.5 py-1.5 ring-1 ring-line font-mono text-[10px] uppercase tracking-wider text-neon-cyan">
-                        {vendorImageLabel(c.vendor)}
+                        {c.vendor}
                       </span>
                     );
                   })()}

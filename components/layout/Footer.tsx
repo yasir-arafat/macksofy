@@ -208,7 +208,7 @@ export function Footer({ nav }: { nav: NavIndex }) {
             <SiteIndexList
               title="Training"
               items={nav.mega.training}
-              extra={[{ title: "OffSec training hub", href: "/training/offsec" }]}
+              extra={[{ title: "Offensive Security training hub", href: "/training/offsec" }]}
             />
             <SiteIndexList title="Audits & compliance" items={nav.mega.audit} />
             <SiteIndexList

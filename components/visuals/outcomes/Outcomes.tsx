@@ -132,7 +132,7 @@ const STYLE_MAP: Record<string, { style: OutcomesStyle; accent: OutcomesAccent }
   ctia: { style: "achievementgrid", accent: "cyan" },
   csa: { style: "capabilitybars", accent: "cyan" },
   cpent: { style: "skilltree", accent: "rose" },
-  // OffSec
+  // Offensive Security
   "sec-100-cybercore": { style: "achievementgrid", accent: "cyan" },
   oscp: { style: "skilltree", accent: "rose" },
   "osep": { style: "skilltree", accent: "rose" },

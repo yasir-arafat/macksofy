@@ -15,7 +15,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { COURSES, getCourseBySlug } from "@/content/courses";
-import { VENDOR_LOGOS, vendorImageLabel } from "@/content/vendorLogos";
+import { VENDOR_LOGOS } from "@/content/vendorLogos";
 import { formatINR } from "@/lib/utils";
 import { metroKeywords } from "@/lib/site";
 import { AnswerBox } from "@/components/sections/AnswerBox";
@@ -126,7 +126,7 @@ const COURSE_ROUTES: { goal: string; why: string; slugs: string[] }[] = [
   },
   {
     goal: "I want to red-team AI, LLM and agent systems",
-    why: "OffSec's AI red-team certification — agents, RAG, MCP and AI infrastructure — prepared on the LearnToExploit AI lab track.",
+    why: "Offensive Security's AI red-team certification — agents, RAG, MCP and AI infrastructure — prepared on the LearnToExploit AI lab track.",
     slugs: ["osai"],
   },
   {
@@ -178,11 +178,11 @@ const TRAINING_FAQS = [
   },
   {
     q: "Are these courses online or in person?",
-    a: "Both. EC-Council and CompTIA courses are live instructor-led, online or offline at Mumbai BKC. Offensive Security tracks are hybrid — Macksofy mentorship alongside your own OffSec lab access — because the exam and labs are run by the vendor. Nothing is pre-recorded.",
+    a: "Both. EC-Council and CompTIA courses are live instructor-led, online or offline at Mumbai BKC. Offensive Security tracks are hybrid — Macksofy mentorship alongside your own Offensive Security lab access — because the exam and labs are run by the vendor. Nothing is pre-recorded.",
   },
   {
     q: "How long does an ethical hacking course take?",
-    a: "CEH v13 is 40 hours, delivered either as five intensive days or across eight weekends. CEH Practical is a 24-hour lab marathon over three days. Offensive Security tracks run longer because they include vendor lab time — OSCP is a 12-week bootcamp alongside 90 days of OffSec lab access and a 24-hour exam.",
+    a: "CEH v13 is 40 hours, delivered either as five intensive days or across eight weekends. CEH Practical is a 24-hour lab marathon over three days. Offensive Security tracks run longer because they include vendor lab time — OSCP is a 12-week bootcamp alongside 90 days of Offensive Security lab access and a 24-hour exam.",
   },
   {
     q: "Do I need programming experience or a degree to start?",
@@ -225,7 +225,7 @@ export default function TrainingPage() {
         <Container className="relative pt-12 pb-20 sm:pt-16 sm:pb-28">
           <Breadcrumbs items={[{ name: "Training", href: "/training" }]} />
           <div className="mt-8 max-w-4xl">
-            <Eyebrow color="purple">EC-Council ATC · CompTIA · OffSec prep</Eyebrow>
+            <Eyebrow color="purple">EC-Council ATC · CompTIA · Offensive Security prep</Eyebrow>
             <h1 className="mt-4 font-display text-5xl font-black sm:text-6xl lg:text-7xl text-balance leading-[0.95]">
               Cyber security &amp; ethical hacking courses.{" "}
               <span className="gradient-text">Mentor until you pass.</span>
@@ -241,7 +241,7 @@ export default function TrainingPage() {
                 href="/training/offsec"
                 className="inline-flex items-center gap-2 rounded-full border border-neon-cyan/40 bg-neon-cyan/10 px-4 py-2 text-sm font-semibold text-neon-cyan hover:bg-neon-cyan/20 transition-colors"
               >
-                View all OffSec certifications
+                View all Offensive Security certifications
                 <ArrowRight className="size-4" />
               </Link>
               <span className="text-xs text-fg-faint font-mono uppercase tracking-wider">
@@ -352,7 +352,7 @@ export default function TrainingPage() {
                       // Designed covers already show code, name and level: keep only the
                       // badges, in the top-right corner, which is empty on every cover.
                       <div className="absolute top-4 right-4 flex items-center gap-2">
-                        <Badge variant="cyan">{vendorImageLabel(c.vendor)}</Badge>
+                        <Badge variant="cyan">{c.vendor}</Badge>
                         {c.popular && <Badge variant="amber">Popular</Badge>}
                       </div>
                     ) : (
@@ -360,7 +360,7 @@ export default function TrainingPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
                         <div className="absolute inset-0 flex flex-col justify-between p-4">
                           <div className="flex items-center gap-2">
-                            <Badge variant="cyan">{vendorImageLabel(c.vendor)}</Badge>
+                            <Badge variant="cyan">{c.vendor}</Badge>
                             {c.popular && <Badge variant="amber">Popular</Badge>}
                           </div>
                           <div className="flex items-end justify-between">

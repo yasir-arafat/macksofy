@@ -10,7 +10,7 @@ export const VENDOR_LOGOS: { vendor: CourseVendor; src: string; alt: string; lab
   // Program (verified 2026-08-25). VENDOR_LOGOS feeds the About accreditation
   // wall and the /training partner strip, where a vendor mark reads as
   // accreditation whatever the alt text says - the same reasoning already
-  // applied to OffSec in app/lp/ceh-certification/page.tsx. CompTIA courses
+  // applied to Offensive Security in app/lp/ceh-certification/page.tsx. CompTIA courses
   // are still taught and still named; only the partnership claim is removed.
   // No Mile2 logo either: the partnership could not be evidenced (2026-09-18)
   // and no course was delivered under it - an accreditation with no delivery
@@ -21,11 +21,3 @@ export const VENDOR_LOGOS: { vendor: CourseVendor; src: string; alt: string; lab
 export const vendorLogo = (vendor: CourseVendor) =>
   VENDOR_LOGOS.find((v) => v.vendor === vendor);
 
-/**
- * Vendor name as printed on course images (card badges and the course-page
- * image label). OffSec courses show the full name "Offensive Security" there,
- * as the site owner asked on 2026-11-10; running text elsewhere still says
- * OffSec.
- */
-export const vendorImageLabel = (vendor: CourseVendor): string =>
-  vendor === "OffSec" ? "Offensive Security" : vendor;

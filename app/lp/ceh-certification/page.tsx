@@ -35,9 +35,9 @@ const ACCREDITATIONS = [
   { src: "/partners/ec-council.jpg", alt: "EC-Council Accredited Training Center" },
   { src: "/partners/cert-in.png", alt: "CERT-In Empanelled Auditor" },
   { src: "/partners/iso-27001.webp", alt: "ISO 27001 Certified" },
-  // No OffSec logo here: Macksofy is not an OffSec partner or authorised
+  // No Offensive Security logo here: Macksofy is not an Offensive Security partner or authorised
   // training centre, and a vendor mark inside a list named ACCREDITATIONS
-  // reads as accreditation whatever the alt text says. OffSec credentials
+  // reads as accreditation whatever the alt text says. Offensive Security credentials
   // are referenced in copy only, as "Offensive Security exam-prep bootcamps".
   { src: "/partners/startup-india.png", alt: "Startup India Recognized" },
 ];

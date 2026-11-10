@@ -21,7 +21,7 @@ import { Eyebrow } from "@/components/ui/SectionTitle";
 import { Reveal } from "@/components/motion/Reveal";
 
 const CREDENTIALS = [
-  { label: "OSCP", body: "OffSec Certified Professional" },
+  { label: "OSCP", body: "Offensive Security Certified Professional" },
   { label: "CEH", body: "EC-Council Certified Ethical Hacker" },
   { label: "CHFI", body: "Computer Hacking Forensic Investigator" },
   { label: "ISO 27001 LA", body: "ISO 27001:2022 Lead Auditor" },

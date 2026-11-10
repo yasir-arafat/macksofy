@@ -1022,7 +1022,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     abbr: "Offensive Security Certified Professional",
     category: "Certifications",
     definition:
-      "The OSCP is the industry's benchmark hands-on penetration-testing certification from OffSec, earned by compromising machines in a 24-hour proctored lab exam. It proves practical exploitation skill rather than multiple-choice knowledge.",
+      "The OSCP is the industry's benchmark hands-on penetration-testing certification from Offensive Security, earned by compromising machines in a 24-hour proctored lab exam. It proves practical exploitation skill rather than multiple-choice knowledge.",
     related: ["ceh", "penetration-testing"],
     link: { label: "OSCP exam-prep bootcamp", href: "/training/oscp" },
   },

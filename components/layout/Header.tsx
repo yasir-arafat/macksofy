@@ -1235,7 +1235,7 @@ const MobileMegaList = memo(function MobileMegaList({
     Offensive: "text-red-300",
     Defensive: "text-emerald-300",
     "Compliance Adjacent": "text-amber-300",
-    OffSec: "text-neon-purple",
+    "Offensive Security": "text-neon-purple",
     "EC-Council": "text-neon-cyan",
     CompTIA: "text-amber-300",
     Macksofy: "text-emerald-300",
@@ -1341,7 +1341,7 @@ function ListPreviewMegaMenu({
     Defensive: { dot: "bg-emerald-400", text: "text-emerald-300" },
     "Managed Services": { dot: "bg-neon-green", text: "text-neon-green" },
     "Compliance Adjacent": { dot: "bg-amber-400", text: "text-amber-300" },
-    OffSec: { dot: "bg-neon-purple", text: "text-neon-purple" },
+    "Offensive Security": { dot: "bg-neon-purple", text: "text-neon-purple" },
     "EC-Council": { dot: "bg-neon-cyan", text: "text-neon-cyan" },
     CompTIA: { dot: "bg-amber-400", text: "text-amber-300" },
     Macksofy: { dot: "bg-emerald-400", text: "text-emerald-300" },
@@ -1359,7 +1359,7 @@ function ListPreviewMegaMenu({
     "Managed Services": "col-span-12 sm:col-span-6 lg:col-span-3",
     Defensive: "col-span-12 sm:col-span-6 lg:col-span-2",
     "Compliance Adjacent": "col-span-12 sm:col-span-6 lg:col-span-3",
-    OffSec: "col-span-12 sm:col-span-6 lg:col-span-3",
+    "Offensive Security": "col-span-12 sm:col-span-6 lg:col-span-3",
     "EC-Council": "col-span-12 sm:col-span-6 lg:col-span-3",
     CompTIA: "col-span-12 sm:col-span-6 lg:col-span-3",
     Macksofy: "col-span-12 sm:col-span-6 lg:col-span-3",
@@ -1505,7 +1505,7 @@ function ListPreviewMegaMenu({
         const groupUlCols: Record<string, string> = {
           "Indian Regulatory": "grid-cols-2 gap-x-2",
           Offensive: "grid-cols-2 gap-x-2",
-          OffSec: "grid-cols-2 gap-x-2",
+          "Offensive Security": "grid-cols-2 gap-x-2",
         };
 
         const groupBlocks = groupOrder.map((g) => {
@@ -1554,6 +1554,7 @@ function ListPreviewMegaMenu({
                       onHover={handleHover}
                       onClose={onClose}
                       compact={compact}
+                      hideBadge={it.badge === g}
                     />
                   );
                 })}
@@ -1640,13 +1641,13 @@ function ListPreviewMegaMenu({
           );
         }
 
-        // Training: full-width, weighted column widths. OffSec (9
+        // Training: full-width, weighted column widths. Offensive Security (9
         // courses, internal 2-col via groupUlCols) gets the widest
         // slot; CompTIA + Macksofy stack vertically inside one column
         // since both are 3-item lists.
         if (type === "training") {
           const trainingColumns: { groups: string[]; colSpan: string }[] = [
-            { groups: ["OffSec"], colSpan: "lg:col-span-5" },
+            { groups: ["Offensive Security"], colSpan: "lg:col-span-5" },
             { groups: ["EC-Council"], colSpan: "lg:col-span-4" },
             { groups: ["CompTIA", "Macksofy"], colSpan: "lg:col-span-3" },
           ];
@@ -1736,6 +1737,7 @@ const MegaItemRow = memo(function MegaItemRow({
   onHover,
   onClose,
   compact = false,
+  hideBadge = false,
 }: {
   item: MegaItem;
   index: number;
@@ -1743,6 +1745,8 @@ const MegaItemRow = memo(function MegaItemRow({
   onHover: (slug: string) => void;
   onClose: () => void;
   compact?: boolean;
+  /** Skip the badge when it only repeats the column heading (e.g. vendor). */
+  hideBadge?: boolean;
 }) {
   // Cap per-item animation delay so wide menus with many rows finish
   // staggering in under ~0.5s (otherwise late items animate on top of
@@ -1787,7 +1791,7 @@ const MegaItemRow = memo(function MegaItemRow({
               >
                 {item.title}
               </span>
-              {item.badge && (
+              {item.badge && !hideBadge && (
                 <span
                   className={cn(
                     "shrink-0 rounded-full ring-1 px-1.5 text-[8px] font-bold uppercase tracking-wider",
@@ -1851,7 +1855,7 @@ const MegaItemRow = memo(function MegaItemRow({
             >
               {item.title}
             </div>
-            {item.badge && (
+            {item.badge && !hideBadge && (
               <span
                 className={cn(
                   "inline-flex shrink-0 items-center rounded-full ring-1 px-1.5 text-[9px] font-bold uppercase tracking-wider",

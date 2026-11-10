@@ -93,7 +93,7 @@ const SERVICE_CATEGORY_RANK: Record<string, number> = {
 };
 
 const COURSE_VENDOR_RANK: Record<string, number> = {
-  OffSec: 0,
+  "Offensive Security": 0,
   "EC-Council": 1,
   CompTIA: 2,
   Macksofy: 3,
@@ -108,7 +108,7 @@ const AUDIT_CATEGORY_RANK: Record<string, number> = {
 };
 
 const vendorTone = (vendor: string): BadgeTone =>
-  vendor === "OffSec"
+  vendor === "Offensive Security"
     ? "purple"
     : vendor === "EC-Council"
     ? "cyan"
