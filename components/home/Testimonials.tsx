@@ -8,11 +8,20 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { TESTIMONIALS } from "@/content/testimonials";
 import { ParticleBackground } from "@/components/visuals/ParticleBackground";
 
+// Real, named quotes lead the carousel, so the first slide (the only one in
+// the server HTML, and the one phone visitors see without tapping) is a
+// quote someone agreed to put their name to. The array order still drives
+// TrustStrip on service pages, which is unaffected.
+const ORDERED = [
+  ...TESTIMONIALS.filter((t) => t.name),
+  ...TESTIMONIALS.filter((t) => !t.name),
+];
+
 export function Testimonials() {
   const [idx, setIdx] = useState(0);
-  const t = TESTIMONIALS[idx];
-  const next = () => setIdx((i) => (i + 1) % TESTIMONIALS.length);
-  const prev = () => setIdx((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  const t = ORDERED[idx];
+  const next = () => setIdx((i) => (i + 1) % ORDERED.length);
+  const prev = () => setIdx((i) => (i - 1 + ORDERED.length) % ORDERED.length);
 
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden border-y border-line">
@@ -89,13 +98,13 @@ export function Testimonials() {
                 <ChevronRight className="size-4" />
               </button>
               <span className="text-sm text-fg-faint font-mono">
-                {String(idx + 1).padStart(2, "0")} / {String(TESTIMONIALS.length).padStart(2, "0")}
+                {String(idx + 1).padStart(2, "0")} / {String(ORDERED.length).padStart(2, "0")}
               </span>
             </div>
           </div>
 
           <div className="lg:col-span-4 space-y-3">
-            {TESTIMONIALS.map((tt, i) => (
+            {ORDERED.map((tt, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
