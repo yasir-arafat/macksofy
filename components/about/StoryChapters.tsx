@@ -60,7 +60,7 @@ const CHAPTERS: Chapter[] = [
     year: "2017",
     icon: Building2,
     title: "From training to full-stack consulting.",
-    body: "Three years in, our students were getting hired as pen-testers — and then asking us to consult on their first engagements. We listened. By 2017 we'd added VAPT, SOC engineering and red-team services as proper consulting practices, hired full-time OSCP/OSWE practitioners, and moved into the BKC office that's still our HQ. CERT-In empanelment followed shortly.",
+    body: "Three years in, our students were getting hired as pen-testers — and then asking us to consult on their first engagements. We listened. By 2017 we'd added VAPT, SOC engineering and red-team services as proper consulting practices, hired full-time OSCP/OSWE practitioners, and moved into the BKC office that's still our HQ. CERT-In empanelment followed in 2023, and re-empanelment in 2026.",
     metric: { value: "30+", label: "RBI cooperative banks audited" },
     accent: "purple",
   },

@@ -69,20 +69,6 @@ const MILESTONES: Milestone[] = [
     accent: "blue",
   },
   {
-    year: "2020",
-    headline: "CERT-In Empanelled · Information Security Auditor",
-    description:
-      "Empanelled by the Indian Computer Emergency Response Team under MeitY. The credential that lets us deliver regulator-format audits accepted by SEBI, RBI, UIDAI and IRDAI without rework.",
-    highlights: [
-      "CERT-In Empanelment granted",
-      "First RBI System Audit Report engagements",
-      "PCI-DSS practice launched",
-    ],
-    metric: { value: "30+", label: "Regulated audits/year" },
-    icon: ShieldCheck,
-    accent: "green",
-  },
-  {
     year: "2022",
     headline: "Offensive Security exam-prep bootcamp launched",
     description:
@@ -95,6 +81,20 @@ const MILESTONES: Milestone[] = [
     metric: { value: "12,000+", label: "Total alumni" },
     icon: Cpu,
     accent: "purple",
+  },
+  {
+    year: "2023",
+    headline: "CERT-In Empanelled · Information Security Auditor",
+    description:
+      "Empanelled by the Indian Computer Emergency Response Team (CERT-In) under MeitY as an information security auditing organisation. The credential behind our regulator-format audits, built to the formats SEBI, RBI, UIDAI and IRDAI expect.",
+    highlights: [
+      "CERT-In Empanelment granted",
+      "First RBI System Audit Report engagements",
+      "PCI-DSS practice launched",
+    ],
+    metric: { value: "30+", label: "Regulated audits/year" },
+    icon: ShieldCheck,
+    accent: "green",
   },
   {
     year: "2024",
@@ -123,6 +123,20 @@ const MILESTONES: Milestone[] = [
     metric: { value: "9", label: "Industry awards to date" },
     icon: Sparkles,
     accent: "cyan",
+  },
+  {
+    year: "2026",
+    headline: "Re-empanelled by CERT-In",
+    description:
+      "Re-empanelled by CERT-In (MeitY) as an information security auditing organisation, three years after the first empanelment in 2023.",
+    highlights: [
+      "CERT-In re-empanelment granted",
+      "First empanelled in 2023",
+      "Listed on CERT-In's panel of auditing organisations",
+    ],
+    metric: { value: "2", label: "CERT-In empanelment terms" },
+    icon: ShieldCheck,
+    accent: "green",
   },
 ];
 

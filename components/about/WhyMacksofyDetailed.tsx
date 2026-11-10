@@ -21,7 +21,7 @@ const REASONS = [
   {
     icon: ShieldCheck,
     title: "CERT-In Empanelled · Regulator-ready",
-    body: "Macksofy is empanelled by the Indian Computer Emergency Response Team under MeitY. Our audit reports are accepted by SEBI, RBI, UIDAI and IRDAI — on the first read, with zero rework.",
+    body: "Macksofy has been empanelled by the Indian Computer Emergency Response Team (CERT-In, MeitY) since 2023, and was re-empanelled in 2026. Our audit reports are built to the formats SEBI, RBI, UIDAI and IRDAI expect.",
     accent: "text-neon-cyan",
   },
   {
