@@ -88,7 +88,7 @@ export function TrainingPreview() {
                     // Designed covers already show code, name and level: keep only the
                     // badges, in the top-right corner, which is empty on every cover.
                     <div className="absolute top-4 right-4 flex items-center gap-2">
-                      <Badge variant="cyan">{c.vendor}</Badge>
+                      {!c.coverShowsVendor && <Badge variant="cyan">{c.vendor}</Badge>}
                       {c.popular && <Badge variant="amber">Popular</Badge>}
                     </div>
                   ) : (

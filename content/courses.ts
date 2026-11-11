@@ -19,8 +19,15 @@ export interface Course {
    * the course code, name and level (the Offensive Security covers). Pages frame it at
    * 16:9 so its left-aligned title is not cropped, and skip overlay text and
    * darkening gradients that would repeat or dim what the cover says.
+   * (Corporate Training's cover is 16:10: that course has its own page and
+   * its cover only appears on 16:10 cards.)
    */
   designedCover?: true;
+  /**
+   * True when the cover already carries the vendor's logo, so cards skip the
+   * vendor badge, which would only repeat it (and cover the artwork).
+   */
+  coverShowsVendor?: true;
   duration: string;
   format: string;
   priceINR?: number;
@@ -1805,8 +1812,9 @@ export const COURSES: Course[] = [
     shortTitle: "Corporate Training",
     level: "Foundation",
     vendor: "Macksofy",
-    image: "/courses/OSCC.jpg",
+    image: "/courses/corporate-cybersecurity-training.jpg",
     designedCover: true,
+    coverShowsVendor: true,
     duration: "Customized · typical engagements 2–10 days",
     format: "On-site or virtual · India + UAE",
     hero: {
