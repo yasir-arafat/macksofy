@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -43,6 +44,7 @@ import { SITE } from "@/lib/site";
 // the /training catalogue card and this page cannot drift apart.
 const SLUG = "corporate-training";
 const PATH = `/training/${SLUG}`;
+const BANNER = "/courses/corporate-cybersecurity-training-banner.jpg";
 const course = getCourseBySlug(SLUG)!;
 const shortAnswer = getShortAnswer(`course:${SLUG}`);
 
@@ -194,6 +196,7 @@ export default function CorporateTrainingPage() {
             name: course.title,
             serviceType: "Corporate cybersecurity training",
             description: course.hero.description,
+            image: `${SITE.url}${BANNER}`,
             url: `${SITE.url}${PATH}`,
             provider: { "@id": `${SITE.url}#organization` },
             areaServed: [
@@ -251,7 +254,17 @@ export default function CorporateTrainingPage() {
               </LinkButton>
             </div>
           </div>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Not `priority`: on phones the banner sits below the fold, and preloading it
+              would compete with the stylesheet for bandwidth and delay the first paint. */}
+          <Image
+            src={BANNER}
+            alt="Corporate Training: build skills, strengthen teams. A Macksofy trainer leading a cybersecurity session with a corporate team."
+            width={1945}
+            height={809}
+            sizes="(max-width:1280px) 100vw, 1280px"
+            className="mt-12 h-auto w-full rounded-2xl ring-1 ring-line"
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "Training tracks", value: String(TRACKS.length), icon: ClipboardCheck },
               { label: "Typical delivery", value: "2–10 days", icon: MonitorPlay },
