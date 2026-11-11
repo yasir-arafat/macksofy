@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  ShieldCheck,
   ArrowUpRight,
   Send,
   Clock,
@@ -21,6 +20,7 @@ import type { MegaItemData, NavIndex } from "@/lib/nav-index";
 import { cn } from "@/lib/utils";
 import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
 import { Reveal } from "@/components/motion/Reveal";
+import { CertInLogo, CERT_IN } from "@/components/visuals/CertInLogo";
 
 /* ──────────────────────────────────────────────────────────────
    SOCIAL ICONS (inline SVG — Lucide v1 doesn't ship brand logos)
@@ -121,11 +121,28 @@ export function Footer({ nav }: { nav: NavIndex }) {
               {SITE.description}
             </p>
 
+            {/* CERT-In empanelment, on every page. */}
             <Reveal as="div" y={10}
-              className="mt-6 inline-flex items-center gap-2.5 rounded-full gradient-border px-3 py-1.5 text-xs font-semibold text-fg glow-cyan"
+              className="mt-6 inline-flex max-w-sm items-center gap-3 rounded-2xl gradient-border p-3 glow-cyan"
             >
-              <ShieldCheck className="size-4 text-neon-cyan" />
-              CERT-In Empanelled · Govt of India · MeitY
+              <CertInLogo imgClassName="h-7" sizes="140px" />
+              <div className="min-w-0">
+                <div className="font-display text-sm font-bold text-fg leading-tight">
+                  CERT-In Empanelled Auditing Firm
+                </div>
+                <div className="mt-0.5 text-[11px] text-fg-muted">
+                  Govt of India · MeitY · since {CERT_IN.since}, re-empanelled {CERT_IN.renewed}
+                </div>
+                <a
+                  href={CERT_IN.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-0.5 inline-flex items-center gap-0.5 text-[11px] font-semibold text-neon-cyan hover:text-fg transition-colors"
+                >
+                  Verify on CERT-In&rsquo;s list
+                  <ArrowUpRight className="size-3" />
+                </a>
+              </div>
             </Reveal>
 
             <SocialRow />

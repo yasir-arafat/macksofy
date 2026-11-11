@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { TESTIMONIALS } from "@/content/testimonials";
 import { Reveal } from "@/components/motion/Reveal";
+import { CertInLogo } from "@/components/visuals/CertInLogo";
 
 interface Props {
   /** Optional cap on testimonials displayed (default 3). */
@@ -18,8 +19,8 @@ interface Props {
   eyebrow?: string;
 }
 
+// CERT-In is rendered first, as its own two-column tile with the logo.
 const ACCREDITATIONS = [
-  { label: "CERT-In Empanelled", sub: "Govt of India · MeitY", icon: ShieldCheck, tone: "cyan" },
   { label: "EC-Council ATC", sub: "Authorized Training", icon: Award, tone: "amber" },
   { label: "ISO 27001 Certified", sub: "Info Security Mgmt", icon: ShieldCheck, tone: "green" },
 ] as const;
@@ -65,6 +66,17 @@ export function TrustStrip({ count = 3, eyebrow }: Props) {
 
         {/* Accreditation row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+          <div className="col-span-2 flex items-center gap-3 rounded-xl bg-bg-2/40 ring-1 ring-neon-cyan/40 p-3">
+            <CertInLogo imgClassName="h-7" sizes="140px" />
+            <div className="min-w-0">
+              <div className="font-display text-xs font-bold text-fg leading-tight">
+                CERT-In Empanelled Auditing Firm
+              </div>
+              <div className="font-mono text-[9px] uppercase tracking-wider text-fg-faint">
+                Govt of India · MeitY
+              </div>
+            </div>
+          </div>
           {ACCREDITATIONS.map((a) => {
             const Icon = a.icon;
             return (

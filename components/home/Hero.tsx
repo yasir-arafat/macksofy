@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { AuroraBackground } from "@/components/visuals/AuroraBackground";
 import { SpotlightCursor } from "@/components/visuals/SpotlightCursor";
+import { CertInLogo } from "@/components/visuals/CertInLogo";
 
 const HeroThreeScene = dynamic(
   () => import("@/components/visuals/HeroThreeScene").then((m) => m.HeroThreeScene),
@@ -92,12 +93,11 @@ export function Hero() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-7">
             <div>
-              <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
-                <span className="relative flex size-1.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75 animate-ping" />
-                  <span className="relative inline-flex size-1.5 rounded-full bg-neon-cyan" />
-                </span>
-                CERT-In Empanelled · India + UAE
+              {/* The logo's alt text ("CERT-In") completes the label for screen readers. */}
+              <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 py-1 pl-1 pr-3 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
+                <CertInLogo className="rounded-full px-2 py-0.5" imgClassName="h-3.5" sizes="72px" />
+                Empanelled Auditing Firm
+                <span className="hidden sm:inline">· India + UAE</span>
                 <Sparkles className="size-3" />
               </span>
             </div>
