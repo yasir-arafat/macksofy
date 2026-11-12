@@ -66,6 +66,7 @@ export const REFS: Record<string, Reference> = {
   "nha": { label: "National Health Authority", url: "https://nha.gov.in/", issuer: "NHA, Ministry of Health & Family Welfare" },
   "abdm-sandbox": { label: "ABDM Sandbox — integrator onboarding", url: "https://sandbox.abdm.gov.in/", issuer: "National Health Authority" },
   "cert-in-empanel": { label: "CERT-In empanelled auditing organisations", url: "https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL", issuer: "CERT-In · MeitY" },
+  "cert-in-ai-audit": { label: "CERT-In AI Security Auditing Guidelines v1.0 (PDF)", url: "https://www.cert-in.org.in/PDF/AI_Security_Auditing_Guidelines.pdf", issuer: "CERT-In" },
   "ibm-breach-2025": { label: "Cost of a Data Breach Report 2025: India findings", url: "https://in.newsroom.ibm.com/2025-08-07-India-Records-Highest-Average-Cost-of-a-Data-Breach-IBM", issuer: "IBM" },
   // International standards
   "iso-27001": { label: "ISO/IEC 27001", url: "https://www.iso.org/standard/27001", issuer: "ISO/IEC" },
@@ -73,6 +74,7 @@ export const REFS: Record<string, Reference> = {
   "iso-27018": { label: "ISO/IEC 27018 (Cloud PII)", url: "https://www.iso.org/standard/76559.html", issuer: "ISO/IEC" },
   "iso-27701": { label: "ISO/IEC 27701 (Privacy)", url: "https://www.iso.org/standard/71670.html", issuer: "ISO/IEC" },
   "iso-42001": { label: "ISO/IEC 42001 (AI)", url: "https://www.iso.org/standard/81230.html", issuer: "ISO/IEC" },
+  "nist-ai-rmf": { label: "NIST AI Risk Management Framework (AI RMF 1.0)", url: "https://www.nist.gov/itl/ai-risk-management-framework", issuer: "NIST" },
   "soc2-aicpa": { label: "SOC 2 (AICPA)", url: "https://www.aicpa-cima.com/", issuer: "AICPA" },
   "pci-dss": { label: "PCI DSS", url: "https://www.pcisecuritystandards.org/", issuer: "PCI SSC" },
   "hipaa": { label: "HIPAA (HHS)", url: "https://www.hhs.gov/hipaa/index.html", issuer: "US HHS" },
@@ -217,6 +219,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "blog:top-managed-soc-providers-india-2026": ["nist-csf", "mitre-attack", "cisa-kev"],
   "blog:top-red-teaming-companies-india-2026": ["mitre-attack", "nist-800-115", "cisa-kev"],
   "blog:top-ai-security-assessment-companies-india-2026": ["owasp-llm", "mitre-attack", "nist-csf", "owasp-api"],
+  "blog:cert-in-ai-security-auditing-guidelines-2026": ["cert-in-ai-audit", "iso-42001", "nist-ai-rmf", "mitre-atlas", "owasp-llm"],
   "blog:windows-ad-attack-cheatsheet-2026": ["microsoft-ad-security", "mitre-attack", "nist-800-115"],
   "blog:dpdp-vs-gdpr-2026": ["meity-dpdp", "gdpr", "iso-27701"],
   "blog:dpdp-cross-border-transfer-2026": ["meity-dpdp", "rbi", "gdpr"],
