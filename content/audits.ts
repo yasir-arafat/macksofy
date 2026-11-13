@@ -744,15 +744,26 @@ export const AUDITS: Audit[] = [
         a: "We perform AUA / KUA / ASA audits per the UIDAI Aadhaar Authentication Operating Model.",
       },
       {
+        q: "What is CERT-In certification?",
+        a: "CERT-In certification refers to the process by which an organization's information security posture is audited and certified by a CERT-In empanelled auditor — an auditing firm empanelled by the Indian Computer Emergency Response Team under MeitY. Regulators such as RBI, SEBI, UIDAI and IRDAI expect or mandate this certification for entities they supervise. The audit covers governance, technical security (VAPT), incident-response readiness, third-party risk and compliance mapping, and the deliverable is a report in the format the regulator accepts.",
+      },
+      {
         q: "What is your turnaround for last-minute regulatory deadlines?",
         a: "We can compress engagements for last-minute deadlines (within 15–25 working days for typical scopes). Talk to us — we've helped clients meet 30-day-out RBI / SEBI deadlines successfully.",
       },
+      {
+        q: "How does a CERT-In empanelled audit differ from the empanelment process itself?",
+        a: "Empanelment is what the auditing firm holds — it is CERT-In's recognition that the firm is qualified to perform information security audits. An empanelled audit is what the firm delivers to its clients: the actual security assessment performed under CERT-In's methodology and format. If you are looking for how an organisation gets empanelled by CERT-In, see our [guide to the CERT-In empanelment process](/blog/cert-in-empanelment-process-2026).",
+      },
     ],
-    seoTitle: "CERT-In Empanelled Auditor in India | Macksofy Technologies",
+    seoTitle: "CERT-In Empanelled Audit & Certification in India | Macksofy",
     seoDescription:
-      "Macksofy is a CERT-In empanelled Information Security Auditor. RBI System Audit Reports, SEBI cybersecurity attestation, UIDAI audits. Mumbai HQ.",
+      "Macksofy is a CERT-In certified and empanelled Information Security Auditor. CERT-In certification audits for RBI, SEBI, UIDAI compliance. Mumbai HQ.",
     keywords: [
+      "CERT-In certification",
+      "CERT-In certified",
       "CERT-In empanelled auditor",
+      "CERT-In certification India",
       "CERT-In auditor India",
       "CERT-In empanelment Mumbai",
       "RBI system audit report",

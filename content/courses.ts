@@ -231,7 +231,7 @@ export const COURSES: Course[] = [
     ],
     seoTitle: "Ethical Hacking Course Mumbai: CEH v13 | ₹50,000",
     seoTitleAbsolute: true,
-    seoDescription: "CEH v13 ethical hacking course in Mumbai with live labs, official courseware, exam voucher and placement support. ₹50,000; online and classroom batches.",
+    seoDescription: "CEH v13 at ₹50,000 — EC-Council ATC in Mumbai BKC. Instructor-led by CERT-In empanelled pentesters, live labs, exam voucher included, online + classroom batches.",
     keywords: ["CEH training Mumbai", "CEH v13 India", "ethical hacking course Mumbai", "EC-Council ATC India", "CEH certification India", "best ethical hacking institute India"],
   },
 

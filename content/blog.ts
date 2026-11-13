@@ -372,6 +372,7 @@ export const POSTS: BlogPost[] = [
         type: "para",
         text: "VAPT pricing in India does not vary significantly by city — most engagements are delivered remotely with an on-site kickoff and exit briefing. Whether you are in [Mumbai](/locations/mumbai), [Bengaluru](/locations/bengaluru), [Delhi NCR](/locations/delhi), [Hyderabad](/locations/hyderabad) or [Pune](/locations/pune), the pricing ranges above apply. On-site testing (for network VAPT or air-gapped environments) may carry travel costs for engagements outside Mumbai.",
       },
+      { type: "para", text: "If your compliance mandate also requires continuous monitoring, compare the [managed SOC pricing and tier breakdown](/blog/managed-soc-pricing-india-2026) — many organisations bundle annual VAPT with a managed SOC engagement for a combined price. For cloud-hosted estates, the assessment includes a [cloud security posture review](/services/cloud-security) mapped to CIS benchmarks." },
       {
         type: "cta",
         title: "Get a scoped VAPT quote",
@@ -655,7 +656,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "For a deeper evaluation of managed SOC vendors, see our [top managed SOC providers in India](/blog/top-managed-soc-providers-india-2026) buyer scorecard. For detection engineering and SOC operations content, browse our [managed SOC and detection guides](/blog/category/managed-soc). For how we run it, see our [managed SOC service](/services/managed-soc).",
+        text: "For a deeper evaluation of managed SOC vendors, see our [top managed SOC providers in India](/blog/top-managed-soc-providers-india-2026) buyer scorecard. For detection engineering and SOC operations content, browse our [managed SOC and detection guides](/blog/category/managed-soc). For how we run it, see our [managed SOC service](/services/managed-soc). Budgeting for the compliance testing that typically accompanies a SOC engagement? See the [VAPT cost and pricing guide](/blog/vapt-cost-india-2026) for scope-based ranges, and our [cloud security assessment](/services/cloud-security) for cloud-native estates.",
       },
       {
         type: "cta",
@@ -1223,7 +1224,7 @@ export const POSTS: BlogPost[] = [
         type: "para",
         text: "For a fuller buyer-side walkthrough — what the audit itself covers, the CERT-In report format, the 2022 Directions and the six-hour incident reporting clock — see our [CERT-In empanelled audit guide](/blog/cert-in-empanelled-audit-guide-2026), and use the [cybersecurity company comparison and buyer checklist](/blog/cyber-security-companies-in-mumbai-india-2026) when building a shortlist. Our [top CERT-In empanelled audit providers in India](/blog/top-cert-in-empanelled-audit-providers-india-2026) ranking evaluates firms on panel tenure, audit volume and specialist depth. Telecom operators owe a parallel six-hour report under the [Telecom Cyber Security Rules 2024](/blog/telecom-cyber-security-rules-2024-india-compliance).",
       },
-      { type: "para", text: "If you are on the other side of the table — an organisation that needs an audit rather than a firm seeking empanelment — see how Macksofy runs a [CERT-In empanelled audit](/audit/cert-in-empanelled-audit)." },
+      { type: "para", text: "If you are on the other side of the table — an organisation that needs an audit rather than a firm seeking empanelment — see how Macksofy runs a [CERT-In empanelled audit](/audit/cert-in-empanelled-audit). The technical testing component follows our [VAPT methodology](/services/vapt) (see the [VAPT cost and pricing guide](/blog/vapt-cost-india-2026) for scope-based budgets), continuous monitoring is delivered through our [managed SOC](/services/managed-soc) (see [managed SOC pricing](/blog/managed-soc-pricing-india-2026) for tier breakdowns), and cloud-hosted estates receive a [cloud security assessment](/services/cloud-security) mapped to CIS benchmarks and RBI data-residency requirements." },
       {
         type: "cta",
         title: "Need a CERT-In empanelled audit?",
@@ -9051,8 +9052,8 @@ def fetch_logs(service: str) -> str:
 
   {
     slug: "cspm-vs-cnapp-india-2026",
-    seoTitle: "CSPM vs CNAPP vs CWPP — Cloud Security Tooling 2026",
-    seoDescription: "CSPM, CWPP, CIEM and CNAPP without the marketing — what each does, where they overlap, and a buying sequence for Indian BFSI, fintech and SaaS estates.",
+    seoTitle: "CSPM vs CWPP vs CNAPP vs CIEM: What Each Does and Which to Buy First",
+    seoDescription: "Side-by-side comparison table: what CSPM, CWPP, CIEM and CNAPP each protect, where they overlap, and the buying sequence that avoids overspending.",
     title: "CSPM vs CNAPP vs CWPP: Choosing Cloud Security Tooling for Indian Enterprises (2026)",
     description:
       "CSPM, CWPP, CIEM and CNAPP explained without the marketing — what each actually does, where they overlap, and a practical buying sequence for Indian BFSI, fintech and SaaS estates under RBI, SEBI and DPDP.",
@@ -9066,8 +9067,12 @@ def fetch_logs(service: str) -> str:
     heroKind: "network",
     heroEyebrow: "India · Cloud Security",
     keywords: [
+      "CWPP vs CSPM",
+      "CSPM vs CWPP",
       "CSPM vs CNAPP",
       "CSPM vs CWPP vs CNAPP",
+      "CNAPP vs CSPM vs CWPP",
+      "CSPM CWPP",
       "cloud security tooling India",
       "CNAPP India 2026",
       "CSPM India",
@@ -9205,6 +9210,7 @@ def fetch_logs(service: str) -> str:
       { q: "How do I prepare a cloud estate for a CERT-In or SEBI CSCRF audit?", a: "Run the auditor's checks yourself first: a posture-management scan across every account for public storage, open ports and IAM drift; an IAM blast-radius review for over-permissive and standing privilege; a logging-coverage check for full, retained, monitored audit logs; a data-residency map against RBI and DPDP requirements; and an encryption-and-key-management review. Close the backlog before the audit window and assemble the evidence — posture reports, entitlement reports, logging maps, data-flow diagrams — so the audit becomes an evidence walkthrough rather than a discovery exercise." },
       { q: "Why is cloud logging an audit finding?", a: "Because disabled, sampled or short-retention logging fails on two fronts. First, you cannot detect a compromise without it, which breaches the monitoring expectations in RBI CSF and SEBI CSCRF. Second, you cannot reconstruct an incident to file the CERT-In report within the six-hour window. Auditors check that CloudTrail / Azure Activity / GCP Audit Logs are enabled across all accounts, centralised, retained to the longest applicable mandate, and routed into a monitored SOC — not just switched on and ignored." },
       { q: "Are cloud misconfigurations really behind most cloud breaches?", a: "Yes. The overwhelming majority of cloud compromises trace to customer-side configuration — a public storage bucket, an over-permissive IAM role, a leaked long-lived access key, or an internet-exposed management surface — rather than to a weakness in the cloud provider's infrastructure. That is precisely why these items dominate audit findings and why a posture-plus-identity review closes more real risk than vulnerability scanning alone." },
+      { q: "What is the difference between CWPP and CSPM?", a: "CSPM checks how your cloud is configured — public buckets, open ports, IAM drift, disabled logging. CWPP protects what is actually running — vulnerabilities inside container images, runtime threats, malware in VMs and serverless functions. CSPM is the universal starting point; CWPP matters once you run significant compute. Most estates need CSPM first, then add CWPP when workload-level blind spots become real risk. See the [comparison table above](#at-a-glance) for a side-by-side breakdown." },
     ],
   },
 

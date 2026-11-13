@@ -362,7 +362,7 @@ export const SERVICES: Service[] = [
         a: "Minimum annually for compliance. Mature programs run quarterly + after every major release. Macksofy offers retainer pricing for both.",
       },
     ],
-    seoTitle: "VAPT Services India | Manual Testing + Retest",
+    seoTitle: "VAPT Services India | Pricing, Manual Testing + Free Retest",
     seoDescription:
       "CERT-In empanelled VAPT with authenticated assessment, manual exploitation and false-positive triage, plus regulator-ready reporting and a verification retest.",
     keywords: [
@@ -1010,13 +1010,14 @@ export const SERVICES: Service[] = [
     // Last content change. Without a date the sitemap carried no <lastmod>, and
     // Google had not re-crawled this page since 2026-07-18 ("Crawled - currently
     // not indexed"), so it never saw any of the Aug-Nov updates.
-    updated: "2026-11-06",
+    updated: "2026-11-13",
     slug: "cloud-security",
     title: "Cloud Security (AWS / Azure / GCP)",
     shortTitle: "Cloud Security",
     icon: Cloud,
     iconName: "Cloud",
     category: "Offensive",
+    popular: true,
     hero: {
       eyebrow: "AWS · Azure · GCP · Kubernetes",
       tagline: "Cloud-native attacks demand cloud-native testing.",
