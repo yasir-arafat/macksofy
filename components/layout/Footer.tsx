@@ -13,6 +13,7 @@ import {
   Clock,
   Sparkles,
   ChevronRight,
+  ShieldCheck,
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
@@ -20,7 +21,7 @@ import type { MegaItemData, NavIndex } from "@/lib/nav-index";
 import { cn } from "@/lib/utils";
 import { CookiePrefsLink } from "@/components/widgets/CookiePrefsLink";
 import { Reveal } from "@/components/motion/Reveal";
-import { CertInLogo, CERT_IN } from "@/components/visuals/CertInLogo";
+import { CERT_IN } from "@/components/visuals/CertInLogo";
 
 /* ──────────────────────────────────────────────────────────────
    SOCIAL ICONS (inline SVG — Lucide v1 doesn't ship brand logos)
@@ -121,16 +122,15 @@ export function Footer({ nav }: { nav: NavIndex }) {
               {SITE.description}
             </p>
 
-            {/* CERT-In empanelment, on every page. */}
             <Reveal as="div" y={10}
-              className="mt-6 inline-flex max-w-sm items-center gap-3 rounded-2xl gradient-border p-3 glow-cyan"
+              className="mt-6 inline-flex max-w-sm items-start gap-3 rounded-2xl gradient-border p-3 glow-cyan"
             >
-              <CertInLogo imgClassName="h-7" sizes="140px" />
+              <ShieldCheck className="size-6 shrink-0 text-emerald-400 mt-0.5" />
               <div className="min-w-0">
                 <div className="font-display text-sm font-bold text-fg leading-tight">
-                  CERT-In Empanelled Auditing Firm
+                  {CERT_IN.statement}
                 </div>
-                <div className="mt-0.5 text-[11px] text-fg-muted">
+                <div className="mt-1 text-[11px] text-fg-muted">
                   Govt of India · MeitY · since {CERT_IN.since}, re-empanelled {CERT_IN.renewed}
                 </div>
                 <a

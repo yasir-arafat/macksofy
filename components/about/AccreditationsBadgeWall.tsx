@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ShieldCheck } from "lucide-react";
 import { VENDOR_LOGOS } from "@/content/vendorLogos";
 import { ACCREDITATION_LOGOS } from "@/content/accreditationLogos";
 import { Reveal } from "@/components/motion/Reveal";
@@ -10,7 +11,6 @@ interface BadgeItem {
   src: string;
   alt: string;
   label: string;
-  /** Sub-line under the label (e.g. "Govt of India · MeitY"). */
   sub: string;
 }
 
@@ -44,13 +44,22 @@ export function AccreditationsBadgeWall() {
           className="group rounded-2xl glass p-5 lift"
         >
           <div className="relative aspect-[1024/699] overflow-hidden rounded-xl bg-white">
-            <Image
-              src={it.src}
-              alt={it.alt}
-              fill
-              sizes="(max-width:768px) 50vw, 320px"
-              className="object-contain p-4"
-            />
+            {it.src ? (
+              <Image
+                src={it.src}
+                alt={it.alt}
+                fill
+                sizes="(max-width:768px) 50vw, 320px"
+                className="object-contain p-4"
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-3 text-center">
+                <ShieldCheck className="size-10 text-emerald-600" />
+                <span className="text-[10px] font-semibold leading-tight text-gray-700">
+                  {it.alt}
+                </span>
+              </div>
+            )}
           </div>
           <div className="mt-3 text-center">
             <div className="font-display text-sm font-bold text-fg">

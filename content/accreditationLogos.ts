@@ -13,8 +13,8 @@ export interface AccreditationLogo {
 export const ACCREDITATION_LOGOS: AccreditationLogo[] = [
   {
     key: "cert-in",
-    src: "/partners/cert-in.png",
-    alt: "CERT-In Empanelled — Indian Computer Emergency Response Team",
+    src: "",
+    alt: "This Organization is empaneled by CERT-In for providing information Security Auditing Service",
     label: "CERT-In Empanelled",
     body: "Govt of India · MeitY",
   },

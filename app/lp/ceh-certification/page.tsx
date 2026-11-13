@@ -33,7 +33,7 @@ const CEH_VIDEO_ID = "a0pL7v6QVAk";
 
 const ACCREDITATIONS = [
   { src: "/partners/ec-council.jpg", alt: "EC-Council Accredited Training Center" },
-  { src: "/partners/cert-in.png", alt: "CERT-In Empanelled Auditor" },
+  { src: "", alt: "CERT-In Empanelled Auditor" },
   { src: "/partners/iso-27001.webp", alt: "ISO 27001 Certified" },
   // No Offensive Security logo here: Macksofy is not an Offensive Security partner or authorised
   // training centre, and a vendor mark inside a list named ACCREDITATIONS
@@ -287,13 +287,20 @@ export default function CehLandingPage() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             {ACCREDITATIONS.map((a) => (
               <div
-                key={a.src}
+                key={a.alt}
                 className="flex h-14 items-center justify-center rounded-xl bg-white px-5 shadow-sm"
                 title={a.alt}
               >
-                <div className="relative h-8 w-24">
-                  <Image src={a.src} alt={a.alt} fill sizes="96px" className="object-contain" />
-                </div>
+                {a.src ? (
+                  <div className="relative h-8 w-24">
+                    <Image src={a.src} alt={a.alt} fill sizes="96px" className="object-contain" />
+                  </div>
+                ) : (
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+                    <ShieldCheck className="size-5" />
+                    CERT-In Empanelled
+                  </span>
+                )}
               </div>
             ))}
           </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight, Terminal, Sparkles } from "lucide-react";
+import { Phone, ArrowRight, Terminal, Sparkles, ShieldCheck } from "lucide-react";
 import { Fragment, useSyncExternalStore } from "react";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -10,7 +10,6 @@ import dynamic from "next/dynamic";
 import { GlowOrb } from "@/components/visuals/GlowOrb";
 import { AuroraBackground } from "@/components/visuals/AuroraBackground";
 import { SpotlightCursor } from "@/components/visuals/SpotlightCursor";
-import { CertInLogo } from "@/components/visuals/CertInLogo";
 
 const HeroThreeScene = dynamic(
   () => import("@/components/visuals/HeroThreeScene").then((m) => m.HeroThreeScene),
@@ -93,10 +92,9 @@ export function Hero() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center w-full">
           <div className="lg:col-span-7">
             <div>
-              {/* The logo's alt text ("CERT-In") completes the label for screen readers. */}
-              <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 py-1 pl-1 pr-3 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
-                <CertInLogo className="rounded-full px-2 py-0.5" imgClassName="h-3.5" sizes="72px" />
-                Empanelled Auditing Firm
+              <span className="relative inline-flex items-center gap-2 rounded-full bg-neon-cyan/10 ring-1 ring-neon-cyan/40 py-1 pl-2.5 pr-3 text-[10px] font-mono uppercase tracking-[0.22em] text-neon-cyan">
+                <ShieldCheck className="size-3.5 shrink-0 text-emerald-400" />
+                CERT-In Empanelled Auditing Firm
                 <span className="hidden sm:inline">· India + UAE</span>
                 <Sparkles className="size-3" />
               </span>
