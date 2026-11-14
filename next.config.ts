@@ -164,6 +164,12 @@ const nextConfig: NextConfig = {
         ],
       },
 
+      // Font files should not appear in search results.
+      {
+        source: "/:path(.*\\.(?:woff2?|ttf|otf))",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+
       // next/image responses — short cache, served from the optimizer
       // route. CDN can extend this safely; the optimizer regenerates if
       // the source changes.
