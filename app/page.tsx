@@ -19,7 +19,7 @@ import Link from "next/link";
 import { POSTS } from "@/content/blog";
 
 export const metadata = buildMetadata({
-  title: "CERT-In Empanelled Cybersecurity Company in India",
+  title: "CERT-In Empanelled Cybersecurity Company India",
   description:
     "CERT-In empanelled cybersecurity company for VAPT, penetration testing, managed SOC, red teaming, API and AI security across India and the UAE.",
   path: "/",

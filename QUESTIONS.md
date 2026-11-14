@@ -11,7 +11,7 @@ Items that require owner input before implementation. Updated with answers as re
 **ANSWERED**: Use "Macksofy Technical Editorial Team" as the author across all posts. No individual person authors.
 
 ### Q3. Publishable INR price ranges for VAPT and main audits; course fees
-**PENDING** — Owner to provide INR ranges.
+**ANSWERED**: Web application VAPT starts from ₹40,000. Red teaming starts from ₹2,00,000.
 
 ### Q4. Scope of the USD 1,000 US web application penetration test
 **ANSWERED**: All web applications up to 300 web pages and 4 user roles.
@@ -42,7 +42,7 @@ Current behavior of the four audit URLs:
 Only action needed: add one redirect for `/best-cyber-security-company`. Will add to `PHP_REDIRECTS` in `lib/legacy-redirects.ts`.
 
 ### Q10. Which site owns each course keyword: macksofy.com vs macksofytrainings.com
-**PENDING** — Owner to clarify keyword ownership split between the two sites.
+**ANSWERED**: macksofy.com focuses on services and top courses only. macksofytrainings.com owns the full training catalog.
 
 ---
 
@@ -54,4 +54,4 @@ With ` | Macksofy` suffix: 62 chars — exceeds the 60-char budget by 2.
 **Option B**: `CERT-In Empanelled Cybersecurity Firm India | Macksofy` (55 chars — "Firm" instead of "Company")
 
 Note: Q7 answer says "Neutral Global Homepage", so this title will change again in a later phase (removing the India-specific framing). Pick whichever works for the interim.
-**PENDING** — Owner to choose A or B (or suggest alternative).
+**ANSWERED**: Option A — `CERT-In Empanelled Cybersecurity Company India | Macksofy` (59 chars).
