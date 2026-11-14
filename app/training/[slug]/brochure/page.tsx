@@ -50,11 +50,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: `${c.shortTitle} Course Brochure`,
     description: `Macksofy ${c.shortTitle} course brochure — curriculum, outcomes, prerequisites, fees and placement support.`,
-    // Self-referencing canonical. Without this the page inherits the root
-    // layout's default (the homepage) — harmless while noindex, but wrong if
-    // the page is ever made indexable.
     path: `/training/${slug}/brochure`,
-    noIndex: true,
     geo: null,
   });
 }

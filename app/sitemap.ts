@@ -116,6 +116,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${base}${c.image}`,
       ])
     ),
+    ...COURSES.map((c) =>
+      stat(`/training/${c.slug}/brochure`, rev(c.updated, FALLBACK.courses))
+    ),
+    stat("/sample-reports/pentest", new Date("2026-08-07")),
+    stat("/sample-reports/cert-in-audit", new Date("2026-08-07")),
     ...AUDITS.map((a) =>
       stat(`/audit/${a.slug}`, rev(a.updated, FALLBACK.audits))
     ),

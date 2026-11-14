@@ -5,9 +5,7 @@ export const metadata = buildMetadata({
   title: "Sample CERT-In Audit Report",
   description:
     "A sample CERT-In format audit report — RBI / SEBI / UIDAI submission structure, control attestation, findings register and compliance statement.",
-  // Self-referencing canonical (otherwise inherits the homepage default).
   path: "/sample-reports/cert-in-audit",
-  noIndex: true,
   geo: null,
 });
 
