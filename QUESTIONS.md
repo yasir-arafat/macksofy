@@ -35,3 +35,15 @@ Items that require owner input before implementation. Updated with answers as re
 
 ### Q10. Which site owns each course keyword: macksofy.com vs macksofytrainings.com
 **PENDING** — Owner to clarify keyword ownership split between the two sites.
+
+---
+
+### Q11. Homepage title — brand suffix options (from 1.2)
+Current title: `CERT-In Empanelled Cybersecurity Company in India` (49 chars).
+With ` | Macksofy` suffix: 62 chars — exceeds the 60-char budget by 2.
+
+**Option A**: `CERT-In Empanelled Cybersecurity Company India | Macksofy` (59 chars — drops "in")
+**Option B**: `CERT-In Empanelled Cybersecurity Firm India | Macksofy` (55 chars — "Firm" instead of "Company")
+
+Note: Q7 answer says "Neutral Global Homepage", so this title will change again in a later phase (removing the India-specific framing). Pick whichever works for the interim.
+**PENDING** — Owner to choose A or B (or suggest alternative).
