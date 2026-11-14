@@ -13,127 +13,111 @@ import { INDUSTRIES } from "@/content/industries";
 import { getPersonAuthors } from "@/content/authors";
 import { TOPIC_HUBS } from "@/content/topicHubs";
 
+// Per-content-type fallback dates, sourced from the last git commit that
+// touched each content file. Used only when an individual entry has no
+// `updated` field of its own.
+const FALLBACK = {
+  services: new Date("2026-11-13"),
+  audits: new Date("2026-11-13"),
+  courses: new Date("2026-11-13"),
+  resources: new Date("2026-10-16"),
+  caseStudies: new Date("2026-09-18"),
+  cities: new Date("2026-08-07"),
+  industries: new Date("2026-08-09"),
+  combos: new Date("2026-11-10"),
+  topicHubs: new Date("2026-11-08"),
+} as const;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
   const now = new Date();
 
-  // lastmod only where we actually know it. A page without its own `updated`
-  // date emits no <lastmod> at all. Until 2026-10-16 those pages borrowed a
-  // hand-set sitewide revision date (SITE.contentRevision): 187 of 286 URLs
-  // shared one date, which teaches Google to ignore lastmod for the whole
-  // sitemap — including the URLs whose date is real. Set `updated` on an
-  // entry when its content genuinely changes.
-  const rev = (updated?: string): Date | undefined =>
-    updated ? new Date(updated) : undefined;
+  // Use the entry's own `updated` date when available; otherwise fall back
+  // to the content-type date above. Every URL now emits <lastmod>.
+  const rev = (updated: string | undefined, fallback: Date): Date =>
+    updated ? new Date(updated) : fallback;
 
-  // Post lastmod = the post's own date (clamping any future-dated drafts to
-  // now). Revised 2026-05-31: previously this returned max(postDate, now),
-  // bumping every post's lastmod to build time on each deploy. That was a
-  // launch-window hack to fight the new-domain "Discovered – not indexed"
-  // backlog; now that the domain is cut over and indexing, a truthful
-  // per-post date is the stronger signal (Google distrusts a sitemap where
-  // every URL changes on every deploy). Use a post's `updated` field to
-  // signal a genuine revision.
   const freshenBlog = (postDate: Date): Date =>
     postDate > now ? now : postDate;
 
   const stat = (
     path: string,
-    lastModified?: Date,
+    lastModified: Date,
     images?: string[]
   ): MetadataRoute.Sitemap[number] => {
-    // Normalise the homepage to the no-trailing-slash form so the sitemap URL
-    // matches the page's own rel=canonical (SITE.url, no slash). Otherwise the
-    // sitemap advertises `${base}/` while the page canonicalises to `${base}`,
-    // a (minor) self-inconsistency that asks Google to reconcile two URLs.
     const p = path === "/" ? "" : path;
     const entry: MetadataRoute.Sitemap[number] = {
       url: `${base}${p}`,
-      ...(lastModified && { lastModified }),
+      lastModified,
     };
     if (images && images.length > 0) entry.images = images;
     return entry;
   };
 
-  // Most recent post date (used as lastModified for /blog index pages)
   const latestPostDate = POSTS.reduce<Date>((latest, p) => {
     const d = new Date(p.date);
     return d > latest ? d : latest;
   }, new Date(0));
 
-  // Paginated blog archives (/blog/page/N) are deliberately EXCLUDED from the
-  // sitemap (2026-06-15). On the crawl-budget-starved young domain they are
-  // low-value list pages that dilute Googlebot's attention away from real
-  // content. They remain fully crawlable via the /blog pagination UI, so post
-  // discovery is unaffected — this only removes them from sitemap promotion.
-
   const awardImages = AWARDS.map((a) => `${base}${a.image}`);
 
-  // Keep sitemap signals factual: canonical URLs, truthful last-modified
-  // dates, and selected image references. Search engines do not need
-  // priority/change-frequency hints, and hreflang is omitted until distinct
-  // locale URLs exist.
   return [
-    // The homepage lists the newest posts, so it genuinely changes with them.
     stat("/", freshenBlog(latestPostDate), [`${base}/og-default.png`]),
-    stat("/services"),
-    stat("/audit"),
-    stat("/training"),
-    stat("/training/offsec"),
-    stat("/contact"),
-    stat("/about"),
+    stat("/services", new Date("2026-08-09")),
+    stat("/audit", new Date("2026-09-28")),
+    stat("/training", new Date("2026-11-11")),
+    stat("/training/offsec", new Date("2026-11-10")),
+    stat("/contact", new Date("2026-11-05")),
+    stat("/about", new Date("2026-11-08")),
     stat("/best-cybersecurity-company", new Date("2026-09-30")),
     stat("/blog", freshenBlog(latestPostDate)),
     ...TOPIC_HUBS.map((hub) =>
-      stat(`/blog/category/${hub.slug}`, rev(hub.updated))
+      stat(`/blog/category/${hub.slug}`, rev(hub.updated, FALLBACK.topicHubs))
     ),
-    stat("/clients"),
-    stat("/awards", undefined, awardImages),
-    stat("/press"),
-    stat("/glossary"),
-    // /team + expert profiles enter the sitemap only once real named experts
-    // exist (getPersonAuthors() is empty until then) — no thin placeholder URLs.
+    stat("/clients", new Date("2026-08-07")),
+    stat("/awards", new Date("2026-08-07"), awardImages),
+    stat("/press", new Date("2026-08-07")),
+    stat("/glossary", new Date("2026-10-16")),
     ...(getPersonAuthors().length > 0
       ? [
-          stat("/team"),
+          stat("/team", new Date("2026-08-07")),
           ...getPersonAuthors().map((p) =>
-            stat(`/team/${p.slug}`)
+            stat(`/team/${p.slug}`, new Date("2026-08-07"))
           ),
         ]
       : []),
-    stat("/products/pentaudit"),
-    stat("/products/learn-to-exploit"),
-    stat("/privacy"),
-    stat("/case-studies"),
+    stat("/products/pentaudit", new Date("2026-09-28")),
+    stat("/products/learn-to-exploit", new Date("2026-11-10")),
+    stat("/privacy", new Date("2026-08-07")),
+    stat("/case-studies", new Date("2026-08-09")),
     ...CASE_STUDIES.map((c) =>
-      stat(`/case-studies/${c.slug}`, rev(c.updated))
+      stat(`/case-studies/${c.slug}`, rev(c.updated, FALLBACK.caseStudies))
     ),
-    stat("/resources"),
+    stat("/resources", new Date("2026-08-09")),
     ...RESOURCES.map((r) =>
-      stat(`/resources/${r.slug}`, rev(r.updated))
+      stat(`/resources/${r.slug}`, rev(r.updated, FALLBACK.resources))
     ),
-    stat("/industries"),
+    stat("/industries", new Date("2026-08-09")),
     ...INDUSTRIES.map((i) =>
-      stat(`/industries/${i.slug}`, rev(i.updated))
+      stat(`/industries/${i.slug}`, rev(i.updated, FALLBACK.industries))
     ),
-    stat("/locations"),
-    ...CITIES.map((c) => stat(`/locations/${c.slug}`)),
-    // All combos ship in the sitemap. (Wave-gating was retired — see
-    // SITEMAP_COMBO_PAIRS in content/combos.ts, which now maps every combo;
-    // RELEASED_THROUGH_WAVE / COMBO_WAVES were removed.)
+    stat("/locations", new Date("2026-08-09")),
+    ...CITIES.map((c) =>
+      stat(`/locations/${c.slug}`, FALLBACK.cities)
+    ),
     ...SITEMAP_COMBO_PAIRS.map((p) =>
-      stat(`/locations/${p.city}/${p.service}`, rev(p.updated))
+      stat(`/locations/${p.city}/${p.service}`, rev(p.updated, FALLBACK.combos))
     ),
     ...SERVICES.map((s) =>
-      stat(`/services/${s.slug}`, rev(s.updated))
+      stat(`/services/${s.slug}`, rev(s.updated, FALLBACK.services))
     ),
     ...COURSES.map((c) =>
-      stat(`/training/${c.slug}`, rev(c.updated), [
+      stat(`/training/${c.slug}`, rev(c.updated, FALLBACK.courses), [
         `${base}${c.image}`,
       ])
     ),
     ...AUDITS.map((a) =>
-      stat(`/audit/${a.slug}`, rev(a.updated))
+      stat(`/audit/${a.slug}`, rev(a.updated, FALLBACK.audits))
     ),
     ...POSTS.map((p) =>
       stat(
