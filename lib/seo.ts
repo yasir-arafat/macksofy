@@ -41,6 +41,7 @@ interface BuildMetadataInput {
    * from `ogTitle ?? title` + `ogEyebrow` + `ogKind` via /api/og.
    */
   image?: string;
+  /** @deprecated Google ignores meta keywords; kept only to avoid breaking callers. */
   keywords?: string[];
   /**
    * `true` emits `noindex, nofollow`. `"follow"` emits `noindex, follow` — for
@@ -256,7 +257,6 @@ export function buildMetadata({
   description,
   path,
   image,
-  keywords,
   noIndex,
   type = "website",
   publishedTime,
@@ -309,7 +309,6 @@ export function buildMetadata({
   return {
     title: includesBrand ? { absolute: title } : title,
     description,
-    keywords: keywords?.join(", "),
     metadataBase: new URL(SITE.url),
     alternates: {
       canonical: url,

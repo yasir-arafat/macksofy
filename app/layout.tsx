@@ -104,17 +104,6 @@ export const metadata: Metadata = {
   description: clampDesc(SITE.description),
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: SITE.url }],
-  keywords: [
-    "cybersecurity company India",
-    "cybersecurity company Mumbai",
-    "CERT-In empanelled auditor",
-    "VAPT services India",
-    "penetration testing Mumbai",
-    "ISO 27001 consultant India",
-    "cybersecurity audit India",
-    "cybersecurity UAE",
-    "Macksofy",
-  ],
   alternates: {
     canonical: SITE.url,
     languages: { "en-IN": SITE.url, "en-AE": SITE.url, "x-default": SITE.url },
