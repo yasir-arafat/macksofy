@@ -23,6 +23,7 @@ export const PHP_REDIRECTS: PhpRedirect[] = [
   // source (app/ceh-v13-training, components/ceh/*) is left in place, now
   // unreachable, pending a decision on merging its curriculum sections.
   { source: "/ceh-v13-training", destination: "/training/ceh" },
+  { source: "/best-cyber-security-company", destination: "/best-cybersecurity-company" },
 
   // Merged 2026-11-02: same-city VAPT and penetration-testing combo pages
   // targeted the same buyers, and Google indexed only one of each pair (the

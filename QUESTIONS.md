@@ -29,9 +29,17 @@ Items that require owner input before implementation. Updated with answers as re
 **ANSWERED**: Yes, they should be indexed. (Will add to sitemap.)
 
 ### Q9. Redirect targets for legacy URLs
-**ANSWERED**: Yes, set up redirects. Specific mapping:
-- `/best-cyber-security-company` → `/best-cybersecurity-company` (301)
-- Other legacy URLs already have proper redirects/410s in place.
+**ANSWERED**: Yes, set up redirects.
+
+Current behavior of the four audit URLs:
+| URL | Current response | Proposed action |
+|---|---|---|
+| `/digital-marketing-company-in-mumbai.php` | **410 Gone** (`PHP_GONE` in legacy-redirects.ts) | No change — 410 is correct for a service Macksofy no longer offers |
+| `/best-penetration-testing-company-in-mumbai.php` | **301 → /services/penetration-testing** | No change — already redirected correctly |
+| `/ceh-v13-training` | **301 → /training/ceh** | No change — already redirected correctly |
+| `/best-cyber-security-company` | **404** (no route, no redirect) | **Add 301 → /best-cybersecurity-company** (the existing page, just missing the hyphen) |
+
+Only action needed: add one redirect for `/best-cyber-security-company`. Will add to `PHP_REDIRECTS` in `lib/legacy-redirects.ts`.
 
 ### Q10. Which site owns each course keyword: macksofy.com vs macksofytrainings.com
 **PENDING** — Owner to clarify keyword ownership split between the two sites.
