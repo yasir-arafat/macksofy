@@ -602,7 +602,7 @@ export default function CloudSecurityPage() {
           <div className="max-w-3xl">
             <Eyebrow>Compliance evidence</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl text-balance leading-[1.05]">
-              Cloud audit accepted by <span className="gradient-text">every framework</span>.
+              Cloud findings mapped to <span className="gradient-text">the frameworks you report against</span>.
             </h2>
           </div>
           <div className="mt-12">

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import {
   Globe,
@@ -15,13 +16,15 @@ import {
 
 type CellState = "deep" | "scan" | "manual" | "off";
 
-const ASSETS: { label: string; icon: LucideIcon }[] = [
-  { label: "External perimeter", icon: Globe },
-  { label: "Internal network", icon: Network },
-  { label: "Web app + API", icon: Server },
-  { label: "Mobile (iOS / Android)", icon: Smartphone },
-  { label: "Cloud (AWS / Azure / GCP)", icon: Cloud },
-  { label: "Containers / IaC", icon: Cpu },
+// Each row links to the service page that covers that asset class in depth
+// (crawlable in-body links from /services/vapt to the specialist pages).
+const ASSETS: { label: string; icon: LucideIcon; href: string }[] = [
+  { label: "External perimeter", icon: Globe, href: "/services/network-pentesting" },
+  { label: "Internal network", icon: Network, href: "/services/network-pentesting" },
+  { label: "Web app + API", icon: Server, href: "/services/web-application-security" },
+  { label: "Mobile (iOS / Android)", icon: Smartphone, href: "/services/mobile-application-security" },
+  { label: "Cloud (AWS / Azure / GCP)", icon: Cloud, href: "/services/cloud-security" },
+  { label: "Containers / IaC", icon: Cpu, href: "/services/cloud-security#containers" },
 ];
 
 const COLS = ["Authenticated scan", "Unauthenticated scan", "Manual exploitation", "Chain analysis"] as const;
@@ -71,10 +74,13 @@ export function CoverageMatrix() {
                   scope="row"
                   className="text-left font-semibold text-fg pl-2 pr-3 align-middle"
                 >
-                  <span className="inline-flex items-center gap-2">
+                  <Link
+                    href={row.href}
+                    className="inline-flex items-center gap-2 hover:text-neon-cyan hover:underline underline-offset-4"
+                  >
                     <RowIcon className="size-4 text-neon-cyan" />
                     {row.label}
-                  </span>
+                  </Link>
                 </th>
                 {MATRIX[ri].map((state, ci) => {
                   const s = CELL_STYLE[state];

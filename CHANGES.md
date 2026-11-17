@@ -34,3 +34,11 @@ One entry per commit, added after each numbered item lands.
 - GSC: page held ~p4 until 11-11, then 4.9/5.1/6.7/5.9 on 11-12..11-15; core queries "best laptop for cyber security students" p2.0 -> p7.9, "laptop for cyber security students" p2.4 -> p6.2. Rest of the site's non-brand queries flat (p18.5-20). Page healthy (indexed, crawled 11-14, canonical OK).
 - Reverted the 11-08 CTR test (944cc81): search title and description back to the originals. The test showed no CTR lift and is the only change to the page before the slip.
 - Not changed: on-page H1, content, `updated` date (2026-09-18). If positions do not recover within ~2 weeks of the next crawl, the next step is a real content refresh (current models and verified prices).
+
+## Cloud-security indexing (2026-11-17)
+
+- GSC: `/services/cloud-security` is still "Crawled - currently not indexed", last crawl 2026-07-18. The page is fine: 200, self-canonical, index/follow, in the sitemap, ~3,300 words, little text shared with the city cloud pages. The 11-08 fixes (sitemap `lastmod`, CSPM post link, sitemap resubmitted) have not triggered a recrawl. Google crawls this site's service pages slowly (8 of 24 last crawled in July, though indexed), and pages it has judged not worth indexing get revisited even less often.
+- More crawl paths from pages Google visits: the VAPT coverage table rows now link to the matching service pages (network, web app, mobile, cloud, containers -> `/services/cloud-security#containers`). `/audit/iso-27017` and `/audit/iso-27018` now list Cloud Security first under related services (new `Audit.relatedServices` pin; before, the keyword matcher found no overlap and fell back to Pentest/VAPT/Web app). Other audit pages are unchanged.
+- Page quality: H2 "Cloud audit accepted by every framework" -> "Cloud findings mapped to the frameworks you report against" (same softening as a5b9837). ISO/IEC 27017 added to the page's references.
+- Sitemap `lastmod` 2026-11-17 for the four changed pages.
+- Owner: GSC -> URL Inspection -> `/services/cloud-security` -> Request indexing. This is the only direct recrawl trigger; the API cannot do it.

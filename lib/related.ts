@@ -180,13 +180,21 @@ export function pickServicesForAudit(
     ...audit.frameworks,
     ...audit.keywords,
   ]);
-  const scored: Scored<Service>[] = services.map((s) => {
-    let score = overlapCount(s.keywords, auditTerms) * 2;
-    const svcTerms = lower([s.shortTitle, s.title, ...s.keywords]);
-    for (const t of auditTerms) if (svcTerms.has(t)) score += 1;
-    return { item: s, score };
-  });
-  const picked = topN(scored, n);
+  // Editor-pinned services first (Audit.relatedServices), then keyword matches.
+  const pinned = (audit.relatedServices ?? [])
+    .map((slug) => services.find((s) => s.slug === slug))
+    .filter((s): s is Service => !!s)
+    .slice(0, n);
+  const pinnedSlugs = new Set(pinned.map((s) => s.slug));
+  const scored: Scored<Service>[] = services
+    .filter((s) => !pinnedSlugs.has(s.slug))
+    .map((s) => {
+      let score = overlapCount(s.keywords, auditTerms) * 2;
+      const svcTerms = lower([s.shortTitle, s.title, ...s.keywords]);
+      for (const t of auditTerms) if (svcTerms.has(t)) score += 1;
+      return { item: s, score };
+    });
+  const picked = [...pinned, ...topN(scored, n - pinned.length)];
   if (picked.length >= n) return picked;
   const seen = new Set(picked.map((p) => p.slug));
   // Deterministic fallback: popular services first, then declaration order.

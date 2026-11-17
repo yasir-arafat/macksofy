@@ -109,7 +109,7 @@ export const PAGE_REFS: Record<string, string[]> = {
   "service:web-application-security": ["owasp-top-10", "owasp-wstg", "owasp-asvs", "cvss"],
   "service:api-security": ["owasp-api", "owasp-asvs", "cvss"],
   "service:mobile-application-security": ["owasp-masvs", "owasp-top-10", "cvss"],
-  "service:cloud-security": ["cis-controls", "nist-csf", "owasp-top-10"],
+  "service:cloud-security": ["cis-controls", "nist-csf", "iso-27017", "owasp-top-10"],
   "service:red-teaming": ["mitre-attack", "nist-800-115", "cisa-kev"],
   "service:digital-forensics-incident-response": ["nist-800-61", "cert-in", "mitre-attack"],
   "service:malware-analysis": ["mitre-attack", "nvd", "cisa-kev"],

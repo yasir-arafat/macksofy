@@ -60,6 +60,13 @@ export interface Audit {
    * instead of competing with it.
    */
   intentNote?: { lead: string; label: string; href: string };
+  /**
+   * Service slugs to show first in the "related services" block. The keyword
+   * matcher in lib/related.ts finds no overlap between the ISO cloud
+   * standards and the cloud-security service, so without this those pages
+   * fell back to generic popular services and never linked the cloud page.
+   */
+  relatedServices?: string[];
   whyItMatters: string;
   applicability: string[];
   frameworks: string[];
@@ -2198,7 +2205,9 @@ export const AUDITS: Audit[] = [
   },
 
   {
+    updated: "2026-11-17",
     slug: "iso-27017",
+    relatedServices: ["cloud-security"],
     title: "ISO/IEC 27017 — Cloud Security Certification",
     shortTitle: "ISO 27017",
     icon: Cloud,
@@ -2354,7 +2363,9 @@ export const AUDITS: Audit[] = [
   },
 
   {
+    updated: "2026-11-17",
     slug: "iso-27018",
+    relatedServices: ["cloud-security"],
     title: "ISO/IEC 27018 — PII in Public Cloud",
     shortTitle: "ISO 27018",
     icon: Lock,
