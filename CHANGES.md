@@ -20,3 +20,4 @@ One entry per commit, added after each numbered item lands.
 - **1.6** `8761bdb` — Legacy URL audit: 3 of 4 already handled (two 301s, one 410). Added 301 from `/best-cyber-security-company` → `/best-cybersecurity-company`.
 - **1.7** `d49b446` — Removed `noIndex: true` from brochure (25) and sample-report (2) pages; added all to sitemap. Owner confirmed indexing in Q8.
 - **1.8** "250+" → "100+" clients in all 5 places (owner Q1, go-ahead 2026-11-17): Hero.tsx stat, AboutHero.tsx stat, StatsInfographic.tsx, /clients stat block and /clients body text ("over 100 organizations").
+- **1.2 fix** — Homepage `<title>` rendered without " | Macksofy": the root layout's title template does not apply to `app/page.tsx` (same route segment). The homepage now sets the Option A title as an absolute title: `CERT-In Empanelled Cybersecurity Company India | Macksofy` (57 chars).

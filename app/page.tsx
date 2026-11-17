@@ -18,30 +18,38 @@ import { metroKeywords } from "@/lib/site";
 import Link from "next/link";
 import { POSTS } from "@/content/blog";
 
-export const metadata = buildMetadata({
-  title: "CERT-In Empanelled Cybersecurity Company India",
-  description:
-    "CERT-In empanelled cybersecurity company for VAPT, penetration testing, managed SOC, red teaming, API and AI security across India and the UAE.",
-  path: "/",
-  geo: HQ_GEO,
-  keywords: [
-    "cybersecurity company India",
-    "cybersecurity company Mumbai",
-    "CERT-In empanelled auditor India",
-    "best cybersecurity firm India",
-    "CERT-In auditor Mumbai",
-    "VAPT services Mumbai",
-    "ISO 27001 consultant India",
-    "cybersecurity Dubai UAE",
-    "cyber security company in India",
-    "best CERT-In empanelled company India",
-    "security testing company India",
-    "security audit company India",
-    ...metroKeywords("cybersecurity company"),
-    ...metroKeywords("VAPT services"),
-    ...metroKeywords("penetration testing"),
-  ],
-});
+// The root layout's title template ("%s | Macksofy") applies only to child
+// route segments, never to app/page.tsx itself, so the homepage writes its
+// brand suffix out in full (owner chose Option A, QUESTIONS.md Q11).
+const HOME_TITLE = "CERT-In Empanelled Cybersecurity Company India | Macksofy";
+
+export const metadata = {
+  ...buildMetadata({
+    title: "CERT-In Empanelled Cybersecurity Company India",
+    description:
+      "CERT-In empanelled cybersecurity company for VAPT, penetration testing, managed SOC, red teaming, API and AI security across India and the UAE.",
+    path: "/",
+    geo: HQ_GEO,
+    keywords: [
+      "cybersecurity company India",
+      "cybersecurity company Mumbai",
+      "CERT-In empanelled auditor India",
+      "best cybersecurity firm India",
+      "CERT-In auditor Mumbai",
+      "VAPT services Mumbai",
+      "ISO 27001 consultant India",
+      "cybersecurity Dubai UAE",
+      "cyber security company in India",
+      "best CERT-In empanelled company India",
+      "security testing company India",
+      "security audit company India",
+      ...metroKeywords("cybersecurity company"),
+      ...metroKeywords("VAPT services"),
+      ...metroKeywords("penetration testing"),
+    ],
+  }),
+  title: { absolute: HOME_TITLE },
+};
 
 const HOME_FAQS = [
   {
