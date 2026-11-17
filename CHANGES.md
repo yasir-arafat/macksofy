@@ -28,3 +28,9 @@ One entry per commit, added after each numbered item lands.
 - Audit page: FAQ "How does a CERT-In empanelled audit differ from the empanelment process itself?" (63e2c53) reworded to the buyer question "Does a CERT-In empanelled audit make my organisation CERT-In empanelled?"; its markdown link never rendered (FAQAccordion prints plain text) and is removed. "CERT-In certification refers to the process by which…" reworded. Page now has 0 "empanelment process" mentions apart from the link below; `updated` 2026-11-17.
 - New optional `intentNote` on audits (rendered under the hero verify line): CERT-In audit page links to the process guide with anchor "CERT-In empanelment process".
 - Two links to the audit page with anchor "CERT-In empanelment" (vapt-cost-india-2026, penetration-testing-rfp-checklist-india-2026) now read "CERT-In empanelled auditor(s)".
+
+## Laptops guide ranking drop (2026-11-17)
+
+- GSC: page held ~p4 until 11-11, then 4.9/5.1/6.7/5.9 on 11-12..11-15; core queries "best laptop for cyber security students" p2.0 -> p7.9, "laptop for cyber security students" p2.4 -> p6.2. Rest of the site's non-brand queries flat (p18.5-20). Page healthy (indexed, crawled 11-14, canonical OK).
+- Reverted the 11-08 CTR test (944cc81): search title and description back to the originals. The test showed no CTR lift and is the only change to the page before the slip.
+- Not changed: on-page H1, content, `updated` date (2026-09-18). If positions do not recover within ~2 weeks of the next crawl, the next step is a real content refresh (current models and verified prices).
