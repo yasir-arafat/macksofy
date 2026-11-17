@@ -144,7 +144,7 @@ export function Hero() {
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-xl">
               {[
-                { value: 250, suffix: "+", label: "Enterprise clients" },
+                { value: 100, suffix: "+", label: "Enterprise clients" },
                 { value: 11, suffix: "+ yrs", label: "In business" },
                 { value: 5, suffix: "", label: "Countries served" },
               ].map((s) => (

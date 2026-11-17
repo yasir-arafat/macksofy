@@ -19,10 +19,4 @@ One entry per commit, added after each numbered item lands.
 - **1.5** `3535f24` — Added `X-Robots-Tag: noindex` header for font files (woff2/woff/ttf/otf) in `next.config.ts`.
 - **1.6** `8761bdb` — Legacy URL audit: 3 of 4 already handled (two 301s, one 410). Added 301 from `/best-cyber-security-company` → `/best-cybersecurity-company`.
 - **1.7** `d49b446` — Removed `noIndex: true` from brochure (25) and sample-report (2) pages; added all to sitemap. Owner confirmed indexing in Q8.
-- **1.8** Report only — "250+" client count appears in 5 places:
-  1. `components/home/Hero.tsx:147` — homepage stat counter
-  2. `components/about/AboutHero.tsx:28` — about page stat counter
-  3. `components/about/StatsInfographic.tsx:24` — about page infographic
-  4. `app/clients/page.tsx:36` — clients page stat counter
-  5. `app/clients/page.tsx:79` — body text ("over 250 organizations")
-  Owner answered Q1 with "100+ clients". Waiting for confirmation before changing all five.
+- **1.8** "250+" → "100+" clients in all 5 places (owner Q1, go-ahead 2026-11-17): Hero.tsx stat, AboutHero.tsx stat, StatsInfographic.tsx, /clients stat block and /clients body text ("over 100 organizations").

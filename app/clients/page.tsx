@@ -33,7 +33,7 @@ export const metadata = buildMetadata({
 });
 
 const STAT_BLOCKS = [
-  { value: 250, suffix: "+", label: "Enterprise clients" },
+  { value: 100, suffix: "+", label: "Enterprise clients" },
   { value: 30, suffix: "+", label: "Co-op + RBI-regulated banks" },
   { value: 11, suffix: " yrs", label: "In business" },
   { value: 5, suffix: "", label: "Countries served" },
@@ -76,7 +76,7 @@ export default function ClientsPage() {
               <p className="mt-6 max-w-2xl text-lg text-fg-muted text-pretty">
                 From listed BFSI multinationals and RBI-regulated cooperative banks
                 to top universities, government departments and fast-growing
-                fintechs — over 250 organizations rely on Macksofy for CERT-In
+                fintechs — over 100 organizations rely on Macksofy for CERT-In
                 empanelled audits, penetration testing and cybersecurity training.
               </p>
               <div className="mt-7">

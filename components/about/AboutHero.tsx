@@ -25,7 +25,7 @@ const HEADLINE_LINE_2 = ["teaches", "the", "work."];
 
 const STATS = [
   { value: 11, suffix: "+", label: "Years" },
-  { value: 250, suffix: "+", label: "Enterprises" },
+  { value: 100, suffix: "+", label: "Enterprises" },
   { value: 5, suffix: "", label: "Countries" },
 ];
 

@@ -21,7 +21,7 @@ const STATS = [
     accent: "amber",
   },
   {
-    value: 250,
+    value: 100,
     suffix: "+",
     label: "Enterprise clients",
     sub: "BFSI · Govt · SaaS · Pharma",
