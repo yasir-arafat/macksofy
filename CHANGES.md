@@ -21,3 +21,10 @@ One entry per commit, added after each numbered item lands.
 - **1.7** `d49b446` — Removed `noIndex: true` from brochure (25) and sample-report (2) pages; added all to sitemap. Owner confirmed indexing in Q8.
 - **1.8** "250+" → "100+" clients in all 5 places (owner Q1, go-ahead 2026-11-17): Hero.tsx stat, AboutHero.tsx stat, StatsInfographic.tsx, /clients stat block and /clients body text ("over 100 organizations").
 - **1.2 fix** — Homepage `<title>` rendered without " | Macksofy": the root layout's title template does not apply to `app/page.tsx` (same route segment). The homepage now sets the Option A title as an absolute title: `CERT-In Empanelled Cybersecurity Company India | Macksofy` (57 chars).
+
+## CERT-In "empanelment process" cannibalization (2026-11-17)
+
+- GSC 11-09..11-15: `/audit/cert-in-empanelled-audit` ranked ~p16 for "cert-in empanelment process" (was p24-33, intermittent) while `/blog/cert-in-empanelment-process-2026` fell from p1-3 to p7-9; the shift started 11-07/08.
+- Audit page: FAQ "How does a CERT-In empanelled audit differ from the empanelment process itself?" (63e2c53) reworded to the buyer question "Does a CERT-In empanelled audit make my organisation CERT-In empanelled?"; its markdown link never rendered (FAQAccordion prints plain text) and is removed. "CERT-In certification refers to the process by which…" reworded. Page now has 0 "empanelment process" mentions apart from the link below; `updated` 2026-11-17.
+- New optional `intentNote` on audits (rendered under the hero verify line): CERT-In audit page links to the process guide with anchor "CERT-In empanelment process".
+- Two links to the audit page with anchor "CERT-In empanelment" (vapt-cost-india-2026, penetration-testing-rfp-checklist-india-2026) now read "CERT-In empanelled auditor(s)".

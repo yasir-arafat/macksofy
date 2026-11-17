@@ -53,6 +53,13 @@ export interface Audit {
    * claim (e.g. CERT-In empanelment) to the issuer's own published listing.
    */
   verifyLink?: { lead: string; label: string; href: string };
+  /**
+   * Optional line under the hero that sends visitors with a different intent
+   * to the page that owns it (internal link). Used on the CERT-In audit page so
+   * auditor-side "empanelment process" searches reach the process guide
+   * instead of competing with it.
+   */
+  intentNote?: { lead: string; label: string; href: string };
   whyItMatters: string;
   applicability: string[];
   frameworks: string[];
@@ -565,7 +572,7 @@ export const AUDITS: Audit[] = [
   // INDIAN REGULATORY
   // ====================================================================
   {
-    updated: "2026-11-05",
+    updated: "2026-11-17",
     slug: "cert-in-empanelled-audit",
     title: "CERT-In Empanelled Audit",
     shortTitle: "CERT-In Audit",
@@ -583,6 +590,11 @@ export const AUDITS: Audit[] = [
       lead: "Verify it yourself: Macksofy Technologies Pvt Ltd appears in CERT-In's list of empanelled information security auditing organisations, published on",
       label: "CERT-In's empanelment page",
       href: "https://www.cert-in.org.in/s2cMainServlet?pageid=CERTEMPANEL",
+    },
+    intentNote: {
+      lead: "Running an auditing firm and want to get on CERT-In's panel yourself? Read our guide to the",
+      label: "CERT-In empanelment process",
+      href: "/blog/cert-in-empanelment-process-2026",
     },
     whyItMatters:
       "CERT-In empanelment is the gold standard for cybersecurity auditors in India. For BFSI entities, payment aggregators, government contractors, regulated fintechs and any organization handling sensitive Indian data, a CERT-In empanelled audit is what regulators and inspectors commonly expect. Macksofy holds active empanelment with the requisite scope to perform information security audits.",
@@ -745,15 +757,15 @@ export const AUDITS: Audit[] = [
       },
       {
         q: "What is CERT-In certification?",
-        a: "CERT-In certification refers to the process by which an organization's information security posture is audited and certified by a CERT-In empanelled auditor — an auditing firm empanelled by the Indian Computer Emergency Response Team under MeitY. Regulators such as RBI, SEBI, UIDAI and IRDAI expect or mandate this certification for entities they supervise. The audit covers governance, technical security (VAPT), incident-response readiness, third-party risk and compliance mapping, and the deliverable is a report in the format the regulator accepts.",
+        a: "CERT-In certification is the common name for having an organization's information security posture audited and certified by a CERT-In empanelled auditor — an auditing firm empanelled by the Indian Computer Emergency Response Team under MeitY. Regulators such as RBI, SEBI, UIDAI and IRDAI expect or mandate this certification for entities they supervise. The audit covers governance, technical security (VAPT), incident-response readiness, third-party risk and compliance mapping, and the deliverable is a report in the format the regulator accepts.",
       },
       {
         q: "What is your turnaround for last-minute regulatory deadlines?",
         a: "We can compress engagements for last-minute deadlines (within 15–25 working days for typical scopes). Talk to us — we've helped clients meet 30-day-out RBI / SEBI deadlines successfully.",
       },
       {
-        q: "How does a CERT-In empanelled audit differ from the empanelment process itself?",
-        a: "Empanelment is what the auditing firm holds — it is CERT-In's recognition that the firm is qualified to perform information security audits. An empanelled audit is what the firm delivers to its clients: the actual security assessment performed under CERT-In's methodology and format. If you are looking for how an organisation gets empanelled by CERT-In, see our [guide to the CERT-In empanelment process](/blog/cert-in-empanelment-process-2026).",
+        q: "Does a CERT-In empanelled audit make my organisation CERT-In empanelled?",
+        a: "No. Empanelment is held by the auditing firm: it is CERT-In's recognition that the firm is qualified to perform information security audits, and only auditing organisations apply for it. What your organisation receives is the audit itself, performed by an empanelled auditor under CERT-In's methodology and delivered in the report format your regulator accepts.",
       },
     ],
     seoTitle: "CERT-In Empanelled Audit & Certification in India | Macksofy",

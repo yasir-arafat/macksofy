@@ -148,6 +148,18 @@ export default async function AuditDetail({ params }: PageProps) {
                   .
                 </p>
               )}
+              {a.intentNote && (
+                <p className="mt-2 max-w-2xl text-sm text-fg-muted text-pretty">
+                  {a.intentNote.lead}{" "}
+                  <Link
+                    href={a.intentNote.href}
+                    className="font-semibold text-neon-cyan hover:underline"
+                  >
+                    {a.intentNote.label}
+                  </Link>
+                  .
+                </p>
+              )}
               <div className="mt-7 flex flex-wrap gap-3">
                 <LinkButton href={`/contact#enquiry?interest=${encodeURIComponent(a.title)}`} size="lg" withArrow>
                   Request Audit

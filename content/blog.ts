@@ -335,7 +335,7 @@ export const POSTS: BlogPost[] = [
         items: [
           "**Scope breadth** — more applications, more IPs, more environments (staging + production) means more days of testing.",
           "**Depth of manual testing** — a multi-role authenticated web-app test costs roughly double an unauthenticated one (₹3-6 lakh vs ₹1.5-3 lakh in the table above) because each role requires separate test passes.",
-          "**Compliance reporting format** — a CERT-In format report, an RBI System Audit Report, or a SEBI cybersecurity attestation carries specific structure requirements. Vendors who hold [CERT-In empanelment](/audit/cert-in-empanelled-audit) charge more because their reports are built to those formats and need less rework.",
+          "**Compliance reporting format** — a CERT-In format report, an RBI System Audit Report, or a SEBI cybersecurity attestation carries specific structure requirements. Vendors who are [CERT-In empanelled auditors](/audit/cert-in-empanelled-audit) charge more because their reports are built to those formats and need less rework.",
           "**Retest window** — a 30-day free retest is standard. Extended retest windows (60–90 days) or multiple retest cycles add cost.",
           "**Operator certification level** — engagements staffed by OSCP/OSWE/OSEP-certified operators cost more than those staffed by CEH-only teams. The finding quality is materially different.",
           "**Timeline compression** — a 2-week turnaround on a scope that normally takes 4 weeks requires parallel operators and carries a premium.",
@@ -456,7 +456,7 @@ export const POSTS: BlogPost[] = [
         type: "list",
         ordered: false,
         items: [
-          "**CERT-In empanelment** — for regulated entities, require current [CERT-In empanelment](/audit/cert-in-empanelled-audit) with audit scope covering information security assessments.",
+          "**CERT-In empanelment** — for regulated entities, require a current [CERT-In empanelled auditor](/audit/cert-in-empanelled-audit) whose audit scope covers information security assessments.",
           "**Operator certifications** — require at least OSCP for web/network testing. For red team scope, require OSEP or CRTO. For web application focus, require OSWE or BSCP. CEH alone is not sufficient for manual exploitation.",
           "**Insurance** — require professional indemnity and cyber liability insurance covering the engagement value.",
           "**Past engagements** — ask for 3 anonymised case studies in your sector (BFSI, healthcare, SaaS, government). Verify the vendor actually performed the work, not a subcontractor.",
