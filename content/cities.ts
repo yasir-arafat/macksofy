@@ -416,7 +416,7 @@ export const CITIES: City[] = [
     faqs: [
       {
         q: "Do you have a Hyderabad office?",
-        a: "Yes — Macksofy's South India regional hub is at HITEC City, Madhapur. We have local senior consultants who can be onsite within 2 hours anywhere in the city.",
+        a: "Yes — Macksofy's Hyderabad office is at Aditya Enclave, Ameerpet (500038). We have local senior consultants who can be onsite within 2 hours anywhere in the city.",
       },
       {
         q: "Do you serve Andhra Pradesh + Telangana government?",
@@ -439,7 +439,7 @@ export const CITIES: City[] = [
       "OSCP training Hyderabad",
     ],
     geo: { lat: 17.4486, lng: 78.3908 },
-    mapQuery: "HITEC City, Madhapur, Hyderabad, Telangana",
+    mapQuery: "Aditya Enclave, Ameerpet, Hyderabad, Telangana 500038",
   },
 
   // ===================================================================

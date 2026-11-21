@@ -22,6 +22,19 @@ One entry per commit, added after each numbered item lands.
 - **1.8** "250+" → "100+" clients in all 5 places (owner Q1, go-ahead 2026-11-17): Hero.tsx stat, AboutHero.tsx stat, StatsInfographic.tsx, /clients stat block and /clients body text ("over 100 organizations").
 - **1.2 fix** — Homepage `<title>` rendered without " | Macksofy": the root layout's title template does not apply to `app/page.tsx` (same route segment). The homepage now sets the Option A title as an absolute title: `CERT-In Empanelled Cybersecurity Company India | Macksofy` (57 chars).
 
+## Phase 4 — Multi-Location Schema (Hyderabad + Dubai)
+
+Owner confirmed both offices (2026-11-21). Added to `lib/site.ts`:
+- **Hyderabad**: 2nd Floor, Flat 214-A, Aditya Enclave, Nilgiri Block, Ameerpet, 500038. Phone +91 77939 60710.
+- **Dubai**: Office 15, 19th Floor, Burj Gate Tower, Sheikh Zayed Road. Phone +971 55 785 7891.
+
+Schema changes:
+- Sitewide `localBusinessSchema()` now carries a `department` array with Hyderabad and Dubai as child LocalBusiness nodes (Google uses `department` to link branch offices to HQ).
+- `CITY_OFFICE_ADDRESS` map expanded — Hyderabad and UAE city pages now emit their own LocalBusiness nodes with the correct address, phone and opening hours (Mon–Fri for Dubai, Mon–Sat for India).
+- Per-city phone numbers via `CITY_OFFICE_PHONE` map.
+- Hyderabad city page FAQ updated from "HITEC City, Madhapur" to actual address (Aditya Enclave, Ameerpet). Map query updated.
+- Note: hero/body text on the Hyderabad page still references "HITEC City" in several places — a larger content update for a future pass.
+
 ## Phase 3b — Course Page Title Rewrites
 
 16 of 22 course page seoTitles were 62–99 chars — clampTitle was silently eating the differentiating tail (course code, vendor, "Macksofy"). All rewritten to fit within the 60-char absolute budget while keeping the course code, topic keyword and brand:

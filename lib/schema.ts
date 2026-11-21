@@ -169,10 +169,59 @@ export function localBusinessSchema() {
     ],
     sameAs: [...Object.values(SITE.social), SITE.googleBusinessProfile],
     areaServed: AREA_SERVED,
-    // aggregateRating intentionally omitted — Google's rich-result spam
-    // policy requires AggregateRating to be backed by on-page Review nodes
-    // sourced from real users. Re-add only when wired to a verified review
-    // provider (Google Reviews / Trustpilot / G2) feed with count > 0.
+    department: [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": `${BASE}/locations/hyderabad#localbusiness`,
+        name: `${SITE.name} — Hyderabad`,
+        telephone: SITE.hyderabad.phone,
+        email: SITE.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: SITE.hyderabad.street,
+          addressLocality: SITE.hyderabad.city,
+          addressRegion: SITE.hyderabad.region,
+          postalCode: SITE.hyderabad.postalCode,
+          addressCountry: SITE.hyderabad.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: SITE.hyderabad.geo.lat,
+          longitude: SITE.hyderabad.geo.lng,
+        },
+        openingHoursSpecification: [{
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:30",
+          closes: "18:30",
+        }],
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": `${BASE}/locations/uae#localbusiness`,
+        name: `${SITE.name} — Dubai`,
+        telephone: SITE.uae.phone,
+        email: SITE.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: SITE.uae.street,
+          addressLocality: SITE.uae.city,
+          addressRegion: SITE.uae.region,
+          addressCountry: SITE.uae.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: SITE.uae.geo.lat,
+          longitude: SITE.uae.geo.lng,
+        },
+        openingHoursSpecification: [{
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "17:00",
+        }],
+      },
+    ],
   };
 }
 
@@ -233,6 +282,14 @@ const ORG_REF = {
  */
 const CITY_OFFICE_ADDRESS: Record<string, string> = {
   mumbai: SITE.hq.street,
+  hyderabad: SITE.hyderabad.street,
+  uae: SITE.uae.street,
+};
+
+const CITY_OFFICE_PHONE: Record<string, string> = {
+  mumbai: SITE.phone,
+  hyderabad: SITE.hyderabad.phone,
+  uae: SITE.uae.phone,
 };
 
 export function cityLocalBusinessSchema(city: {
@@ -263,7 +320,7 @@ export function cityLocalBusinessSchema(city: {
     name: `${SITE.name} — ${city.name}`,
     image: `${BASE}/logo.png`,
     url: `${BASE}/locations/${city.slug}`,
-    telephone: SITE.phone,
+    telephone: CITY_OFFICE_PHONE[city.slug] ?? SITE.phone,
     email: SITE.email,
     priceRange: uae ? "$$$" : "₹₹₹",
     parentOrganization: { "@id": `${BASE}#organization` },
