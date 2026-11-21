@@ -22,6 +22,15 @@ One entry per commit, added after each numbered item lands.
 - **1.8** "250+" → "100+" clients in all 5 places (owner Q1, go-ahead 2026-11-17): Hero.tsx stat, AboutHero.tsx stat, StatsInfographic.tsx, /clients stat block and /clients body text ("over 100 organizations").
 - **1.2 fix** — Homepage `<title>` rendered without " | Macksofy": the root layout's title template does not apply to `app/page.tsx` (same route segment). The homepage now sets the Option A title as an absolute title: `CERT-In Empanelled Cybersecurity Company India | Macksofy` (57 chars).
 
+## Phase 3b — Course Page Title Rewrites
+
+16 of 22 course page seoTitles were 62–99 chars — clampTitle was silently eating the differentiating tail (course code, vendor, "Macksofy"). All rewritten to fit within the 60-char absolute budget while keeping the course code, topic keyword and brand:
+
+- OffSec courses (OSCP, OSEP, OSWE, etc.): pattern "OSCP Training India 2026 | PEN-200 Bootcamp · Macksofy" (54 chars)
+- EC-Council courses (CEH Practical, CHFI, CTIA, CSA, CPENT): pattern "CHFI Training Mumbai | Digital Forensics · Macksofy" (51 chars)
+- Other (SOC Analyst, Web App Security): shortened similarly
+- Also added OSCP India guide reference to the OSCP course FAQ ("How long does it take to clear OSCP+")
+
 ## Phase 3 — Low-CTR Blog Title Rewrites
 
 7 blog posts on page 1–2 with CTR under 1% — titles rewritten to be more specific, action-oriented and click-worthy while staying under the 60-char absolute budget:
