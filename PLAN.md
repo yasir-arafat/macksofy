@@ -305,10 +305,10 @@ Each audit finding verified against the codebase. Status: **CONFIRMED**, **PARTI
 ## Notes for Phases 1-8
 
 - **Title budget enforcement**: Several titles exceed the 60-char total / 49-char core limits. Phase 3 must respect these.
-- **hreflang**: Currently decorative (all three alternates point to same URL). Phase 2 should either remove them or implement actual locale-aware routing.
+- **hreflang**: Reviewed in Phase 2. All three alternates point to the same URL — technically valid (Google supports one URL serving multiple locales) and the site has no per-locale URLs. Left as-is.
 - **meta keywords**: Deprecated by Google since 2009. Phase 1 should remove.
 - **lastmod gaps**: Phase 1 should add `updated` dates or a fallback strategy.
 - **Font indexing**: Phase 1 should add `X-Robots-Tag: noindex` header for font files.
 - **Author schema**: Phase 6 should decide whether to introduce Person authors or keep Organization.
-- **Multi-location schema**: Phase 2 should add Hyderabad, Dubai, Muscat, Toronto to schema if confirmed.
-- **Client count discrepancy**: 250+ vs 51 named clients needs owner decision.
+- **Multi-location schema**: Phase 3 should add Hyderabad, Dubai to schema if owner confirms office claims (Q still open from prior audit).
+- **Client count discrepancy**: Resolved in Phase 1 (Q1 → 100+).

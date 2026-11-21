@@ -67,7 +67,7 @@ export interface Service {
 export const SERVICES: Service[] = [
   // 1 -----------------------------------------------------------------
   {
-    updated: "2026-09-29",
+    updated: "2026-11-20",
     slug: "penetration-testing",
     title: "Penetration Testing",
     shortTitle: "Pentest",
@@ -220,9 +220,9 @@ export const SERVICES: Service[] = [
         a: "Annual retainer programs typically reduce per-engagement cost by 25–35% compared to one-off engagements. Talk to us for a quote.",
       },
     ],
-    seoTitle: "Penetration Testing India | Manual Pentest",
+    seoTitle: "Penetration Testing India | CERT-In Empanelled",
     seoDescription:
-      "Manual penetration testing across web, API, mobile, cloud and infrastructure. Receive validated findings, developer-ready fixes and a verification retest.",
+      "CERT-In empanelled penetration testing — web, API, mobile, cloud and infrastructure. OSCP-certified testers, regulator-ready reports and a free retest.",
     keywords: [
       "penetration testing services India",
       "penetration testing Mumbai",
@@ -235,7 +235,7 @@ export const SERVICES: Service[] = [
 
   // 2 -----------------------------------------------------------------
   {
-    updated: "2026-11-17",
+    updated: "2026-11-20",
     slug: "vapt",
     title: "Vulnerability Assessment & Penetration Testing (VAPT)",
     shortTitle: "VAPT",
@@ -362,9 +362,9 @@ export const SERVICES: Service[] = [
         a: "Minimum annually for compliance. Mature programs run quarterly + after every major release. Macksofy offers retainer pricing for both.",
       },
     ],
-    seoTitle: "VAPT Services India | Pricing, Manual Testing + Free Retest",
+    seoTitle: "VAPT Services India | Pricing from ₹40,000",
     seoDescription:
-      "CERT-In empanelled VAPT with authenticated assessment, manual exploitation and false-positive triage, plus regulator-ready reporting and a verification retest.",
+      "VAPT from ₹40,000 by a CERT-In empanelled firm — authenticated scans, manual exploitation, false-positive triage and regulator-ready reporting.",
     keywords: [
       "VAPT services India",
       "VAPT Mumbai",
@@ -514,7 +514,7 @@ export const SERVICES: Service[] = [
 
   // 4 -----------------------------------------------------------------
   {
-    updated: "2026-09-29",
+    updated: "2026-11-20",
     slug: "web-application-security",
     title: "Web Application Security Testing",
     shortTitle: "Web App Pentest",
@@ -643,7 +643,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Web App Pentest India | OWASP + Business Logic",
     seoDescription:
-      "Manual web application pentesting for OWASP risks, authentication, SSO and business logic. Get reproducible evidence, developer-ready fixes and a retest.",
+      "Manual web application penetration testing for OWASP Top 10, auth bypass, SSO and business logic. CERT-In empanelled, developer-ready fixes, free retest.",
     keywords: [
       "web application security testing India",
       "web app penetration testing Mumbai",
@@ -656,7 +656,7 @@ export const SERVICES: Service[] = [
 
   // 4b ----------------------------------------------------------------
   {
-    updated: "2026-09-29",
+    updated: "2026-11-20",
     slug: "api-security",
     title: "API Security Testing",
     shortTitle: "API Pentest",
@@ -803,7 +803,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "API Pentest India | REST, GraphQL & gRPC",
     seoDescription:
-      "Manual API penetration testing across REST, GraphQL and gRPC for BOLA, auth, JWT, OAuth and business logic, with reproducible evidence and a retest.",
+      "API penetration testing for REST, GraphQL and gRPC — BOLA, broken auth, JWT, OAuth and business logic. CERT-In empanelled, reproducible PoCs.",
     keywords: [
       "API security testing India",
       "API penetration testing Mumbai",
@@ -818,7 +818,7 @@ export const SERVICES: Service[] = [
 
   // 5 -----------------------------------------------------------------
   {
-    updated: "2026-09-29",
+    updated: "2026-11-20",
     slug: "mobile-application-security",
     title: "Mobile Application Security Testing",
     shortTitle: "Mobile Pentest",
@@ -992,7 +992,7 @@ export const SERVICES: Service[] = [
     ],
     seoTitle: "Mobile App Pentest India | Android & iOS",
     seoDescription:
-      "Manual Android and iOS penetration testing aligned to OWASP MASVS, covering binaries, runtime controls, local storage and backend APIs with a retest.",
+      "Android and iOS penetration testing aligned to OWASP MASVS — binary analysis, runtime instrumentation, local storage and backend APIs. Free retest.",
     keywords: [
       "mobile application penetration testing India",
       "Android pentest Mumbai",

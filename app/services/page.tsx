@@ -15,10 +15,9 @@ import { AnswerBox } from "@/components/sections/AnswerBox";
 import { getShortAnswer } from "@/content/shortAnswers";
 
 export const metadata = buildMetadata({
-  title:
-    "Cybersecurity Services in Mumbai · Delhi · Bengaluru · Hyderabad · Chennai · Pune · UAE",
+  title: "Cybersecurity Services India & UAE",
   description:
-    "Offensive and defensive cybersecurity from CERT-In empanelled Macksofy — penetration testing, VAPT, SOC engineering, red teaming, DFIR and threat intel.",
+    "CERT-In empanelled cybersecurity services — penetration testing, VAPT, managed SOC, red teaming, DFIR and compliance audits across India and the UAE.",
   path: "/services",
   keywords: [
     "cybersecurity services India",

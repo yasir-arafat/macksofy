@@ -30,10 +30,9 @@ import { getShortAnswer } from "@/content/shortAnswers";
 const aboutAnswer = getShortAnswer("page:about");
 
 export const metadata = buildMetadata({
-  title:
-    "About Macksofy Technologies — Cybersecurity Consulting & Training Since 2014",
+  title: "About Macksofy — CERT-In Empanelled Since 2014",
   description:
-    "CERT-In empanelled cybersecurity consultancy founded in Mumbai in 2014, with an EC-Council ATC training arm. Enterprise clients across India and the UAE.",
+    "Macksofy Technologies: CERT-In empanelled cybersecurity consultancy founded in Mumbai, 2014. VAPT, compliance audits and EC-Council ATC training.",
   path: "/about",
   geo: HQ_GEO,
   keywords: [
