@@ -6571,6 +6571,402 @@ def fetch_logs(service: str) -> str:
     ],
   },
 
+
+  // ===================================================================
+  // OSCP Training in India — national guide (SEO/AEO/GEO optimised)
+  // ===================================================================
+  {
+    slug: "oscp-training-in-india-2026",
+    seoTitle: "OSCP Training in India 2026: Cost, Syllabus & Prep Guide",
+    seoDescription:
+      "How OSCP training works in India in 2026 — PEN-200 cost in INR, the new scaled scoring, a 90-day prep plan, salary outcomes and how to pick a provider.",
+    title:
+      "OSCP Training in India 2026 — Everything You Need Before You Enrol",
+    description:
+      "A practical guide to OSCP training in India for 2026. Covers how PEN-200 works, what the exam tests, the December 2026 scoring change, what it costs in INR, a working 90-day prep timeline, salary outcomes, and how to tell a good training provider from a bad one.",
+    date: "2026-11-21",
+    updated: "2026-11-21",
+    showUpdatedDate: true,
+    author: "Macksofy Editorial",
+    readingTime: "18 min read",
+    category: "Certification Guides",
+    tags: [
+      "OSCP",
+      "PEN-200",
+      "Offensive Security",
+      "Training",
+      "India",
+      "Certification",
+    ],
+    heroKind: "cert-compare",
+    heroEyebrow: "OSCP training across India",
+    keywords: [
+      "OSCP training in India",
+      "OSCP training",
+      "OSCP course India 2026",
+      "PEN-200 training India",
+      "OSCP certification India",
+      "best OSCP training India",
+      "OSCP cost India",
+      "OSCP syllabus 2026",
+      "OSCP prep plan",
+      "OSCP salary India",
+      "OSCP exam 2026",
+      "OSCP training online India",
+      "OSCP bootcamp India",
+      "OSCP training institute India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "OSCP training in India follows a simple model: you buy Offensive Security's official PEN-200 course — which includes lab access and one exam attempt — and prepare through self-study, a bootcamp, or a corporate cohort. The exam is a 24-hour hands-on penetration test against a live network, followed by a 24-hour professional report. Most Indian candidates combine the official material with an instructor-led bootcamp that adds structure, mentorship and accountability to what is otherwise a solitary three-month grind. This guide walks you through what the exam actually tests in 2026, what it costs in rupees, how to pick a training provider that is worth your money, and a 90-day timeline you can follow alongside a full-time job.",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "24 + 24 hrs", label: "Exam: hands-on + report writing" },
+          { value: "22", label: "PEN-200 course modules" },
+          { value: "90 days", label: "Official lab access (Course + Cert Bundle)" },
+          { value: "234", label: "Companies hiring OSCP in India (Sep 2026, jobspipe.dev)" },
+        ],
+      },
+
+      // ── Section 1: What is OSCP ──────────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "What is OSCP and why does India's security market care?",
+        id: "what-is-oscp",
+      },
+      {
+        type: "para",
+        text: "OSCP (Offensive Security Certified Professional) is a hands-on penetration testing certification issued by Offensive Security. Unlike multiple-choice exams, OSCP requires you to compromise a multi-host network — Linux boxes, Windows machines and an Active Directory chain — in real time and then write a professional report about it. That practical proof is what makes it the certification that hiring managers in India's BFSI, Big Four and product-security teams look for when they need someone who can actually find vulnerabilities, not just talk about them.",
+      },
+      {
+        type: "para",
+        text: "The official course behind it is PEN-200: Penetration Testing with Kali Linux. It is a self-paced curriculum of 22 modules, a set of hands-on lab machines, and the exam voucher. You can read the full module breakdown and bootcamp details on our [OSCP course page](/training/oscp).",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "OSCP vs CEH — different purpose, different audience",
+        text: "CEH (Certified Ethical Hacker) is a knowledge-based certification that validates awareness; OSCP is a skills-based certification that validates execution. Many Indian professionals hold CEH first and then pursue OSCP when they move into hands-on roles. We have a detailed comparison in our [OSCP vs CEH guide](/blog/oscp-vs-ceh-india-2026).",
+      },
+
+      // ── Section 2: 2026 exam changes ─────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "What changed in the OSCP exam for 2026?",
+        id: "exam-changes-2026",
+      },
+      {
+        type: "para",
+        text: "Starting 1 December 2026, Offensive Security is switching to scaled scoring for the OSCP+ exam. Under the new system, your result is calculated on a 100–500 scale and you need a scaled score of 400 to pass. The raw points assigned to each machine vary by exam set and are not published, so there is no universal \"get X out of Y\" target any more — the standard is consistent, but the arithmetic behind it adapts to the difficulty of the specific exam you sit.",
+      },
+      {
+        type: "table",
+        caption: "OSCP exam scoring: before and after 1 December 2026",
+        headers: ["", "Before 1 Dec 2026", "From 1 Dec 2026"],
+        rows: [
+          ["Scoring method", "Fixed raw points (70 out of 100 to pass)", "Scaled scoring (400 out of 500 to pass)"],
+          ["Bonus points", "None (removed November 2024)", "None"],
+          ["Exam machines", "3 standalones (20 pts each) + 1 AD chain (10+10+20 pts)", "Same machine structure; raw weights vary by exam set"],
+          ["Time limit", "24 hours hands-on + 24 hours report", "No change"],
+          ["Credential awarded", "OSCP and OSCP+", "No change"],
+        ],
+      },
+      {
+        type: "para",
+        text: "The competencies being tested have not changed — the same skills pass or fail you. The change affects how results are calculated, not what the exam asks you to do. If you are sitting the exam before 1 December 2026, the existing 70/100 pass mark still applies. For the full history of exam format changes, see our [OSCP+ vs OSCP explainer](/blog/oscp-plus-vs-oscp-2026).",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Verify before you book",
+        text: "Offensive Security updates exam structure and pricing periodically. Confirm the current pass criteria, number of exam attempts and lab duration on offsec.com at the moment you purchase rather than trusting any third-party page, ours included.",
+      },
+
+      // ── Section 3: Cost ──────────────────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "How much does OSCP training cost in India?",
+        id: "cost",
+      },
+      {
+        type: "para",
+        text: "Offensive Security prices OSCP in US dollars, not rupees. There is no India-specific rate card. Any INR figure you see on an Indian website — including ours — is a conversion snapshot that drifts with the exchange rate. The dollar figures below are Offensive Security's published prices; the rupee columns use an approximate rate and will vary by the day you buy and your card issuer's forex markup.",
+      },
+      {
+        type: "table",
+        caption: "Offensive Security's published OSCP pricing (as of November 2026)",
+        headers: ["Plan", "Price (USD)", "Approx. INR", "What you get"],
+        rows: [
+          ["Course + Cert Bundle", "$1,749", "~₹1,70,000", "90 days PEN-200 + labs + 1 exam attempt"],
+          ["Learn One (annual)", "$2,749 / year", "~₹2,67,000", "12 months PEN-200 + labs + 2 exam attempts"],
+          ["Exam retake", "$249", "~₹24,000", "One additional attempt"],
+        ],
+      },
+      {
+        type: "para",
+        text: "For a detailed rupee breakdown covering bundles, retakes, GST and EMI options, see our training institute's [OSCP cost in India guide](https://www.macksofytrainings.com/oscp-cost-india-2026/).",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "What does Macksofy charge?",
+        id: "macksofy-pricing",
+      },
+      {
+        type: "para",
+        text: "We supply the official Offensive Security Course + Cert Bundle — the PEN-200 course, the 90-day lab and the exam voucher — at ₹1,45,000, roughly 15% below the list-price conversion. That figure covers the vendor bundle only. Our [60+ hour instructor-led bootcamp](/training/oscp), lab walkthroughs and mentor-until-pass support are quoted separately on top of it, so ask for a combined quote rather than assuming the bootcamp is included in that number. EMI is available across 3, 6 and 12 months.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Bundle or Learn One?",
+        id: "bundle-vs-learn-one",
+      },
+      {
+        type: "para",
+        text: "The price difference between the Course + Cert Bundle ($1,749) and Learn One ($2,749) is $1,000. What you are really buying with that extra money is a second exam attempt and twelve months of lab time instead of ninety days. If you plan to study hard for 90 days and sit the exam, the Bundle plus a paid retake if needed ($1,749 + $249 = $1,998) is still cheaper than Learn One ($2,749) and gives you two attempts either way. Learn One wins if you want a long runway alongside a full-time job or plan to take a second Offensive Security course within the year.",
+      },
+
+      // ── Section 4: Syllabus ──────────────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "What does the PEN-200 syllabus cover?",
+        id: "syllabus",
+      },
+      {
+        type: "para",
+        text: "PEN-200 is a 22-module curriculum that takes you from information gathering through exploitation to Active Directory compromise and professional reporting. Rather than listing every module here — the full module-by-module breakdown is on our [OSCP course page](/training/oscp) — here is how the material groups into four phases of learning.",
+      },
+      {
+        type: "table",
+        caption: "PEN-200 syllabus in four phases",
+        headers: ["Phase", "Modules", "What you learn"],
+        rows: [
+          ["1. Foundations", "Modules 1–3", "Report writing standards, passive and active reconnaissance, vulnerability scanning with Nmap and Nessus"],
+          ["2. Web + client attacks", "Modules 4–7", "HTTP fundamentals, web application attacks (directory traversal, file inclusion, file upload, command injection, SQL injection), client-side attacks with Office documents"],
+          ["3. Exploitation + privilege escalation", "Modules 8–16", "Finding and fixing public exploits, AV evasion, password attacks with Hashcat/Mimikatz, Windows and Linux privilege escalation, SSH tunneling, deep packet inspection bypass, Metasploit"],
+          ["4. Active Directory", "Modules 17–22", "AD enumeration with BloodHound, Kerberoasting, AS-REP roasting, NTLM relay, lateral movement (pass-the-hash, DCSync), forest trust abuse, combined attack chains"],
+        ],
+      },
+      {
+        type: "para",
+        text: "The lab machines are where most of the real learning happens. Expect to spend at least as much time in the labs as you do reading the course material — the exam rewards muscle memory and methodology, not memorisation.",
+      },
+
+      // ── Section 5: Training formats ──────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "Self-study, bootcamp or corporate cohort — which format works?",
+        id: "training-formats",
+      },
+      {
+        type: "para",
+        text: "There is no single best format — the right one depends on your experience level, your schedule and whether your employer is sponsoring. Here is how the three common approaches compare in India.",
+      },
+      {
+        type: "comparison",
+        title: "Self-study vs instructor-led bootcamp",
+        left: {
+          label: "Self-study (PEN-200 alone)",
+          tone: "cyan",
+          bullets: [
+            "Cost: only the Offensive Security bundle ($1,749)",
+            "Pace: fully flexible, fits any schedule",
+            "Support: Offensive Security student forums only",
+            "Best for: experienced pen-testers who already have a methodology",
+            "Risk: isolation — easy to stall on hard modules with no one to ask",
+          ],
+        },
+        right: {
+          label: "Instructor-led bootcamp",
+          tone: "purple",
+          bullets: [
+            "Cost: bundle + bootcamp fee (₹30,000–₹1,00,000+ depending on provider)",
+            "Pace: structured weekly sessions over 10–16 weeks",
+            "Support: live instructor Q&A, lab walkthroughs, mentor until pass",
+            "Best for: working professionals who need external accountability",
+            "Risk: cost — but a failed retake ($249 each) adds up faster than a bootcamp",
+          ],
+        },
+      },
+      {
+        type: "para",
+        text: "Corporate cohorts are bootcamps run exclusively for one organisation's team. The content is the same, but scheduling, reporting and billing are handled through the company. If your employer is paying for your OSCP, ask whether they have a training partner who runs corporate batches — group pricing is usually 15–25% lower per seat.",
+      },
+
+      // ── Section 6: Picking a provider ────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "How do you pick an OSCP training provider in India?",
+        id: "picking-a-provider",
+      },
+      {
+        type: "para",
+        text: "The OSCP training market in India ranges from serious, lab-intensive bootcamps to thinly disguised video-reselling operations. Before you pay anyone, verify these seven things.",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "**OffSec Authorized Training Partner (ATP) status.** Check on offsec.com/partners. An ATP can sell official bundles directly. Non-ATP providers supply the same Offensive Security bundle by purchasing it on your behalf — both are legitimate, but know what you are getting.",
+          "**Trainer credentials.** Ask which certifications the lead instructor holds (OSCP at a minimum; OSWE, OSEP or OSCE3 is better) and when they last passed. A trainer who passed OSCP five years ago and has not touched the lab since is teaching from memory, not experience.",
+          "**What is included in the quoted price.** Some providers quote the bundle + bootcamp together; others quote only the bootcamp and charge the Offensive Security bundle separately. Ask explicitly: does your fee include the PEN-200 course, the lab and the exam voucher, or is that extra?",
+          "**Lab access and walkthroughs.** Does the bootcamp include guided walkthroughs of Offensive Security's lab machines, or is that left to you? The official labs are where the real learning happens — a bootcamp that only lectures and never walks you through a machine is a theory course wearing a practical label.",
+          "**Post-exam support.** What happens if you fail on the first attempt? Good providers offer continued mentorship until your retake. Others consider the engagement over when the bootcamp ends.",
+          "**Batch size.** A 60-person Zoom call is a webinar, not a bootcamp. Ask for the typical batch size. Under 15 is ideal; above 25 means limited individual attention.",
+          "**Verifiable reviews.** Check LinkedIn posts, Reddit threads and Google reviews from past candidates — not testimonials on the provider's own website. A provider that cannot point to a single verifiable candidate is a red flag.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "A note on our own status",
+        text: "Macksofy is not an Offensive Security Authorized Training Partner. We are an independent exam preparation provider — we supply the official Offensive Security bundle at a discounted rate and run our own instructor-led bootcamp alongside it. We are upfront about this because some Indian providers imply an OffSec partnership they do not hold. Always verify on offsec.com/partners.",
+      },
+
+      // ── Section 7: 90-day timeline ───────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "A 90-day OSCP prep timeline that works alongside a job",
+        id: "prep-timeline",
+      },
+      {
+        type: "para",
+        text: "Ninety days is enough to prepare for OSCP if you are consistent, but not if you cram. The timeline below assumes 2–3 hours on weekday evenings and 5–6 hours on each weekend day — roughly 20–25 hours a week. If you have less time, stretch it to 120 days rather than cutting corners.",
+      },
+      {
+        type: "table",
+        caption: "90-day OSCP preparation timeline",
+        headers: ["Phase", "Weeks", "Focus", "Deliverable"],
+        rows: [
+          ["1. Foundations", "Weeks 1–4", "Modules 1–10: recon, web attacks, SQLi, client-side, public exploits, AV evasion. Complete every module exercise before moving on.", "All module exercises done. 5–8 easy lab machines rooted."],
+          ["2. Exploitation depth", "Weeks 5–8", "Modules 11–16: password attacks, Windows and Linux privesc, tunnelling, Metasploit. Start the harder lab machines. Build your personal cheat sheet.", "15–20 lab machines rooted. Cheat sheet covers your methodology end to end."],
+          ["3. AD + exam simulation", "Weeks 9–12", "Modules 17–22: Active Directory enumeration and exploitation. Full practice exams under timed conditions (3–4 mock exams). Refine your report template.", "AD chain completed. At least 2 full mock exams scored above your pass threshold. Report template tested."],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The report is half the exam",
+        text: "Many candidates who root enough machines still fail because their report does not meet Offensive Security's documentation standard. Write a practice report for every lab machine you complete — by exam day, reporting should be muscle memory, not an afterthought.",
+      },
+      {
+        type: "para",
+        text: "For a Mumbai-specific version of this plan with local bootcamp schedules and batch dates, see our [OSCP training in Mumbai guide](/blog/oscp-training-in-mumbai-2026).",
+      },
+
+      // ── Section 8: Salary ────────────────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "What salary can OSCP holders expect in India?",
+        id: "salary",
+      },
+      {
+        type: "para",
+        text: "OSCP does not guarantee a salary — your compensation depends on experience, location, employer and negotiation. That said, OSCP holders consistently command higher packages than candidates with only knowledge-based certifications. The ranges below are estimates drawn from Indian job portals and industry salary surveys; treat them as directional, not definitive.",
+      },
+      {
+        type: "table",
+        caption: "Estimated salary ranges for OSCP-certified professionals in India (2026, public sources)",
+        headers: ["Experience", "Typical roles", "Estimated CTC (₹ LPA)"],
+        rows: [
+          ["Fresher / 0–2 years", "Junior penetration tester, SOC analyst (L2), security intern transitioning to offensive", "₹6–10 LPA"],
+          ["2–5 years", "Penetration tester, red team operator, AppSec engineer, security consultant", "₹12–20 LPA"],
+          ["5–10 years", "Senior pen-tester, red team lead, security architect, consulting manager", "₹20–35 LPA"],
+          ["10+ years", "Principal consultant, practice head, CISO (security-services firms)", "₹35–60 LPA+"],
+        ],
+      },
+      {
+        type: "para",
+        text: "Metro cities (Mumbai, Bengaluru, Hyderabad, Delhi NCR, Pune) pay at the higher end of each band. Remote roles for international clients can exceed these ranges significantly. For a deeper look at the Mumbai market specifically, see our [cybersecurity jobs in Mumbai guide](/blog/cybersecurity-jobs-in-mumbai-2026).",
+      },
+
+      // ── Section 9: Where in India ────────────────────────────
+      {
+        type: "heading",
+        level: 2,
+        text: "Where does OSCP training happen across India?",
+        id: "cities",
+      },
+      {
+        type: "para",
+        text: "Live online delivery dominates the Indian OSCP training market. Most providers — including us — run weekend and weekday-evening batches over Zoom or Teams that candidates from any city can join. Classroom-only training is rare because the official PEN-200 labs are online by definition, so there is no hands-on advantage to being in a physical room.",
+      },
+      {
+        type: "para",
+        text: "That said, a handful of providers offer in-person sessions in specific cities:",
+      },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**Mumbai** — Macksofy runs classroom cohorts from its BKC office alongside live-online batches. See our [Mumbai OSCP training guide](/blog/oscp-training-in-mumbai-2026).",
+          "**Hyderabad** — Macksofy's Hyderabad office supports in-person lab sessions for local candidates.",
+          "**Delhi NCR** — Several providers operate classroom centres in Delhi and Gurgaon.",
+          "**Pune and Bengaluru** — Primarily live-online, with occasional in-person weekend workshops.",
+        ],
+      },
+      {
+        type: "para",
+        text: "If you are choosing between classroom and online, the deciding factor is accountability, not content. A classroom forces you to show up; an online session lets you replay recordings. Pick whichever you are more likely to actually attend consistently for twelve weeks.",
+      },
+
+      // ── CTA ──────────────────────────────────────────────────
+      {
+        type: "cta",
+        title: "Start your OSCP journey with Macksofy",
+        text: "We run a 60+ hour instructor-led OSCP bootcamp alongside Offensive Security's official PEN-200 — with mentor support that continues until you pass. Weekend and weekday-evening batches, classroom in Mumbai or live online from anywhere in India.",
+        href: "/training/oscp",
+        cta: "View OSCP bootcamp details",
+      },
+    ],
+
+    faqs: [
+      {
+        q: "Is OSCP worth it in India in 2026?",
+        a: "Yes. OSCP remains the most respected hands-on penetration testing credential in India's hiring market. It is listed as preferred or required in a majority of mid-to-senior pen-testing job descriptions across BFSI, consulting firms and product companies. The certification is vendor-neutral, does not expire, and proves practical skills rather than theoretical knowledge.",
+      },
+      {
+        q: "Can I pass OSCP without formal training?",
+        a: "Yes, many candidates pass through self-study alone using the PEN-200 course material and labs. However, a bootcamp adds instructor guidance, structured pacing and post-failure mentorship that significantly improve first-attempt pass rates — especially for working professionals who struggle to maintain a self-study schedule alongside a job.",
+      },
+      {
+        q: "How long does it take to prepare for OSCP?",
+        a: "Most candidates need 3 to 4 months of consistent preparation at 20–25 hours per week. Candidates with strong networking, Linux and scripting fundamentals can sometimes prepare in 2 months. Total beginners to penetration testing should budget 5–6 months and consider completing CEH or a foundational course first.",
+      },
+      {
+        q: "OSCP or CEH — which should I take first?",
+        a: "If you are new to cybersecurity, start with CEH to build foundational knowledge, then pursue OSCP when you are ready for hands-on work. If you already have networking and Linux experience, skip straight to OSCP — it covers more practical ground and carries more weight in Indian job interviews. See our detailed comparison in the OSCP vs CEH guide.",
+      },
+      {
+        q: "Does the OSCP certification expire?",
+        a: "OSCP does not expire and does not require renewal or continuing education credits. Once you pass, you hold the certification for life. Offensive Security does offer newer certifications (like OSCP+) that reflect updated exam formats, and passing the current exam awards both OSCP and OSCP+.",
+      },
+      {
+        q: "What happens if I fail the OSCP exam?",
+        a: "You can retake the exam for $249 (approximately ₹24,000) per attempt. There is a mandatory cooling-off period between attempts. If you purchased Learn One ($2,749), your second attempt is included in the price. Many successful OSCP holders passed on their second or third attempt — a failure is a learning opportunity, not a verdict.",
+      },
+      {
+        q: "Do I need programming skills for OSCP?",
+        a: "You need basic scripting ability in Bash and Python — enough to modify public exploits, write short automation scripts and parse command output. You do not need to be a software developer. The PEN-200 course teaches the scripting you need, but familiarity with command-line tools before you start will make the first few weeks significantly easier.",
+      },
+      {
+        q: "Is there an age or education requirement for OSCP?",
+        a: "No. Offensive Security does not impose any age limit, degree requirement or prerequisite certification for OSCP. Anyone who can purchase the course can sit the exam. In practice, candidates range from final-year engineering students to experienced IT professionals making a mid-career switch into security.",
+      },
+    ],
+  },
   // ===================================================================
   // Red Team vs Penetration Testing — engagement comparison
   // ===================================================================
