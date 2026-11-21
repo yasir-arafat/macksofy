@@ -3321,6 +3321,7 @@ export const POSTS: BlogPost[] = [
           { value: "82%", label: "Cert reimbursement at BFSI" },
         ],
       },
+      { type: "para", text: "For a broader look at how OSCP training works across India — pricing, the December 2026 scoring change, a provider-selection checklist and a 90-day prep timeline — see our [OSCP training in India guide](/blog/oscp-training-in-india-2026)." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's Mumbai OSCP cohort"),
     ],
     faqs: [
@@ -4165,7 +4166,7 @@ impacket-psexec -k -no-pass <host>.corp.local`,
           "OSCP + OSEP / CRTO, 3+ yr exp → CRTE for multi-forest, or specialist OSED / OSWE",
         ],
       },
-      { type: "para", text: "Macksofy teaches both: [OSEP training](/training/osep) for the evasion and Active Directory path, and [OSCP training](/training/oscp) for the foundation. For the full rupee breakdown of the OSEP exam, retakes and Learn One, see our training institute's guide to [OSEP cost in India](https://www.macksofytrainings.com/osep-cost-india-2026/)." },
+      { type: "para", text: "Macksofy teaches both: [OSEP training](/training/osep) for the evasion and Active Directory path, and [OSCP training](/training/oscp) for the foundation. For the full rupee breakdown of the OSEP exam, retakes and Learn One, see our training institute's guide to [OSEP cost in India](https://www.macksofytrainings.com/osep-cost-india-2026/). If you are still deciding on OSCP itself, our [OSCP training in India guide](/blog/oscp-training-in-india-2026) covers the December 2026 scoring change, a provider checklist and a 90-day prep timeline." },
       MACKSOFY_CTA("oscp-bootcamp", "Macksofy's OSEP prep with OSCP refresher"),
     ],
     faqs: [
@@ -6002,7 +6003,7 @@ def fetch_logs(service: str) -> str:
         title: "What we tell our students",
         text: "If you can afford OSCP ([here is what it costs in India](https://www.macksofytrainings.com/oscp-cost-india-2026/)), do OSCP first — the recognition is worth the premium. If you can't, CPTS is no longer a 'second-tier' choice; it's a perfectly legitimate first credential. We have placed CPTS-only graduates into Indian BFSI pentest roles at ₹10-13 LPA in 2026.",
       },
-      { type: "para", text: "If OSCP is the one you choose, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside Offensive Security's PEN-200 course." },
+      { type: "para", text: "If OSCP is the one you choose, Macksofy's [OSCP training](/training/oscp) runs an instructor-led bootcamp alongside Offensive Security's PEN-200 course. Our [OSCP training in India guide](/blog/oscp-training-in-india-2026) covers the full cost breakdown, the December 2026 exam changes and a 90-day prep plan." },
       MACKSOFY_CTA("oscp-bootcamp", "Our pentest certification prep"),
     ],
     faqs: [
@@ -6352,6 +6353,7 @@ def fetch_logs(service: str) -> str:
           "Self-study without a mentor: cheapest route, but you absorb every retake (~$249 per attempt) and get no structured AD lab time",
         ],
       },
+      { type: "para", text: "For a full walkthrough of OSCP training options in India — cost in INR, how to pick a provider, and a working prep timeline — see our [OSCP training in India guide](/blog/oscp-training-in-india-2026)." },
       MACKSOFY_CTA("oscp", "Macksofy's OSCP+ bootcamp"),
     ],
     faqs: [
@@ -6545,6 +6547,7 @@ def fetch_logs(service: str) -> str:
           "Have ₹2L+ budget and 9 months? → Do both. CEH first (3 months), then OSCP+ (6 months).",
         ],
       },
+      { type: "para", text: "Whichever you pick first, our [OSCP training in India guide](/blog/oscp-training-in-india-2026) covers the 2026 exam changes, pricing in INR, a provider checklist and a 90-day prep timeline." },
       MACKSOFY_CTA("oscp", "Macksofy's OSCP+ and CEH bootcamps"),
     ],
     faqs: [
