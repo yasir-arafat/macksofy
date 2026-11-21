@@ -22,6 +22,20 @@ One entry per commit, added after each numbered item lands.
 - **1.8** "250+" → "100+" clients in all 5 places (owner Q1, go-ahead 2026-11-17): Hero.tsx stat, AboutHero.tsx stat, StatsInfographic.tsx, /clients stat block and /clients body text ("over 100 organizations").
 - **1.2 fix** — Homepage `<title>` rendered without " | Macksofy": the root layout's title template does not apply to `app/page.tsx` (same route segment). The homepage now sets the Option A title as an absolute title: `CERT-In Empanelled Cybersecurity Company India | Macksofy` (57 chars).
 
+## Phase 3 — Low-CTR Blog Title Rewrites
+
+7 blog posts on page 1–2 with CTR under 1% — titles rewritten to be more specific, action-oriented and click-worthy while staying under the 60-char absolute budget:
+
+- **OSCP Mumbai**: "Bootcamp, Syllabus & Exam" → "Bootcamp, Fees & 90-Day Plan" (adds the two things searchers want: price and prep plan)
+- **CERT-In audit guide**: added "2026" year signal and "What It Costs" (the top search intent is cost)
+- **Red team certs**: "Best … Costs" → "OSEP vs CRTO vs CRTP" (names the certs searchers are comparing)
+- **CPTS vs OSCP**: "CPTS Cost in India" → "CPTS vs OSCP 2026: Cost in India, Exam & Hiring Reality" (matches the comparison intent Google ranks it for)
+- **Telecom rules**: "India Compliance" → "6-Hour Clock & Checklist" (the two most-searched specifics)
+- **OSEP vs OSCP**: "Honest Red Team Comparison" → "Which One First for Red Team Careers?" (question = higher CTR)
+- **DPDP rules**: "India Compliance Deadlines by May 2027" → "Every India Deadline Through May 2027" (more specific, 4 chars shorter)
+
+Descriptions also tightened where over budget or generic.
+
 ## CERT-In "empanelment process" cannibalization (2026-11-17)
 
 - GSC 11-09..11-15: `/audit/cert-in-empanelled-audit` ranked ~p16 for "cert-in empanelment process" (was p24-33, intermittent) while `/blog/cert-in-empanelment-process-2026` fell from p1-3 to p7-9; the shift started 11-07/08.

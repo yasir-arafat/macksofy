@@ -117,7 +117,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: "telecom-cyber-security-rules-2024-india-compliance",
     title: "Telecom Cyber Security Rules 2024: What India's Telecom Entities Must Do",
-    seoTitle: "Telecom Cyber Security Rules 2024: India Compliance",
+    seoTitle: "Telecom Cyber Security Rules 2024: 6-Hour Clock & Checklist",
     description:
       "India's Telecom Cyber Security Rules, 2024 put a six-hour incident-reporting clock, a mandatory Chief Telecommunication Security Officer, and standing SOC and testing duties on every telecom entity. Who must comply, the timelines, and the compliance checklist.",
     seoDescription:
@@ -868,9 +868,9 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "dpdp-rules-2025-compliance-deadlines",
-    seoTitle: "DPDP Rules 2025 — India Compliance Deadlines by May 2027",
+    seoTitle: "DPDP Rules 2025: Every India Deadline Through May 2027",
     seoDescription:
-      "India's DPDP Rules 2025 commence in phases from 14 November 2025 — consent managers at 12 months, data fiduciaries at 18. The dates, and what to do in each.",
+      "India's DPDP Rules 2025 phased deadlines — consent managers at 12 months, data fiduciaries at 18, significant fiduciaries at 24. What to do in each window.",
     title:
       "DPDP Rules 2025 — Every India Compliance Deadline, and What to Do in Each Window",
     description:
@@ -1815,8 +1815,8 @@ export const POSTS: BlogPost[] = [
     // 2026-10-16: it pulled auditor-side "empanelment process" queries onto
     // this page and split them with cert-in-empanelment-process-2026, which
     // owns that intent (GSC Sep–Oct 2026: both ranked 5–17, neither got clicks).
-    seoTitle: "CERT-In Empanelled Audit: Who Needs It, Scope & Cost",
-    seoDescription: "What a CERT-In empanelled audit covers, who needs one, timelines, report format, cost drivers, the 2022 Directions and how to verify an auditor.",
+    seoTitle: "CERT-In Empanelled Audit 2026: Who Needs One & What It Costs",
+    seoDescription: "Who must get a CERT-In empanelled audit, what it covers, typical timelines, report format, cost drivers and how to verify an auditor on CERT-In's list.",
     updated: "2026-10-16",
     title: "CERT-In Empanelled Audit: The Complete Guide (2026)",
     description:
@@ -2553,8 +2553,8 @@ export const POSTS: BlogPost[] = [
   // ===================================================================
   {
     slug: "red-team-certifications-india-2026",
-    seoTitle: "Best Red Team Certifications India 2026: Costs",
-    seoDescription: "Compare CRTP, CRTE, CRTO, CPTS and OSEP costs in India for 2026, including INR prices, retake fees, difficulty and which red team certification to choose.",
+    seoTitle: "Red Team Certifications India 2026: OSEP vs CRTO vs CRTP",
+    seoDescription: "OSEP, CRTO, CRTP, CRTE and CPTS compared for India in 2026 — INR prices, retake fees, exam difficulty, what each teaches and which to pick for your career.",
     updated: "2026-09-28",
     title: "Red Team Certifications India 2026 — OSEP vs CRTO vs CRTP Comparison",
     description:
@@ -3125,8 +3125,8 @@ export const POSTS: BlogPost[] = [
     // it (avg pos 3.5 vs 6.9). Retargeted 2026-10-16 from "OSCP certification
     // cost in India" to Mumbai training; the pricing section stays for readers
     // and hands the full fee breakdown to the training site.
-    seoTitle: "OSCP Training in Mumbai 2026: Bootcamp, Syllabus & Exam",
-    seoDescription: "OSCP training in Mumbai for 2026: how the instructor-led bootcamp runs alongside PEN-200, the syllabus, a 90-day prep plan, exam mechanics and salary impact.",
+    seoTitle: "OSCP Training in Mumbai 2026: Bootcamp, Fees & 90-Day Plan",
+    seoDescription: "OSCP training in Mumbai for 2026 — bootcamp fees in INR, how the 12-week programme runs alongside PEN-200, a 90-day prep plan and what OSCP earns in Mumbai.",
     updated: "2026-10-16",
     title: "OSCP Training in Mumbai 2026 — Bootcamp, Syllabus, Exam & Career",
     description:
@@ -4032,8 +4032,8 @@ impacket-psexec -k -no-pass <host>.corp.local`,
   // ===================================================================
   {
     slug: "osep-vs-oscp",
-    seoTitle: "OSEP vs OSCP 2026 — The Honest Red Team Comparison",
-    seoDescription: "OSEP vs OSCP — a practical 2026 comparison for Indian red team careers. Cost in INR, exam mechanics, what each teaches and which suits your career stage.",
+    seoTitle: "OSEP vs OSCP 2026: Which One First for Red Team Careers?",
+    seoDescription: "OSEP vs OSCP for Indian red team careers in 2026 — cost in INR, exam mechanics, what PEN-300 adds over PEN-200 and which suits your experience level.",
     title: "OSEP vs OSCP in 2026 — The Honest Comparison for Red Team Careers",
     description:
       "OSEP vs OSCP — practical 2026 comparison for India red team careers. Cost in INR, exam mechanics, what each one actually teaches, and which to pick for your career stage.",
@@ -5849,8 +5849,8 @@ def fetch_logs(service: str) -> str:
   // ===================================================================
   {
     slug: "cpts-vs-oscp-certification-comparison-india-2026",
-    seoTitle: "CPTS Cost in India 2026 — CPTS vs OSCP Compared",
-    seoDescription: "What CPTS actually costs in India in 2026 — HTB's $490 Silver Annual against Offensive Security's $1,749 OSCP bundle in INR, with exam format and India hiring reality.",
+    seoTitle: "CPTS vs OSCP 2026: Cost in India, Exam & Hiring Reality",
+    seoDescription: "CPTS vs OSCP in India — HTB Silver Annual $550 vs OffSec's $1,749 bundle in INR, exam format differences and which credential Indian employers prefer.",
     updated: "2026-08-30",
     title: "CPTS vs OSCP — Which Pentest Certification Should You Take in India?",
     description:
