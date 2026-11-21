@@ -269,8 +269,8 @@ export default function CloudSecurityPage() {
             <div className="lg:col-span-6">
               <div className="rounded-2xl glass p-6 sm:p-8 grid grid-cols-2 gap-3">
                 {[
-                  { v: "47%", k: "of cloud breaches start with IAM misconfig" },
-                  { v: "≤24h", k: "from SSRF to AWS root via Pacu chain" },
+                  { v: "3", k: "cloud providers assessed: AWS, Azure, GCP" },
+                  { v: "CIS", k: "benchmark + cloud-native controls validated" },
                   { v: "0", k: "CVEs needed for typical cloud privesc" },
                   { v: "100%", k: "engagements include K8s + IaC review" },
                 ].map((m) => (

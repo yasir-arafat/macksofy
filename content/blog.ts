@@ -309,8 +309,8 @@ export const POSTS: BlogPost[] = [
         type: "table",
         headers: ["Scope", "Typical Range (₹)", "What Drives Cost Up"],
         rows: [
-          ["Single web application (unauthenticated)", "₹1.5 L – ₹3 L", "Number of roles, API endpoints, file upload, payment flows"],
-          ["Web app + authenticated (multi-role)", "₹3 L – ₹6 L", "Role count, workflow complexity, business logic depth"],
+          ["Single web application (unauthenticated)", "₹60K – ₹1.5 L", "Number of pages, API endpoints, file upload, payment flows"],
+          ["Web app + authenticated (multi-role)", "₹1.5 L – ₹4 L", "Role count, workflow complexity, business logic depth"],
           ["API-only (REST / GraphQL)", "₹2 L – ₹5 L", "Endpoint count, auth model (OAuth/JWT/mTLS), rate limiting"],
           ["Mobile app (Android + iOS)", "₹3 L – ₹7 L", "Native vs hybrid, cert pinning bypass, backend API scope"],
           ["Internal network (up to 500 IPs)", "₹4 L – ₹8 L", "Active Directory complexity, VLAN segmentation, OT/IoT"],
@@ -320,7 +320,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: "para",
-        text: "These are market ranges across Indian vendors. For comparison, Macksofy's own published tiers are ₹2.5-5 lakh for a single asset or app (manual and tooled testing, CERT-In format report, free 30-day retest), ₹6-12 lakh for a multi-asset engagement, and from ₹15 lakh for a quarterly programme on a large estate.",
+        text: "These are market ranges across Indian vendors. Web application VAPT starts from ₹40,000 for smaller scopes; most single-asset engagements land between ₹60,000 and ₹1,50,000 depending on role count, API surface and compliance format. Multi-asset and enterprise scopes sit higher. See our [VAPT service page](/services/vapt) for Macksofy's own pricing.",
       },
       {
         type: "callout",
@@ -334,7 +334,7 @@ export const POSTS: BlogPost[] = [
         ordered: true,
         items: [
           "**Scope breadth** — more applications, more IPs, more environments (staging + production) means more days of testing.",
-          "**Depth of manual testing** — a multi-role authenticated web-app test costs roughly double an unauthenticated one (₹3-6 lakh vs ₹1.5-3 lakh in the table above) because each role requires separate test passes.",
+          "**Depth of manual testing** — a multi-role authenticated web-app test costs roughly double an unauthenticated one (₹1.5-4 lakh vs ₹60K-1.5 lakh in the table above) because each role requires separate test passes.",
           "**Compliance reporting format** — a CERT-In format report, an RBI System Audit Report, or a SEBI cybersecurity attestation carries specific structure requirements. Vendors who are [CERT-In empanelled auditors](/audit/cert-in-empanelled-audit) charge more because their reports are built to those formats and need less rework.",
           "**Retest window** — a 30-day free retest is standard. Extended retest windows (60–90 days) or multiple retest cycles add cost.",
           "**Operator certification level** — engagements staffed by OSCP/OSWE/OSEP-certified operators cost more than those staffed by CEH-only teams. The finding quality is materially different.",

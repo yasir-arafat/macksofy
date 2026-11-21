@@ -1727,7 +1727,7 @@ export const SERVICES: Service[] = [
           "Findings mapped to IEC 62443 SLs + MITRE ATT&CK for ICS",
           "Plant-manager friendly executive summary",
           "Compensating-control roadmap with operational reality in mind",
-          "Free retest of high/critical within 60 days",
+          "Free retest of high/critical within 30 days",
         ],
       },
     ],
@@ -1761,7 +1761,7 @@ export const SERVICES: Service[] = [
       "Findings report with IEC 62443 SL gap analysis",
       "MITRE ATT&CK for ICS technique mapping",
       "Plant-manager + CISO + board-ready executive summary",
-      "Free retest of high/critical findings within 60 days",
+      "Free retest of high/critical findings within 30 days",
       "Evidence pack accepted by CEA / NIS2 / NCA-ECC auditors",
     ],
     caseStudies: [

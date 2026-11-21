@@ -6185,7 +6185,7 @@ export const AUDITS: Audit[] = [
       {
         phase: "Wk 6 · Remediation & Validation",
         activities: [
-          "60-day re-test of every Critical and High finding at no extra cost",
+          "30-day re-test of every Critical and High finding at no extra cost",
           "Updated severity scoring with clean validation output per finding",
           "Engineer-readable remediation guidance with reproducible repros",
           "Risk-register sync to the customer's GRC tool (Archer / ServiceNow IRM / Vanta / Drata)",
@@ -6200,7 +6200,7 @@ export const AUDITS: Audit[] = [
       "CERT-In empanelled submission-format report for Indian regulator scope",
       "CERT-In empanelled web application security audit certificate for ABDM submission — the 'safe to host' artefact NHA integrators file for M1 / M2 / M3 milestone sign-off, stating the environment tested",
       "Vendor-pack annex for enterprise procurement (CAIQ, SIG, Shared Assessments) attachment",
-      "60-day re-test of every Critical and High at no extra cost",
+      "30-day re-test of every Critical and High at no extra cost",
       "Post-engagement risk-register sync to GRC tool (Archer / ServiceNow IRM / Vanta / Drata)",
     ],
     pillars: [
@@ -6313,7 +6313,7 @@ export const AUDITS: Audit[] = [
       },
       {
         q: "How long does a WASA engagement take?",
-        a: "5–6 weeks for a mid-sized SaaS or fintech scope. Larger / multi-tenant / multi-region scopes stretch to 7–8 weeks. An ABDM milestone scope typically runs three to six weeks depending on application size and how fast findings are remediated — re-testing is what usually drives the timeline, not the initial assessment. The closing week is dedicated to remediation validation and the 60-day re-test window covers every Critical and High finding.",
+        a: "5–6 weeks for a mid-sized SaaS or fintech scope. Larger / multi-tenant / multi-region scopes stretch to 7–8 weeks. An ABDM milestone scope typically runs three to six weeks depending on application size and how fast findings are remediated — re-testing is what usually drives the timeline, not the initial assessment. The closing week is dedicated to remediation validation and the 30-day re-test window covers every Critical and High finding.",
       },
       {
         q: "Do you cover AI / LLM application security in WASA scope?",

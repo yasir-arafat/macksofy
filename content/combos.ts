@@ -67,7 +67,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Mumbai BFSI VAPT scoping is fundamentally a money-movement exercise, not a checklist scan. On a private-bank engagement we model the transaction graph end-to-end: net-banking authentication, OTP/2FA challenge, beneficiary-add flow, IMPS/NEFT/RTGS rails, the FATCA/CRS edge, and the reconciliation layer that ties book-of-record to the SWIFT gateway. Manual abuse-case testing targets velocity-control bypass on the IMPS rail, OTP-reuse via SS7-style mobile-side weaknesses, and reconciliation gaps that allow an attacker to mint balance without minting debit. Burp Suite Pro is the workhorse; Nuclei templates, custom Python harnesses and a fork of mitmproxy handle the protocol-specific abuse.",
       "For SEBI-regulated brokers and AMCs, the scope shifts to broker-terminal authorisation flaws, algo-API rate-limit bypass, market-data tampering on Refinitiv/Bloomberg feed-handlers, and the order-management-to-exchange (OMS-to-NSE/BSE) gateway. The same engagement also closes SEBI CSCRF Annexure-K evidence — CCI/CRMM scoring, MII-vendor-control attestation and the SAR exhibits the System Audit Report demands. IRDAI insurer engagements layer in claims-fraud paths, KYC-impersonation via OVD upload portals, and the policy-administration-system (PAS) authorisation matrix.",
       "The deliverable is a regulator-grade binder, not a Burp HTML export. Every High or Critical finding carries a manually-validated proof-of-exploit, a CVSS v3.1 score, a Macksofy business-impact score calibrated to the bank's transaction value-at-risk, and a remediation playbook that the AppSec lead can hand to engineering without translation. The executive summary is written in the language RBI Master Direction on IT Governance, Risk, Controls and Assurance Practices (November 2023) inspectors expect — explicit clause mapping to Annex-1 of the RBI Cyber Security Framework circular DBS.CO.CSITE.BC.11/33.01.001/2015-16.",
-      "Re-testing is built into the SoW, not sold as a follow-on. Every Critical and High finding is re-validated post-fix at no extra cost inside a 60-day remediation window. If the bank's release train slips, we hold the re-test slot — we do not raise a change-order. For tier-1 private banks we also embed a Macksofy detection-engineering analyst alongside the SOC for the last week of the engagement so that every exploitable finding ships with a paired Sigma/Splunk rule the SIEM team can deploy the same week.",
+      "Re-testing is built into the SoW, not sold as a follow-on. Every Critical and High finding is re-validated post-fix at no extra cost inside a 30-day remediation window. If the bank's release train slips, we hold the re-test slot — we do not raise a change-order. For tier-1 private banks we also embed a Macksofy detection-engineering analyst alongside the SOC for the last week of the engagement so that every exploitable finding ships with a paired Sigma/Splunk rule the SIEM team can deploy the same week.",
       "Mumbai BFSI procurement reality matters. Most engagements close through a CTO + Chief Risk Officer joint signoff, with the audit committee chair copied; a few cooperative banks still route through the GM-IT and the board-IT-committee secretary. We size proposals to match — a fixed-fee SoW with clear inclusion of re-testing, the empanelled-auditor letter, and the SAR/inspection-defence support that follows. Procurement at listed BFSI clients also wants the SOC 2 / ISO 27001 vendor-security questionnaire pre-answered; we attach the Macksofy ISMS pack to every Mumbai proposal so legal and infosec don't hold up the PO.",
       "Onsite cadence is dictated by Mumbai geography, not vendor convenience. BKC and Lower Parel are walk-in same-day; Andheri MIDC, Powai, Goregaon SEEPZ, Thane and Navi Mumbai (Airoli, Vashi, Ghansoli) are reachable inside four hours including a Western Express Highway buffer. We block the Mumbai monsoon window (mid-June to mid-September) for testing-only weeks where onsite is non-critical, and front-load kickoff/exit calls for the dry months so the audit committee schedule is never held up by a flooded approach road.",
       "For listed BFSI clients the engagement also produces the board-pack exhibits the audit committee needs at the next quarterly cyber review: a top-10 risks slide mapped to the bank's existing risk register, a trend-line vs the previous VAPT cycle, an EDR/SIEM coverage delta, and a one-page CEO note that the bank's Company Secretary can drop into the agenda pack without rewrite.",
@@ -86,7 +86,7 @@ export const COMBOS: CityServiceCombo[] = [
     differentiators: [
       "Headquarters and senior team physically located in BKC — onsite kickoff at any Mumbai BFSI office within the same business day, with a four-hour SLA across the MMR including Thane and Navi Mumbai.",
       "Reports formatted to RBI MD-ITGRC, SEBI CSCRF and IRDAI inspector expectations, including the cross-reference annexures inspectors typically request during follow-up examinations.",
-      "Re-testing of every critical and high finding included in the base SoW — no separate purchase order required inside the 60-day remediation window even if the bank's release train slips.",
+      "Re-testing of every critical and high finding included in the base SoW — no separate purchase order required inside the 30-day remediation window even if the bank's release train slips.",
       "Detection-engineering analyst embedded with the SOC in the closing week — every exploitable finding ships with a paired Sigma/Splunk rule the SIEM team can deploy immediately.",
       "Money-movement-graph methodology rather than checklist scanning — abuse-case testing on velocity controls, beneficiary-add, OTP reuse and reconciliation-layer gaps tied to actual transaction value-at-risk.",
     ],
@@ -149,7 +149,7 @@ export const COMBOS: CityServiceCombo[] = [
       {
         phase: "05 · Re-test & Closure",
         activities: [
-          "60-day re-test window covering every Critical and High at no extra cost",
+          "30-day re-test window covering every Critical and High at no extra cost",
           "CERT-In empanelled closure letter and SAR/inspection-defence support",
           "Risk register update synced to the bank's GRC tool (Archer, MetricStream, ServiceNow IRM)",
           "Carry-forward backlog grooming for the next quarter's regression-VAPT slot",
@@ -188,7 +188,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Detection-engineering annex — Sigma/Splunk rules paired to each exploitable finding",
       "Board-pack exhibits for the audit committee's quarterly cyber review",
       "Jira/ServiceNow-importable findings CSV with owner, severity, ETA and CWE",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
       "CERT-In empanelled closure letter and SAR/RBI inspection-defence support",
       "Risk register update synced to the bank's GRC tool",
     ],
@@ -527,7 +527,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Archer / MetricStream evidence drop in the bank's GRC schema",
       "Jira / ServiceNow-importable findings CSV with severity, CWE, CVSS and ETA",
       "Two-time-zone pre-read packs sized for the Indian audit committee and the overseas parent committee",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
       "CERT-In empanelled closure letter and RBI / IRDAI inspection-defence support",
     ],
     caseStudy: {
@@ -3555,7 +3555,7 @@ export const COMBOS: CityServiceCombo[] = [
       "PAM compromise narrative (BeyondTrust / CyberArk / Delinea) where in scope",
       "Sigma / Splunk SPL / Sentinel KQL detection content — 6-12 rules per engagement",
       "Cross-metro segmentation memo for Gurugram HQ ↔ Mumbai BCP scopes",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
       "Joint SOC tabletop and follow-on retainer offer",
     ],
     caseStudy: {
@@ -4375,7 +4375,7 @@ export const COMBOS: CityServiceCombo[] = [
       {
         phase: "05 · Re-test & Inspection-Defence",
         activities: [
-          "Free re-test of every Critical and High inside a 60-day window",
+          "Free re-test of every Critical and High inside a 30-day window",
           "RBI inspection-defence support for CSITE Cell and DPSS thematic-review cycles",
           "Findings exported to Jira / Linear / GitHub Issues with owner, severity, CWE and ETA",
           "Continuous-AppSec retainer offer if the release cadence is weekly or daily",
@@ -4416,7 +4416,7 @@ export const COMBOS: CityServiceCombo[] = [
       "DPDP §16 cross-border-transfer evidence pack with contractual-safeguard reference",
       "Yotta NM1 tenant shared-responsibility evidence where in scope",
       "Customer-procurement vendor-pack annex for foreign-bank GCC scopes",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
     ],
     caseStudy: {
       industry: "Noida-headquartered Payment Aggregator (RBI PA licensee, Sector 18, Yotta NM1 tenant)",
@@ -5063,7 +5063,7 @@ export const COMBOS: CityServiceCombo[] = [
       {
         phase: "05 · Re-test & Closure",
         activities: [
-          "60-day re-test window covering every Critical and High at no extra cost",
+          "30-day re-test window covering every Critical and High at no extra cost",
           "Encrypted double-key board-pack delivery to CISO + audit-committee chair",
           "CERT-In empanelled closure letter and SAR / inspection-defence support",
           "Risk register update synced to the bank's GRC tool",
@@ -5104,7 +5104,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Authorisation-matrix evidence per role exercised (customer / sub-broker / dealer / RM / agent)",
       "Reproducible exploit code (curl / Burp .req / Python) per High and Critical",
       "Encrypted double-key delivery to CISO + audit-committee chair only",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
     ],
     caseStudy: {
       industry: "Mumbai-headquartered Tier-1 Private Bank (BKC corporate tower) — net-banking + mobile-banking + UPI app scope",
@@ -7304,7 +7304,7 @@ export const COMBOS: CityServiceCombo[] = [
       {
         phase: "05 · Re-test & Closure",
         activities: [
-          "60-day re-test window covering every Critical and High at no extra cost",
+          "30-day re-test window covering every Critical and High at no extra cost",
           "Encrypted double-key board-pack delivery to CISO + audit-committee chair",
           "RBI / IRDAI / SEBI / parent inspection-defence support",
           "Continuous-AppSec retainer offer for fintech and SaaS clients with weekly release trains",
@@ -7345,7 +7345,7 @@ export const COMBOS: CityServiceCombo[] = [
       "GCC parent's third-party-AppSec-standard report for TPRM drop-in",
       "AI / LLM application surface OWASP Top 10 (2025) findings in BFSI customer-context language",
       "Account aggregator / DigiLocker / Aadhaar AUA-KUA integration trust-chain attestation",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
     ],
     caseStudy: {
       industry: "Gurugram-headquartered Tier-1 Private Bank (DLF Phase 3 corporate tower)",
@@ -8396,7 +8396,7 @@ export const COMBOS: CityServiceCombo[] = [
       "For payment aggregators and PA-PG licensees the scope follows the cardholder-data and settlement flow: payout, refund, settlement-reconciliation and merchant-onboarding APIs, with explicit tests for unrestricted access to sensitive business flows (API6 — refund-abuse, settlement-race and cashback-farming logic) and unrestricted resource consumption (API4 — the rate-limit and velocity-control bypass that turns an OTP or balance-enquiry endpoint into a money or enumeration oracle). For brokers and AMCs we test the algo and market-data APIs, the OMS-to-exchange gateway, and the order-throttle bypass that SEBI's technical-glitch framework cares about.",
       "Account Aggregator is now a first-class Mumbai scope. We test the FIU consent-artifact handling, the FIP data-delivery endpoints and the AA routing layer for consent-scope violation, replay of signed consent artifacts, and over-fetch beyond the consented FI types and date range — the exact abuse paths that turn a compliant AA integration into a data-leak. SSRF (API7) gets focused attention wherever an API fetches a remote resource — webhook registration, document-pull from a partner URL, or an image-proxy — because in a cloud-hosted bank that is the path from API to metadata service to credentials.",
       "The deliverable is regulator-grade, not a scanner export. Every High and Critical carries a manually-validated proof-of-exploit, a CVSS v3.1 score, a Macksofy business-impact score tied to transaction value-at-risk, and a remediation that an engineering lead can action without translation — the specific authorization check, the schema allow-list, the rate-limit policy. The executive summary maps findings to the RBI Master Direction on IT Governance, Risk, Controls and Assurance Practices and, for brokers, SEBI CSCRF — so the same binder closes the API slice of the annual VAPT obligation. Improper inventory management (API9 — the forgotten /v1 endpoint still live after /v2 shipped) is reported as a programme finding, because shadow and zombie APIs are where Mumbai breaches actually start.",
-      "Re-testing is in the SoW, not a change-order: every Critical and High is re-validated post-fix inside a 60-day window at no extra cost, and for tier-1 clients we pair each exploitable finding with a detection rule the SOC can deploy the same week. Procurement closes through the CTO and CRO with the audit-committee secretary copied; we attach the Macksofy ISMS pack and the empanelled-auditor letter to every Mumbai proposal so infosec and legal don't hold the PO. Onsite kickoff and exit are same-day across BKC and Lower Parel and inside four hours across the wider MMR.",
+      "Re-testing is in the SoW, not a change-order: every Critical and High is re-validated post-fix inside a 30-day window at no extra cost, and for tier-1 clients we pair each exploitable finding with a detection rule the SOC can deploy the same week. Procurement closes through the CTO and CRO with the audit-committee secretary copied; we attach the Macksofy ISMS pack and the empanelled-auditor letter to every Mumbai proposal so infosec and legal don't hold the PO. Onsite kickoff and exit are same-day across BKC and Lower Parel and inside four hours across the wider MMR.",
     ],
     buyerConcerns: [
       "OWASP API Top 10 (2023) coverage — BOLA, BFLA and broken object-property-level authorization on net-banking and lending APIs",
@@ -8431,7 +8431,7 @@ export const COMBOS: CityServiceCombo[] = [
       { value: "API Top 10", label: "2023 — full manual coverage" },
       { value: "2× personas", label: "Per role for BOLA/BFLA" },
       { value: "<4 hrs", label: "MMR onsite SLA" },
-      { value: "60-day", label: "Free re-test window" },
+      { value: "30-day", label: "Free re-test window" },
     ],
     methodology: [
       { phase: "01 · Scope & API inventory", duration: "Week 1", activities: [
@@ -8459,7 +8459,7 @@ export const COMBOS: CityServiceCombo[] = [
         "Jira/ServiceNow-importable findings CSV with owner, severity, CWE and remediation",
       ] },
       { phase: "05 · Re-test & closure", duration: "Weeks 5–6", activities: [
-        "60-day re-test of every Critical and High at no extra cost",
+        "30-day re-test of every Critical and High at no extra cost",
         "CERT-In empanelled closure letter and inspection-defence support",
         "Gateway-policy hardening guidance — schema allow-lists, rate-limit and inventory governance",
         "Carry-forward backlog for the next regression cycle",
@@ -8480,7 +8480,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Shadow / zombie API inventory findings with gateway-governance recommendations",
       "Detection-engineering annex — Sigma/Splunk rules per exploitable finding",
       "Jira/ServiceNow-importable findings CSV with owner, severity, ETA and CWE",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
       "CERT-In empanelled closure letter and RBI/SEBI inspection-defence support",
     ],
     caseStudy: {
@@ -8509,7 +8509,7 @@ export const COMBOS: CityServiceCombo[] = [
       "GraphQL gets first-class treatment because so much of Bengaluru runs it. We test introspection exposure, query depth and aliasing/batching abuse (an unrestricted-resource-consumption vector that can take a cluster down or drive cloud spend), field- and edge-level authorization, and the same cross-tenant BOLA logic applied to resolvers and node lookups. For REST microservice meshes we test east-west trust assumptions — the internal service that trusts a header the gateway was supposed to strip — and the service-to-service auth that product teams often leave implicit.",
       "Bengaluru engagements are CI/CD-shaped. We integrate where it helps — running authenticated API scans against an ephemeral preview environment, wiring a Nuclei/ZAP baseline into the pipeline so regressions are caught pre-merge — but the depth comes from manual abuse-case testing a pipeline cannot do: business-flow abuse (API6) on trials, invites, billing and usage-metering; SSRF (API7) on the webhook-registration and integration-connector features that every SaaS ships; and unsafe consumption of third-party APIs (API10) where your product trusts a partner response it shouldn't. We test against staging with production-like data shape, and we move at the cadence of a team that deploys daily.",
       "The deliverable is built to clear two gates at once: the customer security questionnaire and the audit. Findings map to SOC 2 (CC-series), ISO 27001:2022 Annex A, and India's DPDP reasonable-security-safeguards expectation, and the report is written so your buyer's security reviewer reads it as evidence of maturity rather than a list of holes. Improper inventory management (API9) — the undocumented internal endpoint, the deprecated `/v1` still serving — is reported with a gateway-governance plan, because for a product company an unknown API is an unmanaged liability and a future incident.",
-      "Re-testing is included in the SoW inside a 60-day window, and we deliver a clean re-test letter your sales and compliance teams can forward to prospects. We are vendor-neutral on the gateway stack — Kong, Apigee, AWS API Gateway, Azure APIM, Envoy/Istio — and we don't resell any of it, which matters when we're also recommending how to configure it. Onsite is straightforward across ORR, Whitefield, Electronic City and Manyata; most product engagements run remote-first with a kickoff and a findings-walkthrough working session with your engineering leads.",
+      "Re-testing is included in the SoW inside a 30-day window, and we deliver a clean re-test letter your sales and compliance teams can forward to prospects. We are vendor-neutral on the gateway stack — Kong, Apigee, AWS API Gateway, Azure APIM, Envoy/Istio — and we don't resell any of it, which matters when we're also recommending how to configure it. Onsite is straightforward across ORR, Whitefield, Electronic City and Manyata; most product engagements run remote-first with a kickoff and a findings-walkthrough working session with your engineering leads.",
     ],
     buyerConcerns: [
       "OWASP API Top 10 (2023) coverage with cross-tenant BOLA/BFLA on multi-tenant SaaS",
@@ -8544,7 +8544,7 @@ export const COMBOS: CityServiceCombo[] = [
       { value: "API Top 10", label: "2023 — REST + GraphQL" },
       { value: "2 tenants", label: "Isolation proven, not assumed" },
       { value: "CI/CD", label: "Pipeline-integrated regression" },
-      { value: "60-day", label: "Free re-test + clean letter" },
+      { value: "30-day", label: "Free re-test + clean letter" },
     ],
     methodology: [
       { phase: "01 · Scope & API inventory", duration: "Week 1", activities: [
@@ -8572,7 +8572,7 @@ export const COMBOS: CityServiceCombo[] = [
         "Jira/Linear/GitHub-importable findings export with owner, severity and CWE",
       ] },
       { phase: "05 · Re-test & closure", duration: "Weeks 5–6", activities: [
-        "60-day re-test of every Critical and High at no extra cost",
+        "30-day re-test of every Critical and High at no extra cost",
         "Clean re-test letter for sales and customer-security review",
         "Pipeline regression baseline (Nuclei/ZAP) handed to the engineering team",
         "Carry-forward backlog for the next release-cycle assessment",
@@ -8593,7 +8593,7 @@ export const COMBOS: CityServiceCombo[] = [
       "Manually-validated proof-of-exploit per High/Critical with CVSS v3.1",
       "Shadow/zombie API inventory and gateway-governance plan",
       "CI/CD regression baseline (Nuclei/ZAP) and Jira/Linear/GitHub-importable findings",
-      "Free re-test inside 60 days plus a clean re-test letter for sales/compliance",
+      "Free re-test inside 30 days plus a clean re-test letter for sales/compliance",
       "Engineering walkthrough session with remediation guidance",
     ],
     caseStudy: {
@@ -8623,7 +8623,7 @@ export const COMBOS: CityServiceCombo[] = [
       "India-Stack integrations carry their own scope. Wherever a portal consumes Aadhaar e-KYC, DigiLocker document-pull, UPI or e-Sign, we test the integration boundary — token and consent handling, response-trust (unsafe consumption of upstream APIs, API10), SSRF on document-pull and callback URLs (API7), and the data-exposure risk of caching or logging identity responses. For Aadhaar-touching flows we test against the data-minimisation and storage expectations the UIDAI framework and DPDP both push toward, because over-retention of identity data is the finding that turns a portal flaw into a notifiable breach.",
       "Enterprise NCR APIs — the Gurugram fintech and insurtech belt, the Noida IT/ITeS and e-commerce estates, the manufacturing and auto majors' partner portals — bring B2B and partner-integration scope: machine-to-machine auth, partner-token scoping, webhook SSRF, and the business-flow abuse (API6) that lives in onboarding, pricing and settlement APIs. We test unrestricted resource consumption (API4) on anything that fronts a cost or an enumeration oracle, and we surface shadow and zombie endpoints (API9) — the forgotten partner API still live after a migration, a recurring source of NCR incidents.",
       "The deliverable is built for the NCR compliance reality: findings map to the CERT-In empanelled audit format and the six-hour incident-reporting posture, to DPDP reasonable-security-safeguards (and the Significant-Data-Fiduciary lens where the operator is large), and — for portals serving notified critical sectors — to the NCIIPC expectations for protected systems. Every High and Critical carries a manual proof-of-exploit, CVSS v3.1, and a remediation an engineering or empanelled-vendor team can action. For government and PSU buyers we provide the documentation and evidence pack a departmental audit or a CAG-aligned review will ask for.",
-      "Procurement in the NCR is its own discipline — GeM listings, departmental tender cycles, PSU committee approvals and enterprise vendor-security onboarding. We size proposals to fit, attach the empanelled-auditor letter and the Macksofy ISMS pack up front, and provide the re-test (every Critical and High inside a 60-day window, in the base SoW) that inspection follow-ups require. Onsite is same-day across Gurugram Cyber City, Noida and central Delhi, with the wider NCR — Greater Noida, Manesar, Faridabad — inside the same testing week.",
+      "Procurement in the NCR is its own discipline — GeM listings, departmental tender cycles, PSU committee approvals and enterprise vendor-security onboarding. We size proposals to fit, attach the empanelled-auditor letter and the Macksofy ISMS pack up front, and provide the re-test (every Critical and High inside a 30-day window, in the base SoW) that inspection follow-ups require. Onsite is same-day across Gurugram Cyber City, Noida and central Delhi, with the wider NCR — Greater Noida, Manesar, Faridabad — inside the same testing week.",
     ],
     buyerConcerns: [
       "OWASP API Top 10 (2023) coverage on citizen-facing portal and enterprise B2B APIs",
@@ -8658,7 +8658,7 @@ export const COMBOS: CityServiceCombo[] = [
       { value: "API Top 10", label: "2023 — full manual coverage" },
       { value: "India Stack", label: "e-KYC / DigiLocker / UPI / e-Sign" },
       { value: "Same-day", label: "Gurugram / Noida / Delhi onsite" },
-      { value: "60-day", label: "Free re-test window" },
+      { value: "30-day", label: "Free re-test window" },
     ],
     methodology: [
       { phase: "01 · Scope & API inventory", duration: "Week 1", activities: [
@@ -8686,7 +8686,7 @@ export const COMBOS: CityServiceCombo[] = [
         "Findings export with owner, severity, CWE and the six-hour incident-reporting linkage",
       ] },
       { phase: "05 · Re-test & closure", duration: "Weeks 5–6", activities: [
-        "60-day re-test of every Critical and High at no extra cost",
+        "30-day re-test of every Critical and High at no extra cost",
         "CERT-In empanelled closure letter and inspection-defence support",
         "Gateway and identity-integration hardening guidance",
         "Carry-forward backlog for the next assessment cycle",
@@ -8707,7 +8707,7 @@ export const COMBOS: CityServiceCombo[] = [
       "India-Stack integration findings — consent, response-trust, SSRF and identity-data exposure",
       "Shadow/zombie API inventory with gateway-governance recommendations",
       "Departmental / CAG-aligned documentation and evidence pack",
-      "Free re-test of every Critical and High inside a 60-day window",
+      "Free re-test of every Critical and High inside a 30-day window",
       "CERT-In empanelled closure letter and inspection-defence support",
     ],
     caseStudy: {

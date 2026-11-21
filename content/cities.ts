@@ -358,15 +358,15 @@ export const CITIES: City[] = [
     state: "Telangana",
     category: "Mixed",
     hero: {
-      eyebrow: "Cybersecurity in Hyderabad · Macksofy Regional Hub · HITEC City",
+      eyebrow: "Cybersecurity in Hyderabad · Macksofy Regional Hub · Ameerpet",
       headline: "South India cybersecurity, anchored in Hyderabad.",
       description:
-        "Macksofy's Hyderabad regional hub serves South India — Telangana, Andhra Pradesh, Karnataka, Tamil Nadu and Kerala — from HITEC City. CERT-In empanelled. Pharma, BFSI, GCC and government engagements with onsite consultants and Mumbai-supported reporting.",
+        "Macksofy's Hyderabad office at Ameerpet serves South India — Telangana, Andhra Pradesh, Karnataka, Tamil Nadu and Kerala. CERT-In empanelled. Pharma, BFSI, GCC and government engagements with onsite consultants and Mumbai-supported reporting.",
     },
     cityContext: [
       "Hyderabad is unique in India's cybersecurity map — it combines a strong pharma cluster (top-5 generics globally), a fast-growing fintech and SaaS scene, and a deep government / defence presence (NIC, ISRO, DRDL). Cybersecurity buyers here demand both regulatory rigor (CERT-In, DPDP) and tech depth (cloud, AppSec).",
-      "Macksofy's Hyderabad regional hub at HITEC City serves these audiences end to end. We deliver CERT-In and DPDP audits to pharma and government, AppSec and cloud security to SaaS and fintech, and corporate CEH / OSCP cohorts to GCC engineering teams. Our hub also anchors delivery for Vijayawada, Visakhapatnam, Bengaluru-overflow, Chennai-overflow and Kochi engagements.",
-      "We have local senior consultants who can be onsite at any HITEC City, Madhapur, Gachibowli, Banjara Hills or Kondapur location within hours.",
+      "Macksofy's Hyderabad office at Ameerpet serves these audiences end to end. We deliver CERT-In and DPDP audits to pharma and government, AppSec and cloud security to SaaS and fintech, and corporate CEH / OSCP cohorts to GCC engineering teams. Our office also anchors delivery for Vijayawada, Visakhapatnam, Bengaluru-overflow, Chennai-overflow and Kochi engagements.",
+      "We have local senior consultants who can be onsite at any Ameerpet, HITEC City, Madhapur, Gachibowli, Banjara Hills or Kondapur location within hours.",
     ],
     regulators: [
       "MeitY · CERT-In — empanelment, breach reporting",
@@ -406,7 +406,7 @@ export const CITIES: City[] = [
         "DPDP RoPA mapped across 4 plants and 7 R&D sites · HIPAA business-associate posture validated · zero non-conformities at ISO surveillance.",
     },
     stats: [
-      { value: "Local hub", label: "HITEC City based" },
+      { value: "Local office", label: "Ameerpet, Hyderabad" },
       { value: "70+", label: "South India engagements" },
       { value: "<2 hrs", label: "Onsite SLA in city" },
       { value: "5 states", label: "South India coverage" },
@@ -428,10 +428,10 @@ export const CITIES: City[] = [
       },
     ],
     seoDescription:
-      "CERT-In empanelled cybersecurity in Hyderabad, from our HITEC City hub — VAPT, ISO 27001, DPDP, HIPAA and SOC 2 for pharma, SaaS, fintech and GCC clients.",
+      "CERT-In empanelled cybersecurity in Hyderabad, from our Ameerpet office — VAPT, ISO 27001, DPDP, HIPAA and SOC 2 for pharma, SaaS, fintech and GCC clients.",
     extraKeywords: [
       "cybersecurity Hyderabad",
-      "VAPT Hyderabad HITEC City",
+      "VAPT Hyderabad Ameerpet",
       "CERT-In auditor Hyderabad",
       "Hyderabad pharma compliance",
       "DPDP Hyderabad",
