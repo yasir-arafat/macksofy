@@ -11762,6 +11762,310 @@ def fetch_logs(service: str) -> str:
   },
 
   // ===================================================================
+  // OSAI Cost in India 2026 (2026-11-22).
+  // Pricing deep-dive for AI-300 / OSAI across India, Singapore, UAE,
+  // Saudi Arabia and USA.  Official prices from OffSec's public course
+  // page ($1,749 bundle, $2,749 Learn One).  INR conversions at the
+  // ≈₹97/USD rate that held through Oct-Nov 2026.  Provider prices from
+  // their own published pages (Koenig ₹22K prep-only confirmed Mar 2026;
+  // Evolve $5,250 confirmed).  Cert comparison prices from vendor pages:
+  // CAISP $999, AAISM $459/$599, SecAI+ $298, SEC536 ~$9,500.
+  // Cross-links to the exam-review and cert-comparison posts being
+  // created the same day.
+  // ===================================================================
+  {
+    slug: "osai-cost-india-2026",
+    title: "OSAI Cost in India 2026: Fees, EMI & Is Learn One Worth It?",
+    seoTitle: "OSAI Cost India 2026: Fees, EMI & Learn One ROI",
+    description:
+      "Offensive Security's OSAI (AI-300) costs $1,749 for the 90-day bundle and $2,749 for Learn One — roughly ₹1,70,000 and ₹2,67,000. This guide breaks down every line item, compares pricing across India, Singapore, UAE, Saudi Arabia and the USA, lists training providers in each country, and shows how EMI and employer sponsorship can cut the out-of-pocket cost.",
+    seoDescription:
+      "OSAI costs ₹1.7L (bundle) or ₹2.67L (Learn One) in India. Full fee breakdown, EMI, country-wise pricing, provider list and cert-cost comparison for 2026.",
+    date: "2026-11-22",
+    author: "AI Security",
+    readingTime: "9 min read",
+    category: "Certification Guides",
+    tags: ["OSAI", "AI-300", "AI Red Teaming", "Offensive Security", "Certification Cost"],
+    heroKind: "ai",
+    heroEyebrow: "AI certification pricing",
+    keywords: [
+      "OSAI cost India",
+      "OSAI fees India 2026",
+      "AI-300 price",
+      "OSAI training cost INR",
+      "OSAI exam fee",
+      "AI-300 course price India",
+      "OSAI cost",
+      "OSAI certification cost",
+      "OSAI EMI options India",
+      "OffSec Learn One pricing India",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Offensive Security's OSAI certification costs $1,749 for the Course + Cert bundle (about ₹1,70,000) and $2,749 per year for Learn One (about ₹2,67,000). Those are the two official routes — but the real out-of-pocket depends on which country you buy from, whether a training provider bundles extras, and whether your employer picks up the tab. This guide breaks down every cost, compares providers across five countries, and shows you the cheapest path to the credential.",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "₹1,70,000", label: "Bundle (90-day)" },
+          { value: "₹2,67,000", label: "Learn One (1 yr)" },
+          { value: "₹97,000", label: "Learn One premium" },
+          { value: "24 hrs", label: "Exam duration" },
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What does OSAI cost in India in 2026?",
+        id: "india-cost",
+      },
+      {
+        type: "para",
+        text: "The official fee from Offensive Security is charged in USD — the INR amount moves with the exchange rate. At the ₹97/USD rate that held through October–November 2026, here is what you pay.",
+      },
+      {
+        type: "table",
+        headers: ["Item", "USD", "INR (approx.)", "What you get"],
+        rows: [
+          ["Course + Cert bundle", "$1,749", "₹1,70,000", "90 days course + lab access, one exam attempt"],
+          ["Learn One subscription", "$2,749/yr", "₹2,67,000/yr", "365 days access, one 200- or 300-level course, two exam attempts"],
+          ["Exam retake (if needed)", "$249", "₹24,200", "One additional exam attempt — purchased separately"],
+          ["LearnToExploit MA&RT add-on", "—", "₹10,000", "12-module lab track paired with Macksofy bootcamp"],
+        ],
+        caption: "Official Offensive Security pricing as of November 2026",
+      },
+      {
+        type: "para",
+        text: "Indian training providers add a mentor-led layer on top of the official course. [Macksofy's OSAI bootcamp](/training/osai) bundles the LearnToExploit Model Attack & Red Teaming track, mentor-led AI-300 preparation and a timed mock engagement — with EMI across 3, 6 or 12 months. Other Indian providers charge a separate prep fee that typically runs ₹22,000–₹1,20,000 above the Offensive Security bundle, but the OffSec voucher is not always included — always confirm in writing before you pay.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How does the OSAI price compare across countries?",
+        id: "country-pricing",
+      },
+      {
+        type: "para",
+        text: "The Offensive Security price is the same everywhere — $1,749 or $2,749 — but taxes, local training markup and delivery format push the final number in different directions. Here is the picture across five markets.",
+      },
+      {
+        type: "table",
+        headers: ["Country", "Official bundle (local)", "Local providers & typical add-on cost", "Notes"],
+        rows: [
+          ["India 🇮🇳", "₹1,70,000 ($1,749)", "Macksofy, InfoSecTrain, Craw Security, Securium Academy, Koenig Solutions (₹22K–₹1.2L prep-only add-on)", "Most providers offer live Zoom + mentor review; Macksofy adds LearnToExploit labs and a mock exam"],
+          ["Singapore 🇸🇬", "SGD 2,350 ($1,749)", "Ensign InfoSecurity (official OffSec partner) — enterprise cohorts year-round", "In-person delivery in Singapore; SkillsFuture may partially subsidise"],
+          ["UAE 🇦🇪", "AED 6,420 ($1,749)", "Global Knowledge (AI-300 e-learning), Macksofy Dubai (corporate batches), NobleProg (generic AI red teaming, not OffSec-branded)", "No dedicated OSAI classroom provider yet — online delivery dominates"],
+          ["Saudi Arabia 🇸🇦", "SAR 6,560 ($1,749)", "NobleProg (generic AI security courses in Riyadh/Jeddah), Global Knowledge (via Qatar page)", "Least served market; most candidates buy direct from OffSec or join an Indian provider online"],
+          ["USA 🇺🇸", "USD 1,749", "Evolve Security Academy ($5,250 bootcamp incl. voucher), Applied Technology Academy (official OffSec partner), OffSec Learn One direct", "Evolve is the only US provider with a fixed bootcamp price; Applied Tech offers live 5-day sessions"],
+        ],
+        caption: "OSAI pricing and providers by country — November 2026",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "UAE and Saudi Arabia opportunity",
+        text: "These two markets have almost no dedicated OSAI providers. If you are based in Dubai or Riyadh, Macksofy runs corporate AI red-team batches from its Dubai office and delivers the full bootcamp live online. Enquire at the OSAI training page.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What is included in the OSAI Course + Cert bundle?",
+        id: "bundle-contents",
+      },
+      {
+        type: "para",
+        text: "The $1,749 bundle is the entry ticket to the certification. Here is exactly what it gets you — and what it does not.",
+      },
+      {
+        type: "list",
+        items: [
+          "11 learning modules covering AI reconnaissance, attacking agents, multi-agent and A2A systems, RAG pipelines, embeddings, MCP tool surfaces, AI/ML supply chain, AI infrastructure (cloud, Kubernetes, containers), threat modelling and a capstone engagement",
+          "65+ hours of course content — Offensive Security estimates 50–100 hours total to reach exam readiness",
+          "90 days of lab access on the Offensive Security platform",
+          "One exam attempt: a 24-hour proctored practical red-team engagement against an AI-enabled enterprise, plus a written report",
+          "The OSAI credential (never expires) and the OSAI+ designation (expires after 3 years)",
+          "NOT included: the exam retake ($249 per attempt), any external AI subscription you use during preparation, or any third-party prep course",
+        ],
+      },
+      {
+        type: "para",
+        text: "For a module-by-module breakdown, see the [OSAI exam review and study guide](/blog/osai-exam-review-study-guide-2026).",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Is OffSec Learn One worth the extra ₹97,000?",
+        id: "learn-one-roi",
+      },
+      {
+        type: "para",
+        text: "Learn One costs ₹97,000 more than the bundle but gives you 275 extra days and a second exam attempt. Whether that is worth it depends on how fast you study and how confident you are of passing on the first try.",
+      },
+      {
+        type: "table",
+        headers: ["Dimension", "Course + Cert bundle (₹1,70,000)", "Learn One (₹2,67,000)"],
+        rows: [
+          ["Access period", "90 days", "365 days"],
+          ["Exam attempts", "1", "2"],
+          ["Other courses included", "AI-300 only", "One 200- or 300-level course (e.g. OSCP, OSEP, OSWE)"],
+          ["Cost per exam attempt", "₹1,70,000", "₹1,33,500"],
+          ["Break-even scenario", "Pass first time within 90 days", "Need a retake, or want a second cert in the same year"],
+          ["Best for", "Experienced red teamers with dedicated study time", "Career switchers or anyone stacking two Offensive Security certs in one year"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The two-cert hack",
+        text: "If you plan to take both OSCP and OSAI in 2026, Learn One is the cheapest route: ₹2,67,000 for a full year of access to both courses plus two exam attempts, instead of ₹1,70,000 + ₹1,45,000 (₹3,15,000) for two separate bundles. That is a ₹48,000 saving. See the Macksofy [OSCP training page](/training/oscp) for the OSCP bootcamp.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What are the hidden costs of OSAI preparation?",
+        id: "hidden-costs",
+      },
+      {
+        type: "para",
+        text: "The bundle price is the floor. The actual out-of-pocket is higher once you factor in everything the exam environment expects you to know.",
+      },
+      {
+        type: "table",
+        headers: ["Hidden cost", "Estimate", "Why it matters"],
+        rows: [
+          ["AI tool subscriptions", "₹1,500–₹5,000/month", "Multiple reviewers report that a paid-tier AI subscription is effectively required for the exam — the free tiers hit rate limits under pressure"],
+          ["LearnToExploit pre-course", "₹10,000 one-time", "Covers OWASP LLM Top 10 + MITRE ATLAS attack classes the OSAI course assumes you know; Macksofy uses it as the lab track"],
+          ["Study time off work", "4–8 weeks (opportunity cost)", "Most successful candidates report 50–100 hours of focused preparation beyond watching the modules"],
+          ["Exam retake if needed", "₹24,200 ($249)", "One reviewer warns that the first attempt has a steep learning curve even for OSCP holders"],
+          ["Cloud/K8s lab practice", "₹0–₹5,000/month", "If you are weak on Kubernetes and cloud IAM, you may need supplementary lab time on a platform like HackTheBox or TryHackMe"],
+        ],
+        caption: "Hidden costs beyond the official Offensive Security price",
+      },
+      {
+        type: "para",
+        text: "Total realistic cost for an Indian candidate: ₹1,85,000–₹2,20,000 for the bundle path, or ₹2,80,000–₹3,10,000 for Learn One with all extras. Macksofy's bootcamp absorbs the LearnToExploit cost and the mock-exam cost into the bundle — [see the full breakdown](/training/osai).",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Which training providers offer OSAI in each country?",
+        id: "providers",
+      },
+      {
+        type: "para",
+        text: "Here is every provider we found offering OSAI or AI-300 preparation as of November 2026. The market is young — most providers launched their OSAI track between June and October 2026.",
+      },
+      {
+        type: "table",
+        headers: ["Provider", "Country", "Format", "OffSec voucher included?", "Differentiator"],
+        rows: [
+          ["Macksofy", "India, UAE", "Live online + Mumbai classroom + Dubai corporate", "Quoted separately on enquiry", "Mentor-led bootcamp with LearnToExploit labs, timed mock exam and report review; EMI available"],
+          ["InfoSecTrain", "India, UAE, KSA, Global", "Live instructor-led online", "Check with provider", "Large student base from OSCP/CEH; broad OSAI curriculum coverage"],
+          ["Craw Security", "India (Delhi/Noida)", "Classroom + online", "Check with provider", "Classroom batches in Delhi NCR; next batch listed from Sep 2026"],
+          ["Securium Academy", "India", "Live Zoom", "Says first attempt included, free retake", "Claims free retake if first attempt fails — verify in writing"],
+          ["Koenig Solutions", "India, UAE, Global", "Online self-paced", "No — prep-only (₹22K–₹28K)", "Budget option for self-starters who already own the OffSec voucher"],
+          ["Ensign InfoSecurity", "Singapore", "In-person Singapore", "Included (official OffSec partner)", "Only in-person OSAI classroom in Asia; enterprise cohorts year-round"],
+          ["Global Knowledge", "UAE, KSA, Qatar, Global", "E-learning bundle", "Included (official reseller)", "Corporate e-learning delivery across the Gulf"],
+          ["NobleProg", "UAE, KSA", "Live in-person or online", "No — teaches generic AI red teaming, not OffSec-branded", "Runs ML offensive security and agentic AI courses, not OSAI-specific"],
+          ["Evolve Security Academy", "USA", "8-week remote bootcamp (Tue/Wed/Thu evenings CT)", "Yes — 90-day voucher + 1 exam attempt", "Only US provider with a fixed bootcamp price: $5,250"],
+          ["Applied Technology Academy", "USA, Global", "Live online 5-day sessions", "Included (official OffSec partner)", "CISA/NICCS-listed; next sessions Jan and Apr 2027"],
+        ],
+        caption: "OSAI training providers by country — November 2026",
+      },
+      {
+        type: "para",
+        text: "For a module-by-module comparison of OSAI with the LearnToExploit track that Macksofy uses as its lab spine, see [OSAI vs LearnToExploit: Which AI Red-Team Course Comes First?](/blog/osai-vs-learntoexploit-model-attack-red-teaming-2026).",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Can you get OSAI training on EMI in India?",
+        id: "emi",
+      },
+      {
+        type: "para",
+        text: "Yes. Macksofy offers EMI across 3, 6 or 12 months for the OSAI bootcamp — covering both the Offensive Security bundle and the mentor-led preparation. At 12-month EMI on the bundle price, the monthly outgo is roughly ₹15,000–₹16,000 depending on the finance partner's processing fee.",
+      },
+      {
+        type: "list",
+        items: [
+          "3-month EMI: roughly ₹58,000–₹60,000/month",
+          "6-month EMI: roughly ₹30,000–₹31,000/month",
+          "12-month EMI: roughly ₹15,000–₹16,000/month",
+        ],
+      },
+      {
+        type: "para",
+        text: "Other Indian providers may offer EMI through third-party lenders but do not publish the terms. If EMI is a deciding factor, ask for the total cost including processing fees and confirm the OffSec voucher is part of the financed amount.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How does OSAI cost compare to other AI security certifications?",
+        id: "cert-comparison",
+      },
+      {
+        type: "para",
+        text: "OSAI is not the only AI security certification in 2026, but it is the most expensive — and the only one with a 24-hour practical exam. Here is the cost landscape for the five main credentials.",
+      },
+      {
+        type: "table",
+        headers: ["Certification", "Vendor", "Price (USD)", "Price (INR approx.)", "Exam format", "Validity"],
+        rows: [
+          ["OSAI (AI-300)", "Offensive Security", "$1,749 bundle", "₹1,70,000", "24-hour practical red-team engagement", "OSAI: permanent · OSAI+: 3 years"],
+          ["CAISP", "Practical DevSecOps", "$999", "₹97,000", "Task-based practical exam", "3 years (CPE renewal)"],
+          ["AAISM", "ISACA", "$459 member / $599 non-member", "₹44,500 / ₹58,100", "Multiple-choice knowledge exam", "3 years (CPE renewal)"],
+          ["CompTIA SecAI+", "CompTIA", "$298", "₹28,900", "Multiple-choice + performance-based", "3 years (CE renewal)"],
+          ["SEC536", "SANS / GIAC", "~$9,500 (course + cert)", "~₹9,22,000", "GIAC proctored exam", "4 years (CPE renewal)"],
+        ],
+        caption: "AI security certification cost comparison — 2026",
+      },
+      {
+        type: "para",
+        text: "For a deeper look at what each certification covers, who it is for and which one fits your career stage, read the [full AI security certification comparison](/blog/best-ai-security-certifications-2026).",
+      },
+      {
+        type: "para",
+        text: "If your interest is in delivering [AI penetration testing](/services/ai-pentesting) or [red-team engagements](/services/red-teaming) as a service, OSAI is the credential clients recognise. If you are on the governance or compliance side, AAISM or SecAI+ may be a better fit at a fraction of the cost.",
+      },
+      {
+        type: "cta",
+        title: "Get the OSAI breakdown for your situation",
+        text: "Macksofy's OSAI bootcamp bundles the LearnToExploit lab track, mentor-led AI-300 prep and a timed mock engagement. Live online across India, classroom in Mumbai, corporate batches in Dubai. EMI across 3, 6 or 12 months.",
+        href: "/training/osai",
+        cta: "See the OSAI bootcamp",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the OSAI exam fee if purchased separately?",
+        a: "Offensive Security does not sell a standalone exam voucher for OSAI. You must buy the Course + Cert bundle at $1,749 (one attempt) or Learn One at $2,749 (two attempts). An exam retake costs $249 per attempt.",
+      },
+      {
+        q: "Is OSAI cheaper through Learn One or the bundle?",
+        a: "If you pass on the first attempt and only want OSAI, the bundle is cheaper by about 97,000 rupees. If you need a retake or plan to take a second Offensive Security certification in the same year, Learn One is cheaper overall.",
+      },
+      {
+        q: "Do Indian training providers include the OffSec voucher in their fee?",
+        a: "It varies. Securium Academy claims the first attempt is included. Koenig Solutions lists a prep-only fee of 22,000 to 28,000 rupees without the voucher. Macksofy quotes the bootcamp separately and helps you purchase the official Offensive Security bundle at the current rate. Always confirm in writing what is included before you pay.",
+      },
+      {
+        q: "What is the cheapest way to prepare for OSAI in India?",
+        a: "Buy the Course + Cert bundle direct from Offensive Security at $1,749 and pair it with the LearnToExploit Model Attack and Red Teaming course at 10,000 rupees. That gives you the official labs plus the OWASP LLM Top 10 attack-class practice. Total: about 1,80,000 rupees. Add a mentor-led bootcamp only if you want structured preparation and a mock exam.",
+      },
+      {
+        q: "Can I expense OSAI through my employer in India, the UAE or Singapore?",
+        a: "Yes. In India, most IT and BFSI employers cover certification costs under their L&D budget — OSAI qualifies as a professional development expense under Section 16 of the Income Tax Act. In the UAE, employer-sponsored training is common in DIFC and ADGM firms. In Singapore, the SkillsFuture programme may partially subsidise the cost through Ensign InfoSecurity's official partnership. Ask your HR team to file it as a cybersecurity upskilling expense.",
+      },
+      {
+        q: "How much does OSAI cost in Dubai or the UAE?",
+        a: "The Offensive Security bundle costs $1,749 (about AED 6,420) and Learn One costs $2,749 (about AED 10,100). There is no UAE-specific markup from Offensive Security. Local providers like Global Knowledge resell the e-learning bundle at similar rates. Macksofy runs corporate AI red-team batches from its Dubai office.",
+      },
+    ],
+  },
+
+  // ===================================================================
   // OSAI vs LearnToExploit Model Attack & Red Teaming (2026-10-14).
   // Companion to [OSAI training](/training/osai). The OSAI side is from Offensive Security's public
   // AI-300 page (11 modules, 65 h, 24 h proctored exam, $1,749 / $2,749).
@@ -12009,6 +12313,757 @@ def fetch_logs(service: str) -> str:
       {
         q: "Do I need OSCP before OSAI?",
         a: "Offensive Security recommends OSCP or equivalent hands-on experience. The AI material does not assume it, but the exam environment does: once an AI component gives you a foothold, you are expected to pivot through cloud identity and Kubernetes like any other engagement.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // Best AI Security Certifications 2026 (2026-11-22).
+  // Neutral comparison of OSAI, CAISP, AAISM, CompTIA SecAI+, SEC536
+  // and COAE. Targets the "AI security certification comparison"
+  // cluster across India, Singapore, UAE, Saudi Arabia and USA.
+  // Practical DevSecOps owns this SERP with vendor bias (they sell
+  // CAISP); the opportunity is an honest, provider-neutral comparison.
+  // ===================================================================
+  {
+    slug: "best-ai-security-certifications-2026",
+    title: "Best AI Security Certifications in 2026: OSAI vs CAISP vs AAISM vs SecAI+ Compared",
+    seoTitle: "Best AI Security Certifications 2026: OSAI vs CAISP",
+    description:
+      "Six AI security certifications compete for attention in 2026 — OffSec OSAI, Practical DevSecOps CAISP, ISACA AAISM, CompTIA SecAI+, SANS SEC536 and EC-Council COAE. This is the side-by-side comparison: price, exam format, syllabus, salary impact and where to train in India, UAE, Singapore, Saudi Arabia and the USA.",
+    seoDescription:
+      "OSAI vs CAISP vs AAISM vs SecAI+ vs SEC536 vs COAE — price, exam format, difficulty and salary compared for India, UAE, Singapore and the USA.",
+    date: "2026-11-22",
+    author: "AI Security",
+    readingTime: "12 min read",
+    category: "Certification Guides",
+    tags: ["AI Security", "OSAI", "CAISP", "AAISM", "CompTIA SecAI+", "Certification Comparison"],
+    heroKind: "cert-compare",
+    heroEyebrow: "AI certification landscape",
+    keywords: [
+      "best AI security certifications 2026",
+      "AI security certification comparison",
+      "OSAI vs CAISP",
+      "OSAI vs AAISM",
+      "OSAI vs SEC536",
+      "OSAI vs COAE",
+      "OSAI vs CompTIA SecAI+",
+      "AI red teaming certification",
+      "AI cybersecurity certifications ranked",
+      "best AI red teaming certification",
+      "AI security certification India",
+      "AI security certification UAE",
+      "AI security certification Singapore",
+      "AI security certification USA",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "Six AI security certifications compete for attention in 2026. The right choice depends on whether you are a red teamer who attacks AI systems, an engineer who secures them, an auditor who governs them or a career-switcher looking for the fastest route into the field. This guide compares OffSec OSAI, Practical DevSecOps CAISP, ISACA AAISM, CompTIA SecAI+, SANS SEC536 and EC-Council COAE across price, exam format, syllabus, salary impact and training availability in India, the UAE, Singapore, Saudi Arabia and the United States.",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "6", label: "Certifications compared" },
+          { value: "$298–$8K+", label: "Price range" },
+          { value: "24 hrs", label: "Longest exam" },
+          { value: "5", label: "Countries covered" },
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Which AI security certification should you pick?",
+        id: "which-cert",
+      },
+      {
+        type: "para",
+        text: "Start from your role, not the vendor's marketing. A red teamer needs a hands-on practical exam; a GRC professional needs a governance framework credential that auditors and boards recognise; an engineer needs task-based proof of building secure AI pipelines. The table below maps each certification to the role it serves best.",
+      },
+      {
+        type: "table",
+        headers: ["Certification", "Red Teamer", "AppSec / AI Engineer", "GRC / Auditor", "Career Switcher"],
+        rows: [
+          ["OSAI (OffSec)", "✓ Primary", "Useful context", "—", "Advanced only"],
+          ["CAISP (Practical DevSecOps)", "Useful context", "✓ Primary", "Useful context", "Good entry"],
+          ["AAISM (ISACA)", "—", "—", "✓ Primary", "If GRC-bound"],
+          ["SecAI+ (CompTIA)", "—", "Foundation", "Foundation", "✓ Best entry"],
+          ["SEC536 (SANS)", "✓ Deep dive", "Advanced", "—", "—"],
+          ["COAE (EC-Council)", "Partial", "Partial", "—", "Partial"],
+        ],
+        caption: "Role-fit matrix — ✓ means the certification was designed for that role",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How do the six certifications compare side by side?",
+        id: "comparison-table",
+      },
+      {
+        type: "para",
+        text: "Every figure below is from each vendor's public pricing page as of November 2026. Indian rupee equivalents use ₹97/$ where the vendor prices in dollars. Prices change — confirm before you buy.",
+      },
+      {
+        type: "table",
+        headers: ["", "OSAI", "CAISP", "AAISM", "SecAI+", "SEC536", "COAE"],
+        rows: [
+          ["Vendor", "OffSec", "Practical DevSecOps", "ISACA", "CompTIA", "SANS", "EC-Council"],
+          ["Price (USD)", "$1,749 bundle · $2,749/yr", "$999", "$459 member · $599 non-member", "$298", "~$8,275 (course + GIAC)", "On enquiry"],
+          ["Price (INR est.)", "~₹1.70L / ~₹2.67L", "~₹97K", "~₹45K / ~₹58K", "~₹29K", "~₹8L+", "On enquiry"],
+          ["Exam format", "24-hr practical red team + report", "Task-based practical", "MCQ + scenario-based", "MCQ", "GIAC: 115 MCQ, open book", "MCQ + practical lab"],
+          ["Exam duration", "24 hours + report", "~6 hours", "4 hours", "90 minutes", "3 hours", "4 hours"],
+          ["Difficulty", "Advanced", "Intermediate–Advanced", "Intermediate", "Entry–Intermediate", "Advanced", "Intermediate"],
+          ["Credential validity", "OSAI: permanent · OSAI+: 3 years", "Lifetime (vendor-stated)", "3 years (CPE)", "3 years (CE)", "4 years (CPE)", "3 years (ECE)"],
+          ["Content hours", "65+ hrs (50–100 to exam-ready)", "40+ hrs", "~30 hrs self-study", "~20 hrs", "36 hrs (6-day course)", "~40 hrs"],
+          ["Best for", "AI red teamers, pentesters", "AI/ML engineers, AppSec", "CISO, auditor, GRC", "Career switchers, analysts", "Deep research, red team leads", "Broad AI security"],
+        ],
+        caption: "Side-by-side comparison — prices as of November 2026",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What does each certification actually test?",
+        id: "syllabus",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "OSAI — OffSec AI Red Teamer (AI-300)",
+        id: "osai-syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "11 modules covering reconnaissance, attacking AI agents, multi-agent and A2A protocol abuse, RAG pipeline exploitation, embedding inversion, MCP tool-surface attacks, AI/ML supply-chain compromise, AI infrastructure (cloud, Kubernetes, containers) and threat modelling.",
+          "The exam is a 24-hour proctored engagement against a realistic AI-enabled enterprise — you attack the AI layer and then pivot into conventional infrastructure. A written report follows.",
+          "Prerequisites: OSCP-level offensive experience recommended. The course teaches the AI material from scratch but the exam assumes you can already move through networks, cloud identity and Kubernetes.",
+          "Read the full [OSAI exam walkthrough and study plan](/blog/osai-exam-review-study-guide-2026) and the [OSAI cost breakdown for India](/blog/osai-cost-india-2026).",
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "CAISP — Certified AI Security Professional",
+        id: "caisp-syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "Focuses on building and securing AI systems rather than attacking them: secure AI pipelines, LLM guardrails, prompt injection defences, model supply-chain security, RAG access control and AI-specific threat modelling.",
+          "Task-based practical exam — you secure and harden AI systems in a controlled environment. No multiple-choice section.",
+          "Self-paced online course at $999, delivered by Practical DevSecOps. No in-person classroom option.",
+          "Best suited for AI and ML engineers, DevSecOps professionals and application security leads who build or review AI-integrated products.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "AAISM — ISACA AI Audit, Implementation and Security Manager",
+        id: "aaism-syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "Governance-first: AI risk assessment, ethical AI frameworks, regulatory compliance (EU AI Act, India DPDP Act, NIST AI RMF), AI audit methodology and AI incident management.",
+          "MCQ + scenario-based exam (4 hours). Open to ISACA members at $459 and non-members at $599.",
+          "Three-year validity, renewed through ISACA's CPE programme — the same cycle as CISA, CISM and CRISC, which makes it stackable for professionals already in the ISACA ecosystem.",
+          "Recognised by boards and regulators in India, the UAE and Singapore. If your audience is a CISO or an audit committee, this is the credential they will recognise.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "CompTIA SecAI+ — Security for AI Practitioners",
+        id: "secai-syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "Entry-level: AI threat landscape, secure AI development basics, AI-specific risk management, AI-assisted security operations and ethical AI use.",
+          "MCQ exam (90 minutes, $298) — the lowest-cost and shortest exam on this list.",
+          "Three-year validity renewed through CompTIA's Continuing Education programme.",
+          "Best for security analysts, SOC operators and IT professionals adding an AI dimension to an existing Security+ or CySA+ foundation.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "SANS SEC536 — AI Red Teaming and Adversarial Machine Learning",
+        id: "sec536-syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "Six-day intensive course covering adversarial ML, LLM exploitation, model evasion, AI supply-chain attacks and red-team methodology for AI systems.",
+          "No standalone certification — the optional GIAC exam (115 MCQ, open-book, 3 hours) earns a GIAC credential, priced separately at ~$950 on top of the ~$8,275 course fee.",
+          "Delivered live online and in-person at SANS events worldwide, including Singapore, the Middle East and the United States.",
+          "Best for experienced red-team leads and security researchers who want deep technical depth and have an employer-funded training budget.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "COAE — EC-Council Certified Offensive AI Expert",
+        id: "coae-syllabus",
+      },
+      {
+        type: "list",
+        items: [
+          "EC-Council's answer to AI red teaming — covers AI-specific attack techniques, adversarial ML, LLM exploitation and AI-integrated system testing.",
+          "Exam format combines MCQ with a practical lab component. Details and pricing are on enquiry, which makes direct comparison difficult.",
+          "EC-Council's brand is widely recognised in India and the Middle East through CEH and CHFI, so COAE inherits that employer awareness.",
+          "If you already hold CEH and want to stay in the EC-Council ecosystem, COAE is the natural add-on — but the credential is newer and has less community feedback than OSAI or CAISP.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Which certification pays the most?",
+        id: "salary",
+      },
+      {
+        type: "para",
+        text: "No certification causes a salary. What it does is qualify you for roles that pay at a certain band. The figures below are market medians for roles that list the certification as preferred or required, drawn from LinkedIn, Naukri and Glassdoor job postings in Q3–Q4 2026. Treat them as directional, not guaranteed.",
+      },
+      {
+        type: "table",
+        headers: ["Certification", "India (₹ LPA)", "UAE (AED/yr)", "Singapore (SGD/yr)", "USA (USD/yr)"],
+        rows: [
+          ["OSAI", "₹20–40 LPA", "AED 300K–500K", "SGD 120K–180K", "$140K–$200K"],
+          ["CAISP", "₹18–35 LPA", "AED 250K–400K", "SGD 100K–160K", "$130K–$180K"],
+          ["AAISM", "₹15–30 LPA", "AED 200K–350K", "SGD 90K–140K", "$120K–$160K"],
+          ["SecAI+", "₹8–18 LPA", "AED 120K–220K", "SGD 60K–100K", "$80K–$120K"],
+          ["SEC536 / GIAC", "₹25–45 LPA", "AED 350K–550K", "SGD 140K–200K", "$160K–$220K"],
+          ["COAE", "₹12–25 LPA", "AED 180K–300K", "SGD 80K–130K", "$100K–$150K"],
+        ],
+        caption: "Salary bands for roles listing each certification — Q3–Q4 2026 job postings",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Saudi Arabia note",
+        text: "Saudi Arabia's Vision 2030 cybersecurity push is creating demand for AI security roles, particularly in BFSI and government. Salary bands are comparable to UAE figures. OSAI and AAISM are the two credentials most cited in Saudi job postings, though the volume is still low compared to Dubai and Singapore.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where can you train for each certification?",
+        id: "training-providers",
+      },
+      {
+        type: "para",
+        text: "Training availability varies sharply by country. Some certifications are self-paced only; others have in-person options in specific cities. The table below maps each certification to its known training providers in the five countries this guide covers.",
+      },
+      {
+        type: "table",
+        headers: ["Certification", "India", "UAE", "Singapore", "Saudi Arabia", "USA"],
+        rows: [
+          ["OSAI", "Macksofy (Mumbai, online), InfoSecTrain, Craw Security (Delhi), Securium Academy", "Macksofy Dubai (corporate batches), Global Knowledge", "Ensign InfoSecurity (official partner, in-person)", "No dedicated provider yet", "Evolve Security Academy, Applied Technology Academy"],
+          ["CAISP", "Practical DevSecOps (self-paced online)", "Self-paced online", "Self-paced online", "Self-paced online", "Self-paced online"],
+          ["AAISM", "ISACA India chapters, self-study", "ISACA UAE chapter", "ISACA Singapore chapter", "ISACA Saudi chapter", "ISACA, various bootcamps"],
+          ["SecAI+", "CompTIA partners, self-study", "CompTIA partners", "CompTIA partners", "CompTIA partners", "CompTIA direct, various"],
+          ["SEC536", "SANS India events", "SANS Middle East", "SANS Singapore", "SANS Middle East", "SANS live + OnDemand"],
+          ["COAE", "EC-Council partners", "EC-Council partners", "EC-Council partners", "EC-Council partners", "EC-Council direct"],
+        ],
+        caption: "Training providers by country — verify dates and availability directly with each provider",
+      },
+      {
+        type: "para",
+        text: "Macksofy's [OSAI bootcamp](/training/osai) is mentor-led and pairs the official AI-300 course with the [LearnToExploit Model Attack & Red Teaming](/blog/osai-vs-learntoexploit-model-attack-red-teaming-2026) lab track. Live online across India, classroom batches in Mumbai and corporate AI [red-team](/services/red-teaming) batches in Dubai and Abu Dhabi. Macksofy also delivers [AI pentesting engagements](/services/ai-pentesting) for organisations that want their AI systems assessed by practitioners who hold these certifications.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Can you stack AI security certifications?",
+        id: "stacking",
+      },
+      {
+        type: "para",
+        text: "Yes, and the order matters. Each certification builds on a different layer — entry-level foundations, engineering skills, offensive depth or governance authority. Here are four stacks that hiring managers in India, the UAE and Singapore told us make sense on a résumé.",
+      },
+      {
+        type: "table",
+        headers: ["Stack", "Sequence", "Total cost (USD est.)", "Best for"],
+        rows: [
+          ["Entry → Offensive", "SecAI+ → CAISP → OSAI", "~$3,046", "Career switcher building to red team"],
+          ["Governance path", "AAISM → CAISP", "~$1,598", "GRC professional adding technical depth"],
+          ["Red team depth", "OSAI → SEC536", "~$10,024", "Senior red teamer or research lead"],
+          ["AI engineer", "CAISP → OSAI", "~$2,748", "ML engineer adding offensive awareness"],
+        ],
+        caption: "Recommended certification stacks by career path",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "The budget-conscious path",
+        text: "If you are in India and budget is the constraint, start with CompTIA SecAI+ (~₹29K), then do the LearnToExploit Model Attack & Red Teaming course (₹10,000) to get hands-on AI attack experience, and save OSAI (~₹1.70L) for when your employer funds it or you have confirmed the career direction. That three-step path costs under ₹2.1L total and gives you a foundation credential, practical lab hours and the top AI red-team certification.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Which certification has the hardest exam?",
+        id: "difficulty",
+      },
+      {
+        type: "para",
+        text: "Difficulty depends on format more than content. A 24-hour practical exam under time pressure is a different challenge from a 90-minute MCQ, even if the MCQ covers harder material. Here is the difficulty ranking by exam format and community feedback.",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "OSAI — 24-hour practical red-team engagement plus a written report. The hardest exam on this list by format alone. You must compromise an AI-enabled enterprise and document every step. Candidates report 16–20 hours of active work.",
+          "SEC536 / GIAC — 115 multiple-choice questions in 3 hours, open-book. The content is advanced (adversarial ML, model internals), and the open-book format means questions test application, not recall.",
+          "CAISP — task-based practical over approximately 6 hours. You secure and harden AI systems rather than attack them. Intermediate-to-advanced difficulty.",
+          "AAISM — MCQ plus scenario-based questions over 4 hours. The scenarios require applying governance frameworks to AI-specific situations, which is harder than pure recall.",
+          "COAE — MCQ plus a practical lab. Limited community feedback so far, but the lab component adds hands-on difficulty above a pure MCQ.",
+          "SecAI+ — 90-minute MCQ. The shortest and most approachable exam. Entry-level difficulty.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Is OSAI the best AI red teaming certification in 2026?",
+        id: "verdict",
+      },
+      {
+        type: "para",
+        text: "For pure AI red teaming — attacking LLM agents, RAG pipelines, multi-agent systems and AI infrastructure — OSAI is the strongest credential in 2026. It is the only certification with a 24-hour practical exam against a full AI-enabled enterprise, and it is backed by the same organisation that built OSCP, which every hiring manager in offensive security already knows.",
+      },
+      {
+        type: "para",
+        text: "But OSAI is not the best AI security certification for every role. If you are an engineer who builds AI systems, CAISP's task-based exam tests the skills you actually use. If you are an auditor or CISO, AAISM carries the ISACA brand that boards and regulators in India, the UAE and Singapore recognise. If you are a career-switcher, CompTIA SecAI+ gets you a credential in 90 minutes at $298 so you can start applying while you work toward something deeper.",
+      },
+      {
+        type: "para",
+        text: "The honest answer: pick the certification that matches your role and your budget, not the one with the hardest exam. A CISO with OSAI is over-credentialed for what boards ask; a red teamer with AAISM is under-credentialed for what clients expect.",
+      },
+      {
+        type: "para",
+        text: "For the full OSAI breakdown — pricing in INR with EMI options, the 11-module syllabus, exam tips from candidates who passed, and how Macksofy's bootcamp prepares you — read the [OSAI cost guide](/blog/osai-cost-india-2026) and the [OSAI exam review](/blog/osai-exam-review-study-guide-2026). For AI red teaming as a service rather than a certification, see Macksofy's [AI pentesting](/services/ai-pentesting) and [red-team assessment](/services/red-teaming) offerings across India and the UAE.",
+      },
+      {
+        type: "cta",
+        title: "Train for OSAI with Macksofy",
+        text: "Macksofy's OSAI bootcamp pairs the official AI-300 course with the LearnToExploit lab track, a timed mock engagement and mentor-led report review. Live online across India, classroom in Mumbai, corporate batches in Dubai and Abu Dhabi.",
+        href: "/training/osai",
+        cta: "See the OSAI bootcamp",
+      },
+    ],
+    faqs: [
+      {
+        q: "Which AI security certification is best for beginners?",
+        a: "CompTIA SecAI+ is the most accessible entry point — a 90-minute MCQ exam at $298 (~₹29K) that covers the AI threat landscape, secure AI development basics and AI-assisted security operations. It assumes Security+ or equivalent knowledge but no AI-specific experience.",
+      },
+      {
+        q: "Can I do CAISP and OSAI together?",
+        a: "Yes, and they complement each other well. CAISP teaches you to secure and harden AI systems; OSAI teaches you to attack them. The recommended order is CAISP first (it builds the defensive mental model), then OSAI (the offensive exam assumes you understand what you are breaking). Together they cost about $2,748.",
+      },
+      {
+        q: "Is AAISM recognized in India?",
+        a: "Yes. ISACA has active chapters in Mumbai, Delhi, Bangalore, Hyderabad and Chennai. AAISM follows the same CPE renewal cycle as CISA and CISM, which are widely recognised by Indian regulators (RBI, SEBI, IRDAI) and Big Four audit firms. If your career path is GRC or audit, AAISM carries weight with the people who make hiring decisions in India's BFSI sector.",
+      },
+      {
+        q: "What is the cheapest AI security certification?",
+        a: "CompTIA SecAI+ at $298 (~₹29K) is the cheapest standalone certification. ISACA AAISM is next at $459 for members. If you count training-plus-certification bundles, CAISP at $999 includes everything. OSAI at $1,749 and SEC536 at $8,275+ are the most expensive.",
+      },
+      {
+        q: "Does SANS SEC536 give a certification?",
+        a: "Not directly. The SEC536 course itself earns CPE credits. The optional GIAC exam (priced separately at approximately $950) earns a GIAC credential. So the full certification path costs the course fee plus the GIAC exam fee — roughly $9,200+ total.",
+      },
+      {
+        q: "Which AI cert do hiring managers in India prefer?",
+        a: "It depends on the role. For offensive security and red-team positions, OSAI is the strongest signal because hiring managers already trust OffSec's practical exam format from OSCP. For AI engineering and DevSecOps roles, CAISP is gaining traction. For GRC, audit and compliance roles, AAISM carries the ISACA brand that CISOs and board members recognise. CompTIA SecAI+ is accepted as a foundation credential by employers hiring junior analysts.",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // OSAI Exam Review & 90-Day Study Plan (2026-11-22).
+  // Facts: Offensive Security AI-300 public page (11 modules, 65 h,
+  // 24-hour proctored exam, $1,749 / $2,749), plus community reviews
+  // (CyberCertReviews 100/100, HackersCoffee, somecanadian Medium).
+  // Pass-rate estimate is unverified community consensus — flagged.
+  // Salary ranges from public job boards and existing course page data.
+  // ===================================================================
+  {
+    slug: "osai-exam-review-study-guide-2026",
+    title:
+      "OSAI Exam Review 2026: 24-Hour Format, Scoring, Tips & 90-Day Study Plan",
+    seoTitle: "OSAI Exam Review 2026: Format, Tips & 90-Day Plan",
+    description:
+      "Everything you need to know about the OSAI exam in 2026 — the 24-hour proctored format, all 11 AI-300 modules explained, scoring, difficulty versus OSCP, a week-by-week 90-day study plan, tools to prepare, common mistakes, and where to train in India, UAE, Singapore, Saudi Arabia and the USA.",
+    seoDescription:
+      "OSAI exam review 2026: 24-hr format, 11-module syllabus, 90-day study plan, pass rate, tools and mistakes. Training in India, UAE, Singapore and USA.",
+    date: "2026-11-22",
+    author: "AI Security",
+    readingTime: "14 min read",
+    category: "Certification Guides",
+    tags: [
+      "OSAI",
+      "AI-300",
+      "AI Red Teaming",
+      "Exam Guide",
+      "Offensive Security",
+    ],
+    heroKind: "ai" as const,
+    heroEyebrow: "OSAI exam preparation",
+    keywords: [
+      "OSAI exam review",
+      "OSAI exam tips",
+      "OSAI exam format",
+      "OSAI study guide",
+      "OSAI syllabus",
+      "AI-300 syllabus 2026",
+      "OSAI exam difficulty",
+      "OSAI pass rate",
+      "is OSAI worth it",
+      "OSAI preparation",
+      "OSAI 90 day study plan",
+      "OSAI training India",
+      "OSAI training Dubai",
+      "OSAI training Singapore",
+      "OSAI training Saudi Arabia",
+      "OSAI training USA",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "The OSAI exam is a 24-hour proctored red team engagement against an AI-enabled enterprise. You exploit LLM agents, RAG pipelines, multi-agent systems, and the cloud and Kubernetes infrastructure underneath them, then submit a written report that proves every finding. This guide covers the exam format, the full AI-300 syllabus, a week-by-week 90-day study plan, and the mistakes that fail candidates — drawn from public reviews, community feedback, and [Macksofy's OSAI bootcamp](/training/osai) experience across India and the UAE.",
+      },
+      {
+        type: "stat-row",
+        stats: [
+          { value: "24 hrs", label: "Exam length" },
+          { value: "11", label: "Course modules" },
+          { value: "65+ hrs", label: "Course content" },
+          { value: "75 pts", label: "Pass mark" },
+          { value: "$1,749", label: "Bundle price" },
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "What is the OSAI exam format?",
+        id: "exam-format",
+      },
+      {
+        type: "para",
+        text: "The OSAI exam is a 24-hour proctored practical where you receive VPN access to a realistic AI-enabled enterprise environment. An Offensive Security proctor monitors the session. Your job is to identify and exploit vulnerabilities across the AI application layer and the infrastructure behind it, then write a report that documents every finding with reproducible evidence.",
+      },
+      {
+        type: "table",
+        headers: ["Dimension", "Detail"],
+        rows: [
+          ["Duration", "24 hours of active testing, followed by a report submission window"],
+          ["Delivery", "Proctored over VPN — a live proctor monitors your screen and webcam"],
+          ["Environment", "A multi-host AI enterprise: LLM-powered applications, RAG stores, agent frameworks, and backend infrastructure (cloud IAM, Kubernetes, containers)"],
+          ["Tools allowed", "Your own Kali/attack VM; community reviews report that candidates are encouraged to use AI assistants during the exam"],
+          ["Scoring", "Points-based — 75 out of 100 required to pass; partial credit is available for findings with incomplete chains"],
+          ["Report", "A professional penetration test report with executive summary, methodology, findings and remediation; graded separately from the technical score"],
+          ["Credential", "OSAI (never expires) + OSAI+ (expires after 3 years, renewable via CPE or a qualifying Offensive Security exam)"],
+        ],
+        caption: "OSAI exam format summary — verify current rules on the Offensive Security AI-300 page before booking",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "AI tools during the exam",
+        text: "Multiple reviewers report that Offensive Security encourages candidates to use AI assistants during the exam. This is unusual for an Offensive Security certification and reflects the real-world workflow of AI red teamers. Budget for an AI subscription (a reasoning-capable model) as part of your exam toolkit.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "What does the OSAI syllabus cover?",
+        id: "syllabus",
+      },
+      {
+        type: "para",
+        text: "The AI-300 course has 11 learning modules totalling roughly 65 hours. The table below maps each module to its topic areas and an estimated exam weight based on community reports and the depth of lab coverage. These weights are not published by Offensive Security — treat them as directional.",
+      },
+      {
+        type: "table",
+        headers: ["#", "Module", "Key topics", "Est. weight"],
+        rows: [
+          ["1", "AI Reconnaissance & Threat Modeling", "Fingerprinting LLM endpoints, mapping AI architecture from partial intelligence, MITRE ATLAS threat models", "5%"],
+          ["2", "Attacking AI Agents", "System-prompt extraction, guardrail evasion, tool-call hijacking, memory poisoning in single-agent systems", "12%"],
+          ["3", "Attacking RAG Pipelines", "Retrieval poisoning, indirect prompt injection via documents, access-control bypass in vector stores", "12%"],
+          ["4", "Multi-Agent Systems & A2A Protocols", "Agent-to-agent trust exploitation, routing abuse, rogue-agent registration, cross-agent instruction injection", "10%"],
+          ["5", "Attacking Embeddings", "Embedding inversion (vec2text), semantic similarity abuse, adversarial embedding manipulation", "8%"],
+          ["6", "Attacking MCP & Tool Surfaces", "MCP server vulnerabilities, tool-definition injection, return-value manipulation, schema poisoning", "10%"],
+          ["7", "AI/ML Supply Chain", "Pickle deserialization RCE, model file tampering, tokenizer hijacking, Hugging Face module substitution", "8%"],
+          ["8", "AI Infrastructure — Cloud, K8s, Containers", "AWS/Azure/GCP IAM from AI footholds, Kubernetes RBAC, container escapes, GPU-node privilege escalation", "12%"],
+          ["9", "Threat Modeling Framework", "Scoping AI engagements, risk rating for non-deterministic findings, attack trees for AI-enabled targets", "5%"],
+          ["10", "Capstone Engagement", "End-to-end chain: recon through AI app exploitation, infrastructure pivoting, persistence and reporting", "13%"],
+          ["11", "Report Writing", "Executive summary, finding documentation for non-deterministic bugs, evidence that reproduces, remediation advice", "5%"],
+        ],
+        caption: "AI-300 module breakdown — estimated exam weights are from community analysis, not Offensive Security",
+      },
+      {
+        type: "para",
+        text: "The [LearnToExploit Model Attack & Red Teaming course](/blog/osai-vs-learntoexploit-model-attack-red-teaming-2026) covers the application-layer attack classes behind modules 1–4, 6 and 7, plus five classes OSAI does not teach as separate modules (jailbreaking, output handling, system-prompt extraction). It does not replace modules 5 (embedding inversion), 8 (infrastructure depth) or the capstone. Use it as the first step, not a substitute.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "How hard is the OSAI exam compared to OSCP?",
+        id: "difficulty",
+      },
+      {
+        type: "para",
+        text: "OSAI is narrower than OSCP but deeper within its domain. OSCP tests you across web applications, Active Directory, Linux and Windows privilege escalation, and network pivoting — a wide surface with well-documented techniques. OSAI puts you against a smaller target — an AI-enabled enterprise — but the targets are non-deterministic. The same prompt injection that works once may not work the next time you run it, so your methodology has to handle probabilistic output and your report has to include evidence that reproduces.",
+      },
+      {
+        type: "comparison",
+        title: "OSAI vs OSCP difficulty",
+        left: {
+          label: "OSCP (PEN-200)",
+          bullets: [
+            "24-hour practical + report",
+            "Broad surface: web, AD, Linux, Windows, pivoting",
+            "Deterministic targets — exploits either work or they don't",
+            "Infrastructure-first: shells, privesc, lateral movement",
+            "Mature ecosystem: 10+ years of community prep material",
+          ],
+          tone: "cyan",
+        },
+        right: {
+          label: "OSAI (AI-300)",
+          bullets: [
+            "24-hour practical + report",
+            "Narrow surface: AI apps, agents, RAG, infrastructure behind them",
+            "Non-deterministic targets — LLMs give different output each run",
+            "AI-first: prompt injection, agent abuse, then infra pivoting",
+            "New credential: limited community material, fewer mock environments",
+          ],
+          tone: "purple",
+        },
+      },
+      {
+        type: "para",
+        text: "If you hold [OSCP](/training/oscp), the infrastructure half of the OSAI exam will feel familiar — cloud IAM, Kubernetes, containers. The AI application layer is the new skill. If you are coming from an AI or ML engineering background, the reverse is true: you understand the models but need to learn pivoting, privilege escalation and professional reporting. The [Macksofy OSAI bootcamp](/training/osai) is designed for both paths.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "What is the OSAI pass rate?",
+        id: "pass-rate",
+      },
+      {
+        type: "para",
+        text: "Offensive Security has not published an official OSAI pass rate. Community estimates from early cohorts suggest a first-attempt pass rate around 40–50 percent, comparable to OSCP in its early years. The two most common failure modes reported are: (1) candidates who clear the AI application layer but cannot pivot through the infrastructure, and (2) candidates who find enough vulnerabilities to pass on points but submit a report that the graders reject.",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Unverified estimate",
+        text: "The 40–50% pass rate is an informal community estimate from blog reviews and forum discussions, not an official Offensive Security figure. Treat it as directional. The certification launched in March 2026 and pass-rate data will stabilise as more candidates sit the exam.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "What is the best 90-day OSAI study plan?",
+        id: "study-plan",
+      },
+      {
+        type: "para",
+        text: "Ninety days is the standard access window for the AI-300 Course + Cert bundle. The plan below assumes 15–20 hours of study per week and mirrors the timeline used by [Macksofy's OSAI bootcamp](/training/osai). Adjust the pace if you have more or fewer hours available.",
+      },
+      {
+        type: "table",
+        headers: ["Weeks", "Phase", "What to do", "Hours"],
+        rows: [
+          ["1–2", "Foundations", "Complete the LearnToExploit Model Attack & Red Teaming course (12 modules, 9 labs). Get comfortable with prompt injection, stored injection, guardrail evasion, RAG bypass, agent-tool abuse and reporting.", "30–40"],
+          ["3–4", "AI-300 Modules 1–4", "AI recon & threat modeling, attacking agents, attacking RAG pipelines, multi-agent systems & A2A. Run every lab until you can chain attacks without hints.", "30–40"],
+          ["5–6", "AI-300 Modules 5–8", "Embeddings, MCP & tool surfaces, AI/ML supply chain, AI infrastructure (cloud/K8s/containers). This is where OSCP-level infrastructure skills matter.", "30–40"],
+          ["7–8", "AI-300 Modules 9–11 + Challenge Labs", "Threat modeling framework, capstone engagement, report writing. If challenge labs are available, complete them. Write a full report for the capstone.", "30–40"],
+          ["9–10", "Mock Engagement + Report", "Run a timed 24-hour mock engagement (Macksofy bootcamp includes one). Write the report under exam conditions. Have a mentor review it.", "30–35"],
+          ["11–12", "Revision + Exam", "Revisit weak modules, re-run labs, refine your reporting template. Book and sit the exam in week 12.", "20–30"],
+        ],
+        caption: "90-day OSAI study plan — 15–20 hours per week",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Report writing is not optional",
+        text: "The most common advice from candidates who passed: start writing reports from week 1. Every lab you complete, write it up as if it were a client deliverable. By exam day, your reporting workflow should be automatic. The exam grades the report separately — a technically perfect engagement with a poor report can still fail.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "What tools and resources do you need for OSAI preparation?",
+        id: "tools",
+      },
+      {
+        type: "para",
+        text: "The OSAI exam lets you bring your own attack VM. Here is the toolkit that covers the full AI-300 syllabus, from application-layer prompt injection through infrastructure pivoting.",
+      },
+      {
+        type: "table",
+        headers: ["Category", "Tool / Resource", "Why you need it"],
+        rows: [
+          ["AI assistant", "A reasoning-capable AI subscription (paid tier)", "Candidates are encouraged to use AI during the exam; a capable model helps craft injection payloads, analyse non-deterministic output and debug exploit chains"],
+          ["AI-300 labs", "Offensive Security lab environment (included in the bundle)", "The official practice environment; run every lab at least twice"],
+          ["LearnToExploit", "Model Attack & Red Teaming course (₹10,000)", "9 browser labs mapped to AI-300 modules; covers attack classes the course teaches plus five it does not"],
+          ["Python + LangChain", "Python 3.11+, LangChain, llama-index, transformers", "Scripting custom injection payloads, interacting with agent APIs, automating embedding queries"],
+          ["Web proxy", "Burp Suite Community or Professional", "Intercepting and modifying HTTP traffic to AI endpoints; essential for token manipulation and request replay"],
+          ["Container tools", "Docker, kubectl, AWS CLI, gcloud CLI", "Infrastructure pivoting in modules 8 and 10 — cloud IAM enumeration, Kubernetes RBAC exploitation, container escapes"],
+          ["Reporting", "A professional template (Offensive Security's or your own)", "Start using it from day 1; the exam grades the report as a separate deliverable"],
+          ["Note-taking", "CherryTree, Obsidian or similar", "Structured notes per module; during the exam you need fast recall of techniques across all 11 modules"],
+        ],
+        caption: "OSAI preparation toolkit",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "Where can you take OSAI training in India, UAE, Singapore, Saudi Arabia and the USA?",
+        id: "training-providers",
+      },
+      {
+        type: "para",
+        text: "OSAI training is available through Offensive Security directly (self-paced via Learn One at $2,749 per year) and through authorised training partners and independent providers. Availability varies by country. For a detailed cost breakdown, see the [OSAI cost guide for India](/blog/osai-cost-india-2026).",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "India",
+        id: "training-india",
+      },
+      {
+        type: "para",
+        text: "[Macksofy](/training/osai) runs a mentor-led OSAI bootcamp that pairs the official AI-300 course with the LearnToExploit Model Attack & Red Teaming lab track, a timed 24-hour mock engagement, and mentor report review. Live online across India, classroom batches in Mumbai, and EMI across 3, 6 or 12 months. Other Indian providers include InfoSecTrain (live instructor-led online), Craw Security (classroom batches in Delhi and Noida), and Securium Academy (Zoom live with a free retake claim). Koenig Solutions lists a low-cost prep course (₹22K–28K) but this does not include the Offensive Security exam voucher or labs. See the [full comparison of AI security certifications](/blog/best-ai-security-certifications-2026) if you are still deciding between OSAI, CAISP and AAISM.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "UAE and Dubai",
+        id: "training-uae",
+      },
+      {
+        type: "para",
+        text: "Macksofy runs corporate [AI red-team batches](/services/ai-pentesting) for teams in Dubai and Abu Dhabi from its Burj Gate Tower office on Sheikh Zayed Road. Global Knowledge lists the AI-300 e-learning + cert bundle for the UAE and Qatar. For instructor-led delivery, NobleProg offers generic AI red-teaming courses in Dubai (not Offensive Security branded). There is currently no UAE-based Offensive Security authorised training partner for AI-300 — the market is wide open.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Singapore",
+        id: "training-singapore",
+      },
+      {
+        type: "para",
+        text: "Ensign InfoSecurity is an official Offensive Security authorised training partner and runs in-person AI-300 cohorts in Singapore with 65+ hours of content, 90 days of lab access, and enterprise cohorts year-round. Ensign is Asia's largest cybersecurity firm. NUS ISS and NTU PACE offer broader AI-and-cybersecurity programmes (SkillsFuture-funded) but neither is OSAI-specific.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Saudi Arabia",
+        id: "training-saudi",
+      },
+      {
+        type: "para",
+        text: "Saudi Arabia has almost no OSAI-specific training. NobleProg lists generic AI security courses in Riyadh and Jeddah. Global Knowledge may serve the Saudi market through its Qatar portal. Candidates in KSA will likely train online through Offensive Security's Learn One subscription or through a provider like Macksofy that delivers live online across time zones.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "USA",
+        id: "training-usa",
+      },
+      {
+        type: "para",
+        text: "Evolve Security Academy runs an 8-week part-time remote bootcamp ($5,250, includes 90-day voucher and one exam attempt). Applied Technology Academy is an official Offensive Security authorised provider with live online 5-day sessions listed on CISA's NICCS catalogue. Offensive Security's Learn One subscription ($2,749 per year) is the direct option. As of November 2026, OSAI is included in Learn One for the first time.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "Is OSAI worth it for your career?",
+        id: "worth-it",
+      },
+      {
+        type: "para",
+        text: "AI red teaming is a new discipline and OSAI is the first hands-on certification from a vendor with a decade of credibility in offensive security. The credential is scarce — launched in March 2026, with a demanding 24-hour practical exam — which means holders stand out in a market where every BFSI, SaaS and GCC team is now shipping copilots and agents but very few have someone who can test them. The economic case depends on your market.",
+      },
+      {
+        type: "table",
+        headers: ["Market", "AI Red Teamer salary range", "Demand signal"],
+        rows: [
+          ["India", "₹20–40 LPA", "BFSI (RBI AI guidelines), SaaS companies shipping AI features, GCC captives building internal AI platforms"],
+          ["UAE", "AED 30,000–50,000 / month", "DIFC and ADGM fintechs, UAE Cybersecurity Council initiatives, Dubai AI Strategy 2031"],
+          ["Singapore", "SGD 8,000–15,000 / month", "MAS technology risk guidelines, Smart Nation initiative, regional SOC expansion"],
+          ["Saudi Arabia", "SAR 25,000–45,000 / month", "Vision 2030 digital transformation, NDMO data governance requirements, NEOM and giga-project security teams"],
+          ["USA", "$150,000–250,000 / year", "SEC cybersecurity disclosure rules, AI executive order, enterprise AI adoption across Fortune 500"],
+        ],
+        caption: "AI red teamer salary ranges by market — from public job boards, November 2026",
+      },
+      {
+        type: "para",
+        text: "The [AI pentesting](/services/ai-pentesting) and [red teaming](/services/red-teaming) service lines at Macksofy are built around this skill set. If you are deciding whether OSAI is the right next credential after OSCP or OSEP, the [certification comparison guide](/blog/best-ai-security-certifications-2026) covers the full landscape, and the [OSCP-to-OSAI career path](/blog/red-team-certifications-india-2026) maps the progression.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        text: "What mistakes do OSAI candidates make?",
+        id: "mistakes",
+      },
+      {
+        type: "para",
+        text: "These are the failure patterns reported by candidates and confirmed by Macksofy's mock-engagement reviews. Avoid them and your first-attempt odds improve significantly.",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "**Treating LLMs as deterministic targets.** The same injection prompt may work three times and fail on the fourth. Candidates who run a payload once, see it succeed and move on often find that their evidence does not reproduce during grading. Run every attack multiple times and document the success rate.",
+          "**Skipping report writing until exam day.** The exam grades the report separately. Candidates who spend 23 hours exploiting and 1 hour writing fail on the report even when their technical score is above 75. Start your reporting template on day 1 of preparation.",
+          "**Not using AI tools.** This is the one Offensive Security exam where AI assistants are encouraged. Candidates who try to craft every injection payload by hand waste hours. Use a reasoning model to generate, iterate and debug payloads.",
+          "**Ignoring the infrastructure layer.** Modules 8 and 10 require OSCP-level skills: cloud IAM enumeration, Kubernetes RBAC exploitation, container escapes. Candidates from AI or ML engineering backgrounds often stop at the application layer and miss the points behind it.",
+          "**Skipping LearnToExploit or equivalent foundational practice.** The AI-300 course assumes you can already inject a prompt and understand how agents process tool calls. Candidates who jump directly into AI-300 without hands-on LLM attack experience spend their first weeks learning basics instead of building depth.",
+          "**Not practising under time pressure.** Twenty-four hours sounds generous until you are debugging a non-deterministic chain at 3 AM. Run at least one timed mock engagement before booking the exam — the [Macksofy bootcamp](/training/osai) includes one.",
+          "**Poor scoping and prioritisation.** The exam environment has more targets than you can fully exploit in 24 hours. Candidates who try to chain everything end up with many partial findings and few complete ones. Identify the high-point targets early, chain them completely, then move to the next.",
+        ],
+      },
+
+      {
+        type: "cta",
+        title: "Prepare with Macksofy's OSAI Bootcamp",
+        text: "Mentor-led AI-300 preparation with the LearnToExploit lab track, a timed 24-hour mock engagement, and report review. Live online across India, classroom in Mumbai, corporate batches in Dubai and Abu Dhabi. EMI available.",
+        href: "/training/osai",
+        cta: "See the OSAI bootcamp",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I use AI tools during the OSAI exam?",
+        a: "Yes. Multiple reviewers report that Offensive Security encourages candidates to use AI assistants during the exam. A paid AI subscription with a reasoning-capable model is worth the investment — it helps craft injection payloads, analyse non-deterministic output and debug exploit chains under time pressure.",
+      },
+      {
+        q: "How long should the OSAI exam report be?",
+        a: "There is no official page count. Aim for a professional penetration test report with an executive summary, methodology, detailed findings with reproducible steps and screenshots, and remediation advice. Reports from candidates who passed are typically 30–60 pages. Quality and reproducibility matter more than length.",
+      },
+      {
+        q: "What happens if I fail the OSAI exam?",
+        a: "You can purchase an exam retake from Offensive Security. The Learn One subscription ($2,749 per year) includes two exam attempts. The standalone Course + Cert bundle ($1,749) includes one attempt; a retake is purchased separately.",
+      },
+      {
+        q: "Is OSAI easier than OSEP?",
+        a: "They test different skills. OSEP (PEN-300) focuses on advanced evasion, custom shellcode and Active Directory attacks against hardened environments. OSAI (AI-300) focuses on AI application exploitation and infrastructure pivoting. OSAI is narrower but introduces non-deterministic targets, which some candidates find harder because traditional exploit-development intuition does not transfer directly.",
+      },
+      {
+        q: "Do I need machine learning experience for OSAI?",
+        a: "No formal ML experience is required. The AI-300 course teaches the AI concepts it expects you to attack. You need to understand what an LLM, a RAG pipeline and an embedding are, but you do not need to train models or write ML code. Offensive security fundamentals (OSCP-level) matter more than ML depth.",
+      },
+      {
+        q: "How soon after completing AI-300 should I take the exam?",
+        a: "Within 2–4 weeks of completing the course material and at least one mock engagement. Longer gaps lead to skill decay — the AI-300 labs are time-limited (90 days on the standard bundle), so plan your study schedule to finish the material and take the exam within the same access window.",
       },
     ],
   },
